@@ -1,6 +1,12 @@
 name: WebUI RU laboratory ZIP (no release)
 
 on:
+  # Manual switch: only a commit editing this laboratory workflow on ru starts a run.
+  push:
+    branches:
+      - ru
+    paths:
+      - '.github/workflows/webui-ru-lab.yml'
   workflow_dispatch:
 
 permissions:
