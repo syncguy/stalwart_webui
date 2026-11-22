@@ -109,7 +109,11 @@
       "tlsRptLookupSuccess_other": "Найдено {{count}} URI для отчётов",
       "tlsRptNotFound": "Запись TLS-RPT не опубликована",
       "tlsaLookupSuccess": "Найдена запись TLSA",
-      "tlsaNotFound": "Запись TLSA не найдена"
+      "tlsaNotFound": "Запись TLSA не найдена",
+      "mxLookupSuccess_few": "Найдены {{count}} MX-записи",
+      "mxLookupSuccess_many": "Найдено {{count}} MX-записей",
+      "tlsRptLookupSuccess_few": "Найдены {{count}} URI для отчётов",
+      "tlsRptLookupSuccess_many": "Найдено {{count}} URI для отчётов"
     },
     "cancelTrace": "Отменить трассировку",
     "connectionLost": "Соединение потеряно до завершения трассировки.",
@@ -149,7 +153,9 @@
     "traceFailedFor": "Трассировка {{target}} завершилась ошибкой",
     "tracingDelivery": "Трассировка доставки для {{target}}",
     "viewDetails": "Подробнее",
-    "waiting": "Ожидание новых событий"
+    "waiting": "Ожидание новых событий",
+    "attemptCount_few": "{{count}} попытки",
+    "attemptCount_many": "{{count}} попыток"
   },
   "duration": {
     "days": "Дни",
@@ -244,7 +250,13 @@
     "entriesOverLimit": "Не добавлено, ограничение {{max}}: {{list}}",
     "entriesSample_one": "{{list}} и ещё {{count}}",
     "entriesSample_other": "{{list}} и ещё {{count}}",
-    "midnight": "полночь"
+    "midnight": "полночь",
+    "entriesAdded_few": "Добавлено {{count}} значения.",
+    "entriesAdded_many": "Добавлено {{count}} значений.",
+    "entriesDuplicate_few": "Пропущено {{count}} дубликата: {{list}}",
+    "entriesDuplicate_many": "Пропущено {{count}} дубликатов: {{list}}",
+    "entriesSample_few": "{{list}} и ещё {{count}}",
+    "entriesSample_many": "{{list}} и ещё {{count}}"
   },
   "filters": {
     "after": "После",
@@ -291,7 +303,9 @@
     "unsavedChangesLabel": "Несохранённые изменения",
     "unsavedChangesTitle": "Несохранённые изменения",
     "notConfirmed": "Сервер не подтвердил изменение.",
-    "invalidWeeklySchedule": "Исправьте интервалы в этом расписании."
+    "invalidWeeklySchedule": "Исправьте интервалы в этом расписании.",
+    "minItems_few": "Добавьте не менее {{count}} записей.",
+    "minItems_many": "Добавьте не менее {{count}} записей."
   },
   "globalSearch": {
     "create": "Создание",
@@ -385,7 +399,15 @@
     "showingItems": "Показано элементов: {{count}}",
     "sortAscending": "Сортировать по возрастанию",
     "sortClear": "Сбросить сортировку",
-    "sortDescending": "Сортировать по убыванию"
+    "sortDescending": "Сортировать по убыванию",
+    "bulkFailDelete_few": "Не удалось удалить {{count}} элемента.",
+    "bulkFailDelete_many": "Не удалось удалить {{count}} элементов.",
+    "bulkFailUpdate_few": "Не удалось обновить {{count}} элемента.",
+    "bulkFailUpdate_many": "Не удалось обновить {{count}} элементов.",
+    "bulkSuccessDelete_few": "Успешно удалено {{count}} элемента.",
+    "bulkSuccessDelete_many": "Успешно удалено {{count}} элементов.",
+    "bulkSuccessUpdate_few": "Успешно обновлено {{count}} элемента.",
+    "bulkSuccessUpdate_many": "Успешно обновлено {{count}} элементов."
   },
   "login": {
     "continue": "Продолжить",
@@ -498,13 +520,17 @@
     "stopped": "Остановлено",
     "streamingEvents": "Получение событий...",
     "traceNotFound": "Трассировка не найдена",
-    "valuePlaceholder": "Значение..."
+    "valuePlaceholder": "Значение...",
+    "eventCount_few": "{{count}} события",
+    "eventCount_many": "{{count}} событий"
   },
   "tryEnterprise": "Попробовать Enterprise",
   "userMenu": "Меню пользователя",
   "value": {
     "itemCount_one": "{{count}} элемент",
-    "itemCount_other": "{{count}} элементов"
+    "itemCount_other": "{{count}} элементов",
+    "itemCount_few": "{{count}} элемента",
+    "itemCount_many": "{{count}} элементов"
   },
   "view": {
     "couldNotResolve": "Не удалось определить объект",
@@ -668,6 +694,10 @@
     "count_other": "{{count}} записей",
     "search": "Поиск",
     "searchLabel": "Поиск по {{label}}",
-    "noMatch": "Нет записей, соответствующих запросу «{{search}}»."
+    "noMatch": "Нет записей, соответствующих запросу «{{search}}».",
+    "added_few": "Добавлено {{count}} записи.",
+    "added_many": "Добавлено {{count}} записей.",
+    "count_few": "{{count}} записи",
+    "count_many": "{{count}} записей"
   }
 }
