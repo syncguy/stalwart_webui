@@ -6,7 +6,8 @@
 
 import { useAuthStore, type AuthState } from '@/stores/authStore';
 import type { Edition } from '@/stores/accountStore';
-import { apiFetchJson } from '@/services/api';
+import { apiFetch, apiFetchJson, getApiBaseUrl } from '@/services/api';
+import { extractSchemaHash } from '@/i18n/schemaText';
 import { JmapMethodError, JmapProtocolError } from '@/services/errors';
 import { logJmapExchange } from '@/lib/debug';
 import type {
@@ -319,8 +320,12 @@ export function fetchSession(signal?: AbortSignal): Promise<JmapSession> {
   return apiFetchJson<JmapSession>('/jmap/session', { signal });
 }
 
-export function fetchSchema(signal?: AbortSignal): Promise<Schema> {
-  return apiFetchJson<Schema>('/api/schema', { signal });
+export async function fetchSchema(signal?: AbortSignal): Promise<{ schema: Schema; schemaHash: string | null }> {
+  const response = await apiFetch('/api/schema', { signal });
+  return {
+    schema: (await response.json()) as Schema,
+    schemaHash: extractSchemaHash(response.url, getApiBaseUrl()),
+  };
 }
 
 export interface AccountInfoResponse {
