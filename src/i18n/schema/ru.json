@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "source": "syncguy/stalwart@win2008r2:321056f97befe0b3da531140e02d1c5c2aeb7c07",
+    "scope": "Management > Domains; original schema remains unchanged",
+    "schemaHashes": [
+      "Pryc909aTNRr_k6uwZLvZNs74YaPQv-PXQ38t2K7VlY",
+      "fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs"
+    ]
+  },
+  "entries": {
+    "layout/Management": {
+      "original": "Management",
+      "ru": "Управление"
+    },
+    "layout/Settings": {
+      "original": "Settings",
+      "ru": "Настройки"
+    },
+    "layout/Account": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "nav/container/Management/Domains": {
+      "original": "Domains",
+      "ru": "Домены"
+    },
+    "nav/link/Management/x:Domain": {
+      "original": "Domains",
+      "ru": "Домены"
+    },
+    "nav/link/Management/x:DkimSignature": {
+      "original": "DKIM Signatures",
+      "ru": "Подписи DKIM"
+    },
+    "object/x:Domain/description": {
+      "original": "Defines an email domain and its DNS, DKIM, and TLS certificate settings.",
+      "ru": "Параметры почтового домена, DNS, DKIM и сертификатов TLS."
+    },
+    "list/x:Domain/title": {
+      "original": "Domains",
+      "ru": "Домены"
+    },
+    "list/x:Domain/subtitle": {
+      "original": "Manage email domains and their DNS, DKIM, and TLS certificate settings",
+      "ru": "Управление почтовыми доменами, DNS, DKIM и сертификатами TLS"
+    },
+    "list/x:Domain/singular": {
+      "original": "domain",
+      "ru": "домен"
+    },
+    "list/x:Domain/column/name": {
+      "original": "Domain Name",
+      "ru": "Имя домена"
+    },
+    "list/x:Domain/column/enable": {
+      "original": "Enabled",
+      "ru": "Включён"
+    },
+    "list/x:Domain/column/certificateManagement": {
+      "original": "Certificate Management",
+      "ru": "Управление сертификатами"
+    },
+    "list/x:Domain/column/dnsManagement": {
+      "original": "DNS Management",
+      "ru": "Управление DNS"
+    },
+    "list/x:Domain/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:Domain/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:Domain/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:Domain/action/x:Domain/DomainZone": {
+      "original": "View Zone File",
+      "ru": "Посмотреть файл зоны"
+    },
+    "form/x:Domain/section/section-0": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:Domain/section/section-1": {
+      "original": "Email",
+      "ru": "Почта"
+    },
+    "form/x:Domain/section/section-2": {
+      "original": "DKIM",
+      "ru": "DKIM"
+    },
+    "form/x:Domain/section/section-3": {
+      "original": "TLS",
+      "ru": "TLS"
+    },
+    "form/x:Domain/section/section-4": {
+      "original": "DNS",
+      "ru": "DNS"
+    },
+    "form/x:Domain/section/section-5": {
+      "original": "Reports",
+      "ru": "Отчёты"
+    },
+    "form/x:Domain/section/section-6": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:Domain/field/name": {
+      "original": "Domain Name",
+      "ru": "Имя домена"
+    },
+    "form/x:Domain/field/aliases": {
+      "original": "Aliases",
+      "ru": "Псевдонимы"
+    },
+    "form/x:Domain/field/enable": {
+      "original": "Enabled",
+      "ru": "Включён"
+    },
+    "form/x:Domain/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:Domain/field/directoryId": {
+      "original": "Directory",
+      "ru": "Каталог"
+    },
+    "form/x:Domain/field/allowScimProvisioning": {
+      "original": "Allow SCIM Provisioning",
+      "ru": "Разрешить подготовку учётных записей через SCIM"
+    },
+    "form/x:Domain/field/catchAllAddress": {
+      "original": "Catch-All Address",
+      "ru": "Адрес для неизвестных получателей"
+    },
+    "form/x:Domain/field/subAddressing": {
+      "original": "Sub-Addressing",
+      "ru": "Дополнительная адресация"
+    },
+    "form/x:Domain/field/allowRelaying": {
+      "original": "Allow Relaying",
+      "ru": "Разрешить ретрансляцию"
+    },
+    "form/x:Domain/field/dkimManagement": {
+      "original": "DKIM Management",
+      "ru": "Управление DKIM"
+    },
+    "form/x:Domain/field/certificateManagement": {
+      "original": "Certificate Management",
+      "ru": "Управление сертификатами"
+    },
+    "form/x:Domain/field/dnsManagement": {
+      "original": "DNS Management",
+      "ru": "Управление DNS"
+    },
+    "form/x:Domain/field/reportAddressUri": {
+      "original": "Report Address",
+      "ru": "Адрес для отчётов"
+    },
+    "form/x:Domain/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:Domain/field/logo": {
+      "original": "Logo",
+      "ru": "Логотип"
+    },
+    "form/x:Domain/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "field/x:Domain/name/description": {
+      "original": "Domain name",
+      "ru": "Доменное имя"
+    },
+    "field/x:Domain/aliases/description": {
+      "original": "List of additional domain names that are aliases of this domain",
+      "ru": "Дополнительные доменные имена, являющиеся псевдонимами этого домена"
+    },
+    "field/x:Domain/enable/description": {
+      "original": "Whether this domain is enabled",
+      "ru": "Включён ли этот домен"
+    },
+    "field/x:Domain/catchAllAddress/description": {
+      "original": "Catch-all email address that receives messages addressed to unknown local recipients",
+      "ru": "Почтовый адрес для сообщений неизвестным локальным получателям"
+    },
+    "field/x:Domain/subAddressing/description": {
+      "original": "Whether sub-addressing (plus addressing) is enabled for the domain",
+      "ru": "Разрешена ли адресация с суффиксом после знака «+»"
+    },
+    "field/x:Domain/allowRelaying/description": {
+      "original": "Whether to allow relaying for non-local recipients, useful in split delivery scenarios",
+      "ru": "Разрешить ретрансляцию писем внешним получателям; применяется, например, при разделённой доставке"
+    },
+    "field/x:Domain/dkimManagement/description": {
+      "original": "Whether DKIM keys for this domain are managed manually or automatically by the server",
+      "ru": "Ключи DKIM домена управляются вручную или автоматически сервером"
+    },
+    "field/x:Domain/certificateManagement/description": {
+      "original": "Whether TLS certificates for this domain are managed manually or automatically by an ACME provider",
+      "ru": "Сертификатами TLS домена управляют вручную или автоматически через ACME"
+    },
+    "field/x:Domain/dnsManagement/description": {
+      "original": "Whether DNS records for this domain are managed manually or automatically by a DNS provider",
+      "ru": "Записи DNS домена управляются вручную или автоматически поставщиком DNS"
+    },
+    "field/x:Domain/reportAddressUri/description": {
+      "original": "Email address to receive DMARC, TLS-RPT and CAA reports for this domain, or null to not receive reports",
+      "ru": "Адрес для отчётов DMARC, TLS-RPT и CAA; оставьте пустым, чтобы не получать отчёты"
+    },
+    "field/x:Domain/description/description": {
+      "original": "Description of the domain",
+      "ru": "Описание домена"
+    },
+    "field/x:Domain/createdAt/description": {
+      "original": "Creation date of the domain",
+      "ru": "Дата создания домена"
+    }
+  }
+}
