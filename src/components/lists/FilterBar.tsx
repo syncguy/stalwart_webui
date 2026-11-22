@@ -17,6 +17,7 @@ import { FilterField } from './FilterFields';
 
 interface FilterBarProps {
   schema: Schema;
+  listKey?: string;
   filters: Filter[];
   applied: Record<string, string>;
   isXPrefixed: boolean;
@@ -25,7 +26,7 @@ interface FilterBarProps {
   onReset: () => void;
 }
 
-export function FilterBar({ schema, filters, applied, isXPrefixed, disabled, onApply, onReset }: FilterBarProps) {
+export function FilterBar({ schema, listKey, filters, applied, isXPrefixed, disabled, onApply, onReset }: FilterBarProps) {
   const { t } = useTranslation();
   const panelId = useId();
   const appliedKey = filtersKey(applied);
@@ -95,6 +96,7 @@ export function FilterBar({ schema, filters, applied, isXPrefixed, disabled, onA
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filters.map((filter) => (
               <FilterField
+                listKey={listKey}
                 key={filter.field}
                 schema={schema}
                 filter={filter}
