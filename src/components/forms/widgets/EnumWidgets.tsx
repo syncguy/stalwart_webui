@@ -116,7 +116,7 @@ export function EnumMultiSelect({ enumName, items, onChange, readOnly, minItems,
           <ColorDot color={v.color} />
           {labelFor(v)}
         </Label>
-        {v.explanation && <HelpTooltip content={explanationFor(v)} label={labelFor(v)} />}
+        {v.explanation && <HelpTooltip content={explanationFor(v) ?? v.explanation} label={labelFor(v)} />}
       </div>
     );
   };
