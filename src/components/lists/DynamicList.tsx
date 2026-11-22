@@ -18,6 +18,7 @@ import { layoutViewFor } from '@/lib/layout';
 import { canAccessView } from '@/lib/permissions';
 import { getDisplayProperty } from '@/lib/schemaResolver';
 import { useSchemaStore } from '@/stores/schemaStore';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import type { List, Schema } from '@/types/schema';
 import type { ResolvedView } from '@/lib/schemaResolver';
 
@@ -68,6 +69,7 @@ interface DynamicListViewProps {
 
 function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const navigate = useNavigate();
   const viewToSection = useSchemaStore((s) => s.viewToSection);
   const checkers = usePermissionCheckers();
@@ -77,6 +79,9 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
 
   const obj = resolved.object;
   const objectName = obj.objectName;
+  const title = display(`list/${objectName}/title`, list.title);
+  const subtitle = display(`list/${objectName}/subtitle`, list.subtitle);
+  const singularName = display(`list/${objectName}/singular`, list.singularName);
   const fields = getListFields(resolved.resolvedSchema);
   const labelProperty = getDisplayProperty(schema, viewName);
   const listState = useDynamicList(objectName, list, labelProperty in fields ? labelProperty : undefined);
@@ -200,13 +205,13 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
     <div className="space-y-3.5">
       <div className="flex flex-wrap items-end justify-between gap-4 px-1 pb-1 pt-3">
         <div className="min-w-0">
-          <h1 className="page-title">{list.title}</h1>
-          {list.subtitle && <p className="mt-1 text-sm text-muted-foreground">{list.subtitle}</p>}
+          <h1 className="page-title">{title}</h1>
+          {subtitle && <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>}
         </div>
         {canCreate && section && (
           <Button onClick={() => navigate(`/${section}/${viewName}/new`)}>
             <Plus aria-hidden />
-            {t('list.create', 'Create {{name}}', { name: list.singularName })}
+            {t('list.create', 'Create {{name}}', { name: singularName })}
           </Button>
         )}
       </div>
@@ -217,6 +222,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
       <section className="tile relative overflow-hidden">
         {visibleFilters.length > 0 && (
           <FilterBar
+            listKey={objectName}
             schema={schema}
             filters={visibleFilters}
             applied={state.filters}
@@ -239,7 +245,8 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
         )}
 
         <ListTable
-          caption={list.title}
+          listKey={objectName}
+          caption={title}
           columns={list.columns}
           fields={fields}
           items={items}
