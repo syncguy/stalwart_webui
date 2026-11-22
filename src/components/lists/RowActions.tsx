@@ -17,12 +17,14 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import type { ResolvedItemAction } from './listActions';
+import { useSchemaText } from '@/hooks/useSchemaText';
 
 type NavigateAction = Extract<ResolvedItemAction, { kind: 'navigate' }>;
 type MutationAction = Extract<ResolvedItemAction, { kind: 'mutation' }>;
 
 interface RowActionsProps {
   actions: ResolvedItemAction[];
+  listKey?: string;
   label: string;
   hrefFor: (action: NavigateAction) => string | null;
   onMutation: (action: MutationAction) => void;
@@ -30,8 +32,9 @@ interface RowActionsProps {
   disabled?: boolean;
 }
 
-export function RowActions({ actions, label, hrefFor, onMutation, onLocked, disabled = false }: RowActionsProps) {
+export function RowActions({ actions, listKey, label, hrefFor, onMutation, onLocked, disabled = false }: RowActionsProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -65,7 +68,7 @@ export function RowActions({ actions, label, hrefFor, onMutation, onLocked, disa
           if (entry.locked) {
             return (
               <DropdownMenuItem key={entry.key} onSelect={onLocked}>
-                {entry.label}
+                {listKey ? display(`list/${listKey}/action/${entry.objectName}`, entry.label) : entry.label}
                 <Lock className="ml-auto h-3 w-3 text-dim" aria-hidden />
                 <span className="sr-only">
                   {t('enterprise.featureDisabled', 'This feature requires an Enterprise license.')}
@@ -77,7 +80,7 @@ export function RowActions({ actions, label, hrefFor, onMutation, onLocked, disa
           if (!href) return null;
           return (
             <DropdownMenuItem key={entry.key} asChild>
-              <Link to={href}>{entry.label}</Link>
+              <Link to={href}>{listKey ? display(`list/${listKey}/action/${entry.objectName}`, entry.label) : entry.label}</Link>
             </DropdownMenuItem>
           );
         })}
