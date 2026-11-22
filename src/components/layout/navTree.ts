@@ -7,30 +7,49 @@
 import type { Layout, LayoutItem, LayoutSubItem } from '@/types/schema';
 
 export type NavNode =
-  | { kind: 'link'; name: string; icon?: string; viewName: string }
-  | { kind: 'container'; name: string; icon?: string; children: NavNode[] };
+  | { kind: 'link'; name: string; icon?: string; viewName: string; displaySlot: string }
+  | { kind: 'container'; name: string; icon?: string; children: NavNode[]; displaySlot: string };
 
-function fromSubItem(item: LayoutSubItem): NavNode | null {
-  if (item.type === 'link') return { kind: 'link', name: item.name, viewName: item.viewName };
-  if (item.type === 'container') return { kind: 'container', name: item.name, children: fromSubItems(item.items) };
+function fromSubItem(item: LayoutSubItem, section: string, path: string): NavNode | null {
+  if (item.type === 'link') {
+    return { kind: 'link', name: item.name, viewName: item.viewName, displaySlot: `nav/link/${section}/${item.viewName}` };
+  }
+  if (item.type === 'container') {
+    const childPath = `${path}/${item.name}`;
+    return {
+      kind: 'container',
+      name: item.name,
+      displaySlot: `nav/container/${childPath}`,
+      children: fromSubItems(item.items, section, childPath),
+    };
+  }
   return null;
 }
 
-function fromSubItems(items: LayoutSubItem[]): NavNode[] {
-  return items.map(fromSubItem).filter((n): n is NavNode => n !== null);
+function fromSubItems(items: LayoutSubItem[], section: string, path: string): NavNode[] {
+  return items.map((item) => fromSubItem(item, section, path)).filter((n): n is NavNode => n !== null);
 }
 
-function fromItem(item: LayoutItem): NavNode | null {
-  if ('link' in item) return { kind: 'link', ...item.link };
+function fromItem(item: LayoutItem, section: string): NavNode | null {
+  if ('link' in item) {
+    return { kind: 'link', ...item.link, displaySlot: `nav/link/${section}/${item.link.viewName}` };
+  }
   if ('container' in item) {
     const { name, icon, items } = item.container;
-    return { kind: 'container', name, icon, children: fromSubItems(items) };
+    const path = `${section}/${name}`;
+    return {
+      kind: 'container',
+      name,
+      icon,
+      displaySlot: `nav/container/${path}`,
+      children: fromSubItems(items, section, path),
+    };
   }
   return null;
 }
 
 export function layoutNavNodes(layout: Layout): NavNode[] {
-  return layout.items.map(fromItem).filter((n): n is NavNode => n !== null);
+  return layout.items.map((item) => fromItem(item, layout.name)).filter((n): n is NavNode => n !== null);
 }
 
 export function navNodeKey(node: NavNode): string {
