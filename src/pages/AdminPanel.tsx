@@ -27,6 +27,7 @@ import {
 } from '@/lib/layout';
 import { useCanAccess, usePermissionCheckers } from '@/hooks/usePermissions';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { friendlyName } from '@/hooks/useGlobalSearch';
 import { rememberLastVisited, sectionLandingLink } from '@/lib/lastVisited';
 import { parseAdminRoute } from '@/lib/adminRoute';
@@ -39,6 +40,7 @@ const BootstrapWizard = lazy(() =>
 
 export default function AdminPanel() {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const navigate = useNavigate();
   const { section, '*': splat } = useParams<{
     section?: string;
@@ -61,7 +63,7 @@ export default function AdminPanel() {
   const searchIndex = useSchemaStore((s) => s.searchIndex);
   const pageTitle = useMemo(() => {
     if (!section) return t('dashboard.title', 'Dashboard');
-    if (!viewName) return section;
+    if (!viewName) return display(`layout/${section}`, section);
     let label: string | undefined;
     // SPDX-SnippetBegin
     // SPDX-FileCopyrightText: 2020 Stalwart Labs LLC <hello@stalw.art>
@@ -83,8 +85,8 @@ export default function AdminPanel() {
     }
     const name = label ?? friendlyName(viewName);
     const title = id === 'new' ? t('form.createTitle', 'Create {{name}}', { name }) : name;
-    return `${title} · ${section}`;
-  }, [section, viewName, id, searchIndex, schema, t]);
+    return `${title} · ${display(`layout/${section}`, section)}`;
+  }, [section, viewName, id, searchIndex, schema, t, display]);
 
   useDocumentTitle(pageTitle);
 
