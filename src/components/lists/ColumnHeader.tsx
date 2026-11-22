@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { ArrowUpDown, ChevronDown, ChevronUp } from 'lucide-react';
 
 import type { Column } from '@/types/schema';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import type { ListSort } from './listUrlState';
 
 export const HEADER_CELL =
@@ -15,20 +16,23 @@ export const HEADER_CELL =
 
 interface ColumnHeaderProps {
   column: Column;
+  listKey?: string;
   sortable: boolean;
   sort: ListSort | null;
   onSort: (field: string) => void;
 }
 
-export function ColumnHeader({ column, sortable, sort, onSort }: ColumnHeaderProps) {
+export function ColumnHeader({ column, listKey, sortable, sort, onSort }: ColumnHeaderProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
+  const label = listKey ? display(`list/${listKey}/column/${column.name}`, column.label) : column.label;
   const direction = sort?.field === column.name ? (sort.ascending ? 'ascending' : 'descending') : 'none';
   const className = HEADER_CELL;
 
   if (!sortable) {
     return (
       <th scope="col" className={className}>
-        {column.label}
+        {label}
       </th>
     );
   }
