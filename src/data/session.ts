@@ -62,7 +62,7 @@ export async function initializeSession(signal?: AbortSignal): Promise<true> {
   useAuthStore
     .getState()
     .setSession(info.accounts, info.primaryAccountId, info.apiUrl, info.maxObjectsInGet, info.maxObjectsInSet);
-  useSchemaStore.getState().setSchema(schema);
+  useSchemaStore.getState().setSchema(schema.schema, schema.schemaHash);
   useAccountStore.getState().setAccountInfo(account.permissions, account.edition, account.locale);
   setLocale(account.locale);
   return true;
