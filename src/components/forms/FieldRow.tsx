@@ -18,6 +18,7 @@ import { fieldIds, isEnterpriseLockedIn, useFieldScope, useFormContext } from '@
 import { requiredMarker } from '@/components/forms/formLogic';
 import { resolveObject } from '@/lib/schemaResolver';
 import { cn } from '@/lib/utils';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import type { ControlProps } from '@/components/forms/widgets/types';
 import type { Field, FormField } from '@/types/schema';
 
@@ -25,6 +26,7 @@ const ARIA_REQUIRED_TYPES = new Set(['string', 'number', 'enum', 'blobId']);
 
 export interface FieldRowProps {
   field: Field;
+  formKey?: string;
   formField: FormField;
   value: unknown;
   onChange: (value: unknown) => void;
@@ -75,7 +77,8 @@ export function FieldError({ id, error }: { id: string; error?: string }) {
   );
 }
 
-export function FieldRow({ field, formField, value, onChange, error, readOnly: forceReadOnly = false }: FieldRowProps) {
+export function FieldRow({ field, formField, formKey, value, onChange, error, readOnly: forceReadOnly = false }: FieldRowProps) {
+  const display = useSchemaText();
   const ctx = useFormContext();
   const scope = useFieldScope();
   if (field.enterprise && ctx.hideEnterprise) return null;
@@ -83,6 +86,10 @@ export function FieldRow({ field, formField, value, onChange, error, readOnly: f
   const ft = field.type;
   const ids = fieldIds(ctx.idPrefix, [...scope.path, formField.name]);
   const topLevel = scope.path.length === 0;
+  const label = formKey && topLevel ? display(`form/${formKey}/field/${formField.name}`, formField.label) : formField.label;
+  const description = formKey && topLevel
+    ? display(`field/${formKey}/${formField.name}/description`, field.description)
+    : field.description;
   const referencesLocked =
     ft.type === 'objectId' && ctx.isCommunity && !!resolveObject(ctx.schema, ft.objectName)?.enterprise;
   const locked = isEnterpriseLockedIn(ctx, field.enterprise);
@@ -146,13 +153,13 @@ export function FieldRow({ field, formField, value, onChange, error, readOnly: f
         <FieldLabel
           id={ids.labelId}
           htmlFor={traits.labelMode === 'control' && !asValue ? ids.inputId : undefined}
-          label={formField.label}
+          label={label}
           marker={marker}
           locked={locked}
         />
-        {field.description && (
+        {description && (
           <div id={ids.descriptionId}>
-            <Markdown source={field.description} className="text-[12.5px] leading-relaxed text-muted-foreground" />
+            <Markdown source={description} className="text-[12.5px] leading-relaxed text-muted-foreground" />
           </div>
         )}
       </div>
