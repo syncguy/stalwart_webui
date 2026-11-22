@@ -166,6 +166,7 @@ function SectionSwitcher({ layouts, activeSection }: { layouts: Layout[]; active
 
 export function Sidebar() {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const { pathname } = useLocation();
   const activeSection = useUIStore((s) => s.activeSection);
   const sidebarOpen = useUIStore((s) => s.sidebarOpen);
