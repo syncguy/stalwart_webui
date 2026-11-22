@@ -44,7 +44,7 @@ jobs:
       - name: Check Russian locale
         run: node scripts/check-locales.mjs
 
-      - name: Check versioned schema display translations
+      - name: Verify versioned schema display translations
         run: node scripts/check-schema-locale.mjs
 
       - name: TypeScript check
