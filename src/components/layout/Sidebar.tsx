@@ -16,6 +16,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { useUIStore } from '@/stores/uiStore';
 import type { Layout } from '@/types/schema';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { activeViewName, layoutNavNodes, navNodeKey, someLink, viewPath, type NavNode } from './navTree';
 import { SIDEBAR_ID, SidebarNavContext, useSidebarNav } from './sidebarContext';
 import { useLayoutNavigation } from './useLayoutNavigation';
@@ -29,6 +30,7 @@ function itemSize(depth: number) {
 
 function NavLink({ node, depth }: { node: Extract<NavNode, { kind: 'link' }>; depth: number }) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const nav = useSidebarNav();
   const ref = useRef<HTMLAnchorElement>(null);
   const isActive = node.viewName === nav.activeViewName;
@@ -39,7 +41,7 @@ function NavLink({ node, depth }: { node: Extract<NavNode, { kind: 'link' }>; de
 
   if (!nav.isVisible(node.viewName)) return null;
 
-  const label = node.name || t('sidebar.overview', 'Overview');
+  const label = node.name ? display(node.displaySlot, node.name) : t('sidebar.overview', 'Overview');
   const content = (
     <>
       {node.icon && <DynamicIcon name={node.icon} className="h-4 w-4 shrink-0" />}
@@ -75,6 +77,7 @@ function NavLink({ node, depth }: { node: Extract<NavNode, { kind: 'link' }>; de
 
 function NavContainer({ node, depth }: { node: Extract<NavNode, { kind: 'container' }>; depth: number }) {
   const nav = useSidebarNav();
+  const display = useSchemaText();
   const containsActive = someLink(node.children, (viewName) => viewName === nav.activeViewName);
   const [open, setOpen] = useState(containsActive);
   const [prevContainsActive, setPrevContainsActive] = useState(containsActive);
@@ -90,7 +93,7 @@ function NavContainer({ node, depth }: { node: Extract<NavNode, { kind: 'contain
       <CollapsibleTrigger asChild>
         <button type="button" className={cn(itemClass, itemSize(depth))}>
           {node.icon && <DynamicIcon name={node.icon} className="h-4 w-4 shrink-0" />}
-          <span className="truncate">{node.name}</span>
+          <span className="truncate">{display(node.displaySlot, node.name)}</span>
           <ChevronRight
             aria-hidden="true"
             className="ml-auto h-3.5 w-3.5 shrink-0 opacity-60 transition-transform duration-200 [[data-state=open]>&]:rotate-90"
@@ -118,6 +121,7 @@ function NavNodes({ nodes, depth }: { nodes: NavNode[]; depth: number }) {
 
 function SectionSwitcher({ layouts, activeSection }: { layouts: Layout[]; activeSection: string }) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const navigate = useNavigate();
   const setActiveSection = useUIStore((s) => s.setActiveSection);
   const { landingPath } = useLayoutNavigation();
@@ -137,7 +141,7 @@ function SectionSwitcher({ layouts, activeSection }: { layouts: Layout[]; active
                 type="button"
                 variant="ghost"
                 size="icon"
-                aria-label={target.name}
+                aria-label={display(`layout/${target.name}`, target.name)}
                 aria-pressed={isActive}
                 onClick={() => {
                   setActiveSection(target.name);
@@ -152,7 +156,7 @@ function SectionSwitcher({ layouts, activeSection }: { layouts: Layout[]; active
                 <DynamicIcon name={target.icon} className="h-4 w-4" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent side="top">{target.name}</TooltipContent>
+            <TooltipContent side="top">{display(`layout/${target.name}`, target.name)}</TooltipContent>
           </Tooltip>
         );
       })}
@@ -205,7 +209,7 @@ export function Sidebar() {
           {t('enterprise.featureHint', 'Enterprise feature')}
         </span>
         <div className="flex-1 overflow-y-auto py-2.5 [scrollbar-width:thin]">
-          <nav aria-label={layout.name} className="flex flex-col gap-0.5 px-2.5">
+          <nav aria-label={display(`layout/${layout.name}`, layout.name)} className="flex flex-col gap-0.5 px-2.5">
             <SidebarNavContext value={nav}>
               <NavNodes nodes={nodes} depth={0} />
             </SidebarNavContext>
