@@ -31,11 +31,13 @@ import { useEffect, useState } from 'react';
 import { useIsCommunity } from '@/hooks/usePermissions';
 import { SIDEBAR_ID } from './sidebarContext';
 import { useLayoutNavigation } from './useLayoutNavigation';
+import { useSchemaText } from '@/hooks/useSchemaText';
 
 const IS_MAC = /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
 
 export function TopBar() {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const navigate = useNavigate();
   const theme = useUIStore((s) => s.theme);
   const toggleTheme = useUIStore((s) => s.toggleTheme);
@@ -148,7 +150,7 @@ export function TopBar() {
                       }}
                     >
                       <DynamicIcon name={layout.icon} className="mr-2 h-4 w-4" />
-                      {layout.name}
+                      {display(`layout/${layout.name}`, layout.name)}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuGroup>
