@@ -262,6 +262,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
             itemActions.length > 0
               ? (_item, id, label) => (
                   <RowActions
+                    listKey={objectName}
                     actions={itemActions}
                     label={label}
                     hrefFor={(action) => itemActionHref(action, id, sectionFor, section, viewFor)}
