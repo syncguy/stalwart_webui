@@ -8,6 +8,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import en from './en.json';
 import ru from './ru.json';
+import { useSchemaStore } from '@/stores/schemaStore';
 
 const RTL_LANGUAGES = ['ar', 'he', 'fa', 'ur'];
 
@@ -16,6 +17,11 @@ i18n.use(initReactI18next).init({
   lng: navigator.language?.split('-')[0] || 'en',
   fallbackLng: 'en',
   interpolation: { escapeValue: false },
+});
+
+i18n.on('languageChanged', (language) => {
+  useSchemaStore.getState().setDisplayLanguage(language);
+  document.documentElement.lang = language.split(/[-_]/)[0];
 });
 
 export function setLocale(locale: string) {
