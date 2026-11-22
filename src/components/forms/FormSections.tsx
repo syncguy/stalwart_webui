@@ -5,6 +5,7 @@
  */
 
 import type { ReactNode } from 'react';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { FieldRow } from '@/components/forms/FieldRow';
 import { VariantSelect } from '@/components/forms/VariantSelect';
 import type { EmbeddedVariant } from '@/lib/embeddedSchema';
@@ -20,6 +21,7 @@ interface VariantControl {
 
 interface FormSectionsProps {
   sections: RenderableSection[];
+  formKey?: string;
   sectionId?: (key: string) => string;
   data: FieldValues;
   errors: FieldErrors;
@@ -31,6 +33,7 @@ interface FormSectionsProps {
 
 export function FormSections({
   sections,
+  formKey,
   sectionId,
   data,
   errors,
@@ -39,17 +42,24 @@ export function FormSections({
   variant,
   renderers,
 }: FormSectionsProps) {
+  const display = useSchemaText();
+  const fieldLabel = (name: string, label: string) =>
+    formKey ? display(`form/${formKey}/field/${name}`, label) : label;
   return (
     <>
       {sections.map((section) => (
-        <FormSectionCard key={section.key} id={sectionId?.(section.key)} title={section.title}>
+        <FormSectionCard
+          key={section.key}
+          id={sectionId?.(section.key)}
+          title={section.title && formKey ? display(`form/${formKey}/section/${section.key}`, section.title) : section.title}
+        >
           {section.fields.map(({ formField, field }) => {
             if (!field) {
               if (!variant) return null;
               return (
                 <VariantSelect
                   key={formField.name}
-                  label={formField.label}
+                  label={fieldLabel(formField.name, formField.label)}
                   variants={variant.variants}
                   value={variant.value}
                   onChange={variant.onChange}
@@ -76,6 +86,7 @@ export function FormSections({
                 key={formField.name}
                 field={field}
                 formField={formField}
+                formKey={formKey}
                 value={data[formField.name]}
                 onChange={(v) => onFieldChange(formField.name, v)}
                 error={errors[formField.name]}
