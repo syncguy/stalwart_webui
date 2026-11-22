@@ -69,7 +69,7 @@ jobs:
             cd dist
             find . -type f -print0 | LC_ALL=C sort -z | xargs -0 zip -X -q ../webui.zip
           )
-          unzip -Z -1 webui.zip | grep -Fx './stalwart-app.json'
+          unzip -Z -1 webui.zip | grep -Fx 'stalwart-app.json'
           sha256sum webui.zip | tee webui.sha256
           echo "Source SHA: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
           echo 'Manifest:' >> "$GITHUB_STEP_SUMMARY"
