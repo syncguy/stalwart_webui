@@ -20,6 +20,7 @@ import { FormSections } from '@/components/forms/FormSections';
 import { UnsavedChangesDialog } from '@/components/forms/UnsavedChangesDialog';
 import { formFieldLabels } from '@/components/forms/formLogic';
 import { useDynamicForm, type DynamicFormModel, type DynamicFormOptions } from '@/components/forms/useDynamicForm';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import type { FieldValues, RenderableSection } from '@/components/forms/formLogic';
 import { cn } from '@/lib/utils';
 
@@ -42,11 +43,20 @@ function capitalize(text: string): string {
 
 function useFormTitle(model: DynamicFormModel): string {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const { resolved, mode, isSingleton, state, parentForm, variantForm } = model;
   if (!resolved) return '';
   const titleForm = parentForm ?? variantForm;
-  if (isSingleton) return titleForm?.title ?? resolved.object.objectType.description;
-  const name = resolved.list?.singularName ?? resolved.object.objectType.description;
+  const objectKey = resolved.object.objectName;
+  if (isSingleton) {
+    const title = titleForm?.title;
+    return title ? display(`form/${objectKey}/title`, title)
+      : display(`object/${objectKey}/description`, resolved.object.objectType.description);
+  }
+  const rawName = resolved.list?.singularName ?? resolved.object.objectType.description;
+  const name = resolved.list
+    ? display(`list/${objectKey}/singular`, rawName)
+    : display(`object/${objectKey}/description`, rawName);
   if (mode === 'create') return t('form.createTitle', 'Create {{name}}', { name });
   const labelProperty = resolved.list?.labelProperty;
   const value = labelProperty ? coerceLabel(state.data[labelProperty], '') : '';
@@ -94,8 +104,9 @@ function useActiveSection(ids: readonly string[]): string | undefined {
   return active;
 }
 
-function SectionIndex({ sections, sectionId }: { sections: RenderableSection[]; sectionId: (key: string) => string }) {
+function SectionIndex({ sections, sectionId, formKey }: { sections: RenderableSection[]; sectionId: (key: string) => string; formKey: string }) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const titled = sections.filter((s) => s.title);
   const active = useActiveSection(titled.map((s) => sectionId(s.key)));
   return (
@@ -121,7 +132,7 @@ function SectionIndex({ sections, sectionId }: { sections: RenderableSection[]; 
                 'bg-highlight font-semibold text-highlight-foreground hover:bg-highlight hover:text-highlight-foreground',
             )}
           >
-            {section.title}
+            {section.title && display(`form/${formKey}/section/${section.key}`, section.title)}
           </button>
         );
       })}
@@ -147,11 +158,13 @@ export function DynamicForm({
   afterSections: AfterSections,
 }: DynamicFormProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const navigate = useNavigate();
   const canUpdate = useCanAccess(viewName, 'Update');
   const canDestroy = useCanAccess(viewName, 'Destroy');
   const model = useDynamicForm(viewName, objectId, { accountId, fieldOverrides, createValues });
   const { schema, resolved, mode, isSingleton, state, isDirty, saving, loading, loadError } = model;
+  const formKey = resolved?.object.objectName ?? viewName;
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
   const title = useFormTitle(model);
   const sectionPrefix = useId();
@@ -199,9 +212,9 @@ export function DynamicForm({
     );
   }
   const deleteLabel = (
-    resolved.list?.singularName ??
-    resolved.object.objectType.description ??
-    t('form.item', 'item')
+    resolved.list
+      ? display(`list/${formKey}/singular`, resolved.list.singularName)
+      : display(`object/${formKey}/description`, resolved.object.objectType.description)
   ).toLowerCase();
   const sch = resolved.resolvedSchema;
   const tenantValue = state.data[TENANT_PROPERTY];
@@ -219,7 +232,7 @@ export function DynamicForm({
       )}
 
       <div className={cn(showIndex && 'xl:grid xl:grid-cols-[11rem_minmax(0,1fr)] xl:items-start xl:gap-6')}>
-        {showIndex && wide && <SectionIndex sections={model.sections} sectionId={sectionId} />}
+        {showIndex && wide && <SectionIndex sections={model.sections} sectionId={sectionId} formKey={formKey} />}
         <div className="space-y-3.5">
           <FormProvider
             schema={schema}
@@ -230,6 +243,7 @@ export function DynamicForm({
             tenantId={typeof tenantValue === 'string' ? tenantValue : null}
           >
             <FormSections
+              formKey={formKey}
               sections={model.sections}
               sectionId={sectionId}
               data={state.data}
