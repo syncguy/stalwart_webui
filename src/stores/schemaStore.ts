@@ -5,6 +5,7 @@
  */
 
 import { create } from 'zustand';
+import { schemaText } from '@/i18n/schemaText';
 import { layoutViewFor } from '@/lib/layout';
 import type { Schema, LayoutSubItem } from '@/types/schema';
 
@@ -20,58 +21,75 @@ export interface SearchIndexEntry {
 }
 
 interface SchemaState {
+  /** Untouched API response: permission checks, JMAP and form identity rely on this reference. */
   schema: Schema | null;
+  schemaHash: string | null;
+  displayLanguage: string;
   isLoaded: boolean;
   viewToSection: Record<string, string>;
   searchIndex: SearchIndexEntry[];
 
-  setSchema: (schema: Schema) => void;
+  setSchema: (schema: Schema, schemaHash: string | null) => void;
+  setDisplayLanguage: (language: string) => void;
 }
 
-function walkLayouts(schema: Schema): { viewToSection: Record<string, string>; linkEntries: SearchIndexEntry[] } {
+function walkLayouts(
+  schema: Schema,
+  hash: string | null,
+  language: string,
+): { viewToSection: Record<string, string>; linkEntries: SearchIndexEntry[] } {
   const viewToSection: Record<string, string> = {};
   const linkEntries: SearchIndexEntry[] = [];
+  const display = (key: string, text: string) => schemaText(hash, language, key, text);
 
-  function visit(items: LayoutSubItem[], sectionName: string, parentPath: string): void {
+  function visit(items: LayoutSubItem[], sectionName: string, parentPath: string, rawPath: string): void {
     for (const sub of items) {
       if (sub.type === 'link') {
         if (!(sub.viewName in viewToSection)) {
           viewToSection[sub.viewName] = sectionName;
         }
+        const label = display(`nav/link/${sectionName}/${sub.viewName}`, sub.name);
         linkEntries.push({
-          text: sub.name,
+          text: label,
           type: 'link',
           viewName: sub.viewName,
           section: sectionName,
-          breadcrumb: `${parentPath} > ${sub.name}`,
+          breadcrumb: `${parentPath} > ${label}`,
+          keywords: [sub.name, sub.viewName],
         });
       } else if (sub.type === 'container') {
-        visit(sub.items, sectionName, `${parentPath} > ${sub.name}`);
+        const context = `${rawPath}/${sub.name}`;
+        const label = display(`nav/container/${context}`, sub.name);
+        visit(sub.items, sectionName, `${parentPath} > ${label}`, context);
       }
     }
   }
 
   for (const layout of schema.layouts) {
-    const sectionName = layout.name;
+    const sectionName = layout.name; // Functional identifier, never localized.
+    const sectionLabel = display(`layout/${sectionName}`, sectionName);
     for (const item of layout.items) {
       if ('link' in item) {
         if (!(item.link.viewName in viewToSection)) {
           viewToSection[item.link.viewName] = sectionName;
         }
+        const label = display(`nav/link/${sectionName}/${item.link.viewName}`, item.link.name);
         linkEntries.push({
-          text: item.link.name,
+          text: label,
           type: 'link',
           viewName: item.link.viewName,
           section: sectionName,
-          breadcrumb: `${sectionName} > ${item.link.name}`,
+          breadcrumb: `${sectionLabel} > ${label}`,
+          keywords: [item.link.name, item.link.viewName],
           icon: item.link.icon,
         });
       } else if ('container' in item) {
-        visit(item.container.items, sectionName, `${sectionName} > ${item.container.name}`);
+        const context = `${sectionName}/${item.container.name}`;
+        const label = display(`nav/container/${context}`, item.container.name);
+        visit(item.container.items, sectionName, `${sectionLabel} > ${label}`, context);
       }
     }
   }
-
   return { viewToSection, linkEntries };
 }
 
@@ -79,8 +97,12 @@ function buildSearchIndex(
   schema: Schema,
   viewToSection: Record<string, string>,
   linkEntries: SearchIndexEntry[],
+  hash: string | null,
+  language: string,
 ): SearchIndexEntry[] {
   const entries: SearchIndexEntry[] = [...linkEntries];
+  const display = (key: string, text: string) => schemaText(hash, language, key, text);
+  const sectionLabel = (section: string) => display(`layout/${section}`, section);
 
   function displayNameFor(viewName: string): string {
     const obj = schema.objects[viewName];
@@ -95,13 +117,16 @@ function buildSearchIndex(
       }
     }
     if (resolvedObj.type === 'singleton') {
-      const form = schema.forms[viewName] ?? schema.forms[resolvedName];
-      if (form?.title) return form.title;
+      const formKey = schema.forms[viewName] ? viewName : resolvedName;
+      const form = schema.forms[formKey];
+      if (form?.title) return display(`form/${formKey}/title`, form.title);
     }
     if (resolvedObj.type === 'object') {
-      const list = schema.lists[viewName] ?? schema.lists[resolvedName];
+      const listKey = schema.lists[viewName] ? viewName : resolvedName;
+      const list = schema.lists[listKey];
       if (list?.singularName) {
-        return list.singularName.charAt(0).toUpperCase() + list.singularName.slice(1);
+        const name = display(`list/${listKey}/singular`, list.singularName);
+        return name.charAt(0).toUpperCase() + name.slice(1);
       }
     }
     return viewName.replace(/^x:/, '');
@@ -112,14 +137,15 @@ function buildSearchIndex(
       const viewName = layoutViewFor(schema, viewToSection, name);
       if (!viewName) continue;
       const section = viewToSection[viewName];
-      const display = displayNameFor(viewName);
+      const title = displayNameFor(viewName);
       entries.push({
-        text: obj.description,
+        text: display(`object/${name}/description`, obj.description),
         type: 'link',
         viewName,
         section,
-        breadcrumb: `${section} > ${display}`,
+        breadcrumb: `${sectionLabel(section)} > ${title}`,
         objectType: obj.type,
+        keywords: [obj.description, name],
       });
     }
   }
@@ -129,53 +155,64 @@ function buildSearchIndex(
     if (!mapped) continue;
     const viewName = mapped;
     const section = viewToSection[viewName] ?? '';
-    const display = displayNameFor(viewName);
+    const title = displayNameFor(viewName);
+    const root = section ? `${sectionLabel(section)} > ${title}` : title;
 
-    for (const formSection of form.sections) {
+    for (const [index, formSection] of form.sections.entries()) {
       if (formSection.title) {
+        const label = display(`form/${formKey}/section/section-${index}`, formSection.title);
         entries.push({
-          text: formSection.title,
+          text: label,
           type: 'form',
           viewName,
           section,
-          breadcrumb: section ? `${section} > ${display} > ${formSection.title}` : `${display} > ${formSection.title}`,
+          breadcrumb: `${root} > ${label}`,
+          keywords: [formSection.title],
         });
       }
-
       for (const field of formSection.fields) {
-        const keywords: string[] = [];
-        if (field.name && field.name !== '@type') {
-          keywords.push(field.name);
-        }
+        const label = display(`form/${formKey}/field/${field.name}`, field.label);
+        const keywords = [field.label];
+        if (field.name && field.name !== '@type') keywords.push(field.name);
         entries.push({
-          text: field.label,
+          text: label,
           type: 'field',
           viewName,
           section,
-          breadcrumb: section ? `${section} > ${display} > ${field.label}` : `${display} > ${field.label}`,
+          breadcrumb: `${root} > ${label}`,
           keywords,
         });
       }
     }
   }
-
   return entries;
 }
 
-export const useSchemaStore = create<SchemaState>()((set) => ({
+export const useSchemaStore = create<SchemaState>()((set, get) => ({
   schema: null,
+  schemaHash: null,
+  displayLanguage: 'en',
   isLoaded: false,
   viewToSection: {},
   searchIndex: [],
 
-  setSchema: (schema) => {
-    const { viewToSection, linkEntries } = walkLayouts(schema);
-    const searchIndex = buildSearchIndex(schema, viewToSection, linkEntries);
-    set({
-      schema,
-      isLoaded: true,
-      viewToSection,
-      searchIndex,
-    });
+  setSchema: (schema, schemaHash) => {
+    const language = get().displayLanguage;
+    const { viewToSection, linkEntries } = walkLayouts(schema, schemaHash, language);
+    const searchIndex = buildSearchIndex(schema, viewToSection, linkEntries, schemaHash, language);
+    set({ schema, schemaHash, isLoaded: true, viewToSection, searchIndex });
+  },
+
+  setDisplayLanguage: (language) => {
+    const state = get();
+    if (state.displayLanguage === language) return;
+    if (!state.schema) {
+      set({ displayLanguage: language });
+      return;
+    }
+    // Rebuild only derived text. Preserve raw schema / resolved-view WeakMap keys.
+    const { linkEntries } = walkLayouts(state.schema, state.schemaHash, language);
+    const searchIndex = buildSearchIndex(state.schema, state.viewToSection, linkEntries, state.schemaHash, language);
+    set({ displayLanguage: language, searchIndex });
   },
 }));
