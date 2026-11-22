@@ -5,6 +5,7 @@
  */
 
 import { useId, type ReactNode } from 'react';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { useTranslation } from 'react-i18next';
 
 import { Input } from '@/components/ui/input';
@@ -21,6 +22,7 @@ const DEFAULT_OP = 'eq';
 
 interface FilterFieldProps<F extends Filter> {
   schema: Schema;
+  listKey?: string;
   filter: F;
   values: Record<string, string>;
   isXPrefixed: boolean;
@@ -219,7 +221,11 @@ function ObjectIdFilter({ schema, filter, values, onCommit }: FilterFieldProps<F
 }
 
 export function FilterField(props: FilterFieldProps<Filter>) {
-  const { filter } = props;
+  const display = useSchemaText();
+  const { filter: original } = props;
+  const filter: Filter = props.listKey
+    ? { ...original, label: display(`list/${props.listKey}/filter/${original.field}`, original.label) }
+    : original;
   switch (filter.type) {
     case 'text':
       return <TextFilter {...props} filter={filter} />;
