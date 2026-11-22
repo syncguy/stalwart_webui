@@ -21,6 +21,7 @@ import type { ListSelection } from './useListSelection';
 
 interface ListTableProps {
   caption: string;
+  listKey?: string;
   columns: Column[];
   fields: Record<string, Field>;
   items: ListItem[];
@@ -62,6 +63,7 @@ function isRowClick(event: MouseEvent<HTMLTableRowElement>): boolean {
 
 export function ListTable({
   caption,
+  listKey,
   columns,
   fields,
   items,
@@ -104,7 +106,7 @@ export function ListTable({
               </th>
             )}
             {columns.map((col) => (
-              <ColumnHeader key={col.name} column={col} sortable={sortable.has(col.name)} sort={sort} onSort={onSort} />
+              <ColumnHeader key={col.name} listKey={listKey} column={col} sortable={sortable.has(col.name)} sort={sort} onSort={onSort} />
             ))}
             {renderRowActions && (
               <th scope="col" className={cn(HEADER_CELL, 'w-12 text-right last:pr-3')}>
