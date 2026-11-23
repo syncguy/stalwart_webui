@@ -83,6 +83,15 @@ assert.equal(
 assert.equal(extractSchemaHash('https://mail.example.test/api/schema', 'https://mail.example.test'), null);
 assert.equal(extractSchemaHash('not a url', 'https://mail.example.test'), null);
 
+// Render-branch contract: sortable and non-sortable headers use the same
+// display-only label. Sorting must still use the raw column.name identifier.
+const headerSource = fs.readFileSync('src/components/lists/ColumnHeader.tsx', 'utf8');
+assert.match(headerSource, /if \(!sortable\) \{[\s\S]*?\{label\}/);
+const sortableBranch = headerSource.slice(headerSource.indexOf('  const hint ='));
+assert.match(sortableBranch, /onClick=\{\(\) => onSort\(column\.name\)\}/);
+assert.match(sortableBranch, /\{label\}\s*\{direction ===/);
+assert.doesNotMatch(sortableBranch, /\{column\.label\}/);
+
 // Shallow DOM-independent contract: lookup cannot mutate a schema or functional identifiers.
 const sourceSchema = Object.freeze({
   layouts: Object.freeze([Object.freeze({ name: 'Management', viewName: 'x:Domain' })]),
