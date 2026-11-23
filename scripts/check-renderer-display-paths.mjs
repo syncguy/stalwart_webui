@@ -28,8 +28,8 @@ assert.equal(fieldValue.includes('description={entry.field?.description}'), fals
 const fieldRow = read('src/components/forms/FieldRow.tsx');
 const sections = read('src/components/forms/FormSections.tsx');
 for (const subkey of ['keyLabel', 'valueLabel', 'placeholder']) {
-  must(fieldRow, `/field/${formField.name}/${subkey}`, 'FieldRow');
-  must(sections, `/field/${formField.name}/${subkey}`, 'FormSections');
+  must(fieldRow, '/field/${formField.name}/' + subkey, 'FieldRow');
+  must(sections, '/field/${formField.name}/' + subkey, 'FormSections');
 }
 must(fieldRow, 'formField: formFieldDisplay', 'FieldRow');
 must(sections, 'formField={{', 'FormSections');
