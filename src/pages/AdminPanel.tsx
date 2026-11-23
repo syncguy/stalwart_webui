@@ -70,7 +70,8 @@ export default function AdminPanel() {
     // SPDX-License-Identifier: LicenseRef-SEL
     if (viewName.startsWith('Dashboard/')) {
       const dashboardId = viewName.slice('Dashboard/'.length);
-      label = schema?.dashboards?.find((dashboard) => dashboard.id === dashboardId)?.label;
+      const dashboard = schema?.dashboards?.find((candidate) => candidate.id === dashboardId);
+      label = dashboard ? display(`dashboard/${dashboard.id}/label`, dashboard.label) : undefined;
     }
     // SPDX-SnippetEnd
     if (label === undefined) {
