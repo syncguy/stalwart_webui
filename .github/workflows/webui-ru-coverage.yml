@@ -7,11 +7,17 @@ on:
       - '.github/workflows/webui-ru-coverage.yml'
       - 'scripts/generate-locale-coverage.mjs'
       - 'scripts/check-coverage-inventory.mjs'
+      - 'scripts/generate-locale-candidates.mjs'
+      - 'scripts/check-locale-candidates.mjs'
+      - 'scripts/lib/locale-*.mjs'
+      - 'scripts/lib/offline-guard.mjs'
+      - 'scripts/data/locale-review-policy.json'
+      - 'scripts/schema-glossary.ru.json'
       - 'scripts/data/pinned-schema-manifest.json'
       - 'scripts/data/pinned-schema*.b64'
-      - 'src/i18n/schema/ru.json'
-      - 'src/i18n/en.json'
-      - 'src/i18n/ru.json'
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
   workflow_dispatch:
 
 permissions:
@@ -42,30 +48,48 @@ jobs:
           cache: npm
       - name: Install pinned TypeScript parser
         run: npm ci
-      - name: Extract offline pinned OSS and Enterprise schemas plus client AST
-        run: node scripts/generate-locale-coverage.mjs
+      - name: Classify pinned sources and propose candidates with networking blocked
+        env:
+          NODE_OPTIONS: '--import=./scripts/lib/offline-guard.mjs'
+        run: node scripts/generate-locale-candidates.mjs
       - name: Validate independent source and catalog expectations
         run: node scripts/check-coverage-inventory.mjs
+      - name: Check classification, conflicts, source changes and contextual candidates
+        env:
+          NODE_OPTIONS: '--import=./scripts/lib/offline-guard.mjs'
+        run: node scripts/check-locale-candidates.mjs
+      - name: Check previous locale and renderer regressions without packaging
+        run: |
+          node scripts/check-locales.mjs
+          node scripts/check-schema-locale.mjs
+          node scripts/check-option-labels.mjs
+          node scripts/check-stage11-permissions.mjs
       - name: TypeScript check for shared display-only components
         run: npm run typecheck
-      - name: ESLint check for offline inventory and renderers
+      - name: ESLint check for TypeScript sources
         run: npm run lint
       - name: Verify deterministic repeat output
+        env:
+          NODE_OPTIONS: '--import=./scripts/lib/offline-guard.mjs'
         shell: bash
         run: |
           set -euo pipefail
           sha256sum .artifacts/locale-coverage/{inventory.json,summary.md,translation-memory.json} > /tmp/locale-coverage.sha256
-          node scripts/generate-locale-coverage.mjs --out=.artifacts/locale-coverage > /tmp/second-inventory.log
+          sha256sum .artifacts/locale-candidates/{classification.json,candidates.json,diff.json,summary.md,review.md} > /tmp/locale-candidates.sha256
+          node scripts/generate-locale-candidates.mjs > /tmp/second-inventory.log
           sha256sum -c /tmp/locale-coverage.sha256
+          sha256sum -c /tmp/locale-candidates.sha256
       - name: Publish summary and exact source SHA
         shell: bash
         run: |
           echo "Source SHA: ${GITHUB_SHA}" >> "${GITHUB_STEP_SUMMARY}"
-          cat .artifacts/locale-coverage/summary.md | head -n 35 >> "${GITHUB_STEP_SUMMARY}"
+          head -n 40 .artifacts/locale-candidates/summary.md >> "${GITHUB_STEP_SUMMARY}"
       - name: Upload report only, no WebUI ZIP
         uses: actions/upload-artifact@v4
         with:
           name: webui-ru-coverage-${{ github.sha }}
-          path: .artifacts/locale-coverage/
+          path: |
+            .artifacts/locale-coverage/
+            .artifacts/locale-candidates/
           if-no-files-found: error
           retention-days: 7
