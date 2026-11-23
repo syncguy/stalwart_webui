@@ -22,6 +22,8 @@ interface VariantControl {
 interface FormSectionsProps {
   sections: RenderableSection[];
   formKey?: string;
+  variantFormKey?: string;
+  parentSectionCount?: number;
   sectionId?: (key: string) => string;
   data: FieldValues;
   errors: FieldErrors;
@@ -31,9 +33,26 @@ interface FormSectionsProps {
   renderers?: FieldOverrides['render'];
 }
 
+/** Context is for display only. Section IDs and data keys never change. */
+export function sectionDisplayContext(
+  sectionKey: string,
+  formKey?: string,
+  variantFormKey?: string,
+  parentSectionCount = 0,
+): { formKey?: string; sectionKey: string } {
+  const match = /^section-(\d+)$/.exec(sectionKey);
+  if (!match || !variantFormKey) return { formKey, sectionKey };
+  const index = Number(match[1]);
+  return index >= parentSectionCount
+    ? { formKey: variantFormKey, sectionKey: `section-${index - parentSectionCount}` }
+    : { formKey, sectionKey };
+}
+
 export function FormSections({
   sections,
   formKey,
+  variantFormKey,
+  parentSectionCount = 0,
   sectionId,
   data,
   errors,
@@ -43,15 +62,17 @@ export function FormSections({
   renderers,
 }: FormSectionsProps) {
   const display = useSchemaText();
-  const fieldLabel = (name: string, label: string) =>
-    formKey ? display(`form/${formKey}/field/${name}`, label) : label;
   return (
     <>
-      {sections.map((section) => (
+      {sections.map((section) => {
+        const context = sectionDisplayContext(section.key, formKey, variantFormKey, parentSectionCount);
+        const fieldLabel = (name: string, label: string) =>
+          context.formKey ? display(`form/${context.formKey}/field/${name}`, label) : label;
+        return (
         <FormSectionCard
           key={section.key}
           id={sectionId?.(section.key)}
-          title={section.title && formKey ? display(`form/${formKey}/section/${section.key}`, section.title) : section.title}
+          title={section.title && context.formKey ? display(`form/${context.formKey}/section/${context.sectionKey}`, section.title) : section.title}
         >
           {section.fields.map(({ formField, field }) => {
             if (!field) {
@@ -87,7 +108,7 @@ export function FormSections({
                 key={formField.name}
                 field={field}
                 formField={formField}
-                formKey={formKey}
+                formKey={context.formKey}
                 value={data[formField.name]}
                 onChange={(v) => onFieldChange(formField.name, v)}
                 error={errors[formField.name]}
@@ -95,7 +116,8 @@ export function FormSections({
             );
           })}
         </FormSectionCard>
-      ))}
+        );
+      })}
     </>
   );
 }
