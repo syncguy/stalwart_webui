@@ -16,7 +16,15 @@ assert.deepEqual(
     'fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs',
   ].sort(),
 );
-assert.ok(Object.keys(entries).length >= 50, 'Domains catalog is unexpectedly incomplete');
+assert.ok(Object.keys(entries).length >= 1300, 'Schema display catalog unexpectedly lost translated contexts');
+assert.deepEqual(
+  meta.sources,
+  [
+    { file: 'schema_oss.json.gz', blobSha: '3d41ba6b3126648b1c1603b32ad26d60111f4420' },
+    { file: 'schema.json.gz', blobSha: 'a7224968446b0935b245a22ce832e9ad2a6fb49a' },
+  ],
+);
+
 for (const [slot, value] of Object.entries(entries)) {
   assert.ok(slot.includes('/') && typeof value.original === 'string' && value.original.length);
   assert.ok(typeof value.ru === 'string' && value.ru.length);
@@ -40,6 +48,18 @@ const sample = {
   'form/x:Domain/field/aliases': 'Aliases',
   'form/x:Domain/field/enable': 'Enabled',
   'field/x:Domain/name/description': 'Domain name',
+  'nav/link/Management/x:Account/User': 'Accounts',
+  'nav/link/Settings/x:NetworkListener': 'Listeners',
+  'nav/container/Management/Directory': 'Directory',
+  'list/x:Account/User/title': 'Accounts',
+  'list/x:Account/Group/title': 'Groups',
+  'list/x:QueuedMessage/title': 'Queued Messages',
+  'list/x:NetworkListener/column/implicitTls': 'Implicit TLS',
+  'form/x:NetworkListener/section/section-0': 'Listener settings',
+  'form/Mailbox/section/section-0': 'Mailbox',
+  'form/x:MailingList/field/recipients': 'Recipients',
+  'enum/IndexType/email/label': 'Email',
+  'variant/x:SpamDnsblServer/Domain/label': 'Domain',
 };
 for (const [slot, original] of Object.entries(sample)) {
   assert.equal(entries[slot]?.original, original, `Source text mismatch: ${slot}`);
@@ -91,6 +111,50 @@ const sortableBranch = headerSource.slice(headerSource.indexOf('  const hint =')
 assert.match(sortableBranch, /onClick=\{\(\) => onSort\(column\.name\)\}/);
 assert.match(sortableBranch, /\{label\}\s*\{direction ===/);
 assert.doesNotMatch(sortableBranch, /\{column\.label\}/);
+
+// Check representative contexts against the real translation resolver for both server versions.
+for (const hash of meta.schemaHashes) {
+  for (const [slot, english, russian] of [
+    ['nav/link/Management/x:Account/User', 'Accounts', 'Учётные записи'],
+    ['list/x:Account/Group/title', 'Groups', 'Группы'],
+    ['list/x:QueuedMessage/title', 'Queued Messages', 'Сообщения в очереди'],
+    ['form/x:NetworkListener/section/section-0', 'Listener settings', 'Настройки слушателя'],
+    ['form/Mailbox/section/section-0', 'Mailbox', 'Почтовый ящик'],
+    ['enum/IndexType/email/label', 'Email', 'Почта'],
+  ]) {
+    assert.equal(schemaText(hash, 'ru', slot, english), russian);
+    assert.equal(schemaText(hash, 'en', slot, english), english);
+    assert.equal(schemaText(hash, 'ru', slot, english + ' changed'), english + ' changed');
+  }
+}
+
+const listSource = fs.readFileSync('src/components/lists/DynamicList.tsx', 'utf8');
+assert.match(listSource, /Object\.hasOwn\(schema\.lists, viewName\) \? viewName : objectName/);
+assert.match(listSource, /const title = display\(`list\/\$\{listKey\}\/title`, list\.title\)/);
+assert.match(listSource, /listKey=\{listKey\}/);
+
+const filterSource = fs.readFileSync('src/components/lists/FilterFields.tsx', 'utf8');
+assert.match(filterSource, /display\(`enum\/\$\{filter\.enumName\}\/\$\{v\.name\}\/label`, v\.label\)/);
+assert.match(filterSource, /value: v\.name/);
+
+const variantSource = fs.readFileSync('src/components/forms/VariantSelect.tsx', 'utf8');
+assert.match(variantSource, /display\(`variant\/\$\{variantScope\}\/\$\{v\.name\}\/label`, v\.label\)/);
+assert.match(variantSource, /onChange\(v\.name\)/);
+
+const localeSource = fs.readFileSync('src/i18n/index.ts', 'utf8');
+assert.ok(
+  localeSource.indexOf('setDisplayLanguage(initialLocale)') < localeSource.indexOf('i18n.use(initReactI18next).init('),
+  'Locale must initialize schema display BEFORE the first schema fetch',
+);
+assert.match(localeSource, /localStorage\.setItem\(LOCALE_STORAGE_KEY, lang\)/);
+const topBar = fs.readFileSync('src/components/layout/TopBar.tsx', 'utf8');
+assert.match(topBar, /DropdownMenuRadioGroup value=\{activeLanguage\} onValueChange=\{setLocale\}/);
+assert.match(topBar, /DropdownMenuRadioItem value="ru"/);
+assert.match(topBar, /DropdownMenuRadioItem value="en"/);
+const storeSource = fs.readFileSync('src/stores/schemaStore.ts', 'utf8');
+const languageSwitch = storeSource.slice(storeSource.indexOf('  setDisplayLanguage: (language) => {'));
+assert.match(languageSwitch, /set\(\{ displayLanguage: language, searchIndex \}\)/);
+assert.doesNotMatch(languageSwitch, /setSchema\(/);
 
 // Shallow DOM-independent contract: lookup cannot mutate a schema or functional identifiers.
 const sourceSchema = Object.freeze({
