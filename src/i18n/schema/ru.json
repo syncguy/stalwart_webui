@@ -6998,9 +6998,17 @@
       "original": "Spam Samples",
       "ru": "Образцы спама"
     },
+    "nav/link/Management/CustomComponent/Dashboard": {
+      "original": "Dashboard",
+      "ru": "Центр управления"
+    },
     "nav/link/Management/CustomComponent/LiveDelivery": {
       "original": "Delivery tests",
       "ru": "Проверка доставки"
+    },
+    "nav/link/Management/CustomComponent/LiveTracing": {
+      "original": "Live Tracing",
+      "ru": "Трассировка"
     },
     "nav/link/Management/x:Account/Group": {
       "original": "Groups",
@@ -7032,7 +7040,7 @@
     },
     "nav/link/Management/x:Log": {
       "original": "Logs",
-      "ru": "Журналы"
+      "ru": "Журнал"
     },
     "nav/link/Management/x:MailingList": {
       "original": "Mailing Lists",
