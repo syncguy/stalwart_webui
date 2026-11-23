@@ -185,6 +185,7 @@ export function DynamicForm({
   const wide = useSyncExternalStore(subscribeWide, isWide, () => false);
 
   if (!schema || !resolved) return <Loading label={t('form.loadingSchema', 'Loading schema...')} />;
+  const selectedSchema = resolved.resolvedSchema;
   if (loading) return <Loading label={t('form.loadingData', 'Loading data...')} />;
 
   const isCreate = mode === 'create';
@@ -275,8 +276,8 @@ export function DynamicForm({
               onFieldChange={model.setField}
               renderers={fieldOverrides?.render}
               variant={
-                sch.type === 'multiple'
-                  ? { variants: sch.variants, value: state.variant, onChange: model.setVariant }
+                selectedSchema.type === 'multiple'
+                  ? { variants: selectedSchema.variants, value: state.variant, onChange: model.setVariant }
                   : undefined
               }
             />
