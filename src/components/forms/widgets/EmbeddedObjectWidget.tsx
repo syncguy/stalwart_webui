@@ -72,6 +72,7 @@ export function EmbeddedObjectEditor({
         {resolved.variants && (
           <div className={cn(frame === 'panel' ? 'py-3' : 'py-2', entries.length > 0 && 'border-b border-border')}>
             <VariantSelect
+              variantScope={objectName}
               labelledBy={control?.['aria-labelledby']}
               ariaLabel={control?.['aria-label']}
               variants={resolved.variants}
@@ -89,6 +90,7 @@ export function EmbeddedObjectEditor({
                   key={formField.name}
                   field={field}
                   formField={formField}
+                  formKey={resolved.schemaName ?? undefined}
                   value={obj[formField.name]}
                   onChange={(v) => onChange({ ...obj, [formField.name]: v })}
                 />
