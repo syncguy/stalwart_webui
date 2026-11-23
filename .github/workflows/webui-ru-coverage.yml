@@ -46,6 +46,10 @@ jobs:
         run: node scripts/generate-locale-coverage.mjs
       - name: Validate independent source and catalog expectations
         run: node scripts/check-coverage-inventory.mjs
+      - name: TypeScript check for shared display-only components
+        run: npm run typecheck
+      - name: ESLint check for offline inventory and renderers
+        run: npm run lint
       - name: Verify deterministic repeat output
         shell: bash
         run: |
