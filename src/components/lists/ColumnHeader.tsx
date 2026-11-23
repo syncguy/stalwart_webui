@@ -52,7 +52,7 @@ export function ColumnHeader({ column, listKey, sortable, sort, onSort }: Column
         title={hint}
         className="-mx-1 inline-flex items-center gap-1 rounded-md px-1 uppercase tracking-wider hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
-        {column.label}
+        {label}
         {direction === 'ascending' ? (
           <ChevronUp className="h-3.5 w-3.5" aria-hidden />
         ) : direction === 'descending' ? (
