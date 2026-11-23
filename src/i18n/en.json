@@ -501,6 +501,7 @@
     "valuePlaceholder": "Value..."
   },
   "tryEnterprise": "Try Enterprise",
+  "interfaceLanguage": "Language",
   "userMenu": "User menu",
   "value": {
     "itemCount_one": "{{count}} item",
