@@ -115,6 +115,7 @@ export function DashboardChart({ dashboardId, itemIndex, chart, historySamples, 
               key={key}
               type="monotone"
               dataKey={key}
+              name={name}
               stroke={color}
               fill={color}
               fillOpacity={chart.stacked ? 0.35 : 0.14}
