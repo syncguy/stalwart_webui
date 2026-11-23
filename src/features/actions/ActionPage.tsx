@@ -109,7 +109,10 @@ export function ActionPage({ viewName }: ActionPageProps) {
               if (!open) setState((prev) => (prev.kind === 'pick' ? PICK : prev));
             }}
             title={t('actions.confirmTitle', 'Run this action?')}
-            description={pending ? actionLabel(pending) : undefined}
+            description={pending?.name === 'UpdateApps'
+              ? t('actions.updateAppsScopeWarning',
+                'Updates all configured web applications, not only this interface. Check every application\'s resource URL and external download policy before continuing.')
+              : pending ? actionLabel(pending) : undefined}
             confirmLabel={t('actions.execute', 'Execute')}
             onConfirm={() => {
               if (pending) void run(pending, buildActionPayload(pending.name, null, {}), {});
