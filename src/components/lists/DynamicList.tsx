@@ -124,7 +124,8 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
   const selectedCount = selection.allMatching ? (total ?? selection.selectedIds.length) : selection.selectedIds.length;
   const nameFor = (count: number) => (count === 1 ? list.singularName : list.pluralName);
 
-  const confirmMassAction = (action: RunnableMassAction) => {
+  const confirmMassAction = (action: RunnableMassAction, actionKey: string) => {
+    const displayActionLabel = display(`list/${listKey}/massAction/${actionKey}/label`, action.label);
     const count = selectedCount;
     const name = nameFor(count);
     const allMatching = selection.allMatching;
@@ -165,11 +166,11 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
     setConfirm({
       title: t('list.confirmTitle', 'Confirm Action'),
       description: t('list.confirmMassDescription', 'Apply "{{action}}" to {{count}} {{name}}?', {
-        action: action.label,
+        action: displayActionLabel,
         count,
         name,
       }),
-      confirmLabel: action.label,
+      confirmLabel: displayActionLabel,
       destructive: false,
       onConfirm: run,
     });
@@ -177,6 +178,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
 
   const confirmItemAction = (entry: Extract<ResolvedItemAction, { kind: 'mutation' }>, id: string, label: string) => {
     const { action } = entry;
+    const displayActionLabel = display(`list/${listKey}/itemAction/${entry.key}/label`, action.label);
     const run = async () => {
       const ok = await actions.runItemAction(action, id);
       if (ok && action.type === 'delete') selection.deselect(id);
@@ -198,10 +200,10 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
     setConfirm({
       title: t('list.confirmTitle', 'Confirm Action'),
       description: t('list.confirmItemDescription', 'Apply "{{action}}" to {{label}}?', {
-        action: action.label,
+        action: displayActionLabel,
         label,
       }),
-      confirmLabel: action.label,
+      confirmLabel: displayActionLabel,
       destructive: false,
       onConfirm: run,
     });
@@ -308,6 +310,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
       {massActions.length > 0 && selectedCount > 0 && (
         <MassActionBar
           actions={massActions}
+          listKey={listKey}
           count={selectedCount}
           disabled={actions.pending}
           onSelect={confirmMassAction}
