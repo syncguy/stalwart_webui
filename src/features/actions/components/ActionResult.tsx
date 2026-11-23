@@ -9,6 +9,7 @@ import { CircleAlert, CircleCheck, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { DynamicView } from '@/components/views/DynamicView';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import type { ObjectVariant, Schema } from '@/types/schema';
 
 interface ActionResultProps {
@@ -20,6 +21,7 @@ interface ActionResultProps {
 
 export function ActionResult({ schema, variant, data, onNewAction }: ActionResultProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const hasData = !!variant.schemaName && Object.keys(data).length > 0;
 
   return (
@@ -29,7 +31,7 @@ export function ActionResult({ schema, variant, data, onNewAction }: ActionResul
           <CircleCheck aria-hidden="true" className="size-5" />
         </span>
         <div className="min-w-0">
-          <h1 className="page-title break-words">{variant.label}</h1>
+          <h1 className="page-title break-words">{display(`variant/x:Action/${variant.name}/label`, variant.label)}</h1>
           <p className="text-sm text-muted-foreground">
             {t('actions.executedSuccess', 'Action executed successfully.')}
           </p>
