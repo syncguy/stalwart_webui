@@ -1,0 +1,24 @@
+{
+  "source": "syncguy/stalwart@win2008r2:321056f97befe0b3da531140e02d1c5c2aeb7c07",
+  "description": "Copied bytes of the two source-controlled embedded schemas, stored as base64 gzip for reproducible offline inventory; no runtime use or external fetch.",
+  "schemas": [
+    {
+      "edition": "enterprise",
+      "file": "schema.json.gz",
+      "fixture": "scripts/data/pinned-schema.json.gz.b64",
+      "blobSha": "a7224968446b0935b245a22ce832e9ad2a6fb49a",
+      "size": 181383,
+      "sha256Gzip": "7f21bed2b63443466ad8fc14c9a54faa7193d27c92ec060ae520a6ade4c3657b",
+      "schemaHash": "fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs"
+    },
+    {
+      "edition": "oss",
+      "file": "schema_oss.json.gz",
+      "fixture": "scripts/data/pinned-schema_oss.json.gz.b64",
+      "blobSha": "3d41ba6b3126648b1c1603b32ad26d60111f4420",
+      "size": 161753,
+      "sha256Gzip": "3ebc9cf74f5a4cd46bfe4eaec192ef64db3be1868f42ff8f5d0dfcb762bb5656",
+      "schemaHash": "Pryc909aTNRr_k6uwZLvZNs74YaPQv-PXQ38t2K7VlY"
+    }
+  ]
+}
