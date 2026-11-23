@@ -202,8 +202,8 @@ assert.match(stableVariantSource, /value=\{v\.name\}/);
 // Stage 5: source-verified, view-specific Accounts, Actions, tenant and trace labels.
 const stage5Samples = [
   ['list/x:Action/title', 'Actions', 'Действия'],
-  ['list/x:Action/subtitle', 'Execute server management actions', 'Выполнение административных действий сервера'],
-  ['variant/x:Action/UpdateApps/label', 'Application Management: Update applications', 'Управление приложениями: Обновить приложения'],
+  ['list/x:Action/subtitle', 'Execute server management actions', 'Выполнение административных действий на сервере'],
+  ['variant/x:Action/UpdateApps/label', 'Application Management: Update applications', 'Управление приложениями: Обновить приложение'],
   ['variant/x:Action/PauseMtaQueue/label', 'MTA: Pause queue processing', 'MTA: Приостановить обработку очереди'],
   ['nav/container/Management/Emails/History', 'History', 'История'],
   ['list/x:Trace/InboundDelivery/title', 'Inbound Delivery Attempts', 'Попытки входящей доставки'],
@@ -274,6 +274,51 @@ const actionFormStage5 = fs.readFileSync('src/features/actions/components/Action
 assert.ok(actionFormStage5.includes('formKey={variant.schemaName}'));
 const actionResultStage5 = fs.readFileSync('src/features/actions/components/ActionResult.tsx', 'utf8');
 assert.ok(actionResultStage5.includes('variant/x:Action/'));
+
+// Stage 6: exact original server labels for nested account contexts.
+const stage6Samples = [
+  ['variant/x:UserRoles/User/label', 'User role', 'Роль пользователя'],
+  ['variant/x:UserRoles/Admin/label', 'Administrator role', 'Роль администратора'],
+  ['variant/x:UserRoles/Custom/label', 'Custom role', 'Пользовательская роль'],
+  ['variant/x:Roles/Default/label', 'Default role', 'Роль по умолчанию'],
+  ['variant/x:Permissions/Inherit/label', 'Inherited permissions', 'Унаследованные права'],
+  ['variant/x:Permissions/Merge/label', 'Permissions are combined with inherited permissions', 'Объединить с унаследованными правами'],
+  ['variant/x:Permissions/Replace/label', 'Permissions replace all inherited permissions', 'Заменить унаследованные права'],
+  ['variant/x:Credential/Password/label', 'Password for authenticating to the account', 'Пароль для входа в учётную запись'],
+  ['form/x:EmailAlias/field/name', 'Local Part', 'Имя до знака @'],
+  ['form/x:EmailAlias/field/domainId', 'Domain', 'Домен'],
+  ['form/x:EmailAlias/field/enable', 'Enabled', 'Включён'],
+  ['field/x:EmailAlias/name/description', 'The local part of the email alias (the part before the @ symbol)', 'Часть почтового адреса до знака @'],
+  ['field/x:EmailAlias/domainId/description', 'Identifier for the domain of the email alias (the part after the @ symbol).', 'Домен почтового псевдонима — часть адреса после знака @.'],
+  ['form/x:PermissionsList/field/enabledPermissions', 'Enabled Permissions', 'Разрешённые права'],
+  ['form/x:CustomRoles/field/roleIds', 'Roles', 'Роли'],
+  ['form/x:SecondaryCredential/field/permissions', 'Permissions', 'Права доступа'],
+  ['form/x:EncryptionSettings/field/headerProtection', 'Header Protection', 'Защита заголовков'],
+];
+for (const hash of meta.schemaHashes) {
+  for (const [slot, original, translated] of stage6Samples) {
+    assert.equal(entries[slot]?.original, original, 'Source mismatch at ' + slot);
+    assert.equal(schemaText(hash, 'ru', slot, original), translated);
+    assert.equal(schemaText(hash, 'en', slot, original), original);
+    assert.equal(schemaText(hash, 'ru', slot, original + ' v2'), original + ' v2');
+  }
+}
+const enUi = JSON.parse(fs.readFileSync('src/i18n/en.json', 'utf8'));
+const ruUi = JSON.parse(fs.readFileSync('src/i18n/ru.json', 'utf8'));
+assert.match(enUi.actions.updateAppsScopeWarning, /all configured web applications/);
+assert.match(ruUi.actions.updateAppsScopeWarning, /все настроенные веб-приложения/);
+const actionWithWarning = fs.readFileSync('src/features/actions/ActionPage.tsx', 'utf8');
+assert.ok(actionWithWarning.includes("pending?.name === 'UpdateApps'"));
+assert.ok(actionWithWarning.includes("actions.updateAppsScopeWarning"));
+assert.ok(actionWithWarning.includes('buildActionPayload(pending.name, null, {})'));
+
+const sourceNestedRow = fs.readFileSync('src/components/forms/FieldRow.tsx', 'utf8');
+assert.ok(sourceNestedRow.includes('formField: { ...formField, label }'));
+assert.ok(sourceNestedRow.includes('formKey ? display('));
+const sourceObjectList = fs.readFileSync('src/components/forms/widgets/ObjectListWidget.tsx', 'utf8');
+assert.ok(sourceObjectList.includes('variant/${type.objectName}/${variant}/label'));
+assert.ok(sourceObjectList.includes('summaryLabel ?? itemLabel'));
+assert.ok(sourceObjectList.includes('onChange({ ...items, [key]: v })'));
 
 // Shallow DOM-independent contract: lookup cannot mutate a schema or functional identifiers.
 const sourceSchema = Object.freeze({
