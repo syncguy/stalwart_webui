@@ -44,7 +44,7 @@ jobs:
       - name: Check Russian locale
         run: node scripts/check-locales.mjs
 
-      - name: Verify nested DKIM schema translations and language safety
+      - name: Verify account variants, action labels and delivery history translations
         run: node scripts/check-schema-locale.mjs
 
       - name: TypeScript check
