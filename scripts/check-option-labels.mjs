@@ -120,7 +120,7 @@ const timeZoneOptions = [
 ];
 assert.equal(filterComboboxOptions(timeZoneOptions, 'томск')[0]?.value, 'Asia/Tomsk');
 assert.equal(filterComboboxOptions(timeZoneOptions, 'Asia/Tomsk')[0]?.value, 'Asia/Tomsk');
-assert.deepEqual(filterComboboxOptions(timeZoneOptions, '').map((x) => x.value),
+assert.deepEqual(Array.from(filterComboboxOptions(timeZoneOptions, ''), (x) => x.value),
   ['Asia/Tomsk', 'Asia/Tokyo']);
 const comboboxSource = fs.readFileSync('src/components/ui/combobox.tsx', 'utf8');
 assert.ok(comboboxSource.includes('filterComboboxOptions(options, query)'));
