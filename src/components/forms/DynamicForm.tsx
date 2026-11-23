@@ -192,6 +192,10 @@ export function DynamicForm({
   const readOnly = !isCreate && !canUpdate;
   const canDelete = !isCreate && !isSingleton && canDestroy;
   const subtitle = (model.parentForm ?? model.variantForm)?.subtitle;
+  const subtitleKey = model.parentForm
+    ? (schema.forms[viewName] ? viewName : formKey)
+    : variantFormKey ?? formKey;
+  const localizedSubtitle = subtitle ? display(`form/${subtitleKey}/subtitle`, subtitle) : undefined;
   const errorText = state.generalError ?? loadError;
   const header = (
     <div className="flex items-start gap-3.5 px-1 pb-1 pt-3">
@@ -207,7 +211,7 @@ export function DynamicForm({
       </Button>
       <div className="min-w-0 flex-1 pt-1">
         <h1 className="page-title break-words">{title}</h1>
-        {subtitle && <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>}
+        {localizedSubtitle && <p className="mt-1 text-sm text-muted-foreground">{localizedSubtitle}</p>}
       </div>
     </div>
   );
