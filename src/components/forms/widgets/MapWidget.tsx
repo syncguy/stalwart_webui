@@ -22,6 +22,8 @@ import { useDisplayName, useObjectOptions } from '@/data/objectOptions';
 import { buildNewObjectValue, getEnum, getEnumVariant, mapEntryValueType } from '@/lib/schemaResolver';
 import { isRecord } from '@/lib/embeddedSchema';
 import { cn } from '@/lib/utils';
+import { useCanTranslateSchema, useSchemaText } from '@/hooks/useSchemaText';
+import { quotaOptionLabel } from '@/i18n/schemaOptionLabels';
 import type { WidgetProps } from '@/components/forms/widgets/types';
 import type { Field, FieldType, FieldTypeMap, MapValueType, ScalarType } from '@/types/schema';
 
@@ -157,7 +159,7 @@ export function MapWidget({ type, formField, value, onChange, readOnly }: Widget
                     aria-hidden="true"
                   />
                   <span className="truncate">
-                    <MapKeyLabel keyClass={type.keyClass} keyValue={key} />
+                    <MapKeyLabel keyClass={type.keyClass} keyValue={key} quota={formField.name === 'quotas'} />
                   </span>
                 </button>
                 {removeButton(key)}
@@ -174,7 +176,7 @@ export function MapWidget({ type, formField, value, onChange, readOnly }: Widget
               className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_2rem] items-center gap-3 rounded-lg py-1 pl-3 transition-colors hover:bg-muted-strong/60"
             >
               <span className="truncate text-sm font-medium">
-                <MapKeyLabel keyClass={type.keyClass} keyValue={key} />
+                <MapKeyLabel keyClass={type.keyClass} keyValue={key} quota={formField.name === 'quotas'} />
               </span>
               <div className="min-w-0">{valueControl(key, val)}</div>
               {removeButton(key)}
@@ -190,6 +192,7 @@ export function MapWidget({ type, formField, value, onChange, readOnly }: Widget
               onChange={setNewKey}
               onKeyDown={handleKeyDown}
               existingKeys={map}
+              quota={formField.name === 'quotas'}
             />
             <Button
               type="button"
@@ -212,9 +215,16 @@ export function MapWidget({ type, formField, value, onChange, readOnly }: Widget
   );
 }
 
-function MapKeyLabel({ keyClass, keyValue }: { keyClass: ScalarType; keyValue: string }) {
+function MapKeyLabel({ keyClass, keyValue, quota }: { keyClass: ScalarType; keyValue: string; quota: boolean }) {
   const { schema } = useFormContext();
-  if (keyClass.type === 'enum') return <>{getEnumVariant(schema, keyClass.enumName, keyValue)?.label ?? keyValue}</>;
+  const display = useSchemaText();
+  const canTranslate = useCanTranslateSchema();
+  if (keyClass.type === 'enum') {
+    const variant = getEnumVariant(schema, keyClass.enumName, keyValue);
+    if (!variant) return <>{keyValue}</>;
+    const localized = display(`enum/${keyClass.enumName}/${variant.name}/label`, variant.label);
+    return <>{quota && canTranslate ? quotaOptionLabel(localized) : localized}</>;
+  }
   if (keyClass.type === 'objectId') return <ObjectIdKeyLabel objectName={keyClass.objectName} id={keyValue} />;
   return <>{keyValue}</>;
 }
@@ -233,11 +243,14 @@ interface MapKeyInputProps {
   onChange: (value: string) => void;
   onKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
   existingKeys: Record<string, unknown>;
+  quota: boolean;
 }
 
-function MapKeyInput({ keyClass, label, value, onChange, onKeyDown, existingKeys }: MapKeyInputProps) {
+function MapKeyInput({ keyClass, label, value, onChange, onKeyDown, existingKeys, quota }: MapKeyInputProps) {
   const { t } = useTranslation();
   const { schema } = useFormContext();
+  const display = useSchemaText();
+  const canTranslate = useCanTranslateSchema();
   switch (keyClass.type) {
     case 'enum': {
       const variants = getEnum(schema, keyClass.enumName).filter((v) => !Object.hasOwn(existingKeys, v.name));
@@ -249,7 +262,10 @@ function MapKeyInput({ keyClass, label, value, onChange, onKeyDown, existingKeys
           <SelectContent>
             {variants.map((v) => (
               <SelectItem key={v.name} value={v.name}>
-                {v.label}
+                {(() => {
+                  const localized = display(`enum/${keyClass.enumName}/${v.name}/label`, v.label);
+                  return quota && canTranslate ? quotaOptionLabel(localized) : localized;
+                })()}
               </SelectItem>
             ))}
           </SelectContent>
