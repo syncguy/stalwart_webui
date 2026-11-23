@@ -11,7 +11,8 @@
     "failedTitle": "Action failed",
     "noAdditionalData": "No additional data returned.",
     "otherGroup": "Other",
-    "title": "Actions"
+    "title": "Actions",
+    "updateAppsScopeWarning": "Updates all configured web applications, not only this interface. Check every application's resource URL and external download policy before continuing."
   },
   "bootstrap": {
     "complete": "Setup complete",
