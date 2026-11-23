@@ -12,6 +12,7 @@ import { FieldRow } from '@/components/forms/FieldRow';
 import { FormSectionCard } from '@/components/forms/FormSections';
 import { FormProvider } from '@/components/forms/FormProvider';
 import { resolveVariantForm } from '@/lib/schemaResolver';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import type { ObjectVariant, Schema } from '@/types/schema';
 import { editableSections, missingRequiredFields } from '../actionModel';
 
@@ -25,6 +26,7 @@ interface ActionFormProps {
 
 export function ActionForm({ schema, variant, initialData, onSubmit, onBack }: ActionFormProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const [formData, setFormData] = useState(initialData);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -73,12 +75,21 @@ export function ActionForm({ schema, variant, initialData, onSubmit, onBack }: A
         >
           <ArrowLeft className="h-5 w-5" aria-hidden="true" />
         </Button>
-        <h1 className="page-title min-w-0 flex-1 break-words pt-1">{variant.label}</h1>
+        <h1 className="page-title min-w-0 flex-1 break-words pt-1">{display(`variant/x:Action/${variant.name}/label`, variant.label)}</h1>
       </div>
 
       <FormProvider schema={schema} mode="create">
-        {sections.map((section) => (
-          <FormSectionCard key={section.fields.map((f) => f.name).join('|')} title={section.title}>
+        {sections.map((section) => {
+          const sourceIndex = form.sections.findIndex((original) =>
+            original.fields.some((f) => f.name === section.fields[0]?.name),
+          );
+          return (
+          <FormSectionCard
+            key={section.fields.map((f) => f.name).join('|')}
+            title={section.title && sourceIndex >= 0
+              ? display(`form/${variant.schemaName}/section/section-${sourceIndex}`, section.title)
+              : section.title}
+          >
             {section.fields.map((ff) => {
               const def = fields.properties[ff.name];
               if (!def) return null;
@@ -86,6 +97,7 @@ export function ActionForm({ schema, variant, initialData, onSubmit, onBack }: A
                 <FieldRow
                   key={ff.name}
                   formField={ff}
+                  formKey={variant.schemaName}
                   field={def}
                   value={formData[ff.name]}
                   onChange={(v) => handleChange(ff.name, v)}
@@ -94,7 +106,8 @@ export function ActionForm({ schema, variant, initialData, onSubmit, onBack }: A
               );
             })}
           </FormSectionCard>
-        ))}
+          );
+        })}
       </FormProvider>
 
       <div className="flex justify-end gap-2 pt-1">
