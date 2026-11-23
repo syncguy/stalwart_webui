@@ -299,7 +299,12 @@ const clients=sortBy(Object.entries(en).map(([id,original])=>({
   messageId:id,original,ru:ru[id]??null,
   status:ru[id]===undefined?'missing':ru[id]===original?'same-text-needs-review':'translated'
 })), 'messageId');
-const unknownClientKeys=Object.keys(ru).filter(k=>!(k in en)).sort();
+const pluralStems = Object.keys(en)
+  .filter(k => k.endsWith('_one') && Object.hasOwn(en, k.slice(0,-4)+'_other'))
+  .map(k => k.slice(0,-4));
+const allowedRuPluralKeys = new Set(pluralStems.flatMap(k=>[k+'_few',k+'_many']));
+const extraRuPlurals=Object.keys(ru).filter(k=>!(k in en)&&allowedRuPluralKeys.has(k)).sort();
+const unknownClientKeys=Object.keys(ru).filter(k=>!(k in en)&&!allowedRuPluralKeys.has(k)).sort();
 const astReferences=[], rawJsx=[], dynamicCalls=[];
 const scanned=[];
 function scan(dir) {
@@ -388,10 +393,11 @@ const report={
       ({edition,file,blobSha,sha256Gzip,schemaHash,jsonSha256,jsonLength}))},
   summary:{slots:rows.length,sourceLocations:rows.reduce((a,x)=>a+x.locations.length,0),
     uniqueEnglish:memory.length,status:statusCount,byCategory,conflicts:slotConflicts.length,
-    orphanEntries:orphan.length,clientMessages:clients.length,clientUnknownKeys:unknownClientKeys.length,
+    orphanEntries:orphan.length,clientMessages:clients.length,clientExtraPluralForms:extraRuPlurals.length,
+    clientUnknownKeys:unknownClientKeys.length,
     rawJsxCandidates:rawJsx.length,dynamicCallsForReview:dynamicCalls.length,
     scannedSourceFiles:scanned.length,permission:permissionStats},
-  rows,slotConflicts,orphan,clients,unknownClientKeys,astReferences,rawJsx,dynamicCalls,memory,
+  rows,slotConflicts,orphan,clients,extraRuPlurals,unknownClientKeys,astReferences,rawJsx,dynamicCalls,memory,
 };
 const reportDir=process.argv.find(x=>x.startsWith('--out='))?.slice(6)??'.artifacts/locale-coverage';
 if (!process.argv.includes('--no-write')) {
@@ -410,7 +416,8 @@ if (!process.argv.includes('--no-write')) {
       '; distinct English originals: '+memory.length,
     'Status: '+JSON.stringify(statusCount),
     'Orphan accepted keys: '+orphan.length+'; source conflicts: '+slotConflicts.length,
-    'Client messages: '+clients.length+'; raw JSX candidates: '+rawJsx.length+
+    'Client messages: '+clients.length+'; extra RU plural forms: '+extraRuPlurals.length+
+      '; raw JSX candidates: '+rawJsx.length+
       '; dynamic-call reviews: '+dynamicCalls.length,
     '',
     '## Missing / review queue (first 250 source slots)',
