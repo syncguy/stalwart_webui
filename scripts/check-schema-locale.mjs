@@ -199,6 +199,82 @@ assert.match(stableVariantSource, /const segmented = isSegmented\(variants\)/);
 assert.match(stableVariantSource, /onChange\(v\.name\)/);
 assert.match(stableVariantSource, /value=\{v\.name\}/);
 
+// Stage 5: source-verified, view-specific Accounts, Actions, tenant and trace labels.
+const stage5Samples = [
+  ['list/x:Action/title', 'Actions', 'Действия'],
+  ['list/x:Action/subtitle', 'Execute server management actions', 'Выполнение административных действий сервера'],
+  ['variant/x:Action/UpdateApps/label', 'Application Management: Update applications', 'Управление приложениями: Обновить приложения'],
+  ['variant/x:Action/PauseMtaQueue/label', 'MTA: Pause queue processing', 'MTA: Приостановить обработку очереди'],
+  ['nav/container/Management/Emails/History', 'History', 'История'],
+  ['list/x:Trace/InboundDelivery/title', 'Inbound Delivery Attempts', 'Попытки входящей доставки'],
+  ['list/x:Trace/OutboundDelivery/title', 'Outbound Delivery Attempts', 'Попытки исходящей доставки'],
+  ['list/x:Trace/OutboundDelivery/column/timestamp', 'Date', 'Дата'],
+  ['list/x:Tenant/title', 'Tenants', 'Арендаторы'],
+  ['form/x:Tenant/section/section-2', 'Quotas', 'Квоты'],
+  ['form/x:UserAccount/section/section-0', 'User Account', 'Учётная запись пользователя'],
+  ['form/x:UserAccount/section/section-2', 'Groups & Roles', 'Группы и роли'],
+  ['form/x:GroupAccount/section/section-1', 'Roles & Permissions', 'Роли и права доступа'],
+  ['form/x:UserAccount/field/name', 'Username', 'Имя пользователя'],
+  ['form/x:GroupAccount/field/aliases', 'Email Aliases', 'Почтовые псевдонимы'],
+  ['field/x:MailingList/recipients/description', 'List of email addresses that are members of the mailing list', 'Почтовые адреса участников списка рассылки'],
+  ['field/x:Role/enabledPermissions/description', 'List of permissions that are explicitly enabled.', 'Права, явно разрешённые этой ролью.'],
+  ['field/x:OAuthClient/scopes/description', 'Scopes the client may request. When empty, the client can only request sign-in (openid).', 'Области доступа, запрашиваемые клиентом. Если список пуст, доступен только вход (openid).'],
+  ['variant/x:Account/User/label', 'User account', 'Учётная запись пользователя'],
+];
+for (const hash of meta.schemaHashes) {
+  for (const [slot, original, russian] of stage5Samples) {
+    assert.equal(entries[slot]?.original, original, 'Source label mismatch: ' + slot);
+    assert.equal(schemaText(hash, 'ru', slot, original), russian);
+    assert.equal(schemaText(hash, 'en', slot, original), original);
+    assert.equal(schemaText(hash, 'ru', slot, original + ' new'), original + ' new');
+  }
+}
+
+// Execute the pure form display selector; schema IDs and section offsets are untouched.
+const formCtxTs = fs.readFileSync('src/i18n/schemaFormContext.ts', 'utf8');
+const formCtxJs = ts.transpileModule(formCtxTs, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
+}).outputText;
+const formCtxExports = {};
+vm.runInNewContext(formCtxJs, { exports: formCtxExports }, { filename: 'schemaFormContext.ts' });
+const ctx = (section, base, variant, parentCount) =>
+  JSON.parse(JSON.stringify(formCtxExports.sectionDisplayContext(section, base, variant, parentCount)));
+assert.deepEqual(ctx('section-0', 'x:Account', 'x:UserAccount', 1), {
+  formKey: 'x:Account', sectionKey: 'section-0',
+});
+assert.deepEqual(ctx('section-1', 'x:Account', 'x:UserAccount', 1), {
+  formKey: 'x:UserAccount', sectionKey: 'section-0',
+});
+assert.deepEqual(ctx('section-3', 'x:Account', 'x:GroupAccount', 1), {
+  formKey: 'x:GroupAccount', sectionKey: 'section-2',
+});
+assert.deepEqual(ctx('section-2', 'x:DkimSignature', 'x:Dkim1Signature', 1), {
+  formKey: 'x:Dkim1Signature', sectionKey: 'section-1',
+});
+assert.deepEqual(ctx('section-2', 'x:OAuthClient', 'x:OAuthClient', 0), {
+  formKey: 'x:OAuthClient', sectionKey: 'section-2',
+});
+assert.deepEqual(ctx('section-1', 'x:Domain', undefined, 0), {
+  formKey: 'x:Domain', sectionKey: 'section-1',
+});
+
+// Wiring is display-only: routes and event payloads retain raw names and IDs.
+const dynamicFormStage5 = fs.readFileSync('src/components/forms/DynamicForm.tsx', 'utf8');
+const formSectionsStage5 = fs.readFileSync('src/components/forms/FormSections.tsx', 'utf8');
+assert.ok(dynamicFormStage5.includes('variantFormKey={variantFormKey}'));
+assert.ok(dynamicFormStage5.includes('parentSectionCount={parentSectionCount}'));
+assert.ok(formSectionsStage5.includes('sectionDisplayContext(section.key, formKey, variantFormKey, parentSectionCount)'));
+assert.ok(formSectionsStage5.includes('formKey={context.formKey}'));
+const actionsStage5 = fs.readFileSync('src/features/actions/ActionPage.tsx', 'utf8');
+assert.ok(actionsStage5.includes('splitActionLabel(actionLabel(entry.variant)).name'));
+assert.ok(actionsStage5.includes('buildActionPayload(pending.name, null, {})'));
+assert.ok(actionsStage5.includes('hasPermission('));
+assert.ok(actionsStage5.includes('setMutation.mutateAsync({ create: { [CREATE_ID]: payload } })'));
+const actionFormStage5 = fs.readFileSync('src/features/actions/components/ActionForm.tsx', 'utf8');
+assert.ok(actionFormStage5.includes('formKey={variant.schemaName}'));
+const actionResultStage5 = fs.readFileSync('src/features/actions/components/ActionResult.tsx', 'utf8');
+assert.ok(actionResultStage5.includes('variant/x:Action/'));
+
 // Shallow DOM-independent contract: lookup cannot mutate a schema or functional identifiers.
 const sourceSchema = Object.freeze({
   layouts: Object.freeze([Object.freeze({ name: 'Management', viewName: 'x:Domain' })]),
