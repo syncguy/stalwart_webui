@@ -79,9 +79,12 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
 
   const obj = resolved.object;
   const objectName = obj.objectName;
-  const title = display(`list/${objectName}/title`, list.title);
-  const subtitle = display(`list/${objectName}/subtitle`, list.subtitle);
-  const singularName = display(`list/${objectName}/singular`, list.singularName);
+  // A view can have its own list schema (e.g. Account/User vs Account/Group).
+  // This key affects only displayed translations, never JMAP object or list identity.
+  const listKey = Object.hasOwn(schema.lists, viewName) ? viewName : objectName;
+  const title = display(`list/${listKey}/title`, list.title);
+  const subtitle = display(`list/${listKey}/subtitle`, list.subtitle);
+  const singularName = display(`list/${listKey}/singular`, list.singularName);
   const fields = getListFields(resolved.resolvedSchema);
   const labelProperty = getDisplayProperty(schema, viewName);
   const listState = useDynamicList(objectName, list, labelProperty in fields ? labelProperty : undefined);
@@ -222,7 +225,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
       <section className="tile relative overflow-hidden">
         {visibleFilters.length > 0 && (
           <FilterBar
-            listKey={objectName}
+            listKey={listKey}
             schema={schema}
             filters={visibleFilters}
             applied={state.filters}
@@ -245,7 +248,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
         )}
 
         <ListTable
-          listKey={objectName}
+          listKey={listKey}
           caption={title}
           columns={list.columns}
           fields={fields}
@@ -262,7 +265,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
             itemActions.length > 0
               ? (_item, id, label) => (
                   <RowActions
-                    listKey={objectName}
+                    listKey={listKey}
                     actions={itemActions}
                     label={label}
                     hrefFor={(action) => itemActionHref(action, id, sectionFor, section, viewFor)}
