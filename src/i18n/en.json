@@ -385,6 +385,7 @@
     "selectFilterPlaceholder": "Select {{label}}...",
     "selectNamed": "Select {{label}}",
     "showing": "Showing {{from}}-{{to}} of {{total}} {{name}}",
+    "showingRange": "Showing {{from}}-{{to}} of {{total}}",
     "showingItems": "Showing {{count}} items",
     "sortAscending": "Sort ascending",
     "sortClear": "Clear sort",
