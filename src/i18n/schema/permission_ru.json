@@ -512,19 +512,19 @@
     },
     "jmapCoreEcho": {
       "original": "JMAP: Echo back input data for testing",
-      "ru": "JMAP: Echo back input data for testing"
+      "ru": "JMAP: Проверка соединения (возврат переданных данных)"
     },
     "jmapMetadataGet": {
       "original": "JMAP: Read shared object metadata",
-      "ru": "JMAP: Read shared object metadata"
+      "ru": "JMAP: Чтение общих метаданных объектов"
     },
     "jmapMetadataSet": {
       "original": "JMAP: Modify shared object metadata",
-      "ru": "JMAP: Modify shared object metadata"
+      "ru": "JMAP: Изменение общих метаданных объектов"
     },
     "jmapMetadataPrivate": {
       "original": "JMAP: Read and modify private object metadata",
-      "ru": "JMAP: Read and modify private object metadata"
+      "ru": "JMAP: Чтение и изменение личных метаданных объектов"
     },
     "imapAuthenticate": {
       "original": "IMAP: Sign in to the IMAP server",
@@ -996,7 +996,7 @@
     },
     "sysActionCreate": {
       "original": "Actions Management: Create actions",
-      "ru": "Actions Management: Create actions"
+      "ru": "Действия: создание"
     },
     "sysAddressBookGet": {
       "original": "Settings: Get address book settings",
