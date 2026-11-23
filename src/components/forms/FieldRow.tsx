@@ -86,8 +86,10 @@ export function FieldRow({ field, formField, formKey, value, onChange, error, re
   const ft = field.type;
   const ids = fieldIds(ctx.idPrefix, [...scope.path, formField.name]);
   const topLevel = scope.path.length === 0;
-  const label = formKey && topLevel ? display(`form/${formKey}/field/${formField.name}`, formField.label) : formField.label;
-  const description = formKey && topLevel
+  // EmbeddedObjectEditor supplies the actual nested schemaName; the path still
+  // controls DOM identity and read-only semantics, not translation lookup.
+  const label = formKey ? display(`form/${formKey}/field/${formField.name}`, formField.label) : formField.label;
+  const description = formKey
     ? display(`field/${formKey}/${formField.name}/description`, field.description)
     : field.description;
   const referencesLocked =
