@@ -13,33 +13,41 @@ import type { Metric } from '../types/metrics';
 import { headlineRatio } from '../helpers';
 import { toneClasses } from './tone';
 import { TileHeader } from './TileHeader';
+import { useSchemaText } from '@/hooks/useSchemaText';
 
 interface HeadlineTileProps {
+  dashboardId: string;
+  itemIndex: number;
   headline: Headline & Placement;
   className?: string;
   historySamples: Metric[];
 }
 
-export function HeadlineTile({ headline, className, historySamples }: HeadlineTileProps) {
+export function HeadlineTile({ dashboardId, itemIndex, headline, className, historySamples }: HeadlineTileProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
+  const title = display(`dashboard/${dashboardId}/item/${itemIndex}/title`, headline.title);
+  const description = headline.description
+    ? display(`dashboard/${dashboardId}/item/${itemIndex}/description`, headline.description)
+    : undefined;
   const toneClass = toneClasses(headline.tone);
   const ratio = headlineRatio(headline, historySamples);
 
   return (
     <Card
       role="figure"
-      aria-label={headline.title}
+      aria-label={title}
       className={cn('flex min-h-[148px] flex-col gap-3 px-5 pb-5 pt-[18px]', toneClass.surface, className)}
     >
-      <TileHeader icon={headline.icon} title={headline.title} badgeClass={toneClass.badge} />
+      <TileHeader icon={headline.icon} title={title} badgeClass={toneClass.badge} />
       <div
         data-slot="headline-value"
         className="font-display text-[2.75rem] font-[750] leading-none tracking-[-0.035em] tabular-nums"
       >
         {ratio === null ? t('dashboard.noData', 'No data') : formatPercent(ratio * 100)}
       </div>
-      {headline.description && (
-        <p className={cn('text-[13px] leading-relaxed', toneClass.muted)}>{headline.description}</p>
+      {description && (
+        <p className={cn('text-[13px] leading-relaxed', toneClass.muted)}>{description}</p>
       )}
     </Card>
   );
