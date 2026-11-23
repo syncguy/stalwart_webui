@@ -61,7 +61,7 @@ export function RowActions({ actions, listKey, label, hrefFor, onMutation, onLoc
                 }
                 onSelect={() => onMutation(entry)}
               >
-                {entry.action.label}
+                {listKey ? display(`list/${listKey}/itemAction/${entry.key}/label`, entry.action.label) : entry.action.label}
               </DropdownMenuItem>
             );
           }
