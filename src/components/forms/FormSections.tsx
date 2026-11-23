@@ -60,6 +60,7 @@ export function FormSections({
                 <VariantSelect
                   key={formField.name}
                   label={fieldLabel(formField.name, formField.label)}
+                  variantScope={formKey}
                   variants={variant.variants}
                   value={variant.value}
                   onChange={variant.onChange}
