@@ -662,6 +662,10 @@
       "original": "Vacation Response",
       "ru": "Автоответчик"
     },
+    "form/x:Account/field/@type": {
+      "original": "Account type",
+      "ru": "Тип учётной записи"
+    },
     "form/x:AccountPassword/section/section-0": {
       "original": "Password",
       "ru": "Пароль"
@@ -5470,6 +5474,10 @@
       "original": "Emails",
       "ru": "Почта"
     },
+    "nav/container/Management/Emails/History": {
+      "original": "History",
+      "ru": "История"
+    },
     "nav/container/Management/Observability": {
       "original": "Observability",
       "ru": "Наблюдаемость"
@@ -5697,6 +5705,18 @@
     "nav/link/Management/x:Task/TaskFailed": {
       "original": "Failed",
       "ru": "С ошибками"
+    },
+    "nav/link/Management/x:Tenant": {
+      "original": "Tenants",
+      "ru": "Арендаторы"
+    },
+    "nav/link/Management/x:Trace/InboundDelivery": {
+      "original": "Inbound Delivery",
+      "ru": "Входящая доставка"
+    },
+    "nav/link/Management/x:Trace/OutboundDelivery": {
+      "original": "Outbound Delivery",
+      "ru": "Исходящая доставка"
     },
     "nav/link/Settings/x:AcmeProvider": {
       "original": "ACME Providers",
@@ -6129,6 +6149,14 @@
     "object/x:Trace/description": {
       "original": "Stores a message delivery trace with associated events.",
       "ru": "История доставки сообщения и связанных с ним событий."
+    },
+    "variant/x:Account/Group/label": {
+      "original": "Group account",
+      "ru": "Групповая учётная запись"
+    },
+    "variant/x:Account/User/label": {
+      "original": "User account",
+      "ru": "Учётная запись пользователя"
     },
     "variant/x:Action/ClassifySpam/label": {
       "original": "Spam Filter: Classify a message",
