@@ -399,6 +399,7 @@
     "selectFilterPlaceholder": "Выберите {{label}}...",
     "selectNamed": "Выбрать {{label}}",
     "showing": "Показано {{from}}–{{to}} из {{total}} {{name}}",
+    "showingRange": "Показано {{from}}–{{to}} из {{total}}",
     "showingItems": "Показано элементов: {{count}}",
     "sortAscending": "Сортировать по возрастанию",
     "sortClear": "Сбросить сортировку",
