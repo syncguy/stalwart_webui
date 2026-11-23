@@ -18,6 +18,8 @@ import { usePermissionCheckers } from '@/hooks/usePermissions';
 import { getEnum } from '@/lib/schemaResolver';
 import { useFormContext } from '@/components/forms/formContext';
 import { useCanTranslateSchema, useSchemaText } from '@/hooks/useSchemaText';
+import { permissionDisplayLabel } from '@/i18n/schemaPermissionText';
+import { filterComboboxOptions } from '@/components/ui/comboboxSearch';
 import { headerProtectionOptionLabel, localeOptionLabel } from '@/i18n/schemaOptionLabels';
 import { RemovablePill } from '@/components/forms/widgets/RemovablePill';
 import type { ControlProps, WidgetProps } from '@/components/forms/widgets/types';
@@ -94,7 +96,11 @@ const GRID_THRESHOLD = 3;
 export function EnumMultiSelect({ enumName, items, onChange, readOnly, minItems, control }: EnumMultiSelectProps) {
   const { t } = useTranslation();
   const display = useSchemaText();
-  const labelFor = (v: EnumVariant) => display(`enum/${enumName}/${v.name}/label`, v.label);
+  const canTranslate = useCanTranslateSchema();
+  const labelFor = (v: EnumVariant) => {
+    const localized = display(`enum/${enumName}/${v.name}/label`, v.label);
+    return enumName === 'Permission' && canTranslate ? permissionDisplayLabel(v.name, localized) : localized;
+  };
   const explanationFor = (v: EnumVariant) => v.explanation
     ? display(`enum/${enumName}/${v.name}/explanation`, v.explanation)
     : undefined;
@@ -144,9 +150,16 @@ export function EnumMultiSelect({ enumName, items, onChange, readOnly, minItems,
     );
   }
 
-  const query = searchQuery.toLowerCase();
-  const filtered = query
-    ? variants.filter((v) => labelFor(v).toLowerCase().includes(query) || v.label.toLowerCase().includes(query) || v.name.toLowerCase().includes(query))
+  const filtered = searchQuery
+    ? filterComboboxOptions(
+        variants.map((v) => ({
+          value: v.name,
+          label: labelFor(v),
+          keywords: [v.label, v.name],
+          variant: v,
+        })),
+        searchQuery,
+      ).map(({ variant }) => variant)
     : variants;
 
   return (
@@ -174,7 +187,9 @@ export function EnumMultiSelect({ enumName, items, onChange, readOnly, minItems,
         <PopoverTrigger asChild>
           <Button {...control} type="button" variant="secondary" size="sm" disabled={readOnly}>
             <Search aria-hidden="true" />
-            {t('field.selectOptions', 'Select options...')}
+            {enumName === 'Permission'
+              ? t('field.selectPermissions', 'Select permissions...')
+              : t('field.selectOptions', 'Select options...')}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-72 overflow-hidden p-0" align="start">
