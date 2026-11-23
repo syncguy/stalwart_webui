@@ -46,8 +46,10 @@ assert.ok(hook.includes('canTranslateSchema(schemaHash, i18n.resolvedLanguage ??
 
 const enumSource = fs.readFileSync('src/components/forms/widgets/EnumWidgets.tsx', 'utf8');
 assert.ok(enumSource.includes('useCanTranslateSchema()'));
-assert.ok(enumSource.includes("formField.name === 'locale' ? localeOptionLabel(v.name, translated)"));
-assert.ok(enumSource.includes("formField.name === 'headerProtection' ? headerProtectionOptionLabel(translated)"));
+assert.ok(enumSource.includes("formField.name === 'locale'"));
+assert.ok(enumSource.includes("label = localeOptionLabel(v.name, translated)"));
+assert.ok(enumSource.includes("formField.name === 'headerProtection'"));
+assert.ok(enumSource.includes("label = headerProtectionOptionLabel(translated)"));
 assert.ok(enumSource.includes('value: v.name'));
 assert.ok(enumSource.includes("onChange(v === '' ? null : v)"));
 
