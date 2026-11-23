@@ -525,6 +525,7 @@
     "eventCount_many": "{{count}} событий"
   },
   "tryEnterprise": "Попробовать Enterprise",
+  "interfaceLanguage": "Язык интерфейса",
   "userMenu": "Меню пользователя",
   "value": {
     "itemCount_one": "{{count}} элемент",
