@@ -74,6 +74,7 @@ function TextFilter({ filter, values, onChange }: FilterFieldProps<FilterText>) 
 
 function EnumFilter({ schema, filter, values, onChange }: FilterFieldProps<FilterEnum>) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const id = useId();
   const variants = getEnum(schema, filter.enumName);
   const value = values[filter.field] || ALL_VALUE;
@@ -85,7 +86,7 @@ function EnumFilter({ schema, filter, values, onChange }: FilterFieldProps<Filte
         <Combobox
           options={[
             { value: ALL_VALUE, label: t('filters.all', 'All') },
-            ...variants.map((v) => ({ value: v.name, label: v.label })),
+            ...variants.map((v) => ({ value: v.name, label: display(`enum/${filter.enumName}/${v.name}/label`, v.label) })), 
           ]}
           value={value}
           onValueChange={handleChange}
@@ -106,7 +107,7 @@ function EnumFilter({ schema, filter, values, onChange }: FilterFieldProps<Filte
           <SelectItem value={ALL_VALUE}>{t('filters.all', 'All')}</SelectItem>
           {variants.map((v) => (
             <SelectItem key={v.name} value={v.name}>
-              {v.label}
+              {display(`enum/${filter.enumName}/${v.name}/label`, v.label)}
             </SelectItem>
           ))}
         </SelectContent>
