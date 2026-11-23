@@ -18,6 +18,158 @@
     ]
   },
   "entries": {
+    "dashboard/authentication/label": {
+      "original": "Message Authentication",
+      "ru": "Проверка подлинности сообщений"
+    },
+    "dashboard/cache/label": {
+      "original": "Cache",
+      "ru": "Кэш"
+    },
+    "dashboard/delivery/label": {
+      "original": "Delivery",
+      "ru": "Доставка"
+    },
+    "dashboard/encryption/label": {
+      "original": "Encryption",
+      "ru": "Шифрование"
+    },
+    "dashboard/network/label": {
+      "original": "Network",
+      "ru": "Сеть"
+    },
+    "dashboard/overview/item/0/description": {
+      "original": "Messages accepted from remote senders during the period.",
+      "ru": "Сообщения, принятые от удалённых отправителей за выбранный период."
+    },
+    "dashboard/overview/item/0/title": {
+      "original": "Received Messages",
+      "ru": "Принятые сообщения"
+    },
+    "dashboard/overview/item/1/description": {
+      "original": "Authenticated submissions, DSNs and reports queued during the period.",
+      "ru": "Письма с аутентификацией, уведомления DSN и отчёты, поставленные в очередь за выбранный период."
+    },
+    "dashboard/overview/item/1/title": {
+      "original": "Sent Messages",
+      "ru": "Отправленные сообщения"
+    },
+    "dashboard/overview/item/2/description": {
+      "original": "Messages currently in the delivery queue.",
+      "ru": "Сообщения, находящиеся сейчас в очереди доставки."
+    },
+    "dashboard/overview/item/2/title": {
+      "original": "Pending Messages",
+      "ru": "Сообщения в очереди"
+    },
+    "dashboard/overview/item/3/description": {
+      "original": "Total memory used by the Stalwart processes across all nodes.",
+      "ru": "Общий объём памяти процессов Stalwart на всех узлах."
+    },
+    "dashboard/overview/item/3/title": {
+      "original": "Server Memory",
+      "ru": "Память сервера"
+    },
+    "dashboard/overview/item/4/series/0/label": {
+      "original": "received",
+      "ru": "получено"
+    },
+    "dashboard/overview/item/4/series/1/label": {
+      "original": "sent",
+      "ru": "отправлено"
+    },
+    "dashboard/overview/item/4/title": {
+      "original": "Messages",
+      "ru": "Сообщения"
+    },
+    "dashboard/overview/item/5/description": {
+      "original": "Share of inbound messages classified as ham during the period.",
+      "ru": "Доля входящих сообщений, признанных не спамом за выбранный период."
+    },
+    "dashboard/overview/item/5/title": {
+      "original": "Clean mail",
+      "ru": "Почта без спама"
+    },
+    "dashboard/overview/item/6/description": {
+      "original": "Messages and connections refused during the period, by reason.",
+      "ru": "Сообщения и соединения, отклонённые за период, с разбивкой по причинам."
+    },
+    "dashboard/overview/item/6/series/0/label": {
+      "original": "Spam",
+      "ru": "Спам"
+    },
+    "dashboard/overview/item/6/series/1/label": {
+      "original": "Blocked IPs",
+      "ru": "Заблокированные IP"
+    },
+    "dashboard/overview/item/6/series/2/label": {
+      "original": "Failed logins",
+      "ru": "Неудачные входы"
+    },
+    "dashboard/overview/item/6/series/3/label": {
+      "original": "Unknown recipients",
+      "ru": "Неизвестные получатели"
+    },
+    "dashboard/overview/item/6/series/4/label": {
+      "original": "Relay denied",
+      "ru": "Отказ в ретрансляции"
+    },
+    "dashboard/overview/item/6/series/5/label": {
+      "original": "Rate limited",
+      "ru": "Превышен лимит запросов"
+    },
+    "dashboard/overview/item/6/title": {
+      "original": "Rejections",
+      "ru": "Отклонения"
+    },
+    "dashboard/overview/item/7/description": {
+      "original": "Accounts provisioned across the cluster.",
+      "ru": "Количество учётных записей, созданных в кластере."
+    },
+    "dashboard/overview/item/7/title": {
+      "original": "Total Users",
+      "ru": "Всего пользователей"
+    },
+    "dashboard/overview/item/8/series/0/label": {
+      "original": "memory",
+      "ru": "память"
+    },
+    "dashboard/overview/item/8/title": {
+      "original": "Memory usage",
+      "ru": "Использование памяти"
+    },
+    "dashboard/overview/item/9/description": {
+      "original": "Domains hosted across the cluster.",
+      "ru": "Количество доменов, обслуживаемых кластером."
+    },
+    "dashboard/overview/item/9/title": {
+      "original": "Total Domains",
+      "ru": "Всего доменов"
+    },
+    "dashboard/overview/label": {
+      "original": "Overview",
+      "ru": "Обзор"
+    },
+    "dashboard/performance/label": {
+      "original": "Performance",
+      "ru": "Производительность"
+    },
+    "dashboard/search-index/label": {
+      "original": "Search Index",
+      "ru": "Поисковый индекс"
+    },
+    "dashboard/security/label": {
+      "original": "Security",
+      "ru": "Безопасность"
+    },
+    "dashboard/storage/label": {
+      "original": "Storage",
+      "ru": "Хранилище"
+    },
+    "dashboard/tasks/label": {
+      "original": "Tasks",
+      "ru": "Задачи"
+    },
     "enum/CredentialPermissionsType/Disable/label": {
       "original": "Disable some permissions",
       "ru": "Запретить отдельные права"
