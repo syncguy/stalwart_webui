@@ -144,7 +144,9 @@ export function VariantSelect({
   const localizedVariants = variantScope
     ? variants.map((v) => ({ ...v, label: display(`variant/${variantScope}/${v.name}/label`, v.label) }))
     : variants;
-  const segmented = isSegmented(localizedVariants);
+  // Keep the UI control type stable while switching languages in a dirty form.
+  // Translating labels must not change whether the selector is segmented.
+  const segmented = isSegmented(variants);
   const Control = segmented ? SegmentedVariants : DropdownVariants;
   const controlProps = {
     id: ids.inputId,
