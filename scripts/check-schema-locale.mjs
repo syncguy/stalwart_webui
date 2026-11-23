@@ -320,6 +320,67 @@ assert.ok(sourceObjectList.includes('variant/${type.objectName}/${variant}/label
 assert.ok(sourceObjectList.includes('summaryLabel ?? itemLabel'));
 assert.ok(sourceObjectList.includes('onChange({ ...items, [key]: v })'));
 
+// Stage 7: version-locked dashboards and visible-only JMAP/metric labels.
+const dashboardSizes = {
+  overview: 10, network: 12, delivery: 13, security: 5,
+  authentication: 12, encryption: 16, performance: 9, storage: 6,
+  'search-index': 11, tasks: 8, cache: 11,
+};
+assert.equal(Object.keys(entries).filter((k) => k.startsWith('dashboard/')).length, 274);
+for (const [id, count] of Object.entries(dashboardSizes)) {
+  assert.ok(entries['dashboard/' + id + '/label']);
+  for (let i = 0; i < count; i++) {
+    const key = 'dashboard/' + id + '/item/' + i + '/title';
+    assert.ok(entries[key], 'Missing dashboard tile ' + key);
+  }
+}
+const stage7Labels = [
+  ['nav/container/Management/Observability', 'Observability', 'Наблюдение'],
+  ['list/x:Log/title', 'Log Entries', 'Записи журнала'],
+  ['list/x:Log/column/timestamp', 'Timestamp', 'Время'],
+  ['variant/x:Action/InvalidateNegativeCaches/label', 'Cache: Invalidate negative caches', 'Кэш: Очистить кэш отрицательных результатов'],
+  ['dashboard/overview/label', 'Overview', 'Обзор'],
+  ['dashboard/overview/item/0/title', 'Received Messages', 'Принятые сообщения'],
+  ['dashboard/overview/item/4/series/0/label', 'received', 'получено'],
+  ['dashboard/network/item/9/series/0/label', 'inbound', 'входящие'],
+  ['dashboard/delivery/item/10/series/1/label', 'DSNs', 'уведомления DSN'],
+  ['dashboard/cache/item/9/series/0/label', 'hit', 'попадания'],
+];
+for (const hash of meta.schemaHashes) {
+  for (const [key, original, translated] of stage7Labels) {
+    assert.equal(entries[key]?.original, original);
+    assert.equal(schemaText(hash, 'ru', key, original), translated);
+    assert.equal(schemaText(hash, 'en', key, original), original);
+    assert.equal(schemaText(hash, 'ru', key, original + ' altered'), original + ' altered');
+  }
+}
+const rawChart = fs.readFileSync('src/features/dashboard/components/DashboardChart.tsx', 'utf8');
+assert.ok(rawChart.includes('point[series.label] = seriesValues[s][i]'));
+assert.ok(rawChart.includes('const key = s.label;'));
+assert.ok(rawChart.includes('dataKey={key}'));
+assert.ok(rawChart.includes('name={name}'));
+assert.ok(rawChart.includes('seriesName(s.label, i)'));
+const rawRanking = fs.readFileSync('src/features/dashboard/components/RankingTile.tsx', 'utf8');
+assert.ok(rawRanking.includes('rankingEntries(ranking, historySamples)'));
+assert.ok(rawRanking.includes('seriesName(entry.label)'));
+const rawDashboard = fs.readFileSync('src/features/dashboard/components/DashboardView.tsx', 'utf8');
+assert.ok(rawDashboard.includes('dashboardId={dashboardId}'));
+assert.ok(rawDashboard.includes('itemIndex={i}'));
+const rawLogList = fs.readFileSync('src/components/lists/DynamicList.tsx', 'utf8');
+assert.ok(rawLogList.includes("listKey === 'x:Log'"));
+assert.ok(rawLogList.includes("listState.error === 'No log tracers configured on the server'"));
+assert.ok(rawLogList.includes("t('logs.noTracersConfigured'"));
+const logEn = JSON.parse(fs.readFileSync('src/i18n/en.json', 'utf8'));
+const logRu = JSON.parse(fs.readFileSync('src/i18n/ru.json', 'utf8'));
+assert.equal(logEn.logs.noTracersConfigured, 'No log tracers configured on the server');
+assert.equal(logRu.logs.noTracersConfigured, 'На сервере не настроены источники журналирования');
+assert.ok(logRu.actions.negativeCacheExplanation.includes('Сами данные не удаляются'));
+const rawActions = fs.readFileSync('src/features/actions/ActionPage.tsx', 'utf8');
+assert.ok(rawActions.includes("pending?.name === 'InvalidateNegativeCaches'"));
+const readOnlyValues = fs.readFileSync('src/components/values/ScalarValues.tsx', 'utf8');
+assert.ok(readOnlyValues.includes('const display = useSchemaText()'));
+assert.ok(readOnlyValues.includes('variant.label'));
+
 // Shallow DOM-independent contract: lookup cannot mutate a schema or functional identifiers.
 const sourceSchema = Object.freeze({
   layouts: Object.freeze([Object.freeze({ name: 'Management', viewName: 'x:Domain' })]),
