@@ -17,7 +17,8 @@ import { HelpTooltip } from '@/components/common/HelpTooltip';
 import { usePermissionCheckers } from '@/hooks/usePermissions';
 import { getEnum } from '@/lib/schemaResolver';
 import { useFormContext } from '@/components/forms/formContext';
-import { useSchemaText } from '@/hooks/useSchemaText';
+import { useCanTranslateSchema, useSchemaText } from '@/hooks/useSchemaText';
+import { headerProtectionOptionLabel, localeOptionLabel } from '@/i18n/schemaOptionLabels';
 import { RemovablePill } from '@/components/forms/widgets/RemovablePill';
 import type { ControlProps, WidgetProps } from '@/components/forms/widgets/types';
 import type { EnumVariant, FieldTypeEnum } from '@/types/schema';
@@ -40,17 +41,25 @@ function useEnumVariants(enumName: string): readonly EnumVariant[] {
   return enumName === 'Permission' ? variants.filter((v) => hasPermission(v.name)) : variants;
 }
 
-export function EnumWidget({ type, value, onChange, readOnly, control }: WidgetProps<FieldTypeEnum>) {
+export function EnumWidget({ type, formField, value, onChange, readOnly, control }: WidgetProps<FieldTypeEnum>) {
   const { t } = useTranslation();
   const display = useSchemaText();
+  const canTranslate = useCanTranslateSchema();
   const variants = useEnumVariants(type.enumName);
-  const options: ComboboxOption[] = variants.map((v) => ({
+  const options: ComboboxOption[] = variants.map((v) => {
+    const translated = display(`enum/${type.enumName}/${v.name}/label`, v.label);
+    const label = !canTranslate ? translated
+      : formField.name === 'locale' ? localeOptionLabel(v.name, translated)
+      : formField.name === 'headerProtection' ? headerProtectionOptionLabel(translated)
+      : translated;
+    return {
     value: v.name,
-    label: display(`enum/${type.enumName}/${v.name}/label`, v.label),
+    label,
     description: v.explanation ? display(`enum/${type.enumName}/${v.name}/explanation`, v.explanation) : undefined,
     keywords: [v.name, v.label],
     marker: v.color ? <ColorDot color={v.color} /> : undefined,
-  }));
+    };
+  });
 
   return (
     <Combobox
