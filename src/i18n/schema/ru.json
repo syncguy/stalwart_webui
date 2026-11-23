@@ -1,84 +1,1834 @@
 {
   "meta": {
     "source": "syncguy/stalwart@win2008r2:321056f97befe0b3da531140e02d1c5c2aeb7c07",
-    "scope": "Management > Domains; original schema remains unchanged",
+    "scope": "Version-pinned display-only navigation, forms, lists and selected enum strings from both Stalwart embedded schemas; no schema mutation",
     "schemaHashes": [
       "Pryc909aTNRr_k6uwZLvZNs74YaPQv-PXQ38t2K7VlY",
       "fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs"
+    ],
+    "sources": [
+      {
+        "file": "schema_oss.json.gz",
+        "blobSha": "3d41ba6b3126648b1c1603b32ad26d60111f4420"
+      },
+      {
+        "file": "schema.json.gz",
+        "blobSha": "a7224968446b0935b245a22ce832e9ad2a6fb49a"
+      }
     ]
   },
   "entries": {
-    "layout/Management": {
-      "original": "Management",
-      "ru": "Управление"
+    "enum/IndexType/calendar/label": {
+      "original": "Calendar",
+      "ru": "Календарь"
     },
-    "layout/Settings": {
-      "original": "Settings",
-      "ru": "Настройки"
+    "enum/IndexType/email/label": {
+      "original": "Email",
+      "ru": "Почта"
     },
-    "layout/Account": {
-      "original": "Account",
-      "ru": "Учётная запись"
+    "enum/IndexType/telemetry/label": {
+      "original": "Telemetry",
+      "ru": "Телеметрия"
     },
-    "nav/container/Management/Domains": {
-      "original": "Domains",
-      "ru": "Домены"
+    "enum/Key/details/label": {
+      "original": "Details",
+      "ru": "Сведения"
     },
-    "nav/link/Management/x:Domain": {
-      "original": "Domains",
-      "ru": "Домены"
+    "enum/Key/domain/label": {
+      "original": "Domain",
+      "ru": "Домен"
     },
-    "nav/link/Management/x:DkimSignature": {
-      "original": "DKIM Signatures",
-      "ru": "Подписи DKIM"
+    "enum/Key/expires/label": {
+      "original": "Expiration",
+      "ru": "Срок действия"
     },
-    "object/x:Domain/description": {
-      "original": "Defines an email domain and its DNS, DKIM, and TLS certificate settings.",
-      "ru": "Параметры почтового домена, DNS, DKIM и сертификатов TLS."
-    },
-    "list/x:Domain/title": {
-      "original": "Domains",
-      "ru": "Домены"
-    },
-    "list/x:Domain/subtitle": {
-      "original": "Manage email domains and their DNS, DKIM, and TLS certificate settings",
-      "ru": "Управление почтовыми доменами, DNS, DKIM и сертификатами TLS"
-    },
-    "list/x:Domain/singular": {
-      "original": "domain",
-      "ru": "домен"
-    },
-    "list/x:Domain/column/name": {
-      "original": "Domain Name",
-      "ru": "Имя домена"
-    },
-    "list/x:Domain/column/enable": {
-      "original": "Enabled",
-      "ru": "Включён"
-    },
-    "list/x:Domain/column/certificateManagement": {
-      "original": "Certificate Management",
-      "ru": "Управление сертификатами"
-    },
-    "list/x:Domain/column/dnsManagement": {
-      "original": "DNS Management",
-      "ru": "Управление DNS"
-    },
-    "list/x:Domain/filter/text": {
-      "original": "Text",
-      "ru": "Текст"
-    },
-    "list/x:Domain/filter/name": {
+    "enum/Key/name/label": {
       "original": "Name",
       "ru": "Имя"
     },
-    "list/x:Domain/filter/memberTenantId": {
+    "enum/Key/size/label": {
+      "original": "Size",
+      "ru": "Размер"
+    },
+    "enum/Key/total/label": {
+      "original": "Total",
+      "ru": "Всего"
+    },
+    "enum/Key/type/label": {
+      "original": "Type",
+      "ru": "Тип"
+    },
+    "enum/MetadataDataType/AddressBook/label": {
+      "original": "Address Book",
+      "ru": "Адресная книга"
+    },
+    "enum/MetadataDataType/Calendar/label": {
+      "original": "Calendar",
+      "ru": "Календарь"
+    },
+    "enum/MetadataDataType/Email/label": {
+      "original": "Email",
+      "ru": "Почта"
+    },
+    "enum/MetadataDataType/Mailbox/label": {
+      "original": "Mailbox",
+      "ru": "Почтовый ящик"
+    },
+    "enum/MtaInboundThrottleKey/sender/label": {
+      "original": "Sender",
+      "ru": "Отправитель"
+    },
+    "enum/MtaOutboundThrottleKey/sender/label": {
+      "original": "Sender",
+      "ru": "Отправитель"
+    },
+    "enum/MtaQueueQuotaKey/sender/label": {
+      "original": "Sender",
+      "ru": "Отправитель"
+    },
+    "enum/SharedObjectType/addressBook/label": {
+      "original": "Address Book",
+      "ru": "Адресная книга"
+    },
+    "enum/SharedObjectType/calendar/label": {
+      "original": "Calendar",
+      "ru": "Календарь"
+    },
+    "enum/SharedObjectType/mailbox/label": {
+      "original": "Mailbox",
+      "ru": "Почтовый ящик"
+    },
+    "enum/SpamDnsblServerType/Domain/label": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "enum/SpamRuleType/Domain/label": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "enum/SpecialUse/inbox/label": {
+      "original": "Inbox",
+      "ru": "Входящие"
+    },
+    "enum/SpecialUse/scheduled/label": {
+      "original": "Scheduled",
+      "ru": "Запланированные"
+    },
+    "field/x:Domain/aliases/description": {
+      "original": "List of additional domain names that are aliases of this domain",
+      "ru": "Дополнительные доменные имена, являющиеся псевдонимами этого домена"
+    },
+    "field/x:Domain/allowRelaying/description": {
+      "original": "Whether to allow relaying for non-local recipients, useful in split delivery scenarios",
+      "ru": "Разрешить ретрансляцию писем внешним получателям; применяется, например, при разделённой доставке"
+    },
+    "field/x:Domain/catchAllAddress/description": {
+      "original": "Catch-all email address that receives messages addressed to unknown local recipients",
+      "ru": "Почтовый адрес для сообщений неизвестным локальным получателям"
+    },
+    "field/x:Domain/certificateManagement/description": {
+      "original": "Whether TLS certificates for this domain are managed manually or automatically by an ACME provider",
+      "ru": "Сертификатами TLS домена управляют вручную или автоматически через ACME"
+    },
+    "field/x:Domain/createdAt/description": {
+      "original": "Creation date of the domain",
+      "ru": "Дата создания домена"
+    },
+    "field/x:Domain/description/description": {
+      "original": "Description of the domain",
+      "ru": "Описание домена"
+    },
+    "field/x:Domain/dkimManagement/description": {
+      "original": "Whether DKIM keys for this domain are managed manually or automatically by the server",
+      "ru": "Ключи DKIM домена управляются вручную или автоматически сервером"
+    },
+    "field/x:Domain/dnsManagement/description": {
+      "original": "Whether DNS records for this domain are managed manually or automatically by a DNS provider",
+      "ru": "Записи DNS домена управляются вручную или автоматически поставщиком DNS"
+    },
+    "field/x:Domain/enable/description": {
+      "original": "Whether this domain is enabled",
+      "ru": "Включён ли этот домен"
+    },
+    "field/x:Domain/name/description": {
+      "original": "Domain name",
+      "ru": "Доменное имя"
+    },
+    "field/x:Domain/reportAddressUri/description": {
+      "original": "Email address to receive DMARC, TLS-RPT and CAA reports for this domain, or null to not receive reports",
+      "ru": "Адрес для отчётов DMARC, TLS-RPT и CAA; оставьте пустым, чтобы не получать отчёты"
+    },
+    "field/x:Domain/subAddressing/description": {
+      "original": "Whether sub-addressing (plus addressing) is enabled for the domain",
+      "ru": "Разрешена ли адресация с суффиксом после знака «+»"
+    },
+    "form/AddressBook/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/AddressBook/field/isDefault": {
+      "original": "Default Address Book",
+      "ru": "Адресная книга по умолчанию"
+    },
+    "form/AddressBook/field/isSubscribed": {
+      "original": "Subscribed",
+      "ru": "Подписка"
+    },
+    "form/AddressBook/field/myRights": {
+      "original": "My Rights",
+      "ru": "Мои права"
+    },
+    "form/AddressBook/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/AddressBook/field/shareWith": {
+      "original": "Shared With",
+      "ru": "Общий доступ для"
+    },
+    "form/AddressBook/field/sortOrder": {
+      "original": "Sort Order",
+      "ru": "Порядок сортировки"
+    },
+    "form/AddressBook/section/section-0": {
+      "original": "Address Book",
+      "ru": "Адресная книга"
+    },
+    "form/AddressBook/section/section-1": {
+      "original": "Display",
+      "ru": "Отображение"
+    },
+    "form/AddressBook/section/section-2": {
+      "original": "Sharing",
+      "ru": "Общий доступ"
+    },
+    "form/Calendar/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/Calendar/field/includeInAvailability": {
+      "original": "Include in Availability",
+      "ru": "Учитывать при определении занятости"
+    },
+    "form/Calendar/field/isDefault": {
+      "original": "Default Calendar",
+      "ru": "Календарь по умолчанию"
+    },
+    "form/Calendar/field/isSubscribed": {
+      "original": "Subscribed",
+      "ru": "Подписка"
+    },
+    "form/Calendar/field/isVisible": {
+      "original": "Visible",
+      "ru": "Видимый"
+    },
+    "form/Calendar/field/myRights": {
+      "original": "My Rights",
+      "ru": "Мои права"
+    },
+    "form/Calendar/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/Calendar/field/shareWith": {
+      "original": "Shared With",
+      "ru": "Общий доступ для"
+    },
+    "form/Calendar/field/sortOrder": {
+      "original": "Sort Order",
+      "ru": "Порядок сортировки"
+    },
+    "form/Calendar/field/timeZone": {
+      "original": "Time Zone",
+      "ru": "Часовой пояс"
+    },
+    "form/Calendar/section/section-0": {
+      "original": "Calendar",
+      "ru": "Календарь"
+    },
+    "form/Calendar/section/section-1": {
+      "original": "Display",
+      "ru": "Отображение"
+    },
+    "form/Calendar/section/section-2": {
+      "original": "Events",
+      "ru": "События"
+    },
+    "form/Calendar/section/section-3": {
+      "original": "Sharing",
+      "ru": "Общий доступ"
+    },
+    "form/Mailbox/field/isSubscribed": {
+      "original": "Subscribed",
+      "ru": "Подписка"
+    },
+    "form/Mailbox/field/myRights": {
+      "original": "My Rights",
+      "ru": "Мои права"
+    },
+    "form/Mailbox/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/Mailbox/field/parentId": {
+      "original": "Parent Mailbox",
+      "ru": "Родительский ящик"
+    },
+    "form/Mailbox/field/role": {
+      "original": "Special Use",
+      "ru": "Специальное назначение"
+    },
+    "form/Mailbox/field/shareWith": {
+      "original": "Shared With",
+      "ru": "Общий доступ для"
+    },
+    "form/Mailbox/field/sortOrder": {
+      "original": "Sort Order",
+      "ru": "Порядок сортировки"
+    },
+    "form/Mailbox/field/totalEmails": {
+      "original": "Total Emails",
+      "ru": "Всего писем"
+    },
+    "form/Mailbox/field/totalThreads": {
+      "original": "Total Threads",
+      "ru": "Всего цепочек"
+    },
+    "form/Mailbox/field/unreadEmails": {
+      "original": "Unread Emails",
+      "ru": "Непрочитанных писем"
+    },
+    "form/Mailbox/field/unreadThreads": {
+      "original": "Unread Threads",
+      "ru": "Непрочитанных цепочек"
+    },
+    "form/Mailbox/section/section-0": {
+      "original": "Mailbox",
+      "ru": "Почтовый ящик"
+    },
+    "form/Mailbox/section/section-1": {
+      "original": "Counters",
+      "ru": "Счётчики"
+    },
+    "form/Mailbox/section/section-2": {
+      "original": "Sharing",
+      "ru": "Общий доступ"
+    },
+    "form/Principal/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/Principal/field/email": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "form/Principal/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/Principal/field/timeZone": {
+      "original": "Time Zone",
+      "ru": "Часовой пояс"
+    },
+    "form/Principal/field/type": {
+      "original": "Type",
+      "ru": "Тип"
+    },
+    "form/SieveScript/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/VacationResponse/field/toDate": {
+      "original": "To",
+      "ru": "Кому"
+    },
+    "form/VacationResponse/title": {
+      "original": "Vacation Response",
+      "ru": "Автоответчик"
+    },
+    "form/x:AccountPassword/section/section-0": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:AccountSettings/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:AccountSettings/field/encryptionAtRest": {
+      "original": "Encryption at Rest",
+      "ru": "Шифрование при хранении"
+    },
+    "form/x:AccountSettings/field/timeZone": {
+      "original": "Time Zone",
+      "ru": "Часовой пояс"
+    },
+    "form/x:AccountSettings/section/section-1": {
+      "original": "Security",
+      "ru": "Безопасность"
+    },
+    "form/x:AccountSettings/title": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:AcmeProvider/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:AcmeProvider/field/memberTenantId": {
       "original": "Tenant",
       "ru": "Арендатор"
     },
-    "list/x:Domain/action/x:Domain/DomainZone": {
-      "original": "View Zone File",
-      "ru": "Посмотреть файл зоны"
+    "form/x:AcmeProvider/section/section-2": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:AddressBook/field/maxAddressBooks": {
+      "original": "Address Books",
+      "ru": "Адресные книги"
+    },
+    "form/x:AiModelAnthropic/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:AiModelAnthropic/section/section-3": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:AiModelGemini/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:AiModelGemini/section/section-3": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:AiModelOllama/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:AiModelOllama/section/section-3": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:AiModelOpenAi/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:AiModelOpenAi/section/section-3": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:AiModelTypeSafe/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:AiModelTypeSafe/section/section-2": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:AlertEmailProperties/field/to": {
+      "original": "To",
+      "ru": "Кому"
+    },
+    "form/x:AllowedIp/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:ApiKey/field/allowedIps": {
+      "original": "Allowed IPs",
+      "ru": "Разрешённые IP-адреса"
+    },
+    "form/x:ApiKey/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:ApiKey/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:ApiKey/field/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:ApiKey/field/permissions": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:ApiKey/field/secret": {
+      "original": "Secret",
+      "ru": "Секрет"
+    },
+    "form/x:ApiKey/section/section-0": {
+      "original": "Credential",
+      "ru": "Учётные данные"
+    },
+    "form/x:ApiKey/section/section-1": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:ApiKey/section/section-2": {
+      "original": "Restrictions",
+      "ru": "Ограничения"
+    },
+    "form/x:Application/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:AppPassword/field/allowedIps": {
+      "original": "Allowed IPs",
+      "ru": "Разрешённые IP-адреса"
+    },
+    "form/x:AppPassword/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:AppPassword/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:AppPassword/field/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:AppPassword/field/permissions": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:AppPassword/field/secret": {
+      "original": "Secret",
+      "ru": "Секрет"
+    },
+    "form/x:AppPassword/section/section-0": {
+      "original": "Credential",
+      "ru": "Учётные данные"
+    },
+    "form/x:AppPassword/section/section-1": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:AppPassword/section/section-2": {
+      "original": "Restrictions",
+      "ru": "Ограничения"
+    },
+    "form/x:ArchivedCalendarEvent/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:ArchivedCalendarEvent/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:ArchivedCalendarEvent/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:ArchivedContactCard/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:ArchivedContactCard/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:ArchivedContactCard/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:ArchivedContactCard/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:ArchivedEmail/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:ArchivedEmail/field/receivedAt": {
+      "original": "Received At",
+      "ru": "Время получения"
+    },
+    "form/x:ArchivedEmail/field/size": {
+      "original": "Size",
+      "ru": "Размер"
+    },
+    "form/x:ArchivedEmail/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:ArchivedFileNode/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:ArchivedFileNode/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:ArchivedFileNode/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:ArchivedSieveScript/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:ArchivedSieveScript/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:ArchivedSieveScript/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:ArfExternalReport/field/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "form/x:ArfExternalReport/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:ArfExternalReport/field/receivedAt": {
+      "original": "Received At",
+      "ru": "Время получения"
+    },
+    "form/x:ArfExternalReport/field/to": {
+      "original": "To",
+      "ru": "Кому"
+    },
+    "form/x:ArfFeedbackReport/field/originalEnvelopeId": {
+      "original": "Envelope ID",
+      "ru": "Идентификатор конверта"
+    },
+    "form/x:ArfFeedbackReport/section/section-3": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:AsnResource/field/httpAuth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:AsnResource/section/section-2": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:Authentication/section/section-0": {
+      "original": "Directory",
+      "ru": "Каталог"
+    },
+    "form/x:Authentication/section/section-3": {
+      "original": "App Passwords",
+      "ru": "Пароли приложений"
+    },
+    "form/x:Authentication/title": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:AzureAuthClientSecret/field/clientId": {
+      "original": "Client ID",
+      "ru": "Идентификатор клиента"
+    },
+    "form/x:AzureAuthClientSecret/field/clientSecret": {
+      "original": "Client Secret",
+      "ru": "Секрет клиента"
+    },
+    "form/x:AzureAuthManagedIdentity/field/clientId": {
+      "original": "Client ID",
+      "ru": "Идентификатор клиента"
+    },
+    "form/x:AzureAuthWorkloadIdentity/field/clientId": {
+      "original": "Client ID",
+      "ru": "Идентификатор клиента"
+    },
+    "form/x:AzureStore/field/auth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:AzureStore/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:BlobStore/title": {
+      "original": "Blob Store",
+      "ru": "Хранилище объектов"
+    },
+    "form/x:BlobStoreSwap/field/store": {
+      "original": "Blob Store",
+      "ru": "Хранилище объектов"
+    },
+    "form/x:BlobStoreSwap/section/section-0": {
+      "original": "Storage",
+      "ru": "Хранение"
+    },
+    "form/x:BlobStoreSwap/section/section-3": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:BlockedIp/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:Bootstrap/section/section-1": {
+      "original": "Storage",
+      "ru": "Хранение"
+    },
+    "form/x:Cache/field/accounts": {
+      "original": "Accounts",
+      "ru": "Учётные записи"
+    },
+    "form/x:Cache/field/dkimSignatures": {
+      "original": "DKIM Signatures",
+      "ru": "Подписи DKIM"
+    },
+    "form/x:Cache/field/domains": {
+      "original": "Domains",
+      "ru": "Домены"
+    },
+    "form/x:Cache/field/events": {
+      "original": "Calendars",
+      "ru": "Календари"
+    },
+    "form/x:Cache/field/externalPublicKeys": {
+      "original": "External Public Keys",
+      "ru": "Внешние открытые ключи"
+    },
+    "form/x:Cache/field/mailingLists": {
+      "original": "Mailing Lists",
+      "ru": "Списки рассылки"
+    },
+    "form/x:Cache/field/messages": {
+      "original": "Emails",
+      "ru": "Почта"
+    },
+    "form/x:Cache/field/roles": {
+      "original": "Roles",
+      "ru": "Роли"
+    },
+    "form/x:Cache/field/scheduling": {
+      "original": "Scheduling",
+      "ru": "Планирование"
+    },
+    "form/x:Calendar/field/maxCalendars": {
+      "original": "Calendars",
+      "ru": "Календари"
+    },
+    "form/x:Certificate/field/certificate": {
+      "original": "Certificate",
+      "ru": "Сертификат"
+    },
+    "form/x:Certificate/field/issuer": {
+      "original": "Issuer",
+      "ru": "Издатель"
+    },
+    "form/x:Certificate/field/notValidAfter": {
+      "original": "Expires",
+      "ru": "Истекает"
+    },
+    "form/x:Certificate/field/notValidBefore": {
+      "original": "Valid From",
+      "ru": "Действует с"
+    },
+    "form/x:Certificate/field/privateKey": {
+      "original": "Private Key",
+      "ru": "Закрытый ключ"
+    },
+    "form/x:Certificate/field/subjectAlternativeNames": {
+      "original": "Subject Alternative Names",
+      "ru": "Дополнительные имена (SAN)"
+    },
+    "form/x:Certificate/section/section-0": {
+      "original": "TLS certificate",
+      "ru": "Сертификат TLS"
+    },
+    "form/x:CertificateManagementProperties/section/section-0": {
+      "original": "Certificate",
+      "ru": "Сертификат"
+    },
+    "form/x:CertificateManagementProperties/section/section-1": {
+      "original": "Subject Alternative Names",
+      "ru": "Дополнительные имена (SAN)"
+    },
+    "form/x:ClusterListenerGroupProperties/field/listenerIds": {
+      "original": "Listeners",
+      "ru": "Слушатели"
+    },
+    "form/x:ClusterNode/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:ClusterNode/section/section-0": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:ClusterNode/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:ClusterRole/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:ClusterRole/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:ClusterRole/section/section-1": {
+      "original": "Tasks",
+      "ru": "Задания"
+    },
+    "form/x:ClusterRole/section/section-2": {
+      "original": "Listeners",
+      "ru": "Слушатели"
+    },
+    "form/x:CredentialPermissionsList/field/permissions": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:CredentialPermissionsList/section/section-0": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:CustomRoles/field/roleIds": {
+      "original": "Roles",
+      "ru": "Роли"
+    },
+    "form/x:CustomRoles/section/section-0": {
+      "original": "Roles",
+      "ru": "Роли"
+    },
+    "form/x:DataRetention/ArchivingRetention/field/archiveDeletedItemsFor": {
+      "original": "Archived Items",
+      "ru": "Архивные элементы"
+    },
+    "form/x:DataRetention/DataCleanup/title": {
+      "original": "Data Cleanup",
+      "ru": "Очистка данных"
+    },
+    "form/x:DataRetention/DataExpunge/title": {
+      "original": "Auto-Expunge",
+      "ru": "Автоматическое удаление"
+    },
+    "form/x:DataStore/title": {
+      "original": "Data Store",
+      "ru": "Хранилище данных"
+    },
+    "form/x:Directory/field/@type": {
+      "original": "Directory type",
+      "ru": "Тип каталога"
+    },
+    "form/x:DirectoryBootstrap/field/@type": {
+      "original": "Directory type",
+      "ru": "Тип каталога"
+    },
+    "form/x:Dkim1Signature/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:Dkim1Signature/field/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:Dkim1Signature/field/expire": {
+      "original": "Expiration",
+      "ru": "Срок действия"
+    },
+    "form/x:Dkim1Signature/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:Dkim1Signature/field/privateKey": {
+      "original": "Private Key",
+      "ru": "Закрытый ключ"
+    },
+    "form/x:Dkim1Signature/field/selector": {
+      "original": "Selector",
+      "ru": "Селектор"
+    },
+    "form/x:Dkim1Signature/field/stage": {
+      "original": "Rotation Stage",
+      "ru": "Этап ротации"
+    },
+    "form/x:Dkim2Signature/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:Dkim2Signature/field/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:Dkim2Signature/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:Dkim2Signature/field/privateKey": {
+      "original": "Private Key",
+      "ru": "Закрытый ключ"
+    },
+    "form/x:Dkim2Signature/field/selector": {
+      "original": "Selector",
+      "ru": "Селектор"
+    },
+    "form/x:Dkim2Signature/field/stage": {
+      "original": "Rotation Stage",
+      "ru": "Этап ротации"
+    },
+    "form/x:DkimSignature/field/@type": {
+      "original": "Signature type",
+      "ru": "Тип подписи"
+    },
+    "form/x:DmarcDkimResult/field/domain": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:DmarcDkimResult/field/humanResult": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DmarcDkimResult/field/selector": {
+      "original": "Selector",
+      "ru": "Селектор"
+    },
+    "form/x:DmarcExtension/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:DmarcExternalReport/field/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "form/x:DmarcExternalReport/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DmarcExternalReport/field/receivedAt": {
+      "original": "Received At",
+      "ru": "Время получения"
+    },
+    "form/x:DmarcExternalReport/field/to": {
+      "original": "To",
+      "ru": "Кому"
+    },
+    "form/x:DmarcInternalReport/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:DmarcInternalReport/field/domain": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:DmarcPolicyOverrideReason/field/overrideType": {
+      "original": "Type",
+      "ru": "Тип"
+    },
+    "form/x:DmarcReport/field/extensions": {
+      "original": "Extensions",
+      "ru": "Расширения"
+    },
+    "form/x:DmarcReport/section/section-5": {
+      "original": "Extensions",
+      "ru": "Расширения"
+    },
+    "form/x:DmarcReportRecord/field/extensions": {
+      "original": "Extensions",
+      "ru": "Расширения"
+    },
+    "form/x:DmarcReportRecord/section/section-4": {
+      "original": "Extensions",
+      "ru": "Расширения"
+    },
+    "form/x:DmarcSpfResult/field/domain": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:DmarcSpfResult/field/humanResult": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DmarcTroubleshootDetails/field/details": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DmarcTroubleshootDetails/section/section-0": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsCustomResolver/field/protocol": {
+      "original": "Protocol",
+      "ru": "Протокол"
+    },
+    "form/x:DnsResolver/title": {
+      "original": "DNS Resolver",
+      "ru": "Резолвер DNS"
+    },
+    "form/x:DnsResolverCommon/section/section-0": {
+      "original": "Settings",
+      "ru": "Настройки"
+    },
+    "form/x:DnsResolverCustom/section/section-0": {
+      "original": "Servers",
+      "ru": "Серверы"
+    },
+    "form/x:DnsResolverCustom/section/section-1": {
+      "original": "Settings",
+      "ru": "Настройки"
+    },
+    "form/x:DnsResolverTls/section/section-0": {
+      "original": "Settings",
+      "ru": "Настройки"
+    },
+    "form/x:DnsServerAlidns/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerAlidns/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerAlidns/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerAlidns/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerAutodns/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerAutodns/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerAutodns/field/password": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:DnsServerAutodns/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerAutodns/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerAzureDns/field/clientId": {
+      "original": "Client ID",
+      "ru": "Идентификатор клиента"
+    },
+    "form/x:DnsServerAzureDns/field/clientSecret": {
+      "original": "Client Secret",
+      "ru": "Секрет клиента"
+    },
+    "form/x:DnsServerAzureDns/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerAzureDns/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerAzureDns/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerAzureDns/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerBaiduCloud/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerBaiduCloud/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerBaiduCloud/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerBaiduCloud/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerBluecatV2/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerBluecatV2/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerBluecatV2/field/password": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:DnsServerBluecatV2/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerBluecatV2/section/section-4": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerCloud/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerCloud/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerCloud/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerCloud/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerCloudflare/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerCloudflare/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerCloudflare/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerCloudflare/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerClouDns/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerClouDns/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerClouDns/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerClouDns/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerConstellix/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerConstellix/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerConstellix/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerConstellix/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerCpanel/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerCpanel/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerCpanel/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerCpanel/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerDnsimple/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerDnsimple/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerDnsimple/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerDnsimple/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerDnsMadeEasy/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerDnsMadeEasy/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerDnsMadeEasy/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerDnsMadeEasy/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerDomeneshop/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerDomeneshop/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerDomeneshop/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerDomeneshop/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerEasyDns/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerEasyDns/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerEasyDns/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerEasyDns/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerEdgeDns/field/clientSecret": {
+      "original": "Client Secret",
+      "ru": "Секрет клиента"
+    },
+    "form/x:DnsServerEdgeDns/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerEdgeDns/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerEdgeDns/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerEdgeDns/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerExoscale/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerExoscale/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerExoscale/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerExoscale/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerGlesys/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerGlesys/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerGlesys/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerGlesys/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerGodaddy/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerGodaddy/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerGodaddy/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerGodaddy/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerGoogleCloudDns/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerGoogleCloudDns/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerHuaweiCloud/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerHuaweiCloud/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerHuaweiCloud/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerHuaweiCloud/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerHurricane/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerHurricane/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerHurricane/section/section-0": {
+      "original": "Credentials",
+      "ru": "Учётные данные"
+    },
+    "form/x:DnsServerHurricane/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerIbmCloud/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerIbmCloud/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerIbmCloud/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerIbmCloud/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerInfoblox/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerInfoblox/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerInfoblox/field/password": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:DnsServerInfoblox/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerInfoblox/section/section-4": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerInwx/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerInwx/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerInwx/field/password": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:DnsServerInwx/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerInwx/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerJoker/field/auth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerJoker/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerJoker/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerJoker/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerJoker/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerLightsail/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerLightsail/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerLightsail/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerLightsail/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerLuaDns/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerLuaDns/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerLuaDns/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerLuaDns/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerMythicBeasts/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerMythicBeasts/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerMythicBeasts/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerMythicBeasts/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerNamecheap/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerNamecheap/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerNamecheap/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerNamecheap/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerNameDotCom/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerNameDotCom/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerNameDotCom/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerNameDotCom/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerNetcup/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerNetcup/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerNetcup/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerNetcup/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerNifcloud/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerNifcloud/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerNifcloud/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerNifcloud/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerOracleCloud/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerOracleCloud/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerOracleCloud/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerOracleCloud/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerOvh/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerOvh/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerOvh/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerOvh/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerPlesk/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerPlesk/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerPlesk/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerPlesk/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerPorkbun/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerPorkbun/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerPorkbun/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerPorkbun/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerPowerDns/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerPowerDns/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerPowerDns/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerPowerDns/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerRoute53/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerRoute53/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerRoute53/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerRoute53/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerSpaceship/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerSpaceship/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerSpaceship/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerSpaceship/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerTencentCloud/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerTencentCloud/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerTencentCloud/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerTencentCloud/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerTransip/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerTransip/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerTransip/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerTransip/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerTsig/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerTsig/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerTsig/field/protocol": {
+      "original": "Protocol",
+      "ru": "Протокол"
+    },
+    "form/x:DnsServerTsig/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerTsig/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerUltraDns/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerUltraDns/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerUltraDns/field/password": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:DnsServerUltraDns/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerUltraDns/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerVercel/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerVercel/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerVercel/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerVercel/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerVolcengine/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerVolcengine/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerVolcengine/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerVolcengine/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerWebSupport/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerWebSupport/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerWebSupport/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerWebSupport/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerYandexCloud/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerYandexCloud/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerYandexCloud/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerYandexCloud/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:Domain/field/aliases": {
+      "original": "Aliases",
+      "ru": "Псевдонимы"
+    },
+    "form/x:Domain/field/allowRelaying": {
+      "original": "Allow Relaying",
+      "ru": "Разрешить ретрансляцию"
+    },
+    "form/x:Domain/field/allowScimProvisioning": {
+      "original": "Allow SCIM Provisioning",
+      "ru": "Разрешить подготовку учётных записей через SCIM"
+    },
+    "form/x:Domain/field/catchAllAddress": {
+      "original": "Catch-All Address",
+      "ru": "Адрес для неизвестных получателей"
+    },
+    "form/x:Domain/field/certificateManagement": {
+      "original": "Certificate Management",
+      "ru": "Управление сертификатами"
+    },
+    "form/x:Domain/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:Domain/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:Domain/field/directoryId": {
+      "original": "Directory",
+      "ru": "Каталог"
+    },
+    "form/x:Domain/field/dkimManagement": {
+      "original": "DKIM Management",
+      "ru": "Управление DKIM"
+    },
+    "form/x:Domain/field/dnsManagement": {
+      "original": "DNS Management",
+      "ru": "Управление DNS"
+    },
+    "form/x:Domain/field/enable": {
+      "original": "Enabled",
+      "ru": "Включён"
+    },
+    "form/x:Domain/field/logo": {
+      "original": "Logo",
+      "ru": "Логотип"
+    },
+    "form/x:Domain/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:Domain/field/name": {
+      "original": "Domain Name",
+      "ru": "Имя домена"
+    },
+    "form/x:Domain/field/reportAddressUri": {
+      "original": "Report Address",
+      "ru": "Адрес для отчётов"
+    },
+    "form/x:Domain/field/subAddressing": {
+      "original": "Sub-Addressing",
+      "ru": "Дополнительная адресация"
     },
     "form/x:Domain/section/section-0": {
       "original": "Domain",
@@ -108,117 +1858,3673 @@
       "original": "Details",
       "ru": "Сведения"
     },
-    "form/x:Domain/field/name": {
-      "original": "Domain Name",
-      "ru": "Имя домена"
+    "form/x:ElasticSearchStore/field/httpAuth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
     },
-    "form/x:Domain/field/aliases": {
-      "original": "Aliases",
-      "ru": "Псевдонимы"
+    "form/x:ElasticSearchStore/section/section-2": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
     },
-    "form/x:Domain/field/enable": {
-      "original": "Enabled",
-      "ru": "Включён"
+    "form/x:Email/EmailDefaults/field/defaultFolders/keyLabel": {
+      "original": "Special Use",
+      "ru": "Специальное назначение"
     },
-    "form/x:Domain/field/memberTenantId": {
-      "original": "Tenant",
-      "ru": "Арендатор"
+    "form/x:Email/EmailDefaults/field/maxMailboxes": {
+      "original": "Mailboxes",
+      "ru": "Почтовые ящики"
     },
-    "form/x:Domain/field/directoryId": {
-      "original": "Directory",
-      "ru": "Каталог"
+    "form/x:Email/EmailDefaults/field/maxMessages": {
+      "original": "Emails",
+      "ru": "Почта"
     },
-    "form/x:Domain/field/allowScimProvisioning": {
-      "original": "Allow SCIM Provisioning",
-      "ru": "Разрешить подготовку учётных записей через SCIM"
+    "form/x:Email/EmailDefaults/field/maxPublicKeys": {
+      "original": "Public Keys",
+      "ru": "Открытые ключи"
     },
-    "form/x:Domain/field/catchAllAddress": {
-      "original": "Catch-All Address",
-      "ru": "Адрес для неизвестных получателей"
+    "form/x:Email/EmailStorage/section/section-0": {
+      "original": "Storage",
+      "ru": "Хранение"
     },
-    "form/x:Domain/field/subAddressing": {
-      "original": "Sub-Addressing",
-      "ru": "Дополнительная адресация"
-    },
-    "form/x:Domain/field/allowRelaying": {
-      "original": "Allow Relaying",
-      "ru": "Разрешить ретрансляцию"
-    },
-    "form/x:Domain/field/dkimManagement": {
-      "original": "DKIM Management",
-      "ru": "Управление DKIM"
-    },
-    "form/x:Domain/field/certificateManagement": {
-      "original": "Certificate Management",
-      "ru": "Управление сертификатами"
-    },
-    "form/x:Domain/field/dnsManagement": {
-      "original": "DNS Management",
-      "ru": "Управление DNS"
-    },
-    "form/x:Domain/field/reportAddressUri": {
-      "original": "Report Address",
-      "ru": "Адрес для отчётов"
-    },
-    "form/x:Domain/field/description": {
+    "form/x:EmailAlias/field/description": {
       "original": "Description",
       "ru": "Описание"
     },
-    "form/x:Domain/field/logo": {
-      "original": "Logo",
-      "ru": "Логотип"
+    "form/x:EmailAlias/field/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
     },
-    "form/x:Domain/field/createdAt": {
+    "form/x:EmailFolder/field/aliases": {
+      "original": "Aliases",
+      "ru": "Псевдонимы"
+    },
+    "form/x:EmailFolder/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:Encryption/EncryptionDiscovery/section/section-2": {
+      "original": "Cache",
+      "ru": "Кэш"
+    },
+    "form/x:Encryption/EncryptionDiscovery/title": {
+      "original": "Key Discovery",
+      "ru": "Поиск ключей"
+    },
+    "form/x:Encryption/EncryptionGateway/section/section-1": {
+      "original": "Encryption",
+      "ru": "Шифрование"
+    },
+    "form/x:Encryption/EncryptionStorage/section/section-0": {
+      "original": "Encryption at Rest",
+      "ru": "Шифрование при хранении"
+    },
+    "form/x:Encryption/EncryptionStorage/title": {
+      "original": "Encryption at Rest",
+      "ru": "Шифрование при хранении"
+    },
+    "form/x:Encryption/EncryptionTrust/title": {
+      "original": "S/MIME Trust",
+      "ru": "Доверие S/MIME"
+    },
+    "form/x:ExternalPublicKey/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:ExternalPublicKey/field/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "form/x:ExternalPublicKey/field/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:ExternalPublicKey/field/kind": {
+      "original": "Type",
+      "ru": "Тип"
+    },
+    "form/x:ExternalPublicKey/field/nextExpiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:ExternalPublicKey/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/nextExpiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:FileStorage/section/section-0": {
+      "original": "File Storage",
+      "ru": "Хранилище файлов"
+    },
+    "form/x:FileStorage/section/section-1": {
+      "original": "Storage",
+      "ru": "Хранение"
+    },
+    "form/x:FileStorage/title": {
+      "original": "File Storage",
+      "ru": "Хранилище файлов"
+    },
+    "form/x:GroupAccount/field/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
     },
-    "field/x:Domain/name/description": {
-      "original": "Domain name",
-      "ru": "Доменное имя"
+    "form/x:GroupAccount/field/description": {
+      "original": "Description",
+      "ru": "Описание"
     },
-    "field/x:Domain/aliases/description": {
-      "original": "List of additional domain names that are aliases of this domain",
-      "ru": "Дополнительные доменные имена, являющиеся псевдонимами этого домена"
+    "form/x:GroupAccount/field/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
     },
-    "field/x:Domain/enable/description": {
-      "original": "Whether this domain is enabled",
-      "ru": "Включён ли этот домен"
+    "form/x:GroupAccount/field/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
     },
-    "field/x:Domain/catchAllAddress/description": {
-      "original": "Catch-all email address that receives messages addressed to unknown local recipients",
-      "ru": "Почтовый адрес для сообщений неизвестным локальным получателям"
+    "form/x:GroupAccount/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
     },
-    "field/x:Domain/subAddressing/description": {
-      "original": "Whether sub-addressing (plus addressing) is enabled for the domain",
-      "ru": "Разрешена ли адресация с суффиксом после знака «+»"
+    "form/x:GroupAccount/field/name": {
+      "original": "Name",
+      "ru": "Имя"
     },
-    "field/x:Domain/allowRelaying/description": {
-      "original": "Whether to allow relaying for non-local recipients, useful in split delivery scenarios",
-      "ru": "Разрешить ретрансляцию писем внешним получателям; применяется, например, при разделённой доставке"
+    "form/x:GroupAccount/field/permissions": {
+      "original": "Permissions",
+      "ru": "Права доступа"
     },
-    "field/x:Domain/dkimManagement/description": {
-      "original": "Whether DKIM keys for this domain are managed manually or automatically by the server",
-      "ru": "Ключи DKIM домена управляются вручную или автоматически сервером"
+    "form/x:GroupAccount/field/roles": {
+      "original": "Roles",
+      "ru": "Роли"
     },
-    "field/x:Domain/certificateManagement/description": {
-      "original": "Whether TLS certificates for this domain are managed manually or automatically by an ACME provider",
-      "ru": "Сертификатами TLS домена управляют вручную или автоматически через ACME"
+    "form/x:GroupAccount/field/timeZone": {
+      "original": "Time Zone",
+      "ru": "Часовой пояс"
     },
-    "field/x:Domain/dnsManagement/description": {
-      "original": "Whether DNS records for this domain are managed manually or automatically by a DNS provider",
-      "ru": "Записи DNS домена управляются вручную или автоматически поставщиком DNS"
+    "form/x:GroupAccount/section/section-0": {
+      "original": "Group",
+      "ru": "Группа"
     },
-    "field/x:Domain/reportAddressUri/description": {
-      "original": "Email address to receive DMARC, TLS-RPT and CAA reports for this domain, or null to not receive reports",
-      "ru": "Адрес для отчётов DMARC, TLS-RPT и CAA; оставьте пустым, чтобы не получать отчёты"
+    "form/x:GroupAccount/section/section-2": {
+      "original": "Email",
+      "ru": "Почта"
     },
-    "field/x:Domain/description/description": {
-      "original": "Description of the domain",
-      "ru": "Описание домена"
+    "form/x:GroupAccount/section/section-5": {
+      "original": "Details",
+      "ru": "Сведения"
     },
-    "field/x:Domain/createdAt/description": {
-      "original": "Creation date of the domain",
-      "ru": "Дата создания домена"
+    "form/x:Http/HttpSecurity/section/section-0": {
+      "original": "Security",
+      "ru": "Безопасность"
+    },
+    "form/x:HttpAuthBasic/field/secret": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:HttpForm/field/deliverTo": {
+      "original": "Recipients",
+      "ru": "Получатели"
+    },
+    "form/x:HttpForm/section/section-2": {
+      "original": "Security",
+      "ru": "Безопасность"
+    },
+    "form/x:HttpForm/section/section-3": {
+      "original": "Defaults",
+      "ru": "Значения по умолчанию"
+    },
+    "form/x:HttpForm/title": {
+      "original": "Contact Form",
+      "ru": "Контактная форма"
+    },
+    "form/x:HttpLookup/field/httpAuth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:HttpLookup/field/maxSize": {
+      "original": "Size",
+      "ru": "Размер"
+    },
+    "form/x:HttpLookup/section/section-2": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:HttpLookup/section/section-3": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:HurricaneCredential/section/section-0": {
+      "original": "Credential",
+      "ru": "Учётные данные"
+    },
+    "form/x:IndexQueueStatus/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:IndexQueueStatus/section/section-0": {
+      "original": "Index Queue",
+      "ru": "Очередь индексации"
+    },
+    "form/x:IndexStatusFailed/field/nextRetry": {
+      "original": "Next Retry",
+      "ru": "Следующая попытка"
+    },
+    "form/x:IndexStatusFailed/section/section-0": {
+      "original": "Failed",
+      "ru": "С ошибками"
+    },
+    "form/x:InMemoryStore/title": {
+      "original": "In-Memory Store",
+      "ru": "Хранилище в памяти"
+    },
+    "form/x:InMemorySwap/section/section-0": {
+      "original": "Storage",
+      "ru": "Хранение"
+    },
+    "form/x:InMemorySwap/section/section-4": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:Jmap/JmapLimits/field/maxRequestSize": {
+      "original": "Size",
+      "ru": "Размер"
+    },
+    "form/x:Jmap/JmapLimits/field/parseLimitEmail": {
+      "original": "Emails",
+      "ru": "Почта"
+    },
+    "form/x:Jmap/JmapLimits/field/parseLimitEvent": {
+      "original": "Calendars",
+      "ru": "Календари"
+    },
+    "form/x:JokerAuthUsernamePassword/field/password": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:JokerAuthUsernamePassword/section/section-0": {
+      "original": "Credentials",
+      "ru": "Учётные данные"
+    },
+    "form/x:KafkaCoordinator/field/useTls": {
+      "original": "Enable TLS",
+      "ru": "Включить TLS"
+    },
+    "form/x:KeepStore/field/hosts": {
+      "original": "Servers",
+      "ru": "Серверы"
+    },
+    "form/x:KeepStore/section/section-0": {
+      "original": "Servers",
+      "ru": "Серверы"
+    },
+    "form/x:KeepStore/section/section-1": {
+      "original": "Security",
+      "ru": "Безопасность"
+    },
+    "form/x:KeepTlsAuthority/section/section-0": {
+      "original": "Certificates",
+      "ru": "Сертификаты"
+    },
+    "form/x:LdapDirectory/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:LdapDirectory/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:LdapDirectory/field/poolMaxConnections": {
+      "original": "Max Connections",
+      "ru": "Максимум соединений"
+    },
+    "form/x:LdapDirectory/field/useTls": {
+      "original": "Enable TLS",
+      "ru": "Включить TLS"
+    },
+    "form/x:LdapDirectory/section/section-0": {
+      "original": "Directory",
+      "ru": "Каталог"
+    },
+    "form/x:LdapDirectory/section/section-3": {
+      "original": "Filters",
+      "ru": "Фильтры"
+    },
+    "form/x:LocalFileSwap/section/section-0": {
+      "original": "File Storage",
+      "ru": "Хранилище файлов"
+    },
+    "form/x:LocalFileSwap/section/section-2": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:Log/field/details": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:MailExchanger/field/priority": {
+      "original": "Priority",
+      "ru": "Приоритет"
+    },
+    "form/x:MailingList/field/aliases": {
+      "original": "Aliases",
+      "ru": "Псевдонимы"
+    },
+    "form/x:MailingList/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MailingList/field/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:MailingList/field/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "form/x:MailingList/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:MailingList/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:MailingList/field/recipients": {
+      "original": "Recipients",
+      "ru": "Получатели"
+    },
+    "form/x:MailingList/section/section-0": {
+      "original": "Mailing List",
+      "ru": "Список рассылки"
+    },
+    "form/x:MailingList/section/section-1": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:MaskedEmail/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:MaskedEmail/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:MaskedEmail/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MaskedEmail/field/email": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "form/x:MaskedEmail/field/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:MaskedEmail/section/section-1": {
+      "original": "Expiration",
+      "ru": "Срок действия"
+    },
+    "form/x:MaskedEmail/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:MeilisearchStore/field/httpAuth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:MeilisearchStore/section/section-2": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:Metadata/section/section-1": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:Metadata/title": {
+      "original": "Metadata",
+      "ru": "Метаданные"
+    },
+    "form/x:Metrics/CollectorOtel/section/section-0": {
+      "original": "Settings",
+      "ru": "Настройки"
+    },
+    "form/x:Metrics/CollectorPrometheus/section/section-0": {
+      "original": "Settings",
+      "ru": "Настройки"
+    },
+    "form/x:Metrics/field/metrics": {
+      "original": "Metrics",
+      "ru": "Метрики"
+    },
+    "form/x:Metrics/section/section-0": {
+      "original": "Settings",
+      "ru": "Настройки"
+    },
+    "form/x:Metrics/title": {
+      "original": "Metrics",
+      "ru": "Метрики"
+    },
+    "form/x:MetricsOtelGrpc/field/httpAuth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:MetricsOtelGrpc/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:MetricsOtelHttp/field/httpAuth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:MetricsOtelHttp/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:MetricsPrometheusProperties/field/authSecret": {
+      "original": "Secret",
+      "ru": "Секрет"
+    },
+    "form/x:MetricsStore/title": {
+      "original": "Metrics Store",
+      "ru": "Хранилище метрик"
+    },
+    "form/x:MtaConnectionStrategy/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MtaConnectionStrategy/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:MtaDeliveryExpirationAttempts/section/section-0": {
+      "original": "Expiration",
+      "ru": "Срок действия"
+    },
+    "form/x:MtaDeliveryExpirationTtl/section/section-0": {
+      "original": "Expiration",
+      "ru": "Срок действия"
+    },
+    "form/x:MtaDeliverySchedule/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MtaDeliverySchedule/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:MtaHook/field/httpAuth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:MtaHook/section/section-3": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:MtaInboundThrottle/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MtaMilter/field/useTls": {
+      "original": "Enable TLS",
+      "ru": "Включить TLS"
+    },
+    "form/x:MtaOutboundStrategy/field/schedule": {
+      "original": "Scheduling",
+      "ru": "Планирование"
+    },
+    "form/x:MtaOutboundThrottle/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MtaQueueQuota/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MtaRouteCommon/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MtaRouteCommon/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:MtaRouteMx/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MtaRouteMx/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:MtaRouteRelay/field/authSecret": {
+      "original": "Secret",
+      "ru": "Секрет"
+    },
+    "form/x:MtaRouteRelay/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MtaRouteRelay/field/implicitTls": {
+      "original": "Implicit TLS",
+      "ru": "TLS с момента подключения"
+    },
+    "form/x:MtaRouteRelay/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:MtaRouteRelay/field/protocol": {
+      "original": "Protocol",
+      "ru": "Протокол"
+    },
+    "form/x:MtaRouteRelay/section/section-2": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:MtaStageAuth/section/section-0": {
+      "original": "AUTH Stage",
+      "ru": "Этап AUTH"
+    },
+    "form/x:MtaStageConnect/section/section-0": {
+      "original": "Connect Stage",
+      "ru": "Этап подключения"
+    },
+    "form/x:MtaStageData/field/addReceivedHeader": {
+      "original": "Received",
+      "ru": "Получено"
+    },
+    "form/x:MtaStageData/field/maxMessageSize": {
+      "original": "Size",
+      "ru": "Размер"
+    },
+    "form/x:MtaStageData/section/section-0": {
+      "original": "DATA Stage",
+      "ru": "Этап DATA"
+    },
+    "form/x:MtaStageData/section/section-1": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:MtaStageEhlo/section/section-0": {
+      "original": "EHLO Stage",
+      "ru": "Этап EHLO"
+    },
+    "form/x:MtaStageMail/section/section-0": {
+      "original": "MAIL FROM Stage",
+      "ru": "Этап MAIL FROM"
+    },
+    "form/x:MtaStageRcpt/section/section-0": {
+      "original": "RCPT TO Stage",
+      "ru": "Этап RCPT TO"
+    },
+    "form/x:MtaTlsStrategy/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MtaTlsStrategy/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:MtaVirtualQueue/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:MtaVirtualQueue/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:MySqlSettings/field/authSecret": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:MySqlSettings/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:MySqlStore/field/authSecret": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:MySqlStore/field/poolMaxConnections": {
+      "original": "Max Connections",
+      "ru": "Максимум соединений"
+    },
+    "form/x:MySqlStore/field/useTls": {
+      "original": "Enable TLS",
+      "ru": "Включить TLS"
+    },
+    "form/x:MySqlStore/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:NatsCoordinator/field/authSecret": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:NatsCoordinator/field/hosts": {
+      "original": "Servers",
+      "ru": "Серверы"
+    },
+    "form/x:NatsCoordinator/field/useTls": {
+      "original": "Enable TLS",
+      "ru": "Включить TLS"
+    },
+    "form/x:NatsCoordinator/section/section-5": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:NetworkListener/field/bind": {
+      "original": "Bind addresses",
+      "ru": "Адреса привязки"
+    },
+    "form/x:NetworkListener/field/implicitTls": {
+      "original": "Implicit TLS",
+      "ru": "TLS с момента подключения"
+    },
+    "form/x:NetworkListener/field/maxConnections": {
+      "original": "Max Connections",
+      "ru": "Максимум соединений"
+    },
+    "form/x:NetworkListener/field/name": {
+      "original": "Listener Id",
+      "ru": "Идентификатор слушателя"
+    },
+    "form/x:NetworkListener/field/overrideProxyTrustedNetworks": {
+      "original": "Override proxy networks",
+      "ru": "Переопределить сети прокси"
+    },
+    "form/x:NetworkListener/field/protocol": {
+      "original": "Protocol",
+      "ru": "Протокол"
+    },
+    "form/x:NetworkListener/field/socketBacklog": {
+      "original": "Backlog",
+      "ru": "Очередь соединений"
+    },
+    "form/x:NetworkListener/field/socketNoDelay": {
+      "original": "No delay",
+      "ru": "Без задержки"
+    },
+    "form/x:NetworkListener/field/socketReceiveBufferSize": {
+      "original": "Receive buffer",
+      "ru": "Буфер приёма"
+    },
+    "form/x:NetworkListener/field/socketReuseAddress": {
+      "original": "Reuse Address",
+      "ru": "Повторно использовать адрес"
+    },
+    "form/x:NetworkListener/field/socketReusePort": {
+      "original": "Reuse port",
+      "ru": "Повторно использовать порт"
+    },
+    "form/x:NetworkListener/field/socketSendBufferSize": {
+      "original": "Send buffer",
+      "ru": "Буфер отправки"
+    },
+    "form/x:NetworkListener/field/socketTosV4": {
+      "original": "Type of Service",
+      "ru": "Класс обслуживания"
+    },
+    "form/x:NetworkListener/field/tlsDisableCipherSuites": {
+      "original": "Disabled Ciphersuites",
+      "ru": "Отключённые наборы шифров"
+    },
+    "form/x:NetworkListener/field/tlsDisableProtocols": {
+      "original": "Disabled Protocols",
+      "ru": "Отключённые протоколы"
+    },
+    "form/x:NetworkListener/field/tlsIgnoreClientOrder": {
+      "original": "Ignore client order",
+      "ru": "Игнорировать порядок клиента"
+    },
+    "form/x:NetworkListener/field/tlsTimeout": {
+      "original": "Handshake Timeout",
+      "ru": "Тайм-аут TLS-рукопожатия"
+    },
+    "form/x:NetworkListener/field/useTls": {
+      "original": "Enable TLS",
+      "ru": "Включить TLS"
+    },
+    "form/x:NetworkListener/section/section-0": {
+      "original": "Listener settings",
+      "ru": "Настройки слушателя"
+    },
+    "form/x:NetworkListener/section/section-1": {
+      "original": "TLS options",
+      "ru": "Параметры TLS"
+    },
+    "form/x:NetworkListener/section/section-2": {
+      "original": "Proxy networks",
+      "ru": "Сети прокси"
+    },
+    "form/x:NetworkListener/section/section-3": {
+      "original": "Socket options",
+      "ru": "Параметры сокета"
+    },
+    "form/x:OAuthClient/field/clientId": {
+      "original": "Client ID",
+      "ru": "Идентификатор клиента"
+    },
+    "form/x:OAuthClient/field/contacts": {
+      "original": "Contact Emails",
+      "ru": "Контактные адреса"
+    },
+    "form/x:OAuthClient/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:OAuthClient/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:OAuthClient/field/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:OAuthClient/field/grantTypes": {
+      "original": "Allowed Grant Types",
+      "ru": "Разрешённые типы авторизации"
+    },
+    "form/x:OAuthClient/field/logo": {
+      "original": "Logo",
+      "ru": "Логотип"
+    },
+    "form/x:OAuthClient/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:OAuthClient/field/postLogoutRedirectUris": {
+      "original": "Post-Logout Redirect URIs",
+      "ru": "URI перенаправления после выхода"
+    },
+    "form/x:OAuthClient/field/redirectUris": {
+      "original": "Redirect URIs",
+      "ru": "URI перенаправления"
+    },
+    "form/x:OAuthClient/field/scopes": {
+      "original": "Allowed Scopes",
+      "ru": "Разрешённые области доступа"
+    },
+    "form/x:OAuthClient/field/secret": {
+      "original": "Client Secret",
+      "ru": "Секрет клиента"
+    },
+    "form/x:OAuthClient/section/section-0": {
+      "original": "OAuth Client",
+      "ru": "Клиент OAuth"
+    },
+    "form/x:OAuthClient/section/section-1": {
+      "original": "Access",
+      "ru": "Доступ"
+    },
+    "form/x:OAuthClient/section/section-2": {
+      "original": "Expiration",
+      "ru": "Срок действия"
+    },
+    "form/x:OAuthGrant/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:OAuthGrant/field/clientId": {
+      "original": "Client ID",
+      "ru": "Идентификатор клиента"
+    },
+    "form/x:OAuthGrant/field/clientKind": {
+      "original": "Registration",
+      "ru": "Регистрация"
+    },
+    "form/x:OAuthGrant/field/clientName": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:OAuthGrant/field/scopes": {
+      "original": "Access",
+      "ru": "Доступ"
+    },
+    "form/x:OidcDirectory/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:OidcDirectory/field/introspectionClientId": {
+      "original": "Client ID",
+      "ru": "Идентификатор клиента"
+    },
+    "form/x:OidcDirectory/field/introspectionClientSecret": {
+      "original": "Client Secret",
+      "ru": "Секрет клиента"
+    },
+    "form/x:OidcDirectory/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:OidcDirectory/section/section-0": {
+      "original": "Directory",
+      "ru": "Каталог"
+    },
+    "form/x:Passkey/field/createdAt": {
+      "original": "Added",
+      "ru": "Добавлено"
+    },
+    "form/x:Passkey/field/description": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:Passkey/field/registration": {
+      "original": "Passkey",
+      "ru": "Ключ доступа"
+    },
+    "form/x:Passkey/section/section-0": {
+      "original": "Registration",
+      "ru": "Регистрация"
+    },
+    "form/x:Passkey/section/section-1": {
+      "original": "Passkey",
+      "ru": "Ключ доступа"
+    },
+    "form/x:PasskeyCredential/field/algorithm": {
+      "original": "Algorithm",
+      "ru": "Алгоритм"
+    },
+    "form/x:PasskeyCredential/field/createdAt": {
+      "original": "Added",
+      "ru": "Добавлено"
+    },
+    "form/x:PasskeyCredential/field/description": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:PasskeyCredential/section/section-0": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:PasskeyCredential/section/section-1": {
+      "original": "Passkey",
+      "ru": "Ключ доступа"
+    },
+    "form/x:PasskeyRegistration/section/section-0": {
+      "original": "Registration",
+      "ru": "Регистрация"
+    },
+    "form/x:PasswordCredential/field/allowedIps": {
+      "original": "Allowed IPs",
+      "ru": "Разрешённые IP-адреса"
+    },
+    "form/x:PasswordCredential/field/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:PasswordCredential/field/secret": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:PasswordCredential/section/section-1": {
+      "original": "Restrictions",
+      "ru": "Ограничения"
+    },
+    "form/x:PermissionsList/field/disabledPermissions": {
+      "original": "Disabled Permissions",
+      "ru": "Запрещённые права"
+    },
+    "form/x:PermissionsList/field/enabledPermissions": {
+      "original": "Enabled Permissions",
+      "ru": "Разрешённые права"
+    },
+    "form/x:PermissionsList/section/section-0": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:PostgreSqlSettings/field/authSecret": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:PostgreSqlSettings/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:PostgreSqlStore/field/authSecret": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:PostgreSqlStore/field/poolMaxConnections": {
+      "original": "Max Connections",
+      "ru": "Максимум соединений"
+    },
+    "form/x:PostgreSqlStore/field/useTls": {
+      "original": "Enable TLS",
+      "ru": "Включить TLS"
+    },
+    "form/x:PostgreSqlStore/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:PublicKey/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:PublicKey/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:PublicKey/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:PublicKey/field/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:PublicKey/field/kind": {
+      "original": "Type",
+      "ru": "Тип"
+    },
+    "form/x:QueuedMessage/field/createdAt": {
+      "original": "Received At",
+      "ru": "Время получения"
+    },
+    "form/x:QueuedMessage/field/envId": {
+      "original": "Envelope ID",
+      "ru": "Идентификатор конверта"
+    },
+    "form/x:QueuedMessage/field/flags": {
+      "original": "Flags",
+      "ru": "Флаги"
+    },
+    "form/x:QueuedMessage/field/nextNotify": {
+      "original": "Next Notification",
+      "ru": "Следующее уведомление"
+    },
+    "form/x:QueuedMessage/field/nextRetry": {
+      "original": "Next Retry",
+      "ru": "Следующая попытка"
+    },
+    "form/x:QueuedMessage/field/priority": {
+      "original": "Priority",
+      "ru": "Приоритет"
+    },
+    "form/x:QueuedMessage/field/receivedFromIp": {
+      "original": "Received From IP",
+      "ru": "Получено с IP"
+    },
+    "form/x:QueuedMessage/field/receivedViaPort": {
+      "original": "Received Via Port",
+      "ru": "Получено через порт"
+    },
+    "form/x:QueuedMessage/field/recipients": {
+      "original": "Recipients",
+      "ru": "Получатели"
+    },
+    "form/x:QueuedMessage/field/returnPath": {
+      "original": "Sender",
+      "ru": "Отправитель"
+    },
+    "form/x:QueuedMessage/field/size": {
+      "original": "Size",
+      "ru": "Размер"
+    },
+    "form/x:QueuedMessage/section/section-0": {
+      "original": "Sender",
+      "ru": "Отправитель"
+    },
+    "form/x:QueuedMessage/section/section-1": {
+      "original": "Delivery",
+      "ru": "Доставка"
+    },
+    "form/x:QueuedMessage/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:QueuedMessage/section/section-3": {
+      "original": "Origin",
+      "ru": "Источник"
+    },
+    "form/x:QueuedRecipient/field/flags": {
+      "original": "Flags",
+      "ru": "Флаги"
+    },
+    "form/x:QueuedRecipient/field/notifyDue": {
+      "original": "Next Notification",
+      "ru": "Следующее уведомление"
+    },
+    "form/x:QueuedRecipient/field/queueName": {
+      "original": "Queue",
+      "ru": "Очередь"
+    },
+    "form/x:QueuedRecipient/field/retryDue": {
+      "original": "Next Retry",
+      "ru": "Следующая попытка"
+    },
+    "form/x:QueuedRecipient/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:QueuedRecipient/section/section-0": {
+      "original": "Delivery",
+      "ru": "Доставка"
+    },
+    "form/x:QueuedRecipient/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:QueueExpiryTtl/field/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "form/x:RedisClusterStore/field/authSecret": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:RedisClusterStore/field/poolMaxConnections": {
+      "original": "Max Connections",
+      "ru": "Максимум соединений"
+    },
+    "form/x:RedisClusterStore/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:RedisSentinelStore/field/authSecret": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:RedisSentinelStore/field/poolMaxConnections": {
+      "original": "Max Connections",
+      "ru": "Максимум соединений"
+    },
+    "form/x:RedisSentinelStore/field/sentinelSecret": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "form/x:RedisSentinelStore/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:RedisStore/field/poolMaxConnections": {
+      "original": "Max Connections",
+      "ru": "Максимум соединений"
+    },
+    "form/x:Role/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:Role/field/disabledPermissions": {
+      "original": "Disabled Permissions",
+      "ru": "Запрещённые права"
+    },
+    "form/x:Role/field/enabledPermissions": {
+      "original": "Enabled Permissions",
+      "ru": "Разрешённые права"
+    },
+    "form/x:Role/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:Role/field/roleIds": {
+      "original": "Extends Roles",
+      "ru": "Наследуемые роли"
+    },
+    "form/x:Role/section/section-0": {
+      "original": "Role",
+      "ru": "Роль"
+    },
+    "form/x:Role/section/section-1": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:S3Store/field/bucket": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:S3Store/section/section-2": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:SearchStore/title": {
+      "original": "Search Store",
+      "ru": "Поисковое хранилище"
+    },
+    "form/x:SecondaryCredential/field/allowedIps": {
+      "original": "Allowed IPs",
+      "ru": "Разрешённые IP-адреса"
+    },
+    "form/x:SecondaryCredential/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:SecondaryCredential/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SecondaryCredential/field/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:SecondaryCredential/field/permissions": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:SecondaryCredential/field/secret": {
+      "original": "Secret",
+      "ru": "Секрет"
+    },
+    "form/x:SecondaryCredential/section/section-0": {
+      "original": "Credential",
+      "ru": "Учётные данные"
+    },
+    "form/x:SecondaryCredential/section/section-1": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:SecondaryCredential/section/section-2": {
+      "original": "Restrictions",
+      "ru": "Ограничения"
+    },
+    "form/x:SecretKeyValue/field/secret": {
+      "original": "Secret",
+      "ru": "Секрет"
+    },
+    "form/x:SecretKeyValue/section/section-0": {
+      "original": "Secret",
+      "ru": "Секрет"
+    },
+    "form/x:SecretTextValue/field/secret": {
+      "original": "Secret",
+      "ru": "Секрет"
+    },
+    "form/x:SecretTextValue/section/section-0": {
+      "original": "Secret",
+      "ru": "Секрет"
+    },
+    "form/x:SenderAuth/field/arcVerify": {
+      "original": "Strategy",
+      "ru": "Стратегия"
+    },
+    "form/x:SenderAuth/field/dkimVerify": {
+      "original": "Strategy",
+      "ru": "Стратегия"
+    },
+    "form/x:SenderAuth/field/dmarcVerify": {
+      "original": "Strategy",
+      "ru": "Стратегия"
+    },
+    "form/x:SenderAuth/title": {
+      "original": "Sender Authentication",
+      "ru": "Проверка отправителя"
+    },
+    "form/x:Sharing/title": {
+      "original": "Sharing",
+      "ru": "Общий доступ"
+    },
+    "form/x:SieveSystemInterpreter/field/dkimSignDomain": {
+      "original": "DKIM Signatures",
+      "ru": "Подписи DKIM"
+    },
+    "form/x:SieveSystemInterpreter/section/section-0": {
+      "original": "Defaults",
+      "ru": "Значения по умолчанию"
+    },
+    "form/x:SieveSystemInterpreter/section/section-1": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:SieveSystemScript/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SieveSystemScript/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:SieveUserInterpreter/field/dkimSignDomain": {
+      "original": "DKIM Signatures",
+      "ru": "Подписи DKIM"
+    },
+    "form/x:SieveUserInterpreter/section/section-0": {
+      "original": "Security",
+      "ru": "Безопасность"
+    },
+    "form/x:SieveUserInterpreter/section/section-3": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:SieveUserScript/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SieveUserScript/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:SmimeTrustAnchor/field/certificate": {
+      "original": "Certificate",
+      "ru": "Сертификат"
+    },
+    "form/x:SmimeTrustAnchor/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SmimeTrustAnchor/field/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:SpamAi/field/@type": {
+      "original": "AI Classifier",
+      "ru": "ИИ-классификатор"
+    },
+    "form/x:SpamAiCategory/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamAiCategory/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:SpamAiProperties/section/section-0": {
+      "original": "Classifier",
+      "ru": "Классификатор"
+    },
+    "form/x:SpamAiProperties/section/section-4": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:SpamAiSignal/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:SpamClassify/section/section-2": {
+      "original": "AI Classifier",
+      "ru": "ИИ-классификатор"
+    },
+    "form/x:SpamDnsblServerAny/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamDnsblServerBody/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamDnsblServerDomain/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamDnsblServerEmail/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamDnsblServerHeader/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamDnsblServerIp/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamDnsblServerUrl/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamRuleAny/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamRuleAny/field/priority": {
+      "original": "Priority",
+      "ru": "Приоритет"
+    },
+    "form/x:SpamRuleBody/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamRuleBody/field/priority": {
+      "original": "Priority",
+      "ru": "Приоритет"
+    },
+    "form/x:SpamRuleDomain/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamRuleDomain/field/priority": {
+      "original": "Priority",
+      "ru": "Приоритет"
+    },
+    "form/x:SpamRuleEmail/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamRuleEmail/field/priority": {
+      "original": "Priority",
+      "ru": "Приоритет"
+    },
+    "form/x:SpamRuleHeader/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamRuleHeader/field/priority": {
+      "original": "Priority",
+      "ru": "Приоритет"
+    },
+    "form/x:SpamRuleIp/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamRuleIp/field/priority": {
+      "original": "Priority",
+      "ru": "Приоритет"
+    },
+    "form/x:SpamRuleUrl/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SpamRuleUrl/field/priority": {
+      "original": "Priority",
+      "ru": "Приоритет"
+    },
+    "form/x:SpamSettings/section/section-5": {
+      "original": "URL Redirectors",
+      "ru": "URL-перенаправления"
+    },
+    "form/x:SpamSettings/title": {
+      "original": "Spam Filter",
+      "ru": "Антиспам"
+    },
+    "form/x:SpamTrainingSample/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:SpamTrainingSample/field/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "form/x:SqlDirectory/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SqlDirectory/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:SqlDirectory/section/section-0": {
+      "original": "Directory",
+      "ru": "Каталог"
+    },
+    "form/x:SqliteStore/field/poolMaxConnections": {
+      "original": "Max Connections",
+      "ru": "Максимум соединений"
+    },
+    "form/x:SymmetricKey/field/cipher": {
+      "original": "Algorithm",
+      "ru": "Алгоритм"
+    },
+    "form/x:SymmetricKey/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:SystemSettings/NetworkServices/field/services/keyLabel": {
+      "original": "Protocol",
+      "ru": "Протокол"
+    },
+    "form/x:SystemSettings/NetworkServices/section/section-1": {
+      "original": "Services",
+      "ru": "Службы"
+    },
+    "form/x:SystemSettings/NetworkSettings/field/maxConnections": {
+      "original": "Max Connections",
+      "ru": "Максимум соединений"
+    },
+    "form/x:SystemSettings/NetworkSettings/section/section-0": {
+      "original": "Defaults",
+      "ru": "Значения по умолчанию"
+    },
+    "form/x:SystemSettings/NetworkSettings/section/section-1": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "form/x:Task/field/@type": {
+      "original": "Task type",
+      "ru": "Тип задания"
+    },
+    "form/x:TaskAccountMaintenance/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:TaskAccountMaintenance/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskAccountMaintenance/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskAccountMaintenance/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskBlobRecode/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskBlobRecode/field/encryption": {
+      "original": "Encryption",
+      "ru": "Шифрование"
+    },
+    "form/x:TaskBlobRecode/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskBlobRecode/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskBlobRecodeEncryption/field/@type": {
+      "original": "Encryption",
+      "ru": "Шифрование"
+    },
+    "form/x:TaskCalendarAlarmEmail/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:TaskCalendarAlarmEmail/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskCalendarAlarmEmail/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskCalendarAlarmEmail/section/section-2": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskCalendarAlarmNotification/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:TaskCalendarAlarmNotification/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskCalendarAlarmNotification/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskCalendarAlarmNotification/section/section-2": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskCalendarItipContents/field/to": {
+      "original": "To",
+      "ru": "Кому"
+    },
+    "form/x:TaskCalendarItipMessage/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:TaskCalendarItipMessage/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskCalendarItipMessage/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskCalendarItipMessage/section/section-2": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskDestroyAccount/field/accountDomainId": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:TaskDestroyAccount/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:TaskDestroyAccount/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskDestroyAccount/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskDestroyAccount/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskDmarcReport/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskDmarcReport/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskDmarcReport/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskDnsManagement/field/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:TaskDnsManagement/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskDnsManagement/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskDnsManagement/section/section-2": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskDomainManagement/field/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:TaskDomainManagement/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskDomainManagement/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskDomainManagement/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskExternalPublicKeyMaintenance/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskExternalPublicKeyMaintenance/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskExternalPublicKeyMaintenance/section/section-0": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskManager/section/section-0": {
+      "original": "Task Manager",
+      "ru": "Диспетчер задач"
+    },
+    "form/x:TaskManager/title": {
+      "original": "Task Manager",
+      "ru": "Диспетчер задач"
+    },
+    "form/x:TaskMergeThreads/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:TaskMergeThreads/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskMergeThreads/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskMergeThreads/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskReportWindow/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskReportWindow/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskReportWindow/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskRestoreArchivedItem/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:TaskRestoreArchivedItem/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:TaskRestoreArchivedItem/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskRestoreArchivedItem/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskRestoreArchivedItem/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskShareRevokeCleanup/field/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "form/x:TaskShareRevokeCleanup/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskShareRevokeCleanup/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskShareRevokeCleanup/section/section-2": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskSpamFilterMaintenance/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskSpamFilterMaintenance/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskSpamFilterMaintenance/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskStatusFailed/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:TaskStatusFailed/section/section-0": {
+      "original": "Failed",
+      "ru": "С ошибками"
+    },
+    "form/x:TaskStatusPending/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:TaskStatusPending/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskStatusRetry/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:TaskStoreMaintenance/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskStoreMaintenance/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskStoreMaintenance/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskTenantMaintenance/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskTenantMaintenance/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskTenantMaintenance/field/tenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:TaskTenantMaintenance/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskTlsReport/field/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "form/x:TaskTlsReport/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:TaskTlsReport/section/section-1": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:Tenant/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:Tenant/field/logo": {
+      "original": "Logo",
+      "ru": "Логотип"
+    },
+    "form/x:Tenant/field/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "form/x:Tenant/field/permissions": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:Tenant/field/roles": {
+      "original": "Roles",
+      "ru": "Роли"
+    },
+    "form/x:Tenant/section/section-0": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:Tenant/section/section-1": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:TlsExternalReport/field/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "form/x:TlsExternalReport/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:TlsExternalReport/field/receivedAt": {
+      "original": "Received At",
+      "ru": "Время получения"
+    },
+    "form/x:TlsExternalReport/field/to": {
+      "original": "To",
+      "ru": "Кому"
+    },
+    "form/x:TlsInternalReport/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:TlsInternalReport/field/domain": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:TlsReportPolicy/field/policyDomain": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:Trace/field/events": {
+      "original": "Events",
+      "ru": "События"
+    },
+    "form/x:Trace/field/size": {
+      "original": "Size",
+      "ru": "Размер"
+    },
+    "form/x:Trace/field/to": {
+      "original": "To",
+      "ru": "Кому"
+    },
+    "form/x:TracerCommon/field/events": {
+      "original": "Events",
+      "ru": "События"
+    },
+    "form/x:TracerLog/field/events": {
+      "original": "Events",
+      "ru": "События"
+    },
+    "form/x:TracerOtelGrpc/field/events": {
+      "original": "Events",
+      "ru": "События"
+    },
+    "form/x:TracerOtelGrpc/field/httpAuth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:TracerOtelGrpc/section/section-2": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:TracerOtelHttp/field/events": {
+      "original": "Events",
+      "ru": "События"
+    },
+    "form/x:TracerOtelHttp/field/httpAuth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:TracerOtelHttp/section/section-2": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:TracerStdout/field/events": {
+      "original": "Events",
+      "ru": "События"
+    },
+    "form/x:TracingStore/title": {
+      "original": "Tracing Store",
+      "ru": "Хранилище трассировок"
+    },
+    "form/x:UserAccount/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "form/x:UserAccount/field/credentials": {
+      "original": "Credentials",
+      "ru": "Учётные данные"
+    },
+    "form/x:UserAccount/field/description": {
+      "original": "Full Name",
+      "ru": "Полное имя"
+    },
+    "form/x:UserAccount/field/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "form/x:UserAccount/field/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "form/x:UserAccount/field/encryptionAtRest": {
+      "original": "Encryption at Rest",
+      "ru": "Шифрование при хранении"
+    },
+    "form/x:UserAccount/field/memberGroupIds": {
+      "original": "Groups",
+      "ru": "Группы"
+    },
+    "form/x:UserAccount/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:UserAccount/field/permissions": {
+      "original": "Permissions",
+      "ru": "Права доступа"
+    },
+    "form/x:UserAccount/field/roles": {
+      "original": "Roles",
+      "ru": "Роли"
+    },
+    "form/x:UserAccount/field/timeZone": {
+      "original": "Time Zone",
+      "ru": "Часовой пояс"
+    },
+    "form/x:UserAccount/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:UserAccount/section/section-3": {
+      "original": "Email",
+      "ru": "Почта"
+    },
+    "form/x:UserAccount/section/section-6": {
+      "original": "Encryption",
+      "ru": "Шифрование"
+    },
+    "form/x:UserAccount/section/section-7": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:WebHook/field/events": {
+      "original": "Events",
+      "ru": "События"
+    },
+    "form/x:WebHook/field/httpAuth": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:WebHook/section/section-1": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "layout/Account": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "layout/Management": {
+      "original": "Management",
+      "ru": "Управление"
+    },
+    "layout/Settings": {
+      "original": "Settings",
+      "ru": "Настройки"
+    },
+    "list/AddressBook/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/AddressBook/column/isDefault": {
+      "original": "Default",
+      "ru": "По умолчанию"
+    },
+    "list/AddressBook/column/isSubscribed": {
+      "original": "Subscribed",
+      "ru": "Подписка"
+    },
+    "list/AddressBook/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/AddressBook/plural": {
+      "original": "address books",
+      "ru": "адресные книги"
+    },
+    "list/AddressBook/singular": {
+      "original": "address book",
+      "ru": "адресная книга"
+    },
+    "list/AddressBook/subtitle": {
+      "original": "Manage address books",
+      "ru": "Управление адресными книгами"
+    },
+    "list/AddressBook/title": {
+      "original": "Address Books",
+      "ru": "Адресные книги"
+    },
+    "list/Calendar/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/Calendar/column/isDefault": {
+      "original": "Default",
+      "ru": "По умолчанию"
+    },
+    "list/Calendar/column/isSubscribed": {
+      "original": "Subscribed",
+      "ru": "Подписка"
+    },
+    "list/Calendar/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/Calendar/plural": {
+      "original": "calendars",
+      "ru": "календари"
+    },
+    "list/Calendar/singular": {
+      "original": "calendar",
+      "ru": "календарь"
+    },
+    "list/Calendar/subtitle": {
+      "original": "Manage calendars",
+      "ru": "Управление календарями"
+    },
+    "list/Calendar/title": {
+      "original": "Calendars",
+      "ru": "Календари"
+    },
+    "list/Mailbox/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/Mailbox/column/role": {
+      "original": "Role",
+      "ru": "Роль"
+    },
+    "list/Mailbox/column/totalEmails": {
+      "original": "Total",
+      "ru": "Всего"
+    },
+    "list/Mailbox/column/unreadEmails": {
+      "original": "Unread",
+      "ru": "Непрочитано"
+    },
+    "list/Mailbox/plural": {
+      "original": "mailboxes",
+      "ru": "почтовые ящики"
+    },
+    "list/Mailbox/singular": {
+      "original": "mailbox",
+      "ru": "почтовый ящик"
+    },
+    "list/Mailbox/subtitle": {
+      "original": "Manage email mailboxes",
+      "ru": "Управление почтовыми ящиками"
+    },
+    "list/Mailbox/title": {
+      "original": "Mailboxes",
+      "ru": "Почтовые ящики"
+    },
+    "list/Principal/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/Principal/column/email": {
+      "original": "Email",
+      "ru": "Почта"
+    },
+    "list/Principal/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/Principal/column/type": {
+      "original": "Type",
+      "ru": "Тип"
+    },
+    "list/SieveScript/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/SieveScript/title": {
+      "original": "Sieve Scripts",
+      "ru": "Скрипты Sieve"
+    },
+    "list/x:Account/Group/action/x:Account": {
+      "original": "View Group",
+      "ru": "Просмотреть группу"
+    },
+    "list/x:Account/Group/action/x:Account/User": {
+      "original": "Members",
+      "ru": "Участники"
+    },
+    "list/x:Account/Group/action/x:SpamTrainingSample": {
+      "original": "Spam Samples",
+      "ru": "Образцы спама"
+    },
+    "list/x:Account/Group/column/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "list/x:Account/Group/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:Account/Group/column/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "list/x:Account/Group/filter/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "list/x:Account/Group/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:Account/Group/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:Account/Group/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:Account/Group/plural": {
+      "original": "groups",
+      "ru": "группы"
+    },
+    "list/x:Account/Group/singular": {
+      "original": "group",
+      "ru": "группа"
+    },
+    "list/x:Account/Group/subtitle": {
+      "original": "Manage group accounts",
+      "ru": "Управление групповыми учётными записями"
+    },
+    "list/x:Account/Group/title": {
+      "original": "Groups",
+      "ru": "Группы"
+    },
+    "list/x:Account/User/action/x:Account": {
+      "original": "View Account",
+      "ru": "Просмотреть учётную запись"
+    },
+    "list/x:Account/User/action/x:PublicKey": {
+      "original": "Public Keys",
+      "ru": "Открытые ключи"
+    },
+    "list/x:Account/User/action/x:SpamTrainingSample": {
+      "original": "Spam Samples",
+      "ru": "Образцы спама"
+    },
+    "list/x:Account/User/column/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "list/x:Account/User/column/description": {
+      "original": "Full Name",
+      "ru": "Полное имя"
+    },
+    "list/x:Account/User/column/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "list/x:Account/User/filter/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "list/x:Account/User/filter/memberGroupIds": {
+      "original": "Group",
+      "ru": "Группа"
+    },
+    "list/x:Account/User/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:Account/User/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:Account/User/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:Account/User/plural": {
+      "original": "users",
+      "ru": "пользователи"
+    },
+    "list/x:Account/User/singular": {
+      "original": "user",
+      "ru": "пользователь"
+    },
+    "list/x:Account/User/subtitle": {
+      "original": "Manage user accounts",
+      "ru": "Управление учётными записями пользователей"
+    },
+    "list/x:Account/User/title": {
+      "original": "Accounts",
+      "ru": "Учётные записи"
+    },
+    "list/x:AcmeProvider/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:AcmeProvider/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:AcmeProvider/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:Action/title": {
+      "original": "Actions",
+      "ru": "Действия"
+    },
+    "list/x:AiModel/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:Alert/title": {
+      "original": "Alerts",
+      "ru": "Оповещения"
+    },
+    "list/x:AllowedIp/column/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "list/x:AllowedIp/column/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "list/x:ApiKey/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:ApiKey/column/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "list/x:ApiKey/filter/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "list/x:ApiKey/title": {
+      "original": "API Keys",
+      "ru": "Ключи API"
+    },
+    "list/x:Application/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:Application/title": {
+      "original": "Web Applications",
+      "ru": "Веб-приложения"
+    },
+    "list/x:AppPassword/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:AppPassword/column/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "list/x:AppPassword/filter/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "list/x:AppPassword/plural": {
+      "original": "App passwords",
+      "ru": "пароли приложений"
+    },
+    "list/x:AppPassword/singular": {
+      "original": "App password",
+      "ru": "пароль приложения"
+    },
+    "list/x:AppPassword/subtitle": {
+      "original": "Manage app passwords for programmatic access",
+      "ru": "Управление паролями приложений"
+    },
+    "list/x:AppPassword/title": {
+      "original": "App Passwords",
+      "ru": "Пароли приложений"
+    },
+    "list/x:ArchivedItem/column/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "list/x:ArchivedItem/column/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "list/x:ArchivedItem/filter/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "list/x:ArchivedItem/title": {
+      "original": "Archived Items",
+      "ru": "Архивные элементы"
+    },
+    "list/x:ArfExternalReport/column/receivedAt": {
+      "original": "Received At",
+      "ru": "Время получения"
+    },
+    "list/x:BlockedIp/column/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "list/x:BlockedIp/column/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "list/x:Certificate/column/subjectAlternativeNames": {
+      "original": "Subject Alternative Names",
+      "ru": "Дополнительные имена (SAN)"
+    },
+    "list/x:Certificate/filter/subjectAlternativeNames": {
+      "original": "Subject Alternative Names",
+      "ru": "Дополнительные имена (SAN)"
+    },
+    "list/x:Certificate/plural": {
+      "original": "certificates",
+      "ru": "сертификаты"
+    },
+    "list/x:Certificate/singular": {
+      "original": "certificate",
+      "ru": "сертификат"
+    },
+    "list/x:Certificate/subtitle": {
+      "original": "Manage TLS certificates",
+      "ru": "Управление сертификатами TLS"
+    },
+    "list/x:Certificate/title": {
+      "original": "TLS certificates",
+      "ru": "Сертификаты TLS"
+    },
+    "list/x:ClusterNode/column/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "list/x:ClusterRole/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:ClusterRole/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:ClusterRole/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:ClusterRole/plural": {
+      "original": "roles",
+      "ru": "роли"
+    },
+    "list/x:ClusterRole/singular": {
+      "original": "role",
+      "ru": "роль"
+    },
+    "list/x:Directory/column/@type": {
+      "original": "Type",
+      "ru": "Тип"
+    },
+    "list/x:Directory/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:Directory/plural": {
+      "original": "directories",
+      "ru": "каталоги"
+    },
+    "list/x:Directory/singular": {
+      "original": "directory",
+      "ru": "каталог"
+    },
+    "list/x:Directory/subtitle": {
+      "original": "Manage directories",
+      "ru": "Управление каталогами"
+    },
+    "list/x:Directory/title": {
+      "original": "Directories",
+      "ru": "Каталоги"
+    },
+    "list/x:DkimSignature/column/@type": {
+      "original": "Algorithm",
+      "ru": "Алгоритм"
+    },
+    "list/x:DkimSignature/column/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "list/x:DkimSignature/column/selector": {
+      "original": "Selector",
+      "ru": "Селектор"
+    },
+    "list/x:DkimSignature/column/stage": {
+      "original": "Rotation Stage",
+      "ru": "Этап ротации"
+    },
+    "list/x:DkimSignature/filter/domainId": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "list/x:DkimSignature/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:DkimSignature/plural": {
+      "original": "signatures",
+      "ru": "подписи"
+    },
+    "list/x:DkimSignature/singular": {
+      "original": "signature",
+      "ru": "подпись"
+    },
+    "list/x:DkimSignature/subtitle": {
+      "original": "Manage DKIM signatures used to sign and seal outgoing messages",
+      "ru": "Управление подписями DKIM для исходящих сообщений"
+    },
+    "list/x:DkimSignature/title": {
+      "original": "DKIM Signatures",
+      "ru": "Подписи DKIM"
+    },
+    "list/x:DmarcExternalReport/column/receivedAt": {
+      "original": "Received At",
+      "ru": "Время получения"
+    },
+    "list/x:DmarcExternalReport/filter/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "list/x:DmarcExternalReport/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:DmarcInternalReport/column/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "list/x:DmarcInternalReport/column/domain": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "list/x:DnsServer/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:Domain/action/x:Domain/DomainZone": {
+      "original": "View Zone File",
+      "ru": "Посмотреть файл зоны"
+    },
+    "list/x:Domain/column/certificateManagement": {
+      "original": "Certificate Management",
+      "ru": "Управление сертификатами"
+    },
+    "list/x:Domain/column/dnsManagement": {
+      "original": "DNS Management",
+      "ru": "Управление DNS"
+    },
+    "list/x:Domain/column/enable": {
+      "original": "Enabled",
+      "ru": "Включён"
+    },
+    "list/x:Domain/column/name": {
+      "original": "Domain Name",
+      "ru": "Имя домена"
+    },
+    "list/x:Domain/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:Domain/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:Domain/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:Domain/singular": {
+      "original": "domain",
+      "ru": "домен"
+    },
+    "list/x:Domain/subtitle": {
+      "original": "Manage email domains and their DNS, DKIM, and TLS certificate settings",
+      "ru": "Управление почтовыми доменами, DNS, DKIM и сертификатами TLS"
+    },
+    "list/x:Domain/title": {
+      "original": "Domains",
+      "ru": "Домены"
+    },
+    "list/x:ExternalPublicKey/column/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "list/x:ExternalPublicKey/column/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "list/x:ExternalPublicKey/filter/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/column/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/title": {
+      "original": "Pending Key Changes",
+      "ru": "Ожидающие изменения ключей"
+    },
+    "list/x:ExternalPublicKey/title": {
+      "original": "External Public Keys",
+      "ru": "Внешние открытые ключи"
+    },
+    "list/x:HttpLookup/title": {
+      "original": "HTTP Lists",
+      "ru": "HTTP-списки"
+    },
+    "list/x:IndexQueueStatus/column/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "list/x:Log/column/details": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "list/x:Log/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:MailingList/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:MailingList/column/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "list/x:MailingList/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:MailingList/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:MailingList/plural": {
+      "original": "mailing lists",
+      "ru": "списки рассылки"
+    },
+    "list/x:MailingList/singular": {
+      "original": "mailing list",
+      "ru": "список рассылки"
+    },
+    "list/x:MailingList/subtitle": {
+      "original": "Manage mailing lists",
+      "ru": "Управление списками рассылки"
+    },
+    "list/x:MailingList/title": {
+      "original": "Mailing Lists",
+      "ru": "Списки рассылки"
+    },
+    "list/x:MaskedEmail/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:MaskedEmail/column/email": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "list/x:MaskedEmail/filter/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "list/x:Metric/title": {
+      "original": "Metrics",
+      "ru": "Метрики"
+    },
+    "list/x:MtaConnectionStrategy/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:MtaConnectionStrategy/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:MtaConnectionStrategy/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:MtaConnectionStrategy/title": {
+      "original": "Connection Strategies",
+      "ru": "Стратегии подключений"
+    },
+    "list/x:MtaDeliverySchedule/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:MtaDeliverySchedule/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:MtaDeliverySchedule/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:MtaHook/title": {
+      "original": "MTA Hooks",
+      "ru": "Обработчики MTA"
+    },
+    "list/x:MtaInboundThrottle/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:MtaInboundThrottle/title": {
+      "original": "Inbound Rate Limits",
+      "ru": "Ограничения скорости приёма"
+    },
+    "list/x:MtaOutboundThrottle/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:MtaOutboundThrottle/title": {
+      "original": "Outbound Rate Limits",
+      "ru": "Ограничения скорости отправки"
+    },
+    "list/x:MtaRoute/column/@type": {
+      "original": "Type",
+      "ru": "Тип"
+    },
+    "list/x:MtaRoute/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:MtaRoute/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:MtaRoute/title": {
+      "original": "Routes",
+      "ru": "Маршруты"
+    },
+    "list/x:MtaTlsStrategy/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:MtaTlsStrategy/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:MtaTlsStrategy/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:MtaTlsStrategy/title": {
+      "original": "TLS Strategies",
+      "ru": "Стратегии TLS"
+    },
+    "list/x:MtaVirtualQueue/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:MtaVirtualQueue/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:MtaVirtualQueue/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:MtaVirtualQueue/title": {
+      "original": "Virtual Queues",
+      "ru": "Виртуальные очереди"
+    },
+    "list/x:NetworkListener/column/bind": {
+      "original": "Bind addresses",
+      "ru": "Адреса привязки"
+    },
+    "list/x:NetworkListener/column/implicitTls": {
+      "original": "Implicit TLS",
+      "ru": "TLS с момента подключения"
+    },
+    "list/x:NetworkListener/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:NetworkListener/column/protocol": {
+      "original": "Protocol",
+      "ru": "Протокол"
+    },
+    "list/x:NetworkListener/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:NetworkListener/plural": {
+      "original": "listeners",
+      "ru": "слушатели"
+    },
+    "list/x:NetworkListener/singular": {
+      "original": "listener",
+      "ru": "слушатель"
+    },
+    "list/x:NetworkListener/subtitle": {
+      "original": "Manage SMTP, IMAP, HTTP, and other listeners",
+      "ru": "Управление слушателями SMTP, IMAP, HTTP и других протоколов"
+    },
+    "list/x:NetworkListener/title": {
+      "original": "Listeners",
+      "ru": "Слушатели"
+    },
+    "list/x:OAuthClient/column/clientId": {
+      "original": "Client ID",
+      "ru": "Идентификатор клиента"
+    },
+    "list/x:OAuthClient/column/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "list/x:OAuthClient/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:OAuthClient/filter/clientId": {
+      "original": "Client ID",
+      "ru": "Идентификатор клиента"
+    },
+    "list/x:OAuthClient/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:OAuthClient/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:OAuthClient/plural": {
+      "original": "OAuth clients",
+      "ru": "клиенты OAuth"
+    },
+    "list/x:OAuthClient/singular": {
+      "original": "OAuth client",
+      "ru": "клиент OAuth"
+    },
+    "list/x:OAuthClient/subtitle": {
+      "original": "Manage registered OAuth client applications",
+      "ru": "Управление зарегистрированными клиентами OAuth"
+    },
+    "list/x:OAuthClient/title": {
+      "original": "OAuth Clients",
+      "ru": "Клиенты OAuth"
+    },
+    "list/x:OAuthGrant/column/clientKind": {
+      "original": "Registration",
+      "ru": "Регистрация"
+    },
+    "list/x:OAuthGrant/column/clientName": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:OAuthGrant/column/scopes": {
+      "original": "Access",
+      "ru": "Доступ"
+    },
+    "list/x:OAuthGrant/filter/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "list/x:OAuthGrant/title": {
+      "original": "Connected Applications",
+      "ru": "Подключённые приложения"
+    },
+    "list/x:Passkey/column/createdAt": {
+      "original": "Added",
+      "ru": "Добавлено"
+    },
+    "list/x:Passkey/column/description": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:Passkey/filter/createdAt": {
+      "original": "Added",
+      "ru": "Добавлено"
+    },
+    "list/x:Passkey/plural": {
+      "original": "passkeys",
+      "ru": "ключи доступа"
+    },
+    "list/x:Passkey/singular": {
+      "original": "passkey",
+      "ru": "ключ доступа"
+    },
+    "list/x:Passkey/subtitle": {
+      "original": "Manage passkeys for passwordless sign-in",
+      "ru": "Управление ключами доступа для входа без пароля"
+    },
+    "list/x:Passkey/title": {
+      "original": "Passkeys",
+      "ru": "Ключи доступа"
+    },
+    "list/x:PublicKey/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:PublicKey/column/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "list/x:PublicKey/filter/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "list/x:PublicKey/title": {
+      "original": "Public Keys",
+      "ru": "Открытые ключи"
+    },
+    "list/x:QueuedMessage/action/x:QueuedMessage/MessageContents": {
+      "original": "View Message",
+      "ru": "Просмотреть сообщение"
+    },
+    "list/x:QueuedMessage/action/x:Trace/OutboundDelivery": {
+      "original": "Delivery History",
+      "ru": "История доставки"
+    },
+    "list/x:QueuedMessage/column/createdAt": {
+      "original": "Received",
+      "ru": "Получено"
+    },
+    "list/x:QueuedMessage/column/nextRetry": {
+      "original": "Next Retry",
+      "ru": "Следующая попытка"
+    },
+    "list/x:QueuedMessage/column/returnPath": {
+      "original": "Sender",
+      "ru": "Отправитель"
+    },
+    "list/x:QueuedMessage/column/size": {
+      "original": "Size",
+      "ru": "Размер"
+    },
+    "list/x:QueuedMessage/filter/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "list/x:QueuedMessage/filter/queueName": {
+      "original": "Queue",
+      "ru": "Очередь"
+    },
+    "list/x:QueuedMessage/filter/returnPath": {
+      "original": "Sender",
+      "ru": "Отправитель"
+    },
+    "list/x:QueuedMessage/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:QueuedMessage/filter/to": {
+      "original": "To",
+      "ru": "Кому"
+    },
+    "list/x:QueuedMessage/plural": {
+      "original": "messages",
+      "ru": "сообщения"
+    },
+    "list/x:QueuedMessage/singular": {
+      "original": "message",
+      "ru": "сообщение"
+    },
+    "list/x:QueuedMessage/subtitle": {
+      "original": "Manage queued email messages pending delivery",
+      "ru": "Управление почтовыми сообщениями в очереди доставки"
+    },
+    "list/x:QueuedMessage/title": {
+      "original": "Queued Messages",
+      "ru": "Сообщения в очереди"
+    },
+    "list/x:Role/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:Role/filter/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:Role/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "list/x:Role/plural": {
+      "original": "roles",
+      "ru": "роли"
+    },
+    "list/x:Role/singular": {
+      "original": "role",
+      "ru": "роль"
+    },
+    "list/x:Role/subtitle": {
+      "original": "Manage permission roles",
+      "ru": "Управление ролями доступа"
+    },
+    "list/x:Role/title": {
+      "original": "Roles",
+      "ru": "Роли"
+    },
+    "list/x:SieveSystemScript/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:SieveSystemScript/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:SieveUserScript/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:SieveUserScript/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:SmimeTrustAnchor/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:SmimeTrustAnchor/column/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "list/x:SpamDnsblServer/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:SpamRule/column/priority": {
+      "original": "Priority",
+      "ru": "Приоритет"
+    },
+    "list/x:SpamRule/filter/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:SpamRule/title": {
+      "original": "Rules",
+      "ru": "Правила"
+    },
+    "list/x:SpamTrainingSample/column/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
+    "list/x:SpamTrainingSample/filter/accountId": {
+      "original": "Account",
+      "ru": "Учётная запись"
+    },
+    "list/x:StoreLookup/title": {
+      "original": "Store Lookups",
+      "ru": "Поиск в хранилище"
+    },
+    "list/x:SymmetricKey/column/cipher": {
+      "original": "Algorithm",
+      "ru": "Алгоритм"
+    },
+    "list/x:SymmetricKey/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:SymmetricKey/title": {
+      "original": "Symmetric Keys",
+      "ru": "Симметричные ключи"
+    },
+    "list/x:Task/column/@type": {
+      "original": "Task type",
+      "ru": "Тип задания"
+    },
+    "list/x:Task/column/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "list/x:Task/column/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "list/x:Task/filter/@type": {
+      "original": "Task type",
+      "ru": "Тип задания"
+    },
+    "list/x:Task/filter/due": {
+      "original": "Due",
+      "ru": "Срок выполнения"
+    },
+    "list/x:Task/filter/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "list/x:Task/plural": {
+      "original": "tasks",
+      "ru": "задания"
+    },
+    "list/x:Task/singular": {
+      "original": "task",
+      "ru": "задание"
+    },
+    "list/x:Task/subtitle": {
+      "original": "Manage background tasks scheduled for execution",
+      "ru": "Управление запланированными фоновыми заданиями"
+    },
+    "list/x:Task/TaskFailed/column/@type": {
+      "original": "Task type",
+      "ru": "Тип задания"
+    },
+    "list/x:Task/TaskFailed/column/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "list/x:Task/TaskFailed/filter/@type": {
+      "original": "Task type",
+      "ru": "Тип задания"
+    },
+    "list/x:Task/title": {
+      "original": "Tasks",
+      "ru": "Задания"
+    },
+    "list/x:Tenant/column/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "list/x:Tenant/column/name": {
+      "original": "Name",
+      "ru": "Имя"
+    },
+    "list/x:Tenant/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:TlsExternalReport/column/receivedAt": {
+      "original": "Received At",
+      "ru": "Время получения"
+    },
+    "list/x:TlsInternalReport/column/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания"
+    },
+    "list/x:TlsInternalReport/column/domain": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "list/x:Trace/column/events": {
+      "original": "Events",
+      "ru": "События"
+    },
+    "list/x:Trace/InboundDelivery/column/size": {
+      "original": "Size",
+      "ru": "Размер"
+    },
+    "list/x:Trace/InboundDelivery/column/to": {
+      "original": "To",
+      "ru": "Кому"
+    },
+    "list/x:Trace/InboundDelivery/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:Trace/OutboundDelivery/column/size": {
+      "original": "Size",
+      "ru": "Размер"
+    },
+    "list/x:Trace/OutboundDelivery/column/to": {
+      "original": "To",
+      "ru": "Кому"
+    },
+    "list/x:Trace/OutboundDelivery/filter/text": {
+      "original": "Text",
+      "ru": "Текст"
+    },
+    "list/x:WebHook/title": {
+      "original": "Webhooks",
+      "ru": "Веб-хуки"
+    },
+    "nav/container/Account/Credentials": {
+      "original": "Credentials",
+      "ru": "Учётные данные"
+    },
+    "nav/container/Management/Directory": {
+      "original": "Directory",
+      "ru": "Каталог"
+    },
+    "nav/container/Management/Domains": {
+      "original": "Domains",
+      "ru": "Домены"
+    },
+    "nav/container/Management/Emails": {
+      "original": "Emails",
+      "ru": "Почта"
+    },
+    "nav/container/Management/Observability": {
+      "original": "Observability",
+      "ru": "Наблюдаемость"
+    },
+    "nav/container/Management/Reports": {
+      "original": "Reports",
+      "ru": "Отчёты"
+    },
+    "nav/container/Management/Reports/Inbox": {
+      "original": "Inbox",
+      "ru": "Входящие"
+    },
+    "nav/container/Management/Reports/Outbox": {
+      "original": "Outbox",
+      "ru": "Исходящие"
+    },
+    "nav/container/Management/Tasks": {
+      "original": "Tasks",
+      "ru": "Задания"
+    },
+    "nav/container/Settings/Authentication": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "nav/container/Settings/Calendar & Contacts": {
+      "original": "Calendar & Contacts",
+      "ru": "Календари и контакты"
+    },
+    "nav/container/Settings/Cluster": {
+      "original": "Cluster",
+      "ru": "Кластер"
+    },
+    "nav/container/Settings/Email": {
+      "original": "Email",
+      "ru": "Почта"
+    },
+    "nav/container/Settings/Encryption": {
+      "original": "Encryption",
+      "ru": "Шифрование"
+    },
+    "nav/container/Settings/Files & Sharing": {
+      "original": "Files & Sharing",
+      "ru": "Файлы и общий доступ"
+    },
+    "nav/container/Settings/Lookups": {
+      "original": "Lookups",
+      "ru": "Справочники"
+    },
+    "nav/container/Settings/MTA": {
+      "original": "MTA",
+      "ru": "Почтовый транспорт MTA"
+    },
+    "nav/container/Settings/MTA/Filters": {
+      "original": "Filters",
+      "ru": "Фильтры"
+    },
+    "nav/container/Settings/MTA/Inbound": {
+      "original": "Inbound",
+      "ru": "Входящая почта"
+    },
+    "nav/container/Settings/MTA/Outbound": {
+      "original": "Outbound",
+      "ru": "Исходящая почта"
+    },
+    "nav/container/Settings/MTA/Rates & Quotas": {
+      "original": "Rates & Quotas",
+      "ru": "Ограничения частоты и квоты"
+    },
+    "nav/container/Settings/MTA/Reports": {
+      "original": "Reports",
+      "ru": "Отчёты"
+    },
+    "nav/container/Settings/MTA/Session": {
+      "original": "Session",
+      "ru": "Сеанс"
+    },
+    "nav/container/Settings/Network": {
+      "original": "Network",
+      "ru": "Сеть"
+    },
+    "nav/container/Settings/Security": {
+      "original": "Security",
+      "ru": "Безопасность"
+    },
+    "nav/container/Settings/Spam Filter": {
+      "original": "Spam Filter",
+      "ru": "Антиспам"
+    },
+    "nav/container/Settings/Spam Filter/Lists": {
+      "original": "Lists",
+      "ru": "Списки"
+    },
+    "nav/container/Settings/Storage": {
+      "original": "Storage",
+      "ru": "Хранение"
+    },
+    "nav/container/Settings/Storage/Data Retention": {
+      "original": "Data Retention",
+      "ru": "Сроки хранения данных"
+    },
+    "nav/container/Settings/Telemetry": {
+      "original": "Telemetry",
+      "ru": "Телеметрия"
+    },
+    "nav/container/Settings/Telemetry/Metrics": {
+      "original": "Metrics",
+      "ru": "Метрики"
+    },
+    "nav/link/Account/AddressBook": {
+      "original": "Address Books",
+      "ru": "Адресные книги"
+    },
+    "nav/link/Account/Calendar": {
+      "original": "Calendars",
+      "ru": "Календари"
+    },
+    "nav/link/Account/Mailbox": {
+      "original": "Mailboxes",
+      "ru": "Почтовые ящики"
+    },
+    "nav/link/Account/SieveScript": {
+      "original": "Sieve Scripts",
+      "ru": "Скрипты Sieve"
+    },
+    "nav/link/Account/VacationResponse": {
+      "original": "Vacation Response",
+      "ru": "Автоответчик"
+    },
+    "nav/link/Account/x:AccountPassword": {
+      "original": "Password",
+      "ru": "Пароль"
+    },
+    "nav/link/Account/x:AccountSettings": {
+      "original": "Settings",
+      "ru": "Настройки"
+    },
+    "nav/link/Account/x:ApiKey": {
+      "original": "API Keys",
+      "ru": "Ключи API"
+    },
+    "nav/link/Account/x:AppPassword": {
+      "original": "App Passwords",
+      "ru": "Пароли приложений"
+    },
+    "nav/link/Account/x:ArchivedItem": {
+      "original": "Archived Items",
+      "ru": "Архивные элементы"
+    },
+    "nav/link/Account/x:MaskedEmail": {
+      "original": "Masked Addresses",
+      "ru": "Маскированные адреса"
+    },
+    "nav/link/Account/x:OAuthGrant": {
+      "original": "Connected Applications",
+      "ru": "Подключённые приложения"
+    },
+    "nav/link/Account/x:Passkey": {
+      "original": "Passkeys",
+      "ru": "Ключи доступа"
+    },
+    "nav/link/Account/x:PublicKey": {
+      "original": "Public Keys",
+      "ru": "Открытые ключи"
+    },
+    "nav/link/Account/x:SpamTrainingSample": {
+      "original": "Spam Samples",
+      "ru": "Образцы спама"
+    },
+    "nav/link/Management/CustomComponent/LiveDelivery": {
+      "original": "Delivery tests",
+      "ru": "Проверка доставки"
+    },
+    "nav/link/Management/x:Account/Group": {
+      "original": "Groups",
+      "ru": "Группы"
+    },
+    "nav/link/Management/x:Account/User": {
+      "original": "Accounts",
+      "ru": "Учётные записи"
+    },
+    "nav/link/Management/x:Action": {
+      "original": "Actions",
+      "ru": "Действия"
+    },
+    "nav/link/Management/x:ClusterNode": {
+      "original": "Cluster",
+      "ru": "Кластер"
+    },
+    "nav/link/Management/x:DkimSignature": {
+      "original": "DKIM Signatures",
+      "ru": "Подписи DKIM"
+    },
+    "nav/link/Management/x:Domain": {
+      "original": "Domains",
+      "ru": "Домены"
+    },
+    "nav/link/Management/x:IndexQueueStatus": {
+      "original": "Index Queue",
+      "ru": "Очередь индексации"
+    },
+    "nav/link/Management/x:Log": {
+      "original": "Logs",
+      "ru": "Журналы"
+    },
+    "nav/link/Management/x:MailingList": {
+      "original": "Mailing Lists",
+      "ru": "Списки рассылки"
+    },
+    "nav/link/Management/x:OAuthClient": {
+      "original": "OAuth Clients",
+      "ru": "Клиенты OAuth"
+    },
+    "nav/link/Management/x:QueuedMessage": {
+      "original": "Queued",
+      "ru": "В очереди"
+    },
+    "nav/link/Management/x:Role": {
+      "original": "Roles",
+      "ru": "Роли"
+    },
+    "nav/link/Management/x:Task": {
+      "original": "Scheduled",
+      "ru": "Запланированные"
+    },
+    "nav/link/Management/x:Task/TaskFailed": {
+      "original": "Failed",
+      "ru": "С ошибками"
+    },
+    "nav/link/Settings/x:AcmeProvider": {
+      "original": "ACME Providers",
+      "ru": "Провайдеры ACME"
+    },
+    "nav/link/Settings/x:AddressBook": {
+      "original": "Address Book",
+      "ru": "Адресная книга"
+    },
+    "nav/link/Settings/x:AiModel": {
+      "original": "AI",
+      "ru": "ИИ"
+    },
+    "nav/link/Settings/x:Alert": {
+      "original": "Alerts",
+      "ru": "Оповещения"
+    },
+    "nav/link/Settings/x:AllowedIp": {
+      "original": "Allowed IPs",
+      "ru": "Разрешённые IP-адреса"
+    },
+    "nav/link/Settings/x:Application": {
+      "original": "Web Applications",
+      "ru": "Веб-приложения"
+    },
+    "nav/link/Settings/x:Asn": {
+      "original": "ASN & GeoIP",
+      "ru": "ASN и GeoIP"
+    },
+    "nav/link/Settings/x:Authentication": {
+      "original": "General",
+      "ru": "Общие"
+    },
+    "nav/link/Settings/x:BlobStore": {
+      "original": "Blob Store",
+      "ru": "Хранилище объектов"
+    },
+    "nav/link/Settings/x:BlockedIp": {
+      "original": "Blocked IPs",
+      "ru": "Заблокированные IP-адреса"
+    },
+    "nav/link/Settings/x:Cache": {
+      "original": "Cache",
+      "ru": "Кэш"
+    },
+    "nav/link/Settings/x:Calendar": {
+      "original": "Calendar",
+      "ru": "Календарь"
+    },
+    "nav/link/Settings/x:CalendarAlarm": {
+      "original": "Alarms",
+      "ru": "Напоминания"
+    },
+    "nav/link/Settings/x:CalendarScheduling": {
+      "original": "Scheduling",
+      "ru": "Планирование"
+    },
+    "nav/link/Settings/x:Certificate": {
+      "original": "Certificates",
+      "ru": "Сертификаты"
+    },
+    "nav/link/Settings/x:ClusterRole": {
+      "original": "Roles",
+      "ru": "Роли"
+    },
+    "nav/link/Settings/x:Coordinator": {
+      "original": "Coordinator",
+      "ru": "Координатор"
+    },
+    "nav/link/Settings/x:DataRetention/ArchivingRetention": {
+      "original": "Archiving",
+      "ru": "Архивирование"
+    },
+    "nav/link/Settings/x:DataRetention/DataCleanup": {
+      "original": "Data Cleanup",
+      "ru": "Очистка данных"
+    },
+    "nav/link/Settings/x:DataRetention/DataExpunge": {
+      "original": "Auto-Expunge",
+      "ru": "Автоматическое удаление"
+    },
+    "nav/link/Settings/x:DataRetention/TelemetryRetention": {
+      "original": "Telemetry",
+      "ru": "Телеметрия"
+    },
+    "nav/link/Settings/x:DataStore": {
+      "original": "Data Store",
+      "ru": "Хранилище данных"
+    },
+    "nav/link/Settings/x:Directory": {
+      "original": "Directories",
+      "ru": "Каталоги"
+    },
+    "nav/link/Settings/x:DnsResolver": {
+      "original": "DNS Resolver",
+      "ru": "Резолвер DNS"
+    },
+    "nav/link/Settings/x:DnsServer": {
+      "original": "DNS Providers",
+      "ru": "Провайдеры DNS"
+    },
+    "nav/link/Settings/x:Email/EmailDefaults": {
+      "original": "Defaults",
+      "ru": "Значения по умолчанию"
+    },
+    "nav/link/Settings/x:Email/EmailLimits": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "nav/link/Settings/x:Email/EmailStorage": {
+      "original": "Storage",
+      "ru": "Хранение"
+    },
+    "nav/link/Settings/x:Encryption/EncryptionDiscovery": {
+      "original": "Key Discovery",
+      "ru": "Поиск ключей"
+    },
+    "nav/link/Settings/x:Encryption/EncryptionGateway": {
+      "original": "Gateway",
+      "ru": "Шлюз"
+    },
+    "nav/link/Settings/x:Encryption/EncryptionStorage": {
+      "original": "Encryption at Rest",
+      "ru": "Шифрование при хранении"
+    },
+    "nav/link/Settings/x:Encryption/EncryptionTrust": {
+      "original": "S/MIME Trust",
+      "ru": "Доверие S/MIME"
+    },
+    "nav/link/Settings/x:EventTracingLevel": {
+      "original": "Event Levels",
+      "ru": "Уровни событий"
+    },
+    "nav/link/Settings/x:ExternalPublicKey": {
+      "original": "External Public Keys",
+      "ru": "Внешние открытые ключи"
+    },
+    "nav/link/Settings/x:ExternalPublicKey/PendingExternalPublicKey": {
+      "original": "Pending Key Changes",
+      "ru": "Ожидающие изменения ключей"
+    },
+    "nav/link/Settings/x:FileStorage": {
+      "original": "File Storage",
+      "ru": "Хранилище файлов"
+    },
+    "nav/link/Settings/x:Http": {
+      "original": "General",
+      "ru": "Общие"
+    },
+    "nav/link/Settings/x:Http/HttpSecurity": {
+      "original": "Security",
+      "ru": "Безопасность"
+    },
+    "nav/link/Settings/x:HttpForm": {
+      "original": "Contact Form",
+      "ru": "Контактная форма"
+    },
+    "nav/link/Settings/x:HttpLookup": {
+      "original": "HTTP Lists",
+      "ru": "HTTP-списки"
+    },
+    "nav/link/Settings/x:InMemoryStore": {
+      "original": "In-Memory Store",
+      "ru": "Хранилище в памяти"
+    },
+    "nav/link/Settings/x:Jmap/JmapLimits": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
+    "nav/link/Settings/x:Jmap/JmapPush": {
+      "original": "Push",
+      "ru": "Push-уведомления"
+    },
+    "nav/link/Settings/x:MemoryLookupKey": {
+      "original": "In-Memory Keys",
+      "ru": "Ключи в памяти"
+    },
+    "nav/link/Settings/x:MemoryLookupKey/SpamBlockedDomain": {
+      "original": "Blocked Domains",
+      "ru": "Заблокированные домены"
+    },
+    "nav/link/Settings/x:MemoryLookupKey/SpamTrap": {
+      "original": "Spam Traps",
+      "ru": "Спам-ловушки"
+    },
+    "nav/link/Settings/x:MemoryLookupKey/SpamTrustedDomain": {
+      "original": "Trusted Domains",
+      "ru": "Доверенные домены"
+    },
+    "nav/link/Settings/x:MemoryLookupKey/SpamUrlRedirector": {
+      "original": "URL Redirectors",
+      "ru": "URL-перенаправления"
+    },
+    "nav/link/Settings/x:MemoryLookupKeyValue": {
+      "original": "In-Memory Key-Values",
+      "ru": "Пары ключ–значение в памяти"
+    },
+    "nav/link/Settings/x:Metadata": {
+      "original": "Metadata",
+      "ru": "Метаданные"
+    },
+    "nav/link/Settings/x:Metrics": {
+      "original": "General",
+      "ru": "Общие"
+    },
+    "nav/link/Settings/x:MetricsStore": {
+      "original": "Metrics Store",
+      "ru": "Хранилище метрик"
+    },
+    "nav/link/Settings/x:MtaConnectionStrategy": {
+      "original": "Connection Strategies",
+      "ru": "Стратегии подключений"
+    },
+    "nav/link/Settings/x:MtaDeliverySchedule": {
+      "original": "Delivery Schedules",
+      "ru": "Расписания доставки"
+    },
+    "nav/link/Settings/x:MtaExtensions": {
+      "original": "Extensions",
+      "ru": "Расширения"
+    },
+    "nav/link/Settings/x:MtaHook": {
+      "original": "MTA Hooks",
+      "ru": "Обработчики MTA"
+    },
+    "nav/link/Settings/x:MtaInboundSession": {
+      "original": "Session",
+      "ru": "Сеанс"
+    },
+    "nav/link/Settings/x:MtaInboundThrottle": {
+      "original": "Inbound Rate Limits",
+      "ru": "Ограничения скорости приёма"
+    },
+    "nav/link/Settings/x:MtaMilter": {
+      "original": "Milters",
+      "ru": "Milter-фильтры"
+    },
+    "nav/link/Settings/x:MtaOutboundStrategy": {
+      "original": "Strategy",
+      "ru": "Стратегия"
+    },
+    "nav/link/Settings/x:MtaOutboundThrottle": {
+      "original": "Outbound Rate Limits",
+      "ru": "Ограничения скорости отправки"
+    },
+    "nav/link/Settings/x:MtaQueueQuota": {
+      "original": "Queue Quotas",
+      "ru": "Квоты очередей"
+    },
+    "nav/link/Settings/x:MtaRoute": {
+      "original": "Routes",
+      "ru": "Маршруты"
+    },
+    "nav/link/Settings/x:MtaStageAuth": {
+      "original": "AUTH Stage",
+      "ru": "Этап AUTH"
+    },
+    "nav/link/Settings/x:MtaStageConnect": {
+      "original": "Connect Stage",
+      "ru": "Этап подключения"
+    },
+    "nav/link/Settings/x:MtaStageData": {
+      "original": "DATA Stage",
+      "ru": "Этап DATA"
+    },
+    "nav/link/Settings/x:MtaStageEhlo": {
+      "original": "EHLO Stage",
+      "ru": "Этап EHLO"
+    },
+    "nav/link/Settings/x:MtaStageMail": {
+      "original": "MAIL FROM Stage",
+      "ru": "Этап MAIL FROM"
+    },
+    "nav/link/Settings/x:MtaStageRcpt": {
+      "original": "RCPT TO Stage",
+      "ru": "Этап RCPT TO"
+    },
+    "nav/link/Settings/x:MtaTlsStrategy": {
+      "original": "TLS Strategies",
+      "ru": "Стратегии TLS"
+    },
+    "nav/link/Settings/x:MtaVirtualQueue": {
+      "original": "Virtual Queues",
+      "ru": "Виртуальные очереди"
+    },
+    "nav/link/Settings/x:NetworkListener": {
+      "original": "Listeners",
+      "ru": "Слушатели"
+    },
+    "nav/link/Settings/x:OidcProvider": {
+      "original": "OIDC Provider",
+      "ru": "Провайдер OIDC"
+    },
+    "nav/link/Settings/x:ReportSettings": {
+      "original": "General",
+      "ru": "Общие"
+    },
+    "nav/link/Settings/x:Search": {
+      "original": "Search",
+      "ru": "Поиск"
+    },
+    "nav/link/Settings/x:SearchStore": {
+      "original": "Search Store",
+      "ru": "Поисковое хранилище"
+    },
+    "nav/link/Settings/x:Security": {
+      "original": "Settings",
+      "ru": "Настройки"
+    },
+    "nav/link/Settings/x:SenderAuth": {
+      "original": "Sender Authentication",
+      "ru": "Проверка отправителя"
+    },
+    "nav/link/Settings/x:Sharing": {
+      "original": "Sharing",
+      "ru": "Общий доступ"
+    },
+    "nav/link/Settings/x:SieveSystemInterpreter": {
+      "original": "System Interpreter",
+      "ru": "Системный интерпретатор"
+    },
+    "nav/link/Settings/x:SieveSystemScript": {
+      "original": "System Scripts",
+      "ru": "Системные сценарии"
+    },
+    "nav/link/Settings/x:SieveUserInterpreter": {
+      "original": "User Interpreter",
+      "ru": "Пользовательский интерпретатор"
+    },
+    "nav/link/Settings/x:SieveUserScript": {
+      "original": "User Scripts",
+      "ru": "Пользовательские сценарии"
+    },
+    "nav/link/Settings/x:SmimeTrustAnchor": {
+      "original": "Trust Anchors",
+      "ru": "Якоря доверия"
+    },
+    "nav/link/Settings/x:SpamAi": {
+      "original": "AI Classifier",
+      "ru": "ИИ-классификатор"
+    },
+    "nav/link/Settings/x:SpamClassifier": {
+      "original": "Classifier",
+      "ru": "Классификатор"
+    },
+    "nav/link/Settings/x:SpamDnsblServer": {
+      "original": "Servers",
+      "ru": "Серверы"
+    },
+    "nav/link/Settings/x:SpamDnsblSettings": {
+      "original": "Settings",
+      "ru": "Настройки"
+    },
+    "nav/link/Settings/x:SpamFileExtension": {
+      "original": "File Extensions",
+      "ru": "Расширения файлов"
+    },
+    "nav/link/Settings/x:SpamRule": {
+      "original": "Rules",
+      "ru": "Правила"
+    },
+    "nav/link/Settings/x:SpamSettings": {
+      "original": "General",
+      "ru": "Общие"
+    },
+    "nav/link/Settings/x:SpamTag": {
+      "original": "Scores",
+      "ru": "Баллы"
+    },
+    "nav/link/Settings/x:StoreLookup": {
+      "original": "Store Lookups",
+      "ru": "Поиск в хранилище"
+    },
+    "nav/link/Settings/x:SymmetricKey": {
+      "original": "Symmetric Keys",
+      "ru": "Симметричные ключи"
+    },
+    "nav/link/Settings/x:SystemSettings/NetworkServices": {
+      "original": "Services",
+      "ru": "Службы"
+    },
+    "nav/link/Settings/x:SystemSettings/NetworkSettings": {
+      "original": "General",
+      "ru": "Общие"
+    },
+    "nav/link/Settings/x:TaskManager": {
+      "original": "Task Manager",
+      "ru": "Диспетчер задач"
+    },
+    "nav/link/Settings/x:Tracer": {
+      "original": "Tracers",
+      "ru": "Трассировщики"
+    },
+    "nav/link/Settings/x:TracingStore": {
+      "original": "Tracing Store",
+      "ru": "Хранилище трассировок"
+    },
+    "nav/link/Settings/x:WebHook": {
+      "original": "Webhooks",
+      "ru": "Веб-хуки"
+    },
+    "object/x:Domain/description": {
+      "original": "Defines an email domain and its DNS, DKIM, and TLS certificate settings.",
+      "ru": "Параметры почтового домена, DNS, DKIM и сертификатов TLS."
+    },
+    "variant/x:SpamDnsblServer/Domain/label": {
+      "original": "Domain",
+      "ru": "Домен"
+    },
+    "variant/x:SpamRule/Domain/label": {
+      "original": "Domain",
+      "ru": "Домен"
     }
   }
 }
