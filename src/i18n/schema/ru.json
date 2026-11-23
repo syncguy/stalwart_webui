@@ -358,6 +358,22 @@
       "original": "Amount of disk space currently used by this account (bytes)",
       "ru": "Занятое группой место на диске (байты)"
     },
+    "field/x:Log/details/description": {
+      "original": "Log message",
+      "ru": "Сообщение журнала"
+    },
+    "field/x:Log/event/description": {
+      "original": "Event type of the log entry",
+      "ru": "Тип события журнала"
+    },
+    "field/x:Log/level/description": {
+      "original": "Severity level of the log entry",
+      "ru": "Уровень серьёзности события"
+    },
+    "field/x:Log/timestamp/description": {
+      "original": "Timestamp of the log entry",
+      "ru": "Время записи журнала"
+    },
     "field/x:MailingList/aliases/description": {
       "original": "List of email aliases for the mailing list",
       "ru": "Дополнительные адреса списка рассылки"
@@ -2770,6 +2786,22 @@
       "original": "Details",
       "ru": "Сведения"
     },
+    "form/x:Log/field/event": {
+      "original": "Event",
+      "ru": "Событие"
+    },
+    "form/x:Log/field/level": {
+      "original": "Level",
+      "ru": "Уровень"
+    },
+    "form/x:Log/field/timestamp": {
+      "original": "Timestamp",
+      "ru": "Время"
+    },
+    "form/x:Log/section/section-0": {
+      "original": "Log Entry",
+      "ru": "Запись журнала"
+    },
     "form/x:MailExchanger/field/priority": {
       "original": "Priority",
       "ru": "Приоритет"
@@ -5006,9 +5038,37 @@
       "original": "Details",
       "ru": "Сведения"
     },
+    "list/x:Log/column/event": {
+      "original": "Event",
+      "ru": "Событие"
+    },
+    "list/x:Log/column/level": {
+      "original": "Level",
+      "ru": "Уровень"
+    },
+    "list/x:Log/column/timestamp": {
+      "original": "Timestamp",
+      "ru": "Время"
+    },
     "list/x:Log/filter/text": {
       "original": "Text",
       "ru": "Текст"
+    },
+    "list/x:Log/plural": {
+      "original": "log entries",
+      "ru": "записи журнала"
+    },
+    "list/x:Log/singular": {
+      "original": "log entry",
+      "ru": "запись журнала"
+    },
+    "list/x:Log/subtitle": {
+      "original": "View server log entries",
+      "ru": "Просмотр записей журнала сервера"
+    },
+    "list/x:Log/title": {
+      "original": "Log Entries",
+      "ru": "Записи журнала"
     },
     "list/x:MailingList/column/description": {
       "original": "Description",
@@ -5676,7 +5736,7 @@
     },
     "nav/container/Management/Observability": {
       "original": "Observability",
-      "ru": "Наблюдаемость"
+      "ru": "Наблюдение"
     },
     "nav/container/Management/Reports": {
       "original": "Reports",
@@ -6326,6 +6386,10 @@
       "original": "Defines an email domain and its DNS, DKIM, and TLS certificate settings.",
       "ru": "Параметры почтового домена, DNS, DKIM и сертификатов TLS."
     },
+    "object/x:Log/description": {
+      "original": "Represents a server log entry.",
+      "ru": "Запись журнала сервера."
+    },
     "object/x:MailingList/description": {
       "original": "Defines a mailing list that distributes messages to a group of recipients.",
       "ru": "Список рассылки, распределяющий сообщения между адресами получателей."
@@ -6364,7 +6428,7 @@
     },
     "variant/x:Action/InvalidateNegativeCaches/label": {
       "original": "Cache: Invalidate negative caches",
-      "ru": "Кэш: Очистить отрицательные кэши"
+      "ru": "Кэш: Очистить кэш отрицательных результатов"
     },
     "variant/x:Action/PauseMtaQueue/label": {
       "original": "MTA: Pause queue processing",
