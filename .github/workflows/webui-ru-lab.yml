@@ -47,7 +47,7 @@ jobs:
       - name: Validate pinned schema, Dashboard, Logs, task/index display invariants
         run: node scripts/check-schema-locale.mjs
 
-      - name: Validate localized dropdown labels and preserved identifiers
+      - name: Validate multilingual dropdown search and preserved identifiers
         run: node scripts/check-option-labels.mjs
 
       - name: TypeScript check
