@@ -18,21 +18,457 @@
     ]
   },
   "entries": {
+    "dashboard/authentication/item/0/title": {
+      "original": "SPF Failures",
+      "ru": "Ошибки SPF"
+    },
+    "dashboard/authentication/item/1/title": {
+      "original": "DKIM Failures",
+      "ru": "Ошибки DKIM"
+    },
+    "dashboard/authentication/item/10/series/0/label": {
+      "original": "pass",
+      "ru": "успешно"
+    },
+    "dashboard/authentication/item/10/series/1/label": {
+      "original": "fail",
+      "ru": "ошибка"
+    },
+    "dashboard/authentication/item/10/title": {
+      "original": "DMARC",
+      "ru": "DMARC"
+    },
+    "dashboard/authentication/item/11/series/0/label": {
+      "original": "DMARC",
+      "ru": "DMARC"
+    },
+    "dashboard/authentication/item/11/series/1/label": {
+      "original": "TLS",
+      "ru": "TLS"
+    },
+    "dashboard/authentication/item/11/title": {
+      "original": "Inbound Report Warnings",
+      "ru": "Предупреждения во входящих отчётах"
+    },
+    "dashboard/authentication/item/2/title": {
+      "original": "DKIM2 Failures",
+      "ru": "Ошибки DKIM2"
+    },
+    "dashboard/authentication/item/3/title": {
+      "original": "DMARC Failures",
+      "ru": "Ошибки DMARC"
+    },
+    "dashboard/authentication/item/4/title": {
+      "original": "DKIM2 DSNs Rejected",
+      "ru": "Отклонённые DSN из-за DKIM2"
+    },
+    "dashboard/authentication/item/5/title": {
+      "original": "DMARC Warnings",
+      "ru": "Предупреждения DMARC"
+    },
+    "dashboard/authentication/item/6/title": {
+      "original": "TLS Warnings",
+      "ru": "Предупреждения TLS"
+    },
+    "dashboard/authentication/item/7/series/0/label": {
+      "original": "pass",
+      "ru": "успешно"
+    },
+    "dashboard/authentication/item/7/series/1/label": {
+      "original": "fail",
+      "ru": "ошибка"
+    },
+    "dashboard/authentication/item/7/title": {
+      "original": "SPF",
+      "ru": "SPF"
+    },
+    "dashboard/authentication/item/8/series/0/label": {
+      "original": "pass",
+      "ru": "успешно"
+    },
+    "dashboard/authentication/item/8/series/1/label": {
+      "original": "fail",
+      "ru": "ошибка"
+    },
+    "dashboard/authentication/item/8/title": {
+      "original": "DKIM",
+      "ru": "DKIM"
+    },
+    "dashboard/authentication/item/9/series/0/label": {
+      "original": "pass",
+      "ru": "успешно"
+    },
+    "dashboard/authentication/item/9/series/1/label": {
+      "original": "fail",
+      "ru": "ошибка"
+    },
+    "dashboard/authentication/item/9/title": {
+      "original": "DKIM2",
+      "ru": "DKIM2"
+    },
     "dashboard/authentication/label": {
       "original": "Message Authentication",
       "ru": "Проверка подлинности сообщений"
+    },
+    "dashboard/cache/item/0/title": {
+      "original": "E-mail Cache",
+      "ru": "Кэш почты"
+    },
+    "dashboard/cache/item/1/title": {
+      "original": "Large Account Cache",
+      "ru": "Кэш крупных учётных записей"
+    },
+    "dashboard/cache/item/10/series/0/label": {
+      "original": "loaded",
+      "ru": "загружено"
+    },
+    "dashboard/cache/item/10/series/1/label": {
+      "original": "unavailable",
+      "ru": "недоступно"
+    },
+    "dashboard/cache/item/10/series/2/label": {
+      "original": "written",
+      "ru": "записано"
+    },
+    "dashboard/cache/item/10/series/3/label": {
+      "original": "errors",
+      "ru": "ошибки"
+    },
+    "dashboard/cache/item/10/title": {
+      "original": "Swap tier",
+      "ru": "Уровень подкачки"
+    },
+    "dashboard/cache/item/2/title": {
+      "original": "Other Caches",
+      "ru": "Прочие кэши"
+    },
+    "dashboard/cache/item/3/title": {
+      "original": "Cache Hits",
+      "ru": "Попадания в кэш"
+    },
+    "dashboard/cache/item/4/title": {
+      "original": "Cache Misses",
+      "ru": "Промахи кэша"
+    },
+    "dashboard/cache/item/5/title": {
+      "original": "Oversized Entries",
+      "ru": "Слишком большие записи"
+    },
+    "dashboard/cache/item/6/title": {
+      "original": "Swap Pending",
+      "ru": "Ожидают записи в подкачку"
+    },
+    "dashboard/cache/item/7/title": {
+      "original": "Swap Errors",
+      "ru": "Ошибки подкачки"
+    },
+    "dashboard/cache/item/8/series/0/label": {
+      "original": "e-mail",
+      "ru": "почта"
+    },
+    "dashboard/cache/item/8/series/1/label": {
+      "original": "large accounts",
+      "ru": "крупные учётные записи"
+    },
+    "dashboard/cache/item/8/series/2/label": {
+      "original": "other",
+      "ru": "прочее"
+    },
+    "dashboard/cache/item/8/title": {
+      "original": "Cache memory",
+      "ru": "Память кэша"
+    },
+    "dashboard/cache/item/9/series/0/label": {
+      "original": "hit",
+      "ru": "попадания"
+    },
+    "dashboard/cache/item/9/series/1/label": {
+      "original": "miss",
+      "ru": "промахи"
+    },
+    "dashboard/cache/item/9/series/2/label": {
+      "original": "stale",
+      "ru": "устаревшие"
+    },
+    "dashboard/cache/item/9/title": {
+      "original": "Cache lookups",
+      "ru": "Обращения к кэшу"
     },
     "dashboard/cache/label": {
       "original": "Cache",
       "ru": "Кэш"
     },
+    "dashboard/delivery/item/0/title": {
+      "original": "Queued Messages",
+      "ru": "Сообщения в очереди"
+    },
+    "dashboard/delivery/item/1/title": {
+      "original": "Active Sessions",
+      "ru": "Активные сеансы"
+    },
+    "dashboard/delivery/item/10/series/0/label": {
+      "original": "messages",
+      "ru": "сообщения"
+    },
+    "dashboard/delivery/item/10/series/1/label": {
+      "original": "DSNs",
+      "ru": "уведомления DSN"
+    },
+    "dashboard/delivery/item/10/series/2/label": {
+      "original": "reports",
+      "ru": "отчёты"
+    },
+    "dashboard/delivery/item/10/title": {
+      "original": "Messages Sent",
+      "ru": "Отправлено сообщений"
+    },
+    "dashboard/delivery/item/11/series/0/label": {
+      "original": "total",
+      "ru": "всего"
+    },
+    "dashboard/delivery/item/11/series/1/label": {
+      "original": "attempt",
+      "ru": "попытка"
+    },
+    "dashboard/delivery/item/11/title": {
+      "original": "Delivery time",
+      "ru": "Время доставки"
+    },
+    "dashboard/delivery/item/12/series/0/label": {
+      "original": "messages",
+      "ru": "сообщения"
+    },
+    "dashboard/delivery/item/12/title": {
+      "original": "Queue size",
+      "ru": "Размер очереди"
+    },
+    "dashboard/delivery/item/2/title": {
+      "original": "Session Time",
+      "ru": "Длительность сеанса"
+    },
+    "dashboard/delivery/item/3/title": {
+      "original": "Delivery Time",
+      "ru": "Время доставки"
+    },
+    "dashboard/delivery/item/4/title": {
+      "original": "Messages Received",
+      "ru": "Получено сообщений"
+    },
+    "dashboard/delivery/item/5/title": {
+      "original": "Messages Sent",
+      "ru": "Отправлено сообщений"
+    },
+    "dashboard/delivery/item/6/title": {
+      "original": "DSNs Sent",
+      "ru": "Отправлено уведомлений DSN"
+    },
+    "dashboard/delivery/item/7/title": {
+      "original": "Reports Sent",
+      "ru": "Отправлено отчётов"
+    },
+    "dashboard/delivery/item/8/title": {
+      "original": "Queue Back-pressure",
+      "ru": "Перегрузка очереди"
+    },
+    "dashboard/delivery/item/9/series/0/label": {
+      "original": "ham",
+      "ru": "не спам"
+    },
+    "dashboard/delivery/item/9/series/1/label": {
+      "original": "spam",
+      "ru": "спам"
+    },
+    "dashboard/delivery/item/9/title": {
+      "original": "Messages Received",
+      "ru": "Получено сообщений"
+    },
     "dashboard/delivery/label": {
       "original": "Delivery",
       "ru": "Доставка"
     },
+    "dashboard/encryption/item/0/title": {
+      "original": "Encrypted Outbound",
+      "ru": "Зашифрованные исходящие письма"
+    },
+    "dashboard/encryption/item/1/title": {
+      "original": "Plaintext Outbound",
+      "ru": "Исходящие письма без шифрования"
+    },
+    "dashboard/encryption/item/10/title": {
+      "original": "Key Lookup Time",
+      "ru": "Время поиска ключей"
+    },
+    "dashboard/encryption/item/11/series/0/label": {
+      "original": "encrypted",
+      "ru": "зашифровано"
+    },
+    "dashboard/encryption/item/11/series/1/label": {
+      "original": "plaintext",
+      "ru": "без шифрования"
+    },
+    "dashboard/encryption/item/11/series/2/label": {
+      "original": "bounced",
+      "ru": "отклонено"
+    },
+    "dashboard/encryption/item/11/title": {
+      "original": "Outbound encryption",
+      "ru": "Шифрование исходящих писем"
+    },
+    "dashboard/encryption/item/12/series/0/label": {
+      "original": "encrypted",
+      "ru": "зашифровано"
+    },
+    "dashboard/encryption/item/12/series/1/label": {
+      "original": "skipped",
+      "ru": "пропущено"
+    },
+    "dashboard/encryption/item/12/title": {
+      "original": "Encryption at rest",
+      "ru": "Шифрование при хранении"
+    },
+    "dashboard/encryption/item/13/series/0/label": {
+      "original": "lookups",
+      "ru": "запросы"
+    },
+    "dashboard/encryption/item/13/series/1/label": {
+      "original": "harvested",
+      "ru": "обнаружено ключей"
+    },
+    "dashboard/encryption/item/13/series/2/label": {
+      "original": "changes",
+      "ru": "изменения"
+    },
+    "dashboard/encryption/item/13/title": {
+      "original": "Key activity",
+      "ru": "Операции с ключами"
+    },
+    "dashboard/encryption/item/14/series/0/label": {
+      "original": "CRL",
+      "ru": "CRL"
+    },
+    "dashboard/encryption/item/14/series/1/label": {
+      "original": "DNSSEC",
+      "ru": "DNSSEC"
+    },
+    "dashboard/encryption/item/14/title": {
+      "original": "Key failures",
+      "ru": "Ошибки ключей"
+    },
+    "dashboard/encryption/item/15/series/0/label": {
+      "original": "lookup",
+      "ru": "запрос"
+    },
+    "dashboard/encryption/item/15/title": {
+      "original": "Key lookup latency",
+      "ru": "Задержка поиска ключей"
+    },
+    "dashboard/encryption/item/2/title": {
+      "original": "Bounced Recipients",
+      "ru": "Отклонённые получатели"
+    },
+    "dashboard/encryption/item/3/title": {
+      "original": "Encrypted at Rest",
+      "ru": "Зашифровано при хранении"
+    },
+    "dashboard/encryption/item/4/title": {
+      "original": "At Rest Skipped",
+      "ru": "Шифрование при хранении пропущено"
+    },
+    "dashboard/encryption/item/5/title": {
+      "original": "Key Lookups",
+      "ru": "Поиск ключей"
+    },
+    "dashboard/encryption/item/6/title": {
+      "original": "Keys Harvested",
+      "ru": "Обнаруженные ключи"
+    },
+    "dashboard/encryption/item/7/title": {
+      "original": "Key Changes",
+      "ru": "Изменения ключей"
+    },
+    "dashboard/encryption/item/8/title": {
+      "original": "Revocation List Failures",
+      "ru": "Ошибки получения списков отзыва"
+    },
+    "dashboard/encryption/item/9/title": {
+      "original": "DNSSEC Failures",
+      "ru": "Ошибки DNSSEC"
+    },
     "dashboard/encryption/label": {
       "original": "Encryption",
       "ru": "Шифрование"
+    },
+    "dashboard/network/item/0/title": {
+      "original": "SMTP active",
+      "ru": "Активные соединения SMTP"
+    },
+    "dashboard/network/item/1/title": {
+      "original": "IMAP active",
+      "ru": "Активные соединения IMAP"
+    },
+    "dashboard/network/item/10/series/0/label": {
+      "original": "IMAP",
+      "ru": "IMAP"
+    },
+    "dashboard/network/item/10/series/1/label": {
+      "original": "POP3",
+      "ru": "POP3"
+    },
+    "dashboard/network/item/10/series/2/label": {
+      "original": "Sieve",
+      "ru": "Sieve"
+    },
+    "dashboard/network/item/10/title": {
+      "original": "Mailbox Protocol Connections",
+      "ru": "Соединения почтовых протоколов"
+    },
+    "dashboard/network/item/11/series/0/label": {
+      "original": "total",
+      "ru": "всего"
+    },
+    "dashboard/network/item/11/title": {
+      "original": "HTTP Connections",
+      "ru": "Соединения HTTP"
+    },
+    "dashboard/network/item/2/title": {
+      "original": "POP3 active",
+      "ru": "Активные соединения POP3"
+    },
+    "dashboard/network/item/3/title": {
+      "original": "HTTP active",
+      "ru": "Активные соединения HTTP"
+    },
+    "dashboard/network/item/4/title": {
+      "original": "Sieve active",
+      "ru": "Активные соединения Sieve"
+    },
+    "dashboard/network/item/5/title": {
+      "original": "SMTP total",
+      "ru": "Всего соединений SMTP"
+    },
+    "dashboard/network/item/6/title": {
+      "original": "IMAP total",
+      "ru": "Всего соединений IMAP"
+    },
+    "dashboard/network/item/7/title": {
+      "original": "POP3 total",
+      "ru": "Всего соединений POP3"
+    },
+    "dashboard/network/item/8/title": {
+      "original": "HTTP total",
+      "ru": "Всего соединений HTTP"
+    },
+    "dashboard/network/item/9/series/0/label": {
+      "original": "inbound",
+      "ru": "входящие"
+    },
+    "dashboard/network/item/9/series/1/label": {
+      "original": "outbound",
+      "ru": "исходящие"
+    },
+    "dashboard/network/item/9/title": {
+      "original": "SMTP Connections",
+      "ru": "Соединения SMTP"
     },
     "dashboard/network/label": {
       "original": "Network",
@@ -150,21 +586,277 @@
       "original": "Overview",
       "ru": "Обзор"
     },
+    "dashboard/performance/item/0/title": {
+      "original": "Ingestion Time",
+      "ru": "Время приёма сообщения"
+    },
+    "dashboard/performance/item/1/title": {
+      "original": "DNS Lookup Time",
+      "ru": "Время запроса DNS"
+    },
+    "dashboard/performance/item/2/title": {
+      "original": "Server Memory",
+      "ru": "Память сервера"
+    },
+    "dashboard/performance/item/3/title": {
+      "original": "SMTP Buffer",
+      "ru": "Буфер SMTP"
+    },
+    "dashboard/performance/item/4/title": {
+      "original": "Blob Read Buffer",
+      "ru": "Буфер чтения объектов"
+    },
+    "dashboard/performance/item/5/title": {
+      "original": "Memory Budget Rejections",
+      "ru": "Отказы из-за нехватки буфера"
+    },
+    "dashboard/performance/item/6/series/0/label": {
+      "original": "ingest",
+      "ru": "приём"
+    },
+    "dashboard/performance/item/6/title": {
+      "original": "Ingest pipeline",
+      "ru": "Приём сообщений"
+    },
+    "dashboard/performance/item/7/series/0/label": {
+      "original": "memory",
+      "ru": "память"
+    },
+    "dashboard/performance/item/7/title": {
+      "original": "Memory usage",
+      "ru": "Использование памяти"
+    },
+    "dashboard/performance/item/8/series/0/label": {
+      "original": "SMTP",
+      "ru": "SMTP"
+    },
+    "dashboard/performance/item/8/series/1/label": {
+      "original": "blob reads",
+      "ru": "чтение объектов"
+    },
+    "dashboard/performance/item/8/title": {
+      "original": "Buffered memory",
+      "ru": "Буферизованная память"
+    },
     "dashboard/performance/label": {
       "original": "Performance",
       "ru": "Производительность"
+    },
+    "dashboard/search-index/item/0/title": {
+      "original": "Indexing Time",
+      "ru": "Время индексирования"
+    },
+    "dashboard/search-index/item/1/title": {
+      "original": "Batches Indexed",
+      "ru": "Проиндексировано пакетов"
+    },
+    "dashboard/search-index/item/10/series/0/label": {
+      "original": "batches",
+      "ru": "пакеты"
+    },
+    "dashboard/search-index/item/10/series/1/label": {
+      "original": "truncated",
+      "ru": "обрезано"
+    },
+    "dashboard/search-index/item/10/title": {
+      "original": "Indexing",
+      "ru": "Индексирование"
+    },
+    "dashboard/search-index/item/2/title": {
+      "original": "Truncated Documents",
+      "ru": "Обрезанные документы"
+    },
+    "dashboard/search-index/item/3/title": {
+      "original": "Partition Retries",
+      "ru": "Повторы разделов индекса"
+    },
+    "dashboard/search-index/item/4/title": {
+      "original": "E-mail Index Queue",
+      "ru": "Очередь индексации писем"
+    },
+    "dashboard/search-index/item/5/title": {
+      "original": "Calendar Index Queue",
+      "ru": "Очередь индексации календарей"
+    },
+    "dashboard/search-index/item/6/title": {
+      "original": "Contacts Index Queue",
+      "ru": "Очередь индексации контактов"
+    },
+    "dashboard/search-index/item/7/title": {
+      "original": "Files Index Queue",
+      "ru": "Очередь индексации файлов"
+    },
+    "dashboard/search-index/item/8/title": {
+      "original": "Tracing Index Queue",
+      "ru": "Очередь индексации трассировок"
+    },
+    "dashboard/search-index/item/9/series/0/label": {
+      "original": "e-mail",
+      "ru": "почта"
+    },
+    "dashboard/search-index/item/9/series/1/label": {
+      "original": "calendar",
+      "ru": "календари"
+    },
+    "dashboard/search-index/item/9/series/2/label": {
+      "original": "contacts",
+      "ru": "контакты"
+    },
+    "dashboard/search-index/item/9/series/3/label": {
+      "original": "files",
+      "ru": "файлы"
+    },
+    "dashboard/search-index/item/9/series/4/label": {
+      "original": "traces",
+      "ru": "трассировки"
+    },
+    "dashboard/search-index/item/9/title": {
+      "original": "Index queue",
+      "ru": "Очередь индексации"
     },
     "dashboard/search-index/label": {
       "original": "Search Index",
       "ru": "Поисковый индекс"
     },
+    "dashboard/security/item/0/title": {
+      "original": "Threats blocked",
+      "ru": "Заблокированные угрозы"
+    },
+    "dashboard/security/item/1/title": {
+      "original": "IPs banned",
+      "ru": "Заблокированные IP-адреса"
+    },
+    "dashboard/security/item/2/title": {
+      "original": "Auth Failures",
+      "ru": "Ошибки входа"
+    },
+    "dashboard/security/item/3/title": {
+      "original": "Spam blocked",
+      "ru": "Заблокированный спам"
+    },
+    "dashboard/security/item/4/series/0/label": {
+      "original": "auth",
+      "ru": "аутентификация"
+    },
+    "dashboard/security/item/4/series/1/label": {
+      "original": "brute",
+      "ru": "подбор пароля"
+    },
+    "dashboard/security/item/4/series/2/label": {
+      "original": "loiter",
+      "ru": "длительные соединения"
+    },
+    "dashboard/security/item/4/series/3/label": {
+      "original": "blocked",
+      "ru": "заблокировано"
+    },
+    "dashboard/security/item/4/title": {
+      "original": "Fail-to-ban",
+      "ru": "Автоматические блокировки"
+    },
     "dashboard/security/label": {
       "original": "Security",
       "ru": "Безопасность"
     },
+    "dashboard/storage/item/0/title": {
+      "original": "Data Read Time",
+      "ru": "Время чтения данных"
+    },
+    "dashboard/storage/item/1/title": {
+      "original": "Data Write Time",
+      "ru": "Время записи данных"
+    },
+    "dashboard/storage/item/2/title": {
+      "original": "Blob Read Time",
+      "ru": "Время чтения объектов"
+    },
+    "dashboard/storage/item/3/title": {
+      "original": "Blob Write Time",
+      "ru": "Время записи объектов"
+    },
+    "dashboard/storage/item/4/series/0/label": {
+      "original": "read",
+      "ru": "чтение"
+    },
+    "dashboard/storage/item/4/series/1/label": {
+      "original": "write",
+      "ru": "запись"
+    },
+    "dashboard/storage/item/4/title": {
+      "original": "Data Store Latency",
+      "ru": "Задержки хранилища данных"
+    },
+    "dashboard/storage/item/5/series/0/label": {
+      "original": "read",
+      "ru": "чтение"
+    },
+    "dashboard/storage/item/5/series/1/label": {
+      "original": "write",
+      "ru": "запись"
+    },
+    "dashboard/storage/item/5/title": {
+      "original": "Blob Store Latency",
+      "ru": "Задержки хранилища объектов"
+    },
     "dashboard/storage/label": {
       "original": "Storage",
       "ru": "Хранилище"
+    },
+    "dashboard/tasks/item/0/title": {
+      "original": "Pending Tasks",
+      "ru": "Задачи в очереди"
+    },
+    "dashboard/tasks/item/1/title": {
+      "original": "Due Tasks",
+      "ru": "Задачи к выполнению"
+    },
+    "dashboard/tasks/item/2/title": {
+      "original": "Task Failures",
+      "ru": "Ошибки задач"
+    },
+    "dashboard/tasks/item/3/title": {
+      "original": "Task Retries",
+      "ru": "Повторные попытки задач"
+    },
+    "dashboard/tasks/item/4/title": {
+      "original": "Stalled Tasks",
+      "ru": "Застрявшие задачи"
+    },
+    "dashboard/tasks/item/5/title": {
+      "original": "Expired Tasks",
+      "ru": "Просроченные задачи"
+    },
+    "dashboard/tasks/item/6/series/0/label": {
+      "original": "pending",
+      "ru": "ожидают"
+    },
+    "dashboard/tasks/item/6/series/1/label": {
+      "original": "due",
+      "ru": "к исполнению"
+    },
+    "dashboard/tasks/item/6/title": {
+      "original": "Task queue",
+      "ru": "Очередь задач"
+    },
+    "dashboard/tasks/item/7/series/0/label": {
+      "original": "retried",
+      "ru": "повторные попытки"
+    },
+    "dashboard/tasks/item/7/series/1/label": {
+      "original": "stalled",
+      "ru": "застряли"
+    },
+    "dashboard/tasks/item/7/series/2/label": {
+      "original": "failed",
+      "ru": "ошибки"
+    },
+    "dashboard/tasks/item/7/series/3/label": {
+      "original": "expired",
+      "ru": "истекли"
+    },
+    "dashboard/tasks/item/7/title": {
+      "original": "Task outcomes",
+      "ru": "Результаты задач"
     },
     "dashboard/tasks/label": {
       "original": "Tasks",
