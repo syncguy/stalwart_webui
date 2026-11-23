@@ -48,16 +48,18 @@ export function EnumWidget({ type, formField, value, onChange, readOnly, control
   const variants = useEnumVariants(type.enumName);
   const options: ComboboxOption[] = variants.map((v) => {
     const translated = display(`enum/${type.enumName}/${v.name}/label`, v.label);
-    const label = !canTranslate ? translated
-      : formField.name === 'locale' ? localeOptionLabel(v.name, translated)
-      : formField.name === 'headerProtection' ? headerProtectionOptionLabel(translated)
-      : translated;
+    let label = translated;
+    if (canTranslate && formField.name === 'locale') {
+      label = localeOptionLabel(v.name, translated);
+    } else if (canTranslate && formField.name === 'headerProtection') {
+      label = headerProtectionOptionLabel(translated);
+    }
     return {
-    value: v.name,
-    label,
-    description: v.explanation ? display(`enum/${type.enumName}/${v.name}/explanation`, v.explanation) : undefined,
-    keywords: [v.name, v.label],
-    marker: v.color ? <ColorDot color={v.color} /> : undefined,
+      value: v.name,
+      label,
+      description: v.explanation ? display(`enum/${type.enumName}/${v.name}/explanation`, v.explanation) : undefined,
+      keywords: [v.name, v.label],
+      marker: v.color ? <ColorDot color={v.color} /> : undefined,
     };
   });
 
