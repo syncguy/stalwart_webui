@@ -114,6 +114,38 @@
       "original": "Scheduled",
       "ru": "Запланированные"
     },
+    "field/x:CertificateManagementProperties/acmeProviderId/description": {
+      "original": "Identifier for the ACME provider managing certificates for this domain",
+      "ru": "Идентификатор провайдера ACME, управляющего сертификатами домена"
+    },
+    "field/x:DkimManagementProperties/algorithms/description": {
+      "original": "List of signing algorithms to use when generating new DKIM keys",
+      "ru": "Алгоритмы подписи, используемые для генерации новых ключей DKIM"
+    },
+    "field/x:DkimManagementProperties/deleteAfter/description": {
+      "original": "How long to retain old DKIM keys on the server after their DNS record has been removed before deleting them permanently. Requires automatic DNS management.",
+      "ru": "Как долго хранить старые ключи DKIM на сервере после удаления их DNS-записей до окончательного удаления. Требуется автоматическое управление DNS."
+    },
+    "field/x:DkimManagementProperties/retireAfter/description": {
+      "original": "How long to keep the old key's DNS record published after rotation before removing it. Requires automatic DNS management.",
+      "ru": "Как долго сохранять DNS-запись старого ключа после ротации перед её удалением. Требуется автоматическое управление DNS."
+    },
+    "field/x:DkimManagementProperties/rotateAfter/description": {
+      "original": "How often to rotate DKIM keys. Requires automatic DNS management to be enabled for the domain.",
+      "ru": "Периодичность ротации ключей DKIM. Для работы требуется включить автоматическое управление DNS домена."
+    },
+    "field/x:DkimManagementProperties/selectorTemplate/description": {
+      "original": "Template for generating DKIM selectors during key rotation. Supported variables:\n- `{algorithm}`: signing algorithm in lowercase (`rsa`, `ed25519`, `mldsa44`)\n- `{hash}`: hash algorithm (`sha256`, or `none` for ML-DSA-44)\n- `{version}`: DKIM version number (`1`, `2`)\n- `{date-<fmt>}`: current UTC date formatted with strftime specifiers (e.g. `{date-%Y%m%d}`)\n- `{epoch}`: current UTC unix timestamp\n- `{random}`: random 8-character alphanumeric string",
+      "ru": "Шаблон селекторов DKIM при ротации ключей. Доступные переменные:\n- `{algorithm}`: алгоритм подписи в нижнем регистре (`rsa`, `ed25519`, `mldsa44`)\n- `{hash}`: алгоритм хеширования (`sha256`, либо `none` для ML-DSA-44)\n- `{version}`: номер версии DKIM (`1`, `2`)\n- `{date-<fmt>}`: текущая дата UTC в формате strftime (например, `{date-%Y%m%d}`)\n- `{epoch}`: текущее время Unix в UTC\n- `{random}`: случайная строка из 8 букв и цифр"
+    },
+    "field/x:DnsManagementProperties/dnsServerId/description": {
+      "original": "Identifier for the DNS server provider managing DNS records for this domain",
+      "ru": "Идентификатор провайдера DNS, управляющего DNS-записями этого домена"
+    },
+    "field/x:DnsManagementProperties/publishRecords/description": {
+      "original": "Which DNS record types should be automatically published and kept in sync",
+      "ru": "Типы DNS-записей, которые необходимо автоматически публиковать и поддерживать в актуальном состоянии"
+    },
     "field/x:Domain/aliases/description": {
       "original": "List of additional domain names that are aliases of this domain",
       "ru": "Дополнительные доменные имена, являющиеся псевдонимами этого домена"
@@ -121,6 +153,10 @@
     "field/x:Domain/allowRelaying/description": {
       "original": "Whether to allow relaying for non-local recipients, useful in split delivery scenarios",
       "ru": "Разрешить ретрансляцию писем внешним получателям; применяется, например, при разделённой доставке"
+    },
+    "field/x:Domain/allowScimProvisioning/description": {
+      "original": "Whether external SCIM clients may provision accounts in this domain. When enabled, SCIM becomes authoritative for accounts in this domain and just-in-time directory provisioning no longer modifies them",
+      "ru": "Разрешать ли внешним клиентам SCIM создавать учётные записи домена. При включении SCIM становится основным источником учётных записей; автоматическое создание записей при входе перестаёт их изменять."
     },
     "field/x:Domain/catchAllAddress/description": {
       "original": "Catch-all email address that receives messages addressed to unknown local recipients",
@@ -138,6 +174,10 @@
       "original": "Description of the domain",
       "ru": "Описание домена"
     },
+    "field/x:Domain/directoryId/description": {
+      "original": "Identifier for the directory where accounts for this domain are stored, or null to use the internal directory",
+      "ru": "Идентификатор каталога с учётными записями домена. Если не указан, используется внутренний каталог."
+    },
     "field/x:Domain/dkimManagement/description": {
       "original": "Whether DKIM keys for this domain are managed manually or automatically by the server",
       "ru": "Ключи DKIM домена управляются вручную или автоматически сервером"
@@ -150,6 +190,10 @@
       "original": "Whether this domain is enabled",
       "ru": "Включён ли этот домен"
     },
+    "field/x:Domain/memberTenantId/description": {
+      "original": "Identifier for the tenant this domain belongs to",
+      "ru": "Идентификатор арендатора, которому принадлежит домен"
+    },
     "field/x:Domain/name/description": {
       "original": "Domain name",
       "ru": "Доменное имя"
@@ -161,6 +205,10 @@
     "field/x:Domain/subAddressing/description": {
       "original": "Whether sub-addressing (plus addressing) is enabled for the domain",
       "ru": "Разрешена ли адресация с суффиксом после знака «+»"
+    },
+    "field/x:SubAddressingCustom/customRule/description": {
+      "original": "Expression that defines custom sub-addressing rules for the domain",
+      "ru": "Выражение, задающее собственные правила дополнительной адресации для домена"
     },
     "form/AddressBook/field/description": {
       "original": "Description",
@@ -738,6 +786,14 @@
       "original": "TLS certificate",
       "ru": "Сертификат TLS"
     },
+    "form/x:CertificateManagementProperties/field/acmeProviderId": {
+      "original": "ACME Provider",
+      "ru": "Провайдер ACME"
+    },
+    "form/x:CertificateManagementProperties/field/subjectAlternativeNames": {
+      "original": "Additional Hostnames",
+      "ru": "Дополнительные имена узлов"
+    },
     "form/x:CertificateManagementProperties/section/section-0": {
       "original": "Certificate",
       "ru": "Сертификат"
@@ -870,6 +926,34 @@
       "original": "Rotation Stage",
       "ru": "Этап ротации"
     },
+    "form/x:DkimManagementProperties/field/algorithms": {
+      "original": "Signing Algorithms",
+      "ru": "Алгоритмы подписи"
+    },
+    "form/x:DkimManagementProperties/field/deleteAfter": {
+      "original": "Delete After",
+      "ru": "Период хранения старого ключа"
+    },
+    "form/x:DkimManagementProperties/field/retireAfter": {
+      "original": "Retire After",
+      "ru": "Период публикации старого ключа"
+    },
+    "form/x:DkimManagementProperties/field/rotateAfter": {
+      "original": "Rotate After",
+      "ru": "Период ротации ключей"
+    },
+    "form/x:DkimManagementProperties/field/selectorTemplate": {
+      "original": "Selector Template",
+      "ru": "Шаблон селектора"
+    },
+    "form/x:DkimManagementProperties/section/section-0": {
+      "original": "Key Generation",
+      "ru": "Генерация ключей"
+    },
+    "form/x:DkimManagementProperties/section/section-1": {
+      "original": "Key Rotation",
+      "ru": "Ротация ключей"
+    },
     "form/x:DkimSignature/field/@type": {
       "original": "Signature type",
       "ru": "Тип подписи"
@@ -953,6 +1037,18 @@
     "form/x:DnsCustomResolver/field/protocol": {
       "original": "Protocol",
       "ru": "Протокол"
+    },
+    "form/x:DnsManagementProperties/field/dnsServerId": {
+      "original": "DNS Server",
+      "ru": "DNS-сервер"
+    },
+    "form/x:DnsManagementProperties/field/origin": {
+      "original": "Zone Origin",
+      "ru": "Исходный домен зоны"
+    },
+    "form/x:DnsManagementProperties/field/publishRecords": {
+      "original": "Record Types",
+      "ru": "Типы DNS-записей"
     },
     "form/x:DnsResolver/title": {
       "original": "DNS Resolver",
@@ -3225,6 +3321,10 @@
     "form/x:SqliteStore/field/poolMaxConnections": {
       "original": "Max Connections",
       "ru": "Максимум соединений"
+    },
+    "form/x:SubAddressingCustom/field/customRule": {
+      "original": "Custom Rule Expression",
+      "ru": "Выражение пользовательского правила"
     },
     "form/x:SymmetricKey/field/cipher": {
       "original": "Algorithm",
@@ -5518,6 +5618,30 @@
       "original": "Defines an email domain and its DNS, DKIM, and TLS certificate settings.",
       "ru": "Параметры почтового домена, DNS, DKIM и сертификатов TLS."
     },
+    "variant/x:CertificateManagement/Automatic/label": {
+      "original": "ACME TLS certificate management",
+      "ru": "Управление сертификатами TLS через ACME"
+    },
+    "variant/x:CertificateManagement/Manual/label": {
+      "original": "Manual TLS certificate management",
+      "ru": "Ручное управление сертификатами TLS"
+    },
+    "variant/x:DkimManagement/Automatic/label": {
+      "original": "Automatic DKIM management",
+      "ru": "Автоматическое управление DKIM"
+    },
+    "variant/x:DkimManagement/Manual/label": {
+      "original": "Manual DKIM management",
+      "ru": "Ручное управление DKIM"
+    },
+    "variant/x:DnsManagement/Automatic/label": {
+      "original": "Automatic DNS management",
+      "ru": "Автоматическое управление DNS"
+    },
+    "variant/x:DnsManagement/Manual/label": {
+      "original": "Manual DNS management",
+      "ru": "Ручное управление DNS"
+    },
     "variant/x:SpamDnsblServer/Domain/label": {
       "original": "Domain",
       "ru": "Домен"
@@ -5525,6 +5649,18 @@
     "variant/x:SpamRule/Domain/label": {
       "original": "Domain",
       "ru": "Домен"
+    },
+    "variant/x:SubAddressing/Custom/label": {
+      "original": "Enable custom sub-addressing",
+      "ru": "Включить собственные правила дополнительной адресации"
+    },
+    "variant/x:SubAddressing/Disabled/label": {
+      "original": "Disable sub-addressing",
+      "ru": "Отключить дополнительную адресацию"
+    },
+    "variant/x:SubAddressing/Enabled/label": {
+      "original": "Enable sub-addressing",
+      "ru": "Включить дополнительную адресацию"
     }
   }
 }
