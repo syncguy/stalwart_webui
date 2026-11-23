@@ -527,4 +527,36 @@ assert.ok(enumValueSource.includes('display(`enum/${enumName}/${name}/label`, va
 assert.ok(tableSource.includes('rowHref={(id) => (section ? `/${section}/${viewName}/${id}` : null)}'));
 assert.ok(enumValueSource.includes('getEnumVariant(schema, enumName, name)'));
 
+// Stage13: one shared Russian pagination summary across all nonempty lists.
+// Do not concatenate English schema collection names or attempt to inflect
+// arbitrary domain/cluster/task names with Russian numerals.
+const enLocale = JSON.parse(fs.readFileSync('src/i18n/en.json', 'utf8'));
+const ruLocale = JSON.parse(fs.readFileSync('src/i18n/ru.json', 'utf8'));
+assert.equal(enLocale.list.showingRange, 'Showing {{from}}-{{to}} of {{total}}');
+assert.equal(ruLocale.list.showingRange, 'Показано {{from}}–{{to}} из {{total}}');
+assert.equal(ruLocale.list.showingRange.includes('{{name}}'), false);
+function renderRange(template, from, to, total) {
+  return template.replace(/{{(from|to|total)}}/g, (_match, key) => String({ from, to, total }[key]));
+}
+for (const [from, to, total, expected] of [
+  [1, 1, 1, 'Показано 1–1 из 1'],
+  [1, 2, 2, 'Показано 1–2 из 2'],
+  [1, 5, 5, 'Показано 1–5 из 5'],
+  [26, 50, 125, 'Показано 26–50 из 125'],
+]) {
+  assert.equal(renderRange(ruLocale.list.showingRange, from, to, total), expected);
+}
+assert.equal(enLocale.list.showing, 'Showing {{from}}-{{to}} of {{total}} {{name}}');
+assert.equal(ruLocale.list.showing, 'Показано {{from}}–{{to}} из {{total}} {{name}}');
+const paginationSource = fs.readFileSync('src/components/lists/Pagination.tsx', 'utf8');
+assert.ok(paginationSource.includes("const { t, i18n } = useTranslation()"));
+assert.ok(paginationSource.includes("toLowerCase() === 'ru'"));
+assert.ok(paginationSource.includes("t('list.showingRange'"));
+assert.ok(paginationSource.includes("t('list.showing'"));
+assert.ok(paginationSource.includes('name: pluralName'));
+assert.ok(paginationSource.includes("t('list.showingItems'"));
+assert.ok(tableSource.includes('<Pagination'));
+assert.ok(tableSource.includes('pluralName={list.pluralName}'));
+assert.ok(paginationSource.includes('{summary}'));
+
 console.log(`Schema locale check passed: ${Object.keys(entries).length} contextual slots, two pinned variants, safe fallbacks, preserved identifiers.`);
