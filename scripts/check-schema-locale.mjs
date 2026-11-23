@@ -393,4 +393,63 @@ assert.equal(sourceSchema.layouts[0].viewName, 'x:Domain');
 assert.equal(sourceSchema.form.dirty, true);
 assert.deepEqual(sourceSchema.chart.series.map((s) => s.label), ['Inbound', 'Incoming']);
 
+
+// Stage 9: operator-observed Task/Index Queue screens and safe scoped fallbacks.
+const stage9Pinned = [
+  ['nav/link/Management/x:QueuedMessage', 'Queued', 'Очередь'],
+  ['list/x:Task/TaskFailed/title', 'Failed Tasks', 'Задания с ошибками'],
+  ['list/x:Task/TaskFailed/subtitle', 'View failed background tasks', 'Просмотр фоновых заданий, завершившихся с ошибкой'],
+  ['list/x:Task/TaskFailed/singular', 'failed task', 'задание'],
+  ['list/x:IndexQueueStatus/title', 'Index Queues', 'Очереди индексации'],
+  ['list/x:IndexQueueStatus/subtitle', 'Monitor search index processing and reschedule failed indexing operations', 'Контроль поисковой индексации и повторный запуск операций с ошибками'],
+];
+const stage9Fallback = [
+  ['list/x:IndexQueueStatus/column/index', 'Index', 'Индекс'],
+  ['list/x:IndexQueueStatus/column/partition', 'Partition', 'Раздел'],
+  ['list/x:IndexQueueStatus/column/queuedUpdates', 'Queued Updates', 'Ожидают обновления'],
+  ['list/x:IndexQueueStatus/column/queuedDeletions', 'Queued Deletions', 'Ожидают удаления'],
+  ['variant/x:Task/CalendarAlarmEmail/label', 'Calendar alarm e-mail', 'Письмо с напоминанием календаря'],
+  ['variant/x:Task/CalendarAlarmNotification/label', 'Calendar alarm notification', 'Уведомление календаря'],
+  ['variant/x:Task/CalendarItipMessage/label', 'Calendar iTIP message', 'Календарное сообщение iTIP'],
+  ['variant/x:Task/MergeThreads/label', 'Merge email threads', 'Объединение цепочек писем'],
+  ['variant/x:Task/DmarcReport/label', 'Send DMARC report to remote server', 'Отправка отчёта DMARC на удалённый сервер'],
+  ['variant/x:Task/TlsReport/label', 'Send TLS report to remote server', 'Отправка отчёта TLS на удалённый сервер'],
+  ['variant/x:Task/RestoreArchivedItem/label', 'Restore archived item', 'Восстановление архивного элемента'],
+  ['variant/x:Task/DestroyAccount/label', 'Destroy account and all associated data', 'Удаление учётной записи со всеми данными'],
+  ['variant/x:Task/AccountMaintenance/label', 'Perform account maintenance operations', 'Обслуживание учётной записи'],
+  ['variant/x:Task/TenantMaintenance/label', 'Perform tenant maintenance operations', 'Обслуживание арендатора'],
+  ['variant/x:Task/StoreMaintenance/label', 'Perform store maintenance operations', 'Обслуживание хранилища'],
+  ['form/x:TaskCalendarAlarmEmail/section/section-0', 'Account Task', 'Задание для учётной записи'],
+  ['form/x:TaskCalendarAlarmEmail/field/documentId', 'Document', 'Документ'],
+  ['field/x:TaskCalendarAlarmEmail/accountId/description', 'Identifier of the account associated with this task', 'Идентификатор учётной записи, связанной с заданием'],
+  ['field/x:TaskCalendarAlarmEmail/documentId/description', 'Identifier of the document associated with this task', 'Идентификатор документа, связанного с заданием'],
+  ['field/x:TaskCalendarAlarmEmail/status/description', 'Current status of the task', 'Текущее состояние задания'],
+  ['variant/x:TaskStatus/Pending/label', 'Pending task awaiting execution', 'Задание ожидает выполнения'],
+  ['field/x:TaskStatusPending/due/description', 'Due date and time for the task', 'Дата и время выполнения задания'],
+];
+for (const hash of meta.schemaHashes) {
+  for (const [slot, original, translated] of stage9Pinned) {
+    assert.equal(entries[slot]?.original, original, 'Pinned stage9 mismatch: ' + slot);
+    assert.equal(schemaText(hash, 'ru', slot, original), translated);
+    assert.equal(schemaText(hash, 'en', slot, original), original);
+    assert.equal(schemaText(hash, 'ru', slot, original + ' changed'), original + ' changed');
+  }
+  for (const [slot, original, translated] of stage9Fallback) {
+    assert.equal(schemaText(hash, 'ru', slot, original), translated);
+    assert.equal(schemaText(hash, 'en', slot, original), original);
+    assert.equal(schemaText(hash, 'ru', slot, original + ' changed'), original + ' changed');
+  }
+  assert.equal(schemaText(hash, 'ru', 'variant/x:Domain/Other/label', 'Account Task'), 'Account Task');
+  assert.equal(schemaText(hash, 'ru', 'list/x:QueuedMessage/column/index', 'Index'), 'Index');
+  assert.equal(schemaText(hash, 'ru', 'variant/x:Task/Unknown/label', 'Unseen task label'), 'Unseen task label');
+}
+assert.equal(schemaText('unknown-schema', 'ru', stage9Fallback[0][0], 'Index'), 'Index');
+assert.equal(schemaText(null, 'ru', stage9Fallback[4][0], 'Calendar alarm e-mail'), 'Calendar alarm e-mail');
+// Source-level contract: the task Create button is generated from the raw view
+// and remains unchanged. UI labels are not task execution or server API changes.
+assert.match(listSource, /navigate\(`\/\$\{section\}\/\$\{viewName\}\/new`\)/);
+assert.match(listSource, /t\('list\.create', 'Create \{\{name\}\}'/);
+assert.match(variantSource, /onChange\(v\.name\)/);
+assert.match(headerSource, /onSort\(column\.name\)/);
+
 console.log(`Schema locale check passed: ${Object.keys(entries).length} contextual slots, two pinned variants, safe fallbacks, preserved identifiers.`);
