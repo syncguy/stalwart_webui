@@ -81,7 +81,19 @@ export function FormSections({
                 <Render
                   key={formField.name}
                   field={field}
-                  formField={formField}
+                  formField={{
+                    ...formField,
+                    label: fieldLabel(formField.name, formField.label),
+                    keyLabel: formField.keyLabel && context.formKey
+                      ? display(`form/${context.formKey}/field/${formField.name}/keyLabel`, formField.keyLabel)
+                      : formField.keyLabel,
+                    valueLabel: formField.valueLabel && context.formKey
+                      ? display(`form/${context.formKey}/field/${formField.name}/valueLabel`, formField.valueLabel)
+                      : formField.valueLabel,
+                    placeholder: formField.placeholder && context.formKey
+                      ? display(`form/${context.formKey}/field/${formField.name}/placeholder`, formField.placeholder)
+                      : formField.placeholder,
+                  }}
                   data={data}
                   errors={errors}
                   readOnly={readOnly}
