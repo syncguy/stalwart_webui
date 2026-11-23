@@ -15,6 +15,7 @@ import type { Card as CardSchema, Placement } from '../types/schema';
 import type { Metric } from '../types/metrics';
 import { cardValue, deltaSentiment, formatValue, sparklineData, computeDelta } from '../helpers';
 import { useLiveMetricsStore } from '../stores/liveMetricsStore';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { getChartColor } from '@/components/ui/chart';
 import { formatPercent } from '@/lib/format';
 import { cn } from '@/lib/utils';
@@ -53,13 +54,20 @@ function DeltaBadge({
 }
 
 interface StatCardProps {
+  dashboardId: string;
+  itemIndex: number;
   card: CardSchema & Placement;
   className?: string;
   historySamples: Metric[];
   historyWindow: { from: Date; to: Date };
 }
 
-export function StatCard({ card, className, historySamples, historyWindow }: StatCardProps) {
+export function StatCard({ dashboardId, itemIndex, card, className, historySamples, historyWindow }: StatCardProps) {
+  const display = useSchemaText();
+  const title = display(`dashboard/${dashboardId}/item/${itemIndex}/title`, card.title);
+  const description = card.description
+    ? display(`dashboard/${dashboardId}/item/${itemIndex}/description`, card.description)
+    : undefined;
   const toneClass = toneClasses(card.tone);
   const liveSnapshot = useLiveMetricsStore((s) => s.snapshot);
 
@@ -91,15 +99,15 @@ export function StatCard({ card, className, historySamples, historyWindow }: Sta
   return (
     <Card
       role="group"
-      aria-label={card.title}
+      aria-label={title}
       className={cn('flex min-h-[148px] flex-col gap-2.5 px-5 pb-4 pt-[18px]', toneClass.surface, className)}
     >
       <div className={cn('flex min-w-0 items-center gap-2.5 text-[13px] font-medium', toneClass.muted)}>
         <span className={cn('grid size-9 shrink-0 place-items-center rounded-[11px]', toneClass.badge)}>
           <DynamicIcon name={card.icon} fallback={HelpCircle} className="size-[17px]" />
         </span>
-        <span className="min-w-0 truncate">{card.title}</span>
-        {card.description && <HelpTooltip content={card.description} label={card.title} icon={Info} />}
+        <span className="min-w-0 truncate">{title}</span>
+        {description && <HelpTooltip content={description} label={title} icon={Info} />}
       </div>
 
       <div
