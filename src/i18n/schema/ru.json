@@ -18,6 +18,34 @@
     ]
   },
   "entries": {
+    "enum/CredentialPermissionsType/Disable/label": {
+      "original": "Disable some permissions",
+      "ru": "Запретить отдельные права"
+    },
+    "enum/CredentialPermissionsType/Inherit/label": {
+      "original": "Same permissions as account",
+      "ru": "Права как у учётной записи"
+    },
+    "enum/CredentialPermissionsType/Replace/label": {
+      "original": "Replace all permissions",
+      "ru": "Заменить все права"
+    },
+    "enum/CredentialType/ApiKey/label": {
+      "original": "API key for programmatic access",
+      "ru": "API-ключ для программного доступа"
+    },
+    "enum/CredentialType/AppPassword/label": {
+      "original": "App password for third-party applications",
+      "ru": "Пароль приложения"
+    },
+    "enum/CredentialType/Passkey/label": {
+      "original": "Passkey for passwordless sign-in",
+      "ru": "Ключ доступа для входа без пароля"
+    },
+    "enum/CredentialType/Password/label": {
+      "original": "Password for authenticating to the account",
+      "ru": "Пароль для входа в учётную запись"
+    },
     "enum/IndexType/calendar/label": {
       "original": "Calendar",
       "ru": "Календарь"
@@ -86,6 +114,26 @@
       "original": "Sender",
       "ru": "Отправитель"
     },
+    "enum/PermissionsType/Inherit/label": {
+      "original": "Inherited permissions",
+      "ru": "Унаследованные права"
+    },
+    "enum/PermissionsType/Merge/label": {
+      "original": "Permissions are combined with inherited permissions",
+      "ru": "Объединить с унаследованными правами"
+    },
+    "enum/PermissionsType/Replace/label": {
+      "original": "Permissions replace all inherited permissions",
+      "ru": "Заменить унаследованные права"
+    },
+    "enum/RolesType/Custom/label": {
+      "original": "Custom role",
+      "ru": "Пользовательская роль"
+    },
+    "enum/RolesType/Default/label": {
+      "original": "Default role",
+      "ru": "Роль по умолчанию"
+    },
     "enum/SharedObjectType/addressBook/label": {
       "original": "Address Book",
       "ru": "Адресная книга"
@@ -114,9 +162,25 @@
       "original": "Scheduled",
       "ru": "Запланированные"
     },
+    "enum/UserRolesType/Admin/label": {
+      "original": "Administrator role",
+      "ru": "Роль администратора"
+    },
+    "enum/UserRolesType/Custom/label": {
+      "original": "Custom role",
+      "ru": "Пользовательская роль"
+    },
+    "enum/UserRolesType/User/label": {
+      "original": "User role",
+      "ru": "Роль пользователя"
+    },
     "field/x:CertificateManagementProperties/acmeProviderId/description": {
       "original": "Identifier for the ACME provider managing certificates for this domain",
       "ru": "Идентификатор провайдера ACME, управляющего сертификатами домена"
+    },
+    "field/x:CustomRoles/roleIds/description": {
+      "original": "List of roles assigned to this principal.",
+      "ru": "Список ролей, назначенных этому субъекту доступа."
     },
     "field/x:DkimManagementProperties/algorithms/description": {
       "original": "List of signing algorithms to use when generating new DKIM keys",
@@ -205,6 +269,38 @@
     "field/x:Domain/subAddressing/description": {
       "original": "Whether sub-addressing (plus addressing) is enabled for the domain",
       "ru": "Разрешена ли адресация с суффиксом после знака «+»"
+    },
+    "field/x:EmailAlias/description/description": {
+      "original": "Description of the email alias",
+      "ru": "Описание почтового псевдонима"
+    },
+    "field/x:EmailAlias/domainId/description": {
+      "original": "Identifier for the domain of the email alias (the part after the @ symbol).",
+      "ru": "Домен почтового псевдонима — часть адреса после знака @."
+    },
+    "field/x:EmailAlias/enable/description": {
+      "original": "Whether this email alias is enabled",
+      "ru": "Включён ли этот почтовый псевдоним"
+    },
+    "field/x:EmailAlias/name/description": {
+      "original": "The local part of the email alias (the part before the @ symbol)",
+      "ru": "Часть почтового адреса до знака @"
+    },
+    "field/x:EncryptionSettings/allowSpamTraining/description": {
+      "original": "Whether to allow training the spam classifier with plaintext emails before encryption",
+      "ru": "Разрешать ли обучение классификатора спама на открытом тексте писем перед шифрованием"
+    },
+    "field/x:EncryptionSettings/encryptOnAppend/description": {
+      "original": "Whether to encrypt emails when they are appended to mailboxes",
+      "ru": "Шифровать ли письма при добавлении в почтовые ящики"
+    },
+    "field/x:EncryptionSettings/headerProtection/description": {
+      "original": "Whether message headers are also protected inside the encrypted part (Subject hiding is not available at rest)",
+      "ru": "Защищать ли заголовки сообщений внутри зашифрованной части (скрытие темы при хранении недоступно)"
+    },
+    "field/x:EncryptionSettings/publicKey/description": {
+      "original": "Public key used for encrypting emails",
+      "ru": "Открытый ключ для шифрования сообщений"
     },
     "field/x:GroupAccount/aliases/description": {
       "original": "List of email aliases for the group",
@@ -338,6 +434,42 @@
       "original": "Secret value of the OAuth client",
       "ru": "Секретное значение клиента OAuth"
     },
+    "field/x:PasskeyCredential/algorithm/description": {
+      "original": "Signature algorithm of the credential public key",
+      "ru": "Алгоритм подписи открытого ключа учётных данных"
+    },
+    "field/x:PasskeyCredential/createdAt/description": {
+      "original": "Creation date of the passkey",
+      "ru": "Дата создания ключа доступа"
+    },
+    "field/x:PasskeyCredential/description/description": {
+      "original": "Name of the passkey",
+      "ru": "Имя ключа доступа"
+    },
+    "field/x:PasswordCredential/allowedIps/description": {
+      "original": "List of allowed IP addresses or CIDR ranges for this credential",
+      "ru": "Список IP-адресов и подсетей CIDR, с которых разрешено использовать эти учётные данные"
+    },
+    "field/x:PasswordCredential/expiresAt/description": {
+      "original": "Expiration date of the credential",
+      "ru": "Дата окончания срока действия учётных данных"
+    },
+    "field/x:PasswordCredential/otpUrl/description": {
+      "original": "OTP authentication URI for the account",
+      "ru": "URI для настройки одноразовых паролей учётной записи"
+    },
+    "field/x:PasswordCredential/secret/description": {
+      "original": "Secret value of the account",
+      "ru": "Секретное значение учётной записи"
+    },
+    "field/x:PermissionsList/disabledPermissions/description": {
+      "original": "List of permissions that are explicitly disabled, even if they would be inherited through other roles or groups. This takes precedence over enabled permissions.",
+      "ru": "Список явно запрещённых прав доступа, включая унаследованные. Запрет имеет приоритет над разрешением."
+    },
+    "field/x:PermissionsList/enabledPermissions/description": {
+      "original": "List of permissions that are explicitly enabled.",
+      "ru": "Список явно разрешённых прав доступа."
+    },
     "field/x:Role/description/description": {
       "original": "Description of the role",
       "ru": "Описание роли"
@@ -357,6 +489,30 @@
     "field/x:Role/roleIds/description": {
       "original": "List of roles this role extends",
       "ru": "Другие роли, права которых наследует эта роль"
+    },
+    "field/x:SecondaryCredential/allowedIps/description": {
+      "original": "List of allowed IP addresses or CIDR ranges for this credential",
+      "ru": "Список IP-адресов и подсетей CIDR, с которых разрешено использовать эти учётные данные"
+    },
+    "field/x:SecondaryCredential/createdAt/description": {
+      "original": "Creation date of the credential",
+      "ru": "Дата создания учётных данных"
+    },
+    "field/x:SecondaryCredential/description/description": {
+      "original": "Description of the credential",
+      "ru": "Описание учётных данных"
+    },
+    "field/x:SecondaryCredential/expiresAt/description": {
+      "original": "Expiration date of the credential",
+      "ru": "Дата окончания срока действия учётных данных"
+    },
+    "field/x:SecondaryCredential/permissions/description": {
+      "original": "List of permissions assigned to this credential",
+      "ru": "Права доступа, назначенные этим учётным данным"
+    },
+    "field/x:SecondaryCredential/secret/description": {
+      "original": "Secret value of the credential",
+      "ru": "Секретное значение учётных данных"
     },
     "field/x:SubAddressingCustom/customRule/description": {
       "original": "Expression that defines custom sub-addressing rules for the domain",
@@ -2266,6 +2422,18 @@
       "original": "Domain",
       "ru": "Домен"
     },
+    "form/x:EmailAlias/field/enable": {
+      "original": "Enabled",
+      "ru": "Включён"
+    },
+    "form/x:EmailAlias/field/name": {
+      "original": "Local Part",
+      "ru": "Имя до знака @"
+    },
+    "form/x:EmailAlias/section/section-0": {
+      "original": "Email Alias",
+      "ru": "Почтовый псевдоним"
+    },
     "form/x:EmailFolder/field/aliases": {
       "original": "Aliases",
       "ru": "Псевдонимы"
@@ -2297,6 +2465,26 @@
     "form/x:Encryption/EncryptionTrust/title": {
       "original": "S/MIME Trust",
       "ru": "Доверие S/MIME"
+    },
+    "form/x:EncryptionSettings/field/allowSpamTraining": {
+      "original": "Allow Spam Training",
+      "ru": "Разрешить обучение антиспама"
+    },
+    "form/x:EncryptionSettings/field/encryptOnAppend": {
+      "original": "Encrypt on Append",
+      "ru": "Шифровать при добавлении"
+    },
+    "form/x:EncryptionSettings/field/headerProtection": {
+      "original": "Header Protection",
+      "ru": "Защита заголовков"
+    },
+    "form/x:EncryptionSettings/field/publicKey": {
+      "original": "Public Key",
+      "ru": "Открытый ключ"
+    },
+    "form/x:EncryptionSettings/section/section-0": {
+      "original": "Encryption Settings",
+      "ru": "Настройки шифрования"
     },
     "form/x:ExternalPublicKey/field/description": {
       "original": "Description",
@@ -3108,7 +3296,7 @@
     },
     "form/x:PasskeyCredential/field/createdAt": {
       "original": "Added",
-      "ru": "Добавлено"
+      "ru": "Добавлен"
     },
     "form/x:PasskeyCredential/field/description": {
       "original": "Name",
@@ -3132,11 +3320,19 @@
     },
     "form/x:PasswordCredential/field/expiresAt": {
       "original": "Expiration Date",
-      "ru": "Дата окончания срока"
+      "ru": "Срок действия"
+    },
+    "form/x:PasswordCredential/field/otpUrl": {
+      "original": "OTP Authentication URI",
+      "ru": "URI для одноразовых паролей"
     },
     "form/x:PasswordCredential/field/secret": {
       "original": "Password",
       "ru": "Пароль"
+    },
+    "form/x:PasswordCredential/section/section-0": {
+      "original": "Secrets",
+      "ru": "Секретные данные"
     },
     "form/x:PasswordCredential/section/section-1": {
       "original": "Restrictions",
@@ -3380,7 +3576,7 @@
     },
     "form/x:SecondaryCredential/field/expiresAt": {
       "original": "Expiration Date",
-      "ru": "Дата окончания срока"
+      "ru": "Срок действия"
     },
     "form/x:SecondaryCredential/field/permissions": {
       "original": "Permissions",
@@ -4492,7 +4688,7 @@
     },
     "list/x:Action/subtitle": {
       "original": "Execute server management actions",
-      "ru": "Выполнение административных действий сервера"
+      "ru": "Выполнение административных действий на сервере"
     },
     "list/x:Action/title": {
       "original": "Actions",
@@ -6200,7 +6396,7 @@
     },
     "variant/x:Action/UpdateApps/label": {
       "original": "Application Management: Update applications",
-      "ru": "Управление приложениями: Обновить приложения"
+      "ru": "Управление приложениями: Обновить приложение"
     },
     "variant/x:CertificateManagement/Automatic/label": {
       "original": "ACME TLS certificate management",
@@ -6209,6 +6405,22 @@
     "variant/x:CertificateManagement/Manual/label": {
       "original": "Manual TLS certificate management",
       "ru": "Ручное управление сертификатами TLS"
+    },
+    "variant/x:Credential/ApiKey/label": {
+      "original": "API key for programmatic access",
+      "ru": "API-ключ для программного доступа"
+    },
+    "variant/x:Credential/AppPassword/label": {
+      "original": "App password for third-party applications",
+      "ru": "Пароль приложения"
+    },
+    "variant/x:Credential/Passkey/label": {
+      "original": "Passkey for passwordless sign-in",
+      "ru": "Ключ доступа для входа без пароля"
+    },
+    "variant/x:Credential/Password/label": {
+      "original": "Password for authenticating to the account",
+      "ru": "Пароль для входа в учётную запись"
     },
     "variant/x:DkimManagement/Automatic/label": {
       "original": "Automatic DKIM management",
@@ -6225,6 +6437,34 @@
     "variant/x:DnsManagement/Manual/label": {
       "original": "Manual DNS management",
       "ru": "Ручное управление DNS"
+    },
+    "variant/x:EncryptionAtRest/Disabled/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
+    },
+    "variant/x:EncryptionAtRest/Enabled/label": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
+    "variant/x:Permissions/Inherit/label": {
+      "original": "Inherited permissions",
+      "ru": "Унаследованные права"
+    },
+    "variant/x:Permissions/Merge/label": {
+      "original": "Permissions are combined with inherited permissions",
+      "ru": "Объединить с унаследованными правами"
+    },
+    "variant/x:Permissions/Replace/label": {
+      "original": "Permissions replace all inherited permissions",
+      "ru": "Заменить унаследованные права"
+    },
+    "variant/x:Roles/Custom/label": {
+      "original": "Custom role",
+      "ru": "Пользовательская роль"
+    },
+    "variant/x:Roles/Default/label": {
+      "original": "Default role",
+      "ru": "Роль по умолчанию"
     },
     "variant/x:SpamDnsblServer/Domain/label": {
       "original": "Domain",
@@ -6245,6 +6485,18 @@
     "variant/x:SubAddressing/Enabled/label": {
       "original": "Enable sub-addressing",
       "ru": "Включить дополнительную адресацию"
+    },
+    "variant/x:UserRoles/Admin/label": {
+      "original": "Administrator role",
+      "ru": "Роль администратора"
+    },
+    "variant/x:UserRoles/Custom/label": {
+      "original": "Custom role",
+      "ru": "Пользовательская роль"
+    },
+    "variant/x:UserRoles/User/label": {
+      "original": "User role",
+      "ru": "Роль пользователя"
     }
   }
 }
