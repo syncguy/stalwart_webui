@@ -32,11 +32,12 @@ import { useIsCommunity } from '@/hooks/usePermissions';
 import { SIDEBAR_ID } from './sidebarContext';
 import { useLayoutNavigation } from './useLayoutNavigation';
 import { useSchemaText } from '@/hooks/useSchemaText';
+import { setLocale } from '@/i18n';
 
 const IS_MAC = /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
 
 export function TopBar() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const display = useSchemaText();
   const navigate = useNavigate();
   const theme = useUIStore((s) => s.theme);
@@ -52,6 +53,7 @@ export function TopBar() {
   const { layouts: navigableLayouts, landingPath } = useLayoutNavigation();
   const [upsellOpen, setUpsellOpen] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const activeLanguage = (i18n.resolvedLanguage ?? i18n.language).split(/[-_]/)[0];
 
   useEffect(() => {
     function handleGlobalKeyDown(e: KeyboardEvent) {
@@ -157,6 +159,13 @@ export function TopBar() {
                 <DropdownMenuSeparator />
               </>
             )}
+
+            <DropdownMenuLabel>{t('interfaceLanguage', 'Language')}</DropdownMenuLabel>
+            <DropdownMenuRadioGroup value={activeLanguage} onValueChange={setLocale}>
+              <DropdownMenuRadioItem value="ru">Русский</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
+            </DropdownMenuRadioGroup>
+            <DropdownMenuSeparator />
 
             {Object.keys(accounts).length > 0 && (
               <>
