@@ -559,4 +559,103 @@ assert.ok(tableSource.includes('<Pagination'));
 assert.ok(tableSource.includes('pluralName={list.pluralName}'));
 assert.ok(paginationSource.includes('{summary}'));
 
+// Stage14: five report list/detail layouts from the pinned OSS/Enterprise schemas.
+const reportViews = [
+  ['DmarcExternalReport', 'Inbound DMARC Reports', 'Входящие отчёты DMARC',
+    'Manage received DMARC aggregate reports',
+    ['from', 'subject', 'receivedAt'],
+    ['domain', 'totalFailedSessions', 'totalSuccessfulSessions', 'expiresAt', 'memberTenantId'],
+    ['report', 'memberTenantId', 'from', 'subject', 'to', 'receivedAt', 'expiresAt'], 'DMARC Report'],
+  ['TlsExternalReport', 'TLS Reports', 'Входящие отчёты TLS',
+    'Manage received TLS aggregate reports',
+    ['from', 'subject', 'receivedAt'], [],
+    ['report', 'memberTenantId', 'from', 'subject', 'to', 'receivedAt', 'expiresAt'], 'TLS Report'],
+  ['ArfExternalReport', 'ARF Reports', 'Входящие отчёты ARF',
+    'Manage received ARF feedback reports',
+    ['from', 'subject', 'receivedAt'], [],
+    ['report', 'memberTenantId', 'from', 'subject', 'to', 'receivedAt', 'expiresAt'], 'ARF Report'],
+  ['DmarcInternalReport', 'Outbound DMARC Reports', 'Исходящие отчёты DMARC',
+    'Manage outbound DMARC aggregate reports',
+    ['domain', 'createdAt', 'deliverAt'], ['domain'],
+    ['rua', 'policyIdentifier', 'report', 'domain', 'createdAt', 'deliverAt'], 'DMARC Report'],
+  ['TlsInternalReport', 'Outbound TLS Reports', 'Исходящие отчёты TLS',
+    'Manage outbound TLS aggregate reports',
+    ['domain', 'createdAt', 'deliverAt'], [],
+    ['mailRua', 'httpRua', 'policyIdentifiers', 'report', 'domain', 'createdAt', 'deliverAt'], 'TLS Report'],
+];
+const reportFieldLabels = {
+  from: 'From', subject: 'Subject', receivedAt: 'Received At',
+  domain: 'Domain', createdAt: 'Created At', deliverAt: 'Deliver At',
+  expiresAt: 'Expires At', memberTenantId: 'Tenant', to: 'To', report: 'Report',
+  rua: 'Report Recipients', policyIdentifier: 'Policy Identifier',
+  mailRua: 'Mail Report Recipients', httpRua: 'HTTP Report URIs',
+  policyIdentifiers: 'Policy Identifiers',
+};
+const reportFilterLabels = {
+  domain: 'Domain Name', totalFailedSessions: 'Failed Sessions',
+  totalSuccessfulSessions: 'Successful Sessions', expiresAt: 'Expires At',
+  memberTenantId: 'Tenant',
+};
+const reportDescriptions = {
+  expiresAt: 'When the report is scheduled to be deleted',
+  from: 'Email address of the report sender',
+  memberTenantId: 'Identifier for the tenant this report belongs to',
+  receivedAt: 'When the report email was received',
+  subject: 'Subject line of the report email',
+  to: 'List of recipient email addresses',
+  createdAt: 'When the report was created',
+  deliverAt: 'When the report is scheduled to be delivered',
+  domain: 'Domain this report is associated with',
+  policyIdentifier: 'Identifier for the DMARC policy that generated this report',
+  rua: 'Reporting email addresses from the DMARC policy',
+  httpRua: 'Reporting URIs from the TLS policy',
+  mailRua: 'Reporting email addresses from the TLS policy',
+  policyIdentifiers: 'Identifiers for the TLS policies that generated this report',
+};
+const reportContents = {
+  DmarcExternalReport: 'DMARC report content',
+  TlsExternalReport: 'TLS report content',
+  ArfExternalReport: 'Parsed ARF feedback report content',
+  DmarcInternalReport: 'DMARC report content',
+  TlsInternalReport: 'TLS report content',
+};
+const reportSlots = [];
+for (const [name, title, titleRu, subtitle, columns, filters, fields, firstSection] of reportViews) {
+  const list = 'list/x:' + name, form = 'form/x:' + name;
+  reportSlots.push([list + '/title', title, titleRu]);
+  reportSlots.push([list + '/subtitle', subtitle, null]);
+  reportSlots.push([list + '/singular', 'report', 'отчёт']);
+  reportSlots.push([list + '/plural', 'reports', 'отчёты']);
+  for (const field of columns) reportSlots.push([list + '/column/' + field, reportFieldLabels[field], null]);
+  for (const field of filters) reportSlots.push([list + '/filter/' + field, reportFilterLabels[field], null]);
+  reportSlots.push([form + '/section/section-0', firstSection, null]);
+  reportSlots.push([form + '/section/section-1', 'Report', 'Сведения об отчёте']);
+  for (const field of fields) {
+    reportSlots.push([form + '/field/' + field, reportFieldLabels[field], null]);
+    reportSlots.push([
+      'field/x:' + name + '/' + field + '/description',
+      field === 'report' ? reportContents[name] : reportDescriptions[field],
+      null,
+    ]);
+  }
+}
+assert.equal(reportSlots.length, 119, 'Pinned report screen structure changed');
+for (const [slot, original, expectedRu] of reportSlots) {
+  assert.ok(original, 'Missing original label: ' + slot);
+  const entry = entries[slot];
+  assert.equal(entry?.original, original, 'Pinned source string changed: ' + slot);
+  assert.ok(entry?.ru && entry.ru !== original, 'Missing translated label: ' + slot);
+  if (expectedRu) assert.equal(entry.ru, expectedRu);
+  for (const hash of meta.schemaHashes) {
+    assert.equal(schemaText(hash, 'ru', slot, original), entry.ru);
+    assert.equal(schemaText(hash, 'en', slot, original), original);
+    assert.equal(schemaText(hash, 'ru', slot, original + ' updated'), original + ' updated');
+  }
+  assert.equal(schemaText('unknown-schema', 'ru', slot, original), original);
+}
+assert.equal(Object.keys(entries).length, 2030, 'Unexpected contextual slot inventory');
+// Both source schemas define forms for each of these read-only JMAP object views.
+assert.ok(viewPageSource.includes('<DynamicView'));
+assert.ok(viewSource.includes('value={data[formField.name]}'));
+
 console.log(`Schema locale check passed: ${Object.keys(entries).length} contextual slots, two pinned variants, safe fallbacks, preserved identifiers.`);
