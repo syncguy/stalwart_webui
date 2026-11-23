@@ -136,7 +136,7 @@
     },
     "dashboard/authentication/label": {
       "original": "Message Authentication",
-      "ru": "Проверка подлинности сообщений"
+      "ru": "Аутентификация"
     },
     "dashboard/cache/item/0/description": {
       "original": "Memory used by the e-mail data cache on the node serving this request.",
@@ -920,7 +920,7 @@
     },
     "dashboard/search-index/label": {
       "original": "Search Index",
-      "ru": "Поисковый индекс"
+      "ru": "Индексация"
     },
     "dashboard/security/item/0/description": {
       "original": "Connections from IPs on the blocklist.",
@@ -7092,11 +7092,11 @@
     },
     "nav/link/Management/x:Trace/InboundDelivery": {
       "original": "Inbound Delivery",
-      "ru": "Входящая доставка"
+      "ru": "Входящих"
     },
     "nav/link/Management/x:Trace/OutboundDelivery": {
       "original": "Outbound Delivery",
-      "ru": "Исходящая доставка"
+      "ru": "Исходящих"
     },
     "nav/link/Settings/x:AcmeProvider": {
       "original": "ACME Providers",
