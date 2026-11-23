@@ -15,6 +15,7 @@ import { EmbeddedObjectEditor } from '@/components/forms/widgets/EmbeddedObjectW
 import { widgetKey } from '@/extensions/widgets';
 import { FieldValue } from '@/components/values/FieldValue';
 import { buildNewObjectValue } from '@/lib/schemaResolver';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { embeddedSummary, isRecord } from '@/lib/embeddedSchema';
 import { cn } from '@/lib/utils';
 import type { WidgetProps } from '@/components/forms/widgets/types';
@@ -30,6 +31,7 @@ export function ObjectListWidget({
   control,
 }: WidgetProps<FieldTypeObjectList>) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const { schema } = useFormContext();
   const inPanel = useInPanel();
   const baseId = useId();
@@ -66,6 +68,10 @@ export function ObjectListWidget({
       {entries.map(([key, item], position) => {
         const itemLabel = t('field.itemN', '{{label}} {{n}}', { label: formField.label, n: position + 1 });
         const summary = embeddedSummary(schema, type.objectName, item);
+        const variant = isRecord(item) ? item['@type'] : null;
+        const summaryLabel = summary.variantLabel && typeof variant === 'string'
+          ? display(`variant/${type.objectName}/${variant}/label`, summary.variantLabel)
+          : summary.variantLabel;
         const open = !!control['aria-invalid'] || !collapsed.has(key);
         const bodyId = `${baseId}-${key}`;
         return (
@@ -87,7 +93,7 @@ export function ObjectListWidget({
                   aria-hidden="true"
                 />
                 <span className="flex min-w-0 flex-col">
-                  <span className="truncate text-[13.5px] font-semibold">{summary.variantLabel ?? itemLabel}</span>
+                  <span className="truncate text-[13.5px] font-semibold">{summaryLabel ?? itemLabel}</span>
                   {summary.summary && (
                     <span className="truncate text-[12.5px] text-muted-foreground">
                       {summary.summary.type ? (
