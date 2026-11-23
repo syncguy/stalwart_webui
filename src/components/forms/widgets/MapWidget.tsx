@@ -260,14 +260,14 @@ function MapKeyInput({ keyClass, label, value, onChange, onKeyDown, existingKeys
             <SelectValue placeholder={t('field.selectKey', 'Select key...')} />
           </SelectTrigger>
           <SelectContent>
-            {variants.map((v) => (
-              <SelectItem key={v.name} value={v.name}>
-                {(() => {
-                  const localized = display(`enum/${keyClass.enumName}/${v.name}/label`, v.label);
-                  return quota && canTranslate ? quotaOptionLabel(localized) : localized;
-                })()}
-              </SelectItem>
-            ))}
+            {variants.map((v) => {
+              const localized = display(`enum/${keyClass.enumName}/${v.name}/label`, v.label);
+              return (
+                <SelectItem key={v.name} value={v.name}>
+                  {quota && canTranslate ? quotaOptionLabel(localized) : localized}
+                </SelectItem>
+              );
+            })}
           </SelectContent>
         </Select>
       );
