@@ -6,7 +6,7 @@
 
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { schemaText } from '@/i18n/schemaText';
+import { canTranslateSchema, schemaText } from '@/i18n/schemaText';
 import { useSchemaStore } from '@/stores/schemaStore';
 
 /** A reactive, schema-versioned display lookup. Raw schema references stay stable. */
@@ -18,4 +18,11 @@ export function useSchemaText() {
     (slot: string, original: string): string => schemaText(schemaHash, language, slot, original),
     [schemaHash, language],
   );
+}
+
+/** True only for the supported Russian locale on a source-verified schema. */
+export function useCanTranslateSchema(): boolean {
+  const schemaHash = useSchemaStore((state) => state.schemaHash);
+  const { i18n } = useTranslation();
+  return canTranslateSchema(schemaHash, i18n.resolvedLanguage ?? i18n.language);
 }
