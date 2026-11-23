@@ -14,13 +14,19 @@ const schemaHashes = new Set<string>(ruCatalog.meta.schemaHashes);
  * Display-only text lookup. Never rewrite schema values, keys, routes or
  * persisted form data. An unfamiliar schema revision falls back to English.
  */
+export function canTranslateSchema(schemaHash: string | null, language: string): boolean {
+  return language.split(/[-_]/)[0].toLowerCase() === 'ru'
+    && !!schemaHash
+    && schemaHashes.has(schemaHash);
+}
+
 export function schemaText(
   schemaHash: string | null,
   language: string,
   slot: string,
   original: string,
 ): string {
-  if (language.split(/[-_]/)[0].toLowerCase() !== 'ru' || !schemaHash || !schemaHashes.has(schemaHash)) {
+  if (!canTranslateSchema(schemaHash, language)) {
     return original;
   }
   const entry = entries[slot];
