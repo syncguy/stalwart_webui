@@ -82,4 +82,52 @@ assert.ok(zone.includes('description: offset'));
 assert.ok(zone.includes('keywords: [v.name, v.label, label'));
 assert.ok(zone.includes("onChange(v === '' ? null : v)"));
 
+
+// Stage10: test the actual deterministic search function used by Combobox.
+// Match Russian display text as well as English/BCP 47 and IANA IDs.
+// Filtering must not change selected values or mutate the supplied options.
+const searchSource = fs.readFileSync('src/components/ui/comboboxSearch.ts', 'utf8');
+const searchCompiled = ts.transpileModule(searchSource, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
+});
+const searchExports = {};
+vm.runInNewContext(searchCompiled.outputText, { exports: searchExports }, { filename: 'comboboxSearch.ts' });
+const { filterComboboxOptions, normalizeComboboxSearch } = searchExports;
+assert.equal(normalizeComboboxSearch('  РУССКИЙ   (РОССИЯ)  '), 'русский россия');
+assert.equal(normalizeComboboxSearch('Семён'), 'семен');
+const localeOptions = [
+  { value: 'en_US', label: exports.localeOptionLabel('en_US', 'English locale for the USA.'),
+    keywords: ['en_US', 'English locale for the USA.'] },
+  { value: 'ru_RU', label: exports.localeOptionLabel('ru_RU', 'Russian locale for Russia.'),
+    keywords: ['ru_RU', 'Russian locale for Russia.'] },
+  { value: 'af_DJ', label: exports.localeOptionLabel('af_DJ', 'Afar language locale for Djibouti.'),
+    keywords: ['af_DJ', 'Afar language locale for Djibouti.'] },
+];
+const labelsBefore = localeOptions.map((x) => [x.value, x.label]);
+assert.equal(filterComboboxOptions(localeOptions, 'русск')[0]?.value, 'ru_RU');
+assert.equal(filterComboboxOptions(localeOptions, 'росси')[0]?.value, 'ru_RU');
+assert.equal(filterComboboxOptions(localeOptions, 'Russian')[0]?.value, 'ru_RU');
+assert.equal(filterComboboxOptions(localeOptions, 'ru_RU')[0]?.value, 'ru_RU');
+assert.equal(filterComboboxOptions(localeOptions, 'английск')[0]?.value, 'en_US');
+assert.equal(filterComboboxOptions(localeOptions, 'en_US')[0]?.value, 'en_US');
+assert.equal(filterComboboxOptions(localeOptions, 'gibberish').length, 0);
+assert.deepEqual(localeOptions.map((x) => [x.value, x.label]), labelsBefore);
+const timeZoneOptions = [
+  { value: 'Asia/Tomsk', label: exports.timeZoneOptionLabel('Asia/Tomsk', 'Asia/Tomsk'),
+    keywords: ['Asia/Tomsk'] },
+  { value: 'Asia/Tokyo', label: exports.timeZoneOptionLabel('Asia/Tokyo', 'Asia/Tokyo'),
+    keywords: ['Asia/Tokyo'] },
+];
+assert.equal(filterComboboxOptions(timeZoneOptions, 'томск')[0]?.value, 'Asia/Tomsk');
+assert.equal(filterComboboxOptions(timeZoneOptions, 'Asia/Tomsk')[0]?.value, 'Asia/Tomsk');
+assert.deepEqual(filterComboboxOptions(timeZoneOptions, '').map((x) => x.value),
+  ['Asia/Tomsk', 'Asia/Tokyo']);
+const comboboxSource = fs.readFileSync('src/components/ui/combobox.tsx', 'utf8');
+assert.ok(comboboxSource.includes('filterComboboxOptions(options, query)'));
+assert.ok(comboboxSource.includes('<Command shouldFilter={false}>'));
+assert.ok(comboboxSource.includes('onValueChange={setQuery}'));
+assert.ok(comboboxSource.includes('visibleOptions.map((option)'));
+assert.ok(comboboxSource.includes('onValueChange(option.value)'));
+assert.ok(comboboxSource.includes('if (!next) setQuery('));
+
 console.log('Option-label source checks passed; JMAP IDs, map keys, IANA values and UTC offsets kept raw.');
