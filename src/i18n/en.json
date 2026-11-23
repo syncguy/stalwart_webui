@@ -12,7 +12,8 @@
     "noAdditionalData": "No additional data returned.",
     "otherGroup": "Other",
     "title": "Actions",
-    "updateAppsScopeWarning": "Updates all configured web applications, not only this interface. Check every application's resource URL and external download policy before continuing."
+    "updateAppsScopeWarning": "Updates all configured web applications, not only this interface. Check every application's resource URL and external download policy before continuing.",
+    "negativeCacheExplanation": "Clears cached unsuccessful lookup results so the next requests check again. Stored data is not deleted."
   },
   "bootstrap": {
     "complete": "Setup complete",
@@ -671,5 +672,8 @@
     "search": "Search",
     "searchLabel": "Search {{label}}",
     "noMatch": "No entries match “{{search}}”."
+  },
+  "logs": {
+    "noTracersConfigured": "No log tracers configured on the server"
   }
 }
