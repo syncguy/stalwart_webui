@@ -206,6 +206,62 @@
       "original": "Whether sub-addressing (plus addressing) is enabled for the domain",
       "ru": "Разрешена ли адресация с суффиксом после знака «+»"
     },
+    "field/x:GroupAccount/aliases/description": {
+      "original": "List of email aliases for the group",
+      "ru": "Дополнительные почтовые адреса группы"
+    },
+    "field/x:GroupAccount/createdAt/description": {
+      "original": "Creation date of the account",
+      "ru": "Дата создания учётной записи"
+    },
+    "field/x:GroupAccount/description/description": {
+      "original": "Description of the group",
+      "ru": "Описание группы"
+    },
+    "field/x:GroupAccount/domainId/description": {
+      "original": "Identifier for the domain this group belongs to. This is used to determine the email address of the group, which is formed as name@domain.",
+      "ru": "Домен группы, из которого формируется её почтовый адрес вида name@domain."
+    },
+    "field/x:GroupAccount/emailAddress/description": {
+      "original": "Email address of the group, formed as name@domain.",
+      "ru": "Адрес электронной почты группы в формате name@domain."
+    },
+    "field/x:GroupAccount/externalId/description": {
+      "original": "Identifier assigned by an external provisioning client such as a SCIM identity provider",
+      "ru": "Идентификатор, назначенный внешним источником учётных записей, например провайдером SCIM"
+    },
+    "field/x:GroupAccount/locale/description": {
+      "original": "Preferred locale for the group",
+      "ru": "Предпочитаемый язык группы"
+    },
+    "field/x:GroupAccount/memberTenantId/description": {
+      "original": "Identifier for the tenant this group belongs to",
+      "ru": "Идентификатор арендатора, которому принадлежит группа"
+    },
+    "field/x:GroupAccount/name/description": {
+      "original": "Name of the group, typically an email address local part.",
+      "ru": "Имя группы, обычно локальная часть почтового адреса."
+    },
+    "field/x:GroupAccount/permissions/description": {
+      "original": "Permissions assigned to this group",
+      "ru": "Права доступа, назначенные группе"
+    },
+    "field/x:GroupAccount/quotas/description": {
+      "original": "Quotas for different object types within this group",
+      "ru": "Квоты для различных типов объектов группы"
+    },
+    "field/x:GroupAccount/roles/description": {
+      "original": "Roles assigned to this group",
+      "ru": "Роли, назначенные группе"
+    },
+    "field/x:GroupAccount/timeZone/description": {
+      "original": "Preferred time zone for the account",
+      "ru": "Предпочитаемый часовой пояс"
+    },
+    "field/x:GroupAccount/usedDiskQuota/description": {
+      "original": "Amount of disk space currently used by this account (bytes)",
+      "ru": "Занятое группой место на диске (байты)"
+    },
     "field/x:MailingList/aliases/description": {
       "original": "List of email aliases for the mailing list",
       "ru": "Дополнительные адреса списка рассылки"
@@ -353,6 +409,74 @@
     "field/x:Trace/to/description": {
       "original": "Recipient addresses",
       "ru": "Адреса получателей"
+    },
+    "field/x:UserAccount/aliases/description": {
+      "original": "List of email aliases for the account",
+      "ru": "Дополнительные почтовые адреса учётной записи"
+    },
+    "field/x:UserAccount/createdAt/description": {
+      "original": "Creation date of the account",
+      "ru": "Дата создания учётной записи"
+    },
+    "field/x:UserAccount/credentials/description": {
+      "original": "List of credential objects representing authentication methods for the account",
+      "ru": "Методы аутентификации, настроенные для этой учётной записи"
+    },
+    "field/x:UserAccount/description/description": {
+      "original": "Description of the account",
+      "ru": "Описание учётной записи"
+    },
+    "field/x:UserAccount/domainId/description": {
+      "original": "Identifier for the domain this account belongs to. This is used to determine the email address of the account, which is formed as name@domain.",
+      "ru": "Домен учётной записи, из которого формируется адрес вида name@domain."
+    },
+    "field/x:UserAccount/emailAddress/description": {
+      "original": "Email address for the user account, formed as name@domain.",
+      "ru": "Адрес электронной почты пользователя в формате name@domain."
+    },
+    "field/x:UserAccount/encryptionAtRest/description": {
+      "original": "Encryption-at-rest settings for the account",
+      "ru": "Параметры шифрования данных учётной записи при хранении"
+    },
+    "field/x:UserAccount/externalId/description": {
+      "original": "Identifier assigned by an external provisioning client such as a SCIM identity provider",
+      "ru": "Идентификатор, назначенный внешним источником учётных записей, например провайдером SCIM"
+    },
+    "field/x:UserAccount/locale/description": {
+      "original": "Preferred locale for the account",
+      "ru": "Предпочитаемый язык учётной записи"
+    },
+    "field/x:UserAccount/memberGroupIds/description": {
+      "original": "List of groups that this account is a member of",
+      "ru": "Группы, в которых состоит пользователь"
+    },
+    "field/x:UserAccount/memberTenantId/description": {
+      "original": "Identifier for the tenant this account belongs to",
+      "ru": "Идентификатор арендатора, которому принадлежит пользователь"
+    },
+    "field/x:UserAccount/name/description": {
+      "original": "Name of the account, typically an email address local part.",
+      "ru": "Имя пользователя, обычно локальная часть почтового адреса."
+    },
+    "field/x:UserAccount/permissions/description": {
+      "original": "Permissions assigned to this account",
+      "ru": "Права доступа, назначенные пользователю"
+    },
+    "field/x:UserAccount/quotas/description": {
+      "original": "Quotas for different object types within this account",
+      "ru": "Квоты для различных типов объектов учётной записи"
+    },
+    "field/x:UserAccount/roles/description": {
+      "original": "Roles assigned to this user account",
+      "ru": "Роли, назначенные пользователю"
+    },
+    "field/x:UserAccount/timeZone/description": {
+      "original": "Preferred time zone for the account",
+      "ru": "Предпочитаемый часовой пояс учётной записи"
+    },
+    "field/x:UserAccount/usedDiskQuota/description": {
+      "original": "Amount of disk space currently used by this account (bytes)",
+      "ru": "Занятое учётной записью место на диске (байты)"
     },
     "form/AddressBook/field/description": {
       "original": "Description",
@@ -2226,6 +2350,10 @@
       "original": "File Storage",
       "ru": "Хранилище файлов"
     },
+    "form/x:GroupAccount/field/aliases": {
+      "original": "Email Aliases",
+      "ru": "Почтовые псевдонимы"
+    },
     "form/x:GroupAccount/field/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
@@ -2242,6 +2370,14 @@
       "original": "Email Address",
       "ru": "Адрес электронной почты"
     },
+    "form/x:GroupAccount/field/externalId": {
+      "original": "External Identifier",
+      "ru": "Внешний идентификатор"
+    },
+    "form/x:GroupAccount/field/locale": {
+      "original": "Locale",
+      "ru": "Язык"
+    },
     "form/x:GroupAccount/field/memberTenantId": {
       "original": "Tenant",
       "ru": "Арендатор"
@@ -2254,6 +2390,10 @@
       "original": "Permissions",
       "ru": "Права доступа"
     },
+    "form/x:GroupAccount/field/quotas": {
+      "original": "Quotas",
+      "ru": "Квоты"
+    },
     "form/x:GroupAccount/field/roles": {
       "original": "Roles",
       "ru": "Роли"
@@ -2262,13 +2402,29 @@
       "original": "Time Zone",
       "ru": "Часовой пояс"
     },
+    "form/x:GroupAccount/field/usedDiskQuota": {
+      "original": "Disk Usage",
+      "ru": "Использовано на диске"
+    },
     "form/x:GroupAccount/section/section-0": {
       "original": "Group",
       "ru": "Группа"
     },
+    "form/x:GroupAccount/section/section-1": {
+      "original": "Roles & Permissions",
+      "ru": "Роли и права доступа"
+    },
     "form/x:GroupAccount/section/section-2": {
       "original": "Email",
       "ru": "Почта"
+    },
+    "form/x:GroupAccount/section/section-3": {
+      "original": "Quotas",
+      "ru": "Квоты"
+    },
+    "form/x:GroupAccount/section/section-4": {
+      "original": "Locale & Time Zone",
+      "ru": "Язык и часовой пояс"
     },
     "form/x:GroupAccount/section/section-5": {
       "original": "Details",
@@ -3946,6 +4102,10 @@
       "original": "Tracing Store",
       "ru": "Хранилище трассировок"
     },
+    "form/x:UserAccount/field/aliases": {
+      "original": "Email Aliases",
+      "ru": "Почтовые псевдонимы"
+    },
     "form/x:UserAccount/field/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
@@ -3970,6 +4130,14 @@
       "original": "Encryption at Rest",
       "ru": "Шифрование при хранении"
     },
+    "form/x:UserAccount/field/externalId": {
+      "original": "External Identifier",
+      "ru": "Внешний идентификатор"
+    },
+    "form/x:UserAccount/field/locale": {
+      "original": "Locale",
+      "ru": "Язык"
+    },
     "form/x:UserAccount/field/memberGroupIds": {
       "original": "Groups",
       "ru": "Группы"
@@ -3978,9 +4146,17 @@
       "original": "Tenant",
       "ru": "Арендатор"
     },
+    "form/x:UserAccount/field/name": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
     "form/x:UserAccount/field/permissions": {
       "original": "Permissions",
       "ru": "Права доступа"
+    },
+    "form/x:UserAccount/field/quotas": {
+      "original": "Quotas",
+      "ru": "Квоты"
     },
     "form/x:UserAccount/field/roles": {
       "original": "Roles",
@@ -3990,13 +4166,33 @@
       "original": "Time Zone",
       "ru": "Часовой пояс"
     },
+    "form/x:UserAccount/field/usedDiskQuota": {
+      "original": "Disk Usage",
+      "ru": "Использовано на диске"
+    },
+    "form/x:UserAccount/section/section-0": {
+      "original": "User Account",
+      "ru": "Учётная запись пользователя"
+    },
     "form/x:UserAccount/section/section-1": {
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:UserAccount/section/section-2": {
+      "original": "Groups & Roles",
+      "ru": "Группы и роли"
+    },
     "form/x:UserAccount/section/section-3": {
       "original": "Email",
       "ru": "Почта"
+    },
+    "form/x:UserAccount/section/section-4": {
+      "original": "Quotas",
+      "ru": "Квоты"
+    },
+    "form/x:UserAccount/section/section-5": {
+      "original": "Locale & Time Zone",
+      "ru": "Язык и часовой пояс"
     },
     "form/x:UserAccount/section/section-6": {
       "original": "Encryption",
