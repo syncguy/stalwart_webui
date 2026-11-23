@@ -16,7 +16,7 @@ import { coerceLabel } from '@/lib/objectOptions';
 import { TENANT_PROPERTY } from '@/lib/schemaResolver';
 import { CreatedValuesDialog } from '@/components/forms/CreatedValuesDialog';
 import { FormProvider } from '@/components/forms/FormProvider';
-import { FormSections } from '@/components/forms/FormSections';
+import { FormSections, sectionDisplayContext } from '@/components/forms/FormSections';
 import { UnsavedChangesDialog } from '@/components/forms/UnsavedChangesDialog';
 import { formFieldLabels } from '@/components/forms/formLogic';
 import { useDynamicForm, type DynamicFormModel, type DynamicFormOptions } from '@/components/forms/useDynamicForm';
@@ -48,6 +48,7 @@ function useFormTitle(model: DynamicFormModel): string {
   if (!resolved) return '';
   const titleForm = parentForm ?? variantForm;
   const objectKey = resolved.object.objectName;
+  const listKey = resolved.object.viewName;
   if (isSingleton) {
     const title = titleForm?.title;
     return title ? display(`form/${objectKey}/title`, title)
@@ -55,7 +56,7 @@ function useFormTitle(model: DynamicFormModel): string {
   }
   const rawName = resolved.list?.singularName ?? resolved.object.objectType.description;
   const name = resolved.list
-    ? display(`list/${objectKey}/singular`, rawName)
+    ? display(`list/${listKey}/singular`, rawName)
     : display(`object/${objectKey}/description`, rawName);
   if (mode === 'create') return t('form.createTitle', 'Create {{name}}', { name });
   const labelProperty = resolved.list?.labelProperty;
@@ -104,7 +105,13 @@ function useActiveSection(ids: readonly string[]): string | undefined {
   return active;
 }
 
-function SectionIndex({ sections, sectionId, formKey }: { sections: RenderableSection[]; sectionId: (key: string) => string; formKey: string }) {
+function SectionIndex({ sections, sectionId, formKey, variantFormKey, parentSectionCount }: {
+  sections: RenderableSection[];
+  sectionId: (key: string) => string;
+  formKey: string;
+  variantFormKey?: string;
+  parentSectionCount: number;
+}) {
   const { t } = useTranslation();
   const display = useSchemaText();
   const titled = sections.filter((s) => s.title);
@@ -116,6 +123,7 @@ function SectionIndex({ sections, sectionId, formKey }: { sections: RenderableSe
     >
       {titled.map((section) => {
         const id = sectionId(section.key);
+        const context = sectionDisplayContext(section.key, formKey, variantFormKey, parentSectionCount);
         return (
           <button
             key={section.key}
@@ -132,7 +140,7 @@ function SectionIndex({ sections, sectionId, formKey }: { sections: RenderableSe
                 'bg-highlight font-semibold text-highlight-foreground hover:bg-highlight hover:text-highlight-foreground',
             )}
           >
-            {section.title && display(`form/${formKey}/section/${section.key}`, section.title)}
+            {section.title && context.formKey ? display(`form/${context.formKey}/section/${context.sectionKey}`, section.title) : section.title}
           </button>
         );
       })}
@@ -165,6 +173,11 @@ export function DynamicForm({
   const model = useDynamicForm(viewName, objectId, { accountId, fieldOverrides, createValues });
   const { schema, resolved, mode, isSingleton, state, isDirty, saving, loading, loadError } = model;
   const formKey = resolved?.object.objectName ?? viewName;
+  const sch = resolved?.resolvedSchema;
+  const variantFormKey = sch?.type === 'single'
+    ? (schema?.forms[viewName] ? viewName : schema?.forms[formKey] ? formKey : sch.schemaName)
+    : sch?.variants.find((v) => v.name === state.variant)?.schemaName;
+  const parentSectionCount = model.parentForm?.sections.length ?? 0;
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
   const title = useFormTitle(model);
   const sectionPrefix = useId();
@@ -213,10 +226,9 @@ export function DynamicForm({
   }
   const deleteLabel = (
     resolved.list
-      ? display(`list/${formKey}/singular`, resolved.list.singularName)
+      ? display(`list/${viewName}/singular`, resolved.list.singularName)
       : display(`object/${formKey}/description`, resolved.object.objectType.description)
   ).toLowerCase();
-  const sch = resolved.resolvedSchema;
   const tenantValue = state.data[TENANT_PROPERTY];
   const sectionId = (key: string) => `${sectionPrefix}-section-${key.replace(/[^A-Za-z0-9_-]/g, '_')}`;
   const showIndex = model.sections.filter((s) => s.title).length >= SECTION_INDEX_MIN;
@@ -232,7 +244,15 @@ export function DynamicForm({
       )}
 
       <div className={cn(showIndex && 'xl:grid xl:grid-cols-[11rem_minmax(0,1fr)] xl:items-start xl:gap-6')}>
-        {showIndex && wide && <SectionIndex sections={model.sections} sectionId={sectionId} formKey={formKey} />}
+        {showIndex && wide && (
+          <SectionIndex
+            sections={model.sections}
+            sectionId={sectionId}
+            formKey={formKey}
+            variantFormKey={variantFormKey}
+            parentSectionCount={parentSectionCount}
+          />
+        )}
         <div className="space-y-3.5">
           <FormProvider
             schema={schema}
@@ -244,6 +264,8 @@ export function DynamicForm({
           >
             <FormSections
               formKey={formKey}
+              variantFormKey={variantFormKey}
+              parentSectionCount={parentSectionCount}
               sections={model.sections}
               sectionId={sectionId}
               data={state.data}
