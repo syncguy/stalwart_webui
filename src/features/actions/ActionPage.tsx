@@ -112,7 +112,10 @@ export function ActionPage({ viewName }: ActionPageProps) {
             description={pending?.name === 'UpdateApps'
               ? t('actions.updateAppsScopeWarning',
                 'Updates all configured web applications, not only this interface. Check every application\'s resource URL and external download policy before continuing.')
-              : pending ? actionLabel(pending) : undefined}
+              : pending?.name === 'InvalidateNegativeCaches'
+                ? t('actions.negativeCacheExplanation',
+                  'Clears cached unsuccessful lookup results so the next requests check again. Stored data is not deleted.')
+                : pending ? actionLabel(pending) : undefined}
             confirmLabel={t('actions.execute', 'Execute')}
             onConfirm={() => {
               if (pending) void run(pending, buildActionPayload(pending.name, null, {}), {});
