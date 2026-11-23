@@ -8,6 +8,7 @@ import type { ComponentType } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { ValueRow } from '@/components/values/FieldValue';
 import { cn } from '@/lib/utils';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { resolveForm, resolveSchema, resolveVariantForm } from '@/lib/schemaResolver';
 import { isEmptyValue, variantLabel } from '@/lib/embeddedSchema';
 import type { Field, Fields, Form, FormField, Schema } from '@/types/schema';
@@ -82,6 +83,7 @@ function buildViewSections(
 }
 
 export function DynamicView({ schema, objectName, viewName, data, visibleFields, renderers }: DynamicViewProps) {
+  const display = useSchemaText();
   const layout = resolveViewLayout(schema, objectName, viewName, data);
   if (!layout) return null;
   const sections = buildViewSections(layout, data, visibleFields);
@@ -92,18 +94,33 @@ export function DynamicView({ schema, objectName, viewName, data, visibleFields,
       {typeLabel && <Badge variant="default">{typeLabel}</Badge>}
       {sections.map((section) => (
         <section key={section.key} className="tile @container px-5 pb-1.5 sm:px-6">
-          {section.title && <h2 className="section-title pb-1 pt-5">{section.title}</h2>}
+          {section.title && (
+            <h2 className="section-title pb-1 pt-5">
+              {display(`form/${viewName}/section/${section.key}`, section.title)}
+            </h2>
+          )}
           <dl className={cn('divide-y divide-border', !section.title && 'pt-1')}>
             {section.items.map(({ formField, field }) => {
               const Render = renderers && Object.hasOwn(renderers, formField.name) ? renderers[formField.name] : null;
+              const localizedLabel = display(`form/${viewName}/field/${formField.name}`, formField.label);
+              const localizedDescription = display(
+                `field/${viewName}/${formField.name}/description`,
+                field.description,
+              );
               return Render ? (
-                <Render key={formField.name} schema={schema} field={field} formField={formField} data={data} />
+                <Render
+                  key={formField.name}
+                  schema={schema}
+                  field={field}
+                  formField={{ ...formField, label: localizedLabel }}
+                  data={data}
+                />
               ) : (
                 <ValueRow
                   key={formField.name}
                   schema={schema}
-                  label={formField.label}
-                  description={field.description}
+                  label={localizedLabel}
+                  description={localizedDescription}
                   type={field.type}
                   value={data[formField.name]}
                 />
