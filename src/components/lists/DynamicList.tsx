@@ -114,6 +114,12 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
     (f) => f.type !== 'objectId' || canAccessView(schema, f.objectName, 'Get', checkers),
   );
 
+  // Only translate this exact server-provided description for the Logs view.
+  // Other JMAP errors are displayed unchanged to avoid concealing diagnostic data.
+  const listError = listKey === 'x:Log' && listState.error === 'No log tracers configured on the server'
+    ? t('logs.noTracersConfigured', 'No log tracers configured on the server')
+    : listState.error;
+
   const busy = listState.isFetching || actions.pending;
   const selectedCount = selection.allMatching ? (total ?? selection.selectedIds.length) : selection.selectedIds.length;
   const nameFor = (count: number) => (count === 1 ? list.singularName : list.pluralName);
@@ -219,7 +225,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
         )}
       </div>
 
-      {listState.error && <ListError message={listState.error} onRetry={listState.refetch} />}
+      {listError && <ListError message={listError} onRetry={listState.refetch} />}
       {actions.error && <ListError message={actions.error} onDismiss={actions.clearError} />}
 
       <section className="tile relative overflow-hidden">
