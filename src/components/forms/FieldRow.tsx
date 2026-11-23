@@ -115,7 +115,18 @@ export function FieldRow({ field, formField, formKey, value, onChange, error, re
     'aria-required': marker === 'required' && ARIA_REQUIRED_TYPES.has(ft.type) ? true : undefined,
   };
 
-  const widgetProps = { type: ft, field, formField, value, onChange, readOnly, control, error };
+  // Propagate only the rendered label into nested widget captions. The raw
+  // schema/form field names and submitted values remain unchanged.
+  const widgetProps = {
+    type: ft,
+    field,
+    formField: { ...formField, label },
+    value,
+    onChange,
+    readOnly,
+    control,
+    error,
+  };
   let body: ReactNode = asValue ? (
     <FieldValue schema={ctx.schema} type={ft} value={value} />
   ) : (
