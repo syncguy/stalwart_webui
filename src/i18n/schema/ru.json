@@ -6130,6 +6130,14 @@
       "original": "Status",
       "ru": "Состояние"
     },
+    "list/x:IndexQueueStatus/subtitle": {
+      "original": "Monitor search index processing and reschedule failed indexing operations",
+      "ru": "Контроль поисковой индексации и повторный запуск операций с ошибками"
+    },
+    "list/x:IndexQueueStatus/title": {
+      "original": "Index Queues",
+      "ru": "Очереди индексации"
+    },
     "list/x:Log/column/details": {
       "original": "Details",
       "ru": "Сведения"
@@ -6650,6 +6658,18 @@
       "original": "Task type",
       "ru": "Тип задания"
     },
+    "list/x:Task/TaskFailed/singular": {
+      "original": "failed task",
+      "ru": "задание"
+    },
+    "list/x:Task/TaskFailed/subtitle": {
+      "original": "View failed background tasks",
+      "ru": "Просмотр фоновых заданий, завершившихся с ошибкой"
+    },
+    "list/x:Task/TaskFailed/title": {
+      "original": "Failed Tasks",
+      "ru": "Задания с ошибками"
+    },
     "list/x:Task/title": {
       "original": "Tasks",
       "ru": "Задания"
@@ -7052,7 +7072,7 @@
     },
     "nav/link/Management/x:QueuedMessage": {
       "original": "Queued",
-      "ru": "В очереди"
+      "ru": "Очередь"
     },
     "nav/link/Management/x:Role": {
       "original": "Roles",
