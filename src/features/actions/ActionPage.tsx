@@ -11,11 +11,12 @@ import { ConfirmDialog } from '@/components/common/ConfirmDialog';
 import { useSchemaStore } from '@/stores/schemaStore';
 import { useHasObjectPermission, usePermissionCheckers } from '@/hooks/usePermissions';
 import { useResolvedView } from '@/hooks/useResolvedView';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { buildNewObjectValue } from '@/lib/schemaResolver';
 import { useJmapSet } from '@/data/mutations';
 import { errorMessage, friendlySetError } from '@/lib/jmapErrors';
 import type { ObjectVariant } from '@/types/schema';
-import { buildActionPayload, extraCreatedProperties, groupActions } from './actionModel';
+import { buildActionPayload, extraCreatedProperties, groupActions, splitActionLabel } from './actionModel';
 import { ActionPicker } from './components/ActionPicker';
 import { ActionForm } from './components/ActionForm';
 import { ActionError, ActionResult } from './components/ActionResult';
@@ -36,6 +37,8 @@ interface ActionPageProps {
 
 export function ActionPage({ viewName }: ActionPageProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
+  const actionLabel = (variant: ObjectVariant) => display(`variant/x:Action/${variant.name}/label`, variant.label);
   const schema = useSchemaStore((s) => s.schema);
   const resolved = useResolvedView(viewName);
   const { hasPermission } = usePermissionCheckers();
@@ -76,13 +79,26 @@ export function ActionPage({ viewName }: ActionPageProps) {
   switch (state.kind) {
     case 'pick': {
       const variants = resolvedSchema.type === 'multiple' ? resolvedSchema.variants : [];
-      const groups = groupActions(variants, (v) => hasPermission(`action${v.name}`), t('actions.otherGroup', 'Other'));
+      const rawGroups = groupActions(variants, (v) => hasPermission(`action${v.name}`), t('actions.otherGroup', 'Other'));
+      // Group by raw schema labels, then translate only rendered strings.
+      // The original ObjectVariant is preserved for permission checks and JMAP.
+      const groups = rawGroups.map((group) => {
+        const first = group.actions[0]?.variant;
+        const heading = first ? splitActionLabel(actionLabel(first)).group : null;
+        return {
+          label: heading ?? group.label,
+          actions: group.actions.map((entry) => ({
+            ...entry,
+            name: splitActionLabel(actionLabel(entry.variant)).name,
+          })),
+        };
+      });
       const pending = state.confirm;
       return (
         <>
           <ActionPicker
-            title={list?.title ?? t('actions.title', 'Actions')}
-            subtitle={list?.subtitle ?? object.objectType.description}
+            title={list ? display(`list/x:Action/title`, list.title) : t('actions.title', 'Actions')}
+            subtitle={list ? display(`list/x:Action/subtitle`, list.subtitle) : display('object/x:Action/description', object.objectType.description)}
             groups={groups}
             disabled={!canCreate}
             onPick={pick}
@@ -93,7 +109,7 @@ export function ActionPage({ viewName }: ActionPageProps) {
               if (!open) setState((prev) => (prev.kind === 'pick' ? PICK : prev));
             }}
             title={t('actions.confirmTitle', 'Run this action?')}
-            description={pending?.label}
+            description={pending ? actionLabel(pending) : undefined}
             confirmLabel={t('actions.execute', 'Execute')}
             onConfirm={() => {
               if (pending) void run(pending, buildActionPayload(pending.name, null, {}), {});
@@ -123,7 +139,7 @@ export function ActionPage({ viewName }: ActionPageProps) {
         <div role="status" className="flex flex-col items-center justify-center gap-3 rounded-2xl bg-muted py-16">
           <Loader2 aria-hidden="true" className="size-8 animate-spin text-brand-text" />
           <p className="text-muted-foreground">
-            {t('actions.executing', 'Executing {{label}}...', { label: state.variant.label })}
+            {t('actions.executing', 'Executing {{label}}...', { label: actionLabel(state.variant) })}
           </p>
         </div>
       );
