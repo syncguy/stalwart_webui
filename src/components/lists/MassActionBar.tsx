@@ -17,19 +17,22 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import type { MassAction } from '@/types/schema';
+import { useSchemaText } from '@/hooks/useSchemaText';
 
 export type RunnableMassAction = Exclude<MassAction, { type: 'separator' }>;
 
 interface MassActionBarProps {
   actions: { key: string; action: MassAction }[];
+  listKey: string;
   count: number;
   disabled: boolean;
-  onSelect: (action: RunnableMassAction) => void;
+  onSelect: (action: RunnableMassAction, key: string) => void;
   onClear: () => void;
 }
 
-export function MassActionBar({ actions, count, disabled, onSelect, onClear }: MassActionBarProps) {
+export function MassActionBar({ actions, listKey, count, disabled, onSelect, onClear }: MassActionBarProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   return (
     <FloatingActionBar>
       <span className="pl-2">
@@ -54,9 +57,9 @@ export function MassActionBar({ actions, count, disabled, onSelect, onClear }: M
                     ? 'text-destructive focus:bg-destructive-soft focus:text-destructive'
                     : undefined
                 }
-                onSelect={() => onSelect(action)}
+                onSelect={() => onSelect(action, key)}
               >
-                {action.label}
+                {display(`list/${listKey}/massAction/${key}/label`, action.label)}
               </DropdownMenuItem>
             ),
           )}
