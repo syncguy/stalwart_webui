@@ -6,6 +6,7 @@
 
 import type { ReactNode } from 'react';
 import { useSchemaText } from '@/hooks/useSchemaText';
+import { sectionDisplayContext } from '@/i18n/schemaFormContext';
 import { FieldRow } from '@/components/forms/FieldRow';
 import { VariantSelect } from '@/components/forms/VariantSelect';
 import type { EmbeddedVariant } from '@/lib/embeddedSchema';
@@ -31,21 +32,6 @@ interface FormSectionsProps {
   onFieldChange: (name: string, value: unknown) => void;
   variant?: VariantControl;
   renderers?: FieldOverrides['render'];
-}
-
-/** Context is for display only. Section IDs and data keys never change. */
-export function sectionDisplayContext(
-  sectionKey: string,
-  formKey?: string,
-  variantFormKey?: string,
-  parentSectionCount = 0,
-): { formKey?: string; sectionKey: string } {
-  const match = /^section-(\d+)$/.exec(sectionKey);
-  if (!match || !variantFormKey) return { formKey, sectionKey };
-  const index = Number(match[1]);
-  return index >= parentSectionCount
-    ? { formKey: variantFormKey, sectionKey: `section-${index - parentSectionCount}` }
-    : { formKey, sectionKey };
 }
 
 export function FormSections({
