@@ -13,6 +13,7 @@ import { resolveObject, resolveList, getDisplayProperty } from '@/lib/schemaReso
 import { coerceLabel } from '@/lib/objectOptions';
 import { errorMessage } from '@/lib/jmapErrors';
 import { useJmapObject } from '@/data/objects';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { DynamicView, type ViewRenderers } from './DynamicView';
 
 interface DynamicViewPageProps {
@@ -24,6 +25,7 @@ interface DynamicViewPageProps {
 
 export function DynamicViewPage({ viewName, objectId, accountId, renderers }: DynamicViewPageProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const navigate = useNavigate();
   const schema = useSchemaStore((s) => s.schema);
   const resolvedObject = schema ? resolveObject(schema, viewName) : null;
@@ -69,7 +71,9 @@ export function DynamicViewPage({ viewName, objectId, accountId, renderers }: Dy
   const labelProp = getDisplayProperty(schema, viewName);
   const rawLabel = labelProp ? coerceLabel(data[labelProp], '') : '';
   const displayName = rawLabel.length > 0 ? rawLabel : undefined;
-  const singularName = list?.singularName ?? resolved.objectName.replace(/^x:/, '');
+  const rawSingularName = list?.singularName ?? resolved.objectName.replace(/^x:/, '');
+  const listKey = Object.hasOwn(schema.lists, viewName) ? viewName : resolved.objectName;
+  const singularName = list ? display(`list/${listKey}/singular`, rawSingularName) : rawSingularName;
   const title = displayName
     ? `${singularName.charAt(0).toUpperCase() + singularName.slice(1)}: ${displayName}`
     : singularName.charAt(0).toUpperCase() + singularName.slice(1);
