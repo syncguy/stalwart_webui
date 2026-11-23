@@ -22,6 +22,15 @@ const quotaLabels: Readonly<Record<string, string>> = {
   'Maximum number of calendar events': 'Максимум событий календаря',
   'Maximum number of calendar event notifications': 'Максимум уведомлений о событиях календаря',
   'Maximum number of address books': 'Максимум адресных книг',
+  'Maximum number of contact cards': 'Максимум карточек контактов',
+  'Maximum number of files': 'Максимум файлов',
+  'Maximum number of folders': 'Максимум папок',
+  'Maximum number of masked email addresses': 'Максимум маскированных почтовых адресов',
+  'Maximum number of app passwords': 'Максимум паролей приложений',
+  'Maximum number of API keys': 'Максимум API-ключей',
+  'Maximum number of public keys': 'Максимум открытых ключей',
+  'Maximum disk space allocated (bytes)': 'Максимальное выделенное место на диске (байты)',
+  'Maximum number of passkeys': 'Максимум ключей доступа',
 };
 
 const headerProtectionLabels: Readonly<Record<string, string>> = {
