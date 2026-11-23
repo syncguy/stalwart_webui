@@ -50,6 +50,9 @@ jobs:
       - name: Validate display-name and raw-ID dropdown search invariants
         run: node scripts/check-option-labels.mjs
 
+      - name: Validate tenant quota and full permission-display inventory
+        run: node scripts/check-stage11-permissions.mjs
+
       - name: TypeScript check
         run: npm run typecheck
 
