@@ -115,12 +115,25 @@ export function FieldRow({ field, formField, formKey, value, onChange, error, re
     'aria-required': marker === 'required' && ARIA_REQUIRED_TYPES.has(ft.type) ? true : undefined,
   };
 
-  // Propagate only the rendered label into nested widget captions. The raw
-  // schema/form field names and submitted values remain unchanged.
+  // Translate only display metadata. Field name, scoped path, type and
+  // submitted value remain the originals from the server schema.
+  const formFieldDisplay = {
+    ...formField,
+    label,
+    keyLabel: formField.keyLabel && formKey
+      ? display(`form/${formKey}/field/${formField.name}/keyLabel`, formField.keyLabel)
+      : formField.keyLabel,
+    valueLabel: formField.valueLabel && formKey
+      ? display(`form/${formKey}/field/${formField.name}/valueLabel`, formField.valueLabel)
+      : formField.valueLabel,
+    placeholder: formField.placeholder && formKey
+      ? display(`form/${formKey}/field/${formField.name}/placeholder`, formField.placeholder)
+      : formField.placeholder,
+  };
   const widgetProps = {
     type: ft,
     field,
-    formField: { ...formField, label },
+    formField: formFieldDisplay,
     value,
     onChange,
     readOnly,
