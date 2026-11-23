@@ -1,0 +1,67 @@
+name: WebUI RU offline coverage (no ZIP, no release)
+
+on:
+  push:
+    branches: [ru]
+    paths:
+      - '.github/workflows/webui-ru-coverage.yml'
+      - 'scripts/generate-locale-coverage.mjs'
+      - 'scripts/check-coverage-inventory.mjs'
+      - 'scripts/data/pinned-schema-manifest.json'
+      - 'scripts/data/pinned-schema*.b64'
+      - 'src/i18n/schema/ru.json'
+      - 'src/i18n/en.json'
+      - 'src/i18n/ru.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: webui-ru-coverage-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  inventory:
+    name: Verify pinned schema inventory without packaging
+    if: github.ref == 'refs/heads/ru'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CI: 'true'
+      TZ: UTC
+    steps:
+      - name: Check out exact source commit
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Node.js 22 (locked project dependencies)
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install pinned TypeScript parser
+        run: npm ci
+      - name: Extract offline pinned OSS and Enterprise schemas plus client AST
+        run: node scripts/generate-locale-coverage.mjs
+      - name: Validate independent source and catalog expectations
+        run: node scripts/check-coverage-inventory.mjs
+      - name: Verify deterministic repeat output
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum .artifacts/locale-coverage/{inventory.json,summary.md,translation-memory.json} > /tmp/locale-coverage.sha256
+          node scripts/generate-locale-coverage.mjs --out=.artifacts/locale-coverage > /tmp/second-inventory.log
+          sha256sum -c /tmp/locale-coverage.sha256
+      - name: Publish summary and exact source SHA
+        shell: bash
+        run: |
+          echo "Source SHA: ${GITHUB_SHA}" >> "${GITHUB_STEP_SUMMARY}"
+          cat .artifacts/locale-coverage/summary.md | head -n 35 >> "${GITHUB_STEP_SUMMARY}"
+      - name: Upload report only, no WebUI ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: webui-ru-coverage-${{ github.sha }}
+          path: .artifacts/locale-coverage/
+          if-no-files-found: error
+          retention-days: 7
