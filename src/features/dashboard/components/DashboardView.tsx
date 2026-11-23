@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { AlertCircle } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useSchemaStore } from '@/stores/schemaStore';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import type { Dashboard, DashboardItem } from '../types/schema';
 import type { Metric } from '../types/metrics';
 import { useDashboardStore } from '../stores/dashboardStore';
@@ -69,6 +70,7 @@ interface DashboardViewProps {
 
 export function DashboardView({ dashboardId, section }: DashboardViewProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const navigate = useNavigate();
   const schema = useSchemaStore((s) => s.schema);
   const period = useDashboardStore((s) => s.period);
@@ -144,13 +146,15 @@ export function DashboardView({ dashboardId, section }: DashboardViewProps) {
             <TabsList className="max-w-full justify-start overflow-x-auto">
               {dashboards.map((d) => (
                 <TabsTrigger key={d.id} value={d.id}>
-                  {d.label}
+                  {display(`dashboard/${d.id}/label`, d.label)}
                 </TabsTrigger>
               ))}
             </TabsList>
           </Tabs>
         )}
-        {dashboards.length === 1 && <h1 className="page-title">{dashboard.label}</h1>}
+        {dashboards.length === 1 && (
+          <h1 className="page-title">{display(`dashboard/${dashboard.id}/label`, dashboard.label)}</h1>
+        )}
 
         <div className="ml-auto flex flex-wrap items-center gap-2">
           {showNodeSelector && <NodeSelector nodes={nodes} value={nodeId} onChange={setNodeId} />}
@@ -188,6 +192,8 @@ export function DashboardView({ dashboardId, section }: DashboardViewProps) {
                 return (
                   <StatCard
                     key={key}
+                    dashboardId={dashboardId}
+                    itemIndex={i}
                     card={item}
                     className={className}
                     historySamples={historySamples}
@@ -198,6 +204,8 @@ export function DashboardView({ dashboardId, section }: DashboardViewProps) {
                 return (
                   <DashboardChart
                     key={key}
+                    dashboardId={dashboardId}
+                    itemIndex={i}
                     chart={item}
                     className={className}
                     historySamples={historySamples}
@@ -206,9 +214,9 @@ export function DashboardView({ dashboardId, section }: DashboardViewProps) {
                   />
                 );
               case 'headline':
-                return <HeadlineTile key={key} headline={item} className={className} historySamples={historySamples} />;
+                return <HeadlineTile key={key} dashboardId={dashboardId} itemIndex={i} headline={item} className={className} historySamples={historySamples} />;
               case 'ranking':
-                return <RankingTile key={key} ranking={item} className={className} historySamples={historySamples} />;
+                return <RankingTile key={key} dashboardId={dashboardId} itemIndex={i} ranking={item} className={className} historySamples={historySamples} />;
             }
           })}
         </div>
