@@ -44,7 +44,7 @@ jobs:
       - name: Check Russian locale
         run: node scripts/check-locales.mjs
 
-      - name: Validate stage6 nested Catalog labels and UpdateApps scope warning
+      - name: Validate stage7 Dashboard, Logs and cache-action display invariants
         run: node scripts/check-schema-locale.mjs
 
       - name: TypeScript check
