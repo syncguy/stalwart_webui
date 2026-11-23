@@ -44,8 +44,11 @@ jobs:
       - name: Check Russian locale
         run: node scripts/check-locales.mjs
 
-      - name: Validate stage7 Dashboard, Logs and cache-action display invariants
+      - name: Validate pinned schema, Dashboard, Logs and cache-action display invariants
         run: node scripts/check-schema-locale.mjs
+
+      - name: Validate localized dropdown labels and preserved identifiers
+        run: node scripts/check-option-labels.mjs
 
       - name: TypeScript check
         run: npm run typecheck
