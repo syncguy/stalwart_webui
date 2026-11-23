@@ -4,10 +4,11 @@
  * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-SEL
  */
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { ChevronsUpDown, Check, X } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
+import { filterComboboxOptions } from '@/components/ui/comboboxSearch';
 import { Button } from '@/components/ui/button';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
@@ -55,6 +56,7 @@ export function Combobox({
   ...ariaProps
 }: ComboboxProps) {
   const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState('');
   const triggerRef = useRef<HTMLButtonElement>(null);
   const [triggerWidth, setTriggerWidth] = useState<number | undefined>(undefined);
   const firstOpenRef = useRef(false);
@@ -70,10 +72,12 @@ export function Combobox({
       firstOpenRef.current = true;
       onFirstOpen?.();
     }
+    if (!next) setQuery('');
     setOpen(next);
   };
 
   const selected = options.find((o) => o.value === value);
+  const visibleOptions = useMemo(() => filterComboboxOptions(options, query), [options, query]);
 
   return (
     <Popover open={open} onOpenChange={handleOpenChange}>
@@ -100,31 +104,35 @@ export function Combobox({
         align="start"
         style={triggerWidth ? { width: triggerWidth } : undefined}
       >
-        <Command>
-          <CommandInput placeholder={searchPlaceholder} />
+        <Command shouldFilter={false}>
+          <CommandInput
+            value={query}
+            onValueChange={setQuery}
+            placeholder={searchPlaceholder}
+          />
           <CommandList>
             <CommandEmpty>{emptyText}</CommandEmpty>
             <CommandGroup>
-              {nullable && (
+              {nullable && !query.trim() && (
                 <CommandItem
                   value="__null__"
                   onSelect={() => {
                     onValueChange('');
-                    setOpen(false);
+                    handleOpenChange(false);
                   }}
                 >
                   <X className="mr-2 h-4 w-4 opacity-50" />
                   <span className="text-muted-foreground">{nullLabel}</span>
                 </CommandItem>
               )}
-              {options.map((option) => (
+              {visibleOptions.map((option) => (
                 <CommandItem
                   key={option.value}
                   value={option.value}
                   keywords={[option.label, ...(option.keywords ?? [])]}
                   onSelect={() => {
                     onValueChange(option.value);
-                    setOpen(false);
+                    handleOpenChange(false);
                   }}
                 >
                   <Check className={cn('mr-2 h-4 w-4', option.value === value ? 'opacity-100' : 'opacity-0')} />
