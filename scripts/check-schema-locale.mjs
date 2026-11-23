@@ -5,6 +5,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import ts from 'typescript';
+// Execute source-path regression guard together with the pinned schema checks.
+import './check-renderer-display-paths.mjs';
 
 const catalog = JSON.parse(fs.readFileSync('src/i18n/schema/ru.json', 'utf8'));
 const { entries, meta } = catalog;
