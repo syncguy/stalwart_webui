@@ -1282,6 +1282,34 @@
       "original": "User role",
       "ru": "Роль пользователя"
     },
+    "field/x:ArfExternalReport/expiresAt/description": {
+      "original": "When the report is scheduled to be deleted",
+      "ru": "Время запланированного удаления отчёта"
+    },
+    "field/x:ArfExternalReport/from/description": {
+      "original": "Email address of the report sender",
+      "ru": "Адрес электронной почты отправителя отчёта"
+    },
+    "field/x:ArfExternalReport/memberTenantId/description": {
+      "original": "Identifier for the tenant this report belongs to",
+      "ru": "Идентификатор арендатора, которому принадлежит отчёт"
+    },
+    "field/x:ArfExternalReport/receivedAt/description": {
+      "original": "When the report email was received",
+      "ru": "Время получения письма с отчётом"
+    },
+    "field/x:ArfExternalReport/report/description": {
+      "original": "Parsed ARF feedback report content",
+      "ru": "Разобранное содержимое отчёта обратной связи ARF"
+    },
+    "field/x:ArfExternalReport/subject/description": {
+      "original": "Subject line of the report email",
+      "ru": "Тема письма с отчётом"
+    },
+    "field/x:ArfExternalReport/to/description": {
+      "original": "List of recipient email addresses",
+      "ru": "Список адресов получателей письма"
+    },
     "field/x:CertificateManagementProperties/acmeProviderId/description": {
       "original": "Identifier for the ACME provider managing certificates for this domain",
       "ru": "Идентификатор провайдера ACME, управляющего сертификатами домена"
@@ -1325,6 +1353,58 @@
     "field/x:DkimManagementProperties/selectorTemplate/description": {
       "original": "Template for generating DKIM selectors during key rotation. Supported variables:\n- `{algorithm}`: signing algorithm in lowercase (`rsa`, `ed25519`, `mldsa44`)\n- `{hash}`: hash algorithm (`sha256`, or `none` for ML-DSA-44)\n- `{version}`: DKIM version number (`1`, `2`)\n- `{date-<fmt>}`: current UTC date formatted with strftime specifiers (e.g. `{date-%Y%m%d}`)\n- `{epoch}`: current UTC unix timestamp\n- `{random}`: random 8-character alphanumeric string",
       "ru": "Шаблон селекторов DKIM при ротации ключей. Доступные переменные:\n- `{algorithm}`: алгоритм подписи в нижнем регистре (`rsa`, `ed25519`, `mldsa44`)\n- `{hash}`: алгоритм хеширования (`sha256`, либо `none` для ML-DSA-44)\n- `{version}`: номер версии DKIM (`1`, `2`)\n- `{date-<fmt>}`: текущая дата UTC в формате strftime (например, `{date-%Y%m%d}`)\n- `{epoch}`: текущее время Unix в UTC\n- `{random}`: случайная строка из 8 букв и цифр"
+    },
+    "field/x:DmarcExternalReport/expiresAt/description": {
+      "original": "When the report is scheduled to be deleted",
+      "ru": "Время запланированного удаления отчёта"
+    },
+    "field/x:DmarcExternalReport/from/description": {
+      "original": "Email address of the report sender",
+      "ru": "Адрес электронной почты отправителя отчёта"
+    },
+    "field/x:DmarcExternalReport/memberTenantId/description": {
+      "original": "Identifier for the tenant this report belongs to",
+      "ru": "Идентификатор арендатора, которому принадлежит отчёт"
+    },
+    "field/x:DmarcExternalReport/receivedAt/description": {
+      "original": "When the report email was received",
+      "ru": "Время получения письма с отчётом"
+    },
+    "field/x:DmarcExternalReport/report/description": {
+      "original": "DMARC report content",
+      "ru": "Содержимое отчёта DMARC"
+    },
+    "field/x:DmarcExternalReport/subject/description": {
+      "original": "Subject line of the report email",
+      "ru": "Тема письма с отчётом"
+    },
+    "field/x:DmarcExternalReport/to/description": {
+      "original": "List of recipient email addresses",
+      "ru": "Список адресов получателей письма"
+    },
+    "field/x:DmarcInternalReport/createdAt/description": {
+      "original": "When the report was created",
+      "ru": "Время создания отчёта"
+    },
+    "field/x:DmarcInternalReport/deliverAt/description": {
+      "original": "When the report is scheduled to be delivered",
+      "ru": "Время запланированной отправки отчёта"
+    },
+    "field/x:DmarcInternalReport/domain/description": {
+      "original": "Domain this report is associated with",
+      "ru": "Домен, к которому относится отчёт"
+    },
+    "field/x:DmarcInternalReport/policyIdentifier/description": {
+      "original": "Identifier for the DMARC policy that generated this report",
+      "ru": "Идентификатор политики DMARC, по которой сформирован отчёт"
+    },
+    "field/x:DmarcInternalReport/report/description": {
+      "original": "DMARC report content",
+      "ru": "Содержимое отчёта DMARC"
+    },
+    "field/x:DmarcInternalReport/rua/description": {
+      "original": "Reporting email addresses from the DMARC policy",
+      "ru": "Почтовые адреса для отчётов из политики DMARC"
     },
     "field/x:DnsManagementProperties/dnsServerId/description": {
       "original": "Identifier for the DNS server provider managing DNS records for this domain",
@@ -1685,6 +1765,62 @@
     "field/x:Tenant/usedDiskQuota/description": {
       "original": "Amount of disk space currently used by this tenant (bytes)",
       "ru": "Занятое арендатором дисковое пространство (байты)"
+    },
+    "field/x:TlsExternalReport/expiresAt/description": {
+      "original": "When the report is scheduled to be deleted",
+      "ru": "Время запланированного удаления отчёта"
+    },
+    "field/x:TlsExternalReport/from/description": {
+      "original": "Email address of the report sender",
+      "ru": "Адрес электронной почты отправителя отчёта"
+    },
+    "field/x:TlsExternalReport/memberTenantId/description": {
+      "original": "Identifier for the tenant this report belongs to",
+      "ru": "Идентификатор арендатора, которому принадлежит отчёт"
+    },
+    "field/x:TlsExternalReport/receivedAt/description": {
+      "original": "When the report email was received",
+      "ru": "Время получения письма с отчётом"
+    },
+    "field/x:TlsExternalReport/report/description": {
+      "original": "TLS report content",
+      "ru": "Содержимое отчёта TLS"
+    },
+    "field/x:TlsExternalReport/subject/description": {
+      "original": "Subject line of the report email",
+      "ru": "Тема письма с отчётом"
+    },
+    "field/x:TlsExternalReport/to/description": {
+      "original": "List of recipient email addresses",
+      "ru": "Список адресов получателей письма"
+    },
+    "field/x:TlsInternalReport/createdAt/description": {
+      "original": "When the report was created",
+      "ru": "Время создания отчёта"
+    },
+    "field/x:TlsInternalReport/deliverAt/description": {
+      "original": "When the report is scheduled to be delivered",
+      "ru": "Время запланированной отправки отчёта"
+    },
+    "field/x:TlsInternalReport/domain/description": {
+      "original": "Domain this report is associated with",
+      "ru": "Домен, к которому относится отчёт"
+    },
+    "field/x:TlsInternalReport/httpRua/description": {
+      "original": "Reporting URIs from the TLS policy",
+      "ru": "Адреса URI для отчётов из политики TLS"
+    },
+    "field/x:TlsInternalReport/mailRua/description": {
+      "original": "Reporting email addresses from the TLS policy",
+      "ru": "Почтовые адреса для отчётов из политики TLS"
+    },
+    "field/x:TlsInternalReport/policyIdentifiers/description": {
+      "original": "Identifiers for the TLS policies that generated this report",
+      "ru": "Идентификаторы политик TLS, по которым сформирован отчёт"
+    },
+    "field/x:TlsInternalReport/report/description": {
+      "original": "TLS report content",
+      "ru": "Содержимое отчёта TLS"
     },
     "field/x:Trace/events/description": {
       "original": "List of events associated with the trace entry",
@@ -2202,6 +2338,10 @@
       "original": "Expires At",
       "ru": "Действует до"
     },
+    "form/x:ArfExternalReport/field/from": {
+      "original": "From",
+      "ru": "Отправитель"
+    },
     "form/x:ArfExternalReport/field/memberTenantId": {
       "original": "Tenant",
       "ru": "Арендатор"
@@ -2210,9 +2350,25 @@
       "original": "Received At",
       "ru": "Время получения"
     },
+    "form/x:ArfExternalReport/field/report": {
+      "original": "Report",
+      "ru": "Содержимое отчёта"
+    },
+    "form/x:ArfExternalReport/field/subject": {
+      "original": "Subject",
+      "ru": "Тема"
+    },
     "form/x:ArfExternalReport/field/to": {
       "original": "To",
       "ru": "Кому"
+    },
+    "form/x:ArfExternalReport/section/section-0": {
+      "original": "ARF Report",
+      "ru": "Отчёт ARF"
+    },
+    "form/x:ArfExternalReport/section/section-1": {
+      "original": "Report",
+      "ru": "Сведения об отчёте"
     },
     "form/x:ArfFeedbackReport/field/originalEnvelopeId": {
       "original": "Envelope ID",
@@ -2570,6 +2726,10 @@
       "original": "Expires At",
       "ru": "Действует до"
     },
+    "form/x:DmarcExternalReport/field/from": {
+      "original": "From",
+      "ru": "Отправитель"
+    },
     "form/x:DmarcExternalReport/field/memberTenantId": {
       "original": "Tenant",
       "ru": "Арендатор"
@@ -2578,17 +2738,57 @@
       "original": "Received At",
       "ru": "Время получения"
     },
+    "form/x:DmarcExternalReport/field/report": {
+      "original": "Report",
+      "ru": "Содержимое отчёта"
+    },
+    "form/x:DmarcExternalReport/field/subject": {
+      "original": "Subject",
+      "ru": "Тема"
+    },
     "form/x:DmarcExternalReport/field/to": {
       "original": "To",
       "ru": "Кому"
+    },
+    "form/x:DmarcExternalReport/section/section-0": {
+      "original": "DMARC Report",
+      "ru": "Отчёт DMARC"
+    },
+    "form/x:DmarcExternalReport/section/section-1": {
+      "original": "Report",
+      "ru": "Сведения об отчёте"
     },
     "form/x:DmarcInternalReport/field/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
     },
+    "form/x:DmarcInternalReport/field/deliverAt": {
+      "original": "Deliver At",
+      "ru": "Запланированная отправка"
+    },
     "form/x:DmarcInternalReport/field/domain": {
       "original": "Domain",
       "ru": "Домен"
+    },
+    "form/x:DmarcInternalReport/field/policyIdentifier": {
+      "original": "Policy Identifier",
+      "ru": "Идентификатор политики"
+    },
+    "form/x:DmarcInternalReport/field/report": {
+      "original": "Report",
+      "ru": "Содержимое отчёта"
+    },
+    "form/x:DmarcInternalReport/field/rua": {
+      "original": "Report Recipients",
+      "ru": "Получатели отчёта"
+    },
+    "form/x:DmarcInternalReport/section/section-0": {
+      "original": "DMARC Report",
+      "ru": "Отчёт DMARC"
+    },
+    "form/x:DmarcInternalReport/section/section-1": {
+      "original": "Report",
+      "ru": "Сведения об отчёте"
     },
     "form/x:DmarcPolicyOverrideReason/field/overrideType": {
       "original": "Type",
@@ -5394,6 +5594,10 @@
       "original": "Expires At",
       "ru": "Действует до"
     },
+    "form/x:TlsExternalReport/field/from": {
+      "original": "From",
+      "ru": "Отправитель"
+    },
     "form/x:TlsExternalReport/field/memberTenantId": {
       "original": "Tenant",
       "ru": "Арендатор"
@@ -5402,17 +5606,61 @@
       "original": "Received At",
       "ru": "Время получения"
     },
+    "form/x:TlsExternalReport/field/report": {
+      "original": "Report",
+      "ru": "Содержимое отчёта"
+    },
+    "form/x:TlsExternalReport/field/subject": {
+      "original": "Subject",
+      "ru": "Тема"
+    },
     "form/x:TlsExternalReport/field/to": {
       "original": "To",
       "ru": "Кому"
+    },
+    "form/x:TlsExternalReport/section/section-0": {
+      "original": "TLS Report",
+      "ru": "Отчёт TLS"
+    },
+    "form/x:TlsExternalReport/section/section-1": {
+      "original": "Report",
+      "ru": "Сведения об отчёте"
     },
     "form/x:TlsInternalReport/field/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
     },
+    "form/x:TlsInternalReport/field/deliverAt": {
+      "original": "Deliver At",
+      "ru": "Запланированная отправка"
+    },
     "form/x:TlsInternalReport/field/domain": {
       "original": "Domain",
       "ru": "Домен"
+    },
+    "form/x:TlsInternalReport/field/httpRua": {
+      "original": "HTTP Report URIs",
+      "ru": "HTTP-адреса для отчётов"
+    },
+    "form/x:TlsInternalReport/field/mailRua": {
+      "original": "Mail Report Recipients",
+      "ru": "Получатели отчётов по почте"
+    },
+    "form/x:TlsInternalReport/field/policyIdentifiers": {
+      "original": "Policy Identifiers",
+      "ru": "Идентификаторы политик"
+    },
+    "form/x:TlsInternalReport/field/report": {
+      "original": "Report",
+      "ru": "Содержимое отчёта"
+    },
+    "form/x:TlsInternalReport/section/section-0": {
+      "original": "TLS Report",
+      "ru": "Отчёт TLS"
+    },
+    "form/x:TlsInternalReport/section/section-1": {
+      "original": "Report",
+      "ru": "Сведения об отчёте"
     },
     "form/x:TlsReportPolicy/field/policyDomain": {
       "original": "Domain",
@@ -5954,9 +6202,33 @@
       "original": "Archived Items",
       "ru": "Архивные элементы"
     },
+    "list/x:ArfExternalReport/column/from": {
+      "original": "From",
+      "ru": "Отправитель"
+    },
     "list/x:ArfExternalReport/column/receivedAt": {
       "original": "Received At",
       "ru": "Время получения"
+    },
+    "list/x:ArfExternalReport/column/subject": {
+      "original": "Subject",
+      "ru": "Тема"
+    },
+    "list/x:ArfExternalReport/plural": {
+      "original": "reports",
+      "ru": "отчёты"
+    },
+    "list/x:ArfExternalReport/singular": {
+      "original": "report",
+      "ru": "отчёт"
+    },
+    "list/x:ArfExternalReport/subtitle": {
+      "original": "Manage received ARF feedback reports",
+      "ru": "Управление полученными отчётами обратной связи ARF"
+    },
+    "list/x:ArfExternalReport/title": {
+      "original": "ARF Reports",
+      "ru": "Входящие отчёты ARF"
     },
     "list/x:BlockedIp/column/createdAt": {
       "original": "Created At",
@@ -6106,9 +6378,21 @@
       "original": "DKIM Signatures",
       "ru": "Подписи DKIM"
     },
+    "list/x:DmarcExternalReport/column/from": {
+      "original": "From",
+      "ru": "Отправитель"
+    },
     "list/x:DmarcExternalReport/column/receivedAt": {
       "original": "Received At",
       "ru": "Время получения"
+    },
+    "list/x:DmarcExternalReport/column/subject": {
+      "original": "Subject",
+      "ru": "Тема"
+    },
+    "list/x:DmarcExternalReport/filter/domain": {
+      "original": "Domain Name",
+      "ru": "Имя домена"
     },
     "list/x:DmarcExternalReport/filter/expiresAt": {
       "original": "Expires At",
@@ -6118,13 +6402,61 @@
       "original": "Tenant",
       "ru": "Арендатор"
     },
+    "list/x:DmarcExternalReport/filter/totalFailedSessions": {
+      "original": "Failed Sessions",
+      "ru": "Неуспешные сеансы"
+    },
+    "list/x:DmarcExternalReport/filter/totalSuccessfulSessions": {
+      "original": "Successful Sessions",
+      "ru": "Успешные сеансы"
+    },
+    "list/x:DmarcExternalReport/plural": {
+      "original": "reports",
+      "ru": "отчёты"
+    },
+    "list/x:DmarcExternalReport/singular": {
+      "original": "report",
+      "ru": "отчёт"
+    },
+    "list/x:DmarcExternalReport/subtitle": {
+      "original": "Manage received DMARC aggregate reports",
+      "ru": "Управление полученными агрегированными отчётами DMARC"
+    },
+    "list/x:DmarcExternalReport/title": {
+      "original": "Inbound DMARC Reports",
+      "ru": "Входящие отчёты DMARC"
+    },
     "list/x:DmarcInternalReport/column/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
     },
+    "list/x:DmarcInternalReport/column/deliverAt": {
+      "original": "Deliver At",
+      "ru": "Запланированная отправка"
+    },
     "list/x:DmarcInternalReport/column/domain": {
       "original": "Domain",
       "ru": "Домен"
+    },
+    "list/x:DmarcInternalReport/filter/domain": {
+      "original": "Domain Name",
+      "ru": "Имя домена"
+    },
+    "list/x:DmarcInternalReport/plural": {
+      "original": "reports",
+      "ru": "отчёты"
+    },
+    "list/x:DmarcInternalReport/singular": {
+      "original": "report",
+      "ru": "отчёт"
+    },
+    "list/x:DmarcInternalReport/subtitle": {
+      "original": "Manage outbound DMARC aggregate reports",
+      "ru": "Управление исходящими агрегированными отчётами DMARC"
+    },
+    "list/x:DmarcInternalReport/title": {
+      "original": "Outbound DMARC Reports",
+      "ru": "Исходящие отчёты DMARC"
     },
     "list/x:DnsServer/filter/memberTenantId": {
       "original": "Tenant",
@@ -6782,17 +7114,61 @@
       "original": "Tenants",
       "ru": "Арендаторы"
     },
+    "list/x:TlsExternalReport/column/from": {
+      "original": "From",
+      "ru": "Отправитель"
+    },
     "list/x:TlsExternalReport/column/receivedAt": {
       "original": "Received At",
       "ru": "Время получения"
+    },
+    "list/x:TlsExternalReport/column/subject": {
+      "original": "Subject",
+      "ru": "Тема"
+    },
+    "list/x:TlsExternalReport/plural": {
+      "original": "reports",
+      "ru": "отчёты"
+    },
+    "list/x:TlsExternalReport/singular": {
+      "original": "report",
+      "ru": "отчёт"
+    },
+    "list/x:TlsExternalReport/subtitle": {
+      "original": "Manage received TLS aggregate reports",
+      "ru": "Управление полученными агрегированными отчётами TLS"
+    },
+    "list/x:TlsExternalReport/title": {
+      "original": "TLS Reports",
+      "ru": "Входящие отчёты TLS"
     },
     "list/x:TlsInternalReport/column/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
     },
+    "list/x:TlsInternalReport/column/deliverAt": {
+      "original": "Deliver At",
+      "ru": "Запланированная отправка"
+    },
     "list/x:TlsInternalReport/column/domain": {
       "original": "Domain",
       "ru": "Домен"
+    },
+    "list/x:TlsInternalReport/plural": {
+      "original": "reports",
+      "ru": "отчёты"
+    },
+    "list/x:TlsInternalReport/singular": {
+      "original": "report",
+      "ru": "отчёт"
+    },
+    "list/x:TlsInternalReport/subtitle": {
+      "original": "Manage outbound TLS aggregate reports",
+      "ru": "Управление исходящими агрегированными отчётами TLS"
+    },
+    "list/x:TlsInternalReport/title": {
+      "original": "Outbound TLS Reports",
+      "ru": "Исходящие отчёты TLS"
     },
     "list/x:Trace/column/events": {
       "original": "Events",
