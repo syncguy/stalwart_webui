@@ -1,0 +1,512 @@
+{
+  "version": 1,
+  "scope": "Offline review policy only; never consumed by application runtime. Exact original and pinned schema required.",
+  "schemaHashes": [
+    "fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs",
+    "Pryc909aTNRr_k6uwZLvZNs74YaPQv-PXQ38t2K7VlY"
+  ],
+  "adapterSources": {
+    "src/components/common/CommandPalette.tsx": "74b2b9c02bf3981acc2c6079e4493ecca48369f2d88d999fa9eca9188eb6ee47",
+    "src/components/forms/DynamicForm.tsx": "4ceb24a4b32ac85e862f18be1ad680dbcf6c2ef4d99eacd3f943c8ec555b3d47",
+    "src/components/forms/FieldRow.tsx": "e30142f882281a2e4e4b2c94a477179bd6c29b4bd34c9e7a381835a67d176271",
+    "src/components/forms/FormSections.tsx": "c28521c29f8fcf9365b051cd4393a9212cafbec2e69ea750a36b09653df33583",
+    "src/components/forms/formLogic.ts": "2dac722cec6a60009df67975689b2e50b94011bed734496e210148dd16ab8049",
+    "src/components/forms/useDynamicForm.ts": "3bf9fb886b74ee1e3b2e6f4f8ddc4d8795149bfcb53855043502399173f43155",
+    "src/components/forms/widgets/EmbeddedObjectWidget.tsx": "d6a586a55fe6f7ed558f67651af20cafa03dab16e4aca51b7feae2fbe231a45b",
+    "src/components/forms/widgets/EnumWidgets.tsx": "7fda3639a94ff630f1484e6c9aa7afadb58298b87ee609fe3997e54faa1695ff",
+    "src/components/forms/widgets/MapWidget.tsx": "4065c1a3311b0962f76bb1b50fdaaf1551e0a3ac291cae71062ab342cd7b48c0",
+    "src/components/forms/widgets/ObjectListWidget.tsx": "bf307c2ccdcf0a3c8ad61897de91cdb3a7c70a14d87d20a89082e76928a637d5",
+    "src/components/forms/widgets/StringWidgets.tsx": "05e5bc15f80ec7306ca876aa7f01839f855c8d5fe9702464c8b75136c0ddd474",
+    "src/components/forms/widgets/TimeZoneWidget.tsx": "3f86b44be773c6be928c348926d7a9cd26e8178dabc67f31a43632d2137a0dc1",
+    "src/components/layout/MainContent.tsx": "0dea1faf3bfa22a3f0740f69cfe6a4e7bd424ca5b51a4c131d1c8e33b84cc8f1",
+    "src/components/layout/TopBar.tsx": "7768b555d09819b7caa98d7c61a87bd079d9ff5fa72957d941f4db560a3b0c6b",
+    "src/components/lists/DynamicList.tsx": "959c176cdae448ec7b5b597f71d1b7fccd9cfe03a835cfb8c9288b3549ebc413",
+    "src/components/lists/FilterFields.tsx": "6053d99aefad1ebaf4123079e2fe37f0d419e7bdc1f8d8ca29b1b3311d5ff5b8",
+    "src/components/lists/ListCell.tsx": "5473f16fe89e17c469d26772acbe254c4da5129b44d25836da440e2f861ea1dc",
+    "src/components/lists/MassActionBar.tsx": "7d672d719a4475af478b7ccbe2308d457f6172a3bd3453dff9acd040d4d36f0c",
+    "src/components/lists/RowActions.tsx": "b1553bb01363451284ba87a5c372ae7f9975bbdbbedfb2c9a1ccd77a613d9cc5",
+    "src/components/ui/dialog.tsx": "267dd38d1ea4fcb2653205ea7273ed47caebf160fb8218faa6cd2e1ba6e865b8",
+    "src/components/ui/toast.tsx": "69820e9d7e5f097f33b451f6148d765f0f68300e1ac3ece118882fc04a628b48",
+    "src/components/values/FieldValue.tsx": "89e9bd5a231fa659061a2edc5649fcf2c6eae6cfd22b5472031800652e5464ae",
+    "src/components/values/ScalarValues.tsx": "1ef0e83604911cac3c54edd182402d0a3424865785e95d05145316b0e0781cc7",
+    "src/components/views/DynamicView.tsx": "c89776564879739ab4adc45488659fbb3886fe5c0e449718abf15cd9f8754263",
+    "src/components/views/DynamicViewPage.tsx": "aff418ff78352d61fa77575959e28c5da9dc695a7d10de493cfcbcd49e43708d",
+    "src/extensions/pages.sel.ts": "3e95696f2d5f60e8ad94d1bd9f8e8ac9a4d80c3715058765853e05b3e99ab7f7",
+    "src/extensions/pages.ts": "971e81f91f9697df33a14ef933366da75605a710e874830ac9c912c1bf5e1edc",
+    "src/extensions/widgets.ts": "a029131e9a7ea15c5fe03ec7f09165f24f2c656eb9eceabac3e600171cc07c37",
+    "src/features/actions/ActionPage.tsx": "338dd3e6e69f0ddc23547c9bab26e8d46defcac30569793b349daa0a84071cf0",
+    "src/features/actions/components/ActionForm.tsx": "05a73c853cf60558c57a52ab6ee6b6f9c86fe31194e9cc699c70f2d2442ee21c",
+    "src/features/dashboard/components/DashboardView.tsx": "6ad3f2942244f5eb8fc4b7506b31fb28d2a2152216ebacb0f02c079c2714d359",
+    "src/features/tracing/components/TraceValue.tsx": "86d2f786b8a23a38bedd1ac54da163d10a0e387fed310fa63e11350446d7e203",
+    "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
+    "src/i18n/schemaPermissionText.ts": "05c0a0fc9e212be7af7d870db4874d686fbec71cc86729b886ba2c9a2983bdf0",
+    "src/i18n/schemaText.ts": "c968c4b74c08742a75048bd413ae70bd84e14e114eb8188f86c63b075fcf9765",
+    "src/lib/embeddedSchema.ts": "6251e48a9085c6e269003a0ede1dab5d708c47ef28f8f92ef56efa50c7bf4334",
+    "src/lib/permissions.ts": "4e1f27ebd2a0d06045e0b8fcf0c282b815d18d6c0f82d45172d37b219ab49855",
+    "src/lib/schemaResolver.ts": "4de9271d94b0c5ac5cc6b7bbf787028d3e463c437f47154eaf8f6fb63f08e074",
+    "src/stores/schemaStore.ts": "a30b7bb471e013e18bb21ae909ca35c43e2cf4f70a3d1810b3af27c9dfe30e9b",
+    "src/types/schema.ts": "8f8e3515875272f54204f389d65ddf5a1622ada857b0759172d0adeb1e13d4b4"
+  },
+  "keepOriginal": [
+    {
+      "slot": "dashboard/authentication/item/10/title",
+      "original": "DMARC",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "dashboard/authentication/item/11/series/0/label",
+      "original": "DMARC",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "dashboard/authentication/item/11/series/1/label",
+      "original": "TLS",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "dashboard/authentication/item/7/title",
+      "original": "SPF",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "dashboard/authentication/item/8/title",
+      "original": "DKIM",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "dashboard/authentication/item/9/title",
+      "original": "DKIM2",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "dashboard/encryption/item/14/series/0/label",
+      "original": "CRL",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "dashboard/encryption/item/14/series/1/label",
+      "original": "DNSSEC",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "dashboard/network/item/10/series/0/label",
+      "original": "IMAP",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "dashboard/network/item/10/series/1/label",
+      "original": "POP3",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "dashboard/network/item/10/series/2/label",
+      "original": "Sieve",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "dashboard/performance/item/8/series/0/label",
+      "original": "SMTP",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "enum/MetricsOtelType/Http/label",
+      "original": "HTTP",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/MtaProtocol/smtp/label",
+      "original": "SMTP",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/NetworkListenerProtocol/http/label",
+      "original": "HTTP",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/NetworkListenerProtocol/pop3/label",
+      "original": "POP3",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/NetworkListenerProtocol/smtp/label",
+      "original": "SMTP",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/ServiceProtocol/imap/label",
+      "original": "IMAP",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/ServiceProtocol/jmap/label",
+      "original": "JMAP",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/ServiceProtocol/pop3/label",
+      "original": "POP3",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/ServiceProtocol/webdav/label",
+      "original": "WebDAV",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/TlsCipherSuite/tls-ecdhe-ecdsa-with-aes-128-gcm-sha256/label",
+      "original": "ECDHE ECDSA AES128 GCM SHA256",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/TlsCipherSuite/tls-ecdhe-ecdsa-with-aes-256-gcm-sha384/label",
+      "original": "ECDHE ECDSA AES256 GCM SHA384",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/TlsCipherSuite/tls-ecdhe-ecdsa-with-chacha20-poly1305-sha256/label",
+      "original": "ECDHE ECDSA CHACHA20 POLY1305 SHA256",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/TlsCipherSuite/tls-ecdhe-rsa-with-aes-128-gcm-sha256/label",
+      "original": "ECDHE RSA AES128 GCM SHA256",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/TlsCipherSuite/tls-ecdhe-rsa-with-aes-256-gcm-sha384/label",
+      "original": "ECDHE RSA AES256 GCM SHA384",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/TlsCipherSuite/tls-ecdhe-rsa-with-chacha20-poly1305-sha256/label",
+      "original": "ECDHE RSA CHACHA20 POLY1305 SHA256",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/TlsCipherSuite/tls13-aes-128-gcm-sha256/label",
+      "original": "TLS1.3 AES128 GCM SHA256",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/TlsCipherSuite/tls13-aes-256-gcm-sha384/label",
+      "original": "TLS1.3 AES256 GCM SHA384",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/TlsCipherSuite/tls13-chacha20-poly1305-sha256/label",
+      "original": "TLS1.3 CHACHA20 POLY1305 SHA256",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "form/x:Domain/section/section-2",
+      "original": "DKIM",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "form/x:Domain/section/section-3",
+      "original": "TLS",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "form/x:Domain/section/section-4",
+      "original": "DNS",
+      "reason": "Стандартное название протокола или технологии; сохраняется в этой подписи."
+    },
+    {
+      "slot": "form/x:KeepStore/field/tls",
+      "original": "TLS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "form/x:MtaOutboundStrategy/field/tls",
+      "original": "TLS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "form/x:MtaRouteRelay/section/section-1",
+      "original": "TLS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "form/x:MtaTlsStrategy/field/tlsTimeout",
+      "original": "TLS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "form/x:MySqlStore/section/section-2",
+      "original": "TLS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "form/x:PostgreSqlStore/section/section-2",
+      "original": "TLS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "form/x:S3Store/section/section-3",
+      "original": "TLS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/container/Settings/Network/DNS",
+      "original": "DNS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/container/Settings/Network/HTTP",
+      "original": "HTTP",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/container/Settings/Network/JMAP",
+      "original": "JMAP",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/container/Settings/Sieve",
+      "original": "Sieve",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/container/Settings/TLS",
+      "original": "TLS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/link/Management/x:DmarcExternalReport",
+      "original": "DMARC",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/link/Management/x:DmarcInternalReport",
+      "original": "DMARC",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/link/Management/x:TlsExternalReport",
+      "original": "TLS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/link/Management/x:TlsInternalReport",
+      "original": "TLS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/link/Settings/x:DkimReportSettings",
+      "original": "DKIM",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/link/Settings/x:DmarcReportSettings",
+      "original": "DMARC",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/link/Settings/x:Imap",
+      "original": "IMAP",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/link/Settings/x:SpfReportSettings",
+      "original": "SPF",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/link/Settings/x:TlsReportSettings",
+      "original": "TLS",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "nav/link/Settings/x:WebDav",
+      "original": "WebDAV",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "variant/x:MetricsOtel/Http/label",
+      "original": "HTTP",
+      "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    }
+  ],
+  "technical": [
+    {
+      "slot": "form/x:AcmeProvider/field/description/placeholder",
+      "original": "Let's Encrypt",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:AiModelAnthropic/field/model/placeholder",
+      "original": "claude-haiku-4-5",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:AiModelGemini/field/model/placeholder",
+      "original": "gemini-3.5-flash-lite",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:AiModelOllama/field/model/placeholder",
+      "original": "qwen3:8b",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:AiModelOpenAi/field/model/placeholder",
+      "original": "gpt-6-luna",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:AiModelTypeSafe/field/model/placeholder",
+      "original": "jev-1.13.0",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:AzureStore/field/container/placeholder",
+      "original": "stalwart",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:AzureStore/field/storageAccount/placeholder",
+      "original": "mycompany",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:DnsServerPowerDns/field/serverId/placeholder",
+      "original": "localhost",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:DnsServerRoute53/field/region/placeholder",
+      "original": "us-east-1",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:FoundationDbStore/field/datacenterId/placeholder",
+      "original": "my-datacenter-id",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:FoundationDbStore/field/machineId/placeholder",
+      "original": "my-server-id",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:OidcDirectory/field/acceptedAudiences/placeholder",
+      "original": "stalwart",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:OidcDirectory/field/claimName/placeholder",
+      "original": "name",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:OidcDirectory/field/claimUsername/placeholder",
+      "original": "preferred_username",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:S3Store/field/bucket/placeholder",
+      "original": "stalwart",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:S3Store/field/region/placeholder",
+      "original": "us-east-1",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:SecretKeyEnvironmentVariable/field/variableName/placeholder",
+      "original": "MY_SECRET_VAR",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    },
+    {
+      "slot": "form/x:TracerLog/field/prefix/placeholder",
+      "original": "stalwart.log",
+      "reason": "Точный пример технического значения, имени продукта или идентификатора; не переводить."
+    }
+  ],
+  "glossaryDecisions": [
+    {
+      "original": "Observability",
+      "ru": "Наблюдение",
+      "sourceSlot": "nav/container/Management/Observability"
+    },
+    {
+      "original": "Logs",
+      "ru": "Журнал",
+      "sourceSlot": "nav/link/Management/x:Log"
+    }
+  ],
+  "contextCandidates": [
+    {
+      "slot": "form/x:MySqlStore/section/section-3",
+      "original": "Read Replicas",
+      "schemaHash": "fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs",
+      "ru": "Реплики для чтения",
+      "reason": "Разные секции OSS/Enterprise занимают индекс 3; кандидат связан с hash+slot+original и требует редакторского подтверждения."
+    },
+    {
+      "slot": "form/x:MySqlStore/section/section-3",
+      "original": "Pools",
+      "schemaHash": "Pryc909aTNRr_k6uwZLvZNs74YaPQv-PXQ38t2K7VlY",
+      "ru": "Пулы соединений",
+      "reason": "Разные секции OSS/Enterprise занимают индекс 3; кандидат связан с hash+slot+original и требует редакторского подтверждения."
+    },
+    {
+      "slot": "form/x:PostgreSqlStore/section/section-3",
+      "original": "Read Replicas",
+      "schemaHash": "fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs",
+      "ru": "Реплики для чтения",
+      "reason": "Разные секции OSS/Enterprise занимают индекс 3; кандидат связан с hash+slot+original и требует редакторского подтверждения."
+    },
+    {
+      "slot": "form/x:PostgreSqlStore/section/section-3",
+      "original": "Pools",
+      "schemaHash": "Pryc909aTNRr_k6uwZLvZNs74YaPQv-PXQ38t2K7VlY",
+      "ru": "Пулы соединений",
+      "reason": "Разные секции OSS/Enterprise занимают индекс 3; кандидат связан с hash+slot+original и требует редакторского подтверждения."
+    }
+  ],
+  "baselineSource": "8686af2f4f862f41b937e7ee00a609e00a8c6136",
+  "protectedInputs": {
+    "src/i18n/schema/ru.json": "16504147e66a6bf66452522b441f5767eeb8f79f899302a96b52de04941b58db",
+    "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
+    "src/i18n/schemaText.ts": "c968c4b74c08742a75048bd413ae70bd84e14e114eb8188f86c63b075fcf9765",
+    "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
+    "scripts/schema-glossary.ru.json": "808741e3fd85abb3d302e54488162d6b980dd9ec525b8543771ea1c179040fce",
+    "scripts/data/pinned-schema-manifest.json": "eda38876539e8b226ca79a468e0772b97174e8c7482297ba7ae7746f3f5f60b6",
+    "scripts/data/pinned-schema.json.gz.b64": "9e69e80372b0f93d149facdf62726c9f1d7d39a043c847c954521d4aa39d6380",
+    "scripts/data/pinned-schema_oss.json.gz.b64": "440de2ac9678d1f3175e6a5331795f85c44ae06b0ac47d717a4d0420b80a4a40"
+  },
+  "clientLiterals": [
+    {
+      "file": "src/components/common/CommandPalette.tsx",
+      "kind": "jsx-text",
+      "original": "ESC",
+      "classification": "keep-original",
+      "reason": "standard-key-or-format-name"
+    },
+    {
+      "file": "src/components/forms/widgets/StringWidgets.tsx",
+      "kind": "jsx-text",
+      "original": "HTML",
+      "classification": "keep-original",
+      "reason": "standard-key-or-format-name"
+    },
+    {
+      "file": "src/components/layout/TopBar.tsx",
+      "kind": "jsx-text",
+      "original": "English",
+      "classification": "keep-original",
+      "reason": "language-autonym"
+    },
+    {
+      "file": "src/features/tracing/components/TraceValue.tsx",
+      "kind": "jsx-text",
+      "original": "&mdash;",
+      "classification": "technical",
+      "reason": "HTML-character-entity"
+    }
+  ]
+}
