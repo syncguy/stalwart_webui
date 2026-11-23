@@ -12,12 +12,14 @@ import { fieldIds, useFieldScope, useFormContext, useInPanel } from '@/component
 import { VARIANT_FIELD } from '@/components/forms/formLogic';
 import type { EmbeddedVariant } from '@/lib/embeddedSchema';
 import { cn } from '@/lib/utils';
+import { useSchemaText } from '@/hooks/useSchemaText';
 
 const SEGMENTED_MAX_VARIANTS = 4;
 const SEGMENTED_MAX_LABEL_CHARS = 44;
 
 interface VariantSelectProps {
   label?: string;
+  variantScope?: string;
   labelledBy?: string;
   ariaLabel?: string;
   variants: readonly EmbeddedVariant[];
@@ -124,6 +126,7 @@ function DropdownVariants({ id, labelledBy, ariaLabel, variants, value, onChange
 
 export function VariantSelect({
   label,
+  variantScope,
   labelledBy,
   ariaLabel,
   variants,
@@ -132,15 +135,20 @@ export function VariantSelect({
   readOnly,
 }: VariantSelectProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const ctx = useFormContext();
   const scope = useFieldScope();
   const ids = fieldIds(ctx.idPrefix, [...scope.path, VARIANT_FIELD]);
   const external = !!labelledBy || !!ariaLabel;
-  const segmented = isSegmented(variants);
+  // Only visible labels change. Variant names remain the original schema IDs.
+  const localizedVariants = variantScope
+    ? variants.map((v) => ({ ...v, label: display(`variant/${variantScope}/${v.name}/label`, v.label) }))
+    : variants;
+  const segmented = isSegmented(localizedVariants);
   const Control = segmented ? SegmentedVariants : DropdownVariants;
   const controlProps = {
     id: ids.inputId,
-    variants,
+    variants: localizedVariants,
     value,
     onChange,
     readOnly,
