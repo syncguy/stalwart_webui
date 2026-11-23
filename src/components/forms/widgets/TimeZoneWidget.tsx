@@ -12,6 +12,8 @@ import { Combobox, type ComboboxOption } from '@/components/ui/combobox';
 import { useFormContext } from '@/components/forms/formContext';
 import { formatUtcOffset } from '@/lib/format';
 import { getEnum } from '@/lib/schemaResolver';
+import { useCanTranslateSchema } from '@/hooks/useSchemaText';
+import { timeZoneOptionLabel } from '@/i18n/schemaOptionLabels';
 import type { WidgetProps } from '@/components/forms/widgets/types';
 import type { EnumVariant, FieldTypeEnum } from '@/types/schema';
 
@@ -34,6 +36,7 @@ function zoneOffsets(variants: readonly EnumVariant[], at: Date): ReadonlyMap<st
 
 export function TimeZoneWidget({ type, value, onChange, readOnly, control }: WidgetProps<FieldTypeEnum>) {
   const { t } = useTranslation();
+  const canTranslate = useCanTranslateSchema();
   const { schema } = useFormContext();
   const variants = getEnum(schema, type.enumName);
   const [now] = useState(() => new Date());
@@ -45,11 +48,13 @@ export function TimeZoneWidget({ type, value, onChange, readOnly, control }: Wid
 
   const options: ComboboxOption[] = variants.map((v) => {
     const offset = offsets?.get(v.name);
+    const label = canTranslate ? timeZoneOptionLabel(v.name, v.label) : v.label;
     return {
       value: v.name,
-      label: v.label,
+      label,
       description: offset,
-      keywords: offset ? [v.name, offset] : [v.name],
+      // Preserve search by IANA ID and the original English label.
+      keywords: [v.name, v.label, label, ...(offset ? [offset] : [])],
     };
   });
 
@@ -84,7 +89,9 @@ export function TimeZoneWidget({ type, value, onChange, readOnly, control }: Wid
               onClick={() => onChange(localVariant.name)}
             >
               <LocateFixed className="h-3.5 w-3.5" aria-hidden="true" />
-              {t('timeZone.useMine', 'Use my time zone ({{zone}})', { zone: localVariant.label })}
+              {t('timeZone.useMine', 'Use my time zone ({{zone}})', {
+                zone: canTranslate ? timeZoneOptionLabel(localVariant.name, localVariant.label) : localVariant.label,
+              })}
             </Button>
           )}
         </div>
