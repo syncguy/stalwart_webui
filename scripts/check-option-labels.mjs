@@ -29,6 +29,21 @@ vm.runInNewContext(compiled.outputText, { exports, Intl, Map, Date }, { filename
 assert.equal(exports.quotaOptionLabel('Maximum number of emails'), 'Максимум писем');
 assert.equal(exports.quotaOptionLabel('Maximum number of mailboxes'), 'Максимум почтовых ящиков');
 assert.equal(exports.quotaOptionLabel('Unrecognized upstream quota'), 'Unrecognized upstream quota');
+const restOfObservedQuotas = [
+  ['Maximum number of contact cards', 'Максимум карточек контактов'],
+  ['Maximum number of files', 'Максимум файлов'],
+  ['Maximum number of folders', 'Максимум папок'],
+  ['Maximum number of masked email addresses', 'Максимум маскированных почтовых адресов'],
+  ['Maximum number of app passwords', 'Максимум паролей приложений'],
+  ['Maximum number of API keys', 'Максимум API-ключей'],
+  ['Maximum number of public keys', 'Максимум открытых ключей'],
+  ['Maximum disk space allocated (bytes)', 'Максимальное выделенное место на диске (байты)'],
+  ['Maximum number of passkeys', 'Максимум ключей доступа'],
+];
+for (const [original, expected] of restOfObservedQuotas) {
+  assert.equal(exports.quotaOptionLabel(original), expected);
+}
+
 assert.equal(exports.headerProtectionOptionLabel('None'), 'Не защищать заголовки');
 assert.equal(exports.headerProtectionOptionLabel('Protected, headers visible'), 'Защищены, заголовки видимы');
 assert.equal(exports.headerProtectionOptionLabel('Protected, Subject hidden'), 'Защищены, тема скрыта');
