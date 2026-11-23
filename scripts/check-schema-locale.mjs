@@ -315,7 +315,10 @@ assert.ok(actionWithWarning.includes("actions.updateAppsScopeWarning"));
 assert.ok(actionWithWarning.includes('buildActionPayload(pending.name, null, {})'));
 
 const sourceNestedRow = fs.readFileSync('src/components/forms/FieldRow.tsx', 'utf8');
-assert.ok(sourceNestedRow.includes('formField: { ...formField, label }'));
+// Stage15 expanded the display-only copy to key/value labels and placeholders.
+// Keep checking the actual widget boundary instead of the obsolete inline copy.
+assert.ok(sourceNestedRow.includes('const formFieldDisplay = {'));
+assert.ok(sourceNestedRow.includes('formField: formFieldDisplay'));
 assert.ok(sourceNestedRow.includes('formKey ? display('));
 const sourceObjectList = fs.readFileSync('src/components/forms/widgets/ObjectListWidget.tsx', 'utf8');
 assert.ok(sourceObjectList.includes('variant/${type.objectName}/${variant}/label'));
