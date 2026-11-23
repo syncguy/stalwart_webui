@@ -31,6 +31,16 @@ const quotaLabels: Readonly<Record<string, string>> = {
   'Maximum number of public keys': 'Максимум открытых ключей',
   'Maximum disk space allocated (bytes)': 'Максимальное выделенное место на диске (байты)',
   'Maximum number of passkeys': 'Максимум ключей доступа',
+  'Maximum number of accounts': 'Максимум учётных записей',
+  'Maximum number of groups': 'Максимум групп',
+  'Maximum number of domains': 'Максимум доменов',
+  'Maximum number of mailing lists': 'Максимум списков рассылки',
+  'Maximum number of roles': 'Максимум ролей',
+  'Maximum number of OAuth clients': 'Максимум клиентов OAuth',
+  'Maximum number of DKIM keys': 'Максимум ключей DKIM',
+  'Maximum number of DNS servers': 'Максимум DNS-серверов',
+  'Maximum number of external directories': 'Максимум внешних каталогов',
+  'Maximum number of ACME providers': 'Максимум провайдеров ACME',
 };
 
 const headerProtectionLabels: Readonly<Record<string, string>> = {
