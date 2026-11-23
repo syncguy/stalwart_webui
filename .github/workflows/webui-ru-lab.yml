@@ -44,7 +44,7 @@ jobs:
       - name: Check Russian locale
         run: node scripts/check-locales.mjs
 
-      - name: Validate pinned schema, Dashboard, Logs, ClusterNode and task/index display
+      - name: Validate pinned schema, all report views, pagination and prior display invariants
         run: node scripts/check-schema-locale.mjs
 
       - name: Validate display-name and raw-ID dropdown search invariants
