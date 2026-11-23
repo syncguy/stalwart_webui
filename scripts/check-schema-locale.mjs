@@ -452,4 +452,28 @@ assert.match(listSource, /t\('list\.create', 'Create \{\{name\}\}'/);
 assert.match(variantSource, /onChange\(v\.name\)/);
 assert.match(headerSource, /onSort\(column\.name\)/);
 
+
+// Stage10: short captions only. Identity of dashboard tabs and trace routes remains raw.
+const stage10Captions = [
+  ['dashboard/search-index/label', 'Search Index', 'Индексация'],
+  ['dashboard/authentication/label', 'Message Authentication', 'Аутентификация'],
+  ['nav/link/Management/x:Trace/InboundDelivery', 'Inbound Delivery', 'Входящих'],
+  ['nav/link/Management/x:Trace/OutboundDelivery', 'Outbound Delivery', 'Исходящих'],
+];
+for (const [key, original, translated] of stage10Captions) {
+  assert.equal(entries[key]?.original, original, 'Stage10 source mismatch: ' + key);
+  assert.equal(entries[key]?.ru, translated);
+  for (const hash of meta.schemaHashes) {
+    assert.equal(schemaText(hash, 'ru', key, original), translated);
+    assert.equal(schemaText(hash, 'en', key, original), original);
+    assert.equal(schemaText(hash, 'ru', key, original + ' changed'), original + ' changed');
+  }
+}
+assert.equal(schemaText(null, 'ru', stage10Captions[0][0], 'Search Index'), 'Search Index');
+assert.ok(rawDashboard.includes('navigate(`/${section}/Dashboard/${id}`)'));
+assert.ok(rawDashboard.includes('display(`dashboard/${d.id}/label`, d.label)'));
+const navSource = fs.readFileSync('src/components/layout/navTree.ts', 'utf8');
+assert.ok(navSource.includes('viewPath(sectionName: string, viewName: string)'));
+assert.ok(navSource.includes('return `/${sectionName}/${viewName}`'));
+
 console.log(`Schema locale check passed: ${Object.keys(entries).length} contextual slots, two pinned variants, safe fallbacks, preserved identifiers.`);
