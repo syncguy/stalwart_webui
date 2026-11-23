@@ -476,4 +476,55 @@ const navSource = fs.readFileSync('src/components/layout/navTree.ts', 'utf8');
 assert.ok(navSource.includes('viewPath(sectionName: string, viewName: string)'));
 assert.ok(navSource.includes('return `/${sectionName}/${viewName}`'));
 
+// Stage12: complete source-verified ClusterNode read-only display (OSS+Enterprise).
+const stage12Cluster = [
+  ['list/x:ClusterNode/title', 'Cluster Nodes', 'Узлы кластера'],
+  ['list/x:ClusterNode/subtitle', 'List of nodes in the cluster, including its unique identifier, hostname, last lease renewal timestamp and status', 'Список узлов кластера с идентификаторами, именами, временем последнего продления аренды и состоянием'],
+  ['list/x:ClusterNode/singular', 'cluster node', 'узел кластера'],
+  ['list/x:ClusterNode/plural', 'cluster nodes', 'узлы кластера'],
+  ['list/x:ClusterNode/column/nodeId', 'Node ID', 'ID узла'],
+  ['list/x:ClusterNode/column/hostname', 'Hostname', 'Имя узла'],
+  ['list/x:ClusterNode/column/lastRenewal', 'Last Renewal', 'Последнее продление аренды'],
+  ['list/x:ClusterNode/column/status', 'Status', 'Состояние'],
+  ['form/x:ClusterNode/title', 'Cluster Node', 'Узел кластера'],
+  ['form/x:ClusterNode/subtitle', 'View details about a node in the cluster, including its unique identifier, hostname, last lease renewal timestamp and status', 'Сведения об узле кластера: идентификатор, имя, последнее продление аренды и состояние'],
+  ['form/x:ClusterNode/section/section-0', 'Details', 'Сведения'],
+  ['form/x:ClusterNode/section/section-1', 'Status', 'Состояние'],
+  ['form/x:ClusterNode/field/nodeId', 'Node ID', 'ID узла'],
+  ['form/x:ClusterNode/field/hostname', 'Hostname', 'Имя узла'],
+  ['form/x:ClusterNode/field/lastRenewal', 'Last Renewal', 'Последнее продление аренды'],
+  ['form/x:ClusterNode/field/status', 'Status', 'Состояние'],
+  ['field/x:ClusterNode/nodeId/description', 'Unique identifier for the node in the cluster', 'Уникальный идентификатор узла в кластере'],
+  ['field/x:ClusterNode/hostname/description', 'Hostname of the node', 'Сетевое имя узла'],
+  ['field/x:ClusterNode/lastRenewal/description', 'Timestamp of the last lease renewal from this node, used to determine if the node is still active in the cluster', 'Время последнего продления аренды узлом, используемое для определения его активности в кластере'],
+  ['field/x:ClusterNode/status/description', 'Current status of the node in the cluster', 'Текущее состояние узла в кластере'],
+  ['enum/ClusterNodeStatus/active/label', 'Active', 'Активен'],
+  ['enum/ClusterNodeStatus/stale/label', 'Stale', 'Нет свежих данных'],
+  ['enum/ClusterNodeStatus/inactive/label', 'Inactive', 'Неактивен'],
+];
+for (const [slot, original, translated] of stage12Cluster) {
+  assert.deepEqual(entries[slot], { original, ru: translated }, 'Stage12 pinned source mismatch: ' + slot);
+  for (const hash of meta.schemaHashes) {
+    assert.equal(schemaText(hash, 'ru', slot, original), translated);
+    assert.equal(schemaText(hash, 'en', slot, original), original);
+    assert.equal(schemaText(hash, 'ru', slot, original + ' v2'), original + ' v2');
+  }
+  assert.equal(schemaText('unknown-hash', 'ru', slot, original), original);
+}
+const viewSource = fs.readFileSync('src/components/views/DynamicView.tsx', 'utf8');
+const viewPageSource = fs.readFileSync('src/components/views/DynamicViewPage.tsx', 'utf8');
+const tableSource = fs.readFileSync('src/components/lists/DynamicList.tsx', 'utf8');
+const enumValueSource = fs.readFileSync('src/components/values/ScalarValues.tsx', 'utf8');
+assert.ok(viewSource.includes('display(`form/${viewName}/section/${section.key}`, section.title)'));
+assert.ok(viewSource.includes('display(`form/${viewName}/field/${formField.name}`, formField.label)'));
+assert.ok(viewSource.includes('`field/${viewName}/${formField.name}/description`'));
+assert.ok(viewSource.includes('value={data[formField.name]}'));
+assert.ok(viewPageSource.includes('display(`list/${listKey}/singular`, rawSingularName)'));
+assert.ok(viewPageSource.includes('objectId, undefined, { accountId }'));
+assert.ok(tableSource.includes('pluralName={display(`list/${listKey}/plural`, list.pluralName)}'));
+assert.ok(enumValueSource.includes('display(`enum/${enumName}/${name}/label`, variant.label)'));
+// Routes, technical enum IDs, timestamps and cluster state remain untouched.
+assert.ok(tableSource.includes('rowHref={(id) => (section ? `/${section}/${viewName}/${id}` : null)}'));
+assert.ok(enumValueSource.includes('getEnumVariant(schema, enumName, name)'));
+
 console.log(`Schema locale check passed: ${Object.keys(entries).length} contextual slots, two pinned variants, safe fallbacks, preserved identifiers.`);
