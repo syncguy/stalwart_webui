@@ -156,6 +156,49 @@ const languageSwitch = storeSource.slice(storeSource.indexOf('  setDisplayLangua
 assert.match(languageSwitch, /set\(\{ displayLanguage: language, searchIndex \}\)/);
 assert.doesNotMatch(languageSwitch, /setSchema\(/);
 
+// Stage 4: nested Domain objects keep raw identifiers and preserve selector variables.
+const nestedDomainSamples = [
+  ['variant/x:SubAddressing/Enabled/label', 'Enable sub-addressing', 'Включить дополнительную адресацию'],
+  ['variant/x:SubAddressing/Custom/label', 'Enable custom sub-addressing', 'Включить собственные правила дополнительной адресации'],
+  ['variant/x:SubAddressing/Disabled/label', 'Disable sub-addressing', 'Отключить дополнительную адресацию'],
+  ['variant/x:DkimManagement/Automatic/label', 'Automatic DKIM management', 'Автоматическое управление DKIM'],
+  ['variant/x:DkimManagement/Manual/label', 'Manual DKIM management', 'Ручное управление DKIM'],
+  ['variant/x:CertificateManagement/Automatic/label', 'ACME TLS certificate management', 'Управление сертификатами TLS через ACME'],
+  ['variant/x:DnsManagement/Automatic/label', 'Automatic DNS management', 'Автоматическое управление DNS'],
+  ['form/x:DkimManagementProperties/field/algorithms', 'Signing Algorithms', 'Алгоритмы подписи'],
+  ['form/x:DkimManagementProperties/field/selectorTemplate', 'Selector Template', 'Шаблон селектора'],
+  ['form/x:DkimManagementProperties/field/rotateAfter', 'Rotate After', 'Период ротации ключей'],
+  ['form/x:SubAddressingCustom/field/customRule', 'Custom Rule Expression', 'Выражение пользовательского правила'],
+  ['field/x:DkimManagementProperties/algorithms/description', 'List of signing algorithms to use when generating new DKIM keys', 'Алгоритмы подписи, используемые для генерации новых ключей DKIM'],
+  ['field/x:Domain/directoryId/description', 'Identifier for the directory where accounts for this domain are stored, or null to use the internal directory', 'Идентификатор каталога с учётными записями домена. Если не указан, используется внутренний каталог.'],
+];
+for (const hash of meta.schemaHashes) {
+  for (const [slot, original, translated] of nestedDomainSamples) {
+    assert.equal(entries[slot]?.original, original);
+    assert.equal(schemaText(hash, 'ru', slot, original), translated);
+    assert.equal(schemaText(hash, 'en', slot, original), original);
+    assert.equal(schemaText(hash, 'ru', slot, original + ' changed'), original + ' changed');
+  }
+  const template = entries['field/x:DkimManagementProperties/selectorTemplate/description'];
+  assert.ok(template, 'Missing selector documentation');
+  assert.equal(schemaText(hash, 'ru', 'field/x:DkimManagementProperties/selectorTemplate/description', template.original), template.ru);
+  for (const marker of ['{algorithm}', '{hash}', '{version}', '{date-<fmt>}', '{date-%Y%m%d}', '{epoch}', '{random}']) {
+    assert.ok(template.original.includes(marker) && template.ru.includes(marker), 'Missing selector variable: ' + marker);
+  }
+}
+const embeddedSource = fs.readFileSync('src/components/forms/widgets/EmbeddedObjectWidget.tsx', 'utf8');
+assert.match(embeddedSource, /variantScope=\{objectName\}/);
+assert.match(embeddedSource, /formKey=\{resolved\.schemaName \?\? undefined\}/);
+assert.match(embeddedSource, /onChange=\{changeVariant\}/);
+const nestedFieldSource = fs.readFileSync('src/components/forms/FieldRow.tsx', 'utf8');
+assert.match(nestedFieldSource, /const label = formKey \? display\(/);
+assert.match(nestedFieldSource, /const description = formKey\s*\? display\(/);
+assert.doesNotMatch(nestedFieldSource, /formKey && topLevel \? display/);
+const stableVariantSource = fs.readFileSync('src/components/forms/VariantSelect.tsx', 'utf8');
+assert.match(stableVariantSource, /const segmented = isSegmented\(variants\)/);
+assert.match(stableVariantSource, /onChange\(v\.name\)/);
+assert.match(stableVariantSource, /value=\{v\.name\}/);
+
 // Shallow DOM-independent contract: lookup cannot mutate a schema or functional identifiers.
 const sourceSchema = Object.freeze({
   layouts: Object.freeze([Object.freeze({ name: 'Management', viewName: 'x:Domain' })]),
