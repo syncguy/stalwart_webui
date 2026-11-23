@@ -247,7 +247,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
             allMatching={selection.allMatching}
             pageCount={selection.selectedIds.length}
             total={total}
-            pluralName={list.pluralName}
+            pluralName={display(`list/${listKey}/plural`, list.pluralName)}
             onSelectAllMatching={selection.selectAllMatching}
             onClear={selection.clear}
           />
