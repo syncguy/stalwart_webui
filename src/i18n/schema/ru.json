@@ -1114,6 +1114,18 @@
       "original": "Tasks",
       "ru": "Задачи"
     },
+    "enum/ClusterNodeStatus/active/label": {
+      "original": "Active",
+      "ru": "Активен"
+    },
+    "enum/ClusterNodeStatus/inactive/label": {
+      "original": "Inactive",
+      "ru": "Неактивен"
+    },
+    "enum/ClusterNodeStatus/stale/label": {
+      "original": "Stale",
+      "ru": "Нет свежих данных"
+    },
     "enum/CredentialPermissionsType/Disable/label": {
       "original": "Disable some permissions",
       "ru": "Запретить отдельные права"
@@ -1273,6 +1285,22 @@
     "field/x:CertificateManagementProperties/acmeProviderId/description": {
       "original": "Identifier for the ACME provider managing certificates for this domain",
       "ru": "Идентификатор провайдера ACME, управляющего сертификатами домена"
+    },
+    "field/x:ClusterNode/hostname/description": {
+      "original": "Hostname of the node",
+      "ru": "Сетевое имя узла"
+    },
+    "field/x:ClusterNode/lastRenewal/description": {
+      "original": "Timestamp of the last lease renewal from this node, used to determine if the node is still active in the cluster",
+      "ru": "Время последнего продления аренды узлом, используемое для определения его активности в кластере"
+    },
+    "field/x:ClusterNode/nodeId/description": {
+      "original": "Unique identifier for the node in the cluster",
+      "ru": "Уникальный идентификатор узла в кластере"
+    },
+    "field/x:ClusterNode/status/description": {
+      "original": "Current status of the node in the cluster",
+      "ru": "Текущее состояние узла в кластере"
     },
     "field/x:CustomRoles/roleIds/description": {
       "original": "List of roles assigned to this principal.",
@@ -2350,6 +2378,18 @@
       "original": "Listeners",
       "ru": "Слушатели"
     },
+    "form/x:ClusterNode/field/hostname": {
+      "original": "Hostname",
+      "ru": "Имя узла"
+    },
+    "form/x:ClusterNode/field/lastRenewal": {
+      "original": "Last Renewal",
+      "ru": "Последнее продление аренды"
+    },
+    "form/x:ClusterNode/field/nodeId": {
+      "original": "Node ID",
+      "ru": "ID узла"
+    },
     "form/x:ClusterNode/field/status": {
       "original": "Status",
       "ru": "Состояние"
@@ -2361,6 +2401,14 @@
     "form/x:ClusterNode/section/section-1": {
       "original": "Status",
       "ru": "Состояние"
+    },
+    "form/x:ClusterNode/subtitle": {
+      "original": "View details about a node in the cluster, including its unique identifier, hostname, last lease renewal timestamp and status",
+      "ru": "Сведения об узле кластера: идентификатор, имя, последнее продление аренды и состояние"
+    },
+    "form/x:ClusterNode/title": {
+      "original": "Cluster Node",
+      "ru": "Узел кластера"
     },
     "form/x:ClusterRole/field/description": {
       "original": "Description",
@@ -5942,9 +5990,37 @@
       "original": "TLS certificates",
       "ru": "Сертификаты TLS"
     },
+    "list/x:ClusterNode/column/hostname": {
+      "original": "Hostname",
+      "ru": "Имя узла"
+    },
+    "list/x:ClusterNode/column/lastRenewal": {
+      "original": "Last Renewal",
+      "ru": "Последнее продление аренды"
+    },
+    "list/x:ClusterNode/column/nodeId": {
+      "original": "Node ID",
+      "ru": "ID узла"
+    },
     "list/x:ClusterNode/column/status": {
       "original": "Status",
       "ru": "Состояние"
+    },
+    "list/x:ClusterNode/plural": {
+      "original": "cluster nodes",
+      "ru": "узлы кластера"
+    },
+    "list/x:ClusterNode/singular": {
+      "original": "cluster node",
+      "ru": "узел кластера"
+    },
+    "list/x:ClusterNode/subtitle": {
+      "original": "List of nodes in the cluster, including its unique identifier, hostname, last lease renewal timestamp and status",
+      "ru": "Список узлов кластера с идентификаторами, именами, временем последнего продления аренды и состоянием"
+    },
+    "list/x:ClusterNode/title": {
+      "original": "Cluster Nodes",
+      "ru": "Узлы кластера"
     },
     "list/x:ClusterRole/column/description": {
       "original": "Description",
