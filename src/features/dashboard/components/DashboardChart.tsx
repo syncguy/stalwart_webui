@@ -15,10 +15,13 @@ import type { Chart as ChartSchema, Placement } from '../types/schema';
 import type { Metric, Period } from '../types/metrics';
 import { bucketTimestamps, bucketValues, getBucketCount, formatTimeTick, formatValue } from '../helpers';
 import { ChartSizedContainer } from './ChartSizedContainer';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { toneClasses } from './tone';
 import { cn } from '@/lib/utils';
 
 interface DashboardChartProps {
+  dashboardId: string;
+  itemIndex: number;
   chart: ChartSchema & Placement;
   historySamples: Metric[];
   historyWindow: { from: Date; to: Date };
@@ -26,7 +29,14 @@ interface DashboardChartProps {
   className?: string;
 }
 
-export function DashboardChart({ chart, historySamples, historyWindow, period, className }: DashboardChartProps) {
+export function DashboardChart({ dashboardId, itemIndex, chart, historySamples, historyWindow, period, className }: DashboardChartProps) {
+  const display = useSchemaText();
+  const title = display(`dashboard/${dashboardId}/item/${itemIndex}/title`, chart.title);
+  const description = chart.description
+    ? display(`dashboard/${dashboardId}/item/${itemIndex}/description`, chart.description)
+    : undefined;
+  const seriesName = (original: string, index: number) =>
+    display(`dashboard/${dashboardId}/item/${itemIndex}/series/${index}/label`, original);
   const toneClass = toneClasses(chart.tone);
   const { from, to } = historyWindow;
   const bucketCount = getBucketCount(period);
@@ -78,7 +88,8 @@ export function DashboardChart({ chart, historySamples, historyWindow, period, c
 
     const seriesElements = chart.series.map((s, i) => {
       const color = getChartColor(i);
-      const key = s.label;
+      const key = s.label; // Always the raw dataKey used in points and Recharts.
+      const name = seriesName(s.label, i); // Visible label only.
 
       switch (chart.kind) {
         case 'line':
@@ -87,6 +98,7 @@ export function DashboardChart({ chart, historySamples, historyWindow, period, c
               key={key}
               type="monotone"
               dataKey={key}
+              name={name}
               stroke={color}
               strokeWidth={2.25}
               strokeLinecap="round"
@@ -118,6 +130,7 @@ export function DashboardChart({ chart, historySamples, historyWindow, period, c
             <Bar
               key={key}
               dataKey={key}
+              name={name}
               fill={color}
               radius={chart.stacked ? 0 : [4, 4, 0, 0]}
               maxBarSize={28}
@@ -188,13 +201,13 @@ export function DashboardChart({ chart, historySamples, historyWindow, period, c
   return (
     <Card
       role="figure"
-      aria-label={chart.title}
+      aria-label={title}
       className={cn('flex flex-col gap-3 px-5 pb-3.5 pt-[18px]', toneClass.surface, className)}
     >
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
         <div className="flex min-w-0 items-center gap-2">
-          <h2 className="section-title truncate">{chart.title}</h2>
-          {chart.description && <HelpTooltip content={chart.description} label={chart.title} icon={Info} />}
+          <h2 className="section-title truncate">{title}</h2>
+          {description && <HelpTooltip content={description} label={title} icon={Info} />}
         </div>
         {chart.series.length > 0 && (
           <ul className={cn('flex flex-wrap gap-x-3.5 gap-y-1 text-[12.5px]', toneClass.muted)}>
@@ -205,7 +218,7 @@ export function DashboardChart({ chart, historySamples, historyWindow, period, c
                   className="size-2 shrink-0 rounded-full"
                   style={{ backgroundColor: getChartColor(i) }}
                 />
-                {s.label}
+                {seriesName(s.label, i)}
               </li>
             ))}
           </ul>
