@@ -44,7 +44,7 @@ jobs:
       - name: Check Russian locale
         run: node scripts/check-locales.mjs
 
-      - name: Verify account variants, action labels and delivery history translations
+      - name: Validate stage5 account actions and delivery display invariants
         run: node scripts/check-schema-locale.mjs
 
       - name: TypeScript check
