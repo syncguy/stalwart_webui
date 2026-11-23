@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { useDisplayName } from '@/data/objectOptions';
 import { formatDuration, formatNumber, formatSize } from '@/lib/format';
 import { getEnumVariant } from '@/lib/schemaResolver';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { SECRET_MASK } from '@/lib/jmapUtils';
 import { cn } from '@/lib/utils';
 import { isMultilineFormat } from '@/lib/embeddedSchema';
@@ -82,6 +83,7 @@ export function BooleanValue({ value }: { value: unknown }) {
 }
 
 export function EnumValue({ schema, enumName, value }: { schema: Schema; enumName: string; value: unknown }) {
+  const display = useSchemaText();
   const name = String(value);
   const variant = getEnumVariant(schema, enumName, name);
   if (!variant) return <span className="text-sm">{name}</span>;
@@ -91,7 +93,7 @@ export function EnumValue({ schema, enumName, value }: { schema: Schema; enumNam
       className={cn('h-6', variant.color && 'text-primary-foreground')}
       style={variant.color ? { backgroundColor: variant.color } : undefined}
     >
-      {variant.label}
+      {display(`enum/${enumName}/${name}/label`, variant.label)}
     </Badge>
   );
 }
@@ -118,7 +120,11 @@ export function ObjectIdValue({
 }
 
 export function ScalarLabel({ schema, type, value }: { schema: Schema; type: ScalarType; value: string }) {
-  if (type.type === 'enum') return <>{getEnumVariant(schema, type.enumName, value)?.label ?? value}</>;
+  const display = useSchemaText();
+  if (type.type === 'enum') {
+    const variant = getEnumVariant(schema, type.enumName, value);
+    return <>{variant ? display(`enum/${type.enumName}/${value}/label`, variant.label) : value}</>;
+  }
   if (type.type === 'objectId')
     return <ObjectIdValue schema={schema} objectName={type.objectName} id={value} variant="compact" />;
   return <>{value}</>;
