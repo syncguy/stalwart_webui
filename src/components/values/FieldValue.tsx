@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { HelpTooltip } from '@/components/common/HelpTooltip';
 import { formatDateTime } from '@/lib/format';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { resolveWidget } from '@/extensions/widgets';
 import { getEnumVariant, mapEntryValueType } from '@/lib/schemaResolver';
 import {
@@ -219,16 +220,24 @@ function ObjectListValue({
 
 function SummaryText({
   schema,
+  objectName,
+  typeName,
   summary: { variantLabel: typeLabel, summary },
 }: {
   schema: Schema;
+  objectName: string;
+  typeName: unknown;
   summary: EmbeddedSummary;
 }) {
+  const display = useSchemaText();
+  const localizedType = typeLabel && typeof typeName === 'string'
+    ? display(`variant/${objectName}/${typeName}/label`, typeLabel)
+    : typeLabel;
   return (
     <span className="inline-flex min-w-0 items-center gap-1.5">
-      {typeLabel && (
+      {localizedType && (
         <Badge variant="secondary" className="text-xs">
-          {typeLabel}
+          {localizedType}
         </Badge>
       )}
       {summary &&
@@ -252,18 +261,21 @@ export function EmbeddedSummaryValue({
 }) {
   const summary = embeddedSummary(schema, objectName, value);
   if (!summary.variantLabel && !summary.summary) return <EmptyValue variant="compact" />;
-  return <SummaryText schema={schema} summary={summary} />;
+  return <SummaryText schema={schema} objectName={objectName} typeName={isRecord(value) ? value['@type'] : undefined} summary={summary} />;
 }
 
 export function VariantValue({ schema, objectName, value }: { schema: Schema; objectName: string; value: unknown }) {
+  const display = useSchemaText();
   const label = variantLabel(schema, objectName, value);
-  if (label) return <Badge variant="secondary">{label}</Badge>;
+  if (label && typeof value === 'string')
+    return <Badge variant="secondary">{display(`variant/${objectName}/${value}/label`, label)}</Badge>;
   return <span>{String(value ?? '-')}</span>;
 }
 
 interface ObjectEntry {
   key: string;
   label: string;
+  formKey?: string;
   field: Field | undefined;
   value: unknown;
 }
@@ -276,7 +288,13 @@ function objectEntries(schema: Schema, objectName: string, data: Record<string, 
     for (const { formField, field } of embeddedEntries(resolved)) {
       seen.add(formField.name);
       if (isEmptyValue(data[formField.name])) continue;
-      entries.push({ key: formField.name, label: formField.label, field, value: data[formField.name] });
+      entries.push({
+        key: formField.name,
+        label: formField.label,
+        formKey: resolved?.schemaName ?? undefined,
+        field,
+        value: data[formField.name],
+      });
     }
   }
   for (const [key, val] of Object.entries(data)) {
@@ -297,12 +315,15 @@ export function ObjectValue({
   value: unknown;
   defaultOpen?: boolean;
 }) {
+  const display = useSchemaText();
   if (!isRecord(value)) return <EmptyValue />;
   const entries = objectEntries(schema, objectName, value);
   const summary = embeddedSummary(schema, objectName, value);
   const typeLabel = summary.variantLabel;
   if (entries.length === 0) {
-    return typeLabel ? <Badge variant="secondary">{typeLabel}</Badge> : <EmptyValue />;
+    return typeLabel && typeof value['@type'] === 'string'
+      ? <Badge variant="secondary">{display(`variant/${objectName}/${value['@type']}/label`, typeLabel)}</Badge>
+      : <EmptyValue />;
   }
 
   return (
@@ -314,7 +335,7 @@ export function ObjectValue({
         >
           <ChevronRight className="h-3.5 w-3.5 shrink-0 transition-transform duration-200" aria-hidden="true" />
           {typeLabel || summary.summary ? (
-            <SummaryText schema={schema} summary={summary} />
+            <SummaryText schema={schema} objectName={objectName} typeName={value['@type']} summary={summary} />
           ) : (
             <span>{objectName.replace(/^x:/, '')}</span>
           )}
@@ -326,8 +347,12 @@ export function ObjectValue({
             <ValueRow
               key={entry.key}
               schema={schema}
-              label={entry.label}
-              description={entry.field?.description}
+              label={entry.formKey
+                ? display(`form/${entry.formKey}/field/${entry.key}`, entry.label)
+                : entry.label}
+              description={entry.formKey && entry.field?.description
+                ? display(`field/${entry.formKey}/${entry.key}/description`, entry.field.description)
+                : entry.field?.description}
               type={entry.field?.type}
               value={entry.value}
             />
