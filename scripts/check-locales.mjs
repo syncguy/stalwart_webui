@@ -5,7 +5,10 @@
  *
  * No external dependencies. Validates the Russian catalogue against en.json.
  */
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const en = JSON.parse(readFileSync(new URL('../src/i18n/en.json', import.meta.url), 'utf8'));
 const ru = JSON.parse(readFileSync(new URL('../src/i18n/ru.json', import.meta.url), 'utf8'));
@@ -30,6 +33,46 @@ function tags(text) {
 const source = flatten(en);
 const target = flatten(ru);
 const errors = [];
+// Keep fork-owned client keys in one top-level namespace. The pin is the
+// upstream en.json Git blob at WebUI 2.1.0 (1a595c2121a2b70bbb1b6d23cad64524ead9575c).
+// Change it only as part of a reviewed upstream upgrade.
+const upstreamEn = { ...en };
+delete upstreamEn.webuiRu;
+const upstreamBytes = Buffer.from(JSON.stringify(upstreamEn, null, 2) + '\n', 'utf8');
+const upstreamBlob = createHash('sha1').update('blob ' + upstreamBytes.length + '\0').update(upstreamBytes).digest('hex');
+if (upstreamBlob !== '3f8e0e4c64b113677da8b51ebee8e7dae0f59cad') {
+  errors.push('English catalogue outside webuiRu differs from the pinned upstream blob; review the upstream pin or move fork keys under webuiRu.');
+}
+const legacyForkKeys = [
+  "actions.updateAppsScopeWarning",
+  "actions.negativeCacheExplanation",
+  "field.selectPermissions",
+  "list.showingRange",
+  "interfaceLanguage",
+  "logs.noTracersConfigured"
+];
+for (const key of legacyForkKeys) {
+  if (!Object.hasOwn(source, 'webuiRu.' + key) || !Object.hasOwn(target, 'webuiRu.' + key)) {
+    errors.push('Missing migrated fork key: webuiRu.' + key);
+  }
+}
+// Guard against direct references to the old names in active TypeScript source.
+function checkLegacyReferences(dir) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) checkLegacyReferences(path);
+    else if (/\\.tsx?$/.test(entry.name)) {
+      const code = readFileSync(path, 'utf8');
+      for (const key of legacyForkKeys) {
+        if (code.includes("'" + key + "'") || code.includes('"' + key + '"') || code.includes('`' + key + '`')) {
+          errors.push('Legacy fork key reference: ' + path + ': ' + key);
+        }
+      }
+    }
+  }
+}
+checkLegacyReferences(fileURLToPath(new URL('../src/', import.meta.url)));
+
 const keys = Object.keys(source);
 const pluralStems = keys
   .filter((key) => key.endsWith('_one') && Object.hasOwn(source, `${key.slice(0, -4)}_other`))
