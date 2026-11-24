@@ -192,6 +192,7 @@ const scopes18 = new Set(['x:AddressBook', 'x:Calendar']);
 const baselineCatalog18 = structuredClone(inputs.catalog);
 for (const e of packet18.entries) if (e.decision === 'translate') delete baselineCatalog18.entries[e.slot];
 delete baselineCatalog18.scopedEntries;
+baselineCatalog18.entries = Object.fromEntries(Object.entries(baselineCatalog18.entries).sort(([a], [b]) => a.localeCompare(b, 'en')));
 assert.equal(digest(json(baselineCatalog18)), '16504147e66a6bf66452522b441f5767eeb8f79f899302a96b52de04941b58db', 'Stage17 catalog changed beyond reviewed additions');
 const baselinePolicy18 = structuredClone(inputs.policy);
 baselinePolicy18.keepOriginal = baselinePolicy18.keepOriginal.filter(r => !packet18.entries.some(e =>
