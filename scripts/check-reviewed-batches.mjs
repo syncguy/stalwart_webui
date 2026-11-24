@@ -82,6 +82,30 @@ assert.equal(batchTextSafe("Value of 'metric_name' is %{metric_name}%","Знач
 assert.equal(batchTextSafe('Active JMAP WebSocket connections','Активные соединения JMAP HTTP',24),false);
 assert.equal(batchTextSafe('Protocol gRPC','Протокол HTTP',24),false);
 
+
+const stage25=packets.find(p=>p.stage===25);
+if(stage25){
+  assert.equal(stage25.entries.length,489);
+  assert.equal(new Set(stage25.entries.map(e=>e.original)).size,396);
+  assert.equal(stage25.baseline,'331603bd35ef1c6aa2d8168c634b6b01723f7440');
+  assert.deepEqual(stage25.scope,[{section:'Settings',screens:['x:BlobStore','x:Cache','x:DataStore','x:SearchStore','x:MetricsStore','x:TracingStore','x:InMemoryStore','x:StoreLookup','x:Search','x:Metadata','x:FileStorage','x:Email/EmailStorage']}]);
+  assert.equal(digest(stage25.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'98ac83ae01de514bda0d945c7f328ebba9b3601da98af3f61b5a625cc66d98ca');
+}
+assert.equal(batchTextSafe('Region eu-west-1','Регион eu-west-1',25),true);
+assert.equal(batchTextSafe('Region eu-west-1','Регион eu-east-1',25),false);
+assert.equal(batchTextSafe('AZURE_CLIENT_ID and AZURE_TENANT_ID','Переменные AZURE_CLIENT_ID и AZURE_TENANT_ID',25),true);
+assert.equal(batchTextSafe('AZURE_CLIENT_ID','Переменная AZURE_TENANT_ID',25),false);
+assert.equal(batchTextSafe('JMAP metadata and privateMetadata','Свойства JMAP metadata и privateMetadata',25),true);
+assert.equal(batchTextSafe('JMAP metadata and privateMetadata','Свойства JMAP метаданные и privateMetadata',25),false);
+assert.equal(batchTextSafe('IMAP /shared/admin','Аннотация IMAP /shared/comment',25),false);
+assert.equal(batchTextSafe('x-amz-security-token','Заголовок x-amz-security-token',25),true);
+assert.equal(batchTextSafe('x-amz-security-token','Заголовок x-amz-token',25),false);
+assert.equal(batchTextSafe('one eighth between 256 MiB and 8 GiB','одна восьмая, от 256 MiB до 8 GiB',25),true);
+assert.equal(batchTextSafe('one eighth between 256 MiB and 8 GiB','четверть, от 256 MiB до 8 GiB',25),false);
+assert.equal(batchTextSafe('one eighth between 256 MiB and 8 GiB','одна восьмая, от 256 GiB до 8 GiB',25),false);
+assert.equal(batchTextSafe('one sixteenth of the messages','одна шестнадцатая числа сообщений',25),true);
+assert.equal(batchTextSafe('one sixteenth of the messages','одна восьмая числа сообщений',25),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;
