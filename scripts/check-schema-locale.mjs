@@ -7,6 +7,7 @@ import vm from 'node:vm';
 import ts from 'typescript';
 // Execute source-path regression guard together with the pinned schema checks.
 import './check-renderer-display-paths.mjs';
+import {loadReviewedBatches} from './lib/locale-reviewed-batch.mjs';
 
 const catalog = JSON.parse(fs.readFileSync('src/i18n/schema/ru.json', 'utf8'));
 const { entries, meta } = catalog;
@@ -658,7 +659,9 @@ for (const [slot, original, expectedRu] of reportSlots) {
   }
   assert.equal(schemaText('unknown-schema', 'ru', slot, original), original);
 }
-assert.equal(Object.keys(entries).length, 2230, 'Unexpected contextual slot inventory');
+const reviewedPolicy=JSON.parse(fs.readFileSync('scripts/data/locale-review-policy.json','utf8'));
+const reviewedCount=loadReviewedBatches(process.cwd(),reviewedPolicy).reduce((n,p)=>n+p.entries.length,0);
+assert.equal(Object.keys(entries).length, 2084+reviewedCount, 'Unexpected contextual slot inventory');
 // Both source schemas define forms for each of these read-only JMAP object views.
 assert.ok(viewPageSource.includes('<DynamicView'));
 assert.ok(viewSource.includes('value={data[formField.name]}'));
