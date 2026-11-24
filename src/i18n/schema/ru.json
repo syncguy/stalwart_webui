@@ -31549,6 +31549,3370 @@
     "field/x:TracerStdout/multiline/description": {
       "original": "Whether to write log entries as a single line or multiline",
       "ru": "Записывать ли записи журнала в одну строку или в несколько строк"
+    },
+    "form/x:AiModelAnthropic/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:AiModelAnthropic/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:AiModelAnthropic/field/extraParameters": {
+      "original": "Extra parameters",
+      "ru": "Дополнительные параметры"
+    },
+    "form/x:AiModelAnthropic/field/httpHeaders": {
+      "original": "HTTP Headers",
+      "ru": "Заголовки HTTP"
+    },
+    "form/x:AiModelAnthropic/field/maxConcurrentRequests": {
+      "original": "Maximum concurrent requests",
+      "ru": "Максимум одновременных запросов"
+    },
+    "form/x:AiModelAnthropic/field/maxOutputTokens": {
+      "original": "Maximum output tokens",
+      "ru": "Максимум выходных токенов"
+    },
+    "form/x:AiModelAnthropic/field/model": {
+      "original": "Model",
+      "ru": "Модель"
+    },
+    "form/x:AiModelAnthropic/field/rateLimit": {
+      "original": "Rate limit",
+      "ru": "Ограничение частоты запросов"
+    },
+    "form/x:AiModelAnthropic/field/reasoning": {
+      "original": "Reasoning",
+      "ru": "Рассуждения"
+    },
+    "form/x:AiModelAnthropic/field/temperature": {
+      "original": "Temperature",
+      "ru": "Температура"
+    },
+    "form/x:AiModelAnthropic/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:AiModelAnthropic/field/url": {
+      "original": "Base URL",
+      "ru": "Базовый URL"
+    },
+    "form/x:AiModelAnthropic/section/section-0": {
+      "original": "Model",
+      "ru": "Модель"
+    },
+    "form/x:AiModelAnthropic/section/section-1": {
+      "original": "Endpoint",
+      "ru": "Конечная точка"
+    },
+    "form/x:AiModelAnthropic/section/section-2": {
+      "original": "Generation",
+      "ru": "Генерация"
+    },
+    "form/x:AiModelGemini/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:AiModelGemini/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:AiModelGemini/field/extraParameters": {
+      "original": "Extra parameters",
+      "ru": "Дополнительные параметры"
+    },
+    "form/x:AiModelGemini/field/httpHeaders": {
+      "original": "HTTP Headers",
+      "ru": "Заголовки HTTP"
+    },
+    "form/x:AiModelGemini/field/logprobs": {
+      "original": "Request log probabilities",
+      "ru": "Запрашивать логарифмы вероятностей"
+    },
+    "form/x:AiModelGemini/field/maxConcurrentRequests": {
+      "original": "Maximum concurrent requests",
+      "ru": "Максимум одновременных запросов"
+    },
+    "form/x:AiModelGemini/field/maxOutputTokens": {
+      "original": "Maximum output tokens",
+      "ru": "Максимум выходных токенов"
+    },
+    "form/x:AiModelGemini/field/model": {
+      "original": "Model",
+      "ru": "Модель"
+    },
+    "form/x:AiModelGemini/field/rateLimit": {
+      "original": "Rate limit",
+      "ru": "Ограничение частоты запросов"
+    },
+    "form/x:AiModelGemini/field/reasoning": {
+      "original": "Reasoning",
+      "ru": "Рассуждения"
+    },
+    "form/x:AiModelGemini/field/temperature": {
+      "original": "Temperature",
+      "ru": "Температура"
+    },
+    "form/x:AiModelGemini/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:AiModelGemini/field/url": {
+      "original": "Base URL",
+      "ru": "Базовый URL"
+    },
+    "form/x:AiModelGemini/section/section-0": {
+      "original": "Model",
+      "ru": "Модель"
+    },
+    "form/x:AiModelGemini/section/section-1": {
+      "original": "Endpoint",
+      "ru": "Конечная точка"
+    },
+    "form/x:AiModelGemini/section/section-2": {
+      "original": "Generation",
+      "ru": "Генерация"
+    },
+    "form/x:AiModelOllama/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:AiModelOllama/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:AiModelOllama/field/extraParameters": {
+      "original": "Extra parameters",
+      "ru": "Дополнительные параметры"
+    },
+    "form/x:AiModelOllama/field/httpHeaders": {
+      "original": "HTTP Headers",
+      "ru": "Заголовки HTTP"
+    },
+    "form/x:AiModelOllama/field/keepAlive": {
+      "original": "Keep model loaded for",
+      "ru": "Время хранения модели в памяти"
+    },
+    "form/x:AiModelOllama/field/logprobs": {
+      "original": "Request log probabilities",
+      "ru": "Запрашивать логарифмы вероятностей"
+    },
+    "form/x:AiModelOllama/field/maxConcurrentRequests": {
+      "original": "Maximum concurrent requests",
+      "ru": "Максимум одновременных запросов"
+    },
+    "form/x:AiModelOllama/field/maxOutputTokens": {
+      "original": "Maximum output tokens",
+      "ru": "Максимум выходных токенов"
+    },
+    "form/x:AiModelOllama/field/model": {
+      "original": "Model",
+      "ru": "Модель"
+    },
+    "form/x:AiModelOllama/field/rateLimit": {
+      "original": "Rate limit",
+      "ru": "Ограничение частоты запросов"
+    },
+    "form/x:AiModelOllama/field/reasoning": {
+      "original": "Reasoning",
+      "ru": "Рассуждения"
+    },
+    "form/x:AiModelOllama/field/temperature": {
+      "original": "Temperature",
+      "ru": "Температура"
+    },
+    "form/x:AiModelOllama/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:AiModelOllama/field/url": {
+      "original": "Base URL",
+      "ru": "Базовый URL"
+    },
+    "form/x:AiModelOllama/section/section-0": {
+      "original": "Model",
+      "ru": "Модель"
+    },
+    "form/x:AiModelOllama/section/section-1": {
+      "original": "Endpoint",
+      "ru": "Конечная точка"
+    },
+    "form/x:AiModelOllama/section/section-2": {
+      "original": "Generation",
+      "ru": "Генерация"
+    },
+    "form/x:AiModelOpenAi/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:AiModelOpenAi/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:AiModelOpenAi/field/extraParameters": {
+      "original": "Extra parameters",
+      "ru": "Дополнительные параметры"
+    },
+    "form/x:AiModelOpenAi/field/httpHeaders": {
+      "original": "HTTP Headers",
+      "ru": "Заголовки HTTP"
+    },
+    "form/x:AiModelOpenAi/field/logprobs": {
+      "original": "Request log probabilities",
+      "ru": "Запрашивать логарифмы вероятностей"
+    },
+    "form/x:AiModelOpenAi/field/maxConcurrentRequests": {
+      "original": "Maximum concurrent requests",
+      "ru": "Максимум одновременных запросов"
+    },
+    "form/x:AiModelOpenAi/field/maxOutputTokens": {
+      "original": "Maximum output tokens",
+      "ru": "Максимум выходных токенов"
+    },
+    "form/x:AiModelOpenAi/field/model": {
+      "original": "Model",
+      "ru": "Модель"
+    },
+    "form/x:AiModelOpenAi/field/profile": {
+      "original": "Profile",
+      "ru": "Профиль"
+    },
+    "form/x:AiModelOpenAi/field/rateLimit": {
+      "original": "Rate limit",
+      "ru": "Ограничение частоты запросов"
+    },
+    "form/x:AiModelOpenAi/field/reasoning": {
+      "original": "Reasoning",
+      "ru": "Рассуждения"
+    },
+    "form/x:AiModelOpenAi/field/temperature": {
+      "original": "Temperature",
+      "ru": "Температура"
+    },
+    "form/x:AiModelOpenAi/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:AiModelOpenAi/field/url": {
+      "original": "Base URL",
+      "ru": "Базовый URL"
+    },
+    "form/x:AiModelOpenAi/section/section-0": {
+      "original": "Model",
+      "ru": "Модель"
+    },
+    "form/x:AiModelOpenAi/section/section-1": {
+      "original": "Endpoint",
+      "ru": "Конечная точка"
+    },
+    "form/x:AiModelOpenAi/section/section-2": {
+      "original": "Generation",
+      "ru": "Генерация"
+    },
+    "form/x:AiModelTypeSafe/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:AiModelTypeSafe/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:AiModelTypeSafe/field/httpHeaders": {
+      "original": "HTTP Headers",
+      "ru": "Заголовки HTTP"
+    },
+    "form/x:AiModelTypeSafe/field/maxConcurrentRequests": {
+      "original": "Maximum concurrent requests",
+      "ru": "Максимум одновременных запросов"
+    },
+    "form/x:AiModelTypeSafe/field/model": {
+      "original": "Model",
+      "ru": "Модель"
+    },
+    "form/x:AiModelTypeSafe/field/rateLimit": {
+      "original": "Rate limit",
+      "ru": "Ограничение частоты запросов"
+    },
+    "form/x:AiModelTypeSafe/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:AiModelTypeSafe/field/url": {
+      "original": "Base URL",
+      "ru": "Базовый URL"
+    },
+    "form/x:AiModelTypeSafe/section/section-0": {
+      "original": "Model",
+      "ru": "Модель"
+    },
+    "form/x:AiModelTypeSafe/section/section-1": {
+      "original": "Endpoint",
+      "ru": "Конечная точка"
+    },
+    "form/x:ArchivedCalendarEvent/field/archivedAt": {
+      "original": "Archived At",
+      "ru": "Дата архивации"
+    },
+    "form/x:ArchivedCalendarEvent/field/archivedUntil": {
+      "original": "Archived Until",
+      "ru": "Хранить в архиве до"
+    },
+    "form/x:ArchivedCalendarEvent/field/blobId": {
+      "original": "Blob",
+      "ru": "Двоичный объект (blob)"
+    },
+    "form/x:ArchivedCalendarEvent/field/startTime": {
+      "original": "Start Time",
+      "ru": "Время начала"
+    },
+    "form/x:ArchivedCalendarEvent/field/title": {
+      "original": "Title",
+      "ru": "Заголовок"
+    },
+    "form/x:ArchivedCalendarEvent/section/section-0": {
+      "original": "Archived Calendar Event",
+      "ru": "Архивное событие календаря"
+    },
+    "form/x:ArchivedCalendarEvent/section/section-1": {
+      "original": "Archived Item",
+      "ru": "Архивный элемент"
+    },
+    "form/x:ArchivedContactCard/field/archivedAt": {
+      "original": "Archived At",
+      "ru": "Дата архивации"
+    },
+    "form/x:ArchivedContactCard/field/archivedUntil": {
+      "original": "Archived Until",
+      "ru": "Хранить в архиве до"
+    },
+    "form/x:ArchivedContactCard/field/blobId": {
+      "original": "Blob",
+      "ru": "Двоичный объект (blob)"
+    },
+    "form/x:ArchivedContactCard/section/section-0": {
+      "original": "Archived Contact",
+      "ru": "Архивный контакт"
+    },
+    "form/x:ArchivedContactCard/section/section-1": {
+      "original": "Archived Item",
+      "ru": "Архивный элемент"
+    },
+    "form/x:ArchivedEmail/field/archivedAt": {
+      "original": "Archived At",
+      "ru": "Дата архивации"
+    },
+    "form/x:ArchivedEmail/field/archivedUntil": {
+      "original": "Archived Until",
+      "ru": "Хранить в архиве до"
+    },
+    "form/x:ArchivedEmail/field/blobId": {
+      "original": "Blob",
+      "ru": "Двоичный объект (blob)"
+    },
+    "form/x:ArchivedEmail/field/from": {
+      "original": "From",
+      "ru": "Отправитель (From)"
+    },
+    "form/x:ArchivedEmail/field/subject": {
+      "original": "Subject",
+      "ru": "Тема письма (Subject)"
+    },
+    "form/x:ArchivedEmail/section/section-0": {
+      "original": "Archived Email",
+      "ru": "Архивное письмо"
+    },
+    "form/x:ArchivedEmail/section/section-1": {
+      "original": "Archived Item",
+      "ru": "Архивный элемент"
+    },
+    "form/x:ArchivedFileNode/field/archivedAt": {
+      "original": "Archived At",
+      "ru": "Дата архивации"
+    },
+    "form/x:ArchivedFileNode/field/archivedUntil": {
+      "original": "Archived Until",
+      "ru": "Хранить в архиве до"
+    },
+    "form/x:ArchivedFileNode/field/blobId": {
+      "original": "Blob",
+      "ru": "Двоичный объект (blob)"
+    },
+    "form/x:ArchivedFileNode/field/name": {
+      "original": "File Name",
+      "ru": "Имя файла"
+    },
+    "form/x:ArchivedFileNode/section/section-0": {
+      "original": "Archived File",
+      "ru": "Архивный файл"
+    },
+    "form/x:ArchivedFileNode/section/section-1": {
+      "original": "Archived Item",
+      "ru": "Архивный элемент"
+    },
+    "form/x:ArchivedSieveScript/field/archivedAt": {
+      "original": "Archived At",
+      "ru": "Дата архивации"
+    },
+    "form/x:ArchivedSieveScript/field/archivedUntil": {
+      "original": "Archived Until",
+      "ru": "Хранить в архиве до"
+    },
+    "form/x:ArchivedSieveScript/field/blobId": {
+      "original": "Blob",
+      "ru": "Двоичный объект (blob)"
+    },
+    "form/x:ArchivedSieveScript/field/contents": {
+      "original": "Contents",
+      "ru": "Содержимое"
+    },
+    "form/x:ArchivedSieveScript/field/name": {
+      "original": "Script Name",
+      "ru": "Имя скрипта"
+    },
+    "form/x:ArchivedSieveScript/section/section-0": {
+      "original": "Archived Sieve Script",
+      "ru": "Архивный скрипт Sieve"
+    },
+    "form/x:ArchivedSieveScript/section/section-1": {
+      "original": "Archived Item",
+      "ru": "Архивный элемент"
+    },
+    "form/x:DataRetention/ArchivingRetention/title": {
+      "original": "Archiving Data Retention",
+      "ru": "Сроки хранения архивных данных"
+    },
+    "form/x:DataRetention/TelemetryRetention/title": {
+      "original": "Telemetry Data Retention",
+      "ru": "Сроки хранения телеметрии"
+    },
+    "form/x:Dkim1Signature/field/auid": {
+      "original": "Agent User ID",
+      "ru": "Идентификатор пользователя агента"
+    },
+    "form/x:Dkim1Signature/field/canonicalization": {
+      "original": "Canonicalization",
+      "ru": "Каноникализация"
+    },
+    "form/x:Dkim1Signature/field/headers": {
+      "original": "Signed Headers",
+      "ru": "Подписываемые заголовки"
+    },
+    "form/x:Dkim1Signature/field/nextTransitionAt": {
+      "original": "Next Transition",
+      "ru": "Следующий переход"
+    },
+    "form/x:Dkim1Signature/field/publicKey": {
+      "original": "Public Key",
+      "ru": "Открытый ключ"
+    },
+    "form/x:Dkim1Signature/field/report": {
+      "original": "Request Reports",
+      "ru": "Запрашивать отчёты"
+    },
+    "form/x:Dkim1Signature/field/thirdParty": {
+      "original": "Authorized Party",
+      "ru": "Авторизованная сторона"
+    },
+    "form/x:Dkim1Signature/field/thirdPartyHash": {
+      "original": "Hash Algorithm",
+      "ru": "Алгоритм хеширования"
+    },
+    "form/x:Dkim1Signature/section/section-0": {
+      "original": "DKIM Signature",
+      "ru": "Подпись DKIM"
+    },
+    "form/x:Dkim1Signature/section/section-1": {
+      "original": "Options",
+      "ru": "Параметры"
+    },
+    "form/x:Dkim1Signature/section/section-2": {
+      "original": "Authorized Third-Party Signatures",
+      "ru": "Авторизованные подписи третьих сторон"
+    },
+    "form/x:Dkim1Signature/section/section-3": {
+      "original": "Key",
+      "ru": "Ключ"
+    },
+    "form/x:Dkim1Signature/section/section-4": {
+      "original": "Rotation",
+      "ru": "Ротация"
+    },
+    "form/x:Dkim2Signature/field/flags": {
+      "original": "Signing Flags",
+      "ru": "Флаги подписания"
+    },
+    "form/x:Dkim2Signature/field/instanceHashes": {
+      "original": "Instance Hash Algorithms",
+      "ru": "Алгоритмы хеширования экземпляра сообщения"
+    },
+    "form/x:Dkim2Signature/field/nextTransitionAt": {
+      "original": "Next Transition",
+      "ru": "Следующий переход"
+    },
+    "form/x:Dkim2Signature/field/publicKey": {
+      "original": "Public Key",
+      "ru": "Открытый ключ"
+    },
+    "form/x:Dkim2Signature/section/section-0": {
+      "original": "DKIM Signature",
+      "ru": "Подпись DKIM"
+    },
+    "form/x:Dkim2Signature/section/section-1": {
+      "original": "Options",
+      "ru": "Параметры"
+    },
+    "form/x:Dkim2Signature/section/section-2": {
+      "original": "Key",
+      "ru": "Ключ"
+    },
+    "form/x:Dkim2Signature/section/section-3": {
+      "original": "Rotation",
+      "ru": "Ротация"
+    },
+    "form/x:DnsServerAlidns/field/accessKeyId": {
+      "original": "Access Key ID",
+      "ru": "Идентификатор ключа доступа"
+    },
+    "form/x:DnsServerAlidns/field/line": {
+      "original": "ISP Line",
+      "ru": "Линия интернет-провайдера (ISP)"
+    },
+    "form/x:DnsServerAlidns/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerAlidns/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerAlidns/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerAlidns/field/region": {
+      "original": "Region",
+      "ru": "Регион"
+    },
+    "form/x:DnsServerAlidns/field/secretKey": {
+      "original": "Access Key Secret",
+      "ru": "Секрет ключа доступа"
+    },
+    "form/x:DnsServerAlidns/field/sessionToken": {
+      "original": "STS Security Token",
+      "ru": "Токен безопасности STS"
+    },
+    "form/x:DnsServerAlidns/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerAlidns/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerAlidns/section/section-1": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:DnsServerAlidns/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerAutodns/field/context": {
+      "original": "Context",
+      "ru": "Контекст"
+    },
+    "form/x:DnsServerAutodns/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerAutodns/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerAutodns/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerAutodns/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerAutodns/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerAutodns/field/username": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:DnsServerAutodns/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerAzureDns/field/environment": {
+      "original": "Cloud Environment",
+      "ru": "Облачная среда"
+    },
+    "form/x:DnsServerAzureDns/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerAzureDns/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerAzureDns/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerAzureDns/field/resourceGroup": {
+      "original": "Resource Group",
+      "ru": "Группа ресурсов"
+    },
+    "form/x:DnsServerAzureDns/field/subscriptionId": {
+      "original": "Subscription ID",
+      "ru": "Идентификатор подписки"
+    },
+    "form/x:DnsServerAzureDns/field/tenantId": {
+      "original": "Tenant ID",
+      "ru": "Идентификатор арендатора"
+    },
+    "form/x:DnsServerAzureDns/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerAzureDns/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerAzureDns/section/section-1": {
+      "original": "Subscription",
+      "ru": "Подписка"
+    },
+    "form/x:DnsServerAzureDns/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerBaiduCloud/field/accessKeyId": {
+      "original": "Access Key ID",
+      "ru": "Идентификатор ключа доступа"
+    },
+    "form/x:DnsServerBaiduCloud/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerBaiduCloud/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerBaiduCloud/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerBaiduCloud/field/secretKey": {
+      "original": "Secret Key",
+      "ru": "Секретный ключ"
+    },
+    "form/x:DnsServerBaiduCloud/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerBaiduCloud/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerBaiduCloud/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerBluecatV2/field/configName": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
+    "form/x:DnsServerBluecatV2/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerBluecatV2/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerBluecatV2/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerBluecatV2/field/skipDeploy": {
+      "original": "Skip Deploy",
+      "ru": "Пропустить развёртывание"
+    },
+    "form/x:DnsServerBluecatV2/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerBluecatV2/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerBluecatV2/field/url": {
+      "original": "Server URL",
+      "ru": "URL сервера"
+    },
+    "form/x:DnsServerBluecatV2/field/username": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:DnsServerBluecatV2/field/viewName": {
+      "original": "View",
+      "ru": "Представление"
+    },
+    "form/x:DnsServerBluecatV2/section/section-0": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:DnsServerBluecatV2/section/section-2": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:DnsServerBluecatV2/section/section-3": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerClouDns/field/authId": {
+      "original": "Auth ID",
+      "ru": "Идентификатор аутентификации"
+    },
+    "form/x:DnsServerClouDns/field/password": {
+      "original": "Auth Password",
+      "ru": "Пароль аутентификации"
+    },
+    "form/x:DnsServerClouDns/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerClouDns/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerClouDns/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerClouDns/field/subAuthId": {
+      "original": "Sub-Auth ID",
+      "ru": "Дополнительный идентификатор аутентификации"
+    },
+    "form/x:DnsServerClouDns/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerClouDns/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerClouDns/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerCloud/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerCloud/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerCloud/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerCloud/field/secret": {
+      "original": "API Token",
+      "ru": "Токен API"
+    },
+    "form/x:DnsServerCloud/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerCloud/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerCloud/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerCloudflare/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerCloudflare/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerCloudflare/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerCloudflare/field/secret": {
+      "original": "API Token",
+      "ru": "Токен API"
+    },
+    "form/x:DnsServerCloudflare/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerCloudflare/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerCloudflare/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerConstellix/field/apiKeyId": {
+      "original": "API Key ID",
+      "ru": "Идентификатор ключа API"
+    },
+    "form/x:DnsServerConstellix/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerConstellix/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerConstellix/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerConstellix/field/secretKey": {
+      "original": "Secret Key",
+      "ru": "Секретный ключ"
+    },
+    "form/x:DnsServerConstellix/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerConstellix/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerConstellix/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerCpanel/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerCpanel/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerCpanel/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerCpanel/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerCpanel/field/token": {
+      "original": "API Token",
+      "ru": "Токен API"
+    },
+    "form/x:DnsServerCpanel/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerCpanel/field/url": {
+      "original": "Server URL",
+      "ru": "URL сервера"
+    },
+    "form/x:DnsServerCpanel/field/username": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:DnsServerCpanel/section/section-0": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:DnsServerCpanel/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerDnsMadeEasy/field/apiKeyId": {
+      "original": "API Key ID",
+      "ru": "Идентификатор ключа API"
+    },
+    "form/x:DnsServerDnsMadeEasy/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerDnsMadeEasy/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerDnsMadeEasy/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerDnsMadeEasy/field/secret": {
+      "original": "API Secret",
+      "ru": "Секрет API"
+    },
+    "form/x:DnsServerDnsMadeEasy/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerDnsMadeEasy/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerDnsMadeEasy/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerDnsimple/field/accountIdentifier": {
+      "original": "Account Identifier",
+      "ru": "Идентификатор учётной записи"
+    },
+    "form/x:DnsServerDnsimple/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerDnsimple/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerDnsimple/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerDnsimple/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerDnsimple/field/token": {
+      "original": "API Token",
+      "ru": "Токен API"
+    },
+    "form/x:DnsServerDnsimple/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerDnsimple/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerDomeneshop/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerDomeneshop/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerDomeneshop/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerDomeneshop/field/secret": {
+      "original": "API Secret",
+      "ru": "Секрет API"
+    },
+    "form/x:DnsServerDomeneshop/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerDomeneshop/field/token": {
+      "original": "API Token",
+      "ru": "Токен API"
+    },
+    "form/x:DnsServerDomeneshop/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerDomeneshop/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerEasyDns/field/key": {
+      "original": "Key",
+      "ru": "Ключ"
+    },
+    "form/x:DnsServerEasyDns/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerEasyDns/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerEasyDns/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerEasyDns/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerEasyDns/field/token": {
+      "original": "Token",
+      "ru": "Токен"
+    },
+    "form/x:DnsServerEasyDns/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerEasyDns/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerEdgeDns/field/accessToken": {
+      "original": "Access Token",
+      "ru": "Токен доступа"
+    },
+    "form/x:DnsServerEdgeDns/field/accountSwitchKey": {
+      "original": "Account Switch Key",
+      "ru": "Ключ переключения учётных записей"
+    },
+    "form/x:DnsServerEdgeDns/field/clientToken": {
+      "original": "Client Token",
+      "ru": "Токен клиента"
+    },
+    "form/x:DnsServerEdgeDns/field/host": {
+      "original": "API Host",
+      "ru": "Узел API"
+    },
+    "form/x:DnsServerEdgeDns/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerEdgeDns/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerEdgeDns/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerEdgeDns/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerEdgeDns/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerEdgeDns/section/section-0": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:DnsServerEdgeDns/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerExoscale/field/apiKeyId": {
+      "original": "API Key ID",
+      "ru": "Идентификатор ключа API"
+    },
+    "form/x:DnsServerExoscale/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerExoscale/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerExoscale/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerExoscale/field/secret": {
+      "original": "API Secret",
+      "ru": "Секрет API"
+    },
+    "form/x:DnsServerExoscale/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerExoscale/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerExoscale/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerGlesys/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:DnsServerGlesys/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerGlesys/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerGlesys/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerGlesys/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerGlesys/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerGlesys/field/username": {
+      "original": "API User",
+      "ru": "Пользователь API"
+    },
+    "form/x:DnsServerGlesys/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerGodaddy/field/apiKeyId": {
+      "original": "API Key ID",
+      "ru": "Идентификатор ключа API"
+    },
+    "form/x:DnsServerGodaddy/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerGodaddy/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerGodaddy/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerGodaddy/field/secret": {
+      "original": "API Secret",
+      "ru": "Секрет API"
+    },
+    "form/x:DnsServerGodaddy/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerGodaddy/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerGodaddy/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/impersonateServiceAccount": {
+      "original": "Impersonate Service Account",
+      "ru": "Действовать от имени сервисной учётной записи"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/managedZone": {
+      "original": "Managed Zone",
+      "ru": "Управляемая зона"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/privateZone": {
+      "original": "Private Zones Only",
+      "ru": "Только частные зоны"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/projectId": {
+      "original": "Project ID",
+      "ru": "Идентификатор проекта"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/serviceAccountJson": {
+      "original": "Service Account JSON",
+      "ru": "Сервисная учётная запись (JSON)"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerGoogleCloudDns/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerGoogleCloudDns/section/section-1": {
+      "original": "Project",
+      "ru": "Проект"
+    },
+    "form/x:DnsServerGoogleCloudDns/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerHuaweiCloud/field/accessKeyId": {
+      "original": "Access Key ID",
+      "ru": "Идентификатор ключа доступа"
+    },
+    "form/x:DnsServerHuaweiCloud/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerHuaweiCloud/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerHuaweiCloud/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerHuaweiCloud/field/region": {
+      "original": "Region",
+      "ru": "Регион"
+    },
+    "form/x:DnsServerHuaweiCloud/field/secretKey": {
+      "original": "Secret Key",
+      "ru": "Секретный ключ"
+    },
+    "form/x:DnsServerHuaweiCloud/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerHuaweiCloud/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerHuaweiCloud/section/section-1": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:DnsServerHuaweiCloud/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerHurricane/field/credentials": {
+      "original": "Zone Credentials",
+      "ru": "Учётные данные зоны"
+    },
+    "form/x:DnsServerHurricane/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerHurricane/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerHurricane/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerHurricane/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerHurricane/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerHurricane/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerIbmCloud/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:DnsServerIbmCloud/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerIbmCloud/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerIbmCloud/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerIbmCloud/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerIbmCloud/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerIbmCloud/field/username": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:DnsServerIbmCloud/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerInfoblox/field/dnsView": {
+      "original": "DNS View",
+      "ru": "Представление DNS"
+    },
+    "form/x:DnsServerInfoblox/field/host": {
+      "original": "Host",
+      "ru": "Узел"
+    },
+    "form/x:DnsServerInfoblox/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerInfoblox/field/port": {
+      "original": "Port",
+      "ru": "Порт"
+    },
+    "form/x:DnsServerInfoblox/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerInfoblox/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerInfoblox/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerInfoblox/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerInfoblox/field/username": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:DnsServerInfoblox/field/wapiVersion": {
+      "original": "WAPI Version",
+      "ru": "Версия WAPI"
+    },
+    "form/x:DnsServerInfoblox/section/section-0": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:DnsServerInfoblox/section/section-2": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:DnsServerInfoblox/section/section-3": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerInwx/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerInwx/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerInwx/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerInwx/field/sandbox": {
+      "original": "Use Sandbox",
+      "ru": "Использовать тестовую среду"
+    },
+    "form/x:DnsServerInwx/field/sharedSecret": {
+      "original": "Shared Secret",
+      "ru": "Общий секрет"
+    },
+    "form/x:DnsServerInwx/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerInwx/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerInwx/field/username": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:DnsServerInwx/section/section-1": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:DnsServerInwx/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerJoker/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerJoker/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerJoker/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerJoker/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerJoker/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerJoker/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerLightsail/field/accessKeyId": {
+      "original": "Access Key ID",
+      "ru": "Идентификатор ключа доступа"
+    },
+    "form/x:DnsServerLightsail/field/domain": {
+      "original": "Lightsail Domain",
+      "ru": "Домен Lightsail"
+    },
+    "form/x:DnsServerLightsail/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerLightsail/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerLightsail/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerLightsail/field/region": {
+      "original": "Region",
+      "ru": "Регион"
+    },
+    "form/x:DnsServerLightsail/field/secretKey": {
+      "original": "Secret Access Key",
+      "ru": "Секретный ключ доступа"
+    },
+    "form/x:DnsServerLightsail/field/sessionToken": {
+      "original": "Session Token",
+      "ru": "Токен сеанса"
+    },
+    "form/x:DnsServerLightsail/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerLightsail/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerLightsail/section/section-1": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:DnsServerLightsail/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerLuaDns/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerLuaDns/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerLuaDns/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerLuaDns/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerLuaDns/field/token": {
+      "original": "API Token",
+      "ru": "Токен API"
+    },
+    "form/x:DnsServerLuaDns/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerLuaDns/field/username": {
+      "original": "API Username",
+      "ru": "Имя пользователя API"
+    },
+    "form/x:DnsServerLuaDns/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerMythicBeasts/field/password": {
+      "original": "API Key Secret",
+      "ru": "Секрет ключа API"
+    },
+    "form/x:DnsServerMythicBeasts/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerMythicBeasts/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerMythicBeasts/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerMythicBeasts/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerMythicBeasts/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerMythicBeasts/field/username": {
+      "original": "API Key ID",
+      "ru": "Идентификатор ключа API"
+    },
+    "form/x:DnsServerMythicBeasts/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerNameDotCom/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerNameDotCom/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerNameDotCom/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerNameDotCom/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerNameDotCom/field/token": {
+      "original": "API Token",
+      "ru": "Токен API"
+    },
+    "form/x:DnsServerNameDotCom/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerNameDotCom/field/username": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:DnsServerNameDotCom/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerNamecheap/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:DnsServerNamecheap/field/apiUser": {
+      "original": "API User",
+      "ru": "Пользователь API"
+    },
+    "form/x:DnsServerNamecheap/field/clientIp": {
+      "original": "Whitelisted IP",
+      "ru": "Разрешённый IP-адрес"
+    },
+    "form/x:DnsServerNamecheap/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerNamecheap/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerNamecheap/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerNamecheap/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerNamecheap/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerNamecheap/field/username": {
+      "original": "Account Username",
+      "ru": "Имя пользователя учётной записи"
+    },
+    "form/x:DnsServerNamecheap/section/section-1": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:DnsServerNamecheap/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerNetcup/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:DnsServerNetcup/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerNetcup/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerNetcup/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerNetcup/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerNetcup/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerNetcup/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerNifcloud/field/accessKeyId": {
+      "original": "Access Key ID",
+      "ru": "Идентификатор ключа доступа"
+    },
+    "form/x:DnsServerNifcloud/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerNifcloud/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerNifcloud/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerNifcloud/field/secretKey": {
+      "original": "Secret Key",
+      "ru": "Секретный ключ"
+    },
+    "form/x:DnsServerNifcloud/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerNifcloud/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerNifcloud/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerOracleCloud/field/compartmentOcid": {
+      "original": "Compartment OCID",
+      "ru": "OCID отсека"
+    },
+    "form/x:DnsServerOracleCloud/field/fingerprint": {
+      "original": "Key Fingerprint",
+      "ru": "Отпечаток ключа"
+    },
+    "form/x:DnsServerOracleCloud/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerOracleCloud/field/privateKeyPassword": {
+      "original": "Private Key Password",
+      "ru": "Пароль закрытого ключа"
+    },
+    "form/x:DnsServerOracleCloud/field/privateKeyPem": {
+      "original": "Private Key (PEM)",
+      "ru": "Закрытый ключ (PEM)"
+    },
+    "form/x:DnsServerOracleCloud/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerOracleCloud/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerOracleCloud/field/region": {
+      "original": "Region",
+      "ru": "Регион"
+    },
+    "form/x:DnsServerOracleCloud/field/tenancyOcid": {
+      "original": "Tenancy OCID",
+      "ru": "OCID аренды"
+    },
+    "form/x:DnsServerOracleCloud/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerOracleCloud/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerOracleCloud/field/userOcid": {
+      "original": "User OCID",
+      "ru": "OCID пользователя"
+    },
+    "form/x:DnsServerOracleCloud/section/section-1": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:DnsServerOracleCloud/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerOvh/field/applicationKey": {
+      "original": "Application Key",
+      "ru": "Ключ приложения"
+    },
+    "form/x:DnsServerOvh/field/applicationSecret": {
+      "original": "Application Secret",
+      "ru": "Секрет приложения"
+    },
+    "form/x:DnsServerOvh/field/consumerKey": {
+      "original": "Consumer Key",
+      "ru": "Ключ потребителя"
+    },
+    "form/x:DnsServerOvh/field/ovhEndpoint": {
+      "original": "OVH Endpoint",
+      "ru": "Конечная точка OVH"
+    },
+    "form/x:DnsServerOvh/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerOvh/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerOvh/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerOvh/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerOvh/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerOvh/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerPlesk/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:DnsServerPlesk/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerPlesk/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerPlesk/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerPlesk/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerPlesk/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerPlesk/field/url": {
+      "original": "Server URL",
+      "ru": "URL сервера"
+    },
+    "form/x:DnsServerPlesk/section/section-0": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:DnsServerPlesk/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerPorkbun/field/apiKeyId": {
+      "original": "API Key ID",
+      "ru": "Идентификатор ключа API"
+    },
+    "form/x:DnsServerPorkbun/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerPorkbun/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerPorkbun/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerPorkbun/field/secret": {
+      "original": "Secret API Key",
+      "ru": "Секретный ключ API"
+    },
+    "form/x:DnsServerPorkbun/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerPorkbun/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerPorkbun/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerPowerDns/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:DnsServerPowerDns/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerPowerDns/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerPowerDns/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerPowerDns/field/serverId": {
+      "original": "Server ID",
+      "ru": "Идентификатор сервера"
+    },
+    "form/x:DnsServerPowerDns/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerPowerDns/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerPowerDns/field/url": {
+      "original": "API URL",
+      "ru": "URL API"
+    },
+    "form/x:DnsServerPowerDns/section/section-0": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:DnsServerPowerDns/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerRoute53/field/accessKeyId": {
+      "original": "Access Key ID",
+      "ru": "Идентификатор ключа доступа"
+    },
+    "form/x:DnsServerRoute53/field/hostedZoneId": {
+      "original": "Hosted Zone ID",
+      "ru": "Идентификатор размещённой зоны"
+    },
+    "form/x:DnsServerRoute53/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerRoute53/field/privateZoneOnly": {
+      "original": "Private Zones Only",
+      "ru": "Только частные зоны"
+    },
+    "form/x:DnsServerRoute53/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerRoute53/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerRoute53/field/region": {
+      "original": "Region",
+      "ru": "Регион"
+    },
+    "form/x:DnsServerRoute53/field/secretKey": {
+      "original": "Secret Access Key",
+      "ru": "Секретный ключ доступа"
+    },
+    "form/x:DnsServerRoute53/field/sessionToken": {
+      "original": "Session Token",
+      "ru": "Токен сеанса"
+    },
+    "form/x:DnsServerRoute53/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerRoute53/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerRoute53/section/section-1": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:DnsServerRoute53/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerSpaceship/field/apiKeyId": {
+      "original": "API Key ID",
+      "ru": "Идентификатор ключа API"
+    },
+    "form/x:DnsServerSpaceship/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerSpaceship/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerSpaceship/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerSpaceship/field/secret": {
+      "original": "API Secret",
+      "ru": "Секрет API"
+    },
+    "form/x:DnsServerSpaceship/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerSpaceship/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerSpaceship/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerTencentCloud/field/accessKeyId": {
+      "original": "Secret ID",
+      "ru": "Идентификатор секрета (Secret ID)"
+    },
+    "form/x:DnsServerTencentCloud/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerTencentCloud/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerTencentCloud/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerTencentCloud/field/region": {
+      "original": "Region",
+      "ru": "Регион"
+    },
+    "form/x:DnsServerTencentCloud/field/secretKey": {
+      "original": "Secret Key",
+      "ru": "Секретный ключ"
+    },
+    "form/x:DnsServerTencentCloud/field/sessionToken": {
+      "original": "Session Token",
+      "ru": "Токен сеанса"
+    },
+    "form/x:DnsServerTencentCloud/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerTencentCloud/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerTencentCloud/section/section-1": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:DnsServerTencentCloud/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerTransip/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerTransip/field/privateKeyPem": {
+      "original": "Private Key (PEM)",
+      "ru": "Закрытый ключ (PEM)"
+    },
+    "form/x:DnsServerTransip/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerTransip/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerTransip/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerTransip/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerTransip/field/username": {
+      "original": "Login",
+      "ru": "Имя входа"
+    },
+    "form/x:DnsServerTransip/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerTsig/field/host": {
+      "original": "Hostname",
+      "ru": "Имя узла"
+    },
+    "form/x:DnsServerTsig/field/key": {
+      "original": "Key Secret",
+      "ru": "Секрет ключа"
+    },
+    "form/x:DnsServerTsig/field/keyName": {
+      "original": "Key Name",
+      "ru": "Имя ключа"
+    },
+    "form/x:DnsServerTsig/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerTsig/field/port": {
+      "original": "Port",
+      "ru": "Порт"
+    },
+    "form/x:DnsServerTsig/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerTsig/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerTsig/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerTsig/field/tsigAlgorithm": {
+      "original": "TSIG Algorithm",
+      "ru": "Алгоритм TSIG"
+    },
+    "form/x:DnsServerTsig/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerTsig/section/section-0": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:DnsServerTsig/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerUltraDns/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerUltraDns/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerUltraDns/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerUltraDns/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerUltraDns/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerUltraDns/field/url": {
+      "original": "API URL",
+      "ru": "URL API"
+    },
+    "form/x:DnsServerUltraDns/field/username": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:DnsServerUltraDns/section/section-1": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:DnsServerUltraDns/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerVercel/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerVercel/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerVercel/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerVercel/field/teamId": {
+      "original": "Team ID",
+      "ru": "Идентификатор команды"
+    },
+    "form/x:DnsServerVercel/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerVercel/field/token": {
+      "original": "API Token",
+      "ru": "Токен API"
+    },
+    "form/x:DnsServerVercel/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerVercel/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerVolcengine/field/accessKeyId": {
+      "original": "Access Key ID",
+      "ru": "Идентификатор ключа доступа"
+    },
+    "form/x:DnsServerVolcengine/field/host": {
+      "original": "API Host",
+      "ru": "Узел API"
+    },
+    "form/x:DnsServerVolcengine/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerVolcengine/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerVolcengine/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerVolcengine/field/region": {
+      "original": "Region",
+      "ru": "Регион"
+    },
+    "form/x:DnsServerVolcengine/field/scheme": {
+      "original": "URL Scheme",
+      "ru": "Схема URL"
+    },
+    "form/x:DnsServerVolcengine/field/secretKey": {
+      "original": "Secret Key",
+      "ru": "Секретный ключ"
+    },
+    "form/x:DnsServerVolcengine/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerVolcengine/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerVolcengine/section/section-1": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:DnsServerVolcengine/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerWebSupport/field/apiKeyId": {
+      "original": "API Key ID",
+      "ru": "Идентификатор ключа API"
+    },
+    "form/x:DnsServerWebSupport/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerWebSupport/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerWebSupport/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerWebSupport/field/secret": {
+      "original": "API Secret",
+      "ru": "Секрет API"
+    },
+    "form/x:DnsServerWebSupport/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerWebSupport/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerWebSupport/section/section-1": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:DnsServerYandexCloud/field/apiKey": {
+      "original": "IAM Service Account Key (Base64)",
+      "ru": "Ключ сервисной учётной записи IAM (Base64)"
+    },
+    "form/x:DnsServerYandexCloud/field/folderId": {
+      "original": "Folder ID",
+      "ru": "Идентификатор каталога"
+    },
+    "form/x:DnsServerYandexCloud/field/pollInterval": {
+      "original": "Polling Interval",
+      "ru": "Интервал опроса"
+    },
+    "form/x:DnsServerYandexCloud/field/propagationDelay": {
+      "original": "Initial Propagation Delay",
+      "ru": "Начальная задержка распространения"
+    },
+    "form/x:DnsServerYandexCloud/field/propagationTimeout": {
+      "original": "Propagation Timeout",
+      "ru": "Время ожидания распространения"
+    },
+    "form/x:DnsServerYandexCloud/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsServerYandexCloud/field/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
+    "form/x:DnsServerYandexCloud/section/section-1": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:DnsServerYandexCloud/section/section-2": {
+      "original": "Timing",
+      "ru": "Временные параметры"
+    },
+    "form/x:Email/EmailDefaults/title": {
+      "original": "Email Defaults",
+      "ru": "Настройки почты по умолчанию"
+    },
+    "form/x:Email/EmailLimits/title": {
+      "original": "Email Limits",
+      "ru": "Ограничения писем"
+    },
+    "form/x:Email/EmailStorage/title": {
+      "original": "Email Storage",
+      "ru": "Хранение почты"
+    },
+    "form/x:Encryption/EncryptionGateway/title": {
+      "original": "Encryption Gateway",
+      "ru": "Шлюз шифрования"
+    },
+    "form/x:Http/HttpSecurity/title": {
+      "original": "HTTP Security",
+      "ru": "Безопасность HTTP"
+    },
+    "form/x:Jmap/JmapLimits/title": {
+      "original": "JMAP Limits",
+      "ru": "Ограничения JMAP"
+    },
+    "form/x:Jmap/JmapPush/title": {
+      "original": "JMAP Push",
+      "ru": "Push-уведомления JMAP"
+    },
+    "form/x:Jmap/JmapWebsocket/title": {
+      "original": "JMAP over WebSocket",
+      "ru": "JMAP через WebSocket"
+    },
+    "form/x:LdapDirectory/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certificates",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:LdapDirectory/field/attrClass": {
+      "original": "Account Type Attribute",
+      "ru": "Атрибут типа учётной записи"
+    },
+    "form/x:LdapDirectory/field/attrDescription": {
+      "original": "Description Attribute",
+      "ru": "Атрибут описания"
+    },
+    "form/x:LdapDirectory/field/attrEmail": {
+      "original": "Primary E-mail Attribute",
+      "ru": "Атрибут основного адреса электронной почты"
+    },
+    "form/x:LdapDirectory/field/attrEmailAlias": {
+      "original": "E-mail Alias Attribute",
+      "ru": "Атрибут псевдонима адреса электронной почты"
+    },
+    "form/x:LdapDirectory/field/attrMemberOf": {
+      "original": "Member Of Attribute",
+      "ru": "Атрибут членства в группах"
+    },
+    "form/x:LdapDirectory/field/attrSecret": {
+      "original": "Password Attribute",
+      "ru": "Атрибут пароля"
+    },
+    "form/x:LdapDirectory/field/attrSecretChanged": {
+      "original": "Password Changed Attribute",
+      "ru": "Атрибут изменения пароля"
+    },
+    "form/x:LdapDirectory/field/baseDn": {
+      "original": "Base DN",
+      "ru": "Базовое DN"
+    },
+    "form/x:LdapDirectory/field/bindAuthentication": {
+      "original": "Use Bind Authentication",
+      "ru": "Использовать аутентификацию посредством bind"
+    },
+    "form/x:LdapDirectory/field/bindDn": {
+      "original": "Bind DN",
+      "ru": "DN привязки (bind DN)"
+    },
+    "form/x:LdapDirectory/field/bindSecret": {
+      "original": "Bind Secret",
+      "ru": "Секрет привязки"
+    },
+    "form/x:LdapDirectory/field/filterLogin": {
+      "original": "Login Filter",
+      "ru": "Фильтр входа"
+    },
+    "form/x:LdapDirectory/field/filterMemberOf": {
+      "original": "Member Of Filter",
+      "ru": "Фильтр членства в группах"
+    },
+    "form/x:LdapDirectory/field/filterRecipient": {
+      "original": "Recipient Filter",
+      "ru": "Фильтр получателя"
+    },
+    "form/x:LdapDirectory/field/groupClass": {
+      "original": "Group Object Class",
+      "ru": "Класс объекта группы"
+    },
+    "form/x:LdapDirectory/field/poolTimeoutCreate": {
+      "original": "Create Timeout",
+      "ru": "Время ожидания создания соединения"
+    },
+    "form/x:LdapDirectory/field/poolTimeoutRecycle": {
+      "original": "Recycle Timeout",
+      "ru": "Время ожидания подготовки соединения"
+    },
+    "form/x:LdapDirectory/field/poolTimeoutWait": {
+      "original": "Wait Timeout",
+      "ru": "Время ожидания соединения из пула"
+    },
+    "form/x:LdapDirectory/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:LdapDirectory/field/url": {
+      "original": "Server URL",
+      "ru": "URL сервера"
+    },
+    "form/x:LdapDirectory/field/urlFailover": {
+      "original": "Failover Server URLs",
+      "ru": "URL резервных серверов"
+    },
+    "form/x:LdapDirectory/section/section-1": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:LdapDirectory/section/section-2": {
+      "original": "Bind",
+      "ru": "Привязка (bind)"
+    },
+    "form/x:LdapDirectory/section/section-4": {
+      "original": "Attributes",
+      "ru": "Атрибуты"
+    },
+    "form/x:LdapDirectory/section/section-5": {
+      "original": "Pool",
+      "ru": "Пул соединений"
+    },
+    "form/x:Metrics/CollectorOtel/title": {
+      "original": "OpenTelemetry Collector",
+      "ru": "Сборщик OpenTelemetry"
+    },
+    "form/x:Metrics/CollectorPrometheus/title": {
+      "original": "Prometheus Collector",
+      "ru": "Сборщик Prometheus"
+    },
+    "form/x:MtaRouteCommon/section/section-0": {
+      "original": "Route Details",
+      "ru": "Параметры маршрута"
+    },
+    "form/x:MtaRouteMx/field/ipLookupStrategy": {
+      "original": "IP Resolution",
+      "ru": "Разрешение IP-адресов"
+    },
+    "form/x:MtaRouteMx/field/maxMultihomed": {
+      "original": "Multi-homed IPs",
+      "ru": "IP-адреса многосетевых узлов"
+    },
+    "form/x:MtaRouteMx/field/maxMxHosts": {
+      "original": "MX Hosts",
+      "ru": "Узлы MX"
+    },
+    "form/x:MtaRouteMx/section/section-0": {
+      "original": "MX Resolution",
+      "ru": "Разрешение записей MX"
+    },
+    "form/x:MtaRouteMx/section/section-1": {
+      "original": "Route Details",
+      "ru": "Параметры маршрута"
+    },
+    "form/x:MtaRouteRelay/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:MtaRouteRelay/field/authUsername": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:MtaRouteRelay/field/host": {
+      "original": "Host",
+      "ru": "Узел"
+    },
+    "form/x:MtaRouteRelay/field/port": {
+      "original": "Port",
+      "ru": "Порт"
+    },
+    "form/x:MtaRouteRelay/section/section-0": {
+      "original": "Relay Host",
+      "ru": "Узел ретрансляции"
+    },
+    "form/x:MtaRouteRelay/section/section-3": {
+      "original": "Route Details",
+      "ru": "Параметры маршрута"
+    },
+    "form/x:OidcDirectory/field/acceptedAudiences": {
+      "original": "Accepted Audiences",
+      "ru": "Допустимые аудитории"
+    },
+    "form/x:OidcDirectory/field/allowIdTokenClaims": {
+      "original": "Allow ID Token Claims",
+      "ru": "Разрешить утверждения токена ID"
+    },
+    "form/x:OidcDirectory/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certificates",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:OidcDirectory/field/claimGroups": {
+      "original": "Groups Claim",
+      "ru": "Утверждение о группах"
+    },
+    "form/x:OidcDirectory/field/claimName": {
+      "original": "Name Claim",
+      "ru": "Утверждение об имени"
+    },
+    "form/x:OidcDirectory/field/claimUsername": {
+      "original": "Username Claim",
+      "ru": "Утверждение об имени пользователя"
+    },
+    "form/x:OidcDirectory/field/introspectionAuthMethod": {
+      "original": "Authentication Method",
+      "ru": "Метод аутентификации"
+    },
+    "form/x:OidcDirectory/field/issuerUrl": {
+      "original": "Issuer URL",
+      "ru": "URL издателя"
+    },
+    "form/x:OidcDirectory/field/lenientIssuerMatch": {
+      "original": "Lenient Issuer Match",
+      "ru": "Нестрогое совпадение издателя"
+    },
+    "form/x:OidcDirectory/field/opaqueTokenValidation": {
+      "original": "Opaque Token Validation",
+      "ru": "Проверка непрозрачных токенов"
+    },
+    "form/x:OidcDirectory/field/skipAudienceValidation": {
+      "original": "Skip Audience Validation",
+      "ru": "Пропустить проверку аудитории"
+    },
+    "form/x:OidcDirectory/field/trustedProvider": {
+      "original": "Trusted Provider",
+      "ru": "Доверенный поставщик"
+    },
+    "form/x:OidcDirectory/field/unscopedTokens": {
+      "original": "Tokens Without Scopes",
+      "ru": "Токены без областей действия"
+    },
+    "form/x:OidcDirectory/field/usernameDomain": {
+      "original": "Username Domain",
+      "ru": "Домен имени пользователя"
+    },
+    "form/x:OidcDirectory/section/section-1": {
+      "original": "Provider",
+      "ru": "Поставщик"
+    },
+    "form/x:OidcDirectory/section/section-2": {
+      "original": "Introspection",
+      "ru": "Интроспекция"
+    },
+    "form/x:OidcDirectory/section/section-3": {
+      "original": "Claims",
+      "ru": "Утверждения"
+    },
+    "form/x:OidcDirectory/section/section-4": {
+      "original": "Compatibility (reduces security)",
+      "ru": "Совместимость (снижает безопасность)"
+    },
+    "form/x:SpamDnsblServerAny/field/enable": {
+      "original": "Enable the DNSBL server",
+      "ru": "Включить сервер DNSBL"
+    },
+    "form/x:SpamDnsblServerAny/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamDnsblServerAny/field/tag": {
+      "original": "Tag",
+      "ru": "Тег"
+    },
+    "form/x:SpamDnsblServerAny/field/zone": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:SpamDnsblServerAny/section/section-0": {
+      "original": "DNSBL Lookup",
+      "ru": "Поиск в DNSBL"
+    },
+    "form/x:SpamDnsblServerAny/section/section-1": {
+      "original": "DNSBL Configuration",
+      "ru": "Настройка DNSBL"
+    },
+    "form/x:SpamDnsblServerBody/field/enable": {
+      "original": "Enable the DNSBL server",
+      "ru": "Включить сервер DNSBL"
+    },
+    "form/x:SpamDnsblServerBody/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamDnsblServerBody/field/tag": {
+      "original": "Tag",
+      "ru": "Тег"
+    },
+    "form/x:SpamDnsblServerBody/field/zone": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:SpamDnsblServerBody/section/section-0": {
+      "original": "DNSBL Lookup",
+      "ru": "Поиск в DNSBL"
+    },
+    "form/x:SpamDnsblServerBody/section/section-1": {
+      "original": "DNSBL Configuration",
+      "ru": "Настройка DNSBL"
+    },
+    "form/x:SpamDnsblServerDomain/field/enable": {
+      "original": "Enable the DNSBL server",
+      "ru": "Включить сервер DNSBL"
+    },
+    "form/x:SpamDnsblServerDomain/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamDnsblServerDomain/field/tag": {
+      "original": "Tag",
+      "ru": "Тег"
+    },
+    "form/x:SpamDnsblServerDomain/field/zone": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:SpamDnsblServerDomain/section/section-0": {
+      "original": "DNSBL Lookup",
+      "ru": "Поиск в DNSBL"
+    },
+    "form/x:SpamDnsblServerDomain/section/section-1": {
+      "original": "DNSBL Configuration",
+      "ru": "Настройка DNSBL"
+    },
+    "form/x:SpamDnsblServerEmail/field/enable": {
+      "original": "Enable the DNSBL server",
+      "ru": "Включить сервер DNSBL"
+    },
+    "form/x:SpamDnsblServerEmail/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamDnsblServerEmail/field/tag": {
+      "original": "Tag",
+      "ru": "Тег"
+    },
+    "form/x:SpamDnsblServerEmail/field/zone": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:SpamDnsblServerEmail/section/section-0": {
+      "original": "DNSBL Lookup",
+      "ru": "Поиск в DNSBL"
+    },
+    "form/x:SpamDnsblServerEmail/section/section-1": {
+      "original": "DNSBL Configuration",
+      "ru": "Настройка DNSBL"
+    },
+    "form/x:SpamDnsblServerHeader/field/enable": {
+      "original": "Enable the DNSBL server",
+      "ru": "Включить сервер DNSBL"
+    },
+    "form/x:SpamDnsblServerHeader/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamDnsblServerHeader/field/tag": {
+      "original": "Tag",
+      "ru": "Тег"
+    },
+    "form/x:SpamDnsblServerHeader/field/zone": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:SpamDnsblServerHeader/section/section-0": {
+      "original": "DNSBL Lookup",
+      "ru": "Поиск в DNSBL"
+    },
+    "form/x:SpamDnsblServerHeader/section/section-1": {
+      "original": "DNSBL Configuration",
+      "ru": "Настройка DNSBL"
+    },
+    "form/x:SpamDnsblServerIp/field/enable": {
+      "original": "Enable the DNSBL server",
+      "ru": "Включить сервер DNSBL"
+    },
+    "form/x:SpamDnsblServerIp/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamDnsblServerIp/field/tag": {
+      "original": "Tag",
+      "ru": "Тег"
+    },
+    "form/x:SpamDnsblServerIp/field/zone": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:SpamDnsblServerIp/section/section-0": {
+      "original": "DNSBL Lookup",
+      "ru": "Поиск в DNSBL"
+    },
+    "form/x:SpamDnsblServerIp/section/section-1": {
+      "original": "DNSBL Configuration",
+      "ru": "Настройка DNSBL"
+    },
+    "form/x:SpamDnsblServerUrl/field/enable": {
+      "original": "Enable the DNSBL server",
+      "ru": "Включить сервер DNSBL"
+    },
+    "form/x:SpamDnsblServerUrl/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamDnsblServerUrl/field/tag": {
+      "original": "Tag",
+      "ru": "Тег"
+    },
+    "form/x:SpamDnsblServerUrl/field/zone": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
+    "form/x:SpamDnsblServerUrl/section/section-0": {
+      "original": "DNSBL Lookup",
+      "ru": "Поиск в DNSBL"
+    },
+    "form/x:SpamDnsblServerUrl/section/section-1": {
+      "original": "DNSBL Configuration",
+      "ru": "Настройка DNSBL"
+    },
+    "form/x:SpamRuleAny/field/condition": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleAny/field/enable": {
+      "original": "Enable rule",
+      "ru": "Включить правило"
+    },
+    "form/x:SpamRuleAny/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamRuleAny/section/section-0": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleAny/section/section-1": {
+      "original": "Rule Configuration",
+      "ru": "Настройка правила"
+    },
+    "form/x:SpamRuleBody/field/condition": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleBody/field/enable": {
+      "original": "Enable rule",
+      "ru": "Включить правило"
+    },
+    "form/x:SpamRuleBody/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamRuleBody/section/section-0": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleBody/section/section-1": {
+      "original": "Rule Configuration",
+      "ru": "Настройка правила"
+    },
+    "form/x:SpamRuleDomain/field/condition": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleDomain/field/enable": {
+      "original": "Enable rule",
+      "ru": "Включить правило"
+    },
+    "form/x:SpamRuleDomain/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamRuleDomain/section/section-0": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleDomain/section/section-1": {
+      "original": "Rule Configuration",
+      "ru": "Настройка правила"
+    },
+    "form/x:SpamRuleEmail/field/condition": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleEmail/field/enable": {
+      "original": "Enable rule",
+      "ru": "Включить правило"
+    },
+    "form/x:SpamRuleEmail/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamRuleEmail/section/section-0": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleEmail/section/section-1": {
+      "original": "Rule Configuration",
+      "ru": "Настройка правила"
+    },
+    "form/x:SpamRuleHeader/field/condition": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleHeader/field/enable": {
+      "original": "Enable rule",
+      "ru": "Включить правило"
+    },
+    "form/x:SpamRuleHeader/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamRuleHeader/section/section-0": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleHeader/section/section-1": {
+      "original": "Rule Configuration",
+      "ru": "Настройка правила"
+    },
+    "form/x:SpamRuleIp/field/condition": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleIp/field/enable": {
+      "original": "Enable rule",
+      "ru": "Включить правило"
+    },
+    "form/x:SpamRuleIp/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamRuleIp/section/section-0": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleIp/section/section-1": {
+      "original": "Rule Configuration",
+      "ru": "Настройка правила"
+    },
+    "form/x:SpamRuleUrl/field/condition": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleUrl/field/enable": {
+      "original": "Enable rule",
+      "ru": "Включить правило"
+    },
+    "form/x:SpamRuleUrl/field/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила"
+    },
+    "form/x:SpamRuleUrl/section/section-0": {
+      "original": "Rule",
+      "ru": "Правило"
+    },
+    "form/x:SpamRuleUrl/section/section-1": {
+      "original": "Rule Configuration",
+      "ru": "Настройка правила"
+    },
+    "form/x:SpamTagAction/field/tag": {
+      "original": "Tag name",
+      "ru": "Имя тега"
+    },
+    "form/x:SpamTagAction/section/section-0": {
+      "original": "Tag",
+      "ru": "Тег"
+    },
+    "form/x:SpamTagScore/field/score": {
+      "original": "Score",
+      "ru": "Оценка спама"
+    },
+    "form/x:SpamTagScore/field/tag": {
+      "original": "Tag name",
+      "ru": "Имя тега"
+    },
+    "form/x:SpamTagScore/section/section-0": {
+      "original": "Tag",
+      "ru": "Тег"
+    },
+    "form/x:SqlDirectory/field/columnClass": {
+      "original": "Account Type Column",
+      "ru": "Столбец типа учётной записи"
+    },
+    "form/x:SqlDirectory/field/columnDescription": {
+      "original": "Description Column",
+      "ru": "Столбец описания"
+    },
+    "form/x:SqlDirectory/field/columnEmail": {
+      "original": "E-mail Column",
+      "ru": "Столбец адреса электронной почты"
+    },
+    "form/x:SqlDirectory/field/columnSecret": {
+      "original": "Password Column",
+      "ru": "Столбец пароля"
+    },
+    "form/x:SqlDirectory/field/queryEmailAliases": {
+      "original": "E-mail Aliases Query",
+      "ru": "Запрос псевдонимов адресов электронной почты"
+    },
+    "form/x:SqlDirectory/field/queryLogin": {
+      "original": "Login Query",
+      "ru": "Запрос для входа"
+    },
+    "form/x:SqlDirectory/field/queryMemberOf": {
+      "original": "Member Of Query",
+      "ru": "Запрос членства в группах"
+    },
+    "form/x:SqlDirectory/field/queryRecipient": {
+      "original": "Recipient Query",
+      "ru": "Запрос получателя"
+    },
+    "form/x:SqlDirectory/field/store": {
+      "original": "Storage Backend",
+      "ru": "Хранилище данных"
+    },
+    "form/x:SqlDirectory/section/section-1": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
+    "form/x:SqlDirectory/section/section-2": {
+      "original": "Columns",
+      "ru": "Столбцы"
+    },
+    "form/x:SqlDirectory/section/section-3": {
+      "original": "Queries",
+      "ru": "Запросы"
+    },
+    "form/x:SystemSettings/NetworkServices/title": {
+      "original": "Network Services",
+      "ru": "Сетевые службы"
+    },
+    "form/x:SystemSettings/NetworkSettings/title": {
+      "original": "Network Settings",
+      "ru": "Сетевые настройки"
+    },
+    "form/x:TaskAccountMaintenance/field/maintenanceType": {
+      "original": "Maintenance Type",
+      "ru": "Тип обслуживания"
+    },
+    "form/x:TaskAccountMaintenance/section/section-0": {
+      "original": "Account Maintenance",
+      "ru": "Обслуживание учётной записи"
+    },
+    "form/x:TaskBlobRecode/field/compression": {
+      "original": "Compression",
+      "ru": "Сжатие"
+    },
+    "form/x:TaskBlobRecode/field/shardIndex": {
+      "original": "Shard Index",
+      "ru": "Индекс сегмента (шарда)"
+    },
+    "form/x:TaskBlobRecode/section/section-0": {
+      "original": "Blob Recode",
+      "ru": "Перекодирование двоичных объектов (blob)"
+    },
+    "form/x:TaskCalendarAlarmEmail/field/alarmId": {
+      "original": "Alarm",
+      "ru": "Напоминание"
+    },
+    "form/x:TaskCalendarAlarmEmail/field/eventEnd": {
+      "original": "Event End",
+      "ru": "Окончание события"
+    },
+    "form/x:TaskCalendarAlarmEmail/field/eventEndTz": {
+      "original": "End Timezone",
+      "ru": "Часовой пояс окончания"
+    },
+    "form/x:TaskCalendarAlarmEmail/field/eventId": {
+      "original": "Event",
+      "ru": "Событие"
+    },
+    "form/x:TaskCalendarAlarmEmail/field/eventStart": {
+      "original": "Event Start",
+      "ru": "Начало события"
+    },
+    "form/x:TaskCalendarAlarmEmail/field/eventStartTz": {
+      "original": "Start Timezone",
+      "ru": "Часовой пояс начала"
+    },
+    "form/x:TaskCalendarAlarmEmail/field/recurrenceId": {
+      "original": "Recurrence",
+      "ru": "Повторение"
+    },
+    "form/x:TaskCalendarAlarmEmail/field/targetAccountId": {
+      "original": "Target Account",
+      "ru": "Целевая учётная запись"
+    },
+    "form/x:TaskCalendarAlarmEmail/section/section-0": {
+      "original": "Calendar Alarm Email",
+      "ru": "Письмо с напоминанием календаря"
+    },
+    "form/x:TaskCalendarAlarmNotification/field/alarmId": {
+      "original": "Alarm",
+      "ru": "Напоминание"
+    },
+    "form/x:TaskCalendarAlarmNotification/field/eventId": {
+      "original": "Event",
+      "ru": "Событие"
+    },
+    "form/x:TaskCalendarAlarmNotification/field/recurrenceId": {
+      "original": "Recurrence",
+      "ru": "Повторение"
+    },
+    "form/x:TaskCalendarAlarmNotification/field/targetAccountId": {
+      "original": "Target Account",
+      "ru": "Целевая учётная запись"
+    },
+    "form/x:TaskCalendarAlarmNotification/section/section-0": {
+      "original": "Calendar Alarm Notification",
+      "ru": "Уведомление календаря"
+    },
+    "form/x:TaskCalendarItipMessage/field/messages": {
+      "original": "Messages",
+      "ru": "Сообщения"
+    },
+    "form/x:TaskCalendarItipMessage/section/section-0": {
+      "original": "Calendar iTIP Message",
+      "ru": "Календарное сообщение iTIP"
+    },
+    "form/x:TaskDestroyAccount/field/accountName": {
+      "original": "Account Name",
+      "ru": "Имя учётной записи"
+    },
+    "form/x:TaskDestroyAccount/field/accountType": {
+      "original": "Account Type",
+      "ru": "Тип учётной записи"
+    },
+    "form/x:TaskDestroyAccount/field/memberGroupIds": {
+      "original": "Member Groups",
+      "ru": "Группы членства"
+    },
+    "form/x:TaskDestroyAccount/section/section-0": {
+      "original": "Destroy Account",
+      "ru": "Удаление учётной записи"
+    },
+    "form/x:TaskDmarcReport/field/reportId": {
+      "original": "Report",
+      "ru": "Отчёт"
+    },
+    "form/x:TaskDmarcReport/section/section-0": {
+      "original": "DMARC Report",
+      "ru": "Отчёт DMARC"
+    },
+    "form/x:TaskDnsManagement/field/onSuccessRenewCertificate": {
+      "original": "Renew Certificate on Success",
+      "ru": "Обновить сертификат при успешном выполнении"
+    },
+    "form/x:TaskDnsManagement/field/updateRecords": {
+      "original": "Record Types",
+      "ru": "Типы DNS-записей"
+    },
+    "form/x:TaskDnsManagement/section/section-0": {
+      "original": "DNS Management",
+      "ru": "Управление DNS"
+    },
+    "form/x:TaskDnsManagement/section/section-1": {
+      "original": "Domain Management",
+      "ru": "Управление доменом"
+    },
+    "form/x:TaskDomainManagement/section/section-0": {
+      "original": "Domain Management",
+      "ru": "Управление доменом"
+    },
+    "form/x:TaskMergeThreads/field/messageIds": {
+      "original": "Message IDs",
+      "ru": "Идентификаторы сообщений"
+    },
+    "form/x:TaskMergeThreads/field/threadName": {
+      "original": "Thread Name",
+      "ru": "Имя цепочки"
+    },
+    "form/x:TaskMergeThreads/section/section-0": {
+      "original": "Merge Threads",
+      "ru": "Объединение цепочек писем"
+    },
+    "form/x:TaskReportWindow/field/windowEnd": {
+      "original": "Window End",
+      "ru": "Конец периода"
+    },
+    "form/x:TaskReportWindow/section/section-0": {
+      "original": "Report Window",
+      "ru": "Период формирования отчёта"
+    },
+    "form/x:TaskRestoreArchivedItem/field/archivedItemType": {
+      "original": "Item Type",
+      "ru": "Тип элемента"
+    },
+    "form/x:TaskRestoreArchivedItem/field/archivedUntil": {
+      "original": "Archived Until",
+      "ru": "Хранить в архиве до"
+    },
+    "form/x:TaskRestoreArchivedItem/field/blobId": {
+      "original": "Blob",
+      "ru": "Двоичный объект (blob)"
+    },
+    "form/x:TaskRestoreArchivedItem/section/section-0": {
+      "original": "Restore Archived Item",
+      "ru": "Восстановление архивного элемента"
+    },
+    "form/x:TaskShareRevokeCleanup/field/objectType": {
+      "original": "Item Type",
+      "ru": "Тип элемента"
+    },
+    "form/x:TaskShareRevokeCleanup/section/section-0": {
+      "original": "Revoked Share",
+      "ru": "Отозванный совместный доступ"
+    },
+    "form/x:TaskSpamFilterMaintenance/field/maintenanceType": {
+      "original": "Maintenance Type",
+      "ru": "Тип обслуживания"
+    },
+    "form/x:TaskSpamFilterMaintenance/section/section-0": {
+      "original": "Spam Filter Maintenance",
+      "ru": "Обслуживание фильтра спама"
+    },
+    "form/x:TaskStoreMaintenance/field/maintenanceType": {
+      "original": "Maintenance Type",
+      "ru": "Тип обслуживания"
+    },
+    "form/x:TaskStoreMaintenance/field/shardIndex": {
+      "original": "Shard Index",
+      "ru": "Индекс сегмента (шарда)"
+    },
+    "form/x:TaskStoreMaintenance/section/section-0": {
+      "original": "Store Maintenance",
+      "ru": "Обслуживание хранилища"
+    },
+    "form/x:TaskTenantMaintenance/field/maintenanceType": {
+      "original": "Maintenance Type",
+      "ru": "Тип обслуживания"
+    },
+    "form/x:TaskTenantMaintenance/section/section-0": {
+      "original": "Tenant Maintenance",
+      "ru": "Обслуживание арендатора"
+    },
+    "form/x:TaskTlsReport/field/reportId": {
+      "original": "Report",
+      "ru": "Отчёт"
+    },
+    "form/x:TaskTlsReport/section/section-0": {
+      "original": "TLS Report",
+      "ru": "Отчёт TLS"
+    },
+    "form/x:TracerCommon/field/enable": {
+      "original": "Enable this tracer",
+      "ru": "Включить это средство трассировки"
+    },
+    "form/x:TracerCommon/field/eventsPolicy": {
+      "original": "Filtering mode",
+      "ru": "Режим фильтрации"
+    },
+    "form/x:TracerCommon/field/level": {
+      "original": "Logging level",
+      "ru": "Уровень журналирования"
+    },
+    "form/x:TracerCommon/field/lossy": {
+      "original": "Lossy mode",
+      "ru": "Режим с потерей событий"
+    },
+    "form/x:TracerCommon/section/section-0": {
+      "original": "Tracer settings",
+      "ru": "Настройки трассировки"
+    },
+    "form/x:TracerCommon/section/section-1": {
+      "original": "Event filtering",
+      "ru": "Фильтрация событий"
+    },
+    "form/x:TracerLog/field/ansi": {
+      "original": "Use ANSI colors",
+      "ru": "Использовать цвета ANSI"
+    },
+    "form/x:TracerLog/field/enable": {
+      "original": "Enable this tracer",
+      "ru": "Включить это средство трассировки"
+    },
+    "form/x:TracerLog/field/eventsPolicy": {
+      "original": "Filtering mode",
+      "ru": "Режим фильтрации"
+    },
+    "form/x:TracerLog/field/level": {
+      "original": "Logging level",
+      "ru": "Уровень журналирования"
+    },
+    "form/x:TracerLog/field/lossy": {
+      "original": "Lossy mode",
+      "ru": "Режим с потерей событий"
+    },
+    "form/x:TracerLog/field/multiline": {
+      "original": "Multiline entries",
+      "ru": "Многострочные записи"
+    },
+    "form/x:TracerLog/field/path": {
+      "original": "Path",
+      "ru": "Путь"
+    },
+    "form/x:TracerLog/field/prefix": {
+      "original": "Prefix",
+      "ru": "Префикс"
+    },
+    "form/x:TracerLog/field/rotate": {
+      "original": "Rotate frequency",
+      "ru": "Периодичность ротации"
+    },
+    "form/x:TracerLog/section/section-0": {
+      "original": "Log file output",
+      "ru": "Вывод в файл журнала"
+    },
+    "form/x:TracerLog/section/section-1": {
+      "original": "Tracer settings",
+      "ru": "Настройки трассировки"
+    },
+    "form/x:TracerLog/section/section-2": {
+      "original": "Event filtering",
+      "ru": "Фильтрация событий"
+    },
+    "form/x:TracerOtelGrpc/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:TracerOtelGrpc/field/enable": {
+      "original": "Enable this tracer",
+      "ru": "Включить это средство трассировки"
+    },
+    "form/x:TracerOtelGrpc/field/enableLogExporter": {
+      "original": "Export logs",
+      "ru": "Экспорт журналов"
+    },
+    "form/x:TracerOtelGrpc/field/enableSpanExporter": {
+      "original": "Export spans",
+      "ru": "Экспорт интервалов трассировки (spans)"
+    },
+    "form/x:TracerOtelGrpc/field/eventsPolicy": {
+      "original": "Filtering mode",
+      "ru": "Режим фильтрации"
+    },
+    "form/x:TracerOtelGrpc/field/httpHeaders": {
+      "original": "Headers",
+      "ru": "Заголовки"
+    },
+    "form/x:TracerOtelGrpc/field/level": {
+      "original": "Logging level",
+      "ru": "Уровень журналирования"
+    },
+    "form/x:TracerOtelGrpc/field/lossy": {
+      "original": "Lossy mode",
+      "ru": "Режим с потерей событий"
+    },
+    "form/x:TracerOtelGrpc/field/throttle": {
+      "original": "Throttle",
+      "ru": "Интервал отправки"
+    },
+    "form/x:TracerOtelGrpc/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:TracerOtelGrpc/field/url": {
+      "original": "URL",
+      "ru": "URL сборщика"
+    },
+    "form/x:TracerOtelGrpc/section/section-0": {
+      "original": "OpenTelemetry gRPC endpoint",
+      "ru": "Конечная точка gRPC OpenTelemetry"
+    },
+    "form/x:TracerOtelGrpc/section/section-1": {
+      "original": "OpenTelemetry settings",
+      "ru": "Настройки OpenTelemetry"
+    },
+    "form/x:TracerOtelGrpc/section/section-3": {
+      "original": "Headers",
+      "ru": "Заголовки"
+    },
+    "form/x:TracerOtelGrpc/section/section-4": {
+      "original": "Tracer settings",
+      "ru": "Настройки трассировки"
+    },
+    "form/x:TracerOtelGrpc/section/section-5": {
+      "original": "Event filtering",
+      "ru": "Фильтрация событий"
+    },
+    "form/x:TracerOtelHttp/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:TracerOtelHttp/field/enable": {
+      "original": "Enable this tracer",
+      "ru": "Включить это средство трассировки"
+    },
+    "form/x:TracerOtelHttp/field/enableLogExporter": {
+      "original": "Export logs",
+      "ru": "Экспорт журналов"
+    },
+    "form/x:TracerOtelHttp/field/enableSpanExporter": {
+      "original": "Export spans",
+      "ru": "Экспорт интервалов трассировки (spans)"
+    },
+    "form/x:TracerOtelHttp/field/eventsPolicy": {
+      "original": "Filtering mode",
+      "ru": "Режим фильтрации"
+    },
+    "form/x:TracerOtelHttp/field/httpHeaders": {
+      "original": "Headers",
+      "ru": "Заголовки"
+    },
+    "form/x:TracerOtelHttp/field/level": {
+      "original": "Logging level",
+      "ru": "Уровень журналирования"
+    },
+    "form/x:TracerOtelHttp/field/lossy": {
+      "original": "Lossy mode",
+      "ru": "Режим с потерей событий"
+    },
+    "form/x:TracerOtelHttp/field/throttle": {
+      "original": "Throttle",
+      "ru": "Интервал отправки"
+    },
+    "form/x:TracerOtelHttp/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:TracerOtelHttp/field/url": {
+      "original": "URL",
+      "ru": "URL сборщика"
+    },
+    "form/x:TracerOtelHttp/section/section-0": {
+      "original": "OpenTelemetry HTTP endpoint",
+      "ru": "Конечная точка HTTP OpenTelemetry"
+    },
+    "form/x:TracerOtelHttp/section/section-1": {
+      "original": "OpenTelemetry settings",
+      "ru": "Настройки OpenTelemetry"
+    },
+    "form/x:TracerOtelHttp/section/section-3": {
+      "original": "Headers",
+      "ru": "Заголовки"
+    },
+    "form/x:TracerOtelHttp/section/section-4": {
+      "original": "Tracer settings",
+      "ru": "Настройки трассировки"
+    },
+    "form/x:TracerOtelHttp/section/section-5": {
+      "original": "Event filtering",
+      "ru": "Фильтрация событий"
+    },
+    "form/x:TracerStdout/field/ansi": {
+      "original": "Use ANSI colors",
+      "ru": "Использовать цвета ANSI"
+    },
+    "form/x:TracerStdout/field/buffered": {
+      "original": "Buffered writes",
+      "ru": "Буферизованная запись"
+    },
+    "form/x:TracerStdout/field/enable": {
+      "original": "Enable this tracer",
+      "ru": "Включить это средство трассировки"
+    },
+    "form/x:TracerStdout/field/eventsPolicy": {
+      "original": "Filtering mode",
+      "ru": "Режим фильтрации"
+    },
+    "form/x:TracerStdout/field/level": {
+      "original": "Logging level",
+      "ru": "Уровень журналирования"
+    },
+    "form/x:TracerStdout/field/lossy": {
+      "original": "Lossy mode",
+      "ru": "Режим с потерей событий"
+    },
+    "form/x:TracerStdout/field/multiline": {
+      "original": "Multiline entries",
+      "ru": "Многострочные записи"
+    },
+    "form/x:TracerStdout/section/section-0": {
+      "original": "Console output",
+      "ru": "Вывод в консоль"
+    },
+    "form/x:TracerStdout/section/section-1": {
+      "original": "Tracer settings",
+      "ru": "Настройки трассировки"
+    },
+    "form/x:TracerStdout/section/section-2": {
+      "original": "Event filtering",
+      "ru": "Фильтрация событий"
     }
   },
   "scopedEntries": [
