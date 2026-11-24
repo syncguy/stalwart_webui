@@ -14,6 +14,7 @@ import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.m
 import {loadVariantPacket,undoVariants} from './lib/locale-variant-labels.mjs';
 import {loadTracePacket,undoTrace} from './lib/locale-trace-labels.mjs';
 import {loadRegionalPacket,undoRegional} from './lib/locale-regional-labels.mjs';
+import {loadSpecializedPacket,undoSpecialized} from './lib/locale-specialized-labels.mjs';
 import { buildUsageGraph } from './lib/locale-graph.mjs';
 import { classify } from './lib/locale-planner.mjs';
 import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
@@ -2164,7 +2165,7 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 {
   const inputs37=loadInputs(process.cwd());
   const packet37=loadFieldDescriptionPacket(process.cwd(),inputs37.policy);
-  const stage37Catalog=undoFormContext(undoVariants(undoTrace(undoRegional(catalog,loadRegionalPacket(process.cwd(),inputs37.policy)),loadTracePacket(process.cwd(),inputs37.policy)),loadVariantPacket(process.cwd(),inputs37.policy)),loadFormContextPacket(process.cwd(),inputs37.policy));
+  const stage37Catalog=undoFormContext(undoVariants(undoTrace(undoRegional(undoSpecialized(catalog,loadSpecializedPacket(process.cwd(),inputs37.policy)),loadRegionalPacket(process.cwd(),inputs37.policy)),loadTracePacket(process.cwd(),inputs37.policy)),loadVariantPacket(process.cwd(),inputs37.policy)),loadFormContextPacket(process.cwd(),inputs37.policy));
   const oldCatalog=undoFieldDescriptions(stage37Catalog,packet37);
   const oldInputs={...inputs37,catalog:oldCatalog,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':oldCatalog})};
   const oldRows=classify(oldInputs,buildUsageGraph(oldInputs)).rows.filter(r=>
@@ -2253,7 +2254,7 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 // presence (several sections and fields can have the same English label).
 {
   const inputs38=loadInputs(process.cwd());
-  const oldCatalog=undoFormContext(undoVariants(undoTrace(undoRegional(catalog,loadRegionalPacket(process.cwd(),inputs38.policy)),loadTracePacket(process.cwd(),inputs38.policy)),loadVariantPacket(process.cwd(),inputs38.policy)),loadFormContextPacket(process.cwd(),inputs38.policy));
+  const oldCatalog=undoFormContext(undoVariants(undoTrace(undoRegional(undoSpecialized(catalog,loadSpecializedPacket(process.cwd(),inputs38.policy)),loadRegionalPacket(process.cwd(),inputs38.policy)),loadTracePacket(process.cwd(),inputs38.policy)),loadVariantPacket(process.cwd(),inputs38.policy)),loadFormContextPacket(process.cwd(),inputs38.policy));
   const oldInputs={...inputs38,catalog:oldCatalog,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':oldCatalog})};
   const rows38=classify(oldInputs,buildUsageGraph({...oldInputs,fieldOwners:true})).rows.filter(r=>
     r.classification==='renderer-unwired'&&['form-field-label','form-section','form'].includes(r.category));
@@ -2338,7 +2339,7 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 {
   const inputs39=loadInputs(process.cwd());
   const packet39=loadVariantPacket(process.cwd(),inputs39.policy);
-  const previous39=undoVariants(undoTrace(undoRegional(catalog,loadRegionalPacket(process.cwd(),inputs39.policy)),loadTracePacket(process.cwd(),inputs39.policy)),packet39);
+  const previous39=undoVariants(undoTrace(undoRegional(undoSpecialized(catalog,loadSpecializedPacket(process.cwd(),inputs39.policy)),loadRegionalPacket(process.cwd(),inputs39.policy)),loadTracePacket(process.cwd(),inputs39.policy)),packet39);
   const old39={...inputs39,catalog:previous39,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':previous39})};
   const scope39=classify(old39,buildUsageGraph({...old39,fieldOwners:true,formOwners:true})).rows.filter(r=>r.classification==='renderer-unwired');
   assert.equal(scope39.length,135);
@@ -2484,3 +2485,5 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 await import('./lib/locale-trace-components.mjs');
 
 await import('./lib/locale-regional-components.mjs');
+
+await import('./lib/locale-specialized-components.mjs');

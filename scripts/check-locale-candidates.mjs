@@ -14,6 +14,7 @@ import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.m
 import {loadVariantPacket,undoVariants} from './lib/locale-variant-labels.mjs';
 import {loadTracePacket,undoTrace} from './lib/locale-trace-labels.mjs';
 import {loadRegionalPacket,undoRegional} from './lib/locale-regional-labels.mjs';
+import {loadSpecializedPacket,undoSpecialized} from './lib/locale-specialized-labels.mjs';
 import './lib/offline-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -23,7 +24,8 @@ const stage37Graph = buildUsageGraph({ ...inputs, fieldOwners: true });
 const stage38Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true });
 const stage39Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true });
 const stage41Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true });
-const graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true, regionalLabels: true });
+const stage42Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true, regionalLabels: true });
+const graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true, regionalLabels: true, specializedPaths: true });
 const report = readJson(fs.readFileSync(path.join(root, '.artifacts/locale-candidates/classification.json'), 'utf8'), 'classification');
 const row = slot => report.rows.find(r => r.slot === slot);
 const uses = r => r.usages.map(u => ({ ...report.usageContexts[u.context], text: report.displayTexts[u.text],
@@ -96,7 +98,8 @@ check('Permission: прежний helper и расширение на все wir
 check('Enum explanation действительно wired, неизвестные custom-пути не засчитаны', () => {
   const r = row('enum/EventType/acme.auth-start/explanation');
   assert.ok(uses(r).some(u => u.state === 'wired' && /EnumWidget|EnumMultiSelect/.test(u.renderer)));
-  assert.ok(report.rows.some(r => uses(r).some(u => u.state === 'review')));
+  assert.ok([...stage42Graph.usages.values()].some(us => us.some(u => u.state === 'review')));
+  assert.ok(!report.rows.some(r => uses(r).some(u => u.state === 'review')));
   assert.ok(stage38Graph.usages.get('variant/x:Account/User/label\0User account').some(u=>u.state==='unwired'));
   assert.ok(!report.rows.some(r => r.classification === 'renderer-unwired'));
   const alias = row('form/x:AiModelAnthropic/field/model');
@@ -218,7 +221,9 @@ const packet38=loadFormContextPacket(root,inputs.policy);
 const packet39=loadVariantPacket(root,inputs.policy);
 const packet41=loadTracePacket(root,inputs.policy);
 const packet42=loadRegionalPacket(root,inputs.policy);
-const stage41Catalog=undoRegional(inputs.catalog,packet42);
+const packet43=loadSpecializedPacket(root,inputs.policy);
+const stage42Catalog=undoSpecialized(inputs.catalog,packet43);
+const stage41Catalog=undoRegional(stage42Catalog,packet42);
 const stage39Catalog=undoTrace(stage41Catalog,packet41);
 const stage38Catalog=undoVariants(stage39Catalog,packet39);
 const stage37Catalog=undoFormContext(stage38Catalog,packet38);
@@ -249,6 +254,10 @@ const stage39Rows=classify(stage39Inputs,stage39Graph).rows;
 const stage41Inputs={...inputs,catalog:stage41Catalog,schema:sourceModule(rawRuntime18,'schemaText.ts',{'./schema/ru.json':stage41Catalog})};
 const stage41Report=compactReport(plan(stage41Inputs,stage41Graph));
 const stage41Rows=classify(stage41Inputs,stage41Graph).rows;
+const stage42Inputs={...inputs,catalog:stage42Catalog,schema:sourceModule(rawRuntime18,'schemaText.ts',{'./schema/ru.json':stage42Catalog})};
+const stage42Report=compactReport(plan(stage42Inputs,stage42Graph));
+const stage42Rows=classify(stage42Inputs,stage42Graph).rows;
+const uses42=r=>r.usages.map(u=>({...stage42Report.usageContexts[u.context],text:stage42Report.displayTexts[u.text],lookupSlot:Object.hasOwn(u,'lookupSlot')?u.lookupSlot:r.slot}));
 const uses41=r=>r.usages.map(u=>({...stage41Report.usageContexts[u.context],text:stage41Report.displayTexts[u.text],lookupSlot:Object.hasOwn(u,'lookupSlot')?u.lookupSlot:r.slot}));
 const stage37ById=new Map(stage37Rows.map(r=>[r.id,r]));
 const legacyCount=c=>legacyRows.filter(r=>r.classification===c).length;
@@ -360,7 +369,7 @@ check('Stage18: exact four reviewed scoped entries; no shared fallback or unexpe
 console.log('Stage18: applied 54 translations, two preserved standard labels, four exact scoped bindings. Static/source tests, not React/browser acceptance.');
 
 check('Stage37: exact historical scope, all canonical description paths and no translation regression', () => {
-  assert.equal(report.stage,42);
+  assert.equal(report.stage,43);
   assert.equal(legacyCount('translated'),6418);
   assert.equal(legacyCount('missing'),0);
   assert.equal(legacyCount('renderer-unwired'),2364);
@@ -557,8 +566,8 @@ check('Stage42: all 920 exact TimeZone/Locale labels, prior catalogue and usage 
   assert.ok(scope.every(r=>r.classification==='needs-review'&&r.catalogState==='missing'));
   assert.equal(digest(scope.map(r=>r.slot+'\0'+r.original+'\n').sort().join('')),packet42.scopePairSha256);
   assert.deepEqual(scope.map(r=>r.slot).sort(),packet42.entries.map(e=>e.slot).sort());
-  const intermediate=new Map(classify(stage41Inputs,graph).rows.map(r=>[r.id,r]));
-  const targets=new Set(scope.map(r=>r.id)),active=new Map(report.rows.map(r=>[r.id,r]));
+  const intermediate=new Map(classify(stage41Inputs,stage42Graph).rows.map(r=>[r.id,r]));
+  const targets=new Set(scope.map(r=>r.id)),active=new Map(stage42Report.rows.map(r=>[r.id,r]));
   let totalUses=0,intlUses=0;const screens=new Set();
   const norm=(u,previous)=> {
     const {text,renderer,...rest}=u;
@@ -578,7 +587,7 @@ check('Stage42: all 920 exact TimeZone/Locale labels, prior catalogue and usage 
     }
     assert.equal(prior.intlUses>0,true,prior.slot);
     assert.equal(now.intlUses,0,prior.slot);
-    const actual=uses(now);
+    const actual=uses42(now);
     // Context/lookup identity must be identical after the explicit renderer rename.
     // sourcePointer is encoded by row.locations in compact reports.
     const priorCompact=uses41(stage41Report.rows.find(r=>r.id===prior.id));
@@ -598,15 +607,100 @@ check('Stage42: all 920 exact TimeZone/Locale labels, prior catalogue and usage 
   assert.equal(totalUses,17756);
   assert.equal(intlUses,15180);
   assert.equal(screens.size,5);
-  assert.equal(report.screens.length,153);
-  assert.deepEqual(report.summary.classification,{'translated':11143,'missing':0,'keep-original':58,'technical':74,'renderer-unwired':0,'unreachable/conditional':812,'needs-review':159});
-  assert.equal(report.summary.acceptedCatalogEntries,11209);
-  assert.equal(report.summary.acceptedScopedEntries,4);
+  assert.equal(stage42Report.screens.length,153);
+  assert.deepEqual(stage42Report.summary.classification,{'translated':11143,'missing':0,'keep-original':58,'technical':74,'renderer-unwired':0,'unreachable/conditional':812,'needs-review':159});
+  assert.equal(stage42Report.summary.acceptedCatalogEntries,11209);
+  assert.equal(stage42Report.summary.acceptedScopedEntries,4);
   for(const mutate of [p=>p.entries.pop(),p=>p.entries.push(p.entries[0]),p=>p.entries[0].ru+=' {{unexpected}}',p=>p.entries[0].ru='wrong ID',p=>p.apply=true]){
-    const p=structuredClone(packet42);mutate(p);assert.throws(()=>undoRegional(inputs.catalog,p));
+    const p=structuredClone(packet42);mutate(p);assert.throws(()=>undoRegional(stage42Catalog,p));
   }
-  const tampered=structuredClone(inputs.catalog);
+  const tampered=structuredClone(stage42Catalog);
   tampered.entries[Object.keys(stage41Catalog.entries)[0]].ru+=' changed';
   assert.throws(()=>undoRegional(tampered,packet42));
   console.log('Stage42: 920 exact labels / 1840 edition bindings, 17756 uses on five screens, 15180 Intl-dependent usages removed; no unrelated classifications changed.');
+});
+
+check('Stage43: exact remaining 159 scope, mode-specific compact and custom consumers, no regression',()=>{
+  const scope=stage42Rows.filter(r=>r.classification==='needs-review');
+  const all=[...packet43.entries,...packet43.existing,...packet43.noConsumer];
+  assert.equal(scope.length,159);
+  assert.equal(digest(scope.map(r=>r.slot+'\0'+r.original+'\n').sort().join('')),packet43.scopePairSha256);
+  assert.deepEqual(scope.map(r=>r.slot).sort(),all.map(e=>e.slot).sort());
+  const targets=new Map(all.map(e=>[e.slot,e]));
+  const intermediate=new Map(classify(stage42Inputs,graph).rows.map(r=>[r.id,r]));
+  const current=classify(inputs,graph).rows,active=new Map(current.map(r=>[r.id,r]));
+  const beforeCounts={},afterCounts={},families={};
+  const count=(dst,k,n=1)=>dst[k]=(dst[k]??0)+n;
+  const screens=new Set();
+  for(const prior of stage42Rows){
+    const now=active.get(prior.id),mid=intermediate.get(prior.id);
+    assert.ok(now&&mid,prior.slot);
+    assert.equal(now.original,prior.original,prior.slot);
+    assert.equal(now.category,prior.category,prior.slot);
+    assert.deepEqual(now.locations,prior.locations,prior.slot);
+    assert.equal(now.access,prior.access,prior.slot);
+    assert.equal(now.sourceConflict,prior.sourceConflict,prior.slot);
+    assert.equal(now.scopedBindingVerified,prior.scopedBindingVerified,prior.slot);
+    if(!targets.has(prior.slot)){
+      assert.equal(mid.classification,prior.classification,prior.slot);
+      assert.deepEqual(now,prior,'Unrelated row/usage changed: '+prior.slot);
+      continue;
+    }
+    const e=targets.get(prior.slot);
+    const noConsumer=e.decision==='no-proven-consumer';
+    assert.equal(prior.classification,'needs-review',prior.slot);
+    assert.equal(now.classification,noConsumer?'unreachable/conditional':'translated',prior.slot);
+    assert.equal(mid.classification,noConsumer?'unreachable/conditional':e.decision==='retain'?'translated':'missing',prior.slot);
+    assert.equal(now.acceptedTranslation,e.ru??e.priorRu??null,prior.slot);
+    if(prior.acceptedTranslation!==null)assert.equal(now.acceptedTranslation,prior.acceptedTranslation,prior.slot);
+    if(noConsumer){
+      assert.equal(now.usages.length,0,prior.slot);
+      assert.equal(now.reachability,'unproven',prior.slot);
+      assert.equal(now.catalogState,prior.catalogState,prior.slot);
+      count(families,e.family);
+    }else{
+      assert.ok(now.usages.length>0,prior.slot);
+      assert.ok(now.usages.every(u=>u.state==='wired'&&u.lookupSlot===now.slot&&u.text.ru===now.acceptedTranslation&&!u.text.conditional),prior.slot);
+    }
+    for(const u of prior.usages){count(beforeCounts,u.state);screens.add(u.section+'\0'+u.screen);}
+    for(const u of now.usages)count(afterCounts,u.state);
+    for(const l of now.locations){
+      assert.equal(at(inputs.pins.find(p=>p.schemaHash===l.schemaHash).data,l.sourcePointer),now.original,now.slot);
+      const lookup=inputs.schema.schemaText;
+      assert.equal(lookup(l.schemaHash,'ru',now.slot,now.original),now.acceptedTranslation??now.original);
+      assert.equal(lookup(l.schemaHash,'en',now.slot,now.original),now.original);
+      assert.equal(lookup(l.schemaHash,'ru',now.slot,now.original+' changed'),now.original+' changed');
+      assert.equal(lookup('unknown','ru',now.slot,now.original),now.original);
+    }
+    if(/^enum\/DnsRecordType\//.test(now.slot)){
+      assert.ok(now.usages.some(u=>u.renderer==='EnumMultiSelect'));
+      assert.ok(now.usages.some(u=>u.mode==='detail'));
+      assert.ok(now.usages.every(u=>u.mode!=='list-cell'));
+    }
+    if(/^enum\/KeyDiscoverySource\//.test(now.slot))assert.ok(now.usages.some(u=>u.mode==='list-cell'&&u.conditions.includes('summary-selected-enum-dependent')));
+    if(/^variant\/x:(DnsManagement|CertificateManagement|TaskStatus|IndexStatus|KeySource)\//.test(now.slot))
+      assert.ok(now.usages.some(u=>u.mode==='list-cell'&&u.renderer==='EmbeddedSummaryValue'));
+    if(/^(field|form)\/x:(DnsManagementProperties|CertificateManagementProperties|TaskStatusFailed|TaskStatusRetry|TaskStatusPending|IndexStatusFailed|KeySourceAutomatic)\//.test(now.slot))
+      assert.ok(now.usages.every(u=>u.mode!=='list-cell'));
+    if(/^(field|form)\/x:(Expression|ExpressionMatch|Rate|PasskeyRegistration)\//.test(now.slot))
+      assert.ok(now.usages.every(u=>u.mode==='detail'));
+    if(/^(field|form|variant)\/x:Trace/.test(now.slot))
+      assert.ok(now.usages.every(u=>u.mode==='create'));
+    if(/^(field|form)\/VacationResponse\//.test(now.slot)&&!noConsumer)
+      assert.ok(now.usages.every(u=>u.mode==='singleton'&&u.conditions.includes('custom-page:VacationResponsePage/DynamicForm')));
+  }
+  assert.deepEqual(families,{'vacation-date-override':4,'otp-widget-client-labels':4,'trace-custom-detail-and-server-set-create':8});
+  assert.deepEqual(graph.screens,stage42Graph.screens);
+  assert.deepEqual(graph.unresolved,stage42Graph.unresolved);
+  assert.equal(report.screens.length,153);
+  assert.deepEqual(report.summary.classification,{'translated':11286,'missing':0,'keep-original':58,'technical':74,'renderer-unwired':0,'unreachable/conditional':828,'needs-review':0});
+  assert.equal(report.summary.acceptedCatalogEntries,11331);
+  assert.equal(report.summary.acceptedScopedEntries,4);
+  for(const mutate of [p=>p.entries.pop(),p=>p.entries.push(p.entries[0]),p=>p.entries[0].ru+=' {{unexpected}}',p=>p.existing.pop(),p=>p.noConsumer.pop(),p=>p.noConsumer[0].decision='translate',p=>p.apply=true]){
+    const p=structuredClone(packet43);mutate(p);assert.throws(()=>undoSpecialized(inputs.catalog,p));
+  }
+  const tampered=structuredClone(inputs.catalog);
+  tampered.entries[Object.keys(stage42Catalog.entries)[0]].ru+=' changed';
+  assert.throws(()=>undoSpecialized(tampered,packet43));
+  console.log('Stage43: 159 pairs; 143 translated, 16 no proven consumer. Exact usage counts '+JSON.stringify({beforeCounts,afterCounts,screens:screens.size})+'; no unrelated changes.');
 });

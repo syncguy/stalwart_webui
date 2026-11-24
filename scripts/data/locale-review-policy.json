@@ -59,7 +59,20 @@
     "src/components/ui/combobox.tsx": "47277fb2476ae18a9ce50037e1d4fd39d78c092540251df914ef1e7cbe7b5396",
     "src/components/values/TimeZoneValue.tsx": "3ce6eafdf4c83ea10f387f430526dea81a941ef28bd61a61f062d210b1b8a538",
     "src/components/ui/comboboxSearch.ts": "08b75f2d9464c0e1ff3a5b23c16b4428946beaaefc4f8d104ff1a97ffc0bbcca",
-    "src/lib/format.ts": "afbaac37f1344d744388cb6fb8073959c9f271f29ae2f083c51f740e7007cf3c"
+    "src/lib/format.ts": "afbaac37f1344d744388cb6fb8073959c9f271f29ae2f083c51f740e7007cf3c",
+    "src/features/vacation/VacationResponsePage.tsx": "7f0c1ad85f97544251f5ee197b2a69391d8c58dbe3a78f0ae68ddd33b899ef58",
+    "src/features/vacation/components/PeriodRow.tsx": "c7fc72a5d28321be423962f5f03c0868e12bed8b20d50b4f6c467753990bd12a",
+    "src/features/vacation/model.ts": "f74a14199c5e6452060a2250292b838ff8b8088c52d541af436e75b34f38c0a5",
+    "src/components/forms/widgets/ExpressionWidget.tsx": "eb53a2085f30058a83841d343c1b14b8fe50e64a648f0796206346048a6076fe",
+    "src/components/forms/widgets/RateWidget.tsx": "905fd1a09a06418ef9b120c0ca1d01218122343f0801a124b20208f01a64c73a",
+    "src/components/forms/widgets/OtpAuthField.tsx": "db6d177a38a392666add35e6f14a3288108f29ecad041d175f06f887287a77d3",
+    "src/components/expression/ExpressionEditor.tsx": "856ccafb3b4d9e6163bbb3f3bb9157a51305604df731d47d4d18d65dfe92cb67",
+    "src/components/forms/widgets/PasskeyRegistrationField.tsx": "6a19be0facbff5c2d8a289cce5d6cf67dccdd12dee9129bf7e2057edb05c486c",
+    "src/lib/durationFormat.ts": "d70ace5b5fc42b83ac4f60024c37169eb362b37def477bf441db18857a1efe49",
+    "src/components/forms/widgets/useDurationUnitLabel.ts": "bfaf3abd009ad9c739b9676de70313efe61502bc0ec15902e8240a7d3aff73cb",
+    "src/i18n/ru.json": "97beab26cebba0b1d17789ea603f5c47a455cb927a59cdbdf76ec73ac86341ec",
+    "src/components/forms/widgets/LazyWidgets.tsx": "6e6eb241ae8785e0160a16deb208b1d38f577a625cd537944dc73330593a2053",
+    "src/i18n/en.json": "b6870883d5a462076f494bba1ae76636ef1a6d488924a03233a2fa5645395dfa"
   },
   "keepOriginal": [
     {
@@ -494,7 +507,7 @@
   ],
   "baselineSource": "6491192ec301bb32f7ed500d18f3dd94f358945b",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "3b17ec1946b4a6d8866823d3937a33bef60e00c846d8415b1451a98b47229e25",
+    "src/i18n/schema/ru.json": "6dc7b2ca90d178b19890e5c78f50863301cc8eb812ae143b083d63ea073b25d8",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
     "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
@@ -521,7 +534,7 @@
     "scripts/data/stage35-ambiguous-missing-review.json": "8e933f83969d6e4d9d7be44bb5b8aa258265bbcb5f04a1dac166c2284d51b4e8",
     "scripts/data/stage37-field-descriptions-review.json": "6a8236cdc6f3521788e3a2c5b1cf4698293fe5f6f5b5f2966c81ba752080e8b6",
     "scripts/lib/locale-field-descriptions.mjs": "2177dbbddfd188621f8491ae8571418f1d69540a059a03f201376ef9a3d52038",
-    "scripts/lib/locale-graph.mjs": "970375b3c29f88672af439469be7fcff7abe57cd440b15faa36ed72f6e99e965",
+    "scripts/lib/locale-graph.mjs": "531709a94312b8c34ac2799220602b8c4a5bb7e75aedd17286397373d4988a05",
     "scripts/lib/locale-form-context.mjs": "ef2fe2295fbc84c35636650c361328b27711fc1ed8c20bc460b612b6ca61e557",
     "scripts/data/stage38-form-context-review.json": "376c86eb95423f7da3a76b24fa33834a4f1df2cd05de1c7c6b9684e311de913e",
     "scripts/lib/locale-variant-labels.mjs": "51a3896b38046c886d07af6ab36319931d07c5f169f3626876de29e8117ff717",
@@ -532,7 +545,10 @@
     "scripts/data/stage42-regional-labels-review.json": "20bbe70c7a554aaca0b4e45ee5e9b82b870bf1036791e0555147e1785ca95571",
     "scripts/lib/locale-regional-labels.mjs": "b47efdb1f09182ebcdc4d801049226461bcdb687325c5b9cccb0e8ee0b0caca3",
     "scripts/lib/locale-regional-components.mjs": "7c6dc1c077083662b9f02cd145691e8a8610fd8405c09fca82190470526f3466",
-    "scripts/check-option-labels.mjs": "347d0b7635ba80e726954c525ef369ba1448a0a3f5a18acdcd8a40c185e57b99"
+    "scripts/check-option-labels.mjs": "347d0b7635ba80e726954c525ef369ba1448a0a3f5a18acdcd8a40c185e57b99",
+    "scripts/data/stage43-specialized-review.json": "2dc3961703c919df8bd52ccd041f3dcd62a321d33d3f0607532593a58f71a0a5",
+    "scripts/lib/locale-specialized-labels.mjs": "0bce386a4266533e262ef2e8e239df5fea054141aa7bcf862f2cc24906865d0a",
+    "scripts/lib/locale-specialized-components.mjs": "b83812e7ef4468eeef66b8bd42c226d6a0fd52b0a924588c1e95087193a4ef68"
   },
   "clientLiterals": [
     {

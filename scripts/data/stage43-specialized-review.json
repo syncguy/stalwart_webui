@@ -1,0 +1,989 @@
+{
+  "version": 1,
+  "stage": 43,
+  "status": "editor-reviewed",
+  "apply": false,
+  "baseline": "6341bb1defdf73e08fc850565288e0f097bf5ef1",
+  "baselineCatalogSha256": "3b17ec1946b4a6d8866823d3937a33bef60e00c846d8415b1451a98b47229e25",
+  "scopePairSha256": "296d47b8cc83927307bfa8aaca10e893c341e648f401959878294f1e9132b6d6",
+  "pairSha256": "902b26db57ac42c13efe1ba575a8b1ffa046153815b8957605a3a698fffea037",
+  "existingPairSha256": "08cdc68b7221cff9e9243d0d60a1b31240d55e234254207294dcd20d5653ade2",
+  "noConsumerPairSha256": "3c1eb0b83a47466e16e3703948673e94f9d4ddb5abb957bab4058fde2b0d93c9",
+  "scope": "Eight exact residual renderer families. No-proven-consumer is not runtime inaccessibility. Prior catalogue entries retained.",
+  "entries": [
+    {
+      "slot": "enum/DnsRecordType/autoConfig/label",
+      "original": "Autoconfig records",
+      "ru": "Записи Autoconfig",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DnsRecordType/autoConfigLegacy/label",
+      "original": "Legacy Autoconfig records",
+      "ru": "Записи Autoconfig (устаревший формат)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DnsRecordType/autoDiscover/label",
+      "original": "Microsoft Autodiscover records",
+      "ru": "Записи Microsoft Autodiscover",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DnsRecordType/caa/label",
+      "original": "CAA records",
+      "ru": "Записи CAA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DnsRecordType/dkim/label",
+      "original": "DKIM public keys",
+      "ru": "Открытые ключи DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DnsRecordType/dmarc/label",
+      "original": "DMARC policy",
+      "ru": "Политика DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DnsRecordType/mtaSts/label",
+      "original": "MTA-STS policy record",
+      "ru": "Запись политики MTA-STS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DnsRecordType/mx/label",
+      "original": "MX records",
+      "ru": "Записи MX",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DnsRecordType/spf/label",
+      "original": "SPF records",
+      "ru": "Записи SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DnsRecordType/srv/label",
+      "original": "SRV records",
+      "ru": "Записи SRV",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DnsRecordType/tlsRpt/label",
+      "original": "TLS reporting record",
+      "ru": "Запись отчётности TLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DnsRecordType/tlsa/label",
+      "original": "TLSA records",
+      "ru": "Записи TLSA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/KeyDiscoverySource/dnssec/label",
+      "original": "DNS (OPENPGPKEY and SMIMEA, DNSSEC required)",
+      "ru": "DNS (OPENPGPKEY и SMIMEA, требуется DNSSEC)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/KeyDiscoverySource/hkp/label",
+      "original": "Keyservers (HKP)",
+      "ru": "Серверы ключей (HKP)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/KeyDiscoverySource/vks/label",
+      "original": "keys.openpgp.org",
+      "ru": "Сервер ключей keys.openpgp.org",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/KeyDiscoverySource/wkd/label",
+      "original": "Web Key Directory",
+      "ru": "Веб-каталог ключей (Web Key Directory)",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/VacationResponse/htmlBody/description",
+      "original": "HTML body for the vacation reply",
+      "ru": "Текст автоматического ответа в формате HTML",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/VacationResponse/isEnabled/description",
+      "original": "Whether to send vacation responses for messages arriving between the specified dates",
+      "ru": "Отправлять ли автоматические ответы на сообщения, поступившие в указанный период",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/VacationResponse/subject/description",
+      "original": "Subject line for the vacation reply; if null, the server chooses an appropriate one",
+      "ru": "Тема автоматического ответа; при значении null сервер подберёт подходящую тему",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/VacationResponse/textBody/description",
+      "original": "Plain text body for the vacation reply",
+      "ru": "Текст автоматического ответа без форматирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:CertificateManagementProperties/subjectAlternativeNames/description",
+      "original": "Additional hostnames to include in the certificate as Subject Alternative Names (SANs).\nEnter hostnames only (e.g. `mta-sts`, `autoconfig`), the domain is appended automatically.\nEntries containing a dot are used as written.\nTo include the apex domain, enter it in full (e.g. `example.org`).\nLeave empty to request a wildcard certificate when possible, or to use the default SANs.",
+      "ru": "Дополнительные имена узлов, включаемые в сертификат как альтернативные имена субъекта (SANs).\nУказывайте только имена узлов (например, `mta-sts`, `autoconfig`): домен будет добавлен автоматически.\nЗаписи, содержащие точку, используются без изменений.\nЧтобы включить корневой домен зоны, укажите его полностью (например, `example.org`).\nОставьте поле пустым, чтобы по возможности запросить сертификат с подстановочным знаком или использовать SANs по умолчанию.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DnsManagementProperties/origin/description",
+      "original": "Origin domain used to determine the correct DNS zone for managing records. For example, if the domain is \"sub.example.com\" and DNS records should be managed in the \"example.com\" zone, set the origin to \"example.com\". Leave empty to use the domain name itself as the zone origin.",
+      "ru": "Исходный домен, используемый для определения нужной DNS-зоны при управлении записями. Например, если домен — \"sub.example.com\", а DNS-записи должны управляться в зоне \"example.com\", задайте исходный домен \"example.com\". Оставьте поле пустым, чтобы использовать имя самого домена как начало зоны.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Expression/else/description",
+      "original": "Else condition",
+      "ru": "Значение при невыполнении условий",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Expression/match/description",
+      "original": "List of conditions and their corresponding results",
+      "ru": "Список условий и соответствующих им результатов",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ExpressionMatch/if/description",
+      "original": "If condition",
+      "ru": "Условие IF",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ExpressionMatch/then/description",
+      "original": "Then clause",
+      "ru": "Результат при выполнении условия THEN",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:IndexStatusFailed/nextRetry/description",
+      "original": "Date and time when indexing will be retried",
+      "ru": "Дата и время повторной попытки индексации",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:IndexStatusFailed/reason/description",
+      "original": "Error reported by the last indexing attempt",
+      "ru": "Ошибка, полученная при последней попытке индексации",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:KeySourceAutomatic/method/description",
+      "original": "Where the key is fetched from",
+      "ru": "Источник получения ключа",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:PasskeyRegistration/attestationObject/description",
+      "original": "Attestation object returned by the authenticator, base64url encoded",
+      "ru": "Объект аттестации, возвращённый аутентификатором, в кодировке base64url",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:PasskeyRegistration/clientDataJson/description",
+      "original": "Client data JSON returned by the authenticator, base64url encoded",
+      "ru": "Данные клиента в формате JSON, возвращённые аутентификатором, в кодировке base64url",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Rate/count/description",
+      "original": "Count",
+      "ru": "Количество",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Rate/period/description",
+      "original": "Period",
+      "ru": "Период",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskStatusFailed/createdAt/description",
+      "original": "Date and time when the task was created",
+      "ru": "Дата и время создания задачи",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskStatusFailed/failedAt/description",
+      "original": "Date and time when the task failed",
+      "ru": "Дата и время отказа задачи",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskStatusFailed/failedAttemptNumber/description",
+      "original": "Number of attempts made before the task failed",
+      "ru": "Количество попыток до окончательного отказа задачи",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskStatusFailed/failureReason/description",
+      "original": "Reason for task failure",
+      "ru": "Причина отказа задачи",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskStatusPending/createdAt/description",
+      "original": "Date and time when the task was created",
+      "ru": "Дата и время создания задачи",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskStatusPending/due/description",
+      "original": "Due date and time for the task",
+      "ru": "Назначенные дата и время выполнения задачи",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskStatusRetry/attemptNumber/description",
+      "original": "Number of failed attempts so far",
+      "ru": "Количество неудачных попыток к текущему моменту",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskStatusRetry/createdAt/description",
+      "original": "Date and time when the task was created",
+      "ru": "Дата и время создания задачи",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskStatusRetry/due/description",
+      "original": "Date and time of the next attempt",
+      "ru": "Дата и время следующей попытки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskStatusRetry/failureReason/description",
+      "original": "Reason for the last failure",
+      "ru": "Причина последнего сбоя",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskStatusRetry/firstFailedAt/description",
+      "original": "Date and time of the first failed attempt",
+      "ru": "Дата и время первой неудачной попытки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceEvent/event/description",
+      "original": "Event type",
+      "ru": "Тип события",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceEvent/keyValues/description",
+      "original": "List of key-value pairs associated with the trace entry",
+      "ru": "Список пар «ключ — значение», связанных с записью трассировки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceEvent/timestamp/description",
+      "original": "Timestamp when the event occurred",
+      "ru": "Дата и время возникновения события",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceKeyValue/key/description",
+      "original": "Key name",
+      "ru": "Имя ключа",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceKeyValue/value/description",
+      "original": "Key value",
+      "ru": "Значение ключа",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceValueBoolean/value/description",
+      "original": "Boolean value",
+      "ru": "Логическое значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceValueDuration/value/description",
+      "original": "Duration value in milliseconds",
+      "ru": "Длительность в миллисекундах",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceValueEvent/event/description",
+      "original": "Event type",
+      "ru": "Тип события",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceValueEvent/value/description",
+      "original": "List of key-value pairs associated with the trace entry",
+      "ru": "Список пар «ключ — значение», связанных с записью трассировки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceValueFloat/value/description",
+      "original": "Float value",
+      "ru": "Значение с плавающей точкой",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceValueInteger/value/description",
+      "original": "Integer value",
+      "ru": "Целочисленное значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceValueIpAddr/value/description",
+      "original": "IP address value",
+      "ru": "Значение IP-адреса",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceValueList/value/description",
+      "original": "Value list",
+      "ru": "Список значений",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceValueString/value/description",
+      "original": "String value",
+      "ru": "Строковое значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceValueUTCDateTime/value/description",
+      "original": "UTC date and time value",
+      "ru": "Дата и время UTC",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TraceValueUnsignedInt/value/description",
+      "original": "Unsigned integer value",
+      "ru": "Беззнаковое целочисленное значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/VacationResponse/field/htmlBody",
+      "original": "HTML Body",
+      "ru": "Текст в формате HTML",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/VacationResponse/field/isEnabled",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/VacationResponse/field/subject",
+      "original": "Subject",
+      "ru": "Тема письма",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/VacationResponse/field/textBody",
+      "original": "Plain Text Body",
+      "ru": "Текст без форматирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/VacationResponse/section/section-0",
+      "original": "Schedule",
+      "ru": "Расписание",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/VacationResponse/section/section-1",
+      "original": "Response",
+      "ru": "Ответ",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/VacationResponse/subtitle",
+      "original": "Configure an automatic reply sent in response to messages received while you are away, including the active date range, subject line, and plain text or HTML body",
+      "ru": "Настройте автоматический ответ на сообщения, полученные в ваше отсутствие: период действия, тему письма и текст без форматирования или в формате HTML.",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Expression/field/else",
+      "original": "Default Value",
+      "ru": "Значение по умолчанию",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Expression/field/match",
+      "original": "Conditions",
+      "ru": "Условия",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ExpressionMatch/field/if",
+      "original": "Condition",
+      "ru": "Условие",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ExpressionMatch/field/then",
+      "original": "Result",
+      "ru": "Результат",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:IndexStatusFailed/field/reason",
+      "original": "Reason",
+      "ru": "Причина",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:KeySourceAutomatic/field/method",
+      "original": "Method",
+      "ru": "Метод",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:PasskeyRegistration/field/attestationObject",
+      "original": "Attestation Object",
+      "ru": "Объект аттестации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:PasskeyRegistration/field/clientDataJson",
+      "original": "Client Data",
+      "ru": "Данные клиента",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Rate/field/count",
+      "original": "Count",
+      "ru": "Количество",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Rate/field/period",
+      "original": "Period",
+      "ru": "Период",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TaskStatusFailed/field/failedAt",
+      "original": "Failed At",
+      "ru": "Время отказа",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TaskStatusFailed/field/failedAttemptNumber",
+      "original": "Attempts",
+      "ru": "Попытки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TaskStatusFailed/field/failureReason",
+      "original": "Failure Reason",
+      "ru": "Причина сбоя",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TaskStatusRetry/field/attemptNumber",
+      "original": "Failed Attempts",
+      "ru": "Неудачные попытки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TaskStatusRetry/field/due",
+      "original": "Next Attempt",
+      "ru": "Следующая попытка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TaskStatusRetry/field/failureReason",
+      "original": "Failure Reason",
+      "ru": "Причина сбоя",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TaskStatusRetry/field/firstFailedAt",
+      "original": "First Failure",
+      "ru": "Первый сбой",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceEvent/field/event",
+      "original": "Event",
+      "ru": "Событие",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceEvent/field/keyValues",
+      "original": "Key-Value Pairs",
+      "ru": "Пары «ключ — значение»",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceEvent/field/timestamp",
+      "original": "Timestamp",
+      "ru": "Метка времени",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceKeyValue/field/key",
+      "original": "Key",
+      "ru": "Ключ",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceKeyValue/field/value",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceValueBoolean/field/value",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceValueDuration/field/value",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceValueEvent/field/event",
+      "original": "Event",
+      "ru": "Событие",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceValueEvent/field/value",
+      "original": "Key-Value Pairs",
+      "ru": "Пары «ключ — значение»",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceValueFloat/field/value",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceValueInteger/field/value",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceValueIpAddr/field/value",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceValueList/field/value",
+      "original": "Values",
+      "ru": "Значения",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceValueString/field/value",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceValueUTCDateTime/field/value",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TraceValueUnsignedInt/field/value",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:IndexStatus/Failed/label",
+      "original": "Last indexing attempt failed",
+      "ru": "Последняя попытка индексации завершилась ошибкой",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:IndexStatus/Running/label",
+      "original": "Queue is being processed normally",
+      "ru": "Очередь обрабатывается в штатном режиме",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:KeySource/Autocrypt/label",
+      "original": "Learned from an Autocrypt header",
+      "ru": "Получен из заголовка Autocrypt",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:KeySource/Automatic/label",
+      "original": "Keep the key up to date from a discovery method",
+      "ru": "Автоматически обновлять ключ из источника обнаружения",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:KeySource/HarvestedPgp/label",
+      "original": "Learned from an OpenPGP signature",
+      "ru": "Получен из подписи OpenPGP",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:KeySource/HarvestedSmime/label",
+      "original": "Learned from an S/MIME signature",
+      "ru": "Получен из подписи S/MIME",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:KeySource/Manual/label",
+      "original": "Enter the key manually",
+      "ru": "Ввести ключ вручную",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TaskStatus/Failed/label",
+      "original": "Task that failed permanently and needs operator action",
+      "ru": "Задача завершилась окончательным отказом и требует вмешательства оператора",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TaskStatus/Pending/label",
+      "original": "Pending task awaiting execution",
+      "ru": "Задача ожидает выполнения",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TaskStatus/Retry/label",
+      "original": "Task scheduled for retry after a transient failure",
+      "ru": "Задача назначена на повторное выполнение после временного сбоя",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TaskStatus/Stalled/label",
+      "original": "Task still retrying after repeated transient failures",
+      "ru": "Повторные попытки выполнения задачи после нескольких временных сбоев продолжаются",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TraceValue/Boolean/label",
+      "original": "Boolean value",
+      "ru": "Логическое значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TraceValue/Duration/label",
+      "original": "Duration value in milliseconds",
+      "ru": "Длительность в миллисекундах",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TraceValue/Event/label",
+      "original": "Nested event value",
+      "ru": "Вложенное событие",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TraceValue/Float/label",
+      "original": "Float value",
+      "ru": "Значение с плавающей точкой",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TraceValue/Integer/label",
+      "original": "Integer value",
+      "ru": "Целочисленное значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TraceValue/IpAddr/label",
+      "original": "IP address value",
+      "ru": "Значение IP-адреса",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TraceValue/List/label",
+      "original": "Value list",
+      "ru": "Список значений",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TraceValue/Null/label",
+      "original": "Null value",
+      "ru": "Значение null",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TraceValue/String/label",
+      "original": "String value",
+      "ru": "Строковое значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TraceValue/UTCDateTime/label",
+      "original": "UTC date and time value",
+      "ru": "Дата и время UTC",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TraceValue/UnsignedInt/label",
+      "original": "Unsigned integer value",
+      "ru": "Беззнаковое целочисленное значение",
+      "decision": "translate"
+    }
+  ],
+  "existing": [
+    {
+      "slot": "field/x:CertificateManagementProperties/acmeProviderId/description",
+      "original": "Identifier for the ACME provider managing certificates for this domain",
+      "ru": "Идентификатор провайдера ACME, управляющего сертификатами домена",
+      "decision": "retain"
+    },
+    {
+      "slot": "field/x:DnsManagementProperties/dnsServerId/description",
+      "original": "Identifier for the DNS server provider managing DNS records for this domain",
+      "ru": "Идентификатор провайдера DNS, управляющего DNS-записями этого домена",
+      "decision": "retain"
+    },
+    {
+      "slot": "field/x:DnsManagementProperties/publishRecords/description",
+      "original": "Which DNS record types should be automatically published and kept in sync",
+      "ru": "Типы DNS-записей, которые необходимо автоматически публиковать и поддерживать в актуальном состоянии",
+      "decision": "retain"
+    },
+    {
+      "slot": "field/x:Trace/events/description",
+      "original": "List of events associated with the trace entry",
+      "ru": "Список событий, связанных с этой записью трассировки",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/VacationResponse/title",
+      "original": "Vacation Response",
+      "ru": "Автоответчик",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:CertificateManagementProperties/field/acmeProviderId",
+      "original": "ACME Provider",
+      "ru": "Провайдер ACME",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:CertificateManagementProperties/field/subjectAlternativeNames",
+      "original": "Additional Hostnames",
+      "ru": "Дополнительные имена узлов",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:DnsManagementProperties/field/dnsServerId",
+      "original": "DNS Server",
+      "ru": "DNS-сервер",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:DnsManagementProperties/field/origin",
+      "original": "Zone Origin",
+      "ru": "Исходный домен зоны",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:DnsManagementProperties/field/publishRecords",
+      "original": "Record Types",
+      "ru": "Типы DNS-записей",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:IndexStatusFailed/field/nextRetry",
+      "original": "Next Retry",
+      "ru": "Следующая попытка",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:TaskStatusFailed/field/createdAt",
+      "original": "Created At",
+      "ru": "Дата создания",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:TaskStatusPending/field/createdAt",
+      "original": "Created At",
+      "ru": "Дата создания",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:TaskStatusPending/field/due",
+      "original": "Due",
+      "ru": "Срок выполнения",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:TaskStatusRetry/field/createdAt",
+      "original": "Created At",
+      "ru": "Дата создания",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:Trace/field/events",
+      "original": "Events",
+      "ru": "События",
+      "decision": "retain"
+    },
+    {
+      "slot": "form/x:Trace/section/section-0",
+      "original": "Trace",
+      "ru": "Трассировка",
+      "decision": "retain"
+    },
+    {
+      "slot": "variant/x:CertificateManagement/Automatic/label",
+      "original": "ACME TLS certificate management",
+      "ru": "Управление сертификатами TLS через ACME",
+      "decision": "retain"
+    },
+    {
+      "slot": "variant/x:CertificateManagement/Manual/label",
+      "original": "Manual TLS certificate management",
+      "ru": "Ручное управление сертификатами TLS",
+      "decision": "retain"
+    },
+    {
+      "slot": "variant/x:DnsManagement/Automatic/label",
+      "original": "Automatic DNS management",
+      "ru": "Автоматическое управление DNS",
+      "decision": "retain"
+    },
+    {
+      "slot": "variant/x:DnsManagement/Manual/label",
+      "original": "Manual DNS management",
+      "ru": "Ручное управление DNS",
+      "decision": "retain"
+    }
+  ],
+  "noConsumer": [
+    {
+      "slot": "field/VacationResponse/fromDate/description",
+      "original": "Start of the vacation period, or null to take effect immediately",
+      "decision": "no-proven-consumer",
+      "family": "vacation-date-override",
+      "priorRu": null
+    },
+    {
+      "slot": "field/VacationResponse/toDate/description",
+      "original": "End of the vacation period, or null to continue indefinitely",
+      "decision": "no-proven-consumer",
+      "family": "vacation-date-override",
+      "priorRu": null
+    },
+    {
+      "slot": "field/x:OtpAuth/otpCode/description",
+      "original": "OTP code for the account, required for credential changes.",
+      "decision": "no-proven-consumer",
+      "family": "otp-widget-client-labels",
+      "priorRu": null
+    },
+    {
+      "slot": "field/x:OtpAuth/otpUrl/description",
+      "original": "OTP authentication URI for the account",
+      "decision": "no-proven-consumer",
+      "family": "otp-widget-client-labels",
+      "priorRu": null
+    },
+    {
+      "slot": "field/x:Trace/from/description",
+      "original": "Sender address",
+      "decision": "no-proven-consumer",
+      "family": "trace-custom-detail-and-server-set-create",
+      "priorRu": "Адрес отправителя"
+    },
+    {
+      "slot": "field/x:Trace/size/description",
+      "original": "Size of the message",
+      "decision": "no-proven-consumer",
+      "family": "trace-custom-detail-and-server-set-create",
+      "priorRu": "Размер сообщения"
+    },
+    {
+      "slot": "field/x:Trace/timestamp/description",
+      "original": "Timestamp of the trace entry",
+      "decision": "no-proven-consumer",
+      "family": "trace-custom-detail-and-server-set-create",
+      "priorRu": "Время записи трассировки"
+    },
+    {
+      "slot": "field/x:Trace/to/description",
+      "original": "Recipient addresses",
+      "decision": "no-proven-consumer",
+      "family": "trace-custom-detail-and-server-set-create",
+      "priorRu": "Адреса получателей"
+    },
+    {
+      "slot": "form/VacationResponse/field/fromDate",
+      "original": "From",
+      "decision": "no-proven-consumer",
+      "family": "vacation-date-override",
+      "priorRu": null
+    },
+    {
+      "slot": "form/VacationResponse/field/toDate",
+      "original": "To",
+      "decision": "no-proven-consumer",
+      "family": "vacation-date-override",
+      "priorRu": "Кому"
+    },
+    {
+      "slot": "form/x:OtpAuth/field/otpCode",
+      "original": "OTP Code",
+      "decision": "no-proven-consumer",
+      "family": "otp-widget-client-labels",
+      "priorRu": null
+    },
+    {
+      "slot": "form/x:OtpAuth/field/otpUrl",
+      "original": "OTP Authentication URI",
+      "decision": "no-proven-consumer",
+      "family": "otp-widget-client-labels",
+      "priorRu": null
+    },
+    {
+      "slot": "form/x:Trace/field/from",
+      "original": "From",
+      "decision": "no-proven-consumer",
+      "family": "trace-custom-detail-and-server-set-create",
+      "priorRu": null
+    },
+    {
+      "slot": "form/x:Trace/field/size",
+      "original": "Size",
+      "decision": "no-proven-consumer",
+      "family": "trace-custom-detail-and-server-set-create",
+      "priorRu": "Размер"
+    },
+    {
+      "slot": "form/x:Trace/field/timestamp",
+      "original": "Timestamp",
+      "decision": "no-proven-consumer",
+      "family": "trace-custom-detail-and-server-set-create",
+      "priorRu": "Время события"
+    },
+    {
+      "slot": "form/x:Trace/field/to",
+      "original": "To",
+      "decision": "no-proven-consumer",
+      "family": "trace-custom-detail-and-server-set-create",
+      "priorRu": "Кому"
+    }
+  ]
+}

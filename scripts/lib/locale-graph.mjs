@@ -2,7 +2,7 @@
 import { compare, ptr } from './locale-source.mjs';
 
 // fieldOwners=false replays the historical pre-stage37 renderer contract only.
-export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false, formOwners = false, variantBadges = false, traceLabels = false, regionalLabels = false }) {
+export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false, formOwners = false, variantBadges = false, traceLabels = false, regionalLabels = false, specializedPaths = false }) {
   const byPointer = new Map();
   const usages = new Map(inventory.rows.map(r => [r.slot + '\0' + r.original, new Map()]));
   const screens = new Map();
@@ -32,6 +32,13 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
     (w.match.listObjectName && type.type === 'objectList' && w.match.listObjectName === type.objectName) ||
     (w.match.enumName && type.type === 'enum' && w.match.enumName === type.enumName))?.key;
 
+  // Stage43 contracts: these five objects have a real compact summary in
+  // ListCell -> FieldValue -> EmbeddedSummaryValue. Specialized editors have
+  // no View override, so full detail uses the generic ObjectValue renderer.
+  // Do not reinterpret other extension/widget families without review.
+  const compactFamilies = new Set(['x:DnsManagement', 'x:CertificateManagement', 'x:TaskStatus', 'x:IndexStatus', 'x:KeySource']);
+  const specialEditors = new Set(['x:Expression', 'x:Rate', 'x:OtpAuth', 'x:PasskeyRegistration']);
+  const isResidualObject = name => compactFamilies.has(name) || specialEditors.has(name) || name === 'x:ExpressionMatch';
   for (const pin of pins) {
     const s = pin.data;
     const nav = [];
@@ -140,11 +147,39 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
           typeUses(type.valueClass, ctx, fieldName, 'map-value');
         }
         if (type.type !== 'object' && type.type !== 'objectList') return;
+        // In compact mode the map renders keys only, and an objectList renders
+        // a client-localized count. Never infer nested form captions from them.
+        if (specializedPaths && ctx.mode === 'list-cell' && isResidualObject(type.objectName)
+            && (role === 'map-value' || type.type === 'objectList')) return;
         const nested = resolver.resolveSchema(s, type.objectName);
         if (!nested) { unresolved.push({ screen: link.view, object: type.objectName, reason: 'Unresolved nested schema' }); return; }
         const variants = nested.type === 'single' ? [{ schemaName: nested.schemaName, fields: nested.fields }] : nested.variants;
         const custom = widgetFor(type);
-        const customUnknown = custom && !custom.startsWith('enum:');
+        if (specializedPaths && isResidualObject(type.objectName)) {
+          // Expression/Rate/OTP/Passkey Edit renders client text, not the
+          // schema's inner fields. Keep full generic detail separate.
+          if (specialEditors.has(type.objectName) && ctx.mode !== 'detail' && ctx.mode !== 'list-cell') return;
+          if (ctx.mode === 'list-cell') {
+            // No special View override on these objects. The actual helper
+            // selects a variant label and at most one eligible scalar;
+            // set/map/list/secret/multiline fields never become captions.
+            const sc = { ...ctx, conditions: [...ctx.conditions, 'nested-value-dependent', 'compact-summary:variant-and-selected-scalar'] };
+            variantUses(type.objectName, sc, nested.type === 'multiple' ? nested.variants : []);
+            for (const v of variants) {
+              // A present enum scalar can be selected by embeddedSummary's
+              // form-order candidates or its short-string fallback. All
+              // other eligible scalar types contribute data, not schema text.
+              for (const [name, field] of Object.entries(v.fields?.properties ?? {})) {
+                if (field.type?.type !== 'enum' || name === '@type' || name === 'id') continue;
+                enumUses(field.type, { ...sc, via: v.schemaName + '/' + name,
+                  conditions: [...sc.conditions, 'summary-selected-enum-dependent'] }, 'scalar', name);
+              }
+            }
+            return;
+          }
+        }
+        const customUnknown = custom && !custom.startsWith('enum:')
+          && !(specializedPaths && specialEditors.has(type.objectName) && ctx.mode === 'detail');
         // Compact cells render summaries, not the full nested form. Do not inflate coverage.
         const review = customUnknown || ctx.mode === 'list-cell' || ctx.state === 'review';
         const nc = { ...ctx, state: review ? 'review' : ctx.state,
@@ -172,7 +207,7 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
           const rawBadge = topDetail && !variantBadges;
           emit(pin, ptr('schemas', name, 'variants', i, 'label'), ctx,
             rawBadge ? null : undefined,
-            topDetail && variantBadges ? 'DynamicView' : 'VariantSelect/ObjectValue',
+            topDetail && variantBadges ? 'DynamicView' : specializedPaths && ctx.mode === 'list-cell' && compactFamilies.has(name) ? 'EmbeddedSummaryValue' : 'VariantSelect/ObjectValue',
             ctx.state === 'review' ? 'review' : rawBadge ? 'unwired' : 'wired');
         }
       }
@@ -193,6 +228,10 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
           for (const [j, ff] of section.fields.entries()) {
             const field = fields?.properties[ff.name];
             if (ff.name !== '@type' && !field) continue;
+            // VacationResponsePage hides toDate and replaces fromDate with
+            // PeriodRow (client t() caption/help, raw dates still submitted).
+            if (specializedPaths && formKey === 'VacationResponse' && ctx.mode === 'singleton'
+                && ['fromDate', 'toDate'].includes(ff.name)) continue;
             if (ctx.mode === 'create' && field?.update === 'serverSet' || embedded && !readonly && field?.update === 'serverSet') continue;
             if (readonly && ff.name === '@type') continue;
             const fc = { ...ctx, via: formKey + '/' + ff.name,
@@ -228,11 +267,18 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
       for (const mode of modes) {
         screen.modes.push(mode);
         const special = objectPage(link.view, object.objectName, mode);
-        const ctx = { ...base, mode, ...(special && mode !== 'action' ? { state: 'review' } : {}),
-          conditions: [...base.conditions, 'mode-permission-and-data-dependent', ...(special ? ['custom-page:explicit-adapter-review-required'] : [])] };
+        const vacation = specializedPaths && special && object.objectName === 'VacationResponse' && mode === 'singleton';
+        const ctx = { ...base, mode, ...(special && mode !== 'action' && !vacation ? { state: 'review' } : {}),
+          conditions: [...base.conditions, 'mode-permission-and-data-dependent', ...(vacation
+            ? ['custom-page:VacationResponsePage/DynamicForm']
+            : special ? ['custom-page:explicit-adapter-review-required'] : [])] };
         if (traceLabels && special && ['edit', 'detail'].includes(mode)
             && ['x:Trace/InboundDelivery', 'x:Trace/OutboundDelivery'].includes(link.view)) {
           traceUses({ ...base, mode, conditions: [...base.conditions, 'mode-permission-and-data-dependent', 'custom-page:TraceDetailView'] }, false);
+          // This page is not a generic form/view. Preserve the independent
+          // list/filter/create graph, but do not invent structural captions
+          // in TraceTimeline/TraceSummaryCards.
+          if (specializedPaths) continue;
         }
         const variants = sch.type === 'multiple' ? selected : [];
         variantUses(object.objectName, ctx, variants);

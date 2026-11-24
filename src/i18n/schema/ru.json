@@ -44853,6 +44853,494 @@
     "enum/TimeZone/Zulu/label": {
       "original": "Zulu",
       "ru": "Всемирное координированное время (Zulu)"
+    },
+    "enum/DnsRecordType/autoConfig/label": {
+      "original": "Autoconfig records",
+      "ru": "Записи Autoconfig"
+    },
+    "enum/DnsRecordType/autoConfigLegacy/label": {
+      "original": "Legacy Autoconfig records",
+      "ru": "Записи Autoconfig (устаревший формат)"
+    },
+    "enum/DnsRecordType/autoDiscover/label": {
+      "original": "Microsoft Autodiscover records",
+      "ru": "Записи Microsoft Autodiscover"
+    },
+    "enum/DnsRecordType/caa/label": {
+      "original": "CAA records",
+      "ru": "Записи CAA"
+    },
+    "enum/DnsRecordType/dkim/label": {
+      "original": "DKIM public keys",
+      "ru": "Открытые ключи DKIM"
+    },
+    "enum/DnsRecordType/dmarc/label": {
+      "original": "DMARC policy",
+      "ru": "Политика DMARC"
+    },
+    "enum/DnsRecordType/mtaSts/label": {
+      "original": "MTA-STS policy record",
+      "ru": "Запись политики MTA-STS"
+    },
+    "enum/DnsRecordType/mx/label": {
+      "original": "MX records",
+      "ru": "Записи MX"
+    },
+    "enum/DnsRecordType/spf/label": {
+      "original": "SPF records",
+      "ru": "Записи SPF"
+    },
+    "enum/DnsRecordType/srv/label": {
+      "original": "SRV records",
+      "ru": "Записи SRV"
+    },
+    "enum/DnsRecordType/tlsRpt/label": {
+      "original": "TLS reporting record",
+      "ru": "Запись отчётности TLS"
+    },
+    "enum/DnsRecordType/tlsa/label": {
+      "original": "TLSA records",
+      "ru": "Записи TLSA"
+    },
+    "enum/KeyDiscoverySource/dnssec/label": {
+      "original": "DNS (OPENPGPKEY and SMIMEA, DNSSEC required)",
+      "ru": "DNS (OPENPGPKEY и SMIMEA, требуется DNSSEC)"
+    },
+    "enum/KeyDiscoverySource/hkp/label": {
+      "original": "Keyservers (HKP)",
+      "ru": "Серверы ключей (HKP)"
+    },
+    "enum/KeyDiscoverySource/vks/label": {
+      "original": "keys.openpgp.org",
+      "ru": "Сервер ключей keys.openpgp.org"
+    },
+    "enum/KeyDiscoverySource/wkd/label": {
+      "original": "Web Key Directory",
+      "ru": "Веб-каталог ключей (Web Key Directory)"
+    },
+    "field/VacationResponse/htmlBody/description": {
+      "original": "HTML body for the vacation reply",
+      "ru": "Текст автоматического ответа в формате HTML"
+    },
+    "field/VacationResponse/isEnabled/description": {
+      "original": "Whether to send vacation responses for messages arriving between the specified dates",
+      "ru": "Отправлять ли автоматические ответы на сообщения, поступившие в указанный период"
+    },
+    "field/VacationResponse/subject/description": {
+      "original": "Subject line for the vacation reply; if null, the server chooses an appropriate one",
+      "ru": "Тема автоматического ответа; при значении null сервер подберёт подходящую тему"
+    },
+    "field/VacationResponse/textBody/description": {
+      "original": "Plain text body for the vacation reply",
+      "ru": "Текст автоматического ответа без форматирования"
+    },
+    "field/x:CertificateManagementProperties/subjectAlternativeNames/description": {
+      "original": "Additional hostnames to include in the certificate as Subject Alternative Names (SANs).\nEnter hostnames only (e.g. `mta-sts`, `autoconfig`), the domain is appended automatically.\nEntries containing a dot are used as written.\nTo include the apex domain, enter it in full (e.g. `example.org`).\nLeave empty to request a wildcard certificate when possible, or to use the default SANs.",
+      "ru": "Дополнительные имена узлов, включаемые в сертификат как альтернативные имена субъекта (SANs).\nУказывайте только имена узлов (например, `mta-sts`, `autoconfig`): домен будет добавлен автоматически.\nЗаписи, содержащие точку, используются без изменений.\nЧтобы включить корневой домен зоны, укажите его полностью (например, `example.org`).\nОставьте поле пустым, чтобы по возможности запросить сертификат с подстановочным знаком или использовать SANs по умолчанию."
+    },
+    "field/x:DnsManagementProperties/origin/description": {
+      "original": "Origin domain used to determine the correct DNS zone for managing records. For example, if the domain is \"sub.example.com\" and DNS records should be managed in the \"example.com\" zone, set the origin to \"example.com\". Leave empty to use the domain name itself as the zone origin.",
+      "ru": "Исходный домен, используемый для определения нужной DNS-зоны при управлении записями. Например, если домен — \"sub.example.com\", а DNS-записи должны управляться в зоне \"example.com\", задайте исходный домен \"example.com\". Оставьте поле пустым, чтобы использовать имя самого домена как начало зоны."
+    },
+    "field/x:Expression/else/description": {
+      "original": "Else condition",
+      "ru": "Значение при невыполнении условий"
+    },
+    "field/x:Expression/match/description": {
+      "original": "List of conditions and their corresponding results",
+      "ru": "Список условий и соответствующих им результатов"
+    },
+    "field/x:ExpressionMatch/if/description": {
+      "original": "If condition",
+      "ru": "Условие IF"
+    },
+    "field/x:ExpressionMatch/then/description": {
+      "original": "Then clause",
+      "ru": "Результат при выполнении условия THEN"
+    },
+    "field/x:IndexStatusFailed/nextRetry/description": {
+      "original": "Date and time when indexing will be retried",
+      "ru": "Дата и время повторной попытки индексации"
+    },
+    "field/x:IndexStatusFailed/reason/description": {
+      "original": "Error reported by the last indexing attempt",
+      "ru": "Ошибка, полученная при последней попытке индексации"
+    },
+    "field/x:KeySourceAutomatic/method/description": {
+      "original": "Where the key is fetched from",
+      "ru": "Источник получения ключа"
+    },
+    "field/x:PasskeyRegistration/attestationObject/description": {
+      "original": "Attestation object returned by the authenticator, base64url encoded",
+      "ru": "Объект аттестации, возвращённый аутентификатором, в кодировке base64url"
+    },
+    "field/x:PasskeyRegistration/clientDataJson/description": {
+      "original": "Client data JSON returned by the authenticator, base64url encoded",
+      "ru": "Данные клиента в формате JSON, возвращённые аутентификатором, в кодировке base64url"
+    },
+    "field/x:Rate/count/description": {
+      "original": "Count",
+      "ru": "Количество"
+    },
+    "field/x:Rate/period/description": {
+      "original": "Period",
+      "ru": "Период"
+    },
+    "field/x:TaskStatusFailed/createdAt/description": {
+      "original": "Date and time when the task was created",
+      "ru": "Дата и время создания задачи"
+    },
+    "field/x:TaskStatusFailed/failedAt/description": {
+      "original": "Date and time when the task failed",
+      "ru": "Дата и время отказа задачи"
+    },
+    "field/x:TaskStatusFailed/failedAttemptNumber/description": {
+      "original": "Number of attempts made before the task failed",
+      "ru": "Количество попыток до окончательного отказа задачи"
+    },
+    "field/x:TaskStatusFailed/failureReason/description": {
+      "original": "Reason for task failure",
+      "ru": "Причина отказа задачи"
+    },
+    "field/x:TaskStatusPending/createdAt/description": {
+      "original": "Date and time when the task was created",
+      "ru": "Дата и время создания задачи"
+    },
+    "field/x:TaskStatusPending/due/description": {
+      "original": "Due date and time for the task",
+      "ru": "Назначенные дата и время выполнения задачи"
+    },
+    "field/x:TaskStatusRetry/attemptNumber/description": {
+      "original": "Number of failed attempts so far",
+      "ru": "Количество неудачных попыток к текущему моменту"
+    },
+    "field/x:TaskStatusRetry/createdAt/description": {
+      "original": "Date and time when the task was created",
+      "ru": "Дата и время создания задачи"
+    },
+    "field/x:TaskStatusRetry/due/description": {
+      "original": "Date and time of the next attempt",
+      "ru": "Дата и время следующей попытки"
+    },
+    "field/x:TaskStatusRetry/failureReason/description": {
+      "original": "Reason for the last failure",
+      "ru": "Причина последнего сбоя"
+    },
+    "field/x:TaskStatusRetry/firstFailedAt/description": {
+      "original": "Date and time of the first failed attempt",
+      "ru": "Дата и время первой неудачной попытки"
+    },
+    "field/x:TraceEvent/event/description": {
+      "original": "Event type",
+      "ru": "Тип события"
+    },
+    "field/x:TraceEvent/keyValues/description": {
+      "original": "List of key-value pairs associated with the trace entry",
+      "ru": "Список пар «ключ — значение», связанных с записью трассировки"
+    },
+    "field/x:TraceEvent/timestamp/description": {
+      "original": "Timestamp when the event occurred",
+      "ru": "Дата и время возникновения события"
+    },
+    "field/x:TraceKeyValue/key/description": {
+      "original": "Key name",
+      "ru": "Имя ключа"
+    },
+    "field/x:TraceKeyValue/value/description": {
+      "original": "Key value",
+      "ru": "Значение ключа"
+    },
+    "field/x:TraceValueBoolean/value/description": {
+      "original": "Boolean value",
+      "ru": "Логическое значение"
+    },
+    "field/x:TraceValueDuration/value/description": {
+      "original": "Duration value in milliseconds",
+      "ru": "Длительность в миллисекундах"
+    },
+    "field/x:TraceValueEvent/event/description": {
+      "original": "Event type",
+      "ru": "Тип события"
+    },
+    "field/x:TraceValueEvent/value/description": {
+      "original": "List of key-value pairs associated with the trace entry",
+      "ru": "Список пар «ключ — значение», связанных с записью трассировки"
+    },
+    "field/x:TraceValueFloat/value/description": {
+      "original": "Float value",
+      "ru": "Значение с плавающей точкой"
+    },
+    "field/x:TraceValueInteger/value/description": {
+      "original": "Integer value",
+      "ru": "Целочисленное значение"
+    },
+    "field/x:TraceValueIpAddr/value/description": {
+      "original": "IP address value",
+      "ru": "Значение IP-адреса"
+    },
+    "field/x:TraceValueList/value/description": {
+      "original": "Value list",
+      "ru": "Список значений"
+    },
+    "field/x:TraceValueString/value/description": {
+      "original": "String value",
+      "ru": "Строковое значение"
+    },
+    "field/x:TraceValueUTCDateTime/value/description": {
+      "original": "UTC date and time value",
+      "ru": "Дата и время UTC"
+    },
+    "field/x:TraceValueUnsignedInt/value/description": {
+      "original": "Unsigned integer value",
+      "ru": "Беззнаковое целочисленное значение"
+    },
+    "form/VacationResponse/field/htmlBody": {
+      "original": "HTML Body",
+      "ru": "Текст в формате HTML"
+    },
+    "form/VacationResponse/field/isEnabled": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
+    "form/VacationResponse/field/subject": {
+      "original": "Subject",
+      "ru": "Тема письма"
+    },
+    "form/VacationResponse/field/textBody": {
+      "original": "Plain Text Body",
+      "ru": "Текст без форматирования"
+    },
+    "form/VacationResponse/section/section-0": {
+      "original": "Schedule",
+      "ru": "Расписание"
+    },
+    "form/VacationResponse/section/section-1": {
+      "original": "Response",
+      "ru": "Ответ"
+    },
+    "form/VacationResponse/subtitle": {
+      "original": "Configure an automatic reply sent in response to messages received while you are away, including the active date range, subject line, and plain text or HTML body",
+      "ru": "Настройте автоматический ответ на сообщения, полученные в ваше отсутствие: период действия, тему письма и текст без форматирования или в формате HTML."
+    },
+    "form/x:Expression/field/else": {
+      "original": "Default Value",
+      "ru": "Значение по умолчанию"
+    },
+    "form/x:Expression/field/match": {
+      "original": "Conditions",
+      "ru": "Условия"
+    },
+    "form/x:ExpressionMatch/field/if": {
+      "original": "Condition",
+      "ru": "Условие"
+    },
+    "form/x:ExpressionMatch/field/then": {
+      "original": "Result",
+      "ru": "Результат"
+    },
+    "form/x:IndexStatusFailed/field/reason": {
+      "original": "Reason",
+      "ru": "Причина"
+    },
+    "form/x:KeySourceAutomatic/field/method": {
+      "original": "Method",
+      "ru": "Метод"
+    },
+    "form/x:PasskeyRegistration/field/attestationObject": {
+      "original": "Attestation Object",
+      "ru": "Объект аттестации"
+    },
+    "form/x:PasskeyRegistration/field/clientDataJson": {
+      "original": "Client Data",
+      "ru": "Данные клиента"
+    },
+    "form/x:Rate/field/count": {
+      "original": "Count",
+      "ru": "Количество"
+    },
+    "form/x:Rate/field/period": {
+      "original": "Period",
+      "ru": "Период"
+    },
+    "form/x:TaskStatusFailed/field/failedAt": {
+      "original": "Failed At",
+      "ru": "Время отказа"
+    },
+    "form/x:TaskStatusFailed/field/failedAttemptNumber": {
+      "original": "Attempts",
+      "ru": "Попытки"
+    },
+    "form/x:TaskStatusFailed/field/failureReason": {
+      "original": "Failure Reason",
+      "ru": "Причина сбоя"
+    },
+    "form/x:TaskStatusRetry/field/attemptNumber": {
+      "original": "Failed Attempts",
+      "ru": "Неудачные попытки"
+    },
+    "form/x:TaskStatusRetry/field/due": {
+      "original": "Next Attempt",
+      "ru": "Следующая попытка"
+    },
+    "form/x:TaskStatusRetry/field/failureReason": {
+      "original": "Failure Reason",
+      "ru": "Причина сбоя"
+    },
+    "form/x:TaskStatusRetry/field/firstFailedAt": {
+      "original": "First Failure",
+      "ru": "Первый сбой"
+    },
+    "form/x:TraceEvent/field/event": {
+      "original": "Event",
+      "ru": "Событие"
+    },
+    "form/x:TraceEvent/field/keyValues": {
+      "original": "Key-Value Pairs",
+      "ru": "Пары «ключ — значение»"
+    },
+    "form/x:TraceEvent/field/timestamp": {
+      "original": "Timestamp",
+      "ru": "Метка времени"
+    },
+    "form/x:TraceKeyValue/field/key": {
+      "original": "Key",
+      "ru": "Ключ"
+    },
+    "form/x:TraceKeyValue/field/value": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "form/x:TraceValueBoolean/field/value": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "form/x:TraceValueDuration/field/value": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "form/x:TraceValueEvent/field/event": {
+      "original": "Event",
+      "ru": "Событие"
+    },
+    "form/x:TraceValueEvent/field/value": {
+      "original": "Key-Value Pairs",
+      "ru": "Пары «ключ — значение»"
+    },
+    "form/x:TraceValueFloat/field/value": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "form/x:TraceValueInteger/field/value": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "form/x:TraceValueIpAddr/field/value": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "form/x:TraceValueList/field/value": {
+      "original": "Values",
+      "ru": "Значения"
+    },
+    "form/x:TraceValueString/field/value": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "form/x:TraceValueUTCDateTime/field/value": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "form/x:TraceValueUnsignedInt/field/value": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "variant/x:IndexStatus/Failed/label": {
+      "original": "Last indexing attempt failed",
+      "ru": "Последняя попытка индексации завершилась ошибкой"
+    },
+    "variant/x:IndexStatus/Running/label": {
+      "original": "Queue is being processed normally",
+      "ru": "Очередь обрабатывается в штатном режиме"
+    },
+    "variant/x:KeySource/Autocrypt/label": {
+      "original": "Learned from an Autocrypt header",
+      "ru": "Получен из заголовка Autocrypt"
+    },
+    "variant/x:KeySource/Automatic/label": {
+      "original": "Keep the key up to date from a discovery method",
+      "ru": "Автоматически обновлять ключ из источника обнаружения"
+    },
+    "variant/x:KeySource/HarvestedPgp/label": {
+      "original": "Learned from an OpenPGP signature",
+      "ru": "Получен из подписи OpenPGP"
+    },
+    "variant/x:KeySource/HarvestedSmime/label": {
+      "original": "Learned from an S/MIME signature",
+      "ru": "Получен из подписи S/MIME"
+    },
+    "variant/x:KeySource/Manual/label": {
+      "original": "Enter the key manually",
+      "ru": "Ввести ключ вручную"
+    },
+    "variant/x:TaskStatus/Failed/label": {
+      "original": "Task that failed permanently and needs operator action",
+      "ru": "Задача завершилась окончательным отказом и требует вмешательства оператора"
+    },
+    "variant/x:TaskStatus/Pending/label": {
+      "original": "Pending task awaiting execution",
+      "ru": "Задача ожидает выполнения"
+    },
+    "variant/x:TaskStatus/Retry/label": {
+      "original": "Task scheduled for retry after a transient failure",
+      "ru": "Задача назначена на повторное выполнение после временного сбоя"
+    },
+    "variant/x:TaskStatus/Stalled/label": {
+      "original": "Task still retrying after repeated transient failures",
+      "ru": "Повторные попытки выполнения задачи после нескольких временных сбоев продолжаются"
+    },
+    "variant/x:TraceValue/Boolean/label": {
+      "original": "Boolean value",
+      "ru": "Логическое значение"
+    },
+    "variant/x:TraceValue/Duration/label": {
+      "original": "Duration value in milliseconds",
+      "ru": "Длительность в миллисекундах"
+    },
+    "variant/x:TraceValue/Event/label": {
+      "original": "Nested event value",
+      "ru": "Вложенное событие"
+    },
+    "variant/x:TraceValue/Float/label": {
+      "original": "Float value",
+      "ru": "Значение с плавающей точкой"
+    },
+    "variant/x:TraceValue/Integer/label": {
+      "original": "Integer value",
+      "ru": "Целочисленное значение"
+    },
+    "variant/x:TraceValue/IpAddr/label": {
+      "original": "IP address value",
+      "ru": "Значение IP-адреса"
+    },
+    "variant/x:TraceValue/List/label": {
+      "original": "Value list",
+      "ru": "Список значений"
+    },
+    "variant/x:TraceValue/Null/label": {
+      "original": "Null value",
+      "ru": "Значение null"
+    },
+    "variant/x:TraceValue/String/label": {
+      "original": "String value",
+      "ru": "Строковое значение"
+    },
+    "variant/x:TraceValue/UTCDateTime/label": {
+      "original": "UTC date and time value",
+      "ru": "Дата и время UTC"
+    },
+    "variant/x:TraceValue/UnsignedInt/label": {
+      "original": "Unsigned integer value",
+      "ru": "Беззнаковое целочисленное значение"
     }
   },
   "scopedEntries": [

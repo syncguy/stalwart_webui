@@ -12,6 +12,7 @@ import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.m
 import {loadVariantPacket,undoVariants} from './lib/locale-variant-labels.mjs';
 import {loadTracePacket,undoTrace} from './lib/locale-trace-labels.mjs';
 import {loadRegionalPacket,undoRegional} from './lib/locale-regional-labels.mjs';
+import {loadSpecializedPacket,undoSpecialized} from './lib/locale-specialized-labels.mjs';
 import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
 
 const catalog = JSON.parse(fs.readFileSync('src/i18n/schema/ru.json', 'utf8'));
@@ -674,13 +675,15 @@ const packet38=loadFormContextPacket(process.cwd(),reviewedPolicy);
 const packet39=loadVariantPacket(process.cwd(),reviewedPolicy);
 const packet41=loadTracePacket(process.cwd(),reviewedPolicy);
 const packet42=loadRegionalPacket(process.cwd(),reviewedPolicy);
-const stage41Catalog=undoRegional(catalog,packet42);
+const packet43=loadSpecializedPacket(process.cwd(),reviewedPolicy);
+const stage42Catalog=undoSpecialized(catalog,packet43);
+const stage41Catalog=undoRegional(stage42Catalog,packet42);
 const stage39Catalog=undoTrace(stage41Catalog,packet41);
 const stage38Catalog=undoVariants(stage39Catalog,packet39);
 const stage37Catalog=undoFormContext(stage38Catalog,packet38);
 const stage35Catalog=undoFieldDescriptions(stage37Catalog,stage37Packet);
 assert.equal(Object.keys(stage35Catalog.entries).length,2084+reviewedCount);
-assert.equal(Object.keys(entries).length,2084+reviewedCount+stage37Packet.slots.length+packet38.entries.length +packet39.entries.length+packet41.entries.length+packet42.entries.length,'Unexpected contextual slot inventory');
+assert.equal(Object.keys(entries).length,2084+reviewedCount+stage37Packet.slots.length+packet38.entries.length +packet39.entries.length+packet41.entries.length+packet42.entries.length+packet43.entries.length,'Unexpected contextual slot inventory');
 assert.ok(dynamicFormStage5.includes('fieldOwner={fieldOwner}'));
 assert.ok(dynamicFormStage5.includes('display(`form/${titleKey ?? objectKey}/title`, title)'));
 assert.ok(formSectionsStage5.includes('fieldOwner={fieldOwner}'));

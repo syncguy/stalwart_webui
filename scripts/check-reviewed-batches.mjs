@@ -11,6 +11,7 @@ import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.m
 import {loadVariantPacket,undoVariants} from './lib/locale-variant-labels.mjs';
 import {loadTracePacket,undoTrace} from './lib/locale-trace-labels.mjs';
 import {loadRegionalPacket,undoRegional} from './lib/locale-regional-labels.mjs';
+import {loadSpecializedPacket,undoSpecialized} from './lib/locale-specialized-labels.mjs';
 import './lib/offline-guard.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const inputs=loadInputs(root),graph=buildUsageGraph(inputs);
@@ -344,7 +345,7 @@ assert.equal(batchTextSafe('RCPT TO','Команда MAIL FROM',35),false);
 
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
-let after=undoFieldDescriptions(undoFormContext(undoVariants(undoTrace(undoRegional(inputs.catalog,loadRegionalPacket(root,inputs.policy)),loadTracePacket(root,inputs.policy)),loadVariantPacket(root,inputs.policy)),loadFormContextPacket(root,inputs.policy)),loadFieldDescriptionPacket(root,inputs.policy));
+let after=undoFieldDescriptions(undoFormContext(undoVariants(undoTrace(undoRegional(undoSpecialized(inputs.catalog,loadSpecializedPacket(root,inputs.policy)),loadRegionalPacket(root,inputs.policy)),loadTracePacket(root,inputs.policy)),loadVariantPacket(root,inputs.policy)),loadFormContextPacket(root,inputs.policy)),loadFieldDescriptionPacket(root,inputs.policy));
 for(const packet of [...packets].reverse()){
   const before=undoBatch(after,packet);
   const result=verifyReviewedBatch({packet,before,after,inputs,graph,makeSchema});

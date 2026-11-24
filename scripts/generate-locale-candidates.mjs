@@ -29,15 +29,15 @@ const before = digest(fs.readFileSync(catalogPath));
 // Always regenerate the stage16 inventory: never silently reuse a stale local report.
 execFileSync(process.execPath, ['scripts/generate-locale-coverage.mjs'], { cwd: root, stdio: 'pipe', maxBuffer: 2 ** 20 });
 const inputs = loadInputs(root);
-const report = plan(inputs, buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true, regionalLabels: true }), previous);
-report.stage = 42;
+const report = plan(inputs, buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true, regionalLabels: true, specializedPaths: true }), previous);
+report.stage = 43;
 fs.mkdirSync(out, { recursive: true });
 fs.writeFileSync(path.join(out, 'classification.json'), json(compactReport(report)));
 fs.writeFileSync(path.join(out, 'candidates.json'), json({ version: 1, candidateOnly: true, apply: false, groups: report.candidates }));
 fs.writeFileSync(path.join(out, 'diff.json'), json(report.diff));
 const cell = text => String(text).replaceAll('|', '\\|').replaceAll('\n', ' ').replaceAll('\r', '');
 const lines = [
-  '# Этап 42: очередь локализации (TimeZone/Locale)', '',
+  '# Этап 43: специализированные компоненты', '',
   'Источник схем: ' + report.source, '',
   '**Только анализ исходников. Доступность по лицензии/ACL неизвестна; browser PASS не заявлен.**', '',
   `Слотов: ${report.summary.slots}; каталог: ${report.summary.acceptedCatalogEntries} обычных записей, ${report.summary.acceptedScopedEntries} точных привязок по hash.`,
@@ -74,4 +74,4 @@ assert.equal(digest(fs.readFileSync(catalogPath)), before, 'Утверждённ
 assert.deepEqual(report.diagnostics.adapterDrift, [], 'Исходники renderer изменились: требуется ревью адаптеров');
 assert.deepEqual(report.diagnostics.staleRules, [], 'Устаревшие контекстные правила');
 console.log(json(report.summary));
-console.log('Этап 42: отчёты созданы; утверждённый каталог сохранён. ' + path.relative(root, out));
+console.log('Этап 43: отчёты созданы; утверждённый каталог сохранён. ' + path.relative(root, out));
