@@ -658,7 +658,7 @@ for (const [slot, original, expectedRu] of reportSlots) {
   }
   assert.equal(schemaText('unknown-schema', 'ru', slot, original), original);
 }
-assert.equal(Object.keys(entries).length, 2030, 'Unexpected contextual slot inventory');
+assert.equal(Object.keys(entries).length, 2084, 'Unexpected contextual slot inventory');
 // Both source schemas define forms for each of these read-only JMAP object views.
 assert.ok(viewPageSource.includes('<DynamicView'));
 assert.ok(viewSource.includes('value={data[formField.name]}'));
