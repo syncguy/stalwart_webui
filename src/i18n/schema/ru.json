@@ -1726,6 +1726,22 @@
       "original": "Verified (CA chain or DNSSEC)",
       "ru": "Проверен (цепочка CA или DNSSEC)"
     },
+    "enum/LogRotateFrequency/daily/label": {
+      "original": "Daily",
+      "ru": "Ежедневно"
+    },
+    "enum/LogRotateFrequency/hourly/label": {
+      "original": "Hourly",
+      "ru": "Ежечасно"
+    },
+    "enum/LogRotateFrequency/minutely/label": {
+      "original": "Minutely",
+      "ru": "Ежеминутно"
+    },
+    "enum/LogRotateFrequency/never/label": {
+      "original": "Never",
+      "ru": "Никогда"
+    },
     "enum/MessageFlag/authenticated/label": {
       "original": "Message was received from an authenticated session",
       "ru": "Сообщение получено в аутентифицированном сеансе"
@@ -1765,6 +1781,1602 @@
     "enum/MetadataDataType/Mailbox/label": {
       "original": "Mailbox",
       "ru": "Почтовый ящик"
+    },
+    "enum/MetricType/acme.auth-error/label": {
+      "original": "ACME authentication error",
+      "ru": "Ошибка аутентификации ACME"
+    },
+    "enum/MetricType/acme.auth-too-many-attempts/label": {
+      "original": "Too many ACME authentication attempts",
+      "ru": "Слишком много попыток аутентификации ACME"
+    },
+    "enum/MetricType/acme.client-missing-sni/label": {
+      "original": "ACME client missing SNI",
+      "ru": "Клиент ACME не передал SNI"
+    },
+    "enum/MetricType/acme.error/label": {
+      "original": "ACME error",
+      "ru": "Ошибка ACME"
+    },
+    "enum/MetricType/acme.order-completed/label": {
+      "original": "ACME order completed",
+      "ru": "Заказ ACME выполнен"
+    },
+    "enum/MetricType/acme.order-invalid/label": {
+      "original": "ACME order invalid",
+      "ru": "Недействительный заказ ACME"
+    },
+    "enum/MetricType/acme.tls-alpn-error/label": {
+      "original": "ACME TLS ALPN error",
+      "ru": "Ошибка ACME TLS ALPN"
+    },
+    "enum/MetricType/acme.token-not-found/label": {
+      "original": "ACME token not found",
+      "ru": "Токен ACME не найден"
+    },
+    "enum/MetricType/ai.api-error/label": {
+      "original": "AI API error",
+      "ru": "Ошибка API ИИ (AI)"
+    },
+    "enum/MetricType/ai.breaker-open/label": {
+      "original": "AI model circuit breaker open",
+      "ru": "Защитный выключатель модели ИИ (AI) разомкнут"
+    },
+    "enum/MetricType/ai.input-tokens/label": {
+      "original": "AI input tokens per request",
+      "ru": "Входные токены ИИ (AI) на запрос"
+    },
+    "enum/MetricType/ai.output-tokens/label": {
+      "original": "AI output tokens per request",
+      "ru": "Выходные токены ИИ (AI) на запрос"
+    },
+    "enum/MetricType/ai.request-time/label": {
+      "original": "AI request duration",
+      "ru": "Длительность запроса к ИИ (AI)"
+    },
+    "enum/MetricType/ai.request/label": {
+      "original": "AI request completed",
+      "ru": "Запрос к ИИ (AI) выполнен"
+    },
+    "enum/MetricType/ai.spam-skipped/label": {
+      "original": "AI spam classifier skipped",
+      "ru": "Проверка спама классификатором ИИ (AI) пропущена"
+    },
+    "enum/MetricType/ai.spam-verdict/label": {
+      "original": "AI spam verdict",
+      "ru": "Вердикт ИИ (AI) о спаме"
+    },
+    "enum/MetricType/arc.chain-invalid/label": {
+      "original": "ARC chain invalid",
+      "ru": "Недействительная цепочка ARC"
+    },
+    "enum/MetricType/arc.hash-mismatch/label": {
+      "original": "ARC body hash mismatch",
+      "ru": "Несовпадение хеша тела сообщения ARC"
+    },
+    "enum/MetricType/arc.signature-invalid/label": {
+      "original": "ARC signature invalid",
+      "ru": "Недействительная подпись ARC"
+    },
+    "enum/MetricType/auth.error/label": {
+      "original": "Authentication error",
+      "ru": "Ошибка аутентификации"
+    },
+    "enum/MetricType/auth.failed/label": {
+      "original": "Authentication failed",
+      "ru": "Проверка подлинности не пройдена"
+    },
+    "enum/MetricType/auth.success/label": {
+      "original": "Authentication successful",
+      "ru": "Аутентификация успешна"
+    },
+    "enum/MetricType/auth.too-many-attempts/label": {
+      "original": "Too many authentication attempts",
+      "ru": "Слишком много попыток аутентификации"
+    },
+    "enum/MetricType/cache.entry-too-large/label": {
+      "original": "Cache entry too large",
+      "ru": "Слишком большая запись кэша"
+    },
+    "enum/MetricType/cache.hit/label": {
+      "original": "Cache hit",
+      "ru": "Попадание в кэш"
+    },
+    "enum/MetricType/cache.messages-large-size/label": {
+      "original": "Total size of the large-account e-mail data caches held in memory, both those retained by the large tier and those still referenced by in-flight requests",
+      "ru": "Общий объём кэшей почтовых данных крупных учётных записей в памяти, включая удерживаемые большим уровнем кэша и ещё используемые выполняющимися запросами"
+    },
+    "enum/MetricType/cache.messages-size/label": {
+      "original": "Memory used by the e-mail data cache",
+      "ru": "Память, используемая кэшем почтовых данных"
+    },
+    "enum/MetricType/cache.miss/label": {
+      "original": "Cache miss",
+      "ru": "Промах кэша"
+    },
+    "enum/MetricType/cache.size/label": {
+      "original": "Memory used by all other caches",
+      "ru": "Память, используемая всеми прочими кэшами"
+    },
+    "enum/MetricType/cache.stale/label": {
+      "original": "Cache is stale",
+      "ru": "Данные кэша устарели"
+    },
+    "enum/MetricType/cache.swap-error/label": {
+      "original": "Cache swap tier error",
+      "ru": "Ошибка уровня выгрузки кэша"
+    },
+    "enum/MetricType/cache.swap-hit/label": {
+      "original": "Cache snapshot loaded",
+      "ru": "Снимок кэша загружен"
+    },
+    "enum/MetricType/cache.swap-miss/label": {
+      "original": "Cache snapshot unavailable",
+      "ru": "Снимок кэша недоступен"
+    },
+    "enum/MetricType/cache.swap-pending/label": {
+      "original": "Cache snapshots with changes not yet written to the swap tier",
+      "ru": "Снимки кэша с изменениями, ещё не записанными на уровень выгрузки"
+    },
+    "enum/MetricType/cache.swap-write/label": {
+      "original": "Cache snapshot written",
+      "ru": "Снимок кэша записан"
+    },
+    "enum/MetricType/calendar.alarm-failed/label": {
+      "original": "Calendar alarm could not be sent",
+      "ru": "Не удалось отправить напоминание календаря"
+    },
+    "enum/MetricType/calendar.alarm-sent/label": {
+      "original": "Calendar alarm sent",
+      "ru": "Напоминание календаря отправлено"
+    },
+    "enum/MetricType/calendar.itip-message-error/label": {
+      "original": "iTIP message error",
+      "ru": "Ошибка сообщения iTIP"
+    },
+    "enum/MetricType/calendar.itip-message-received/label": {
+      "original": "Calendar iTIP message received",
+      "ru": "Получено сообщение календаря iTIP"
+    },
+    "enum/MetricType/calendar.itip-message-sent/label": {
+      "original": "Calendar iTIP message sent",
+      "ru": "Отправлено сообщение календаря iTIP"
+    },
+    "enum/MetricType/cluster.publisher-error/label": {
+      "original": "PubSub publisher error",
+      "ru": "Ошибка издателя PubSub"
+    },
+    "enum/MetricType/cluster.subscriber-disconnected/label": {
+      "original": "PubSub subscriber disconnected",
+      "ru": "Подписчик PubSub отключён"
+    },
+    "enum/MetricType/cluster.subscriber-error/label": {
+      "original": "PubSub subscriber error",
+      "ru": "Ошибка подписчика PubSub"
+    },
+    "enum/MetricType/dane.authentication-failure/label": {
+      "original": "DANE authentication failed",
+      "ru": "Аутентификация DANE не пройдена"
+    },
+    "enum/MetricType/dane.authentication-success/label": {
+      "original": "DANE authentication successful",
+      "ru": "Аутентификация DANE успешна"
+    },
+    "enum/MetricType/dane.bogus-dnssec-record/label": {
+      "original": "Bogus DNSSEC record",
+      "ru": "Недостоверная запись DNSSEC"
+    },
+    "enum/MetricType/dane.certificate-parse-error/label": {
+      "original": "Error parsing certificate for DANE",
+      "ru": "Ошибка разбора сертификата для DANE"
+    },
+    "enum/MetricType/dane.no-certificates-found/label": {
+      "original": "No certificates found for DANE",
+      "ru": "Сертификаты для DANE не найдены"
+    },
+    "enum/MetricType/dane.tlsa-record-fetch-error/label": {
+      "original": "Error fetching TLSA record",
+      "ru": "Ошибка получения записи TLSA"
+    },
+    "enum/MetricType/dane.tlsa-record-invalid/label": {
+      "original": "Invalid TLSA record",
+      "ru": "Недействительная запись TLSA"
+    },
+    "enum/MetricType/dane.tlsa-record-not-dnssec-signed/label": {
+      "original": "TLSA record not DNSSEC signed",
+      "ru": "Запись TLSA не подписана DNSSEC"
+    },
+    "enum/MetricType/dane.tlsa-record-not-found/label": {
+      "original": "TLSA record not found",
+      "ru": "Запись TLSA не найдена"
+    },
+    "enum/MetricType/delivery.active-connections/label": {
+      "original": "Active delivery connections",
+      "ru": "Активные соединения доставки"
+    },
+    "enum/MetricType/delivery.attempt-end/label": {
+      "original": "Delivery attempt ended",
+      "ru": "Попытка доставки завершена"
+    },
+    "enum/MetricType/delivery.attempt-start/label": {
+      "original": "Delivery attempt started",
+      "ru": "Попытка доставки начата"
+    },
+    "enum/MetricType/delivery.attempt-time/label": {
+      "original": "Message delivery time",
+      "ru": "Время доставки сообщения"
+    },
+    "enum/MetricType/delivery.auth-failed/label": {
+      "original": "SMTP authentication failed",
+      "ru": "Аутентификация SMTP не пройдена"
+    },
+    "enum/MetricType/delivery.completed/label": {
+      "original": "Delivery completed",
+      "ru": "Доставка завершена"
+    },
+    "enum/MetricType/delivery.concurrency-limit-exceeded/label": {
+      "original": "Concurrency limit exceeded",
+      "ru": "Превышен предел одновременных операций"
+    },
+    "enum/MetricType/delivery.delivered/label": {
+      "original": "Message delivered",
+      "ru": "Сообщение доставлено"
+    },
+    "enum/MetricType/delivery.double-bounce/label": {
+      "original": "Discarding message after double bounce",
+      "ru": "Сообщение отброшено после повторного отказа доставки"
+    },
+    "enum/MetricType/delivery.dsn-perm-fail/label": {
+      "original": "DSN permanent failure notification",
+      "ru": "Уведомление DSN о постоянной ошибке"
+    },
+    "enum/MetricType/delivery.dsn-success/label": {
+      "original": "DSN success notification",
+      "ru": "Уведомление DSN об успешной доставке"
+    },
+    "enum/MetricType/delivery.dsn-temp-fail/label": {
+      "original": "DSN temporary failure notification",
+      "ru": "Уведомление DSN о временной ошибке"
+    },
+    "enum/MetricType/delivery.ehlo-rejected/label": {
+      "original": "SMTP EHLO rejected",
+      "ru": "Команда SMTP EHLO отклонена"
+    },
+    "enum/MetricType/delivery.greeting-failed/label": {
+      "original": "SMTP greeting failed",
+      "ru": "Ошибка приветствия SMTP"
+    },
+    "enum/MetricType/delivery.implicit-tls-error/label": {
+      "original": "Implicit TLS error",
+      "ru": "Ошибка неявного TLS"
+    },
+    "enum/MetricType/delivery.ip-lookup-failed/label": {
+      "original": "IP address lookup failed",
+      "ru": "Не удалось найти IP-адрес"
+    },
+    "enum/MetricType/delivery.mail-from-rejected/label": {
+      "original": "SMTP MAIL FROM rejected",
+      "ru": "Команда SMTP MAIL FROM отклонена"
+    },
+    "enum/MetricType/delivery.message-rejected/label": {
+      "original": "Message rejected by remote server",
+      "ru": "Сообщение отклонено удалённым сервером"
+    },
+    "enum/MetricType/delivery.mx-lookup-failed/label": {
+      "original": "MX record lookup failed",
+      "ru": "Не удалось найти запись MX"
+    },
+    "enum/MetricType/delivery.null-mx/label": {
+      "original": "Null MX record found",
+      "ru": "Обнаружена нулевая запись MX"
+    },
+    "enum/MetricType/delivery.rate-limit-exceeded/label": {
+      "original": "Rate limit exceeded",
+      "ru": "Превышено ограничение частоты"
+    },
+    "enum/MetricType/delivery.rcpt-to-failed/label": {
+      "original": "SMTP RCPT TO failed",
+      "ru": "Ошибка команды SMTP RCPT TO"
+    },
+    "enum/MetricType/delivery.rcpt-to-rejected/label": {
+      "original": "SMTP RCPT TO rejected",
+      "ru": "Команда SMTP RCPT TO отклонена"
+    },
+    "enum/MetricType/delivery.start-tls-disabled/label": {
+      "original": "STARTTLS disabled",
+      "ru": "STARTTLS отключён"
+    },
+    "enum/MetricType/delivery.start-tls-error/label": {
+      "original": "STARTTLS error",
+      "ru": "Ошибка STARTTLS"
+    },
+    "enum/MetricType/delivery.start-tls-unavailable/label": {
+      "original": "STARTTLS unavailable",
+      "ru": "STARTTLS недоступен"
+    },
+    "enum/MetricType/delivery.total-time/label": {
+      "original": "Total message delivery time from submission to delivery",
+      "ru": "Полное время доставки сообщения с момента отправки до получения"
+    },
+    "enum/MetricType/dkim.fail/label": {
+      "original": "DKIM verification failed",
+      "ru": "Проверка DKIM не пройдена"
+    },
+    "enum/MetricType/dkim.hash-mismatch/label": {
+      "original": "DKIM body hash mismatch",
+      "ru": "Несовпадение хеша тела сообщения DKIM"
+    },
+    "enum/MetricType/dkim.neutral/label": {
+      "original": "DKIM verification neutral",
+      "ru": "Нейтральный результат проверки DKIM"
+    },
+    "enum/MetricType/dkim.none/label": {
+      "original": "No DKIM signature",
+      "ru": "Подпись DKIM отсутствует"
+    },
+    "enum/MetricType/dkim.pass/label": {
+      "original": "DKIM verification passed",
+      "ru": "Проверка DKIM пройдена"
+    },
+    "enum/MetricType/dkim.perm-error/label": {
+      "original": "DKIM permanent error",
+      "ru": "Постоянная ошибка DKIM"
+    },
+    "enum/MetricType/dkim.public-key-error/label": {
+      "original": "DKIM public key error",
+      "ru": "Ошибка открытого ключа DKIM"
+    },
+    "enum/MetricType/dkim.signature-invalid/label": {
+      "original": "DKIM signature invalid",
+      "ru": "Недействительная подпись DKIM"
+    },
+    "enum/MetricType/dkim.signer-not-found/label": {
+      "original": "DKIM signer not found",
+      "ru": "Подписант DKIM не найден"
+    },
+    "enum/MetricType/dkim.temp-error/label": {
+      "original": "DKIM temporary error",
+      "ru": "Временная ошибка DKIM"
+    },
+    "enum/MetricType/dkim.verification-failed/label": {
+      "original": "DKIM signature verification failed",
+      "ru": "Не удалось проверить подпись DKIM"
+    },
+    "enum/MetricType/dkim2.chain-invalid/label": {
+      "original": "DKIM2 chain invalid",
+      "ru": "Недействительная цепочка DKIM2"
+    },
+    "enum/MetricType/dkim2.custody-broken/label": {
+      "original": "DKIM2 chain of custody broken",
+      "ru": "Нарушена цепочка передачи DKIM2"
+    },
+    "enum/MetricType/dkim2.dsn-not-aligned/label": {
+      "original": "DKIM2 DSN signer not aligned",
+      "ru": "Подписант DSN не согласован с DKIM2"
+    },
+    "enum/MetricType/dkim2.dsn-propagated/label": {
+      "original": "DKIM2 DSN propagated",
+      "ru": "Уведомление DKIM2 DSN передано далее"
+    },
+    "enum/MetricType/dkim2.envelope-mismatch/label": {
+      "original": "DKIM2 envelope mismatch",
+      "ru": "Несовпадение конверта DKIM2"
+    },
+    "enum/MetricType/dkim2.hash-mismatch/label": {
+      "original": "DKIM2 hash mismatch",
+      "ru": "Несовпадение хеша DKIM2"
+    },
+    "enum/MetricType/dkim2.instance-invalid/label": {
+      "original": "DKIM2 Message-Instance invalid",
+      "ru": "Недействительный Message-Instance DKIM2"
+    },
+    "enum/MetricType/dkim2.public-key-error/label": {
+      "original": "DKIM2 public key error",
+      "ru": "Ошибка открытого ключа DKIM2"
+    },
+    "enum/MetricType/dkim2.recipe-error/label": {
+      "original": "DKIM2 recipe error",
+      "ru": "Ошибка инструкции DKIM2"
+    },
+    "enum/MetricType/dkim2.signature-invalid/label": {
+      "original": "DKIM2 signature invalid",
+      "ru": "Недействительная подпись DKIM2"
+    },
+    "enum/MetricType/dkim2.signing-failed/label": {
+      "original": "DKIM2 signing failed",
+      "ru": "Не удалось создать подпись DKIM2"
+    },
+    "enum/MetricType/dkim2.timestamp-invalid/label": {
+      "original": "DKIM2 timestamp invalid",
+      "ru": "Недействительная метка времени DKIM2"
+    },
+    "enum/MetricType/dkim2.verification-failed/label": {
+      "original": "DKIM2 signature verification failed",
+      "ru": "Не удалось проверить подпись DKIM2"
+    },
+    "enum/MetricType/dmarc.fail/label": {
+      "original": "DMARC check failed",
+      "ru": "Проверка DMARC не пройдена"
+    },
+    "enum/MetricType/dmarc.none/label": {
+      "original": "No DMARC record",
+      "ru": "Запись DMARC отсутствует"
+    },
+    "enum/MetricType/dmarc.pass/label": {
+      "original": "DMARC check passed",
+      "ru": "Проверка DMARC пройдена"
+    },
+    "enum/MetricType/dmarc.perm-error/label": {
+      "original": "DMARC permanent error",
+      "ru": "Постоянная ошибка DMARC"
+    },
+    "enum/MetricType/dmarc.temp-error/label": {
+      "original": "DMARC temporary error",
+      "ru": "Временная ошибка DMARC"
+    },
+    "enum/MetricType/dns.lookup-time/label": {
+      "original": "DNS lookup time",
+      "ru": "Время поиска DNS"
+    },
+    "enum/MetricType/dns.record-creation-failed/label": {
+      "original": "DNS record creation failed",
+      "ru": "Не удалось создать запись DNS"
+    },
+    "enum/MetricType/dns.record-deletion-failed/label": {
+      "original": "DNS record deletion failed",
+      "ru": "Не удалось удалить запись DNS"
+    },
+    "enum/MetricType/dns.record-lookup-failed/label": {
+      "original": "DNS record lookup failed",
+      "ru": "Не удалось найти запись DNS"
+    },
+    "enum/MetricType/dns.record-propagation-timeout/label": {
+      "original": "DNS record propagation timeout",
+      "ru": "Истекло время ожидания распространения записи DNS"
+    },
+    "enum/MetricType/domain.count/label": {
+      "original": "Total number of domains",
+      "ru": "Общее число доменов"
+    },
+    "enum/MetricType/encryption.at-rest-encrypted/label": {
+      "original": "Message encrypted at rest",
+      "ru": "Сообщение зашифровано при хранении"
+    },
+    "enum/MetricType/encryption.crl-fetch-failed/label": {
+      "original": "CRL download failed",
+      "ru": "Не удалось загрузить CRL"
+    },
+    "enum/MetricType/encryption.dnssec-bogus/label": {
+      "original": "DNSSEC validation failed",
+      "ru": "Проверка DNSSEC не пройдена"
+    },
+    "enum/MetricType/encryption.encryption-skipped/label": {
+      "original": "Encryption skipped",
+      "ru": "Шифрование пропущено"
+    },
+    "enum/MetricType/encryption.gateway-bounced/label": {
+      "original": "Gateway bounced message",
+      "ru": "Шлюз вернул сообщение из-за ошибки доставки"
+    },
+    "enum/MetricType/encryption.gateway-encrypted/label": {
+      "original": "Gateway encrypted message",
+      "ru": "Шлюз зашифровал сообщение"
+    },
+    "enum/MetricType/encryption.gateway-plaintext/label": {
+      "original": "Gateway sent plaintext",
+      "ru": "Шлюз отправил незашифрованное сообщение"
+    },
+    "enum/MetricType/encryption.key-change/label": {
+      "original": "Key change pending approval",
+      "ru": "Изменение ключа ожидает подтверждения"
+    },
+    "enum/MetricType/encryption.key-harvested/label": {
+      "original": "Key harvested",
+      "ru": "Ключ получен при сборе ключей"
+    },
+    "enum/MetricType/encryption.key-lookup-time/label": {
+      "original": "Recipient key discovery lookup time",
+      "ru": "Время поиска ключа получателя"
+    },
+    "enum/MetricType/encryption.key-lookup/label": {
+      "original": "Key lookup",
+      "ru": "Поиск ключа"
+    },
+    "enum/MetricType/eval.directory-not-found/label": {
+      "original": "Directory not found while evaluating expression",
+      "ru": "Каталог не найден при вычислении выражения"
+    },
+    "enum/MetricType/eval.error/label": {
+      "original": "Expression evaluation error",
+      "ru": "Ошибка вычисления выражения"
+    },
+    "enum/MetricType/eval.store-not-found/label": {
+      "original": "Store not found while evaluating expression",
+      "ru": "Хранилище не найдено при вычислении выражения"
+    },
+    "enum/MetricType/http.active-connections/label": {
+      "original": "Active HTTP connections",
+      "ru": "Активные соединения HTTP"
+    },
+    "enum/MetricType/http.connection-start/label": {
+      "original": "HTTP connection started",
+      "ru": "Соединение HTTP установлено"
+    },
+    "enum/MetricType/http.error/label": {
+      "original": "HTTP error occurred",
+      "ru": "Ошибка HTTP"
+    },
+    "enum/MetricType/http.request-body/label": {
+      "original": "HTTP request body",
+      "ru": "Тело запроса HTTP"
+    },
+    "enum/MetricType/http.request-time/label": {
+      "original": "HTTP connection duration",
+      "ru": "Длительность соединения HTTP"
+    },
+    "enum/MetricType/http.response-body/label": {
+      "original": "HTTP response body",
+      "ru": "Тело ответа HTTP"
+    },
+    "enum/MetricType/http.x-forwarded-invalid/label": {
+      "original": "Invalid forwarding header",
+      "ru": "Недействительный заголовок перенаправления"
+    },
+    "enum/MetricType/http.x-forwarded-missing/label": {
+      "original": "X-Forwarded-For header is missing",
+      "ru": "Заголовок X-Forwarded-For отсутствует"
+    },
+    "enum/MetricType/imap.active-connections/label": {
+      "original": "Active IMAP connections",
+      "ru": "Активные соединения IMAP"
+    },
+    "enum/MetricType/imap.connection-end/label": {
+      "original": "IMAP connection ended",
+      "ru": "Соединение IMAP завершено"
+    },
+    "enum/MetricType/imap.connection-start/label": {
+      "original": "IMAP connection started",
+      "ru": "Соединение IMAP установлено"
+    },
+    "enum/MetricType/imap.request-time/label": {
+      "original": "IMAP connection duration",
+      "ru": "Длительность соединения IMAP"
+    },
+    "enum/MetricType/incoming-report.abuse-report/label": {
+      "original": "Abuse report received",
+      "ru": "Получен отчёт о злоупотреблении"
+    },
+    "enum/MetricType/incoming-report.arf-parse-failed/label": {
+      "original": "Failed to parse ARF report",
+      "ru": "Не удалось разобрать отчёт ARF"
+    },
+    "enum/MetricType/incoming-report.auth-failure-report/label": {
+      "original": "Authentication failure report received",
+      "ru": "Получен отчёт об ошибке аутентификации"
+    },
+    "enum/MetricType/incoming-report.decompress-error/label": {
+      "original": "Error decompressing report",
+      "ru": "Ошибка распаковки отчёта"
+    },
+    "enum/MetricType/incoming-report.dmarc-parse-failed/label": {
+      "original": "Failed to parse DMARC report",
+      "ru": "Не удалось разобрать отчёт DMARC"
+    },
+    "enum/MetricType/incoming-report.dmarc-report-with-warnings/label": {
+      "original": "DMARC report received with warnings",
+      "ru": "Получен отчёт DMARC с предупреждениями"
+    },
+    "enum/MetricType/incoming-report.dmarc-report/label": {
+      "original": "DMARC report received",
+      "ru": "Получен отчёт DMARC"
+    },
+    "enum/MetricType/incoming-report.fraud-report/label": {
+      "original": "Fraud report received",
+      "ru": "Получен отчёт о мошенничестве"
+    },
+    "enum/MetricType/incoming-report.message-parse-failed/label": {
+      "original": "Failed to parse incoming report message",
+      "ru": "Не удалось разобрать сообщение с входящим отчётом"
+    },
+    "enum/MetricType/incoming-report.not-spam-report/label": {
+      "original": "Not spam report received",
+      "ru": "Получен отчёт об ошибочной классификации как спам"
+    },
+    "enum/MetricType/incoming-report.other-report/label": {
+      "original": "Other type of report received",
+      "ru": "Получен отчёт другого типа"
+    },
+    "enum/MetricType/incoming-report.tls-report-with-warnings/label": {
+      "original": "TLS report received with warnings",
+      "ru": "Получен отчёт TLS с предупреждениями"
+    },
+    "enum/MetricType/incoming-report.tls-report/label": {
+      "original": "TLS report received",
+      "ru": "Получен отчёт TLS"
+    },
+    "enum/MetricType/incoming-report.tls-rpc-parse-failed/label": {
+      "original": "Failed to parse TLS RPC report",
+      "ru": "Не удалось разобрать отчёт TLS RPC"
+    },
+    "enum/MetricType/incoming-report.virus-report/label": {
+      "original": "Virus report received",
+      "ru": "Получен отчёт о вирусе"
+    },
+    "enum/MetricType/iprev.fail/label": {
+      "original": "IPREV check failed",
+      "ru": "Проверка IPREV не пройдена"
+    },
+    "enum/MetricType/iprev.none/label": {
+      "original": "No IPREV record",
+      "ru": "Запись IPREV отсутствует"
+    },
+    "enum/MetricType/iprev.pass/label": {
+      "original": "IPREV check passed",
+      "ru": "Проверка IPREV пройдена"
+    },
+    "enum/MetricType/iprev.perm-error/label": {
+      "original": "IPREV permanent error",
+      "ru": "Постоянная ошибка IPREV"
+    },
+    "enum/MetricType/iprev.temp-error/label": {
+      "original": "IPREV temporary error",
+      "ru": "Временная ошибка IPREV"
+    },
+    "enum/MetricType/jmap.forbidden/label": {
+      "original": "JMAP operation forbidden",
+      "ru": "Операция JMAP запрещена"
+    },
+    "enum/MetricType/jmap.invalid-arguments/label": {
+      "original": "Invalid JMAP arguments",
+      "ru": "Недопустимые аргументы JMAP"
+    },
+    "enum/MetricType/jmap.method-call/label": {
+      "original": "JMAP method call",
+      "ru": "Вызов метода JMAP"
+    },
+    "enum/MetricType/jmap.not-json/label": {
+      "original": "JMAP request is not JSON",
+      "ru": "Запрос JMAP не является JSON"
+    },
+    "enum/MetricType/jmap.not-request/label": {
+      "original": "JMAP input is not a request",
+      "ru": "Входные данные JMAP не являются запросом"
+    },
+    "enum/MetricType/jmap.request-too-large/label": {
+      "original": "JMAP request too large",
+      "ru": "Слишком большой запрос JMAP"
+    },
+    "enum/MetricType/jmap.unknown-method/label": {
+      "original": "Unknown JMAP method",
+      "ru": "Неизвестный метод JMAP"
+    },
+    "enum/MetricType/jmap.unsupported-filter/label": {
+      "original": "Unsupported JMAP filter",
+      "ru": "Неподдерживаемый фильтр JMAP"
+    },
+    "enum/MetricType/jmap.unsupported-sort/label": {
+      "original": "Unsupported JMAP sort",
+      "ru": "Неподдерживаемая сортировка JMAP"
+    },
+    "enum/MetricType/jmap.websocket-error/label": {
+      "original": "JMAP WebSocket error",
+      "ru": "Ошибка JMAP WebSocket"
+    },
+    "enum/MetricType/jmap.websocket-start/label": {
+      "original": "JMAP WebSocket connection started",
+      "ru": "Соединение JMAP WebSocket установлено"
+    },
+    "enum/MetricType/limit.blob-quota/label": {
+      "original": "Blob quota limit reached",
+      "ru": "Достигнут предел квоты BLOB-объектов"
+    },
+    "enum/MetricType/limit.calls-in/label": {
+      "original": "Incoming calls limit reached",
+      "ru": "Достигнут предел числа входящих вызовов"
+    },
+    "enum/MetricType/limit.concurrent-connection/label": {
+      "original": "Concurrent connection limit reached",
+      "ru": "Достигнут предел одновременных соединений"
+    },
+    "enum/MetricType/limit.concurrent-request/label": {
+      "original": "Concurrent request limit reached",
+      "ru": "Достигнут предел одновременных запросов"
+    },
+    "enum/MetricType/limit.concurrent-upload/label": {
+      "original": "Concurrent upload limit reached",
+      "ru": "Достигнут предел одновременных загрузок"
+    },
+    "enum/MetricType/limit.memory-budget/label": {
+      "original": "Memory budget exceeded",
+      "ru": "Превышен допустимый объём памяти"
+    },
+    "enum/MetricType/limit.quota/label": {
+      "original": "Quota limit reached",
+      "ru": "Достигнут предел квоты"
+    },
+    "enum/MetricType/limit.size-request/label": {
+      "original": "Request size limit reached",
+      "ru": "Достигнут предел размера запроса"
+    },
+    "enum/MetricType/limit.size-upload/label": {
+      "original": "Upload size limit reached",
+      "ru": "Достигнут предел размера загрузки"
+    },
+    "enum/MetricType/limit.tenant-quota/label": {
+      "original": "Tenant quota limit reached",
+      "ru": "Достигнут предел квоты арендатора"
+    },
+    "enum/MetricType/limit.too-many-requests/label": {
+      "original": "Too many requests",
+      "ru": "Слишком много запросов"
+    },
+    "enum/MetricType/mail-auth.base64/label": {
+      "original": "Base64 error during mail authentication",
+      "ru": "Ошибка Base64 при аутентификации почты"
+    },
+    "enum/MetricType/mail-auth.crypto/label": {
+      "original": "Crypto error during mail authentication",
+      "ru": "Криптографическая ошибка при аутентификации почты"
+    },
+    "enum/MetricType/mail-auth.dns-error/label": {
+      "original": "DNS error",
+      "ru": "Ошибка DNS"
+    },
+    "enum/MetricType/mail-auth.dns-invalid-record-type/label": {
+      "original": "Invalid DNS record type",
+      "ru": "Недопустимый тип записи DNS"
+    },
+    "enum/MetricType/mail-auth.dns-record-not-found/label": {
+      "original": "DNS record not found",
+      "ru": "Запись DNS не найдена"
+    },
+    "enum/MetricType/mail-auth.io/label": {
+      "original": "I/O error during mail authentication",
+      "ru": "Ошибка ввода-вывода (I/O) при аутентификации почты"
+    },
+    "enum/MetricType/mail-auth.missing-parameters/label": {
+      "original": "Missing mail authentication parameters",
+      "ru": "Отсутствуют параметры аутентификации почты"
+    },
+    "enum/MetricType/mail-auth.no-headers-found/label": {
+      "original": "No headers found in message",
+      "ru": "В сообщении не найдены заголовки"
+    },
+    "enum/MetricType/mail-auth.parse-error/label": {
+      "original": "Mail authentication parse error",
+      "ru": "Ошибка разбора данных аутентификации почты"
+    },
+    "enum/MetricType/mail-auth.policy-not-aligned/label": {
+      "original": "Policy not aligned",
+      "ru": "Несогласованность с политикой"
+    },
+    "enum/MetricType/manage-sieve.connection-end/label": {
+      "original": "ManageSieve connection ended",
+      "ru": "Соединение ManageSieve завершено"
+    },
+    "enum/MetricType/manage-sieve.connection-start/label": {
+      "original": "ManageSieve connection started",
+      "ru": "Соединение ManageSieve установлено"
+    },
+    "enum/MetricType/message-ingest.duplicate/label": {
+      "original": "Skipping duplicate message",
+      "ru": "Дубликат сообщения пропущен"
+    },
+    "enum/MetricType/message-ingest.error/label": {
+      "original": "Message ingestion error",
+      "ru": "Ошибка приёма сообщения в хранилище"
+    },
+    "enum/MetricType/message-ingest.ham/label": {
+      "original": "Message ingested",
+      "ru": "Сообщение принято в хранилище"
+    },
+    "enum/MetricType/message-ingest.imap-append/label": {
+      "original": "Message appended via IMAP",
+      "ru": "Сообщение добавлено через IMAP"
+    },
+    "enum/MetricType/message-ingest.jmap-append/label": {
+      "original": "Message appended via JMAP",
+      "ru": "Сообщение добавлено через JMAP"
+    },
+    "enum/MetricType/message-ingest.spam/label": {
+      "original": "Possible spam message ingested",
+      "ru": "Принято сообщение, подозрительное на спам"
+    },
+    "enum/MetricType/message-ingest.time/label": {
+      "original": "Message ingestion time",
+      "ru": "Время приёма сообщения в хранилище"
+    },
+    "enum/MetricType/message.authenticated-size/label": {
+      "original": "Received message size from authenticated users",
+      "ru": "Размер полученного сообщения от аутентифицированных пользователей"
+    },
+    "enum/MetricType/message.size/label": {
+      "original": "Received message size",
+      "ru": "Размер полученного сообщения"
+    },
+    "enum/MetricType/milter.action-accept/label": {
+      "original": "Milter action: Accept",
+      "ru": "Действие Milter: принять"
+    },
+    "enum/MetricType/milter.action-connection-failure/label": {
+      "original": "Milter action: Connection failure",
+      "ru": "Действие Milter: ошибка соединения"
+    },
+    "enum/MetricType/milter.action-discard/label": {
+      "original": "Milter action: Discard",
+      "ru": "Действие Milter: отбросить"
+    },
+    "enum/MetricType/milter.action-reject/label": {
+      "original": "Milter action: Reject",
+      "ru": "Действие Milter: отклонить"
+    },
+    "enum/MetricType/milter.action-reply-code/label": {
+      "original": "Milter action: Reply code",
+      "ru": "Действие Milter: код ответа"
+    },
+    "enum/MetricType/milter.action-shutdown/label": {
+      "original": "Milter action: Shutdown",
+      "ru": "Действие Milter: завершить работу"
+    },
+    "enum/MetricType/milter.action-temp-fail/label": {
+      "original": "Milter action: Temporary failure",
+      "ru": "Действие Milter: временная ошибка"
+    },
+    "enum/MetricType/mta-hook.action-accept/label": {
+      "original": "MTA hook action: Accept",
+      "ru": "Действие обработчика MTA: принять"
+    },
+    "enum/MetricType/mta-hook.action-discard/label": {
+      "original": "MTA hook action: Discard",
+      "ru": "Действие обработчика MTA: отбросить"
+    },
+    "enum/MetricType/mta-hook.action-quarantine/label": {
+      "original": "MTA hook action: Quarantine",
+      "ru": "Действие обработчика MTA: поместить в карантин"
+    },
+    "enum/MetricType/mta-hook.action-reject/label": {
+      "original": "MTA hook action: Reject",
+      "ru": "Действие обработчика MTA: отклонить"
+    },
+    "enum/MetricType/mta-hook.error/label": {
+      "original": "MTA hook error",
+      "ru": "Ошибка обработчика MTA"
+    },
+    "enum/MetricType/mta-sts.authorized/label": {
+      "original": "Host authorized by MTA-STS policy",
+      "ru": "Узел разрешён политикой MTA-STS"
+    },
+    "enum/MetricType/mta-sts.invalid-policy/label": {
+      "original": "Invalid MTA-STS policy",
+      "ru": "Недействительная политика MTA-STS"
+    },
+    "enum/MetricType/mta-sts.not-authorized/label": {
+      "original": "Host not authorized by MTA-STS policy",
+      "ru": "Узел не разрешён политикой MTA-STS"
+    },
+    "enum/MetricType/network.timeout/label": {
+      "original": "Network timeout",
+      "ru": "Истекло время ожидания сетевой операции"
+    },
+    "enum/MetricType/outgoing-report.dkim-rate-limited/label": {
+      "original": "DKIM report rate limited",
+      "ru": "Отправка отчёта DKIM ограничена по частоте"
+    },
+    "enum/MetricType/outgoing-report.dkim-report/label": {
+      "original": "DKIM report sent",
+      "ru": "Отчёт DKIM отправлен"
+    },
+    "enum/MetricType/outgoing-report.dmarc-aggregate-report/label": {
+      "original": "DMARC aggregate is being prepared",
+      "ru": "Подготавливается сводный отчёт DMARC"
+    },
+    "enum/MetricType/outgoing-report.dmarc-rate-limited/label": {
+      "original": "DMARC report rate limited",
+      "ru": "Отправка отчёта DMARC ограничена по частоте"
+    },
+    "enum/MetricType/outgoing-report.dmarc-report/label": {
+      "original": "DMARC report sent",
+      "ru": "Отчёт DMARC отправлен"
+    },
+    "enum/MetricType/outgoing-report.http-submission/label": {
+      "original": "Report submitted via HTTP",
+      "ru": "Отчёт отправлен через HTTP"
+    },
+    "enum/MetricType/outgoing-report.no-recipients-found/label": {
+      "original": "No recipients found for report",
+      "ru": "Получатели отчёта не найдены"
+    },
+    "enum/MetricType/outgoing-report.not-found/label": {
+      "original": "Report not found",
+      "ru": "Отчёт не найден"
+    },
+    "enum/MetricType/outgoing-report.reporting-address-validation-error/label": {
+      "original": "Error validating reporting address",
+      "ru": "Ошибка проверки адреса для отчётов"
+    },
+    "enum/MetricType/outgoing-report.size/label": {
+      "original": "Outgoing report size",
+      "ru": "Размер исходящего отчёта"
+    },
+    "enum/MetricType/outgoing-report.spf-rate-limited/label": {
+      "original": "SPF report rate limited",
+      "ru": "Отправка отчёта SPF ограничена по частоте"
+    },
+    "enum/MetricType/outgoing-report.spf-report/label": {
+      "original": "SPF report sent",
+      "ru": "Отчёт SPF отправлен"
+    },
+    "enum/MetricType/outgoing-report.submission-error/label": {
+      "original": "Error submitting report",
+      "ru": "Ошибка отправки отчёта"
+    },
+    "enum/MetricType/outgoing-report.tls-aggregate/label": {
+      "original": "TLS aggregate report is being prepared",
+      "ru": "Подготавливается сводный отчёт TLS"
+    },
+    "enum/MetricType/outgoing-report.unauthorized-reporting-address/label": {
+      "original": "Unauthorized reporting address",
+      "ru": "Адрес для отчётов не разрешён"
+    },
+    "enum/MetricType/pop3.active-connections/label": {
+      "original": "Active POP3 connections",
+      "ru": "Активные соединения POP3"
+    },
+    "enum/MetricType/pop3.connection-end/label": {
+      "original": "POP3 connection ended",
+      "ru": "Соединение POP3 завершено"
+    },
+    "enum/MetricType/pop3.connection-start/label": {
+      "original": "POP3 connection started",
+      "ru": "Соединение POP3 установлено"
+    },
+    "enum/MetricType/pop3.request-time/label": {
+      "original": "POP3 connection duration",
+      "ru": "Длительность соединения POP3"
+    },
+    "enum/MetricType/push-subscription.error/label": {
+      "original": "Push subscription error",
+      "ru": "Ошибка подписки на push-уведомления"
+    },
+    "enum/MetricType/push-subscription.not-found/label": {
+      "original": "Push subscription not found",
+      "ru": "Подписка на push-уведомления не найдена"
+    },
+    "enum/MetricType/push-subscription.success/label": {
+      "original": "Push subscription successful",
+      "ru": "Подписка на push-уведомления успешно оформлена"
+    },
+    "enum/MetricType/queue.authenticated-message-queued/label": {
+      "original": "Queued message submission for delivery",
+      "ru": "Сообщение поставлено в очередь на доставку"
+    },
+    "enum/MetricType/queue.autogenerated-queued/label": {
+      "original": "Queued autogenerated message for delivery",
+      "ru": "Автоматически созданное сообщение поставлено в очередь на доставку"
+    },
+    "enum/MetricType/queue.back-pressure/label": {
+      "original": "Queue backpressure detected",
+      "ru": "Обнаружена перегрузка очереди, требующая ограничения приёма"
+    },
+    "enum/MetricType/queue.blob-not-found/label": {
+      "original": "Message blob not found",
+      "ru": "BLOB-объект сообщения не найден"
+    },
+    "enum/MetricType/queue.concurrency-limit-exceeded/label": {
+      "original": "Concurrency limit exceeded",
+      "ru": "Превышен предел одновременных операций"
+    },
+    "enum/MetricType/queue.count/label": {
+      "original": "Total number of messages in the queue",
+      "ru": "Общее число сообщений в очереди"
+    },
+    "enum/MetricType/queue.dsn-queued/label": {
+      "original": "Queued DSN for delivery",
+      "ru": "Уведомление DSN поставлено в очередь на доставку"
+    },
+    "enum/MetricType/queue.message-queued/label": {
+      "original": "Queued message for delivery",
+      "ru": "Сообщение поставлено в очередь на доставку"
+    },
+    "enum/MetricType/queue.quota-exceeded/label": {
+      "original": "Quota exceeded",
+      "ru": "Квота превышена"
+    },
+    "enum/MetricType/queue.rate-limit-exceeded/label": {
+      "original": "Rate limit exceeded",
+      "ru": "Превышено ограничение частоты"
+    },
+    "enum/MetricType/queue.report-queued/label": {
+      "original": "Queued report for delivery",
+      "ru": "Отчёт поставлен в очередь на доставку"
+    },
+    "enum/MetricType/queue.rescheduled/label": {
+      "original": "Message rescheduled for delivery",
+      "ru": "Доставка сообщения перенесена"
+    },
+    "enum/MetricType/resource.bad-parameters/label": {
+      "original": "Bad resource parameters",
+      "ru": "Недопустимые параметры ресурса"
+    },
+    "enum/MetricType/resource.error/label": {
+      "original": "Resource error",
+      "ru": "Ошибка ресурса"
+    },
+    "enum/MetricType/resource.not-found/label": {
+      "original": "Resource not found",
+      "ru": "Ресурс не найден"
+    },
+    "enum/MetricType/search-index.batch-indexed/label": {
+      "original": "Search index batch written",
+      "ru": "Пакет записан в поисковый индекс"
+    },
+    "enum/MetricType/search-index.document-truncated/label": {
+      "original": "Search document truncated",
+      "ru": "Документ для поиска усечён"
+    },
+    "enum/MetricType/search-index.index-time/label": {
+      "original": "Time to build and write one batch of documents to the full-text index",
+      "ru": "Время формирования и записи одного пакета документов в полнотекстовый индекс"
+    },
+    "enum/MetricType/search-index.partition-retry/label": {
+      "original": "Index partition will be retried",
+      "ru": "Индексирование раздела будет повторено"
+    },
+    "enum/MetricType/search-index.pending-calendar/label": {
+      "original": "Calendar events waiting to be indexed",
+      "ru": "События календаря, ожидающие индексирования"
+    },
+    "enum/MetricType/search-index.pending-contacts/label": {
+      "original": "Contacts waiting to be indexed",
+      "ru": "Контакты, ожидающие индексирования"
+    },
+    "enum/MetricType/search-index.pending-email/label": {
+      "original": "E-mail messages waiting to be indexed",
+      "ru": "Почтовые сообщения, ожидающие индексирования"
+    },
+    "enum/MetricType/search-index.pending-file/label": {
+      "original": "Files waiting to be indexed",
+      "ru": "Файлы, ожидающие индексирования"
+    },
+    "enum/MetricType/search-index.pending-tracing/label": {
+      "original": "Traces waiting to be indexed",
+      "ru": "Трассировки, ожидающие индексирования"
+    },
+    "enum/MetricType/security.abuse-ban/label": {
+      "original": "Banned due to abuse",
+      "ru": "Блокировка из-за злоупотреблений"
+    },
+    "enum/MetricType/security.authentication-ban/label": {
+      "original": "Banned due to authentication errors",
+      "ru": "Блокировка из-за ошибок аутентификации"
+    },
+    "enum/MetricType/security.ip-blocked/label": {
+      "original": "Blocked IP address",
+      "ru": "Заблокирован IP-адрес"
+    },
+    "enum/MetricType/security.loiter-ban/label": {
+      "original": "Banned due to loitering",
+      "ru": "Блокировка из-за длительных неактивных соединений"
+    },
+    "enum/MetricType/security.scan-ban/label": {
+      "original": "Banned due to scan",
+      "ru": "Блокировка из-за сканирования"
+    },
+    "enum/MetricType/security.unauthorized/label": {
+      "original": "Unauthorized access",
+      "ru": "Несанкционированный доступ"
+    },
+    "enum/MetricType/server.buffered-memory-read/label": {
+      "original": "Memory reserved for blobs read from the blob store",
+      "ru": "Память, зарезервированная для BLOB-объектов, прочитанных из хранилища"
+    },
+    "enum/MetricType/server.buffered-memory-smtp/label": {
+      "original": "Memory reserved for buffering inbound SMTP messages",
+      "ru": "Память, зарезервированная для буферизации входящих сообщений SMTP"
+    },
+    "enum/MetricType/server.memory/label": {
+      "original": "Server memory usage",
+      "ru": "Использование памяти сервером"
+    },
+    "enum/MetricType/server.thread-error/label": {
+      "original": "Server thread error",
+      "ru": "Ошибка потока сервера"
+    },
+    "enum/MetricType/sieve.action-accept-replace/label": {
+      "original": "Sieve action: Accept and replace",
+      "ru": "Действие Sieve: принять и заменить"
+    },
+    "enum/MetricType/sieve.action-accept/label": {
+      "original": "Sieve action: Accept",
+      "ru": "Действие Sieve: принять"
+    },
+    "enum/MetricType/sieve.action-discard/label": {
+      "original": "Sieve action: Discard",
+      "ru": "Действие Sieve: отбросить"
+    },
+    "enum/MetricType/sieve.action-reject/label": {
+      "original": "Sieve action: Reject",
+      "ru": "Действие Sieve: отклонить"
+    },
+    "enum/MetricType/sieve.active-connections/label": {
+      "original": "Active ManageSieve connections",
+      "ru": "Активные соединения ManageSieve"
+    },
+    "enum/MetricType/sieve.message-too-large/label": {
+      "original": "Sieve message too large",
+      "ru": "Слишком большое сообщение Sieve"
+    },
+    "enum/MetricType/sieve.not-supported/label": {
+      "original": "Sieve action not supported",
+      "ru": "Действие Sieve не поддерживается"
+    },
+    "enum/MetricType/sieve.quota-exceeded/label": {
+      "original": "Sieve quota exceeded",
+      "ru": "Квота Sieve превышена"
+    },
+    "enum/MetricType/sieve.request-time/label": {
+      "original": "ManageSieve connection duration",
+      "ru": "Длительность соединения ManageSieve"
+    },
+    "enum/MetricType/sieve.runtime-error/label": {
+      "original": "Sieve runtime error",
+      "ru": "Ошибка выполнения Sieve"
+    },
+    "enum/MetricType/sieve.send-message/label": {
+      "original": "Sieve sending message",
+      "ru": "Отправка сообщения через Sieve"
+    },
+    "enum/MetricType/sieve.unexpected-error/label": {
+      "original": "Unexpected Sieve error",
+      "ru": "Неожиданная ошибка Sieve"
+    },
+    "enum/MetricType/smtp.active-connections/label": {
+      "original": "Active SMTP connections",
+      "ru": "Активные соединения SMTP"
+    },
+    "enum/MetricType/smtp.arc-fail/label": {
+      "original": "ARC verification failed",
+      "ru": "Проверка ARC не пройдена"
+    },
+    "enum/MetricType/smtp.arc-pass/label": {
+      "original": "ARC verification passed",
+      "ru": "Проверка ARC пройдена"
+    },
+    "enum/MetricType/smtp.auth-exchange-too-long/label": {
+      "original": "Auth exchange too long",
+      "ru": "Слишком длительный обмен данными аутентификации"
+    },
+    "enum/MetricType/smtp.auth-mechanism-not-supported/label": {
+      "original": "Auth mechanism not supported",
+      "ru": "Механизм аутентификации не поддерживается"
+    },
+    "enum/MetricType/smtp.command-not-implemented/label": {
+      "original": "Command not implemented",
+      "ru": "Команда не реализована"
+    },
+    "enum/MetricType/smtp.concurrency-limit-exceeded/label": {
+      "original": "Concurrency limit exceeded",
+      "ru": "Превышен предел одновременных операций"
+    },
+    "enum/MetricType/smtp.connection-end/label": {
+      "original": "SMTP connection ended",
+      "ru": "Соединение SMTP завершено"
+    },
+    "enum/MetricType/smtp.connection-start/label": {
+      "original": "SMTP connection started",
+      "ru": "Соединение SMTP установлено"
+    },
+    "enum/MetricType/smtp.did-not-say-ehlo/label": {
+      "original": "Client did not say EHLO",
+      "ru": "Клиент не отправил EHLO"
+    },
+    "enum/MetricType/smtp.dkim-fail/label": {
+      "original": "DKIM verification failed",
+      "ru": "Проверка DKIM не пройдена"
+    },
+    "enum/MetricType/smtp.dkim-pass/label": {
+      "original": "DKIM verification passed",
+      "ru": "Проверка DKIM пройдена"
+    },
+    "enum/MetricType/smtp.dkim2-dsn-rejected/label": {
+      "original": "DKIM2 DSN rejected",
+      "ru": "Уведомление DKIM2 DSN отклонено"
+    },
+    "enum/MetricType/smtp.dkim2-fail/label": {
+      "original": "DKIM2 verification failed",
+      "ru": "Проверка DKIM2 не пройдена"
+    },
+    "enum/MetricType/smtp.dkim2-pass/label": {
+      "original": "DKIM2 verification passed",
+      "ru": "Проверка DKIM2 пройдена"
+    },
+    "enum/MetricType/smtp.dmarc-fail/label": {
+      "original": "DMARC check failed",
+      "ru": "Проверка DMARC не пройдена"
+    },
+    "enum/MetricType/smtp.dmarc-pass/label": {
+      "original": "DMARC check passed",
+      "ru": "Проверка DMARC пройдена"
+    },
+    "enum/MetricType/smtp.error/label": {
+      "original": "SMTP error occurred",
+      "ru": "Ошибка SMTP"
+    },
+    "enum/MetricType/smtp.invalid-command/label": {
+      "original": "Invalid command",
+      "ru": "Недопустимая команда"
+    },
+    "enum/MetricType/smtp.invalid-ehlo/label": {
+      "original": "Invalid EHLO command",
+      "ru": "Недопустимая команда EHLO"
+    },
+    "enum/MetricType/smtp.iprev-fail/label": {
+      "original": "IPREV check failed",
+      "ru": "Проверка IPREV не пройдена"
+    },
+    "enum/MetricType/smtp.iprev-pass/label": {
+      "original": "IPREV check passed",
+      "ru": "Проверка IPREV пройдена"
+    },
+    "enum/MetricType/smtp.loop-detected/label": {
+      "original": "Mail loop detected",
+      "ru": "Обнаружена почтовая петля"
+    },
+    "enum/MetricType/smtp.mail-from-missing/label": {
+      "original": "MAIL FROM address missing",
+      "ru": "Адрес MAIL FROM отсутствует"
+    },
+    "enum/MetricType/smtp.mail-from-unauthenticated/label": {
+      "original": "MAIL FROM without authentication",
+      "ru": "MAIL FROM без аутентификации"
+    },
+    "enum/MetricType/smtp.mail-from-unauthorized/label": {
+      "original": "MAIL FROM unauthorized",
+      "ru": "MAIL FROM не разрешён"
+    },
+    "enum/MetricType/smtp.mailbox-does-not-exist/label": {
+      "original": "Mailbox does not exist",
+      "ru": "Почтовый ящик не существует"
+    },
+    "enum/MetricType/smtp.message-parse-failed/label": {
+      "original": "Message parsing failed",
+      "ru": "Не удалось разобрать сообщение"
+    },
+    "enum/MetricType/smtp.message-too-large/label": {
+      "original": "Message too large",
+      "ru": "Слишком большое сообщение"
+    },
+    "enum/MetricType/smtp.multiple-from-domains/label": {
+      "original": "Multiple From domains",
+      "ru": "Несколько доменов в заголовке From"
+    },
+    "enum/MetricType/smtp.multiple-mail-from/label": {
+      "original": "Multiple MAIL FROM commands",
+      "ru": "Несколько команд MAIL FROM"
+    },
+    "enum/MetricType/smtp.rate-limit-exceeded/label": {
+      "original": "Rate limit exceeded",
+      "ru": "Превышено ограничение частоты"
+    },
+    "enum/MetricType/smtp.rcpt-to-duplicate/label": {
+      "original": "Duplicate RCPT TO",
+      "ru": "Повторяющийся RCPT TO"
+    },
+    "enum/MetricType/smtp.rcpt-to-missing/label": {
+      "original": "RCPT TO address missing",
+      "ru": "Адрес RCPT TO отсутствует"
+    },
+    "enum/MetricType/smtp.relay-not-allowed/label": {
+      "original": "Relay not allowed",
+      "ru": "Ретрансляция почты не разрешена"
+    },
+    "enum/MetricType/smtp.request-time/label": {
+      "original": "SMTP connection duration",
+      "ru": "Длительность соединения SMTP"
+    },
+    "enum/MetricType/smtp.request-too-large/label": {
+      "original": "Request too large",
+      "ru": "Слишком большой запрос"
+    },
+    "enum/MetricType/smtp.spf-ehlo-fail/label": {
+      "original": "SPF EHLO check failed",
+      "ru": "Проверка SPF EHLO не пройдена"
+    },
+    "enum/MetricType/smtp.spf-ehlo-pass/label": {
+      "original": "SPF EHLO check passed",
+      "ru": "Проверка SPF EHLO пройдена"
+    },
+    "enum/MetricType/smtp.spf-from-fail/label": {
+      "original": "SPF From check failed",
+      "ru": "Проверка SPF для From не пройдена"
+    },
+    "enum/MetricType/smtp.spf-from-pass/label": {
+      "original": "SPF From check passed",
+      "ru": "Проверка SPF для From пройдена"
+    },
+    "enum/MetricType/smtp.syntax-error/label": {
+      "original": "Syntax error",
+      "ru": "Синтаксическая ошибка"
+    },
+    "enum/MetricType/smtp.time-limit-exceeded/label": {
+      "original": "Time limit exceeded",
+      "ru": "Превышен предел времени"
+    },
+    "enum/MetricType/smtp.too-many-invalid-rcpt/label": {
+      "original": "Too many invalid recipients",
+      "ru": "Слишком много недопустимых получателей"
+    },
+    "enum/MetricType/smtp.too-many-messages/label": {
+      "original": "Too many messages",
+      "ru": "Слишком много сообщений"
+    },
+    "enum/MetricType/smtp.too-many-recipients/label": {
+      "original": "Too many recipients",
+      "ru": "Слишком много получателей"
+    },
+    "enum/MetricType/smtp.transfer-limit-exceeded/label": {
+      "original": "Transfer limit exceeded",
+      "ru": "Превышен предел объёма передачи"
+    },
+    "enum/MetricType/spam.classify/label": {
+      "original": "Classifying message for spam",
+      "ru": "Проверка сообщения на спам"
+    },
+    "enum/MetricType/spam.dnsbl-error/label": {
+      "original": "Error querying DNSBL",
+      "ru": "Ошибка запроса DNSBL"
+    },
+    "enum/MetricType/spam.model-not-ready/label": {
+      "original": "Spam classifier model not ready",
+      "ru": "Модель классификатора спама не готова"
+    },
+    "enum/MetricType/spam.pyzor-error/label": {
+      "original": "Pyzor error",
+      "ru": "Ошибка Pyzor"
+    },
+    "enum/MetricType/spam.train-completed/label": {
+      "original": "Spam classifier training completed",
+      "ru": "Обучение классификатора спама завершено"
+    },
+    "enum/MetricType/spam.train-sample-added/label": {
+      "original": "New training sample added",
+      "ru": "Добавлен новый образец для обучения"
+    },
+    "enum/MetricType/spf.fail/label": {
+      "original": "SPF check failed",
+      "ru": "Проверка SPF не пройдена"
+    },
+    "enum/MetricType/spf.neutral/label": {
+      "original": "SPF neutral result",
+      "ru": "Нейтральный результат SPF"
+    },
+    "enum/MetricType/spf.none/label": {
+      "original": "No SPF record",
+      "ru": "Запись SPF отсутствует"
+    },
+    "enum/MetricType/spf.pass/label": {
+      "original": "SPF check passed",
+      "ru": "Проверка SPF пройдена"
+    },
+    "enum/MetricType/spf.perm-error/label": {
+      "original": "SPF permanent error",
+      "ru": "Постоянная ошибка SPF"
+    },
+    "enum/MetricType/spf.soft-fail/label": {
+      "original": "SPF soft fail",
+      "ru": "Мягкий отказ SPF (soft fail)"
+    },
+    "enum/MetricType/spf.temp-error/label": {
+      "original": "SPF temporary error",
+      "ru": "Временная ошибка SPF"
+    },
+    "enum/MetricType/store.assert-value-failed/label": {
+      "original": "Another process modified the record",
+      "ru": "Другой процесс изменил запись"
+    },
+    "enum/MetricType/store.azure-error/label": {
+      "original": "Azure error",
+      "ru": "Ошибка Azure"
+    },
+    "enum/MetricType/store.blob-delete/label": {
+      "original": "Blob delete operation",
+      "ru": "Операция удаления BLOB-объекта"
+    },
+    "enum/MetricType/store.blob-missing-marker/label": {
+      "original": "Blob missing marker",
+      "ru": "Отсутствует маркер BLOB-объекта"
+    },
+    "enum/MetricType/store.blob-read-time/label": {
+      "original": "Blob store read time",
+      "ru": "Время чтения из хранилища BLOB-объектов"
+    },
+    "enum/MetricType/store.blob-read/label": {
+      "original": "Blob read operation",
+      "ru": "Операция чтения BLOB-объекта"
+    },
+    "enum/MetricType/store.blob-write-time/label": {
+      "original": "Blob store write time",
+      "ru": "Время записи в хранилище BLOB-объектов"
+    },
+    "enum/MetricType/store.blob-write/label": {
+      "original": "Blob write operation",
+      "ru": "Операция записи BLOB-объекта"
+    },
+    "enum/MetricType/store.crypto-error/label": {
+      "original": "Store crypto error",
+      "ru": "Криптографическая ошибка хранилища"
+    },
+    "enum/MetricType/store.data-corruption/label": {
+      "original": "Data corruption detected",
+      "ru": "Обнаружено повреждение данных"
+    },
+    "enum/MetricType/store.data-iterate/label": {
+      "original": "Data store iteration operation",
+      "ru": "Операция перебора записей хранилища данных"
+    },
+    "enum/MetricType/store.data-read-time/label": {
+      "original": "Data store read time",
+      "ru": "Время чтения из хранилища данных"
+    },
+    "enum/MetricType/store.data-write-time/label": {
+      "original": "Data store write time",
+      "ru": "Время записи в хранилище данных"
+    },
+    "enum/MetricType/store.data-write/label": {
+      "original": "Write batch operation",
+      "ru": "Операция пакетной записи"
+    },
+    "enum/MetricType/store.decompress-error/label": {
+      "original": "Decompression error",
+      "ru": "Ошибка распаковки"
+    },
+    "enum/MetricType/store.decrypt-error/label": {
+      "original": "Decryption error",
+      "ru": "Ошибка расшифрования"
+    },
+    "enum/MetricType/store.deserialize-error/label": {
+      "original": "Deserialization error",
+      "ru": "Ошибка десериализации"
+    },
+    "enum/MetricType/store.elasticsearch-error/label": {
+      "original": "ElasticSearch error",
+      "ru": "Ошибка ElasticSearch"
+    },
+    "enum/MetricType/store.filesystem-error/label": {
+      "original": "Filesystem error",
+      "ru": "Ошибка файловой системы"
+    },
+    "enum/MetricType/store.foundationdb-error/label": {
+      "original": "FoundationDB error",
+      "ru": "Ошибка FoundationDB"
+    },
+    "enum/MetricType/store.http-store-error/label": {
+      "original": "Error updating HTTP store",
+      "ru": "Ошибка обновления хранилища HTTP"
+    },
+    "enum/MetricType/store.ldap-error/label": {
+      "original": "LDAP error",
+      "ru": "Ошибка LDAP"
+    },
+    "enum/MetricType/store.mysql-error/label": {
+      "original": "MySQL error",
+      "ru": "Ошибка MySQL"
+    },
+    "enum/MetricType/store.not-configured/label": {
+      "original": "Store not configured",
+      "ru": "Хранилище не настроено"
+    },
+    "enum/MetricType/store.not-found/label": {
+      "original": "Record not found in database",
+      "ru": "Запись в базе данных не найдена"
+    },
+    "enum/MetricType/store.not-supported/label": {
+      "original": "Operation not supported by store",
+      "ru": "Операция не поддерживается хранилищем"
+    },
+    "enum/MetricType/store.pool-error/label": {
+      "original": "Connection pool error",
+      "ru": "Ошибка пула соединений"
+    },
+    "enum/MetricType/store.postgresql-error/label": {
+      "original": "PostgreSQL error",
+      "ru": "Ошибка PostgreSQL"
+    },
+    "enum/MetricType/store.redis-error/label": {
+      "original": "Redis error",
+      "ru": "Ошибка Redis"
+    },
+    "enum/MetricType/store.rocksdb-error/label": {
+      "original": "RocksDB error",
+      "ru": "Ошибка RocksDB"
+    },
+    "enum/MetricType/store.s3-error/label": {
+      "original": "S3 error",
+      "ru": "Ошибка S3"
+    },
+    "enum/MetricType/store.sqlite-error/label": {
+      "original": "SQLite error",
+      "ru": "Ошибка SQLite"
+    },
+    "enum/MetricType/store.unexpected-error/label": {
+      "original": "Unexpected store error",
+      "ru": "Неожиданная ошибка хранилища"
+    },
+    "enum/MetricType/task-manager.blob-not-found/label": {
+      "original": "Blob not found for task",
+      "ru": "BLOB-объект для задачи не найден"
+    },
+    "enum/MetricType/task-manager.due/label": {
+      "original": "Tasks due for execution that have not run yet",
+      "ru": "Задачи, срок выполнения которых наступил, но они ещё не выполнены"
+    },
+    "enum/MetricType/task-manager.metadata-not-found/label": {
+      "original": "Metadata not found for task",
+      "ru": "Метаданные задачи не найдены"
+    },
+    "enum/MetricType/task-manager.pending/label": {
+      "original": "Tasks queued in the task manager",
+      "ru": "Задачи в очереди диспетчера задач"
+    },
+    "enum/MetricType/task-manager.task-expired/label": {
+      "original": "Task expired",
+      "ru": "Срок действия задачи истёк"
+    },
+    "enum/MetricType/task-manager.task-failed/label": {
+      "original": "Task failed permanently",
+      "ru": "Неустранимая ошибка выполнения задачи"
+    },
+    "enum/MetricType/task-manager.task-retry/label": {
+      "original": "Task will be retried",
+      "ru": "Выполнение задачи будет повторено"
+    },
+    "enum/MetricType/task-manager.task-stalled/label": {
+      "original": "Task stalled",
+      "ru": "Выполнение задачи застопорилось"
+    },
+    "enum/MetricType/telemetry.alert-event/label": {
+      "original": "Alert event triggered",
+      "ru": "Сработало событие оповещения"
+    },
+    "enum/MetricType/telemetry.alert-message/label": {
+      "original": "Alert message sent",
+      "ru": "Сообщение оповещения отправлено"
+    },
+    "enum/MetricType/telemetry.events-dropped/label": {
+      "original": "Telemetry events dropped",
+      "ru": "События телеметрии отброшены"
+    },
+    "enum/MetricType/telemetry.journal-error/label": {
+      "original": "Journal collector error",
+      "ru": "Ошибка сборщика системного журнала"
+    },
+    "enum/MetricType/telemetry.log-error/label": {
+      "original": "Log collector error",
+      "ru": "Ошибка сборщика журнала"
+    },
+    "enum/MetricType/telemetry.otel-exporter-error/label": {
+      "original": "OpenTelemetry exporter error",
+      "ru": "Ошибка экспортёра OpenTelemetry"
+    },
+    "enum/MetricType/telemetry.otel-metrics-exporter-error/label": {
+      "original": "OpenTelemetry metrics exporter error",
+      "ru": "Ошибка экспортёра метрик OpenTelemetry"
+    },
+    "enum/MetricType/telemetry.prometheus-exporter-error/label": {
+      "original": "Prometheus exporter error",
+      "ru": "Ошибка экспортёра Prometheus"
+    },
+    "enum/MetricType/telemetry.webhook-error/label": {
+      "original": "Webhook collector error",
+      "ru": "Ошибка сборщика через вебхук"
+    },
+    "enum/MetricType/tls.handshake-error/label": {
+      "original": "TLS handshake error",
+      "ru": "Ошибка согласования TLS"
+    },
+    "enum/MetricType/user.count/label": {
+      "original": "Total number of users",
+      "ru": "Общее число пользователей"
     },
     "enum/MtaInboundThrottleKey/sender/label": {
       "original": "Sender",
@@ -2310,6 +3922,26 @@
       "original": "General certificate validation failure",
       "ru": "Общая ошибка проверки сертификата"
     },
+    "enum/TracingLevelOpt/debug/label": {
+      "original": "Debug - Errors, warnings, info and debug are logged",
+      "ru": "Debug — ошибки, предупреждения, информационные и отладочные сообщения"
+    },
+    "enum/TracingLevelOpt/error/label": {
+      "original": "Error - Only errors are logged",
+      "ru": "Error — только ошибки"
+    },
+    "enum/TracingLevelOpt/info/label": {
+      "original": "Info - Errors, warnings and info are logged",
+      "ru": "Info — ошибки, предупреждения и информационные сообщения"
+    },
+    "enum/TracingLevelOpt/trace/label": {
+      "original": "Trace - Errors, warnings, info, debug and trace are logged",
+      "ru": "Trace — ошибки, предупреждения, информационные, отладочные сообщения и трассировка"
+    },
+    "enum/TracingLevelOpt/warn/label": {
+      "original": "Warning - Errors and warnings are logged",
+      "ru": "Warning — ошибки и предупреждения"
+    },
     "enum/UserRolesType/Admin/label": {
       "original": "Administrator role",
       "ru": "Роль администратора"
@@ -2625,6 +4257,46 @@
     "field/x:AddressBook/vCardVersion/description": {
       "original": "vCard version used when serializing contact cards for clients that do not request a specific version",
       "ru": "Версия vCard, используемая при формировании карточек контактов для клиентов, не запрашивающих конкретную версию."
+    },
+    "field/x:Alert/condition/description": {
+      "original": "The condition that triggers the alert.",
+      "ru": "Условие срабатывания оповещения."
+    },
+    "field/x:Alert/emailAlert/description": {
+      "original": "Email notification settings",
+      "ru": "Настройки уведомления по электронной почте"
+    },
+    "field/x:Alert/enable/description": {
+      "original": "Enable or disable the alert",
+      "ru": "Включить или отключить оповещение"
+    },
+    "field/x:Alert/eventAlert/description": {
+      "original": "Event notification settings",
+      "ru": "Настройки уведомления посредством события"
+    },
+    "field/x:AlertEmailProperties/body/description": {
+      "original": "The body of the email",
+      "ru": "Текст письма"
+    },
+    "field/x:AlertEmailProperties/fromAddress/description": {
+      "original": "The email address of the sender",
+      "ru": "Адрес электронной почты отправителя"
+    },
+    "field/x:AlertEmailProperties/fromName/description": {
+      "original": "The name of the sender",
+      "ru": "Имя отправителя"
+    },
+    "field/x:AlertEmailProperties/subject/description": {
+      "original": "The subject of the email",
+      "ru": "Тема письма"
+    },
+    "field/x:AlertEmailProperties/to/description": {
+      "original": "The email address of the recipient(s)",
+      "ru": "Адреса электронной почты получателей"
+    },
+    "field/x:AlertEventProperties/eventMessage/description": {
+      "original": "The message of the event to trigger",
+      "ru": "Сообщение создаваемого события"
     },
     "field/x:ArfExternalReport/expiresAt/description": {
       "original": "When the report is scheduled to be deleted",
@@ -3438,6 +5110,14 @@
       "original": "Public key used for encrypting emails",
       "ru": "Открытый ключ для шифрования сообщений"
     },
+    "field/x:EventTracingLevel/event/description": {
+      "original": "Unique identifier of the event",
+      "ru": "Уникальный идентификатор события"
+    },
+    "field/x:EventTracingLevel/level/description": {
+      "original": "The logging level for this event",
+      "ru": "Уровень журналирования этого события"
+    },
     "field/x:ExternalPublicKey/authenticatedEncryption/description": {
       "original": "All mail clients holding the private key can read AES-GCM with RSA-OAEP. Applies to S/MIME RSA and elliptic-curve keys. Apple Mail and Thunderbird ESR cannot read it.",
       "ru": "Все почтовые клиенты, использующие закрытый ключ, могут читать сообщения с AES-GCM и RSA-OAEP. Применимо к ключам S/MIME RSA и ключам на эллиптических кривых. Apple Mail и Thunderbird ESR не могут читать такие сообщения."
@@ -3681,6 +5361,82 @@
     "field/x:MailingList/recipients/description": {
       "original": "List of email addresses that are members of the mailing list",
       "ru": "Почтовые адреса участников списка рассылки"
+    },
+    "field/x:Metrics/metrics/description": {
+      "original": "List of metrics to include or exclude based on filter mode",
+      "ru": "Список метрик, включаемых или исключаемых в зависимости от режима фильтрации"
+    },
+    "field/x:Metrics/metricsPolicy/description": {
+      "original": "How to interpret the metrics list",
+      "ru": "Способ применения списка метрик"
+    },
+    "field/x:Metrics/resourceAttributes/description": {
+      "original": "Additional resource attributes reported to OpenTelemetry collectors by the metrics exporter and the OpenTelemetry tracers",
+      "ru": "Дополнительные атрибуты ресурса, передаваемые экспортёром метрик и средствами трассировки OpenTelemetry сборщикам OpenTelemetry"
+    },
+    "field/x:Metrics/serviceName/description": {
+      "original": "Service name reported to OpenTelemetry collectors by the metrics exporter and the OpenTelemetry tracers",
+      "ru": "Имя службы, передаваемое экспортёром метрик и средствами трассировки OpenTelemetry сборщикам OpenTelemetry"
+    },
+    "field/x:Metrics/serviceNamespace/description": {
+      "original": "Optional service namespace reported to OpenTelemetry collectors by the metrics exporter and the OpenTelemetry tracers",
+      "ru": "Необязательное пространство имён службы, передаваемое экспортёром метрик и средствами трассировки OpenTelemetry сборщикам OpenTelemetry"
+    },
+    "field/x:MetricsOtelGrpc/allowInvalidCerts/description": {
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли использование недействительных сертификатов SSL"
+    },
+    "field/x:MetricsOtelGrpc/httpAuth/description": {
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP"
+    },
+    "field/x:MetricsOtelGrpc/httpHeaders/description": {
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки для HTTP-запросов"
+    },
+    "field/x:MetricsOtelGrpc/interval/description": {
+      "original": "How often metrics are exported to the OpenTelemetry collector",
+      "ru": "Периодичность экспорта метрик в сборщик OpenTelemetry"
+    },
+    "field/x:MetricsOtelGrpc/timeout/description": {
+      "original": "Maximum amount of time that Stalwart will wait for a response from the OpenTelemetry collector",
+      "ru": "Максимальное время ожидания ответа от сборщика OpenTelemetry сервером Stalwart"
+    },
+    "field/x:MetricsOtelGrpc/url/description": {
+      "original": "URL of the OpenTelemetry collector; when unset, the collector on localhost port 4317 is used",
+      "ru": "URL сборщика OpenTelemetry; если не задан, используется сборщик на localhost, порт 4317"
+    },
+    "field/x:MetricsOtelHttp/allowInvalidCerts/description": {
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли использование недействительных сертификатов SSL"
+    },
+    "field/x:MetricsOtelHttp/httpAuth/description": {
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP"
+    },
+    "field/x:MetricsOtelHttp/httpHeaders/description": {
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки для HTTP-запросов"
+    },
+    "field/x:MetricsOtelHttp/interval/description": {
+      "original": "How often metrics are exported to the OpenTelemetry collector",
+      "ru": "Периодичность экспорта метрик в сборщик OpenTelemetry"
+    },
+    "field/x:MetricsOtelHttp/timeout/description": {
+      "original": "Maximum amount of time that Stalwart will wait for a response from the OpenTelemetry collector",
+      "ru": "Максимальное время ожидания ответа от сборщика OpenTelemetry сервером Stalwart"
+    },
+    "field/x:MetricsOtelHttp/url/description": {
+      "original": "Base URL of the OpenTelemetry collector; /v1/metrics is appended",
+      "ru": "Базовый URL сборщика OpenTelemetry; добавляется путь /v1/metrics"
+    },
+    "field/x:MetricsPrometheusProperties/authSecret/description": {
+      "original": "The Prometheus endpoint's secret for Basic authentication",
+      "ru": "Секрет конечной точки Prometheus для аутентификации Basic"
+    },
+    "field/x:MetricsPrometheusProperties/authUsername/description": {
+      "original": "The Prometheus endpoint's username for Basic authentication",
+      "ru": "Имя пользователя конечной точки Prometheus для аутентификации Basic"
     },
     "field/x:OAuthClient/clientId/description": {
       "original": "Unique identifier of the OAuth client. It may be the HTTPS URL of a Client ID Metadata Document to pre-register an application that publishes one. Identifiers generated by this server never start with https://.",
@@ -5126,9 +6882,53 @@
       "original": "Limits",
       "ru": "Ограничения"
     },
+    "form/x:Alert/field/condition": {
+      "original": "Alert condition",
+      "ru": "Условие оповещения"
+    },
+    "form/x:Alert/field/emailAlert": {
+      "original": "Email Notification",
+      "ru": "Уведомление по электронной почте"
+    },
+    "form/x:Alert/field/enable": {
+      "original": "Enable",
+      "ru": "Включено"
+    },
+    "form/x:Alert/field/eventAlert": {
+      "original": "Event Notification",
+      "ru": "Уведомление посредством события"
+    },
+    "form/x:Alert/section/section-0": {
+      "original": "Alert configuration",
+      "ru": "Настройка оповещения"
+    },
+    "form/x:AlertEmailProperties/field/body": {
+      "original": "Body",
+      "ru": "Текст письма"
+    },
+    "form/x:AlertEmailProperties/field/body/placeholder": {
+      "original": "The value of 'metric_name' is %{metric_name}%",
+      "ru": "Значение 'metric_name': %{metric_name}%"
+    },
+    "form/x:AlertEmailProperties/field/fromName": {
+      "original": "From Name",
+      "ru": "Имя отправителя"
+    },
+    "form/x:AlertEmailProperties/field/fromName/placeholder": {
+      "original": "Alert subsystem",
+      "ru": "Подсистема оповещений"
+    },
+    "form/x:AlertEmailProperties/field/subject/placeholder": {
+      "original": "Warning: metric has a value of %{metric_name}%",
+      "ru": "Предупреждение: значение метрики %{metric_name}%"
+    },
     "form/x:AlertEmailProperties/field/to": {
       "original": "To",
       "ru": "Кому"
+    },
+    "form/x:AlertEventProperties/field/eventMessage/placeholder": {
+      "original": "The value of 'metric_name' is %{metric_name}%",
+      "ru": "Значение 'metric_name': %{metric_name}%"
     },
     "form/x:AllowedIp/field/createdAt": {
       "original": "Created At",
@@ -5893,6 +7693,26 @@
     "form/x:DataRetention/DataExpunge/title": {
       "original": "Auto-Expunge",
       "ru": "Автоматическое удаление"
+    },
+    "form/x:DataRetention/TelemetryRetention/field/holdMetricsFor": {
+      "original": "Metrics History",
+      "ru": "История метрик"
+    },
+    "form/x:DataRetention/TelemetryRetention/field/holdTracesFor": {
+      "original": "Tracing History",
+      "ru": "История трассировки"
+    },
+    "form/x:DataRetention/TelemetryRetention/field/metricsCollectionInterval": {
+      "original": "Metrics Collection",
+      "ru": "Сбор метрик"
+    },
+    "form/x:DataRetention/TelemetryRetention/section/section-0": {
+      "original": "Retention Policy",
+      "ru": "Политика хранения"
+    },
+    "form/x:DataRetention/TelemetryRetention/subtitle": {
+      "original": "Configure how long to keep message delivery traces and metrics history before they are permanently deleted, as well as how often to collect metrics history",
+      "ru": "Настройте срок хранения трассировок доставки сообщений и истории метрик до их окончательного удаления, а также периодичность сбора истории метрик"
     },
     "form/x:DataStore/title": {
       "original": "Data Store",
@@ -7414,6 +9234,18 @@
       "original": "Encryption Settings",
       "ru": "Настройки шифрования"
     },
+    "form/x:EventTracingLevel/field/event": {
+      "original": "Event Id",
+      "ru": "Идентификатор события"
+    },
+    "form/x:EventTracingLevel/field/level": {
+      "original": "Level",
+      "ru": "Уровень"
+    },
+    "form/x:EventTracingLevel/section/section-0": {
+      "original": "Tracing event level",
+      "ru": "Уровень трассировки события"
+    },
     "form/x:ExternalPublicKey/PendingExternalPublicKey/field/emailAddress": {
       "original": "Email Address",
       "ru": "Адрес электронной почты"
@@ -8042,37 +9874,133 @@
       "original": "Metadata",
       "ru": "Метаданные"
     },
+    "form/x:Metrics/CollectorOtel/field/openTelemetry": {
+      "original": "Collector",
+      "ru": "Сборщик"
+    },
+    "form/x:Metrics/CollectorOtel/field/openTelemetry/placeholder": {
+      "original": "OpenTelemetry metrics configuration",
+      "ru": "Настройка метрик OpenTelemetry"
+    },
     "form/x:Metrics/CollectorOtel/section/section-0": {
       "original": "Settings",
       "ru": "Настройки"
+    },
+    "form/x:Metrics/CollectorOtel/subtitle": {
+      "original": "Configure OpenTelemetry metrics collection and export settings, including the endpoint and authentication",
+      "ru": "Настройте сбор и экспорт метрик OpenTelemetry, включая конечную точку и аутентификацию"
+    },
+    "form/x:Metrics/CollectorPrometheus/field/prometheus": {
+      "original": "Collector",
+      "ru": "Сборщик"
+    },
+    "form/x:Metrics/CollectorPrometheus/field/prometheus/placeholder": {
+      "original": "Prometheus metrics endpoint authentication",
+      "ru": "Аутентификация конечной точки метрик Prometheus"
     },
     "form/x:Metrics/CollectorPrometheus/section/section-0": {
       "original": "Settings",
       "ru": "Настройки"
     },
+    "form/x:Metrics/CollectorPrometheus/subtitle": {
+      "original": "Configure Prometheus metrics collection settings including authentication",
+      "ru": "Настройте сбор метрик Prometheus, включая аутентификацию"
+    },
     "form/x:Metrics/field/metrics": {
       "original": "Metrics",
       "ru": "Метрики"
+    },
+    "form/x:Metrics/field/metricsPolicy": {
+      "original": "Filter Mode",
+      "ru": "Режим фильтрации"
+    },
+    "form/x:Metrics/field/resourceAttributes": {
+      "original": "Resource attributes",
+      "ru": "Атрибуты ресурса"
+    },
+    "form/x:Metrics/field/resourceAttributes/keyLabel": {
+      "original": "Attribute",
+      "ru": "Атрибут"
+    },
+    "form/x:Metrics/field/resourceAttributes/valueLabel": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "form/x:Metrics/field/serviceName": {
+      "original": "Service name",
+      "ru": "Имя службы"
+    },
+    "form/x:Metrics/field/serviceNamespace": {
+      "original": "Service namespace",
+      "ru": "Пространство имён службы"
     },
     "form/x:Metrics/section/section-0": {
       "original": "Settings",
       "ru": "Настройки"
     },
+    "form/x:Metrics/section/section-1": {
+      "original": "OpenTelemetry resource",
+      "ru": "Ресурс OpenTelemetry"
+    },
+    "form/x:Metrics/subtitle": {
+      "original": "Configure metric collection and export, including the OpenTelemetry push exporter, the Prometheus pull endpoint, and which metric types are included or excluded",
+      "ru": "Настройте сбор и экспорт метрик, включая отправку экспортёром OpenTelemetry (push), опрос конечной точки Prometheus (pull), а также включаемые и исключаемые типы метрик"
+    },
     "form/x:Metrics/title": {
       "original": "Metrics",
       "ru": "Метрики"
+    },
+    "form/x:MetricsOtelGrpc/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
     },
     "form/x:MetricsOtelGrpc/field/httpAuth": {
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:MetricsOtelGrpc/field/httpHeaders": {
+      "original": "Headers",
+      "ru": "Заголовки"
+    },
+    "form/x:MetricsOtelGrpc/field/interval": {
+      "original": "Export interval",
+      "ru": "Интервал экспорта"
+    },
+    "form/x:MetricsOtelGrpc/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:MetricsOtelGrpc/field/url": {
+      "original": "URL",
+      "ru": "URL сборщика"
+    },
     "form/x:MetricsOtelGrpc/section/section-1": {
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:MetricsOtelHttp/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
     "form/x:MetricsOtelHttp/field/httpAuth": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:MetricsOtelHttp/field/httpHeaders": {
+      "original": "Headers",
+      "ru": "Заголовки"
+    },
+    "form/x:MetricsOtelHttp/field/interval": {
+      "original": "Export interval",
+      "ru": "Интервал экспорта"
+    },
+    "form/x:MetricsOtelHttp/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:MetricsOtelHttp/field/url": {
+      "original": "URL",
+      "ru": "URL сборщика"
     },
     "form/x:MetricsOtelHttp/section/section-1": {
       "original": "Authentication",
@@ -8081,6 +10009,18 @@
     "form/x:MetricsPrometheusProperties/field/authSecret": {
       "original": "Secret",
       "ru": "Секрет"
+    },
+    "form/x:MetricsPrometheusProperties/field/authUsername": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:MetricsStore/field/@type": {
+      "original": "Store type",
+      "ru": "Тип хранилища"
+    },
+    "form/x:MetricsStore/subtitle": {
+      "original": "Configure where collected server metrics are persisted for historical reporting, or disable metrics storage entirely",
+      "ru": "Настройте хранилище собранных метрик сервера для отчётов по истории или полностью отключите их хранение"
     },
     "form/x:MetricsStore/title": {
       "original": "Metrics Store",
@@ -10058,6 +11998,10 @@
       "original": "Trace",
       "ru": "Трассировка"
     },
+    "form/x:Tracer/field/@type": {
+      "original": "Tracer type",
+      "ru": "Тип средства трассировки"
+    },
     "form/x:TracerCommon/field/events": {
       "original": "Events",
       "ru": "События"
@@ -10074,6 +12018,14 @@
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:TracerOtelGrpc/field/httpHeaders/keyLabel": {
+      "original": "Header Name",
+      "ru": "Имя заголовка"
+    },
+    "form/x:TracerOtelGrpc/field/httpHeaders/valueLabel": {
+      "original": "Header Value",
+      "ru": "Значение заголовка"
+    },
     "form/x:TracerOtelGrpc/section/section-2": {
       "original": "Authentication",
       "ru": "Аутентификация"
@@ -10086,6 +12038,14 @@
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:TracerOtelHttp/field/httpHeaders/keyLabel": {
+      "original": "Header Name",
+      "ru": "Имя заголовка"
+    },
+    "form/x:TracerOtelHttp/field/httpHeaders/valueLabel": {
+      "original": "Header Value",
+      "ru": "Значение заголовка"
+    },
     "form/x:TracerOtelHttp/section/section-2": {
       "original": "Authentication",
       "ru": "Аутентификация"
@@ -10093,6 +12053,14 @@
     "form/x:TracerStdout/field/events": {
       "original": "Events",
       "ru": "События"
+    },
+    "form/x:TracingStore/field/@type": {
+      "original": "Store type",
+      "ru": "Тип хранилища"
+    },
+    "form/x:TracingStore/subtitle": {
+      "original": "Configure where message delivery traces and event history are persisted, or disable trace storage entirely",
+      "ru": "Настройте хранилище трассировок доставки сообщений и истории событий или полностью отключите хранение трассировок"
     },
     "form/x:TracingStore/title": {
       "original": "Tracing Store",
@@ -10586,6 +12554,26 @@
       "original": "AI Models",
       "ru": "Модели ИИ"
     },
+    "list/x:Alert/column/condition": {
+      "original": "Alert condition",
+      "ru": "Условие оповещения"
+    },
+    "list/x:Alert/column/enable": {
+      "original": "Enable",
+      "ru": "Включено"
+    },
+    "list/x:Alert/plural": {
+      "original": "alerts",
+      "ru": "оповещения"
+    },
+    "list/x:Alert/singular": {
+      "original": "alert",
+      "ru": "оповещение"
+    },
+    "list/x:Alert/subtitle": {
+      "original": "Manage alerts",
+      "ru": "Управление оповещениями"
+    },
     "list/x:Alert/title": {
       "original": "Alerts",
       "ru": "Оповещения"
@@ -10969,6 +12957,30 @@
     "list/x:Domain/title": {
       "original": "Domains",
       "ru": "Домены"
+    },
+    "list/x:EventTracingLevel/column/event": {
+      "original": "Event Id",
+      "ru": "Идентификатор события"
+    },
+    "list/x:EventTracingLevel/column/level": {
+      "original": "Level",
+      "ru": "Уровень"
+    },
+    "list/x:EventTracingLevel/plural": {
+      "original": "events",
+      "ru": "события"
+    },
+    "list/x:EventTracingLevel/singular": {
+      "original": "event",
+      "ru": "событие"
+    },
+    "list/x:EventTracingLevel/subtitle": {
+      "original": "Manage custom event logging levels",
+      "ru": "Управление индивидуальными уровнями журналирования событий"
+    },
+    "list/x:EventTracingLevel/title": {
+      "original": "Custom event levels",
+      "ru": "Индивидуальные уровни событий"
     },
     "list/x:ExternalPublicKey/PendingExternalPublicKey/column/emailAddress": {
       "original": "Email Address",
@@ -11902,6 +13914,34 @@
       "original": "Traces",
       "ru": "Трассировки"
     },
+    "list/x:Tracer/column/@type": {
+      "original": "Method",
+      "ru": "Метод"
+    },
+    "list/x:Tracer/column/enable": {
+      "original": "Enable this tracer",
+      "ru": "Средство трассировки включено"
+    },
+    "list/x:Tracer/column/level": {
+      "original": "Logging level",
+      "ru": "Уровень журналирования"
+    },
+    "list/x:Tracer/plural": {
+      "original": "tracers",
+      "ru": "средства трассировки"
+    },
+    "list/x:Tracer/singular": {
+      "original": "tracer",
+      "ru": "средство трассировки"
+    },
+    "list/x:Tracer/subtitle": {
+      "original": "Manage logging and tracing methods",
+      "ru": "Управление методами журналирования и трассировки"
+    },
+    "list/x:Tracer/title": {
+      "original": "Logging & tracing methods",
+      "ru": "Методы журналирования и трассировки"
+    },
     "list/x:WebHook/title": {
       "original": "Webhooks",
       "ru": "Веб-хуки"
@@ -12602,6 +14642,10 @@
       "original": "Defines an AI model endpoint used by AI-assisted features such as the spam classifier and the Sieve llm_prompt function.",
       "ru": "Определяет конечную точку модели ИИ для таких функций, как классификатор спама и функция Sieve llm_prompt."
     },
+    "object/x:Alert/description": {
+      "original": "Defines an alert rule triggered by metric conditions.",
+      "ru": "Определяет правило оповещения, срабатывающее по условиям метрик."
+    },
     "object/x:ArfExternalReport/description": {
       "original": "Stores an ARF feedback report received from an external source.",
       "ru": "Хранит отчёт обратной связи ARF, полученный из внешнего источника."
@@ -12642,6 +14686,10 @@
       "original": "Defines an email domain and its DNS, DKIM, and TLS certificate settings.",
       "ru": "Параметры почтового домена, DNS, DKIM и сертификатов TLS."
     },
+    "object/x:EventTracingLevel/description": {
+      "original": "Defines a custom logging level override for a specific event type.",
+      "ru": "Переопределяет уровень журналирования для определённого типа событий."
+    },
     "object/x:ExternalPublicKey/description": {
       "original": "Public key of a remote recipient used by the encryption gateway, entered manually, kept up to date from a discovery method or learned from received mail.",
       "ru": "Открытый ключ удалённого получателя для шлюза шифрования, введённый вручную, обновляемый методом обнаружения или полученный из входящей почты."
@@ -12661,6 +14709,14 @@
     "object/x:MailingList/description": {
       "original": "Defines a mailing list that distributes messages to a group of recipients.",
       "ru": "Список рассылки, распределяющий сообщения между адресами получателей."
+    },
+    "object/x:Metrics/description": {
+      "original": "Configures metrics collection and export via OpenTelemetry and Prometheus.",
+      "ru": "Настраивает сбор и экспорт метрик через OpenTelemetry и Prometheus."
+    },
+    "object/x:MetricsStore/description": {
+      "original": "Configures the storage backend for metrics data.",
+      "ru": "Настраивает серверное хранилище данных метрик."
     },
     "object/x:OAuthClient/description": {
       "original": "Defines a registered OAuth client application.",
@@ -12717,6 +14773,14 @@
     "object/x:Trace/description": {
       "original": "Stores a message delivery trace with associated events.",
       "ru": "История доставки сообщения и связанных с ним событий."
+    },
+    "object/x:Tracer/description": {
+      "original": "Defines a logging and tracing output method.",
+      "ru": "Определяет способ вывода журналов и трассировок."
+    },
+    "object/x:TracingStore/description": {
+      "original": "Configures the storage backend for tracing data.",
+      "ru": "Настраивает серверное хранилище данных трассировки."
     },
     "object/x:WebDav/description": {
       "original": "Configures WebDAV protocol settings including property limits and locking.",
@@ -12858,6 +14922,30 @@
       "original": "List",
       "ru": "Список"
     },
+    "variant/x:MetricsOtel/Grpc/label": {
+      "original": "gRPC",
+      "ru": "Протокол gRPC"
+    },
+    "variant/x:MetricsStore/Default/label": {
+      "original": "Use data store",
+      "ru": "Использовать хранилище данных"
+    },
+    "variant/x:MetricsStore/Disabled/label": {
+      "original": "Do not store metrics data",
+      "ru": "Не хранить данные метрик"
+    },
+    "variant/x:MetricsStore/FoundationDb/label": {
+      "original": "FoundationDB",
+      "ru": "Хранилище FoundationDB"
+    },
+    "variant/x:MetricsStore/MySql/label": {
+      "original": "mySQL",
+      "ru": "Хранилище mySQL"
+    },
+    "variant/x:MetricsStore/PostgreSql/label": {
+      "original": "PostgreSQL",
+      "ru": "Хранилище PostgreSQL"
+    },
     "variant/x:Permissions/Inherit/label": {
       "original": "Inherited permissions",
       "ru": "Унаследованные права"
@@ -12957,6 +15045,26 @@
     "variant/x:TaskBlobRecodeEncryption/Keep/label": {
       "original": "Leave as is",
       "ru": "Оставить без изменений"
+    },
+    "variant/x:TracingStore/Default/label": {
+      "original": "Use data store",
+      "ru": "Использовать хранилище данных"
+    },
+    "variant/x:TracingStore/Disabled/label": {
+      "original": "Do not store tracing data",
+      "ru": "Не хранить данные трассировки"
+    },
+    "variant/x:TracingStore/FoundationDb/label": {
+      "original": "FoundationDB",
+      "ru": "Хранилище FoundationDB"
+    },
+    "variant/x:TracingStore/MySql/label": {
+      "original": "mySQL",
+      "ru": "Хранилище mySQL"
+    },
+    "variant/x:TracingStore/PostgreSql/label": {
+      "original": "PostgreSQL",
+      "ru": "Хранилище PostgreSQL"
     },
     "variant/x:UserRoles/Admin/label": {
       "original": "Administrator role",
