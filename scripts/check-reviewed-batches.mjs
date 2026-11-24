@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {loadInputs,sourceModule} from './lib/locale-source.mjs';
+import {loadInputs,sourceModule,digest} from './lib/locale-source.mjs';
 import {buildUsageGraph} from './lib/locale-graph.mjs';
 import {loadReviewedBatches,undoBatch,verifyReviewedBatch,batchTextSafe} from './lib/locale-reviewed-batch.mjs';
 import './lib/offline-guard.mjs';
@@ -63,6 +63,25 @@ assert.equal(batchTextSafe('AES-GCM with RSA-OAEP','AES-GCM с RSA-OAEP',23),tru
 assert.equal(batchTextSafe('AES-GCM with RSA-OAEP','AES-GCM с RSA',23),false);
 assert.equal(batchTextSafe('guesses >= 10^10','число попыток < 10^10',23),false);
 assert.equal(batchTextSafe('1/2 of remaining time','2/3 оставшегося срока',23),false);
+
+const stage24=packets.find(p=>p.stage===24);
+if(stage24){
+  assert.equal(stage24.entries.length,527);
+  assert.equal(stage24.entries.filter(e=>e.slot.startsWith('enum/MetricType/')).length,399);
+  assert.equal(stage24.baseline,'1729dd9b9852d0bcd12658f78ea714310e7f3834');
+  assert.deepEqual(stage24.scope,[{section:'Settings',screens:['x:Alert','x:DataRetention/TelemetryRetention','x:EventTracingLevel','x:Metrics','x:Metrics/CollectorOtel','x:Metrics/CollectorPrometheus','x:MetricsStore','x:Tracer','x:TracingStore']},{section:'Management',screens:['x:Log']}]);
+  assert.equal(digest(stage24.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'c3aaf42958e26db1bf0e6ae77452a8dff37cd076fe06bdabe6d440a6c0361423');
+}
+assert.equal(batchTextSafe('OpenTelemetry URL localhost port 4317 /v1/metrics','URL OpenTelemetry на localhost, порт 4317, путь /v1/metrics',24),true);
+assert.equal(batchTextSafe('OpenTelemetry URL localhost port 4317 /v1/metrics','URL OpenTelemetry на localhost, порт 4318, путь /v1/metrics',24),false);
+assert.equal(batchTextSafe('OpenTelemetry URL /v1/metrics','URL OpenTelemetry /v1/traces',24),false);
+assert.equal(batchTextSafe('Prometheus interval 100 ms','Интервал Prometheus 100 ms',24),true);
+assert.equal(batchTextSafe('Prometheus interval 100 ms','Интервал Prometheus 100 s',24),false);
+assert.equal(batchTextSafe("Value of 'metric_name' is %{metric_name}%","Значение 'metric_name': %{metric_name}%",24),true);
+assert.equal(batchTextSafe("Value of 'metric_name' is %{metric_name}%","Значение 'metric_name': %{other_metric}%",24),false);
+assert.equal(batchTextSafe('Active JMAP WebSocket connections','Активные соединения JMAP HTTP',24),false);
+assert.equal(batchTextSafe('Protocol gRPC','Протокол HTTP',24),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;
