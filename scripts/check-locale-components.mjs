@@ -672,3 +672,115 @@ if(catalog.entries['enum/MetricType/acme.auth-error/label']){
   }
   console.log('PASS: Stage24 actual EnumMultiSelect (399 Enterprise / 387 OSS options), EnumValue, FormSections/FieldRow and NumberValue SSR; both pinned schemas, RU/EN/RU and unknown hash, raw IDs, callbacks and numeric/unit dispatch unchanged; leaf formatters mocked, no live metrics or network');
 }
+
+
+// Stage25: storage variants and settings remain display-only. No storage connections.
+if(catalog.entries['variant/x:DataStore/Sqlite/label']){
+  let select25,items25=[];
+  const {VariantSelect}=component('src/components/forms/VariantSelect.tsx',{
+    '@/components/ui/select':{
+      Select:props=>{select25=props;return h('div',null,props.children);},
+      SelectContent:passthrough,SelectTrigger:passthrough,SelectValue:()=>null,
+      SelectItem:props=>{items25.push(props);return h('span',null,props.children);},
+    },
+    '@/components/forms/FieldRow':{FieldLabel:props=>h('span',null,props.label)},
+    '@/components/forms/formContext':{fieldIds:()=>({inputId:'storage-type',labelId:'storage-label'}),useFieldScope:()=>({path:[]}),useFormContext:()=>({idPrefix:'synthetic'}),useInPanel:()=>false},
+    '@/components/forms/formLogic':{VARIANT_FIELD:'@type'},
+  });
+  let variantCases25=0,formCases25=0;
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;
+    for(const [objectName,selected,next] of [
+      ['x:DataStore','Sqlite','RocksDb'],
+      ['x:BlobStore','FileSystem','S3'],
+      ['x:S3StoreRegion','UsEast1','EuWest1'],
+      ['x:AzureAuth','SharedKey','SasToken'],
+      ['x:InMemoryStore','Redis','RedisSentinel'],
+    ]){
+      const variants=schema.schemas[objectName]?.variants;
+      if(!variants)continue;
+      assert.ok(variants.some(v=>v.name===selected)&&variants.some(v=>v.name===next),objectName);
+      const raw=JSON.stringify(variants);
+      let event;
+      const props={variantScope:objectName,variants,value:selected,onChange:v=>{event=v;},readOnly:false,ariaLabel:'Storage type'};
+      for(const lang of ['ru','en','ru']){
+        language=lang;select25=undefined;items25=[];
+        const html=render(VariantSelect,props);
+        assert.ok(select25,objectName+' dropdown expected');
+        assert.equal(select25.value,selected);
+        assert.deepEqual(Array.from(items25,v=>v.value),Array.from(variants,v=>v.name));
+        for(const [i,v] of variants.entries()){
+          const slot='variant/'+objectName+'/'+v.name+'/label';
+          const entry=catalog.entries[slot];
+          const expected=lang==='ru'&&entry?.original===v.label?entry.ru:v.label;
+          assert.equal(items25[i].children,expected,slot);
+          assert.ok(html.includes(htmlText19(expected)),slot);
+        }
+        select25.onValueChange(next);
+        assert.equal(event,next);
+        assert.equal(props.value,selected);
+        assert.equal(JSON.stringify(variants),raw);
+      }
+      hash='unknown';language='ru';items25=[];
+      render(VariantSelect,props);
+      assert.deepEqual(Array.from(items25,v=>v.children),Array.from(variants,v=>v.label));
+      hash=pin.schemaHash;variantCases25++;
+    }
+    for(const [enumName,selected,next] of [
+      ['CompressionAlgo','lz4','zstd'],
+      ['SearchEmailField','body','attachment'],
+      ['MetadataDataType','ContactCard','CalendarEvent'],
+    ]){
+      const variants=resolver19.getEnum(schema,enumName);
+      if(!variants.length)continue;
+      const slot='enum/'+enumName+'/'+selected+'/label';
+      assert.ok(variants.some(v=>v.name===selected)&&variants.some(v=>v.name===next),enumName);
+      const raw=JSON.stringify(variants);
+      let event;
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const html=render(EnumWidget,{type:{type:'enum',enumName,nullable:false},formField:{name:'mode'},value:selected,onChange:v=>{event=v;},readOnly:false,control:{}});
+        assert.ok(html.includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+        assert.deepEqual(Array.from(capturedCombo19.options,v=>v.value),Array.from(variants,v=>v.name));
+        capturedCombo19.onValueChange(next);
+        assert.equal(event,next);
+        assert.ok(render(scalar20.EnumValue,{schema,enumName,value:selected}).includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+        assert.equal(JSON.stringify(variants),raw);
+      }
+    }
+    for(const [formKey,name,value,changed] of [
+      ['x:RocksDbStore','cacheSize',268435456,536870912],
+      ['x:Cache','negativeTtl','5m','10m'],
+      ['x:S3Store','verifyAfterWrite',false,true],
+      ['x:Search','maxExtractDocumentSize',1048576,2097152],
+      ['x:Metadata','maxDepth',8,16],
+    ]){
+      const form=schema.forms[formKey],field=schema.fields[formKey]?.properties[name];
+      if(!form||!field)continue;
+      const section=form.sections.find(s=>s.fields.some(f=>f.name===name));
+      assert.ok(section,formKey+'/'+name);
+      const formField=section.fields.find(f=>f.name===name);
+      const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+      assert.equal(formField.label,original(slot));
+      assert.equal(field.description,original(desc));
+      const sections=[{key:'section-'+form.sections.indexOf(section),title:section.title,fields:[{formField,field}]}];
+      const data={[name]:value},snapshot=JSON.stringify({sections,data});
+      let event;
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const html=render(FormSections,{sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}});
+        for(const key of [slot,desc])assert.ok(html.includes(htmlText19(lang==='ru'?ru(key):original(key))),key);
+        assert.equal(capturedField.formField.name,name);
+        assert.equal(capturedField.value,value);
+        capturedField.onChange(changed);
+        assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({sections,data}),snapshot);
+      }
+      formCases25++;
+    }
+  }
+  assert.ok(variantCases25>=6,'storage variant coverage');
+  assert.ok(formCases25>=6,'storage form coverage');
+  console.log('PASS: Stage25 actual VariantSelect, EnumWidget/EnumValue, FormSections/FieldRow synthetic SSR; edition-pinned storage/backend labels, region IDs, raw callbacks, compression, cache size/TTL, metadata and indexing limits; no storage connections or configuration writes');
+}
