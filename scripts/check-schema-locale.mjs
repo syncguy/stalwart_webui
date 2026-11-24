@@ -8,6 +8,7 @@ import ts from 'typescript';
 // Execute source-path regression guard together with the pinned schema checks.
 import './check-renderer-display-paths.mjs';
 import {loadReviewedBatches} from './lib/locale-reviewed-batch.mjs';
+import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.mjs';
 import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
 
 const catalog = JSON.parse(fs.readFileSync('src/i18n/schema/ru.json', 'utf8'));
@@ -522,8 +523,8 @@ const viewSource = fs.readFileSync('src/components/views/DynamicView.tsx', 'utf8
 const viewPageSource = fs.readFileSync('src/components/views/DynamicViewPage.tsx', 'utf8');
 const tableSource = fs.readFileSync('src/components/lists/DynamicList.tsx', 'utf8');
 const enumValueSource = fs.readFileSync('src/components/values/ScalarValues.tsx', 'utf8');
-assert.ok(viewSource.includes('display(`form/${viewName}/section/${section.key}`, section.title)'));
-assert.ok(viewSource.includes('display(`form/${viewName}/field/${formField.name}`, formField.label)'));
+assert.ok(viewSource.includes('display(`form/${section.formKey}/section/${section.displaySectionKey}`, section.title)'));
+assert.ok(viewSource.includes('display(`form/${section.formKey}/field/${formField.name}`, formField.label)'));
 assert.ok(viewSource.includes('`field/${layout.fieldOwner}/${formField.name}/description`'));
 assert.ok(viewSource.includes('value={data[formField.name]}'));
 assert.ok(viewPageSource.includes('display(`list/${listKey}/singular`, rawSingularName)'));
@@ -663,10 +664,13 @@ for (const [slot, original, expectedRu] of reportSlots) {
 const reviewedPolicy=JSON.parse(fs.readFileSync('scripts/data/locale-review-policy.json','utf8'));
 const reviewedCount=loadReviewedBatches(process.cwd(),reviewedPolicy).reduce((n,p)=>n+p.entries.length,0);
 const stage37Packet=loadFieldDescriptionPacket(process.cwd(),reviewedPolicy);
-const stage35Catalog=undoFieldDescriptions(catalog,stage37Packet);
+const packet38=loadFormContextPacket(process.cwd(),reviewedPolicy);
+const stage37Catalog=undoFormContext(catalog,packet38);
+const stage35Catalog=undoFieldDescriptions(stage37Catalog,stage37Packet);
 assert.equal(Object.keys(stage35Catalog.entries).length,2084+reviewedCount);
-assert.equal(Object.keys(entries).length,2084+reviewedCount+stage37Packet.slots.length,'Unexpected contextual slot inventory');
+assert.equal(Object.keys(entries).length,2084+reviewedCount+stage37Packet.slots.length+packet38.entries.length,'Unexpected contextual slot inventory');
 assert.ok(dynamicFormStage5.includes('fieldOwner={fieldOwner}'));
+assert.ok(dynamicFormStage5.includes('display(`form/${titleKey ?? objectKey}/title`, title)'));
 assert.ok(formSectionsStage5.includes('fieldOwner={fieldOwner}'));
 // Both source schemas define forms for each of these read-only JMAP object views.
 assert.ok(viewPageSource.includes('<DynamicView'));
