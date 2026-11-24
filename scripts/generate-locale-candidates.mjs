@@ -36,10 +36,10 @@ fs.writeFileSync(path.join(out, 'candidates.json'), json({ version: 1, candidate
 fs.writeFileSync(path.join(out, 'diff.json'), json(report.diff));
 const cell = text => String(text).replaceAll('|', '\\|').replaceAll('\n', ' ').replaceAll('\r', '');
 const lines = [
-  '# Этап 17: очередь локализации', '',
+  '# Этап 18: очередь локализации', '',
   'Источник схем: ' + report.source, '',
   '**Только анализ исходников. Доступность по лицензии/ACL неизвестна; browser PASS не заявлен.**', '',
-  `Слотов: ${report.summary.slots}; каталог: ${report.summary.acceptedCatalogEntries} неизменённых записей.`,
+  `Слотов: ${report.summary.slots}; каталог: ${report.summary.acceptedCatalogEntries} обычных записей, ${report.summary.acceptedScopedEntries} точных привязок по hash.`,
   `Групп на ревью: ${report.summary.candidateGroups}; с предложениями: ${report.summary.groupsWithSuggestions}; неоднозначных: ${report.summary.ambiguousGroups}.`,
   '', '| Категория | Слотов |', '| --- | ---: |',
   ...CATEGORIES.map(c => `| ${c} | ${report.summary.classification[c]} |`),
@@ -50,7 +50,7 @@ const lines = [
   ...report.summary.sections.map(s => `| ${s.section} | ${s.slots} | ${s.translated} | ${s.missing} | ${s['keep-original'] + s.technical} | ${s['renderer-unwired']} | ${s['unreachable/conditional']} | ${s['needs-review']} | ${s.candidateGroups} |`),
   '', `Без доказанного пути из меню: ${report.summary.unassignedSlots}. Это не доказательство недоступности: остаются прямые маршруты, поиск и специальные страницы.`,
   '', '## Конфликты схем', '',
-  ...report.conflicts.map(c => `- \`${c.slot}\`: ${c.variants.map(v => v.original + ' (' + [...new Set(v.locations.map(l => l.edition))].join(', ') + ')').join(' / ')}. Предложена точная привязка hash + slot + original; runtime не изменён.`),
+  ...report.conflicts.map(c => `- \`${c.slot}\`: ${c.variants.map(v => v.original + ' (' + [...new Set(v.locations.map(l => l.edition))].join(', ') + ')').join(' / ')}. ${c.resolution}`),
   '', '## Экраны', '',
   '| Раздел / экран | Слотов | Перевести | Renderer | Ревью |', '| --- | ---: | ---: | ---: | ---: |',
   ...report.screens.map(s => `| ${cell(s.section + ' / ' + s.name + ' / ' + s.view)} | ${s.slots} | ${s.missing} | ${s['renderer-unwired']} | ${s['needs-review']} |`),
@@ -73,4 +73,4 @@ assert.equal(digest(fs.readFileSync(catalogPath)), before, 'Утверждённ
 assert.deepEqual(report.diagnostics.adapterDrift, [], 'Исходники renderer изменились: требуется ревью адаптеров');
 assert.deepEqual(report.diagnostics.staleRules, [], 'Устаревшие контекстные правила');
 console.log(json(report.summary));
-console.log('Этап 17: отчёты созданы; утверждённый каталог сохранён. ' + path.relative(root, out));
+console.log('Этап 18: отчёты созданы; утверждённый каталог сохранён. ' + path.relative(root, out));
