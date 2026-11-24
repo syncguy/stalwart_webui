@@ -9,6 +9,9 @@ on:
       - 'scripts/check-coverage-inventory.mjs'
       - 'scripts/generate-locale-candidates.mjs'
       - 'scripts/check-locale-candidates.mjs'
+      - 'scripts/check-locale-components.mjs'
+      - 'scripts/check-schema-locale.mjs'
+      - 'scripts/data/stage18-address-calendar-review.json'
       - 'scripts/lib/locale-*.mjs'
       - 'scripts/lib/offline-guard.mjs'
       - 'scripts/data/locale-review-policy.json'
@@ -64,6 +67,10 @@ jobs:
           node scripts/check-schema-locale.mjs
           node scripts/check-option-labels.mjs
           node scripts/check-stage11-permissions.mjs
+      - name: Synthetic React SSR and raw identity contracts (no browser or server)
+        env:
+          NODE_OPTIONS: '--import=./scripts/lib/offline-guard.mjs'
+        run: node scripts/check-locale-components.mjs
       - name: TypeScript check for shared display-only components
         run: npm run typecheck
       - name: ESLint check for TypeScript sources
