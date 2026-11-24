@@ -478,9 +478,9 @@
       "reason": "Stage18: редакторски проверенная точная привязка schemaHash + slot + original; runtime активирован, React/browser приёмка отдельно."
     }
   ],
-  "baselineSource": "b727b90b766a669964e891d814e1e31ce4039b24",
+  "baselineSource": "1797163a2db3c6d6bdc34f9c375fbfed6a496ab3",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "886877d31d842719a134efc69abc1b741f8ac957a524285e773437f1ef9d30b0",
+    "src/i18n/schema/ru.json": "d4101d92b08e3cfb102c01d2484ef3c58fb112a9ad0d10fee134c7554d792d17",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
     "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
@@ -488,7 +488,8 @@
     "scripts/data/pinned-schema-manifest.json": "eda38876539e8b226ca79a468e0772b97174e8c7482297ba7ae7746f3f5f60b6",
     "scripts/data/pinned-schema.json.gz.b64": "9e69e80372b0f93d149facdf62726c9f1d7d39a043c847c954521d4aa39d6380",
     "scripts/data/pinned-schema_oss.json.gz.b64": "440de2ac9678d1f3175e6a5331795f85c44ae06b0ac47d717a4d0420b80a4a40",
-    "scripts/data/stage19-groupware-review.json": "4b052b7ea7c4bb4884fdf4abed1a53572836b641df4e1b8d6553f76277d8ecaf"
+    "scripts/data/stage19-groupware-review.json": "4b052b7ea7c4bb4884fdf4abed1a53572836b641df4e1b8d6553f76277d8ecaf",
+    "scripts/data/stage20-mail-reports-queue-review.json": "6d9ff541d5b8145a37c7e303f0899ee378d73252c88e4d7fb93f011b3049a98f"
   },
   "clientLiterals": [
     {
@@ -521,6 +522,7 @@
     }
   ],
   "reviewedBatches": [
-    "scripts/data/stage19-groupware-review.json"
+    "scripts/data/stage19-groupware-review.json",
+    "scripts/data/stage20-mail-reports-queue-review.json"
   ]
 }
