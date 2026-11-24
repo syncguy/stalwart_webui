@@ -27,6 +27,18 @@ assert.equal(batchTextSafe('MAIL FROM and RCPT TO','MAIL FROM и RCPT TO',20),tr
 assert.equal(batchTextSafe('MAIL FROM and RCPT TO','MAIL FROM и MAIL FROM',20),false);
 assert.equal(batchTextSafe('MTA-STS policy','Политика TLS',20),false);
 assert.equal(batchTextSafe('DNS Tree Walk method (RFC 9989)','Метод обхода дерева DNS (RFC 7489)',20),false);
+const stage21=packets.find(p=>p.stage===21);
+if(stage21){
+  assert.equal(stage21.entries.length,191);
+  assert.equal(stage21.baseline,'3458a218495be7b7757966b86ce3481a49feb5c0');
+  assert.deepEqual(stage21.scope,[{section:'Management',screens:['x:Action','x:Task','x:Task/TaskFailed','x:IndexQueueStatus','x:DmarcExternalReport','x:DmarcInternalReport']}]);
+}
+assert.equal(batchTextSafe('DKIM2 and ARC','DKIM2 и ARC',21),true);
+assert.equal(batchTextSafe('DKIM2 and ARC','DKIM и ARC',21),false);
+assert.equal(batchTextSafe('MAIL FROM:<>','Пустой MAIL FROM:<>',21),true);
+assert.equal(batchTextSafe('MAIL FROM:<>','Пустой MAIL FROM',21),false);
+assert.equal(batchTextSafe('X-Spam-AI header "run"','Заголовок X-Spam-AI "run"',21),true);
+assert.equal(batchTextSafe('X-Spam-AI header "run"','Заголовок X-Spam-AI "start"',21),false);
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;
