@@ -160,7 +160,7 @@ export function TopBar() {
               </>
             )}
 
-            <DropdownMenuLabel>{t('interfaceLanguage', 'Language')}</DropdownMenuLabel>
+            <DropdownMenuLabel>{t('webuiRu.interfaceLanguage', 'Language')}</DropdownMenuLabel>
             <DropdownMenuRadioGroup value={activeLanguage} onValueChange={setLocale}>
               <DropdownMenuRadioItem value="ru">Русский</DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
