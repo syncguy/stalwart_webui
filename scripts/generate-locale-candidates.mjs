@@ -29,15 +29,15 @@ const before = digest(fs.readFileSync(catalogPath));
 // Always regenerate the stage16 inventory: never silently reuse a stale local report.
 execFileSync(process.execPath, ['scripts/generate-locale-coverage.mjs'], { cwd: root, stdio: 'pipe', maxBuffer: 2 ** 20 });
 const inputs = loadInputs(root);
-const report = plan(inputs, buildUsageGraph({ ...inputs, fieldOwners: true }), previous);
-report.stage = 37;
+const report = plan(inputs, buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true }), previous);
+report.stage = 38;
 fs.mkdirSync(out, { recursive: true });
 fs.writeFileSync(path.join(out, 'classification.json'), json(compactReport(report)));
 fs.writeFileSync(path.join(out, 'candidates.json'), json({ version: 1, candidateOnly: true, apply: false, groups: report.candidates }));
 fs.writeFileSync(path.join(out, 'diff.json'), json(report.diff));
 const cell = text => String(text).replaceAll('|', '\\|').replaceAll('\n', ' ').replaceAll('\r', '');
 const lines = [
-  '# Этап 37: очередь локализации (канонический владелец описания)', '',
+  '# Этап 38: очередь локализации (канонические владельцы форм и описаний)', '',
   'Источник схем: ' + report.source, '',
   '**Только анализ исходников. Доступность по лицензии/ACL неизвестна; browser PASS не заявлен.**', '',
   `Слотов: ${report.summary.slots}; каталог: ${report.summary.acceptedCatalogEntries} обычных записей, ${report.summary.acceptedScopedEntries} точных привязок по hash.`,
