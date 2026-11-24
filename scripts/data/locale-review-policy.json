@@ -13,14 +13,14 @@
     "src/components/forms/formLogic.ts": "2dac722cec6a60009df67975689b2e50b94011bed734496e210148dd16ab8049",
     "src/components/forms/useDynamicForm.ts": "3bf9fb886b74ee1e3b2e6f4f8ddc4d8795149bfcb53855043502399173f43155",
     "src/components/forms/widgets/EmbeddedObjectWidget.tsx": "1f2f7e6017f38439049b0a7fa6c2aef01131c3dea74c6c74820c86f16360e22b",
-    "src/components/forms/widgets/EnumWidgets.tsx": "8957fa464fa82142f02d57ffb62d68d6e0679717f202108b55c213ed1ae53340",
+    "src/components/forms/widgets/EnumWidgets.tsx": "d30943158f77f1471098f73118aed00a7932a6f757962f83228566904c5acf48",
     "src/components/forms/widgets/MapWidget.tsx": "4065c1a3311b0962f76bb1b50fdaaf1551e0a3ac291cae71062ab342cd7b48c0",
     "src/components/forms/widgets/ObjectListWidget.tsx": "bf307c2ccdcf0a3c8ad61897de91cdb3a7c70a14d87d20a89082e76928a637d5",
     "src/components/forms/widgets/StringWidgets.tsx": "05e5bc15f80ec7306ca876aa7f01839f855c8d5fe9702464c8b75136c0ddd474",
     "src/components/forms/widgets/TimeZoneWidget.tsx": "95a88962f4ac0cb6e92e50c8295fd5f584eea05f86ca91d1d07baa843bb0b238",
     "src/components/layout/MainContent.tsx": "0dea1faf3bfa22a3f0740f69cfe6a4e7bd424ca5b51a4c131d1c8e33b84cc8f1",
-    "src/components/layout/TopBar.tsx": "7768b555d09819b7caa98d7c61a87bd079d9ff5fa72957d941f4db560a3b0c6b",
-    "src/components/lists/DynamicList.tsx": "959c176cdae448ec7b5b597f71d1b7fccd9cfe03a835cfb8c9288b3549ebc413",
+    "src/components/layout/TopBar.tsx": "3b798c3753e64faf1828edc1a598c0184120e849b25fb161eb1f8082facdddae",
+    "src/components/lists/DynamicList.tsx": "93121bb042ea52bd91c951cf3d11a99b2a0d8c4cc9db865f70785d1eda252221",
     "src/components/lists/FilterFields.tsx": "6053d99aefad1ebaf4123079e2fe37f0d419e7bdc1f8d8ca29b1b3311d5ff5b8",
     "src/components/lists/ListCell.tsx": "5473f16fe89e17c469d26772acbe254c4da5129b44d25836da440e2f861ea1dc",
     "src/components/lists/MassActionBar.tsx": "7d672d719a4475af478b7ccbe2308d457f6172a3bd3453dff9acd040d4d36f0c",
@@ -34,7 +34,7 @@
     "src/extensions/pages.sel.ts": "3e95696f2d5f60e8ad94d1bd9f8e8ac9a4d80c3715058765853e05b3e99ab7f7",
     "src/extensions/pages.ts": "971e81f91f9697df33a14ef933366da75605a710e874830ac9c912c1bf5e1edc",
     "src/extensions/widgets.ts": "a029131e9a7ea15c5fe03ec7f09165f24f2c656eb9eceabac3e600171cc07c37",
-    "src/features/actions/ActionPage.tsx": "338dd3e6e69f0ddc23547c9bab26e8d46defcac30569793b349daa0a84071cf0",
+    "src/features/actions/ActionPage.tsx": "55e79143badc4d8ccb7f2880e9287cdd385d7a39f95f431d669fcc8bcb8c9877",
     "src/features/actions/components/ActionForm.tsx": "05a73c853cf60558c57a52ab6ee6b6f9c86fe31194e9cc699c70f2d2442ee21c",
     "src/features/dashboard/components/DashboardView.tsx": "6ad3f2942244f5eb8fc4b7506b31fb28d2a2152216ebacb0f02c079c2714d359",
     "src/features/tracing/components/TraceValue.tsx": "86d2f786b8a23a38bedd1ac54da163d10a0e387fed310fa63e11350446d7e203",
@@ -70,9 +70,9 @@
     "src/components/forms/widgets/PasskeyRegistrationField.tsx": "6a19be0facbff5c2d8a289cce5d6cf67dccdd12dee9129bf7e2057edb05c486c",
     "src/lib/durationFormat.ts": "d70ace5b5fc42b83ac4f60024c37169eb362b37def477bf441db18857a1efe49",
     "src/components/forms/widgets/useDurationUnitLabel.ts": "bfaf3abd009ad9c739b9676de70313efe61502bc0ec15902e8240a7d3aff73cb",
-    "src/i18n/ru.json": "97beab26cebba0b1d17789ea603f5c47a455cb927a59cdbdf76ec73ac86341ec",
+    "src/i18n/ru.json": "f4e6005f3debb21086f3589ffa4792434af186c4ef6f18c582bffe70486e0710",
     "src/components/forms/widgets/LazyWidgets.tsx": "6e6eb241ae8785e0160a16deb208b1d38f577a625cd537944dc73330593a2053",
-    "src/i18n/en.json": "b6870883d5a462076f494bba1ae76636ef1a6d488924a03233a2fa5645395dfa"
+    "src/i18n/en.json": "8ce59582c062b84d54c38b08a55b9123ee705e951d8d08dc8d60ef341934bf10"
   },
   "keepOriginal": [
     {
