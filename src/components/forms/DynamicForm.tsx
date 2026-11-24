@@ -52,7 +52,10 @@ function useFormTitle(model: DynamicFormModel): string {
   const listKey = resolved.object.viewName;
   if (isSingleton) {
     const title = titleForm?.title;
-    return title ? display(`form/${objectKey}/title`, title)
+    const titleKey = titleForm && model.schema
+      ? Object.keys(model.schema.forms).find((key) => model.schema?.forms[key] === titleForm)
+      : undefined;
+    return title ? display(`form/${titleKey ?? objectKey}/title`, title)
       : display(`object/${objectKey}/description`, resolved.object.objectType.description);
   }
   const rawName = resolved.list?.singularName ?? resolved.object.objectType.description;
