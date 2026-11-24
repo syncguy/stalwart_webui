@@ -381,3 +381,48 @@ for(const pin of manifest19.schemas){
   }
 }
 console.log('PASS: Stage20 actual ObjectValue/FieldValue/ScalarValues/ListCell populated reports and queue RowActions/MassActionBar, exact action identity and synthetic permission filtering; no DOM, JMAP or real mutations');
+
+
+// Stage21: diagnostic result and maintenance operation choices are display-only.
+for(const pin of manifest19.schemas){
+  const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+  hash=pin.schemaHash;
+  fixtureSchema19=schema;
+  for(const [enumName,selected] of [
+    ['TaskType','DestroyAccount'],
+    ['TaskStoreMaintenanceType','removeAuthTokens'],
+    ['TaskSpamFilterMaintenanceType','updateRules'],
+    ['TaskBlobRecodeCompression','lz4'],
+    ['TaskStatusType','Failed'],
+    ['SpamClassifyResult','discard'],
+  ]){
+    const variants=resolver19.getEnum(schema,enumName);
+    const v=variants.find(x=>x.name===selected);
+    assert.ok(v,enumName+': '+selected);
+    const slot='enum/'+enumName+'/'+selected+'/label';
+    assert.equal(v.label,original(slot));
+    const snapshot=JSON.stringify(variants);
+    let event;
+    const props={type:{type:'enum',enumName,nullable:false},formField:{name:'operation'},value:selected,onChange:value=>{event=value;},readOnly:false,control:{}};
+    for(const lang of ['ru','en','ru']){
+      language=lang;
+      const expected=htmlText19(lang==='ru'?ru(slot):original(slot));
+      assert.ok(render(EnumWidget,props).includes(expected),slot);
+      assert.equal(capturedCombo19.value,selected);
+      assert.deepEqual(Array.from(capturedCombo19.options,o=>o.value),Array.from(variants,o=>o.name));
+      capturedCombo19.onValueChange(selected);
+      assert.equal(event,selected);
+      assert.ok(render(scalar20.EnumValue,{schema,enumName,value:selected}).includes(expected),slot);
+      assert.equal(JSON.stringify(variants),snapshot);
+    }
+  }
+  for(const value of ['Fail','Pass','PermError','SoftFail','TempError']){
+    const objectName='x:DmarcTroubleshootAuthResult',slot='variant/'+objectName+'/'+value+'/label';
+    assert.equal(embedded19.variantLabel(schema,objectName,value),original(slot));
+    for(const lang of ['ru','en','ru']){
+      language=lang;
+      assert.ok(render(fieldValue20.VariantValue,{schema,objectName,value}).includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+    }
+  }
+}
+console.log('PASS: Stage21 actual maintenance EnumWidget/EnumValue and diagnostic VariantValue SSR; both pinned schemas, unchanged raw operation IDs, synthetic callbacks only');
