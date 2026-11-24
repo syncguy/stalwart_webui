@@ -249,6 +249,28 @@ assert.equal(batchTextSafe('HSTS CORS VAPID Web Push','Настройки HSTS V
 assert.equal(batchTextSafe('HTTP 404 Not Found','Ответ HTTP 404 Not Found',31),true);
 assert.equal(batchTextSafe('HTTP 404 Not Found','Ответ HTTP 404',31),false);
 
+
+const stage32=packets.find(p=>p.stage===32);
+if(stage32){
+  assert.equal(stage32.entries.length,125);
+  assert.equal(new Set(stage32.entries.map(e=>e.original)).size,95);
+  assert.equal(stage32.baseline,'6491192ec301bb32f7ed500d18f3dd94f358945b');
+  assert.deepEqual(stage32.scope,[{"section":"Settings","screens":["x:DataRetention/ArchivingRetention","x:DataRetention/DataCleanup","x:DataRetention/DataExpunge","x:DataRetention/TelemetryRetention","x:DkimReportSettings","x:DmarcReportSettings","x:DsnReportSettings","x:ReportSettings","x:SpfReportSettings","x:TlsReportSettings"]}]);
+  assert.equal(digest(stage32.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'d217afc2a49834cb67ef772b374c3f63548309a5209dae678a2e3b9fbfb0075d');
+}
+assert.equal(batchTextSafe('From header of DKIM report','Заголовок From отчёта DKIM',32),true);
+assert.equal(batchTextSafe('From header of DKIM report','Заголовок To отчёта DKIM',32),false);
+assert.equal(batchTextSafe('SMTP TLS Reporting (TLSRPT)','Отчёты SMTP TLS (TLSRPT)',32),true);
+assert.equal(batchTextSafe('SMTP TLS Reporting (TLSRPT)','Отчёты SMTP TLS',32),false);
+assert.equal(batchTextSafe('iTIP inbox and JMAP share notifications','Входящие iTIP и уведомления JMAP',32),true);
+assert.equal(batchTextSafe('iTIP inbox and JMAP share notifications','Входящие и уведомления JMAP',32),false);
+assert.equal(batchTextSafe("Domain name used by default in the sender address and organization name of DSNs and outbound reports, available in expressions as `system('report_domain')`. If left empty, the default domain is used.","Доменное имя, используемое по умолчанию в адресе отправителя и названии организации в уведомлениях о состоянии доставки (DSN) и исходящих отчётах; доступно в выражениях как `system('report_domain')`. Если оставить поле пустым, используется домен по умолчанию.",32),true);
+assert.equal(batchTextSafe("Domain name used by default in the sender address and organization name of DSNs and outbound reports, available in expressions as `system('report_domain')`. If left empty, the default domain is used.","Доменное имя, используемое по умолчанию в адресе отправителя и названии организации в уведомлениях о состоянии доставки (DSN) и исходящих отчётах; доступно в выражениях как `system('domain')`. Если оставить поле пустым, используется домен по умолчанию.",32),false);
+assert.equal(batchTextSafe("Domain name used by default in the sender address and organization name of DSNs and outbound reports, available in expressions as `system('report_domain')`. If left empty, the default domain is used.","Доменное имя, используемое по умолчанию в адресе отправителя и названии организации в уведомлениях о состоянии доставки (DSN) и исходящих отчётах; доступно в выражениях как `system('report_domain')`. Если оставить поле пустым, используется домен по умолчанию.",31),false);
+assert.equal(batchTextSafe('DSN reports','Отчёты',32),false);
+assert.equal(batchTextSafe('Changes','История изменений (Changes)',32),true);
+assert.equal(batchTextSafe('Changes','История изменений',32),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;

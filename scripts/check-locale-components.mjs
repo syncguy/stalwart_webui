@@ -1538,3 +1538,110 @@ if(catalog.entries['enum/ClientIpSource/forwarded/label']){
   assert.equal(mapCases31,2);
   console.log('PASS: Stage31 actual EnumWidget/EnumValue/FormSections/FieldRow synthetic SSR, both pinned editions, trusted proxy sources and raw IDs, header map key/value display metadata, IMAP limits and JMAP split-form labels, raw callbacks and unknown-hash fallback; unwired descriptions explicitly left raw; no live connections or configuration writes');
 }
+
+
+// Stage32: report settings and retention schedules; display only, no report or cleanup jobs.
+if(catalog.entries['variant/x:Cron/Daily/label']){
+  const {VariantSelect}=component('src/components/forms/VariantSelect.tsx',{
+    '@/components/ui/select':{
+      Select:()=>{throw Error('Cron selector must remain segmented');},
+      SelectContent:passthrough,SelectTrigger:passthrough,SelectValue:()=>null,SelectItem:passthrough,
+    },
+    '@/components/forms/FieldRow':{FieldLabel:props=>h('span',null,props.label)},
+    '@/components/forms/formContext':{fieldIds:()=>({inputId:'cron-type',labelId:'cron-label'}),useFieldScope:()=>({path:[]}),useFormContext:()=>({idPrefix:'synthetic'}),useInPanel:()=>false},
+    '@/components/forms/formLogic':{VARIANT_FIELD:'@type'},
+  });
+  function find32(node,predicate){
+    if(!React.isValidElement(node))return [];
+    return [...(predicate(node)?[node]:[]),...React.Children.toArray(node.props.children).flatMap(child=>find32(child,predicate))];
+  }
+  let variantCases32=0,formCases32=0,archiveCases32=0;
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;
+    const variants=schema.schemas['x:Cron'].variants;
+    assert.deepEqual(Array.from(variants,v=>v.name).sort(),['Daily','Hourly','Weekly']);
+    const raw=JSON.stringify(variants);
+    for(const [selected,next] of [['Daily','Hourly'],['Hourly','Weekly'],['Weekly','Daily']]){
+      let event;
+      const props={variantScope:'x:Cron',variants,value:selected,onChange:v=>{event=v;},readOnly:false,ariaLabel:'Schedule'};
+      for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+        language=lang;hash=activeHash;
+        const localized=lang==='ru'&&activeHash===pin.schemaHash;
+        const html=render(VariantSelect,props);
+        assert.ok(html.includes('role="radiogroup"'));
+        const controls=find32(VariantSelect(props),n=>typeof n.type==='function'&&n.type.name==='SegmentedVariants');
+        assert.equal(controls.length,1);
+        const control=controls[0];assert.equal(control.props.value,selected);
+        assert.deepEqual(Array.from(control.props.variants,v=>v.name),Array.from(variants,v=>v.name));
+        const radios=find32(control.type(control.props),n=>n.type==='button'&&n.props.role==='radio');
+        assert.equal(radios.length,variants.length);
+        for(const [i,v] of variants.entries()){
+          const slot='variant/x:Cron/'+v.name+'/label';
+          assert.equal(v.label,original(slot));
+          const expected=localized?ru(slot):v.label;
+          assert.equal(radios[i].props.children,expected);
+          assert.equal(radios[i].props['aria-checked'],v.name===selected);
+          assert.ok(html.includes(htmlText19(expected)),slot);
+          assert.ok(render(fieldValue20.VariantValue,{schema,objectName:'x:Cron',value:v.name}).includes(htmlText19(expected)),slot);
+        }
+        radios[variants.findIndex(v=>v.name===next)].props.onClick();
+        assert.equal(event,next);assert.equal(props.value,selected);assert.equal(JSON.stringify(variants),raw);
+      }
+      variantCases32++;
+    }
+    for(const [formKey,objectKey,name,value,changed] of [
+      ['x:CronDaily','x:CronDaily','hour',3,5],
+      ['x:CronHourly','x:CronHourly','minute',15,45],
+      ['x:CronWeekly','x:CronWeekly','day',1,2],
+      ['x:DkimReportSettings','x:DkimReportSettings','fromName','Synthetic name','Edited name'],
+      ['x:DmarcReportSettings','x:DmarcReportSettings','maxAggregateReportSize',1024,2048],
+      ['x:DsnReportSettings','x:DsnReportSettings','fromName','Synthetic name','Edited name'],
+      ['x:ReportSettings','x:ReportSettings','inboundReportForwarding',false,true],
+      ['x:ReportSettings','x:ReportSettings','outboundReportDomain','example.invalid','other.invalid'],
+      ['x:SpfReportSettings','x:SpfReportSettings','fromName','Synthetic name','Edited name'],
+      ['x:TlsReportSettings','x:TlsReportSettings','maxReportSize',1024,2048],
+      ['x:DataRetention/DataCleanup','x:DataRetention','holdMtaReportsFor','7d','14d'],
+      ['x:DataRetention/DataExpunge','x:DataRetention','expungeTrashAfter','7d','14d'],
+      ['x:DataRetention/ArchivingRetention','x:DataRetention','archiveDeletedAccountsFor','7d','14d'],
+    ]){
+      const form=schema.forms[formKey],field=schema.fields[objectKey]?.properties[name];
+      if(formKey==='x:DataRetention/ArchivingRetention'&&pin.edition==='oss'){assert.ok(!form);continue;}
+      assert.ok(form&&field,formKey+'/'+name);
+      const section=form.sections.find(s=>s.fields.some(f=>f.name===name));
+      assert.ok(section,formKey+'/'+name);
+      const formField=section.fields.find(f=>f.name===name);
+      const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+      assert.equal(formField.label,original(slot));
+      const sectionKey='section-'+form.sections.indexOf(section),sectionSlot='form/'+formKey+'/section/'+sectionKey;
+      const sections=[{key:sectionKey,title:section.title,fields:[{formField,field}]}];
+      const data={[name]:value},snapshot=JSON.stringify({sections,data});let event;
+      const props={sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}};
+      for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+        language=lang;hash=activeHash;
+        const localized=lang==='ru'&&activeHash===pin.schemaHash;
+        const html=render(FormSections,props);
+        assert.ok(html.includes(htmlText19(localized?ru(slot):original(slot))),slot);
+        if(catalog.entries[sectionSlot]){
+          assert.equal(section.title,original(sectionSlot));
+          assert.ok(html.includes(htmlText19(localized?ru(sectionSlot):original(sectionSlot))),sectionSlot);
+        }
+        if(catalog.entries[desc]){
+          assert.equal(field.description,original(desc));
+          assert.ok(html.includes(htmlText19(localized?ru(desc):original(desc))),desc);
+        }else if(field.description){
+          assert.ok(html.includes(htmlText19(field.description)),desc+' raw fallback');
+        }
+        assert.equal(capturedField.formField.name,name);assert.equal(capturedField.value,value);
+        capturedField.onChange(changed);assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({sections,data}),snapshot);
+      }
+      if(formKey==='x:DataRetention/ArchivingRetention')archiveCases32++;
+      formCases32++;
+    }
+  }
+  assert.equal(variantCases32,6);
+  assert.equal(formCases32,25);
+  assert.equal(archiveCases32,1);
+  console.log('PASS: Stage32 actual segmented VariantSelect/VariantValue/FormSections/FieldRow synthetic SSR; both pinned editions; Cron raw IDs and numeric callbacks, report settings, retention split forms and Enterprise-only archive, unknown hash fallback; no report delivery or scheduled cleanup execution');
+}

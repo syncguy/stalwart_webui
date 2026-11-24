@@ -8610,6 +8610,30 @@
       "original": "List of permissions to assign.",
       "ru": "Список назначаемых прав."
     },
+    "field/x:CronDaily/hour/description": {
+      "original": "Hour",
+      "ru": "Час"
+    },
+    "field/x:CronDaily/minute/description": {
+      "original": "Minute",
+      "ru": "Минута"
+    },
+    "field/x:CronHourly/minute/description": {
+      "original": "Minute",
+      "ru": "Минута"
+    },
+    "field/x:CronWeekly/day/description": {
+      "original": "Day",
+      "ru": "День недели"
+    },
+    "field/x:CronWeekly/hour/description": {
+      "original": "Hour",
+      "ru": "Час"
+    },
+    "field/x:CronWeekly/minute/description": {
+      "original": "Minute",
+      "ru": "Минута"
+    },
     "field/x:CustomRoles/roleIds/description": {
       "original": "List of roles assigned to this principal.",
       "ru": "Список ролей, назначенных этому субъекту доступа."
@@ -8661,6 +8685,26 @@
     "field/x:DkimManagementProperties/selectorTemplate/description": {
       "original": "Template for generating DKIM selectors during key rotation. Supported variables:\n- `{algorithm}`: signing algorithm in lowercase (`rsa`, `ed25519`, `mldsa44`)\n- `{hash}`: hash algorithm (`sha256`, or `none` for ML-DSA-44)\n- `{version}`: DKIM version number (`1`, `2`)\n- `{date-<fmt>}`: current UTC date formatted with strftime specifiers (e.g. `{date-%Y%m%d}`)\n- `{epoch}`: current UTC unix timestamp\n- `{random}`: random 8-character alphanumeric string",
       "ru": "Шаблон селекторов DKIM при ротации ключей. Доступные переменные:\n- `{algorithm}`: алгоритм подписи в нижнем регистре (`rsa`, `ed25519`, `mldsa44`)\n- `{hash}`: алгоритм хеширования (`sha256`, либо `none` для ML-DSA-44)\n- `{version}`: номер версии DKIM (`1`, `2`)\n- `{date-<fmt>}`: текущая дата UTC в формате strftime (например, `{date-%Y%m%d}`)\n- `{epoch}`: текущее время Unix в UTC\n- `{random}`: случайная строка из 8 букв и цифр"
+    },
+    "field/x:DkimReportSettings/dkimSignDomain/description": {
+      "original": "Which domain's DKIM signatures to use when signing the DKIM report",
+      "ru": "Подписи DKIM какого домена использовать для подписания отчёта DKIM"
+    },
+    "field/x:DkimReportSettings/fromAddress/description": {
+      "original": "Email address that will be used in the From header of the DKIM report email",
+      "ru": "Почтовый адрес для заголовка From письма отчёта DKIM"
+    },
+    "field/x:DkimReportSettings/fromName/description": {
+      "original": "Name that will be used in the From header of the DKIM report email",
+      "ru": "Имя отправителя в заголовке From письма отчёта DKIM"
+    },
+    "field/x:DkimReportSettings/sendFrequency/description": {
+      "original": "Rate at which DKIM reports will be sent to a given email address. When this rate is exceeded, no further DKIM failure reports will be sent to that address",
+      "ru": "Допустимая частота отправки отчётов DKIM на конкретный почтовый адрес. При превышении этой частоты дальнейшие отчёты об ошибках DKIM на этот адрес не отправляются"
+    },
+    "field/x:DkimReportSettings/subject/description": {
+      "original": "Subject name that will be used in the DKIM report email",
+      "ru": "Тема письма с отчётом DKIM"
     },
     "field/x:DmarcDkimResult/domain/description": {
       "original": "Domain that signed the message",
@@ -8877,6 +8921,54 @@
     "field/x:DmarcReportRecord/spfResults/description": {
       "original": "SPF authentication results for the messages",
       "ru": "Результаты аутентификации сообщений по SPF"
+    },
+    "field/x:DmarcReportSettings/aggregateContactInfo/description": {
+      "original": "Contact information to be included in the report",
+      "ru": "Контактные данные, включаемые в отчёт"
+    },
+    "field/x:DmarcReportSettings/aggregateDkimSignDomain/description": {
+      "original": "Which domain's DKIM signatures to use when signing the DMARC aggregate report",
+      "ru": "Подписи DKIM какого домена использовать для подписания сводного отчёта DMARC"
+    },
+    "field/x:DmarcReportSettings/aggregateFromAddress/description": {
+      "original": "Email address that will be used in the From header of the DMARC aggregate report email",
+      "ru": "Почтовый адрес для заголовка From письма со сводным отчётом DMARC"
+    },
+    "field/x:DmarcReportSettings/aggregateFromName/description": {
+      "original": "Name that will be used in the From header of the DMARC aggregate report email",
+      "ru": "Имя отправителя в заголовке From письма со сводным отчётом DMARC"
+    },
+    "field/x:DmarcReportSettings/aggregateOrgName/description": {
+      "original": "Name of the organization to be included in the report",
+      "ru": "Название организации, включаемое в отчёт"
+    },
+    "field/x:DmarcReportSettings/aggregateSendFrequency/description": {
+      "original": "Frequency at which the DMARC aggregate reports will be sent. The options are hourly, daily, weekly, or disable to disable reporting",
+      "ru": "Частота отправки сводных отчётов DMARC: каждый час, каждый день, каждую неделю или отключение отправки отчётов"
+    },
+    "field/x:DmarcReportSettings/failureDkimSignDomain/description": {
+      "original": "Which domain's DKIM signatures to use when signing the DMARC authentication failure report",
+      "ru": "Подписи DKIM какого домена использовать для подписания отчёта об ошибке аутентификации DMARC"
+    },
+    "field/x:DmarcReportSettings/failureFromAddress/description": {
+      "original": "Email address that will be used in the From header of the DMARC authentication failure report email",
+      "ru": "Почтовый адрес для заголовка From письма с отчётом об ошибке аутентификации DMARC"
+    },
+    "field/x:DmarcReportSettings/failureFromName/description": {
+      "original": "Name that will be used in the From header of the DMARC report email",
+      "ru": "Имя отправителя в заголовке From письма с отчётом DMARC"
+    },
+    "field/x:DmarcReportSettings/failureSendFrequency/description": {
+      "original": "Rate at which DMARC reports will be sent to a given email address. When this rate is exceeded, no further DMARC failure reports will be sent to that address",
+      "ru": "Допустимая частота отправки отчётов DMARC на конкретный почтовый адрес. При превышении этой частоты дальнейшие отчёты об ошибках DMARC на этот адрес не отправляются"
+    },
+    "field/x:DmarcReportSettings/failureSubject/description": {
+      "original": "Subject name that will be used in the DMARC authentication failure report email",
+      "ru": "Тема письма с отчётом об ошибке аутентификации DMARC"
+    },
+    "field/x:DmarcReportSettings/maxAggregateReportSize/description": {
+      "original": "Maximum size of the DMARC aggregate report in bytes",
+      "ru": "Максимальный размер сводного отчёта DMARC в байтах"
     },
     "field/x:DmarcSpfResult/domain/description": {
       "original": "Domain checked for SPF",
@@ -9137,6 +9229,18 @@
     "field/x:Domain/subAddressing/description": {
       "original": "Whether sub-addressing (plus addressing) is enabled for the domain",
       "ru": "Разрешена ли адресация с суффиксом после знака «+»"
+    },
+    "field/x:DsnReportSettings/dkimSignDomain/description": {
+      "original": "Which domain's DKIM signatures to use when signing the Delivery Status Notifications",
+      "ru": "Подписи DKIM какого домена использовать для подписания уведомлений о состоянии доставки"
+    },
+    "field/x:DsnReportSettings/fromAddress/description": {
+      "original": "Email address that will be used in the From header of Delivery Status Notifications (DSN) reports",
+      "ru": "Почтовый адрес для заголовка From уведомлений о состоянии доставки (DSN)"
+    },
+    "field/x:DsnReportSettings/fromName/description": {
+      "original": "Name that will be used in the From header of Delivery Status Notifications (DSN) reports",
+      "ru": "Имя отправителя в заголовке From уведомлений о состоянии доставки (DSN)"
     },
     "field/x:ElasticSearchStore/allowInvalidCerts/description": {
       "original": "Whether to allow invalid SSL certificates",
@@ -11242,6 +11346,26 @@
       "original": "Warnings reported while building the new configuration, such as licence problems",
       "ru": "Предупреждения при формировании новой конфигурации, например о проблемах с лицензией"
     },
+    "field/x:ReportSettings/inboundReportAddresses/description": {
+      "original": "List of addresses (which may include wildcards) from which reports will be intercepted and analyzed",
+      "ru": "Список адресов (допускаются подстановочные символы), с которых отчёты будут перехватываться и анализироваться"
+    },
+    "field/x:ReportSettings/inboundReportForwarding/description": {
+      "original": "Whether reports should be forwarded to their final recipient after analysis",
+      "ru": "Пересылать ли отчёты конечному получателю после анализа"
+    },
+    "field/x:ReportSettings/maxInboundReportSize/description": {
+      "original": "Maximum size of inbound reports to be intercepted and analyzed, in bytes. Reports larger than this size will be ignored",
+      "ru": "Максимальный размер входящих отчётов, подлежащих перехвату и анализу, в байтах. Отчёты большего размера игнорируются"
+    },
+    "field/x:ReportSettings/outboundReportDomain/description": {
+      "original": "Domain name used by default in the sender address and organization name of DSNs and outbound reports, available in expressions as `system('report_domain')`. If left empty, the default domain is used.",
+      "ru": "Доменное имя, используемое по умолчанию в адресе отправителя и названии организации в уведомлениях о состоянии доставки (DSN) и исходящих отчётах; доступно в выражениях как `system('report_domain')`. Если оставить поле пустым, используется домен по умолчанию."
+    },
+    "field/x:ReportSettings/outboundReportSubmitter/description": {
+      "original": "Report submitter address or leave empty to use the default hostname",
+      "ru": "Адрес отправителя отчёта; оставьте поле пустым, чтобы использовать имя узла по умолчанию"
+    },
     "field/x:RocksDbStore/blobSize/description": {
       "original": "Minimum size of a blob to write to a separate RocksDB blob file; smaller blobs are stored inline in the LSM tree. Only applies when RocksDB is also the blob store",
       "ru": "Минимальный размер BLOB-объекта для записи в отдельный файл RocksDB; меньшие объекты хранятся непосредственно в LSM-дереве. Применяется только при использовании RocksDB также в качестве хранилища BLOB-объектов"
@@ -12126,6 +12250,26 @@
       "original": "Subject of the message associated with this training sample",
       "ru": "Тема сообщения, связанного с этим обучающим образцом"
     },
+    "field/x:SpfReportSettings/dkimSignDomain/description": {
+      "original": "Which domain's DKIM signatures to use when signing the SPF authentication failure report",
+      "ru": "Подписи DKIM какого домена использовать для подписания отчёта об ошибке аутентификации SPF"
+    },
+    "field/x:SpfReportSettings/fromAddress/description": {
+      "original": "Email address that will be used in the From header of the SPF authentication failure report email",
+      "ru": "Почтовый адрес для заголовка From письма отчёта об ошибке аутентификации SPF"
+    },
+    "field/x:SpfReportSettings/fromName/description": {
+      "original": "Name that will be used in the From header of the SPF authentication failure report email",
+      "ru": "Имя отправителя в заголовке From письма отчёта об ошибке аутентификации SPF"
+    },
+    "field/x:SpfReportSettings/sendFrequency/description": {
+      "original": "Rate at which SPF reports will be sent to a given email address. When this rate is exceeded, no further SPF failure reports will be sent to that address",
+      "ru": "Допустимая частота отправки отчётов SPF на конкретный почтовый адрес. При превышении этой частоты дальнейшие отчёты об ошибках SPF на этот адрес не отправляются"
+    },
+    "field/x:SpfReportSettings/subject/description": {
+      "original": "Subject name that will be used in the SPF authentication failure report email",
+      "ru": "Тема письма с отчётом об ошибке аутентификации SPF"
+    },
     "field/x:SqliteStore/path/description": {
       "original": "Path to the SQLite database file, created if missing. When a directory is given, the database is stored in it as stalwart.db",
       "ru": "Путь к файлу базы данных SQLite, который создаётся при отсутствии. Если указан каталог, база данных хранится в нём под именем stalwart.db"
@@ -12357,6 +12501,34 @@
     "field/x:TlsReportPolicy/totalSuccessfulSessions/description": {
       "original": "Number of sessions that successfully established TLS",
       "ru": "Число сеансов, в которых успешно установлен TLS"
+    },
+    "field/x:TlsReportSettings/contactInfo/description": {
+      "original": "Contact information to be included in the report",
+      "ru": "Контактные данные, включаемые в отчёт"
+    },
+    "field/x:TlsReportSettings/dkimSignDomain/description": {
+      "original": "Which domain's DKIM signatures to use when signing the TLS aggregate report",
+      "ru": "Подписи DKIM какого домена использовать для подписания сводного отчёта TLS"
+    },
+    "field/x:TlsReportSettings/fromAddress/description": {
+      "original": "Email address that will be used in the From header of the TLS aggregate report email",
+      "ru": "Почтовый адрес для заголовка From письма сводного отчёта TLS"
+    },
+    "field/x:TlsReportSettings/fromName/description": {
+      "original": "Name that will be used in the From header of the TLS aggregate report email",
+      "ru": "Имя отправителя в заголовке From письма сводного отчёта TLS"
+    },
+    "field/x:TlsReportSettings/maxReportSize/description": {
+      "original": "Maximum size of the TLS aggregate report in bytes",
+      "ru": "Максимальный размер сводного отчёта TLS в байтах"
+    },
+    "field/x:TlsReportSettings/orgName/description": {
+      "original": "Name of the organization to be included in the report",
+      "ru": "Название организации, включаемое в отчёт"
+    },
+    "field/x:TlsReportSettings/sendFrequency/description": {
+      "original": "Frequency at which the TLS aggregate reports will be sent. The options are hourly, daily, weekly, or disable to disable reporting",
+      "ru": "Частота отправки сводных отчётов TLS: каждый час, каждый день, каждую неделю или отключение отправки отчётов"
     },
     "field/x:Trace/events/description": {
       "original": "List of events associated with the trace entry",
@@ -14130,6 +14302,30 @@
       "original": "Permissions",
       "ru": "Права доступа"
     },
+    "form/x:CronDaily/field/hour": {
+      "original": "Hour",
+      "ru": "Час"
+    },
+    "form/x:CronDaily/field/minute": {
+      "original": "Minute",
+      "ru": "Минута"
+    },
+    "form/x:CronHourly/field/minute": {
+      "original": "Minute",
+      "ru": "Минута"
+    },
+    "form/x:CronWeekly/field/day": {
+      "original": "Day",
+      "ru": "День недели"
+    },
+    "form/x:CronWeekly/field/hour": {
+      "original": "Hour",
+      "ru": "Час"
+    },
+    "form/x:CronWeekly/field/minute": {
+      "original": "Minute",
+      "ru": "Минута"
+    },
     "form/x:CustomRoles/field/roleIds": {
       "original": "Roles",
       "ru": "Роли"
@@ -14138,13 +14334,85 @@
       "original": "Roles",
       "ru": "Роли"
     },
+    "form/x:DataRetention/ArchivingRetention/field/archiveDeletedAccountsFor": {
+      "original": "Archived Accounts",
+      "ru": "Архивные учётные записи"
+    },
     "form/x:DataRetention/ArchivingRetention/field/archiveDeletedItemsFor": {
       "original": "Archived Items",
       "ru": "Архивные элементы"
     },
+    "form/x:DataRetention/ArchivingRetention/section/section-0": {
+      "original": "Retention Policy",
+      "ru": "Политика хранения"
+    },
+    "form/x:DataRetention/ArchivingRetention/subtitle": {
+      "original": "Configure how long to keep deleted items and accounts in the archive before they are permanently deleted",
+      "ru": "Настройка срока хранения удалённых объектов и учётных записей в архиве до окончательного удаления"
+    },
+    "form/x:DataRetention/DataCleanup/field/blobCleanupSchedule": {
+      "original": "Blob Cleanup",
+      "ru": "Очистка хранилища BLOB"
+    },
+    "form/x:DataRetention/DataCleanup/field/dataCleanupSchedule": {
+      "original": "Database Cleanup",
+      "ru": "Очистка базы данных"
+    },
+    "form/x:DataRetention/DataCleanup/field/holdMtaReportsFor": {
+      "original": "MTA Reports",
+      "ru": "Отчёты MTA"
+    },
+    "form/x:DataRetention/DataCleanup/field/maxChangesHistory": {
+      "original": "Changes",
+      "ru": "История изменений (Changes)"
+    },
+    "form/x:DataRetention/DataCleanup/section/section-0": {
+      "original": "Schedule",
+      "ru": "Расписание"
+    },
+    "form/x:DataRetention/DataCleanup/section/section-1": {
+      "original": "Retention Policy",
+      "ru": "Политика хранения"
+    },
+    "form/x:DataRetention/DataCleanup/subtitle": {
+      "original": "Configure how often to run scheduled cleanup jobs for the data store and blob store",
+      "ru": "Настройка периодичности заданий очистки хранилища данных и хранилища BLOB"
+    },
     "form/x:DataRetention/DataCleanup/title": {
       "original": "Data Cleanup",
       "ru": "Очистка данных"
+    },
+    "form/x:DataRetention/DataExpunge/field/expungeSchedule": {
+      "original": "Expunge",
+      "ru": "Окончательное удаление"
+    },
+    "form/x:DataRetention/DataExpunge/field/expungeSchedulingInboxAfter": {
+      "original": "Scheduling Inbox",
+      "ru": "Входящие приглашения календаря"
+    },
+    "form/x:DataRetention/DataExpunge/field/expungeShareNotifyAfter": {
+      "original": "Share Notifications",
+      "ru": "Уведомления о совместном доступе"
+    },
+    "form/x:DataRetention/DataExpunge/field/expungeSubmissionsAfter": {
+      "original": "Email Submissions",
+      "ru": "Записи об отправке писем"
+    },
+    "form/x:DataRetention/DataExpunge/field/expungeTrashAfter": {
+      "original": "Trash/Junk",
+      "ru": "Корзина и спам"
+    },
+    "form/x:DataRetention/DataExpunge/section/section-0": {
+      "original": "Expunge Timers",
+      "ru": "Сроки до окончательного удаления"
+    },
+    "form/x:DataRetention/DataExpunge/section/section-1": {
+      "original": "Schedule",
+      "ru": "Расписание"
+    },
+    "form/x:DataRetention/DataExpunge/subtitle": {
+      "original": "Configure how long to keep messages in the Trash and Junk Mail folders, sent e-mail submissions, iTIP inbox, and JMAP share notification history before they are automatically expunged",
+      "ru": "Настройка срока хранения писем в папках корзины и спама, записей об отправленных письмах, входящих приглашений iTIP и истории уведомлений JMAP о совместном доступе до их автоматического окончательного удаления"
     },
     "form/x:DataRetention/DataExpunge/title": {
       "original": "Auto-Expunge",
@@ -14301,6 +14569,30 @@
     "form/x:DkimManagementProperties/section/section-1": {
       "original": "Key Rotation",
       "ru": "Ротация ключей"
+    },
+    "form/x:DkimReportSettings/field/dkimSignDomain": {
+      "original": "Signature",
+      "ru": "Подпись"
+    },
+    "form/x:DkimReportSettings/field/fromName": {
+      "original": "From Name",
+      "ru": "Имя отправителя (From)"
+    },
+    "form/x:DkimReportSettings/field/sendFrequency": {
+      "original": "Send rate",
+      "ru": "Частота отправки"
+    },
+    "form/x:DkimReportSettings/section/section-0": {
+      "original": "DKIM Reporting",
+      "ru": "Отчёты DKIM"
+    },
+    "form/x:DkimReportSettings/subtitle": {
+      "original": "Configure the From identity, subject, signing domain and rate limit used when sending DKIM authentication failure reports back to the sending domain",
+      "ru": "Настройка данных отправителя (From), темы, домена подписи и ограничения частоты отправки отчётов об ошибках аутентификации DKIM обратно в домен отправителя"
+    },
+    "form/x:DkimReportSettings/title": {
+      "original": "DKIM Failure Reports",
+      "ru": "Отчёты об ошибках DKIM"
     },
     "form/x:DkimSignature/field/@type": {
       "original": "Signature type",
@@ -14545,6 +14837,58 @@
     "form/x:DmarcReportRecord/section/section-4": {
       "original": "Extensions",
       "ru": "Расширения"
+    },
+    "form/x:DmarcReportSettings/field/aggregateContactInfo": {
+      "original": "Contact",
+      "ru": "Контактные данные"
+    },
+    "form/x:DmarcReportSettings/field/aggregateDkimSignDomain": {
+      "original": "Signature",
+      "ru": "Подпись"
+    },
+    "form/x:DmarcReportSettings/field/aggregateFromName": {
+      "original": "From Name",
+      "ru": "Имя отправителя (From)"
+    },
+    "form/x:DmarcReportSettings/field/aggregateOrgName": {
+      "original": "Organization",
+      "ru": "Организация"
+    },
+    "form/x:DmarcReportSettings/field/aggregateSendFrequency": {
+      "original": "Frequency",
+      "ru": "Периодичность"
+    },
+    "form/x:DmarcReportSettings/field/failureDkimSignDomain": {
+      "original": "Signature",
+      "ru": "Подпись"
+    },
+    "form/x:DmarcReportSettings/field/failureFromName": {
+      "original": "From Name",
+      "ru": "Имя отправителя (From)"
+    },
+    "form/x:DmarcReportSettings/field/failureSendFrequency": {
+      "original": "Send rate",
+      "ru": "Частота отправки"
+    },
+    "form/x:DmarcReportSettings/field/maxAggregateReportSize": {
+      "original": "Max Report Size",
+      "ru": "Макс. размер отчёта"
+    },
+    "form/x:DmarcReportSettings/section/section-0": {
+      "original": "DMARC Authentication Failure Reporting",
+      "ru": "Отчёты об ошибках аутентификации DMARC"
+    },
+    "form/x:DmarcReportSettings/section/section-1": {
+      "original": "DMARC Aggregate Reporting",
+      "ru": "Сводные отчёты DMARC"
+    },
+    "form/x:DmarcReportSettings/subtitle": {
+      "original": "Configure both DMARC aggregate and authentication failure reports, including the sender identity, signing domain, organization details, report size limit, and how often aggregate reports are sent",
+      "ru": "Настройка сводных отчётов DMARC и отчётов об ошибках аутентификации, включая данные отправителя, домен подписи, сведения об организации, ограничение размера отчёта и периодичность отправки сводных отчётов"
+    },
+    "form/x:DmarcReportSettings/title": {
+      "original": "DMARC Reports",
+      "ru": "Отчёты DMARC"
     },
     "form/x:DmarcSpfResult/field/domain": {
       "original": "Domain",
@@ -15705,6 +16049,26 @@
     "form/x:Domain/section/section-6": {
       "original": "Details",
       "ru": "Сведения"
+    },
+    "form/x:DsnReportSettings/field/dkimSignDomain": {
+      "original": "Signature",
+      "ru": "Подпись"
+    },
+    "form/x:DsnReportSettings/field/fromName": {
+      "original": "From Name",
+      "ru": "Имя отправителя (From)"
+    },
+    "form/x:DsnReportSettings/section/section-0": {
+      "original": "Delivery Status Notifications (DSN)",
+      "ru": "Уведомления о состоянии доставки (DSN)"
+    },
+    "form/x:DsnReportSettings/subtitle": {
+      "original": "Configure the From identity and signing domain used when generating Delivery Status Notification (DSN) bounce messages sent to message senders",
+      "ru": "Настройка данных отправителя (From) и домена подписи для формирования уведомлений о состоянии доставки (DSN) о недоставке, направляемых отправителям писем"
+    },
+    "form/x:DsnReportSettings/title": {
+      "original": "Delivery Status Notifications",
+      "ru": "Уведомления о состоянии доставки"
     },
     "form/x:ElasticSearchStore/field/allowInvalidCerts": {
       "original": "Allow Invalid Certificates",
@@ -19278,6 +19642,42 @@
       "original": "Result",
       "ru": "Результат"
     },
+    "form/x:ReportSettings/field/inboundReportAddresses": {
+      "original": "Report Addresses",
+      "ru": "Адреса отчётов"
+    },
+    "form/x:ReportSettings/field/inboundReportForwarding": {
+      "original": "Forward",
+      "ru": "Пересылать"
+    },
+    "form/x:ReportSettings/field/maxInboundReportSize": {
+      "original": "Max Report Size",
+      "ru": "Макс. размер отчёта"
+    },
+    "form/x:ReportSettings/field/outboundReportDomain": {
+      "original": "Report Domain",
+      "ru": "Домен отчётов"
+    },
+    "form/x:ReportSettings/field/outboundReportSubmitter": {
+      "original": "Submitter",
+      "ru": "Отправитель отчёта"
+    },
+    "form/x:ReportSettings/section/section-0": {
+      "original": "Inbound Report Analysis",
+      "ru": "Анализ входящих отчётов"
+    },
+    "form/x:ReportSettings/section/section-1": {
+      "original": "Outbound Report Settings",
+      "ru": "Настройки исходящих отчётов"
+    },
+    "form/x:ReportSettings/subtitle": {
+      "original": "Configure how inbound DMARC, TLS, ARF, and other reports are intercepted and analyzed, and the default sender identity used when generating outbound reports",
+      "ru": "Настройка перехвата и анализа входящих отчётов DMARC, TLS, ARF и других отчётов, а также данных отправителя по умолчанию при формировании исходящих отчётов"
+    },
+    "form/x:ReportSettings/title": {
+      "original": "Reporting",
+      "ru": "Отчётность"
+    },
     "form/x:RocksDbStore/field/blobSize": {
       "original": "Min blob size",
       "ru": "Мин. размер BLOB-объекта"
@@ -20606,6 +21006,30 @@
       "original": "Options",
       "ru": "Параметры"
     },
+    "form/x:SpfReportSettings/field/dkimSignDomain": {
+      "original": "Signature",
+      "ru": "Подпись"
+    },
+    "form/x:SpfReportSettings/field/fromName": {
+      "original": "From Name",
+      "ru": "Имя отправителя (From)"
+    },
+    "form/x:SpfReportSettings/field/sendFrequency": {
+      "original": "Send rate",
+      "ru": "Частота отправки"
+    },
+    "form/x:SpfReportSettings/section/section-0": {
+      "original": "SPF Authentication Failure Reporting",
+      "ru": "Отчёты об ошибках аутентификации SPF"
+    },
+    "form/x:SpfReportSettings/subtitle": {
+      "original": "Configure the From identity, subject, signing domain and rate limit used when sending SPF authentication failure reports back to the sending domain",
+      "ru": "Настройка данных отправителя (From), темы, домена подписи и ограничения частоты отправки отчётов об ошибках аутентификации SPF обратно в домен отправителя"
+    },
+    "form/x:SpfReportSettings/title": {
+      "original": "SPF Failure Reports",
+      "ru": "Отчёты об ошибках SPF"
+    },
     "form/x:SqlDirectory/field/description": {
       "original": "Description",
       "ru": "Описание"
@@ -21289,6 +21713,42 @@
     "form/x:TlsReportPolicy/field/totalSuccessfulSessions": {
       "original": "Successful Sessions",
       "ru": "Успешные сеансы"
+    },
+    "form/x:TlsReportSettings/field/contactInfo": {
+      "original": "Contact",
+      "ru": "Контактные данные"
+    },
+    "form/x:TlsReportSettings/field/dkimSignDomain": {
+      "original": "Signature",
+      "ru": "Подпись"
+    },
+    "form/x:TlsReportSettings/field/fromName": {
+      "original": "From Name",
+      "ru": "Имя отправителя (From)"
+    },
+    "form/x:TlsReportSettings/field/maxReportSize": {
+      "original": "Max Report Size",
+      "ru": "Макс. размер отчёта"
+    },
+    "form/x:TlsReportSettings/field/orgName": {
+      "original": "Organization",
+      "ru": "Организация"
+    },
+    "form/x:TlsReportSettings/field/sendFrequency": {
+      "original": "Frequency",
+      "ru": "Периодичность"
+    },
+    "form/x:TlsReportSettings/section/section-0": {
+      "original": "TLS Aggregate Reporting",
+      "ru": "Сводные отчёты TLS"
+    },
+    "form/x:TlsReportSettings/subtitle": {
+      "original": "Configure the SMTP TLS Reporting (TLSRPT) aggregate reports, including the sender identity, signing domain, organization details, report size limit, and reporting frequency",
+      "ru": "Настройка сводных отчётов SMTP TLS Reporting (TLSRPT), включая данные отправителя, домен подписи, сведения об организации, ограничение размера отчёта и периодичность отправки"
+    },
+    "form/x:TlsReportSettings/title": {
+      "original": "TLS Aggregate Reports",
+      "ru": "Сводные отчёты TLS"
     },
     "form/x:Trace/field/events": {
       "original": "Events",
@@ -24630,6 +25090,10 @@
       "original": "Configures the cluster coordinator for inter-node communication.",
       "ru": "Настройка координатора кластера для связи между узлами."
     },
+    "object/x:DataRetention/description": {
+      "original": "Configures data retention policies, expunge schedules, and archival settings.",
+      "ru": "Настройка политик хранения данных, расписаний окончательного удаления и параметров архивирования."
+    },
     "object/x:DataStore/description": {
       "original": "Configures the primary data store backend.",
       "ru": "Настраивает основное хранилище данных."
@@ -24637,6 +25101,10 @@
     "object/x:Directory/description": {
       "original": "Defines an external directory for account authentication and lookups.",
       "ru": "Определяет внешний каталог для аутентификации и поиска учётных записей."
+    },
+    "object/x:DkimReportSettings/description": {
+      "original": "Configures DKIM authentication failure report generation.",
+      "ru": "Настройка формирования отчётов об ошибках аутентификации DKIM."
     },
     "object/x:DkimSignature/description": {
       "original": "Defines a DKIM signature used to sign outgoing email messages.",
@@ -24650,6 +25118,10 @@
       "original": "Stores an outbound DMARC aggregate report pending delivery.",
       "ru": "Хранит исходящий агрегированный отчёт DMARC, ожидающий доставки."
     },
+    "object/x:DmarcReportSettings/description": {
+      "original": "Configures DMARC aggregate and failure report generation.",
+      "ru": "Настройка формирования сводных отчётов DMARC и отчётов об ошибках."
+    },
     "object/x:DnsResolver/description": {
       "original": "Configures the DNS resolver used for domain lookups.",
       "ru": "Настройка резолвера DNS для разрешения доменных имён."
@@ -24661,6 +25133,10 @@
     "object/x:Domain/description": {
       "original": "Defines an email domain and its DNS, DKIM, and TLS certificate settings.",
       "ru": "Параметры почтового домена, DNS, DKIM и сертификатов TLS."
+    },
+    "object/x:DsnReportSettings/description": {
+      "original": "Configures Delivery Status Notification (DSN) report generation.",
+      "ru": "Настройка формирования уведомлений о состоянии доставки (DSN)."
     },
     "object/x:Email/description": {
       "original": "Configures email message limits, compression, and default folder settings.",
@@ -24838,6 +25314,10 @@
       "original": "Represents a queued email message pending delivery.",
       "ru": "Почтовое сообщение, ожидающее доставки в очереди."
     },
+    "object/x:ReportSettings/description": {
+      "original": "Configures inbound report analysis and outbound report settings.",
+      "ru": "Настройка анализа входящих отчётов и параметров исходящих отчётов."
+    },
     "object/x:Role/description": {
       "original": "Defines a named set of permissions that can be assigned to accounts and groups.",
       "ru": "Набор прав доступа, назначаемых пользователям и группам."
@@ -24914,6 +25394,10 @@
       "original": "Stores an email sample used for spam classifier training.",
       "ru": "Хранит образец письма для обучения классификатора спама."
     },
+    "object/x:SpfReportSettings/description": {
+      "original": "Configures SPF authentication failure report generation.",
+      "ru": "Настройка формирования отчётов об ошибках аутентификации SPF."
+    },
     "object/x:StoreLookup/description": {
       "original": "Defines an external store used for lookups.",
       "ru": "Определяет внешнее хранилище для поиска по ключам."
@@ -24941,6 +25425,10 @@
     "object/x:TlsInternalReport/description": {
       "original": "Stores an outbound TLS aggregate report pending delivery.",
       "ru": "Хранит исходящий агрегированный отчёт TLS, ожидающий доставки."
+    },
+    "object/x:TlsReportSettings/description": {
+      "original": "Configures TLS aggregate report generation.",
+      "ru": "Настройка формирования сводных отчётов TLS."
     },
     "object/x:Trace/description": {
       "original": "Stores a message delivery trace with associated events.",
@@ -25189,6 +25677,18 @@
     "variant/x:CredentialPermissions/Replace/label": {
       "original": "Replace all permissions",
       "ru": "Заменить все права"
+    },
+    "variant/x:Cron/Daily/label": {
+      "original": "Every day",
+      "ru": "Каждый день"
+    },
+    "variant/x:Cron/Hourly/label": {
+      "original": "Every hour",
+      "ru": "Каждый час"
+    },
+    "variant/x:Cron/Weekly/label": {
+      "original": "Every week",
+      "ru": "Каждую неделю"
     },
     "variant/x:DataStore/FoundationDb/label": {
       "original": "FoundationDB",

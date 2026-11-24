@@ -65,8 +65,11 @@ export function batchTextSafe(original,ru,stage=19) {
   const smtpOriginal=stage===29&&['Date the authorization was granted','Date the application last renewed its access'].includes(original)?original.replace(/^Date /,'date '):markerOriginal;
   const coordinatorTokens=s=>[...s.matchAll(/\b(?:Kafka|Keep|NATS|Zenoh|Eclipse|RESP2|RESP3|DER|Sentinels?|wait_timeout|stalwart\.db|host:port)\b/g)].map(m=>m[0]==='Sentinels'?'Sentinel':m[0]).sort();
   const clientProtocolTokens=s=>[...s.matchAll(/\b(?:Forwarded|HSTS|CORS|IDLE|FETCH|SEARCH|STORE|MOVE|UID EXPUNGE|UIDBATCHES|UID|MESSAGELIMIT|SAVELIMIT|COPY|APPEND|Copy|Append|TOOMANY|TOOFEW|VAPID|Web Push|Server-Sent Events|404 Not Found|Changes|Get|Query|Set)\b/g)].map(m=>({Copy:'COPY',Append:'APPEND'})[m[0]]??m[0]).sort();
+  const reportTokens=s=>[...s.matchAll(/\b(?:From|TLSRPT)\b/g)].map(m=>m[0]).sort();
+  // Stage32 exact natural-language plural DSNs, normalized only for this pinned source.
+  const reportOriginal=stage===32&&original==="Domain name used by default in the sender address and organization name of DSNs and outbound reports, available in expressions as `system('report_domain')`. If left empty, the default domain is used."?original.replace('DSNs','DSN'):original;
   return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
-    (stage<20||json(mailTokens(original))===json(mailTokens(ru)))&&
+    (stage<20||json(mailTokens(reportOriginal))===json(mailTokens(ru)))&&
     (stage<21||json(maintenanceTokens(original))===json(maintenanceTokens(ru)))&&
     (stage<22||json(externalTokens(markerOriginal))===json(externalTokens(ru)))&&
     (stage<23||json(securityTokens(original))===json(securityTokens(ru)))&&
@@ -77,7 +80,8 @@ export function batchTextSafe(original,ru,stage=19) {
     (stage<28||json(networkTokens(original))===json(networkTokens(ru)))&&
     (stage<29||json(accountTokens(original))===json(accountTokens(ru)))&&
     (stage<30||json(coordinatorTokens(original))===json(coordinatorTokens(ru)))&&
-    (stage<31||json(clientProtocolTokens(original))===json(clientProtocolTokens(ru)));
+    (stage<31||json(clientProtocolTokens(original))===json(clientProtocolTokens(ru)))&&
+    (stage<32||json(reportTokens(original))===json(reportTokens(ru)));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);
