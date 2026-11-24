@@ -1719,7 +1719,7 @@ if(catalog.entries['enum/ClusterTaskType/accountMaintenance/label']){
     multi33++;
     for(const variantScope of ['x:Asn','x:ClusterListenerGroup','x:ClusterTaskGroup']){
       const variants=schema.schemas[variantScope].variants,raw=JSON.stringify(variants);
-      const expectedIds=variantScope==='x:Asn'?['Dns','Resource']:['DisableAll','DisableSome','EnableAll','EnableSome'];
+      const expectedIds=variantScope==='x:Asn'?['Disabled','Dns','Resource']:['DisableAll','DisableSome','EnableAll','EnableSome'];
       assert.deepEqual(Array.from(variants,v=>v.name).sort(),expectedIds);
       const selected=variants[0].name,nextVariant=variants[1].name;
       const variantProps={variantScope,variants,value:selected,onChange:v=>{event=v;},readOnly:false,ariaLabel:'Synthetic variant'};
@@ -1728,10 +1728,12 @@ if(catalog.entries['enum/ClusterTaskType/accountMaintenance/label']){
         language=lang;hash=activeHash;select33=undefined;options33=[];
         const localized=lang==='ru'&&activeHash===pin.schemaHash;
         const html=render(VariantSelect,variantProps);
-        const label=v=>localized?ru('variant/'+variantScope+'/'+v.name+'/label'):v.label;
+        const label=v=>localized&&!(variantScope==='x:Asn'&&v.name==='Disabled')?ru('variant/'+variantScope+'/'+v.name+'/label'):v.label;
         for(const v of variants){
           const slot='variant/'+variantScope+'/'+v.name+'/label';
-          assert.equal(v.label,original(slot));
+          if(variantScope==='x:Asn'&&v.name==='Disabled'){
+            assert.equal(v.label,'Disabled');assert.ok(!catalog.entries[slot],slot);
+          }else assert.equal(v.label,original(slot));
           assert.ok(html.includes(htmlText19(label(v))),slot);
           assert.ok(render(fieldValue20.VariantValue,{schema,objectName:variantScope,value:v.name}).includes(htmlText19(label(v))),slot);
         }
