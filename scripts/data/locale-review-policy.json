@@ -478,16 +478,17 @@
       "reason": "Stage18: редакторски проверенная точная привязка schemaHash + slot + original; runtime активирован, React/browser приёмка отдельно."
     }
   ],
-  "baselineSource": "cdd315934c5262c23379a177328951cfb8a45399",
+  "baselineSource": "b727b90b766a669964e891d814e1e31ce4039b24",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "17aad7d84bd427d50e27b701a06894d2a2614dfc6e93308535b2803b855f6af1",
+    "src/i18n/schema/ru.json": "886877d31d842719a134efc69abc1b741f8ac957a524285e773437f1ef9d30b0",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
     "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
     "scripts/schema-glossary.ru.json": "808741e3fd85abb3d302e54488162d6b980dd9ec525b8543771ea1c179040fce",
     "scripts/data/pinned-schema-manifest.json": "eda38876539e8b226ca79a468e0772b97174e8c7482297ba7ae7746f3f5f60b6",
     "scripts/data/pinned-schema.json.gz.b64": "9e69e80372b0f93d149facdf62726c9f1d7d39a043c847c954521d4aa39d6380",
-    "scripts/data/pinned-schema_oss.json.gz.b64": "440de2ac9678d1f3175e6a5331795f85c44ae06b0ac47d717a4d0420b80a4a40"
+    "scripts/data/pinned-schema_oss.json.gz.b64": "440de2ac9678d1f3175e6a5331795f85c44ae06b0ac47d717a4d0420b80a4a40",
+    "scripts/data/stage19-groupware-review.json": "4b052b7ea7c4bb4884fdf4abed1a53572836b641df4e1b8d6553f76277d8ecaf"
   },
   "clientLiterals": [
     {
@@ -518,5 +519,8 @@
       "classification": "technical",
       "reason": "HTML-character-entity"
     }
+  ],
+  "reviewedBatches": [
+    "scripts/data/stage19-groupware-review.json"
   ]
 }

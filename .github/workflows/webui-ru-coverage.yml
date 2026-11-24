@@ -11,7 +11,8 @@ on:
       - 'scripts/check-locale-candidates.mjs'
       - 'scripts/check-locale-components.mjs'
       - 'scripts/check-schema-locale.mjs'
-      - 'scripts/data/stage18-address-calendar-review.json'
+      - 'scripts/data/stage*-review.json'
+      - 'scripts/check-reviewed-batches.mjs'
       - 'scripts/lib/locale-*.mjs'
       - 'scripts/lib/offline-guard.mjs'
       - 'scripts/data/locale-review-policy.json'
@@ -61,6 +62,10 @@ jobs:
         env:
           NODE_OPTIONS: '--import=./scripts/lib/offline-guard.mjs'
         run: node scripts/check-locale-candidates.mjs
+      - name: Verify reviewed batch chain, exact scopes and protocol markers
+        env:
+          NODE_OPTIONS: '--import=./scripts/lib/offline-guard.mjs'
+        run: node scripts/check-reviewed-batches.mjs
       - name: Check previous locale and renderer regressions without packaging
         run: |
           node scripts/check-locales.mjs

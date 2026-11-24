@@ -1,0 +1,97 @@
+// Verify explicitly activated reviewed batches; never write source or catalog.
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {readJson,digest,json,at} from './locale-source.mjs';
+import {plan,compactReport,textSafe} from './locale-planner.mjs';
+
+export function loadReviewedBatches(root,policy) {
+  const files=policy.reviewedBatches??[];
+  assert.ok(Array.isArray(files)&&new Set(files).size===files.length);
+  return files.map(p=>{
+    assert.match(p,/^scripts\/data\/stage\d+-[a-z0-9-]+-review\.json$/);
+    const raw=fs.readFileSync(path.join(root,p),'utf8');
+    assert.equal(digest(raw),policy.protectedInputs[p],'Reviewed packet digest mismatch: '+p);
+    return readJson(raw,p);
+  });
+}
+export function undoBatch(catalog,packet) {
+  assert.equal(packet.version,1);
+  assert.equal(packet.status,'editor-reviewed');
+  assert.equal(packet.apply,false);
+  assert.match(packet.baseline,/^[a-f0-9]{40}$/);
+  assert.match(packet.baselineCatalogSha256,/^[a-f0-9]{64}$/);
+  assert.ok(Array.isArray(packet.entries)&&packet.entries.length>0);
+  const before=structuredClone(catalog),seen=new Set();
+  for(const e of packet.entries) {
+    assert.ok(typeof e.slot==='string'&&e.slot&&!seen.has(e.slot),'Duplicate or invalid slot');
+    seen.add(e.slot);
+    assert.equal(e.decision,'translate');
+    assert.ok(typeof e.original==='string'&&e.original&&typeof e.ru==='string'&&e.ru.trim()===e.ru&&e.ru!==e.original&&/[А-Яа-яЁё]/u.test(e.ru));
+    assert.deepEqual(before.entries[e.slot],{original:e.original,ru:e.ru});
+    assert.ok(!(before.scopedEntries??[]).some(s=>s.slot===e.slot));
+    delete before.entries[e.slot];
+  }
+  assert.equal(digest(json(before)),packet.baselineCatalogSha256,'Previous catalog bytes changed outside reviewed batch');
+  return before;
+}
+export function baselineCatalog(catalog,batches) {
+  return [...batches].reverse().reduce((current,packet)=>undoBatch(current,packet),catalog);
+}
+export function batchTextSafe(original,ru) {
+  const tokens=s=>[...s.matchAll(/\$(?:seen|draft)\b|\/api\/calendar\/rsvp\b|IMAP ACLs? "[a-z]+"|\b(?:shareWith|isSubscribed|mayWriteOwn|mayUpdatePrivate|mayRSVP|PROPFIND|iTIP|iMIP|HTTP RSVP|WebDAV|iCalendar|IANA|CSS|RGB|XML|HTML|null|false)\b/g)].map(m=>m[0]).sort();
+  return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru));
+}
+export function eligibleRows(report,scope) {
+  assert.ok(Array.isArray(scope)&&scope.length);
+  const screens=new Set(scope.flatMap(s=>{
+    assert.ok(['Settings','Management','Account'].includes(s.section)&&Array.isArray(s.screens)&&s.screens.length);
+    return s.screens.map(screen=>s.section+'\0'+screen);
+  }));
+  const groups=new Map();
+  for(const g of report.candidates)for(const id of g.rowIds){
+    const list=groups.get(id)??[];list.push(g);groups.set(id,list);
+  }
+  return report.rows.filter(r=>{
+    if(r.classification!=='missing'||r.catalogState!=='missing'||r.sourceConflict||r.renderer.wired<=0||r.renderer.unwired||r.renderer.review||!r.usages.length)return false;
+    const gs=groups.get(r.id)??[];
+    if(gs.length!==1||gs[0].ambiguous||gs[0].reviewStatus!=='pending'||gs[0].apply)return false;
+    return r.usages.every(u=>{
+      const c=report.usageContexts[u.context];
+      return c.state==='wired'&&screens.has(c.section+'\0'+c.screen)&&(u.lookupSlot??r.slot)===r.slot;
+    });
+  });
+}
+export function verifyReviewedBatch({packet,before,after,inputs,graph,makeSchema}) {
+  assert.deepEqual(undoBatch(after,packet),before);
+  const prevInputs={...inputs,catalog:before,schema:makeSchema(before)};
+  const afterInputs={...inputs,catalog:after,schema:makeSchema(after)};
+  const prev=compactReport(plan(prevInputs,graph)),next=compactReport(plan(afterInputs,graph));
+  const eligible=eligibleRows(prev,packet.scope),selected=new Map(eligible.map(r=>[r.slot,r]));
+  assert.equal(selected.size,eligible.length);
+  assert.deepEqual(packet.entries.map(e=>e.slot).sort(),[...selected.keys()].sort(),'Packet must cover exactly the eligible scope');
+  const active=new Map(next.rows.map(r=>[r.id,r])),groupById=new Map();
+  for(const g of prev.candidates)for(const id of g.rowIds)groupById.set(id,g);
+  for(const e of packet.entries) {
+    const r=selected.get(e.slot);
+    assert.equal(r.original,e.original,'Original changed: '+e.slot);
+    assert.ok(batchTextSafe(e.original,e.ru),'Protected marker mismatch: '+e.slot);
+    assert.equal(active.get(r.id).classification,'translated','Display path not fully translated: '+e.slot);
+    const g=groupById.get(r.id);
+    for(const l of r.locations){
+      const pin=inputs.pins.find(p=>p.schemaHash===l.schemaHash);
+      assert.ok(pin&&at(pin.data,l.sourcePointer)===e.original,'Pinned source mismatch: '+e.slot);
+      assert.ok(g.targets.some(t=>t.schemaHash===l.schemaHash&&t.slot===e.slot&&t.original===e.original&&t.sourcePointer===l.sourcePointer&&!t.catalogWrite));
+      assert.equal(prevInputs.schema.schemaText(l.schemaHash,'ru',e.slot,e.original),e.original);
+      assert.equal(afterInputs.schema.schemaText(l.schemaHash,'ru',e.slot,e.original),e.ru);
+      assert.equal(afterInputs.schema.schemaText(l.schemaHash,'en',e.slot,e.original),e.original);
+      assert.equal(afterInputs.schema.schemaText(l.schemaHash,'ru',e.slot,e.original+' changed'),e.original+' changed');
+    }
+    assert.equal(afterInputs.schema.schemaText('unknown','ru',e.slot,e.original),e.original);
+    assert.equal(afterInputs.schema.schemaText(null,'ru',e.slot,e.original),e.original);
+  }
+  assert.equal(next.summary.classification.translated,prev.summary.classification.translated+packet.entries.length);
+  assert.equal(next.summary.classification.missing,prev.summary.classification.missing-packet.entries.length);
+  for(const k of Object.keys(prev.summary.classification))if(k!=='translated'&&k!=='missing')assert.equal(next.summary.classification[k],prev.summary.classification[k]);
+  return {before:prev.summary,after:next.summary,eligible:eligible.length};
+}

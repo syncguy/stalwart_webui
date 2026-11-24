@@ -1154,6 +1154,18 @@
       "original": "Password for authenticating to the account",
       "ru": "Пароль для входа в учётную запись"
     },
+    "enum/IncludeInAvailability/all/label": {
+      "original": "Include all events",
+      "ru": "Учитывать все события"
+    },
+    "enum/IncludeInAvailability/attending/label": {
+      "original": "Include only events the user is attending",
+      "ru": "Учитывать только события с участием пользователя"
+    },
+    "enum/IncludeInAvailability/none/label": {
+      "original": "Exclude all events",
+      "ru": "Не учитывать события"
+    },
     "enum/IndexType/calendar/label": {
       "original": "Calendar",
       "ru": "Календарь"
@@ -1282,6 +1294,218 @@
       "original": "User role",
       "ru": "Роль пользователя"
     },
+    "field/AddressBook/description/description": {
+      "original": "Longer-form description of the address book, useful in shared environments",
+      "ru": "Подробное описание адресной книги, полезное при совместном использовании."
+    },
+    "field/AddressBook/isDefault/description": {
+      "original": "Whether this is the account's default address book. At most one address book per account may be default.",
+      "ru": "Используется ли эта адресная книга по умолчанию. В каждой учётной записи может быть только одна такая книга."
+    },
+    "field/AddressBook/isSubscribed/description": {
+      "original": "Whether the user has subscribed to see this address book in their client",
+      "ru": "Подписан ли пользователь на отображение этой адресной книги в своём клиенте."
+    },
+    "field/AddressBook/myRights/description": {
+      "original": "Access rights the current user has on this address book",
+      "ru": "Права текущего пользователя на эту адресную книгу."
+    },
+    "field/AddressBook/name/description": {
+      "original": "User-visible name of the address book",
+      "ru": "Название адресной книги, отображаемое пользователю."
+    },
+    "field/AddressBook/shareWith/description": {
+      "original": "Share this address book with other accounts, and specify the access rights they have on it.",
+      "ru": "Предоставьте другим учётным записям доступ к этой адресной книге и укажите их права."
+    },
+    "field/AddressBook/sortOrder/description": {
+      "original": "Display order (lower values first). Address books with equal order sort alphabetically by name.",
+      "ru": "Порядок отображения (сначала меньшие значения). Книги с одинаковым порядком сортируются по названию в алфавитном порядке."
+    },
+    "field/AddressBookRights/mayDelete/description": {
+      "original": "May delete this address book",
+      "ru": "Разрешено удалять эту адресную книгу."
+    },
+    "field/AddressBookRights/mayRead/description": {
+      "original": "May fetch the contact cards in this address book",
+      "ru": "Разрешено получать карточки контактов из этой адресной книги."
+    },
+    "field/AddressBookRights/maySetMetadata/description": {
+      "original": "May modify the shared metadata of this address book and of the contact cards in it",
+      "ru": "Разрешено изменять общие метаданные этой адресной книги и содержащихся в ней карточек контактов."
+    },
+    "field/AddressBookRights/mayShare/description": {
+      "original": "May modify the shareWith property of this address book",
+      "ru": "Разрешено изменять свойство shareWith этой адресной книги."
+    },
+    "field/AddressBookRights/mayWrite/description": {
+      "original": "May create, modify, destroy or move contact cards in this address book",
+      "ru": "Разрешено создавать, изменять, удалять и перемещать карточки контактов в этой адресной книге."
+    },
+    "field/Calendar/color/description": {
+      "original": "Display color for events, as a CSS color name or hexadecimal RGB value",
+      "ru": "Цвет отображения событий: имя цвета CSS или шестнадцатеричное значение RGB."
+    },
+    "field/Calendar/description/description": {
+      "original": "Longer-form description of the calendar, useful in shared environments",
+      "ru": "Подробное описание календаря, полезное при совместном использовании."
+    },
+    "field/Calendar/includeInAvailability/description": {
+      "original": "Which events in this calendar contribute to availability calculations",
+      "ru": "Какие события этого календаря учитываются при определении занятости."
+    },
+    "field/Calendar/isDefault/description": {
+      "original": "Whether this is the account's default calendar. At most one calendar per account may be default.",
+      "ru": "Используется ли этот календарь по умолчанию. В каждой учётной записи может быть только один такой календарь."
+    },
+    "field/Calendar/isSubscribed/description": {
+      "original": "Whether the user has subscribed to see this calendar in their client",
+      "ru": "Подписан ли пользователь на отображение этого календаря в своём клиенте."
+    },
+    "field/Calendar/isVisible/description": {
+      "original": "Whether events from this calendar should be displayed. Ignored when isSubscribed is false.",
+      "ru": "Отображать ли события этого календаря. Не учитывается, если isSubscribed имеет значение false."
+    },
+    "field/Calendar/myRights/description": {
+      "original": "Access rights the current user has on this calendar",
+      "ru": "Права текущего пользователя на этот календарь."
+    },
+    "field/Calendar/name/description": {
+      "original": "User-visible name of the calendar",
+      "ru": "Название календаря, отображаемое пользователю."
+    },
+    "field/Calendar/shareWith/description": {
+      "original": "Share this calendar with other accounts, and specify the access rights they have on it.",
+      "ru": "Предоставьте другим учётным записям доступ к этому календарю и укажите их права."
+    },
+    "field/Calendar/sortOrder/description": {
+      "original": "Display order (lower values first). Calendars with equal order sort alphabetically by name.",
+      "ru": "Порядок отображения (сначала меньшие значения). Календари с одинаковым порядком сортируются по названию в алфавитном порядке."
+    },
+    "field/Calendar/timeZone/description": {
+      "original": "Default IANA time zone identifier for events without their own time zone",
+      "ru": "Идентификатор часового пояса IANA по умолчанию для событий без собственного часового пояса."
+    },
+    "field/CalendarRights/mayDelete/description": {
+      "original": "May delete this calendar",
+      "ru": "Разрешено удалять этот календарь."
+    },
+    "field/CalendarRights/mayRSVP/description": {
+      "original": "May update participation status on events where the user is a participant",
+      "ru": "Разрешено изменять статус участия в событиях, участником которых является пользователь."
+    },
+    "field/CalendarRights/mayReadFreeBusy/description": {
+      "original": "May read the free/busy information for this calendar",
+      "ru": "Разрешено просматривать сведения о занятости в этом календаре."
+    },
+    "field/CalendarRights/mayReadItems/description": {
+      "original": "May fetch the events in this calendar",
+      "ru": "Разрешено получать события из этого календаря."
+    },
+    "field/CalendarRights/maySetMetadata/description": {
+      "original": "May modify the shared metadata of this calendar and of the events in it",
+      "ru": "Разрешено изменять общие метаданные этого календаря и его событий."
+    },
+    "field/CalendarRights/mayShare/description": {
+      "original": "May modify the shareWith property of this calendar",
+      "ru": "Разрешено изменять свойство shareWith этого календаря."
+    },
+    "field/CalendarRights/mayUpdatePrivate/description": {
+      "original": "May modify per-user properties on any event, even without write access to the event itself",
+      "ru": "Разрешено изменять индивидуальные свойства пользователя в любом событии, даже без права записи самого события."
+    },
+    "field/CalendarRights/mayWriteAll/description": {
+      "original": "May create, modify, destroy or move any event in this calendar. Implies mayWriteOwn, mayUpdatePrivate and mayRSVP.",
+      "ru": "Разрешено создавать, изменять, удалять и перемещать любые события этого календаря. Включает права mayWriteOwn, mayUpdatePrivate и mayRSVP."
+    },
+    "field/CalendarRights/mayWriteOwn/description": {
+      "original": "May create, modify or destroy events the user owns, or events without an owner",
+      "ru": "Разрешено создавать, изменять и удалять собственные события пользователя или события без владельца."
+    },
+    "field/Mailbox/isSubscribed/description": {
+      "original": "Whether the user has subscribed to see this mailbox in their client",
+      "ru": "Подписан ли пользователь на отображение этой почтовой папки в своём клиенте."
+    },
+    "field/Mailbox/myRights/description": {
+      "original": "Access rights the current user has on this mailbox",
+      "ru": "Права текущего пользователя на эту почтовую папку."
+    },
+    "field/Mailbox/name/description": {
+      "original": "User-visible name for the mailbox (e.g. \"Inbox\"). Must be unique among siblings sharing the same parent.",
+      "ru": "Название почтовой папки, отображаемое пользователю (например, «Входящие»). Должно быть уникальным среди папок с общей родительской папкой."
+    },
+    "field/Mailbox/parentId/description": {
+      "original": "Identifier of the parent mailbox, or null if this is a top-level mailbox",
+      "ru": "Идентификатор родительской почтовой папки или null для папки верхнего уровня."
+    },
+    "field/Mailbox/role/description": {
+      "original": "Special-use role identifying the mailbox's purpose (inbox, sent, trash, etc.). A role may only be assigned to one mailbox per account.",
+      "ru": "Специальная роль, определяющая назначение папки (inbox, sent, trash и т. д.). В каждой учётной записи роль может быть назначена только одной папке."
+    },
+    "field/Mailbox/shareWith/description": {
+      "original": "Share this mailbox with other accounts, and specify the access rights they have on it.",
+      "ru": "Предоставьте другим учётным записям доступ к этой почтовой папке и укажите их права."
+    },
+    "field/Mailbox/sortOrder/description": {
+      "original": "Display order among siblings (lower values first). Mailboxes with equal order sort alphabetically by name.",
+      "ru": "Порядок отображения среди папок с общей родительской папкой (сначала меньшие значения). При равных значениях папки сортируются по названию в алфавитном порядке."
+    },
+    "field/Mailbox/totalEmails/description": {
+      "original": "Total number of emails in this mailbox",
+      "ru": "Общее число писем в этой почтовой папке."
+    },
+    "field/Mailbox/totalThreads/description": {
+      "original": "Number of threads with at least one email in this mailbox",
+      "ru": "Число цепочек переписки, содержащих хотя бы одно письмо в этой папке."
+    },
+    "field/Mailbox/unreadEmails/description": {
+      "original": "Number of emails in this mailbox without the $seen or $draft keyword",
+      "ru": "Число писем в этой папке без ключевых слов $seen и $draft."
+    },
+    "field/Mailbox/unreadThreads/description": {
+      "original": "Number of threads in this mailbox that contain unread emails",
+      "ru": "Число цепочек переписки в этой папке, содержащих непрочитанные письма."
+    },
+    "field/MailboxRights/mayAddItems/description": {
+      "original": "May add emails to this mailbox by creating new ones or moving existing ones (IMAP ACL \"i\")",
+      "ru": "Разрешено добавлять письма в эту папку, создавая новые или перемещая существующие (IMAP ACL \"i\")."
+    },
+    "field/MailboxRights/mayCreateChild/description": {
+      "original": "May create child mailboxes with this mailbox as parent (IMAP ACL \"k\")",
+      "ru": "Разрешено создавать вложенные почтовые папки в этой папке (IMAP ACL \"k\")."
+    },
+    "field/MailboxRights/mayDelete/description": {
+      "original": "May delete this mailbox (IMAP ACL \"x\")",
+      "ru": "Разрешено удалять эту почтовую папку (IMAP ACL \"x\")."
+    },
+    "field/MailboxRights/mayReadItems/description": {
+      "original": "May read emails in this mailbox and use it in Email queries (IMAP ACL \"lr\")",
+      "ru": "Разрешено читать письма в этой папке и использовать её в запросах Email (IMAP ACL \"lr\")."
+    },
+    "field/MailboxRights/mayRemoveItems/description": {
+      "original": "May remove emails from this mailbox by moving them away or destroying them (IMAP ACLs \"te\")",
+      "ru": "Разрешено убирать письма из этой папки, перемещая их в другие папки или удаляя окончательно (IMAP ACLs \"te\")."
+    },
+    "field/MailboxRights/mayRename/description": {
+      "original": "May rename this mailbox or move it under a different parent (IMAP ACL \"x\")",
+      "ru": "Разрешено переименовывать эту папку или перемещать её под другую родительскую папку (IMAP ACL \"x\")."
+    },
+    "field/MailboxRights/maySetKeywords/description": {
+      "original": "May add or remove keywords other than $seen on emails in this mailbox (IMAP ACL \"w\")",
+      "ru": "Разрешено добавлять и удалять ключевые слова писем в этой папке, кроме $seen (IMAP ACL \"w\")."
+    },
+    "field/MailboxRights/maySetMetadata/description": {
+      "original": "May modify the shared metadata of this mailbox and of the emails in it (IMAP ACL \"n\")",
+      "ru": "Разрешено изменять общие метаданные этой папки и её писем (IMAP ACL \"n\")."
+    },
+    "field/MailboxRights/maySetSeen/description": {
+      "original": "May add or remove the $seen keyword on emails in this mailbox (IMAP ACL \"s\")",
+      "ru": "Разрешено добавлять и удалять ключевое слово $seen у писем в этой папке (IMAP ACL \"s\")."
+    },
+    "field/MailboxRights/maySubmit/description": {
+      "original": "May submit messages directly to this mailbox (IMAP ACL \"p\")",
+      "ru": "Разрешено отправлять сообщения непосредственно в эту почтовую папку (IMAP ACL \"p\")."
+    },
     "field/x:AddressBook/defaultDisplayName/description": {
       "original": "Specifies the default display name for a contact when it is created",
       "ru": "Задаёт отображаемое имя контакта по умолчанию при его создании."
@@ -1397,6 +1621,66 @@
     "field/x:Calendar/maxRecurrenceExpansions/description": {
       "original": "Specifies the maximum number of instances that can be generated from a recurring iCalendar event",
       "ru": "Максимальное число экземпляров, которые можно сформировать из повторяющегося события iCalendar."
+    },
+    "field/x:CalendarAlarm/allowExternalRcpts/description": {
+      "original": "Allows calendar alarms to be sent to external recipients, enabling notifications to users outside the server",
+      "ru": "Разрешает отправку календарных напоминаний внешним получателям, в том числе пользователям за пределами сервера."
+    },
+    "field/x:CalendarAlarm/enable/description": {
+      "original": "Enables the calendar alarms feature, allowing users to set alarms for events and receive notifications via e-mail",
+      "ru": "Включает напоминания календаря: пользователи могут задавать напоминания о событиях и получать уведомления по электронной почте."
+    },
+    "field/x:CalendarAlarm/fromAddress/description": {
+      "original": "Specifies the e-mail address that will appear in the 'From' field of calendar alarm e-mails, ensuring that users can reply to or contact the sender",
+      "ru": "Задаёт адрес электронной почты в поле From писем с календарными напоминаниями, чтобы пользователи могли ответить или связаться с отправителем."
+    },
+    "field/x:CalendarAlarm/fromName/description": {
+      "original": "Specifies the name that will appear in the 'From' field of calendar alarm e-mails, providing a recognizable sender name for users",
+      "ru": "Задаёт имя отправителя в поле From писем с календарными напоминаниями, чтобы пользователи могли его распознать."
+    },
+    "field/x:CalendarAlarm/minTriggerInterval/description": {
+      "original": "Specifies the minimum interval for calendar alarms, ensuring that alarms are not triggered too frequently",
+      "ru": "Задаёт минимальный интервал срабатывания календарных напоминаний, чтобы они не срабатывали слишком часто."
+    },
+    "field/x:CalendarAlarm/template/description": {
+      "original": "Specifies the HTML template used for rendering calendar alarm e-mails, allowing customization of the alarm notification format",
+      "ru": "Задаёт HTML-шаблон писем с календарными напоминаниями, позволяющий настроить формат уведомлений."
+    },
+    "field/x:CalendarScheduling/autoAddInvitations/description": {
+      "original": "Automatically adds incoming invitations to the user's calendar.",
+      "ru": "Автоматически добавляет входящие приглашения в календарь пользователя."
+    },
+    "field/x:CalendarScheduling/emailTemplate/description": {
+      "original": "Specifies the HTML template used for rendering iMIP invitations.",
+      "ru": "Задаёт HTML-шаблон для формирования приглашений iMIP."
+    },
+    "field/x:CalendarScheduling/enable/description": {
+      "original": "Enables the scheduling features for calendar events, allowing users to send and receive invitations",
+      "ru": "Включает планирование календарных событий, позволяя пользователям отправлять и получать приглашения."
+    },
+    "field/x:CalendarScheduling/httpRsvpEnable/description": {
+      "original": "Enables the HTTP RSVP feature for calendar invitations, allowing users to respond via a web interface.",
+      "ru": "Включает возможность отвечать на календарные приглашения через веб-интерфейс (HTTP RSVP)."
+    },
+    "field/x:CalendarScheduling/httpRsvpLinkExpiry/description": {
+      "original": "Sets the expiration duration for HTTP RSVP links, after which they will no longer be valid.",
+      "ru": "Задаёт срок действия ссылок HTTP RSVP, по истечении которого они становятся недействительными."
+    },
+    "field/x:CalendarScheduling/httpRsvpTemplate/description": {
+      "original": "Replaces the built-in HTTP RSVP page. The document is served verbatim and is responsible for calling the /api/calendar/rsvp endpoint itself.",
+      "ru": "Заменяет встроенную страницу HTTP RSVP. Документ отдаётся без изменений и должен самостоятельно вызывать конечную точку /api/calendar/rsvp."
+    },
+    "field/x:CalendarScheduling/httpRsvpUrl/description": {
+      "original": "Specifies a custom URL for the HTTP RSVP endpoint, where users can respond to calendar invitations.",
+      "ru": "Задаёт собственный URL конечной точки HTTP RSVP, где пользователи могут отвечать на календарные приглашения."
+    },
+    "field/x:CalendarScheduling/maxItipSize/description": {
+      "original": "Sets the maximum iCalendar object size for incoming iTIP messages.",
+      "ru": "Задаёт максимальный размер объекта iCalendar во входящих сообщениях iTIP."
+    },
+    "field/x:CalendarScheduling/maxRecipients/description": {
+      "original": "Sets the maximum number of recipients for outbound iTIP messages.",
+      "ru": "Задаёт максимальное число получателей исходящих сообщений iTIP."
     },
     "field/x:CertificateManagementProperties/acmeProviderId/description": {
       "original": "Identifier for the ACME provider managing certificates for this domain",
@@ -1998,6 +2282,30 @@
       "original": "Amount of disk space currently used by this account (bytes)",
       "ru": "Занятое учётной записью место на диске (байты)"
     },
+    "field/x:WebDav/enableAssistedDiscovery/description": {
+      "original": "Enables assisted discovery of shared calendars and address books for clients that do not support multiple home sets. When enabled, a PROPFIND on the user's own calendar or address book home also lists the collections shared with the user by other accounts, and the home set properties contain only the user's own home. When disabled, the home set properties list the home of every account that shares collections with the user.",
+      "ru": "Включает упрощённое обнаружение общих календарей и адресных книг для клиентов, не поддерживающих несколько домашних коллекций (home sets). При включении запрос PROPFIND к собственной домашней коллекции календарей или адресных книг пользователя также перечисляет коллекции, предоставленные ему другими учётными записями, а свойства home set содержат только собственную домашнюю коллекцию пользователя. При отключении свойства home set перечисляют домашние коллекции всех учётных записей, предоставивших пользователю общий доступ."
+    },
+    "field/x:WebDav/maxLivePropertySize/description": {
+      "original": "Specifies the maximum size of a WebDAV live property value that the server will accept",
+      "ru": "Задаёт максимальный размер значения динамического свойства (live property) WebDAV, принимаемого сервером."
+    },
+    "field/x:WebDav/maxLockTimeout/description": {
+      "original": "Specifies the maximum duration for which a lock can be held on a resource",
+      "ru": "Задаёт максимальное время удержания блокировки ресурса."
+    },
+    "field/x:WebDav/maxLocks/description": {
+      "original": "Specifies the maximum number of locks that a user can create on a resource",
+      "ru": "Задаёт максимальное число блокировок ресурса, которые может установить пользователь."
+    },
+    "field/x:WebDav/maxRequestSize/description": {
+      "original": "Determines the maximum XML size of a WebDAV request that the server will accept",
+      "ru": "Определяет максимальный размер XML-запроса WebDAV, принимаемого сервером."
+    },
+    "field/x:WebDav/maxResults/description": {
+      "original": "Specifies the maximum number of results that a WebDAV query can return",
+      "ru": "Задаёт максимальное число результатов, возвращаемых запросом WebDAV."
+    },
     "form/AddressBook/field/description": {
       "original": "Description",
       "ru": "Описание"
@@ -2022,6 +2330,10 @@
       "original": "Shared With",
       "ru": "Общий доступ для"
     },
+    "form/AddressBook/field/shareWith/keyLabel": {
+      "original": "Principal",
+      "ru": "Субъект доступа"
+    },
     "form/AddressBook/field/sortOrder": {
       "original": "Sort Order",
       "ru": "Порядок сортировки"
@@ -2037,6 +2349,30 @@
     "form/AddressBook/section/section-2": {
       "original": "Sharing",
       "ru": "Общий доступ"
+    },
+    "form/AddressBookRights/field/mayDelete": {
+      "original": "Delete",
+      "ru": "Удаление книги"
+    },
+    "form/AddressBookRights/field/mayRead": {
+      "original": "Read",
+      "ru": "Чтение контактов"
+    },
+    "form/AddressBookRights/field/maySetMetadata": {
+      "original": "Set Metadata",
+      "ru": "Изменение метаданных"
+    },
+    "form/AddressBookRights/field/mayShare": {
+      "original": "Share",
+      "ru": "Управление общим доступом"
+    },
+    "form/AddressBookRights/field/mayWrite": {
+      "original": "Write",
+      "ru": "Изменение контактов"
+    },
+    "form/Calendar/field/color": {
+      "original": "Color",
+      "ru": "Цвет"
     },
     "form/Calendar/field/description": {
       "original": "Description",
@@ -2070,6 +2406,10 @@
       "original": "Shared With",
       "ru": "Общий доступ для"
     },
+    "form/Calendar/field/shareWith/keyLabel": {
+      "original": "Principal",
+      "ru": "Субъект доступа"
+    },
     "form/Calendar/field/sortOrder": {
       "original": "Sort Order",
       "ru": "Порядок сортировки"
@@ -2094,6 +2434,42 @@
       "original": "Sharing",
       "ru": "Общий доступ"
     },
+    "form/CalendarRights/field/mayDelete": {
+      "original": "Delete",
+      "ru": "Удаление календаря"
+    },
+    "form/CalendarRights/field/mayRSVP": {
+      "original": "RSVP",
+      "ru": "Изменение статуса участия"
+    },
+    "form/CalendarRights/field/mayReadFreeBusy": {
+      "original": "Read Free/Busy",
+      "ru": "Просмотр занятости"
+    },
+    "form/CalendarRights/field/mayReadItems": {
+      "original": "Read Items",
+      "ru": "Чтение событий"
+    },
+    "form/CalendarRights/field/maySetMetadata": {
+      "original": "Set Metadata",
+      "ru": "Изменение метаданных"
+    },
+    "form/CalendarRights/field/mayShare": {
+      "original": "Share",
+      "ru": "Управление общим доступом"
+    },
+    "form/CalendarRights/field/mayUpdatePrivate": {
+      "original": "Update Private Properties",
+      "ru": "Изменение индивидуальных свойств"
+    },
+    "form/CalendarRights/field/mayWriteAll": {
+      "original": "Write All",
+      "ru": "Изменение всех событий"
+    },
+    "form/CalendarRights/field/mayWriteOwn": {
+      "original": "Write Own",
+      "ru": "Изменение собственных событий"
+    },
     "form/Mailbox/field/isSubscribed": {
       "original": "Subscribed",
       "ru": "Подписка"
@@ -2117,6 +2493,10 @@
     "form/Mailbox/field/shareWith": {
       "original": "Shared With",
       "ru": "Общий доступ для"
+    },
+    "form/Mailbox/field/shareWith/keyLabel": {
+      "original": "Principal",
+      "ru": "Субъект доступа"
     },
     "form/Mailbox/field/sortOrder": {
       "original": "Sort Order",
@@ -2149,6 +2529,46 @@
     "form/Mailbox/section/section-2": {
       "original": "Sharing",
       "ru": "Общий доступ"
+    },
+    "form/MailboxRights/field/mayAddItems": {
+      "original": "Add Items",
+      "ru": "Добавление писем"
+    },
+    "form/MailboxRights/field/mayCreateChild": {
+      "original": "Create Child",
+      "ru": "Создание вложенных папок"
+    },
+    "form/MailboxRights/field/mayDelete": {
+      "original": "Delete",
+      "ru": "Удаление папки"
+    },
+    "form/MailboxRights/field/mayReadItems": {
+      "original": "Read Items",
+      "ru": "Чтение писем"
+    },
+    "form/MailboxRights/field/mayRemoveItems": {
+      "original": "Remove Items",
+      "ru": "Удаление писем из папки"
+    },
+    "form/MailboxRights/field/mayRename": {
+      "original": "Rename",
+      "ru": "Переименование и перемещение"
+    },
+    "form/MailboxRights/field/maySetKeywords": {
+      "original": "Set Keywords",
+      "ru": "Изменение ключевых слов"
+    },
+    "form/MailboxRights/field/maySetMetadata": {
+      "original": "Set Metadata",
+      "ru": "Изменение метаданных"
+    },
+    "form/MailboxRights/field/maySetSeen": {
+      "original": "Set Seen Flag",
+      "ru": "Изменение отметки о прочтении"
+    },
+    "form/MailboxRights/field/maySubmit": {
+      "original": "Submit",
+      "ru": "Отправка в папку"
     },
     "form/Principal/field/description": {
       "original": "Description",
@@ -2693,6 +3113,102 @@
     "form/x:Calendar/title": {
       "original": "Calendars and Events",
       "ru": "Календари и события"
+    },
+    "form/x:CalendarAlarm/field/allowExternalRcpts": {
+      "original": "Allow External Recipients",
+      "ru": "Разрешить внешних получателей"
+    },
+    "form/x:CalendarAlarm/field/enable": {
+      "original": "Enable E-mail Alarms",
+      "ru": "Включить напоминания по почте"
+    },
+    "form/x:CalendarAlarm/field/fromAddress": {
+      "original": "From E-mail",
+      "ru": "Адрес отправителя"
+    },
+    "form/x:CalendarAlarm/field/fromName": {
+      "original": "From Name",
+      "ru": "Имя отправителя"
+    },
+    "form/x:CalendarAlarm/field/minTriggerInterval": {
+      "original": "Minimum Alarm Interval",
+      "ru": "Минимальный интервал напоминаний"
+    },
+    "form/x:CalendarAlarm/field/template": {
+      "original": "Alarm Template",
+      "ru": "Шаблон напоминания"
+    },
+    "form/x:CalendarAlarm/section/section-0": {
+      "original": "Calendar Alarms",
+      "ru": "Напоминания календаря"
+    },
+    "form/x:CalendarAlarm/section/section-1": {
+      "original": "Notification E-mail",
+      "ru": "Письмо с уведомлением"
+    },
+    "form/x:CalendarAlarm/subtitle": {
+      "original": "Configure email notifications for calendar event alarms, including the sender identity, minimum trigger interval, and HTML template",
+      "ru": "Настройка почтовых уведомлений о событиях календаря: отправитель, минимальный интервал срабатывания и HTML-шаблон."
+    },
+    "form/x:CalendarAlarm/title": {
+      "original": "Calendar Alarms",
+      "ru": "Напоминания календаря"
+    },
+    "form/x:CalendarScheduling/field/autoAddInvitations": {
+      "original": "Automatically Add Invitations",
+      "ru": "Автоматически добавлять приглашения"
+    },
+    "form/x:CalendarScheduling/field/emailTemplate": {
+      "original": "iMIP Template",
+      "ru": "Шаблон iMIP"
+    },
+    "form/x:CalendarScheduling/field/enable": {
+      "original": "Enable Scheduling",
+      "ru": "Включить планирование событий"
+    },
+    "form/x:CalendarScheduling/field/httpRsvpEnable": {
+      "original": "Enable HTTP RSVP",
+      "ru": "Разрешить ответы через HTTP RSVP"
+    },
+    "form/x:CalendarScheduling/field/httpRsvpLinkExpiry": {
+      "original": "HTTP RSVP Expiration",
+      "ru": "Срок действия ссылок HTTP RSVP"
+    },
+    "form/x:CalendarScheduling/field/httpRsvpTemplate": {
+      "original": "RSVP Page",
+      "ru": "Страница ответа на приглашение"
+    },
+    "form/x:CalendarScheduling/field/httpRsvpUrl": {
+      "original": "HTTP RSVP URL",
+      "ru": "URL для HTTP RSVP"
+    },
+    "form/x:CalendarScheduling/field/maxItipSize": {
+      "original": "Max iTIP Size",
+      "ru": "Макс. размер iTIP"
+    },
+    "form/x:CalendarScheduling/field/maxRecipients": {
+      "original": "Max Recipients",
+      "ru": "Макс. число получателей"
+    },
+    "form/x:CalendarScheduling/section/section-0": {
+      "original": "Calendar Scheduling",
+      "ru": "Планирование календарных событий"
+    },
+    "form/x:CalendarScheduling/section/section-1": {
+      "original": "Outbound iMIP",
+      "ru": "Исходящие сообщения iMIP"
+    },
+    "form/x:CalendarScheduling/section/section-2": {
+      "original": "HTTP RSVP",
+      "ru": "Ответы через HTTP RSVP"
+    },
+    "form/x:CalendarScheduling/subtitle": {
+      "original": "Configure iTIP calendar scheduling, automatic invitation processing, iMIP message limits, and HTTP RSVP responses for calendar invitations",
+      "ru": "Настройка планирования событий iTIP, автоматической обработки приглашений, ограничений сообщений iMIP и ответов на приглашения через HTTP RSVP."
+    },
+    "form/x:CalendarScheduling/title": {
+      "original": "Calendar Scheduling",
+      "ru": "Планирование календарных событий"
     },
     "form/x:Certificate/field/certificate": {
       "original": "Certificate",
@@ -6034,6 +6550,50 @@
       "original": "Details",
       "ru": "Сведения"
     },
+    "form/x:WebDav/field/enableAssistedDiscovery": {
+      "original": "Assisted Discovery",
+      "ru": "Упрощённое обнаружение общих коллекций"
+    },
+    "form/x:WebDav/field/maxLivePropertySize": {
+      "original": "Live Property",
+      "ru": "Макс. размер динамического свойства"
+    },
+    "form/x:WebDav/field/maxLockTimeout": {
+      "original": "Max Lock Timeout",
+      "ru": "Макс. время блокировки"
+    },
+    "form/x:WebDav/field/maxLocks": {
+      "original": "Max Locks Per User",
+      "ru": "Макс. число блокировок на пользователя"
+    },
+    "form/x:WebDav/field/maxRequestSize": {
+      "original": "Max Request Size",
+      "ru": "Макс. размер запроса"
+    },
+    "form/x:WebDav/field/maxResults": {
+      "original": "Max Results",
+      "ru": "Макс. число результатов"
+    },
+    "form/x:WebDav/section/section-0": {
+      "original": "WebDAV Settings",
+      "ru": "Настройки WebDAV"
+    },
+    "form/x:WebDav/section/section-1": {
+      "original": "Property Limits",
+      "ru": "Ограничения свойств"
+    },
+    "form/x:WebDav/section/section-2": {
+      "original": "Locking",
+      "ru": "Блокировки"
+    },
+    "form/x:WebDav/subtitle": {
+      "original": "Configure the WebDAV server, including request and property size limits, locking behaviour, query result limits, and assisted discovery of shared collections",
+      "ru": "Настройка сервера WebDAV: ограничения размера запросов и свойств, блокировки, ограничения числа результатов и упрощённое обнаружение общих коллекций."
+    },
+    "form/x:WebDav/title": {
+      "original": "WebDAV Protocol",
+      "ru": "Протокол WebDAV"
+    },
     "form/x:WebHook/field/events": {
       "original": "Events",
       "ru": "События"
@@ -8158,6 +8718,18 @@
       "original": "Webhooks",
       "ru": "Веб-хуки"
     },
+    "object/AddressBook/description": {
+      "original": "A named collection of contact cards belonging to an account.",
+      "ru": "Именованная коллекция карточек контактов, принадлежащая учётной записи."
+    },
+    "object/Calendar/description": {
+      "original": "A named collection of calendar events belonging to an account.",
+      "ru": "Именованная коллекция календарных событий, принадлежащая учётной записи."
+    },
+    "object/Mailbox/description": {
+      "original": "Represents a named set of emails, analogous to a folder or label in other systems.",
+      "ru": "Именованный набор писем, аналог папки или метки в других системах."
+    },
     "object/x:Action/description": {
       "original": "Defines server management actions such as reloads, troubleshooting and cache operations.",
       "ru": "Действия управления сервером: применение настроек, диагностика и операции с кэшем."
@@ -8169,6 +8741,14 @@
     "object/x:Calendar/description": {
       "original": "Configures calendar settings including iCalendar limits and default names.",
       "ru": "Настройка календарей, включая ограничения iCalendar и имена по умолчанию."
+    },
+    "object/x:CalendarAlarm/description": {
+      "original": "Configures calendar alarm email notifications.",
+      "ru": "Настройка почтовых уведомлений с календарными напоминаниями."
+    },
+    "object/x:CalendarScheduling/description": {
+      "original": "Configures calendar scheduling, iTIP messaging, and HTTP RSVP settings.",
+      "ru": "Настройка планирования календарных событий, сообщений iTIP и ответов через HTTP RSVP."
     },
     "object/x:DkimSignature/description": {
       "original": "Defines a DKIM signature used to sign outgoing email messages.",
@@ -8201,6 +8781,10 @@
     "object/x:Trace/description": {
       "original": "Stores a message delivery trace with associated events.",
       "ru": "История доставки сообщения и связанных с ним событий."
+    },
+    "object/x:WebDav/description": {
+      "original": "Configures WebDAV protocol settings including property limits and locking.",
+      "ru": "Настройка протокола WebDAV, включая ограничения свойств и блокировки."
     },
     "variant/x:Account/Group/label": {
       "original": "Group account",

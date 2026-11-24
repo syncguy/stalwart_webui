@@ -129,3 +129,10 @@ Node scripts are executed by their own assertions. None of these checks prove
 React DOM output, interactions, live ACL/JMAP, egress, installation or rollback.
 Those remain independent later tests with synthetic component data and one
 reviewed application package for a completed batch.
+
+
+## Stage18–19 — activated reviewed batches
+
+Stage18 activated 54 ordinary entries, two keep-original decisions and four edition-scoped entries. The Stage17 candidate-only description above is historical; per-hash lookup is now active with exact original guards.
+
+Stage19 adds 146 ordinary groupware translations (Account Mailbox, Calendar, AddressBook; Settings CalendarScheduling, CalendarAlarm, WebDav). The reviewed packet retains apply=false; the generator never writes the catalog. Explicit source edits activate reviewed entries. The ordered reviewedBatches list in locale-review-policy.json is protected by packet SHA-256 pins. check-reviewed-batches.mjs reconstructs preceding catalogs, verifies their byte digests, regenerates eligible scopes with the real resolver, rejects ambiguities and mismatched originals, validates actual display lookup, and checks bare protocol tokens. This verifier supports ordinary wired-missing translations only; keep-original and edition conflicts require their own policy path. No external translation service.

@@ -8,6 +8,7 @@ import { execFileSync } from 'node:child_process';
 import { loadInputs, readJson, digest, json, ptr, at, sourceModule } from './lib/locale-source.mjs';
 import { buildUsageGraph } from './lib/locale-graph.mjs';
 import { CATEGORIES, classify, candidates, preview, textSafe, diffRows, translationMemory, semanticGroup, plan, compactReport } from './lib/locale-planner.mjs';
+import {loadReviewedBatches,baselineCatalog} from './lib/locale-reviewed-batch.mjs';
 import './lib/offline-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -189,7 +190,10 @@ console.log(`Этап 17: ${cases} групп проверок PASS. Это offl
  * Preview only: no runtime catalog mutation or browser/React claim. */
 const packet18 = readJson(fs.readFileSync(path.join(root, 'scripts/data/stage18-address-calendar-review.json'), 'utf8'), 'stage18 packet');
 const scopes18 = new Set(['x:AddressBook', 'x:Calendar']);
-const baselineCatalog18 = structuredClone(inputs.catalog);
+const laterBatches = loadReviewedBatches(root,inputs.policy);
+const stage18Catalog = baselineCatalog(inputs.catalog,laterBatches);
+const laterTranslations = laterBatches.reduce((n,p)=>n+p.entries.length,0);
+const baselineCatalog18 = structuredClone(stage18Catalog);
 for (const e of packet18.entries) if (e.decision === 'translate') delete baselineCatalog18.entries[e.slot];
 delete baselineCatalog18.scopedEntries;
 baselineCatalog18.entries = Object.fromEntries(Object.entries(baselineCatalog18.entries).sort(([a], [b]) => a.localeCompare(b, 'en')));
@@ -258,7 +262,7 @@ check('Stage18: applied exact 54 translations, two keep-original decisions, unch
   assert.equal(missing18.length, 56);
   assert.equal(packet18.entries.filter(e => e.decision === 'translate').length, 54);
   assert.equal(packet18.entries.filter(e => e.decision === 'keep-original').length, 2);
-  assert.equal(Object.keys(inputs.catalog.entries).length, 2084);
+  assert.equal(Object.keys(stage18Catalog.entries).length, 2084);
   validatePacket18(packet18);
 });
 check('Stage18: actual schemaText RU/EN, unknown hash and changed original', () => {
@@ -303,7 +307,7 @@ check('Stage18: exact four reviewed scoped entries; no shared fallback or unexpe
   }
   assert.equal(beforeReport18.conflicts.length, 2);
   assert.ok(beforeReport18.conflicts.every(c => c.variants.every(v => !v.scopedBindingVerified)));
-  assert.equal(report.summary.classification.translated, beforeReport18.summary.classification.translated + 58);
-  assert.equal(report.summary.classification.missing, beforeReport18.summary.classification.missing - 56);
+  assert.equal(report.summary.classification.translated, beforeReport18.summary.classification.translated + 58 + laterTranslations);
+  assert.equal(report.summary.classification.missing, beforeReport18.summary.classification.missing - 56 - laterTranslations);
 });
 console.log('Stage18: applied 54 translations, two preserved standard labels, four exact scoped bindings. Static/source tests, not React/browser acceptance.');

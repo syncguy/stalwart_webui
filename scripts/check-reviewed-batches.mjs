@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {loadInputs,sourceModule} from './lib/locale-source.mjs';
+import {buildUsageGraph} from './lib/locale-graph.mjs';
+import {loadReviewedBatches,undoBatch,verifyReviewedBatch,batchTextSafe} from './lib/locale-reviewed-batch.mjs';
+import './lib/offline-guard.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const inputs=loadInputs(root),graph=buildUsageGraph(inputs);
+const packets=loadReviewedBatches(root,inputs.policy);
+assert.ok(packets.length);
+assert.equal(packets[0].stage,19);
+assert.equal(packets[0].entries.length,146);
+assert.equal(packets[0].baseline,'b727b90b766a669964e891d814e1e31ce4039b24');
+assert.deepEqual(packets[0].scope,[{section:'Account',screens:['Mailbox','Calendar','AddressBook']},{section:'Settings',screens:['x:CalendarScheduling','x:CalendarAlarm','x:WebDav']}]);
+const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
+const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
+let after=inputs.catalog;
+for(const packet of [...packets].reverse()){
+  const before=undoBatch(after,packet);
+  const result=verifyReviewedBatch({packet,before,after,inputs,graph,makeSchema});
+  console.log('PASS: reviewed stage '+packet.stage+'; exact eligible slots '+result.eligible+'; translated '+result.before.classification.translated+' -> '+result.after.classification.translated);
+  const mutate=fn=>{const p=structuredClone(packet);fn(p);assert.throws(()=>undoBatch(after,p));};
+  mutate(p=>{p.apply=true;});
+  mutate(p=>{p.entries.push(p.entries[0]);});
+  mutate(p=>{p.entries.pop();});
+  mutate(p=>{p.entries[0].original+=' changed';});
+  mutate(p=>{p.entries[0].ru+=' {{unexpected}}';});
+  const tampered=structuredClone(after);
+  const oldKey=Object.keys(before.entries)[0];
+  tampered.entries[oldKey].ru+=' changed';
+  assert.throws(()=>undoBatch(tampered,packet));
+  after=before;
+}
+assert.equal(Object.keys(after.entries).length,2084);
+assert.equal(batchTextSafe('IMAP ACL "lr" $seen /api/calendar/rsvp shareWith','IMAP ACL "l" $seen /api/calendar/rsvp shareWith'),false);
+assert.equal(batchTextSafe('IMAP ACL "lr" $seen /api/calendar/rsvp shareWith','IMAP ACL "lr" $draft /api/calendar/rsvp shareWith'),false);
+assert.equal(batchTextSafe('IMAP ACL "lr" $seen /api/calendar/rsvp shareWith','IMAP ACL "lr" $seen /api/calendar/rsvp shareWith'),true);
+console.log('PASS: immutable baseline chain, exact source and scope, protocol markers, negative packet mutations; no automatic catalog writes.');
