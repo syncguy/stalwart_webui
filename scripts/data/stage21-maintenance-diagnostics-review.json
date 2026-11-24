@@ -1,0 +1,1169 @@
+{
+  "version": 1,
+  "stage": 21,
+  "baseline": "3458a218495be7b7757966b86ce3481a49feb5c0",
+  "baselineCatalogSha256": "d4101d92b08e3cfb102c01d2484ef3c58fb112a9ad0d10fee134c7554d792d17",
+  "scope": [
+    {
+      "section": "Management",
+      "screens": [
+        "x:Action",
+        "x:Task",
+        "x:Task/TaskFailed",
+        "x:IndexQueueStatus",
+        "x:DmarcExternalReport",
+        "x:DmarcInternalReport"
+      ]
+    }
+  ],
+  "status": "editor-reviewed",
+  "apply": false,
+  "entries": [
+    {
+      "slot": "enum/AccountType/Group/label",
+      "original": "Group account",
+      "ru": "Групповая учётная запись",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/AccountType/User/label",
+      "original": "User account",
+      "ru": "Учётная запись пользователя",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArchivedItemType/CalendarEvent/label",
+      "original": "Archived Calendar Event",
+      "ru": "Архивное событие календаря",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArchivedItemType/ContactCard/label",
+      "original": "Archived Contact Card",
+      "ru": "Архивная карточка контакта",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArchivedItemType/Email/label",
+      "original": "Archived Email message",
+      "ru": "Архивное письмо",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArchivedItemType/FileNode/label",
+      "original": "Archived File",
+      "ru": "Архивный файл",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArchivedItemType/SieveScript/label",
+      "original": "Archived Sieve Script",
+      "ru": "Архивный скрипт Sieve",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcDisposition/none/label",
+      "original": "No specific action requested",
+      "ru": "Конкретное действие не запрошено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcDisposition/quarantine/label",
+      "original": "Treat failing messages as suspicious",
+      "ru": "Считать подозрительными сообщения, не прошедшие проверку",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcDisposition/reject/label",
+      "original": "Reject failing messages",
+      "ru": "Отклонять сообщения, не прошедшие проверку",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcDisposition/unspecified/label",
+      "original": "Disposition not specified",
+      "ru": "Действие не указано",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/IndexType/contacts/label",
+      "original": "Contacts",
+      "ru": "Контакты",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/IndexType/file/label",
+      "original": "File",
+      "ru": "Файл",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SharedObjectType/fileNode/label",
+      "original": "File Node",
+      "ru": "Файловый узел",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpamClassifyParameters/binaryMime/label",
+      "original": "Binary MIME message content",
+      "ru": "Двоичное содержимое сообщения MIME",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpamClassifyParameters/bit7/label",
+      "original": "7-bit message content",
+      "ru": "7-битное содержимое сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpamClassifyParameters/bit8Mime/label",
+      "original": "8-bit MIME message content",
+      "ru": "8-битное содержимое сообщения MIME",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpamClassifyParameters/smtpUtf8/label",
+      "original": "UTF-8 message content",
+      "ru": "Содержимое сообщения в UTF-8",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpamClassifyResult/discard/label",
+      "original": "Discard message",
+      "ru": "Удалить сообщение без уведомления",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpamClassifyResult/ham/label",
+      "original": "Classify as non-spam (ham)",
+      "ru": "Отнести к обычной почте (ham)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpamClassifyResult/reject/label",
+      "original": "Reject message",
+      "ru": "Отклонить сообщение",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpamClassifyResult/spam/label",
+      "original": "Classify as spam",
+      "ru": "Отнести к спаму",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskAccountMaintenanceType/purge/label",
+      "original": "Purge expired data from the account",
+      "ru": "Удалить данные учётной записи с истёкшим сроком хранения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskAccountMaintenanceType/rebuildShares/label",
+      "original": "Rebuild the sharing index of the items the account has shared",
+      "ru": "Перестроить индекс объектов, к которым учётная запись предоставила общий доступ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskAccountMaintenanceType/recalculateImapUid/label",
+      "original": "Recalculate IMAP UIDs for the account's email messages",
+      "ru": "Пересчитать IMAP UIDs писем учётной записи",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskAccountMaintenanceType/recalculateQuota/label",
+      "original": "Recalculate storage quota usage for the account",
+      "ru": "Пересчитать использование квоты хранилища учётной записи",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskAccountMaintenanceType/reindex/label",
+      "original": "Reindex the account's data for search",
+      "ru": "Переиндексировать данные учётной записи для поиска",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskBlobRecodeCompression/disable/label",
+      "original": "Disable compression",
+      "ru": "Отключить сжатие",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskBlobRecodeCompression/keep/label",
+      "original": "Leave as is",
+      "ru": "Оставить без изменений",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskBlobRecodeCompression/lz4/label",
+      "original": "LZ4",
+      "ru": "Сжатие LZ4",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskBlobRecodeCompression/zstd/label",
+      "original": "Zstandard",
+      "ru": "Сжатие Zstandard",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskSpamFilterMaintenanceType/abort/label",
+      "original": "Abort the ongoing training process of the spam classifier",
+      "ru": "Прервать выполняющееся обучение классификатора спама",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskSpamFilterMaintenanceType/reset/label",
+      "original": "Delete the spam classifier's model and reset it to the default state",
+      "ru": "Удалить модель классификатора спама и вернуть его в исходное состояние",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskSpamFilterMaintenanceType/retrain/label",
+      "original": "Retrain the spam classifier with all available samples",
+      "ru": "Переобучить классификатор спама на всех доступных образцах",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskSpamFilterMaintenanceType/train/label",
+      "original": "Train the spam classifier with the latest samples",
+      "ru": "Обучить классификатор спама на последних образцах",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskSpamFilterMaintenanceType/updateRules/label",
+      "original": "Download and update the spam filter rules from the configured source",
+      "ru": "Загрузить и обновить правила спам-фильтра из настроенного источника",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStatusType/Failed/label",
+      "original": "Task that failed permanently and needs operator action",
+      "ru": "Задание завершилось окончательной ошибкой и требует вмешательства оператора",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStatusType/Pending/label",
+      "original": "Pending task awaiting execution",
+      "ru": "Задание ожидает выполнения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStatusType/Retry/label",
+      "original": "Task scheduled for retry after a transient failure",
+      "ru": "Назначена повторная попытка выполнения после временной ошибки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStatusType/Stalled/label",
+      "original": "Task still retrying after repeated transient failures",
+      "ru": "Повторные попытки выполнения продолжаются после нескольких временных ошибок",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/purgeAccounts/label",
+      "original": "Purge expired data from all accounts",
+      "ru": "Удалить данные с истёкшим сроком хранения из всех учётных записей",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/purgeBlob/label",
+      "original": "Purge blob store",
+      "ru": "Очистить хранилище бинарных объектов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/purgeData/label",
+      "original": "Purge data store",
+      "ru": "Очистить хранилище данных",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/reindexAccounts/label",
+      "original": "Reindex all accounts' data for search",
+      "ru": "Переиндексировать данные всех учётных записей для поиска",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/reindexTelemetry/label",
+      "original": "Reindex all telemetry data for search",
+      "ru": "Переиндексировать все данные телеметрии для поиска",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/removeAuthTokens/label",
+      "original": "Delete all temporary ACME and OAuth tokens",
+      "ru": "Удалить все временные токены ACME и OAuth",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/removeGreylist/label",
+      "original": "Delete all spam filter grey list entries",
+      "ru": "Удалить все записи серого списка спам-фильтра",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/removeLockDav/label",
+      "original": "Delete all DAV locks",
+      "ru": "Удалить все блокировки DAV",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/removeLockQueueMessage/label",
+      "original": "Delete all MTA queue message locks",
+      "ru": "Удалить все блокировки сообщений очереди MTA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/removeLockTask/label",
+      "original": "Delete all task manager locks",
+      "ru": "Удалить все блокировки диспетчера заданий",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/resetBlobQuotas/label",
+      "original": "Reset all blob quotas",
+      "ru": "Сбросить все квоты бинарных объектов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/resetRateLimiters/label",
+      "original": "Reset all rate limiters",
+      "ru": "Сбросить все ограничители частоты операций",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/resetTenantQuotas/label",
+      "original": "Reset all tenant quotas",
+      "ru": "Сбросить все квоты арендаторов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskStoreMaintenanceType/resetUserQuotas/label",
+      "original": "Reset all user quotas",
+      "ru": "Сбросить все квоты пользователей",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskTenantMaintenanceType/recalculateQuota/label",
+      "original": "Recalculate storage quota usage for the tenant",
+      "ru": "Пересчитать использование квоты хранилища арендатора",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/AccountMaintenance/label",
+      "original": "Perform account maintenance operations",
+      "ru": "Выполнить обслуживание учётной записи",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/AcmeRenewal/label",
+      "original": "Perform ACME certificate renewal for a domain",
+      "ru": "Обновить сертификат домена через ACME",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/BlobRecode/label",
+      "original": "Rewrite stored blobs with new compression and encryption settings",
+      "ru": "Перезаписать сохранённые бинарные объекты с новыми параметрами сжатия и шифрования",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/CalendarAlarmEmail/label",
+      "original": "Calendar alarm e-mail",
+      "ru": "Письмо с календарным напоминанием",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/CalendarAlarmNotification/label",
+      "original": "Calendar alarm notification",
+      "ru": "Уведомление с календарным напоминанием",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/CalendarItipMessage/label",
+      "original": "Calendar iTIP message",
+      "ru": "Календарное сообщение iTIP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/DestroyAccount/label",
+      "original": "Destroy account and all associated data",
+      "ru": "Удалить учётную запись и все связанные с ней данные",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/DkimManagement/label",
+      "original": "Perform DKIM key rotation for a domain",
+      "ru": "Выполнить ротацию ключей DKIM домена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/DmarcReport/label",
+      "original": "Send DMARC report to remote server",
+      "ru": "Отправить отчёт DMARC удалённому серверу",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/DmarcReportWindow/label",
+      "original": "Create the DMARC aggregate reports of an ended window",
+      "ru": "Сформировать агрегированные отчёты DMARC за завершившийся период",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/DnsManagement/label",
+      "original": "Perform DNS management for a domain",
+      "ru": "Выполнить управление DNS домена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/ExternalPublicKeyMaintenance/label",
+      "original": "Fetch external public keys and recheck S/MIME certificates",
+      "ru": "Получить внешние открытые ключи и повторно проверить сертификаты S/MIME",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/MergeThreads/label",
+      "original": "Merge email threads",
+      "ru": "Объединить цепочки переписки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/RestoreArchivedItem/label",
+      "original": "Restore archived item",
+      "ru": "Восстановить архивный объект",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/ShareRevokeCleanup/label",
+      "original": "Remove per-user data left behind by a revoked share",
+      "ru": "Удалить индивидуальные данные пользователей, оставшиеся после отзыва общего доступа",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/SpamFilterMaintenance/label",
+      "original": "Perform spam filter maintenance operations",
+      "ru": "Выполнить обслуживание спам-фильтра",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/StoreMaintenance/label",
+      "original": "Perform store maintenance operations",
+      "ru": "Выполнить обслуживание хранилища",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/TenantMaintenance/label",
+      "original": "Perform tenant maintenance operations",
+      "ru": "Выполнить обслуживание арендатора",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/TlsReport/label",
+      "original": "Send TLS report to remote server",
+      "ru": "Отправить отчёт TLS удалённому серверу",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TaskType/TlsReportWindow/label",
+      "original": "Create the TLS aggregate reports of an ended window",
+      "ru": "Сформировать агрегированные отчёты TLS за завершившийся период",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/arcResult/description",
+      "original": "Result of the ARC validation check",
+      "ru": "Результат проверки ARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/dkim2Pass/description",
+      "original": "Whether the DKIM2 checks passed",
+      "ru": "Пройдены ли проверки DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/dkim2Result/description",
+      "original": "Result of the DKIM2 signature chain verification",
+      "ru": "Результат проверки цепочки подписей DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/dkimPass/description",
+      "original": "Whether the DKIM checks passed",
+      "ru": "Пройдены ли проверки DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/dkimResults/description",
+      "original": "Results of the DKIM signature verification checks",
+      "ru": "Результаты проверки подписей DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/dmarcPass/description",
+      "original": "Whether the DMARC check passed",
+      "ru": "Пройдена ли проверка DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/dmarcPolicy/description",
+      "original": "DMARC policy applied to the email message",
+      "ru": "Политика DMARC, применённая к письму",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/dmarcResult/description",
+      "original": "Result of the DMARC check",
+      "ru": "Результат проверки DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/ehloDomain/description",
+      "original": "EHLO domain provided by the SMTP client",
+      "ru": "Домен EHLO, указанный клиентом SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/elapsed/description",
+      "original": "Time taken to perform the DMARC troubleshooting",
+      "ru": "Время выполнения диагностики DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/ipRevPtr/description",
+      "original": "PTR records returned by the reverse DNS lookup for the remote IP address",
+      "ru": "Записи PTR, полученные при обратном запросе DNS для удалённого IP-адреса",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/ipRevResult/description",
+      "original": "Result of the reverse DNS check for the remote IP address",
+      "ru": "Результат обратной проверки DNS для удалённого IP-адреса",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/mailFrom/description",
+      "original": "MAIL FROM address provided by the SMTP client, or null for the null reverse-path (MAIL FROM:<>)",
+      "ru": "Адрес MAIL FROM, указанный клиентом SMTP, или null для пустого обратного пути (null reverse-path, MAIL FROM:<>)",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/message/description",
+      "original": "Body of the email message used for DMARC troubleshooting, if applicable",
+      "ru": "Тело письма, используемое для диагностики DMARC, если применимо",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/rcptTo/description",
+      "original": "RCPT TO addresses provided by the SMTP client, used for DKIM2 envelope verification",
+      "ru": "Адреса RCPT TO, указанные клиентом SMTP, используемые для проверки конверта DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/remoteIp/description",
+      "original": "Remote IP address of the SMTP client",
+      "ru": "Удалённый IP-адрес клиента SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/spfEhloDomain/description",
+      "original": "Domain used for SPF check based on EHLO domain",
+      "ru": "Домен, используемый для проверки SPF по домену EHLO",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/spfEhloResult/description",
+      "original": "Result of the SPF check based on EHLO domain",
+      "ru": "Результат проверки SPF по домену EHLO",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/spfMailFromDomain/description",
+      "original": "Domain used for SPF check based on MAIL FROM address",
+      "ru": "Домен, используемый для проверки SPF по адресу MAIL FROM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcTroubleshoot/spfMailFromResult/description",
+      "original": "Result of the SPF check based on MAIL FROM address",
+      "ru": "Результат проверки SPF по адресу MAIL FROM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:IndexQueueStatus/index/description",
+      "original": "Search index the queue belongs to",
+      "ru": "Поисковый индекс, к которому относится очередь",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:IndexQueueStatus/partition/description",
+      "original": "Account or telemetry bucket the queued documents belong to",
+      "ru": "Учётная запись или сегмент телеметрии, к которым относятся документы в очереди",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:IndexQueueStatus/queuedDeletions/description",
+      "original": "Number of documents awaiting deletion from the index",
+      "ru": "Число документов, ожидающих удаления из индекса",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:IndexQueueStatus/queuedUpdates/description",
+      "original": "Number of documents awaiting indexing",
+      "ru": "Число документов, ожидающих индексирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:IndexQueueStatus/status/description",
+      "original": "Current processing state of the queue",
+      "ru": "Текущее состояние обработки очереди",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ReloadSettingsResult/warnings/description",
+      "original": "Warnings reported while building the new configuration, such as licence problems",
+      "ru": "Предупреждения при формировании новой конфигурации, например о проблемах с лицензией",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/aiFacts/description",
+      "original": "Message facts sent to the AI classifier, as JSON",
+      "ru": "Сведения о сообщении, переданные ИИ-классификатору в формате JSON",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/aiGate/description",
+      "original": "Outcome of the AI classifier gate: \"run\" when the classifier was queried, otherwise the reason it was skipped",
+      "ru": "Результат проверки условий запуска ИИ-классификатора: \"run\", если к нему был отправлен запрос, иначе причина пропуска",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/aiVerdict/description",
+      "original": "Verdict of the AI classifier in the format of the X-Spam-AI header",
+      "ru": "Результат ИИ-классификатора в формате заголовка X-Spam-AI",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/authenticatedAs/description",
+      "original": "Authentication identity of the SMTP client, if authenticated",
+      "ru": "Идентификатор аутентификации клиента SMTP, если он прошёл аутентификацию",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/ehloDomain/description",
+      "original": "EHLO domain provided by the SMTP client",
+      "ru": "Домен EHLO, указанный клиентом SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/isTls/description",
+      "original": "Whether the SMTP connection is secured with TLS",
+      "ru": "Защищено ли соединение SMTP с помощью TLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/mailFrom/description",
+      "original": "MAIL FROM address provided by the SMTP client, or null for the null reverse-path (MAIL FROM:<>)",
+      "ru": "Адрес MAIL FROM, указанный клиентом SMTP, или null для пустого обратного пути (null reverse-path, MAIL FROM:<>)",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/mailFromParameters/description",
+      "original": "Parameters related to the MAIL FROM address",
+      "ru": "Параметры адреса MAIL FROM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/message/description",
+      "original": "Raw email message to classify for spam",
+      "ru": "Исходное почтовое сообщение для проверки на спам",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/rcptTo/description",
+      "original": "List of RCPT TO addresses provided by the SMTP client",
+      "ru": "Список адресов RCPT TO, указанных клиентом SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/remoteIp/description",
+      "original": "Remote IP address of the SMTP client",
+      "ru": "Удалённый IP-адрес клиента SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/result/description",
+      "original": "Overall spam classification result for the message",
+      "ru": "Общий результат классификации сообщения на спам",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/score/description",
+      "original": "Spam score for the classified message",
+      "ru": "Оценка спама для проверенного сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamClassify/tags/description",
+      "original": "List of tags contributing to the spam classification of the message",
+      "ru": "Список меток, влияющих на классификацию сообщения на спам",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskBlobRecodeKey/keyId/description",
+      "original": "Key used to encrypt each blob",
+      "ru": "Ключ, используемый для шифрования каждого бинарного объекта",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskCalendarItipContents/from/description",
+      "original": "Email address of the sender of the iTIP message",
+      "ru": "Адрес электронной почты отправителя сообщения iTIP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskCalendarItipContents/iCalendarData/description",
+      "original": "iCalendar data associated with the iTIP message",
+      "ru": "Данные iCalendar, связанные с сообщением iTIP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskCalendarItipContents/isFromOrganizer/description",
+      "original": "Indicates whether the sender is the organizer of the calendar event",
+      "ru": "Указывает, является ли отправитель организатором события календаря",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskCalendarItipContents/summary/description",
+      "original": "Summary of the calendar event associated with the iTIP message",
+      "ru": "Краткое описание события календаря, связанного с сообщением iTIP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TaskCalendarItipContents/to/description",
+      "original": "Email addresses of the recipients of the iTIP message",
+      "ru": "Адреса электронной почты получателей сообщения iTIP",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/arcResult",
+      "original": "ARC Result",
+      "ru": "Результат ARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/dkim2Pass",
+      "original": "DKIM2 Pass",
+      "ru": "Проверка DKIM2 пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/dkim2Result",
+      "original": "DKIM2 Result",
+      "ru": "Результат DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/dkimPass",
+      "original": "DKIM Pass",
+      "ru": "Проверка DKIM пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/dkimResults",
+      "original": "DKIM Results",
+      "ru": "Результаты DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/dmarcPass",
+      "original": "DMARC Pass",
+      "ru": "Проверка DMARC пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/dmarcPolicy",
+      "original": "DMARC Policy",
+      "ru": "Политика DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/dmarcResult",
+      "original": "DMARC Result",
+      "ru": "Результат DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/ehloDomain",
+      "original": "EHLO Domain",
+      "ru": "Домен EHLO",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/elapsed",
+      "original": "Elapsed Time",
+      "ru": "Затраченное время",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/ipRevPtr",
+      "original": "PTR Records",
+      "ru": "Записи PTR",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/ipRevResult",
+      "original": "Reverse DNS Result",
+      "ru": "Результат обратной проверки DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/mailFrom",
+      "original": "MAIL FROM",
+      "ru": "Отправитель (MAIL FROM)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/message",
+      "original": "Message Body",
+      "ru": "Тело сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/rcptTo",
+      "original": "RCPT TO",
+      "ru": "Получатели (RCPT TO)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/remoteIp",
+      "original": "Remote IP",
+      "ru": "Удалённый IP-адрес",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/spfEhloDomain",
+      "original": "SPF EHLO Domain",
+      "ru": "Домен EHLO для SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/spfEhloResult",
+      "original": "SPF EHLO Result",
+      "ru": "Результат SPF по EHLO",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/spfMailFromDomain",
+      "original": "SPF MAIL FROM Domain",
+      "ru": "Домен MAIL FROM для SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/field/spfMailFromResult",
+      "original": "SPF MAIL FROM Result",
+      "ru": "Результат SPF по MAIL FROM",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/section/section-0",
+      "original": "Input",
+      "ru": "Входные данные",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/section/section-1",
+      "original": "SPF Results",
+      "ru": "Результаты SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/section/section-2",
+      "original": "IP Reverse DNS",
+      "ru": "Обратная проверка IP через DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/section/section-3",
+      "original": "DKIM Results",
+      "ru": "Результаты DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/section/section-4",
+      "original": "DKIM2 Results",
+      "ru": "Результаты DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/section/section-5",
+      "original": "ARC Results",
+      "ru": "Результаты ARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/section/section-6",
+      "original": "DMARC Results",
+      "ru": "Результаты DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcTroubleshoot/section/section-7",
+      "original": "Performance",
+      "ru": "Производительность",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:IndexQueueStatus/field/index",
+      "original": "Index",
+      "ru": "Индекс",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:IndexQueueStatus/field/partition",
+      "original": "Partition",
+      "ru": "Сегмент",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:IndexQueueStatus/field/queuedDeletions",
+      "original": "Queued Deletions",
+      "ru": "Ожидают удаления",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:IndexQueueStatus/field/queuedUpdates",
+      "original": "Queued Updates",
+      "ru": "Ожидают индексирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ReloadSettingsResult/field/warnings",
+      "original": "Warnings",
+      "ru": "Предупреждения",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ReloadSettingsResult/section/section-0",
+      "original": "Result",
+      "ru": "Результат",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/aiFacts",
+      "original": "Facts",
+      "ru": "Сведения о сообщении",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/aiGate",
+      "original": "Gate",
+      "ru": "Условия запуска",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/aiVerdict",
+      "original": "Verdict",
+      "ru": "Результат классификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/authenticatedAs",
+      "original": "Authenticated As",
+      "ru": "Идентификатор аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/ehloDomain",
+      "original": "EHLO Domain",
+      "ru": "Домен EHLO",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/isTls",
+      "original": "TLS Enabled",
+      "ru": "TLS включён",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/mailFrom",
+      "original": "MAIL FROM",
+      "ru": "Отправитель (MAIL FROM)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/mailFromParameters",
+      "original": "MAIL FROM Parameters",
+      "ru": "Параметры MAIL FROM",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/message",
+      "original": "Message",
+      "ru": "Сообщение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/rcptTo",
+      "original": "RCPT TO",
+      "ru": "Получатели (RCPT TO)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/remoteIp",
+      "original": "Remote IP",
+      "ru": "Удалённый IP-адрес",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/result",
+      "original": "Result",
+      "ru": "Результат",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/score",
+      "original": "Score",
+      "ru": "Оценка спама",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/tags",
+      "original": "Tags",
+      "ru": "Метки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/field/tags/keyLabel",
+      "original": "Tag",
+      "ru": "Метка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/section/section-0",
+      "original": "Input",
+      "ru": "Входные данные",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamClassify/section/section-1",
+      "original": "Results",
+      "ru": "Результаты",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TaskBlobRecodeKey/field/keyId",
+      "original": "Encryption Key",
+      "ru": "Ключ шифрования",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TaskCalendarItipContents/field/iCalendarData",
+      "original": "iCalendar Data",
+      "ru": "Данные iCalendar",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TaskCalendarItipContents/field/isFromOrganizer",
+      "original": "From Organizer",
+      "ru": "От организатора",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TaskCalendarItipContents/field/summary",
+      "original": "Summary",
+      "ru": "Краткое описание",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:IndexQueueStatus/plural",
+      "original": "index queues",
+      "ru": "очереди индексации",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:IndexQueueStatus/singular",
+      "original": "index queue",
+      "ru": "очередь индексации",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Task/TaskFailed/plural",
+      "original": "failed tasks",
+      "ru": "неудачные задания",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:IndexQueueStatus/description",
+      "original": "Represents the processing state of a search index queue.",
+      "ru": "Отображает состояние обработки очереди поискового индекса.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:Task/description",
+      "original": "Represents a background task scheduled for execution.",
+      "ru": "Фоновое задание, назначенное к выполнению.",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:DmarcTroubleshootAuthResult/Fail/label",
+      "original": "Fail",
+      "ru": "Проверка не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:DmarcTroubleshootAuthResult/Neutral/label",
+      "original": "Neutral",
+      "ru": "Нейтральный результат",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:DmarcTroubleshootAuthResult/None/label",
+      "original": "None",
+      "ru": "Нет результата",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:DmarcTroubleshootAuthResult/Pass/label",
+      "original": "Pass",
+      "ru": "Проверка пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:DmarcTroubleshootAuthResult/PermError/label",
+      "original": "PermError",
+      "ru": "Постоянная ошибка",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:DmarcTroubleshootAuthResult/SoftFail/label",
+      "original": "SoftFail",
+      "ru": "Мягкий отказ",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:DmarcTroubleshootAuthResult/TempError/label",
+      "original": "TempError",
+      "ru": "Временная ошибка",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TaskBlobRecodeEncryption/Disable/label",
+      "original": "Disable encryption",
+      "ru": "Отключить шифрование",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TaskBlobRecodeEncryption/Encrypt/label",
+      "original": "Encrypt with a key",
+      "ru": "Зашифровать с помощью ключа",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TaskBlobRecodeEncryption/Keep/label",
+      "original": "Leave as is",
+      "ru": "Оставить без изменений",
+      "decision": "translate"
+    }
+  ]
+}
