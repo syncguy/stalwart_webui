@@ -27,6 +27,8 @@ const ARIA_REQUIRED_TYPES = new Set(['string', 'number', 'enum', 'blobId']);
 export interface FieldRowProps {
   field: Field;
   formKey?: string;
+  /** Canonical owner in schema.fields, independent of the form/view key. */
+  fieldOwner?: string;
   formField: FormField;
   value: unknown;
   onChange: (value: unknown) => void;
@@ -77,7 +79,7 @@ export function FieldError({ id, error }: { id: string; error?: string }) {
   );
 }
 
-export function FieldRow({ field, formField, formKey, value, onChange, error, readOnly: forceReadOnly = false }: FieldRowProps) {
+export function FieldRow({ field, formField, formKey, fieldOwner, value, onChange, error, readOnly: forceReadOnly = false }: FieldRowProps) {
   const display = useSchemaText();
   const ctx = useFormContext();
   const scope = useFieldScope();
@@ -89,8 +91,9 @@ export function FieldRow({ field, formField, formKey, value, onChange, error, re
   // EmbeddedObjectEditor supplies the actual nested schemaName; the path still
   // controls DOM identity and read-only semantics, not translation lookup.
   const label = formKey ? display(`form/${formKey}/field/${formField.name}`, formField.label) : formField.label;
-  const description = formKey
-    ? display(`field/${formKey}/${formField.name}/description`, field.description)
+  const descriptionOwner = fieldOwner ?? formKey;
+  const description = descriptionOwner
+    ? display(`field/${descriptionOwner}/${formField.name}/description`, field.description)
     : field.description;
   const referencesLocked =
     ft.type === 'objectId' && ctx.isCommunity && !!resolveObject(ctx.schema, ft.objectName)?.enterprise;
