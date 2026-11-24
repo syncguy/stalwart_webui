@@ -12,6 +12,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { sourceModule, loadInputs, at } from './lib/locale-source.mjs';
 import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.mjs';
 import {loadVariantPacket,undoVariants} from './lib/locale-variant-labels.mjs';
+import {loadTracePacket,undoTrace} from './lib/locale-trace-labels.mjs';
 import { buildUsageGraph } from './lib/locale-graph.mjs';
 import { classify } from './lib/locale-planner.mjs';
 import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
@@ -2162,7 +2163,7 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 {
   const inputs37=loadInputs(process.cwd());
   const packet37=loadFieldDescriptionPacket(process.cwd(),inputs37.policy);
-  const stage37Catalog=undoFormContext(undoVariants(catalog,loadVariantPacket(process.cwd(),inputs37.policy)),loadFormContextPacket(process.cwd(),inputs37.policy));
+  const stage37Catalog=undoFormContext(undoVariants(undoTrace(catalog,loadTracePacket(process.cwd(),inputs37.policy)),loadVariantPacket(process.cwd(),inputs37.policy)),loadFormContextPacket(process.cwd(),inputs37.policy));
   const oldCatalog=undoFieldDescriptions(stage37Catalog,packet37);
   const oldInputs={...inputs37,catalog:oldCatalog,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':oldCatalog})};
   const oldRows=classify(oldInputs,buildUsageGraph(oldInputs)).rows.filter(r=>
@@ -2251,7 +2252,7 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 // presence (several sections and fields can have the same English label).
 {
   const inputs38=loadInputs(process.cwd());
-  const oldCatalog=undoFormContext(undoVariants(catalog,loadVariantPacket(process.cwd(),inputs38.policy)),loadFormContextPacket(process.cwd(),inputs38.policy));
+  const oldCatalog=undoFormContext(undoVariants(undoTrace(catalog,loadTracePacket(process.cwd(),inputs38.policy)),loadVariantPacket(process.cwd(),inputs38.policy)),loadFormContextPacket(process.cwd(),inputs38.policy));
   const oldInputs={...inputs38,catalog:oldCatalog,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':oldCatalog})};
   const rows38=classify(oldInputs,buildUsageGraph({...oldInputs,fieldOwners:true})).rows.filter(r=>
     r.classification==='renderer-unwired'&&['form-field-label','form-section','form'].includes(r.category));
@@ -2336,7 +2337,7 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 {
   const inputs39=loadInputs(process.cwd());
   const packet39=loadVariantPacket(process.cwd(),inputs39.policy);
-  const previous39=undoVariants(catalog,packet39);
+  const previous39=undoVariants(undoTrace(catalog,loadTracePacket(process.cwd(),inputs39.policy)),packet39);
   const old39={...inputs39,catalog:previous39,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':previous39})};
   const scope39=classify(old39,buildUsageGraph({...old39,fieldOwners:true,formOwners:true})).rows.filter(r=>r.classification==='renderer-unwired');
   assert.equal(scope39.length,135);
@@ -2478,3 +2479,5 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
   assert.equal(screens39.size,14);assert.equal(covered39.size,135);
   console.log('PASS: Stage39 actual DynamicView, VariantSelect, FormSections, ListCell, ObjectValue, EmbeddedSummaryValue, EmbeddedObjectEditor; '+JSON.stringify(count39)+'; 135 exact pairs, 14 affected screens; RU/EN/unknown hash, changed-original fallback, raw IDs, callbacks and schema unchanged; no browser/network');
 }
+
+await import('./lib/locale-trace-components.mjs');

@@ -10,6 +10,7 @@ import './check-renderer-display-paths.mjs';
 import {loadReviewedBatches} from './lib/locale-reviewed-batch.mjs';
 import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.mjs';
 import {loadVariantPacket,undoVariants} from './lib/locale-variant-labels.mjs';
+import {loadTracePacket,undoTrace} from './lib/locale-trace-labels.mjs';
 import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
 
 const catalog = JSON.parse(fs.readFileSync('src/i18n/schema/ru.json', 'utf8'));
@@ -670,11 +671,13 @@ const reviewedCount=loadReviewedBatches(process.cwd(),reviewedPolicy).reduce((n,
 const stage37Packet=loadFieldDescriptionPacket(process.cwd(),reviewedPolicy);
 const packet38=loadFormContextPacket(process.cwd(),reviewedPolicy);
 const packet39=loadVariantPacket(process.cwd(),reviewedPolicy);
-const stage38Catalog=undoVariants(catalog,packet39);
+const packet41=loadTracePacket(process.cwd(),reviewedPolicy);
+const stage39Catalog=undoTrace(catalog,packet41);
+const stage38Catalog=undoVariants(stage39Catalog,packet39);
 const stage37Catalog=undoFormContext(stage38Catalog,packet38);
 const stage35Catalog=undoFieldDescriptions(stage37Catalog,stage37Packet);
 assert.equal(Object.keys(stage35Catalog.entries).length,2084+reviewedCount);
-assert.equal(Object.keys(entries).length,2084+reviewedCount+stage37Packet.slots.length+packet38.entries.length+packet39.entries.length,'Unexpected contextual slot inventory');
+assert.equal(Object.keys(entries).length,2084+reviewedCount+stage37Packet.slots.length+packet38.entries.length +packet39.entries.length+packet41.entries.length,'Unexpected contextual slot inventory');
 assert.ok(dynamicFormStage5.includes('fieldOwner={fieldOwner}'));
 assert.ok(dynamicFormStage5.includes('display(`form/${titleKey ?? objectKey}/title`, title)'));
 assert.ok(formSectionsStage5.includes('fieldOwner={fieldOwner}'));

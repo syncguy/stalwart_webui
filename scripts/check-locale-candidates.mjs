@@ -12,6 +12,7 @@ import {loadReviewedBatches,baselineCatalog} from './lib/locale-reviewed-batch.m
 import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
 import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.mjs';
 import {loadVariantPacket,undoVariants} from './lib/locale-variant-labels.mjs';
+import {loadTracePacket,undoTrace} from './lib/locale-trace-labels.mjs';
 import './lib/offline-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -19,7 +20,8 @@ const inputs = loadInputs(root);
 const legacyGraph = buildUsageGraph(inputs);
 const stage37Graph = buildUsageGraph({ ...inputs, fieldOwners: true });
 const stage38Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true });
-const graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true });
+const stage39Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true });
+const graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true });
 const report = readJson(fs.readFileSync(path.join(root, '.artifacts/locale-candidates/classification.json'), 'utf8'), 'classification');
 const row = slot => report.rows.find(r => r.slot === slot);
 const uses = r => r.usages.map(u => ({ ...report.usageContexts[u.context], text: report.displayTexts[u.text],
@@ -211,7 +213,9 @@ const laterBatches = loadReviewedBatches(root,inputs.policy);
 const stage37Packet = loadFieldDescriptionPacket(root,inputs.policy);
 const packet38=loadFormContextPacket(root,inputs.policy);
 const packet39=loadVariantPacket(root,inputs.policy);
-const stage38Catalog=undoVariants(inputs.catalog,packet39);
+const packet41=loadTracePacket(root,inputs.policy);
+const stage39Catalog=undoTrace(inputs.catalog,packet41);
+const stage38Catalog=undoVariants(stage39Catalog,packet39);
 const stage37Catalog=undoFormContext(stage38Catalog,packet38);
 const stage35Catalog = undoFieldDescriptions(stage37Catalog,stage37Packet);
 const stage18Catalog = baselineCatalog(stage35Catalog,laterBatches);
@@ -234,6 +238,9 @@ const stage37Inputs={...inputs,catalog:stage37Catalog,schema:sourceModule(rawRun
 const stage37Rows=classify(stage37Inputs,stage37Graph).rows;
 const stage38Inputs={...inputs,catalog:stage38Catalog,schema:sourceModule(rawRuntime18,'schemaText.ts',{'./schema/ru.json':stage38Catalog})};
 const stage38Rows=classify(stage38Inputs,stage38Graph).rows;
+const stage39Inputs={...inputs,catalog:stage39Catalog,schema:sourceModule(rawRuntime18,'schemaText.ts',{'./schema/ru.json':stage39Catalog})};
+const stage39Report=compactReport(plan(stage39Inputs,stage39Graph));
+const stage39Rows=classify(stage39Inputs,stage39Graph).rows;
 const stage37ById=new Map(stage37Rows.map(r=>[r.id,r]));
 const legacyCount=c=>legacyRows.filter(r=>r.classification===c).length;
 const missing18 = beforeReport18.rows.filter(r => r.classification === 'missing' &&
@@ -344,7 +351,7 @@ check('Stage18: exact four reviewed scoped entries; no shared fallback or unexpe
 console.log('Stage18: applied 54 translations, two preserved standard labels, four exact scoped bindings. Static/source tests, not React/browser acceptance.');
 
 check('Stage37: exact historical scope, all canonical description paths and no translation regression', () => {
-  assert.equal(report.stage,39);
+  assert.equal(report.stage,41);
   assert.equal(legacyCount('translated'),6418);
   assert.equal(legacyCount('missing'),0);
   assert.equal(legacyCount('renderer-unwired'),2364);
@@ -450,7 +457,7 @@ check('Stage39: exact remaining variant scope; all prior classifications and bin
   assert.equal(pairDigest(missing),packet39.pairSha256);
   assert.deepEqual(missing.map(r=>r.slot).sort(),packet39.entries.map(e=>e.slot).sort());
   assert.deepEqual(existing.map(r=>r.slot).sort(),packet39.existing.map(e=>e.slot).sort());
-  const target=new Set(scope.map(r=>r.id)),active=new Map(report.rows.map(r=>[r.id,r]));
+  const target=new Set(scope.map(r=>r.id)),active=new Map(stage39Report.rows.map(r=>[r.id,r]));
   let rawBadges=0,allUses=0;const screens=new Set();
   for(const prior of stage38Rows){
     const now=active.get(prior.id);
@@ -461,7 +468,7 @@ check('Stage39: exact remaining variant scope; all prior classifications and bin
       assert.equal(u.mode,'detail');assert.equal(u.lookupSlot,null);
       rawBadges++;screens.add(u.section+'\0'+u.screen);
     }
-    for(const u of uses(now)){
+    for(const u of now.usages.map(u => ({ ...stage39Report.usageContexts[u.context], text: stage39Report.displayTexts[u.text], lookupSlot: Object.hasOwn(u,'lookupSlot') ? u.lookupSlot : now.slot }))){
       assert.equal(u.state,'wired',now.slot);
       assert.equal(u.lookupSlot,now.slot,now.slot);
       assert.equal(u.text.ru,now.acceptedTranslation,now.slot);
@@ -477,15 +484,60 @@ check('Stage39: exact remaining variant scope; all prior classifications and bin
     }
   }
   assert.equal(rawBadges,296);assert.equal(screens.size,14);assert.equal(allUses,1169);
-  assert.equal(report.screens.length,153);
-  assert.deepEqual(report.summary.classification,{'translated':8782,'missing':0,'keep-original':58,'technical':74,'renderer-unwired':0,'unreachable/conditional':812,'needs-review':2520});
-  assert.equal(report.summary.acceptedCatalogEntries,8855);
-  assert.equal(report.summary.acceptedScopedEntries,4);
+  assert.equal(stage39Report.screens.length,153);
+  assert.deepEqual(stage39Report.summary.classification,{'translated':8782,'missing':0,'keep-original':58,'technical':74,'renderer-unwired':0,'unreachable/conditional':812,'needs-review':2520});
+  assert.equal(stage39Report.summary.acceptedCatalogEntries,8855);
+  assert.equal(stage39Report.summary.acceptedScopedEntries,4);
   for(const mutate of [p=>p.entries.pop(),p=>p.entries.push(p.entries[0]),p=>p.entries[0].ru+=' {{unexpected}}',p=>p.existing.pop(),p=>p.apply=true]){
-    const p=structuredClone(packet39);mutate(p);assert.throws(()=>undoVariants(inputs.catalog,p));
+    const p=structuredClone(packet39);mutate(p);assert.throws(()=>undoVariants(stage39Catalog,p));
   }
-  const tampered=structuredClone(inputs.catalog);
+  const tampered=structuredClone(stage39Catalog);
   tampered.entries[Object.keys(stage38Catalog.entries)[0]].ru+=' changed';
   assert.throws(()=>undoVariants(tampered,packet39));
   console.log('Stage39: 135 exact variant pairs; 131 new entries, four existing; 296 raw detail badges, 14 screens, 1169 usages; no other classifications changed.');
+});
+
+check('Stage41: exact EventType/Key transitions and no regression in other rows',()=>{
+  const scope=stage39Rows.filter(r=>/^enum\/(EventType|Key)\//.test(r.slot));
+  assert.equal(scope.length,1441);
+  assert.ok(scope.every(r=>r.classification==='needs-review'));
+  assert.equal(scope.filter(r=>r.catalogState==='translated').length,7);
+  const pairs=rows=>digest(rows.map(r=>r.slot+'\0'+r.original+'\n').sort().join(''));
+  assert.equal(pairs(scope),packet41.scopePairSha256);
+  assert.equal(pairs(scope.filter(r=>r.catalogState==='missing')),packet41.pairSha256);
+  const intermediate=new Map(classify(stage39Inputs,graph).rows.map(r=>[r.id,r]));
+  const target=new Set(scope.map(r=>r.id)),active=new Map(report.rows.map(r=>[r.id,r]));
+  for(const prior of stage39Rows){
+    const mid=intermediate.get(prior.id),now=active.get(prior.id);
+    assert.equal(mid.classification,target.has(prior.id)?(prior.catalogState==='translated'?'translated':'missing'):prior.classification,prior.slot);
+    assert.equal(now.classification,target.has(prior.id)?'translated':prior.classification,prior.slot);
+    if(prior.acceptedTranslation!==null)assert.equal(now.acceptedTranslation,prior.acceptedTranslation,prior.slot);
+    if(!target.has(prior.id))continue;
+    for(const u of uses(now)){
+      assert.equal(u.state,'wired',now.slot);
+      assert.equal(u.lookupSlot,now.slot,now.slot);
+      assert.equal(u.text.ru,now.acceptedTranslation,now.slot);
+    }
+    assert.ok(uses(now).some(u=>u.renderer.includes('useTraceLabels')),now.slot);
+    for(const l of now.locations){
+      assert.equal(at(inputs.pins.find(p=>p.schemaHash===l.schemaHash).data,l.sourcePointer),now.original,now.slot);
+      const lookup=inputs.schema.schemaText;
+      assert.equal(lookup(l.schemaHash,'ru',now.slot,now.original),now.acceptedTranslation);
+      assert.equal(lookup(l.schemaHash,'en',now.slot,now.original),now.original);
+      assert.equal(lookup(l.schemaHash,'ru',now.slot,now.original+' changed'),now.original+' changed');
+      assert.equal(lookup('unknown','ru',now.slot,now.original),now.original);
+    }
+  }
+  assert.ok(report.usageContexts.some(u=>u.screen==='CustomComponent/LiveTracing'&&u.conditions.some(c=>c.includes('liveTracing'))));
+  assert.equal(report.screens.length,153);
+  assert.deepEqual(report.summary.classification,{'translated':10223,'missing':0,'keep-original':58,'technical':74,'renderer-unwired':0,'unreachable/conditional':812,'needs-review':1079});
+  assert.equal(report.summary.acceptedCatalogEntries,10289);
+  assert.equal(report.summary.acceptedScopedEntries,4);
+  for(const mutate of [p=>p.entries.pop(),p=>p.entries.push(p.entries[0]),p=>p.entries[0].ru+=' {{unexpected}}',p=>p.existing.pop(),p=>p.apply=true]){
+    const p=structuredClone(packet41);mutate(p);assert.throws(()=>undoTrace(inputs.catalog,p));
+  }
+  const tampered=structuredClone(inputs.catalog);
+  tampered.entries[Object.keys(stage39Catalog.entries)[0]].ru+=' changed';
+  assert.throws(()=>undoTrace(tampered,packet41));
+  console.log('Stage41: 1441 exact pairs; 1434 new entries; intermediate 7 translated + 1434 missing; no unrelated classification changes.');
 });

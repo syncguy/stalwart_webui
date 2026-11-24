@@ -2,7 +2,7 @@
 import { compare, ptr } from './locale-source.mjs';
 
 // fieldOwners=false replays the historical pre-stage37 renderer contract only.
-export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false, formOwners = false, variantBadges = false }) {
+export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false, formOwners = false, variantBadges = false, traceLabels = false }) {
   const byPointer = new Map();
   const usages = new Map(inventory.rows.map(r => [r.slot + '\0' + r.original, new Map()]));
   const screens = new Map();
@@ -35,6 +35,24 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
   for (const pin of pins) {
     const s = pin.data;
     const nav = [];
+    // Exact custom trace consumers; historical graphs retain the original model.
+    function traceUses(ctx, live) {
+      const c = { ...ctx, state: 'wired', conditions: [...ctx.conditions, 'trace-event-or-filter-dependent'] };
+      for (const [i] of (s.enums.EventType ?? []).entries()) {
+        for (const property of ['label', 'explanation']) {
+          emit(pin, ptr('enums', 'EventType', i, property), c, undefined, 'TraceTimeline/useTraceLabels');
+          emit(pin, ptr('enums', 'EventType', i, property), c, undefined, 'TraceValue/useTraceLabels');
+        }
+        if (!live) emit(pin, ptr('enums', 'EventType', i, 'label'), c, undefined, 'TraceSummaryCards/useTraceLabels');
+      }
+      for (const [i] of (s.enums.Key ?? []).entries()) {
+        emit(pin, ptr('enums', 'Key', i, 'label'), c, undefined, 'TraceValue/useTraceLabels');
+        if (live) {
+          emit(pin, ptr('enums', 'Key', i, 'label'), c, undefined, 'LiveTracingForm/useTraceLabels');
+          emit(pin, ptr('enums', 'Key', i, 'label'), c, undefined, 'FilterEditor/useTraceLabels');
+        }
+      }
+    }
     function walk(items, section, area, base) {
       items.forEach((entry, index) => {
         const wrapper = entry.link ? 'link' : entry.container ? 'container' : null;
@@ -72,6 +90,9 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
             emitUnder(pin, ptr('dashboards', i), { ...base, mode: 'dashboard', via: d.id }, 'DashboardView/tiles');
           });
           screen.modes.push('dashboard');
+        } else if (traceLabels && link.view === 'CustomComponent/LiveTracing') {
+          screen.modes.push('live-tracing');
+          traceUses({ ...base, mode: 'live-tracing' }, true);
         } else screen.modes.push('custom-review');
         continue;
       }
@@ -86,6 +107,12 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
       const seen = new Set();
 
       function enumUses(type, ctx, role, fieldName) {
+        // Custom timeline does not render the generic nested form's enum widgets.
+        // Leave independent create/list/filter consumers intact; non-enum structural
+        // candidates remain conservatively under review for stage43.
+        if (traceLabels && ctx.state === 'review' && ['edit', 'detail'].includes(ctx.mode)
+            && ['x:Trace/InboundDelivery', 'x:Trace/OutboundDelivery'].includes(link.view)
+            && ['EventType', 'Key'].includes(type.enumName)) return;
         (s.enums[type.enumName] ?? []).forEach((v, i) => {
           const edit = ctx.mode === 'create' || ctx.mode === 'edit' || ctx.mode === 'singleton' || ctx.mode === 'action';
           let renderer = edit ? role === 'set' ? 'EnumMultiSelect' : role === 'map-key' ? 'MapKeyLabel' : 'EnumWidget' : 'EnumValue/ScalarLabel';
@@ -201,6 +228,10 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
         const special = objectPage(link.view, object.objectName, mode);
         const ctx = { ...base, mode, ...(special && mode !== 'action' ? { state: 'review' } : {}),
           conditions: [...base.conditions, 'mode-permission-and-data-dependent', ...(special ? ['custom-page:explicit-adapter-review-required'] : [])] };
+        if (traceLabels && special && ['edit', 'detail'].includes(mode)
+            && ['x:Trace/InboundDelivery', 'x:Trace/OutboundDelivery'].includes(link.view)) {
+          traceUses({ ...base, mode, conditions: [...base.conditions, 'mode-permission-and-data-dependent', 'custom-page:TraceDetailView'] }, false);
+        }
         const variants = sch.type === 'multiple' ? selected : [];
         variantUses(object.objectName, ctx, variants);
         for (const v of selected) {

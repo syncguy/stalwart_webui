@@ -15,6 +15,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useSchemaStore } from '@/stores/schemaStore';
 import { getEnum } from '@/lib/schemaResolver';
+import { useTraceLabels } from '../hooks/useTraceLabels';
 import { upsertFilter, type KeyValueFilter } from '../liveTracing';
 
 interface LiveTracingFormProps {
@@ -35,6 +36,7 @@ export function LiveTracingForm({
   onStart,
 }: LiveTracingFormProps) {
   const { t } = useTranslation();
+  const labels = useTraceLabels();
   const keywordsId = useId();
   const [addingFilter, setAddingFilter] = useState(false);
 
@@ -67,12 +69,12 @@ export function LiveTracingForm({
               {filters.map((f) => (
                 <li key={f.key}>
                   <Badge className="h-7 gap-1 pl-3 pr-1.5 text-[12.5px] font-medium">
-                    {f.label} = {f.value}
+                    {labels.key(f.key)} = {f.value}
                     <button
                       type="button"
                       onClick={() => onFiltersChange(filters.filter((other) => other.key !== f.key))}
                       className="ml-0.5 grid size-5 place-items-center rounded-full hover:bg-card hover:text-destructive focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                      aria-label={t('tracing.removeFilter', 'Remove filter {{label}}', { label: f.label })}
+                      aria-label={t('tracing.removeFilter', 'Remove filter {{label}}', { label: labels.key(f.key) })}
                     >
                       <X aria-hidden="true" className="h-3 w-3" />
                     </button>
@@ -109,6 +111,7 @@ export function LiveTracingForm({
 
 function FilterEditor({ onAdd, onCancel }: { onAdd: (filter: KeyValueFilter) => void; onCancel: () => void }) {
   const { t } = useTranslation();
+  const labels = useTraceLabels();
   const schema = useSchemaStore((s) => s.schema);
   const keyEnum = getEnum(schema, 'Key');
   const [key, setKey] = useState('');
@@ -130,7 +133,7 @@ function FilterEditor({ onAdd, onCancel }: { onAdd: (filter: KeyValueFilter) => 
         <SelectContent className="max-h-60">
           {keyEnum.map((entry) => (
             <SelectItem key={entry.name} value={entry.name}>
-              {entry.label}
+              {labels.key(entry.name)}
             </SelectItem>
           ))}
         </SelectContent>
