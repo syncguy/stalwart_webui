@@ -29,7 +29,7 @@ export function Pagination({ range, total, count, pluralName, disabled, onPrev, 
   const summary = total === null
     ? t('list.showingItems', 'Showing {{count}} items', { count })
     : isRussian
-      ? t('list.showingRange', 'Showing {{from}}-{{to}} of {{total}}', {
+      ? t('webuiRu.list.showingRange', 'Showing {{from}}-{{to}} of {{total}}', {
           from: range.from,
           to: range.to,
           total,
