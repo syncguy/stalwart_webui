@@ -2808,7 +2808,7 @@
     {
       "slot": "form/x:DnsServerPowerDns/field/url",
       "original": "API URL",
-      "ru": "URL API",
+      "ru": "URL сервера API",
       "decision": "translate"
     },
     {
@@ -3168,7 +3168,7 @@
     {
       "slot": "form/x:DnsServerUltraDns/field/url",
       "original": "API URL",
-      "ru": "URL API",
+      "ru": "URL сервера API",
       "decision": "translate"
     },
     {
