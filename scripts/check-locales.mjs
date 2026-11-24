@@ -61,7 +61,7 @@ function checkLegacyReferences(dir) {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const path = join(dir, entry.name);
     if (entry.isDirectory()) checkLegacyReferences(path);
-    else if (/\\.tsx?$/.test(entry.name)) {
+    else if (/\.tsx?$/.test(entry.name)) {
       const code = readFileSync(path, 'utf8');
       for (const key of legacyForkKeys) {
         if (code.includes("'" + key + "'") || code.includes('"' + key + '"') || code.includes('`' + key + '`')) {
