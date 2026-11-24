@@ -981,8 +981,11 @@ if(catalog.entries['enum/SieveCapability/body/label']){
       assert.deepEqual(Array.from(options27,v=>v.value),Array.from(modelVariants,v=>v.name));
       for(const v of modelVariants){
         const slot='variant/'+modelScope+'/'+v.name+'/label',entry=catalog.entries[slot];
-        // Disabled is an existing ambiguous candidate, not an accepted stage27 entry.
-        assert.equal(v.name==='Disabled',!entry);
+        // Stage27 left Disabled ambiguous; Stage35 explicitly reviewed this exact variant.
+        if(v.name==='Disabled'){
+          if(catalog.entries['enum/CompressionAlgo/none/label'])assert.deepEqual(entry,{original:'Disabled',ru:'Отключено'});
+          else assert.ok(!entry);
+        }else assert.ok(entry);
         if(entry)assert.equal(entry.original,v.label);
         const label=lang==='ru'&&entry?entry.ru:v.label;
         assert.ok(html.includes(htmlText19(label)),slot);
