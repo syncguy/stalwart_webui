@@ -91,6 +91,7 @@ export function EmbeddedObjectEditor({
                   field={field}
                   formField={formField}
                   formKey={resolved.schemaName ?? undefined}
+                  fieldOwner={resolved.schemaName ?? undefined}
                   value={obj[formField.name]}
                   onChange={(v) => onChange({ ...obj, [formField.name]: v })}
                 />
