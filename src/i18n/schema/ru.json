@@ -45008,7 +45008,7 @@
     },
     "field/x:TaskStatusPending/due/description": {
       "original": "Due date and time for the task",
-      "ru": "Назначенные дата и время выполнения задачи"
+      "ru": "Дата и время выполнения задания"
     },
     "field/x:TaskStatusRetry/attemptNumber/description": {
       "original": "Number of failed attempts so far",
@@ -45288,7 +45288,7 @@
     },
     "variant/x:TaskStatus/Pending/label": {
       "original": "Pending task awaiting execution",
-      "ru": "Задача ожидает выполнения"
+      "ru": "Задание ожидает выполнения"
     },
     "variant/x:TaskStatus/Retry/label": {
       "original": "Task scheduled for retry after a transient failure",
