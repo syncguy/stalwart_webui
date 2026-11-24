@@ -1,0 +1,934 @@
+{
+  "version": 1,
+  "stage": 35,
+  "baseline": "af554d4bb3f3bf8b5c9cc1365ab82553fd5e8e72",
+  "baselineCatalogSha256": "03ca6f4bb8ec0f50ed82d095bbcee2117ceaf8ce8b6eb23713ee44115cf80b65",
+  "scope": [
+    {
+      "section": "Account",
+      "screens": [
+        "x:AccountSettings",
+        "x:MaskedEmail",
+        "x:SpamTrainingSample"
+      ]
+    },
+    {
+      "section": "Management",
+      "screens": [
+        "x:Account/User",
+        "x:Task",
+        "x:Task/TaskFailed"
+      ]
+    },
+    {
+      "section": "Settings",
+      "screens": [
+        "x:Alert",
+        "x:Application",
+        "x:Asn",
+        "x:BlobStore",
+        "x:Cache",
+        "x:Coordinator",
+        "x:Directory",
+        "x:DkimReportSettings",
+        "x:DmarcReportSettings",
+        "x:DsnReportSettings",
+        "x:Email/EmailStorage",
+        "x:Encryption/EncryptionGateway",
+        "x:EventTracingLevel",
+        "x:FileStorage",
+        "x:InMemoryStore",
+        "x:Metrics/CollectorOtel",
+        "x:Metrics/CollectorPrometheus",
+        "x:MtaHook",
+        "x:MtaInboundThrottle",
+        "x:MtaMilter",
+        "x:MtaOutboundThrottle",
+        "x:MtaQueueQuota",
+        "x:MtaSts",
+        "x:MtaTlsStrategy",
+        "x:Search",
+        "x:SearchStore",
+        "x:SenderAuth",
+        "x:SmimeTrustAnchor",
+        "x:SpamAi",
+        "x:SpamClassifier",
+        "x:SpamDnsblServer",
+        "x:SpamRule",
+        "x:SpamSettings",
+        "x:SpfReportSettings",
+        "x:StoreLookup",
+        "x:TlsReportSettings",
+        "x:WebHook"
+      ]
+    }
+  ],
+  "status": "editor-reviewed",
+  "apply": false,
+  "entries": [
+    {
+      "slot": "enum/CompressionAlgo/none/label",
+      "original": "None",
+      "ru": "Без сжатия",
+      "decision": "translate",
+      "review": {
+        "groupId": "6b4816f0cebb49fba9f5",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Compression mode, not an absent result."
+      }
+    },
+    {
+      "slot": "enum/HeaderProtection/none/label",
+      "original": "None",
+      "ru": "Не защищать заголовки",
+      "decision": "translate",
+      "review": {
+        "groupId": "956e8aad8bb9b00770b2",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "translation-present-only-in-some-renderers"
+        ],
+        "rationale": "Exact existing HeaderProtection adapter wording, not a generic None."
+      }
+    },
+    {
+      "slot": "enum/MtaRequiredOrOptional/disable/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate",
+      "review": {
+        "groupId": "f7be6201cbd67da9221d",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "TLS mode disabled, not optional."
+      }
+    },
+    {
+      "slot": "enum/MtaStage/rcpt/label",
+      "original": "RCPT TO",
+      "ru": "Команда RCPT TO",
+      "decision": "translate",
+      "review": {
+        "groupId": "6fdd966f989baf67aa0a",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "SMTP recipient command, preserve token."
+      }
+    },
+    {
+      "slot": "enum/OidcOpaqueTokenValidation/none/label",
+      "original": "Disabled",
+      "ru": "Проверка отключена",
+      "decision": "translate",
+      "review": {
+        "groupId": "65376c4b19404fa5da42",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers",
+          "security-action-or-unit-review"
+        ],
+        "rationale": "Explicit disabled opaque-token validation, not a successful check."
+      }
+    },
+    {
+      "slot": "enum/PolicyEnforcement/disable/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate",
+      "review": {
+        "groupId": "f7be6201cbd67da9221d",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "MTA-STS enforcement disabled, not optional."
+      }
+    },
+    {
+      "slot": "enum/SearchEmailField/subject/label",
+      "original": "Subject",
+      "ru": "Тема письма (Subject)",
+      "decision": "translate",
+      "review": {
+        "groupId": "93d55c0a5286f490e563",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Email search field, not a person or identity."
+      }
+    },
+    {
+      "slot": "enum/TracingLevelOpt/disable/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate",
+      "review": {
+        "groupId": "c77fb258c4e4bad3c59c",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Tracing disabled, not a log severity."
+      }
+    },
+    {
+      "slot": "field/x:AccountSettings/timeZone/description",
+      "original": "Preferred time zone for the account",
+      "ru": "Предпочтительный часовой пояс учётной записи",
+      "decision": "translate",
+      "review": {
+        "groupId": "6c9b14d595185e5d366a",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Account preference, not server time zone."
+      }
+    },
+    {
+      "slot": "field/x:AsnResource/allowInvalidCerts/description",
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли использование недействительных сертификатов SSL",
+      "decision": "translate",
+      "review": {
+        "groupId": "fa10462d3997126f8ee3",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers",
+          "security-action-or-unit-review"
+        ],
+        "rationale": "ASN resource certificate validation exception; preserve polarity and SSL."
+      }
+    },
+    {
+      "slot": "field/x:WebHook/allowInvalidCerts/description",
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли использование недействительных сертификатов SSL",
+      "decision": "translate",
+      "review": {
+        "groupId": "9b6a2306d83408a23266",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers",
+          "security-action-or-unit-review"
+        ],
+        "rationale": "Webhook certificate validation exception; preserve polarity and SSL."
+      }
+    },
+    {
+      "slot": "form/x:AlertEmailProperties/field/fromAddress",
+      "original": "From",
+      "ru": "Адрес отправителя (From)",
+      "decision": "translate",
+      "review": {
+        "groupId": "a27d28011e2c7eb2235c",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Email alert sender address."
+      }
+    },
+    {
+      "slot": "form/x:AlertEmailProperties/field/subject",
+      "original": "Subject",
+      "ru": "Тема письма (Subject)",
+      "decision": "translate",
+      "review": {
+        "groupId": "cfb94166e1ace86cadf2",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Email alert subject."
+      }
+    },
+    {
+      "slot": "form/x:AlertEventProperties/field/eventMessage",
+      "original": "Message",
+      "ru": "Сообщение события",
+      "decision": "translate",
+      "review": {
+        "groupId": "05a8961e067aa00f3389",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Event message, not a mail attachment."
+      }
+    },
+    {
+      "slot": "form/x:Application/field/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "b01c5255813b4ea76845",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Application enabled boolean, not a command."
+      }
+    },
+    {
+      "slot": "form/x:DkimReportSettings/field/fromAddress",
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)",
+      "decision": "translate",
+      "review": {
+        "groupId": "28b0540d733a30fcc2b7",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers",
+          "security-action-or-unit-review"
+        ],
+        "rationale": "DKIM report sender address; preserve header marker."
+      }
+    },
+    {
+      "slot": "form/x:DkimReportSettings/field/subject",
+      "original": "Subject",
+      "ru": "Тема отчёта (Subject)",
+      "decision": "translate",
+      "review": {
+        "groupId": "09babbd8447548a4e08c",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "DKIM report subject."
+      }
+    },
+    {
+      "slot": "form/x:DmarcReportSettings/field/aggregateFromAddress",
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)",
+      "decision": "translate",
+      "review": {
+        "groupId": "c746bf94cf1186201933",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Aggregate DMARC report sender address."
+      }
+    },
+    {
+      "slot": "form/x:DmarcReportSettings/field/failureFromAddress",
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)",
+      "decision": "translate",
+      "review": {
+        "groupId": "ff9f2d0ef34230b0428f",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "DMARC failure report sender address."
+      }
+    },
+    {
+      "slot": "form/x:DmarcReportSettings/field/failureSubject",
+      "original": "Subject",
+      "ru": "Тема отчёта (Subject)",
+      "decision": "translate",
+      "review": {
+        "groupId": "7d2912a5eabd92b85cac",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "DMARC failure report subject."
+      }
+    },
+    {
+      "slot": "form/x:DsnReportSettings/field/fromAddress",
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)",
+      "decision": "translate",
+      "review": {
+        "groupId": "28b0540d733a30fcc2b7",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers",
+          "security-action-or-unit-review"
+        ],
+        "rationale": "DSN report sender address; preserve header marker."
+      }
+    },
+    {
+      "slot": "form/x:ElasticSearchStore/field/url",
+      "original": "URL",
+      "ru": "URL сервера",
+      "decision": "translate",
+      "review": {
+        "groupId": "89b863cd8cfea6d036aa",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Search store endpoint label, not its value."
+      }
+    },
+    {
+      "slot": "form/x:MaskedEmail/field/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "d41ca0d5a604ae4a3ba5",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Masked email enabled boolean."
+      }
+    },
+    {
+      "slot": "form/x:MeilisearchStore/field/url",
+      "original": "URL",
+      "ru": "URL сервера",
+      "decision": "translate",
+      "review": {
+        "groupId": "89b863cd8cfea6d036aa",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Search store endpoint label, not its value."
+      }
+    },
+    {
+      "slot": "form/x:MtaInboundThrottle/field/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "e5e3920fec2c670ce261",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Inbound throttle enabled boolean."
+      }
+    },
+    {
+      "slot": "form/x:MtaOutboundThrottle/field/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "e5e3920fec2c670ce261",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Outbound throttle enabled boolean."
+      }
+    },
+    {
+      "slot": "form/x:MtaQueueQuota/field/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "e5e3920fec2c670ce261",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Queue quota enabled boolean."
+      }
+    },
+    {
+      "slot": "form/x:RedisStore/field/url",
+      "original": "URL",
+      "ru": "URL сервера",
+      "decision": "translate",
+      "review": {
+        "groupId": "bad6781f92df4f7eaa1a",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Redis server endpoint label, not credentials or value."
+      }
+    },
+    {
+      "slot": "form/x:S3StoreCustomRegion/field/url",
+      "original": "URL",
+      "ru": "URL конечной точки",
+      "decision": "translate",
+      "review": {
+        "groupId": "89b863cd8cfea6d036aa",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Custom S3 endpoint label, not its value."
+      }
+    },
+    {
+      "slot": "form/x:SenderAuth/field/spfFromVerify",
+      "original": "MAIL FROM",
+      "ru": "Проверка MAIL FROM",
+      "decision": "translate",
+      "review": {
+        "groupId": "45885aad215d8f5dc0b6",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "SPF envelope sender command, not header From."
+      }
+    },
+    {
+      "slot": "form/x:SmimeTrustAnchor/field/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "80d9e004e54c61b39d75",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Trust anchor enabled boolean, no trust change."
+      }
+    },
+    {
+      "slot": "form/x:SpamSettings/field/greylistFor",
+      "original": "Duration",
+      "ru": "Длительность хранения в сером списке",
+      "decision": "translate",
+      "review": {
+        "groupId": "f4d7f8e1f64bfdc1f41b",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Greylist sender-recipient retention period."
+      }
+    },
+    {
+      "slot": "form/x:SpamTrainingSample/field/blobId",
+      "original": "Message",
+      "ru": "Письмо",
+      "decision": "translate",
+      "review": {
+        "groupId": "269d46212a5bff8de725",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Stored email content reference, not event message."
+      }
+    },
+    {
+      "slot": "form/x:SpamTrainingSample/field/from",
+      "original": "From",
+      "ru": "Отправитель (From)",
+      "decision": "translate",
+      "review": {
+        "groupId": "a961fa4d49a08e1218d4",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers",
+          "observed-lookup-slot-mismatch-or-raw-path"
+        ],
+        "rationale": "Sample email sender; own FieldRow/DynamicView consumers wired; group flag inherited from x:ArchivedEmail."
+      }
+    },
+    {
+      "slot": "form/x:SpamTrainingSample/field/subject",
+      "original": "Subject",
+      "ru": "Тема письма (Subject)",
+      "decision": "translate",
+      "review": {
+        "groupId": "fa177cac7efd6c4fcbb9",
+        "reviewFlags": [
+          "custom-or-compact-renderer-needs-adapter",
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers",
+          "observed-lookup-slot-mismatch-or-raw-path"
+        ],
+        "rationale": "Sample email subject; own FieldRow/DynamicView consumers wired; flags inherited from x:ArchivedEmail and VacationResponse."
+      }
+    },
+    {
+      "slot": "form/x:SpfReportSettings/field/fromAddress",
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)",
+      "decision": "translate",
+      "review": {
+        "groupId": "28b0540d733a30fcc2b7",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers",
+          "security-action-or-unit-review"
+        ],
+        "rationale": "SPF report sender address; preserve header marker."
+      }
+    },
+    {
+      "slot": "form/x:SpfReportSettings/field/subject",
+      "original": "Subject",
+      "ru": "Тема отчёта (Subject)",
+      "decision": "translate",
+      "review": {
+        "groupId": "09babbd8447548a4e08c",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "SPF report subject."
+      }
+    },
+    {
+      "slot": "form/x:TaskCalendarItipContents/field/from",
+      "original": "From",
+      "ru": "Отправитель (From)",
+      "decision": "translate",
+      "review": {
+        "groupId": "37e2b75716ea72f99211",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "iTIP message sender, not a date range."
+      }
+    },
+    {
+      "slot": "form/x:TlsReportSettings/field/fromAddress",
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)",
+      "decision": "translate",
+      "review": {
+        "groupId": "28b0540d733a30fcc2b7",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers",
+          "security-action-or-unit-review"
+        ],
+        "rationale": "TLS report sender address; preserve header marker."
+      }
+    },
+    {
+      "slot": "list/x:MaskedEmail/column/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "b2e2e871d50d6f49c425",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Masked email status column, not an action."
+      }
+    },
+    {
+      "slot": "list/x:MtaInboundThrottle/column/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "b57b761f4d05479fad2e",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Inbound throttle status column."
+      }
+    },
+    {
+      "slot": "list/x:MtaOutboundThrottle/column/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "b57b761f4d05479fad2e",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Outbound throttle status column."
+      }
+    },
+    {
+      "slot": "list/x:MtaQueueQuota/column/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "b57b761f4d05479fad2e",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Queue quota status column."
+      }
+    },
+    {
+      "slot": "list/x:SmimeTrustAnchor/column/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "6716367f54abfd25f84d",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Trust anchor status column."
+      }
+    },
+    {
+      "slot": "list/x:SpamDnsblServer/column/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "a46983e2c738572cbfe1",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "DNSBL server status column."
+      }
+    },
+    {
+      "slot": "list/x:SpamRule/column/enable",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "a46983e2c738572cbfe1",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Spam rule status column."
+      }
+    },
+    {
+      "slot": "list/x:SpamTrainingSample/column/from",
+      "original": "From",
+      "ru": "Отправитель (From)",
+      "decision": "translate",
+      "review": {
+        "groupId": "6b922672197152e27443",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Email sender column, same meaning as sample form."
+      }
+    },
+    {
+      "slot": "list/x:SpamTrainingSample/column/subject",
+      "original": "Subject",
+      "ru": "Тема письма (Subject)",
+      "decision": "translate",
+      "review": {
+        "groupId": "68bbd7ab917c9940c4f8",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Email subject column, same meaning as sample form."
+      }
+    },
+    {
+      "slot": "variant/x:AlertEmail/Disabled/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate",
+      "review": {
+        "groupId": "ccd82987f41df3e04333",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Email alert disabled mode."
+      }
+    },
+    {
+      "slot": "variant/x:AlertEmail/Enabled/label",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "18a409c031c67bb52338",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Email alert enabled mode."
+      }
+    },
+    {
+      "slot": "variant/x:AlertEvent/Disabled/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate",
+      "review": {
+        "groupId": "ccd82987f41df3e04333",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Event alert disabled mode."
+      }
+    },
+    {
+      "slot": "variant/x:AlertEvent/Enabled/label",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "18a409c031c67bb52338",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Event alert enabled mode."
+      }
+    },
+    {
+      "slot": "variant/x:Asn/Disabled/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate",
+      "review": {
+        "groupId": "a63b32f0cff05bf35a50",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "ASN lookup disabled mode, distinct from DNS and resource."
+      }
+    },
+    {
+      "slot": "variant/x:CacheSwap/Disabled/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate",
+      "review": {
+        "groupId": "bdc688a54c51d3d13833",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Cache swap disabled mode."
+      }
+    },
+    {
+      "slot": "variant/x:Coordinator/Disabled/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate",
+      "review": {
+        "groupId": "01711567d7e24fd9fdb1",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Coordinator disabled mode."
+      }
+    },
+    {
+      "slot": "variant/x:MetricsOtel/Disabled/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate",
+      "review": {
+        "groupId": "ccd82987f41df3e04333",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "OpenTelemetry collector disabled mode."
+      }
+    },
+    {
+      "slot": "variant/x:MetricsPrometheus/Disabled/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate",
+      "review": {
+        "groupId": "ccd82987f41df3e04333",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Prometheus collector disabled mode."
+      }
+    },
+    {
+      "slot": "variant/x:MetricsPrometheus/Enabled/label",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "18a409c031c67bb52338",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Prometheus collector enabled mode."
+      }
+    },
+    {
+      "slot": "variant/x:SpamAi/Enable/label",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "079e80fe31799be1ff09",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "AI spam analysis enabled mode, no activation."
+      }
+    },
+    {
+      "slot": "variant/x:SpamAiLearn/Enable/label",
+      "original": "Enabled",
+      "ru": "Включено",
+      "decision": "translate",
+      "review": {
+        "groupId": "079e80fe31799be1ff09",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "AI spam learning enabled mode, no activation."
+      }
+    },
+    {
+      "slot": "variant/x:SpamClassifierModel/Disabled/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate",
+      "review": {
+        "groupId": "cb32420f0a9657d2c358",
+        "reviewFlags": [
+          "multiple-contextual-translations",
+          "no-translation-in-audited-consumers"
+        ],
+        "rationale": "Spam classifier model disabled mode."
+      }
+    }
+  ]
+}

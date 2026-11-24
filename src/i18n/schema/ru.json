@@ -1422,6 +1422,10 @@
       "original": "LZ4",
       "ru": "Сжатие LZ4"
     },
+    "enum/CompressionAlgo/none/label": {
+      "original": "None",
+      "ru": "Без сжатия"
+    },
     "enum/CompressionAlgo/zstd/label": {
       "original": "Zstandard",
       "ru": "Сжатие Zstandard"
@@ -1753,6 +1757,10 @@
     "enum/HeaderProtection/noConfidentiality/label": {
       "original": "Protected, headers visible",
       "ru": "Защищены, заголовки видимы"
+    },
+    "enum/HeaderProtection/none/label": {
+      "original": "None",
+      "ru": "Не защищать заголовки"
     },
     "enum/IncludeInAvailability/all/label": {
       "original": "Include all events",
@@ -3718,6 +3726,10 @@
       "original": "Sender Domain",
       "ru": "Домен отправителя"
     },
+    "enum/MtaRequiredOrOptional/disable/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
+    },
     "enum/MtaRequiredOrOptional/optional/label": {
       "original": "Optional",
       "ru": "Необязательно"
@@ -3745,6 +3757,10 @@
     "enum/MtaStage/mail/label": {
       "original": "MAIL FROM",
       "ru": "Команда MAIL FROM"
+    },
+    "enum/MtaStage/rcpt/label": {
+      "original": "RCPT TO",
+      "ru": "Команда RCPT TO"
     },
     "enum/NetworkListenerProtocol/imap/label": {
       "original": "IMAP4",
@@ -3841,6 +3857,10 @@
     "enum/OidcOpaqueTokenValidation/introspection/label": {
       "original": "Token introspection (RFC 7662)",
       "ru": "Интроспекция токена (RFC 7662)"
+    },
+    "enum/OidcOpaqueTokenValidation/none/label": {
+      "original": "Disabled",
+      "ru": "Проверка отключена"
     },
     "enum/OidcOpaqueTokenValidation/userInfo/label": {
       "original": "UserInfo endpoint (no audience or scope checks)",
@@ -6610,6 +6630,10 @@
       "original": "Permissions replace all inherited permissions",
       "ru": "Заменить унаследованные права"
     },
+    "enum/PolicyEnforcement/disable/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
+    },
     "enum/PolicyEnforcement/enforce/label": {
       "original": "Enforce",
       "ru": "Принудительное применение"
@@ -6809,6 +6833,10 @@
     "enum/SearchEmailField/headers/label": {
       "original": "Email Headers",
       "ru": "Заголовки писем"
+    },
+    "enum/SearchEmailField/subject/label": {
+      "original": "Subject",
+      "ru": "Тема письма (Subject)"
     },
     "enum/SearchEmailField/to/label": {
       "original": "To Address",
@@ -7642,6 +7670,10 @@
       "original": "Debug - Errors, warnings, info and debug are logged",
       "ru": "Debug — ошибки, предупреждения, информационные и отладочные сообщения"
     },
+    "enum/TracingLevelOpt/disable/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
+    },
     "enum/TracingLevelOpt/error/label": {
       "original": "Error - Only errors are logged",
       "ru": "Error — только ошибки"
@@ -7957,6 +7989,10 @@
     "field/x:AccountSettings/locale/description": {
       "original": "Preferred locale for the account",
       "ru": "Предпочтительная локаль учётной записи"
+    },
+    "field/x:AccountSettings/timeZone/description": {
+      "original": "Preferred time zone for the account",
+      "ru": "Предпочтительный часовой пояс учётной записи"
     },
     "field/x:AcmeProvider/accountHashPrefix/description": {
       "original": "The prefix for hashed account URIs advertised by the ACME server in its directory, used to build DNS-PERSIST-01 validation records.",
@@ -8345,6 +8381,10 @@
     "field/x:AsnDns/zoneIpV6/description": {
       "original": "The DNS zone to query for IPv6 ASN and geolocation data.",
       "ru": "Зона DNS для запросов ASN и данных геолокации адресов IPv6."
+    },
+    "field/x:AsnResource/allowInvalidCerts/description": {
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли использование недействительных сертификатов SSL"
     },
     "field/x:AsnResource/asnUrls/description": {
       "original": "URLs to fetch CSV file containing the IP to ASN mappings.",
@@ -13018,6 +13058,10 @@
       "original": "Specifies the maximum number of results that a WebDAV query can return",
       "ru": "Задаёт максимальное число результатов, возвращаемых запросом WebDAV."
     },
+    "field/x:WebHook/allowInvalidCerts/description": {
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли использование недействительных сертификатов SSL"
+    },
     "field/x:WebHook/discardAfter/description": {
       "original": "The duration after which the webhook will be discarded if it cannot be delivered",
       "ru": "Время, по истечении которого недоставленное уведомление веб-хука будет отброшено"
@@ -13682,6 +13726,10 @@
       "original": "The value of 'metric_name' is %{metric_name}%",
       "ru": "Значение 'metric_name': %{metric_name}%"
     },
+    "form/x:AlertEmailProperties/field/fromAddress": {
+      "original": "From",
+      "ru": "Адрес отправителя (From)"
+    },
     "form/x:AlertEmailProperties/field/fromName": {
       "original": "From Name",
       "ru": "Имя отправителя"
@@ -13690,6 +13738,10 @@
       "original": "Alert subsystem",
       "ru": "Подсистема оповещений"
     },
+    "form/x:AlertEmailProperties/field/subject": {
+      "original": "Subject",
+      "ru": "Тема письма (Subject)"
+    },
     "form/x:AlertEmailProperties/field/subject/placeholder": {
       "original": "Warning: metric has a value of %{metric_name}%",
       "ru": "Предупреждение: значение метрики %{metric_name}%"
@@ -13697,6 +13749,10 @@
     "form/x:AlertEmailProperties/field/to": {
       "original": "To",
       "ru": "Кому"
+    },
+    "form/x:AlertEventProperties/field/eventMessage": {
+      "original": "Message",
+      "ru": "Сообщение события"
     },
     "form/x:AlertEventProperties/field/eventMessage/placeholder": {
       "original": "The value of 'metric_name' is %{metric_name}%",
@@ -13809,6 +13865,10 @@
     "form/x:Application/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:Application/field/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
     },
     "form/x:Application/field/oauthClientId": {
       "original": "OAuth Client ID",
@@ -15138,6 +15198,10 @@
       "original": "Signature",
       "ru": "Подпись"
     },
+    "form/x:DkimReportSettings/field/fromAddress": {
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)"
+    },
     "form/x:DkimReportSettings/field/fromName": {
       "original": "From Name",
       "ru": "Имя отправителя (From)"
@@ -15145,6 +15209,10 @@
     "form/x:DkimReportSettings/field/sendFrequency": {
       "original": "Send rate",
       "ru": "Частота отправки"
+    },
+    "form/x:DkimReportSettings/field/subject": {
+      "original": "Subject",
+      "ru": "Тема отчёта (Subject)"
     },
     "form/x:DkimReportSettings/section/section-0": {
       "original": "DKIM Reporting",
@@ -15410,6 +15478,10 @@
       "original": "Signature",
       "ru": "Подпись"
     },
+    "form/x:DmarcReportSettings/field/aggregateFromAddress": {
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)"
+    },
     "form/x:DmarcReportSettings/field/aggregateFromName": {
       "original": "From Name",
       "ru": "Имя отправителя (From)"
@@ -15426,6 +15498,10 @@
       "original": "Signature",
       "ru": "Подпись"
     },
+    "form/x:DmarcReportSettings/field/failureFromAddress": {
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)"
+    },
     "form/x:DmarcReportSettings/field/failureFromName": {
       "original": "From Name",
       "ru": "Имя отправителя (From)"
@@ -15433,6 +15509,10 @@
     "form/x:DmarcReportSettings/field/failureSendFrequency": {
       "original": "Send rate",
       "ru": "Частота отправки"
+    },
+    "form/x:DmarcReportSettings/field/failureSubject": {
+      "original": "Subject",
+      "ru": "Тема отчёта (Subject)"
     },
     "form/x:DmarcReportSettings/field/maxAggregateReportSize": {
       "original": "Max Report Size",
@@ -16618,6 +16698,10 @@
       "original": "Signature",
       "ru": "Подпись"
     },
+    "form/x:DsnReportSettings/field/fromAddress": {
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)"
+    },
     "form/x:DsnReportSettings/field/fromName": {
       "original": "From Name",
       "ru": "Имя отправителя (From)"
@@ -16661,6 +16745,10 @@
     "form/x:ElasticSearchStore/field/timeout": {
       "original": "Timeout",
       "ru": "Время ожидания"
+    },
+    "form/x:ElasticSearchStore/field/url": {
+      "original": "URL",
+      "ru": "URL сервера"
     },
     "form/x:ElasticSearchStore/section/section-0": {
       "original": "Configuration",
@@ -18258,6 +18346,10 @@
       "original": "Email Prefix",
       "ru": "Префикс почтового адреса"
     },
+    "form/x:MaskedEmail/field/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
     "form/x:MaskedEmail/field/expiresAt": {
       "original": "Expiration Date",
       "ru": "Дата окончания срока"
@@ -18313,6 +18405,10 @@
     "form/x:MeilisearchStore/field/timeout": {
       "original": "Timeout",
       "ru": "Время ожидания"
+    },
+    "form/x:MeilisearchStore/field/url": {
+      "original": "URL",
+      "ru": "URL сервера"
     },
     "form/x:MeilisearchStore/section/section-0": {
       "original": "Configuration",
@@ -18874,6 +18970,10 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "form/x:MtaInboundThrottle/field/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
     "form/x:MtaInboundThrottle/field/key": {
       "original": "Keys",
       "ru": "Ключи"
@@ -18986,6 +19086,10 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "form/x:MtaOutboundThrottle/field/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
     "form/x:MtaOutboundThrottle/field/key": {
       "original": "Keys",
       "ru": "Ключи"
@@ -19005,6 +19109,10 @@
     "form/x:MtaQueueQuota/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:MtaQueueQuota/field/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
     },
     "form/x:MtaQueueQuota/field/key": {
       "original": "Keys",
@@ -20354,6 +20462,10 @@
       "original": "Wait Timeout",
       "ru": "Время ожидания соединения из пула"
     },
+    "form/x:RedisStore/field/url": {
+      "original": "URL",
+      "ru": "URL сервера"
+    },
     "form/x:RedisStore/section/section-0": {
       "original": "Configuration",
       "ru": "Конфигурация"
@@ -20521,6 +20633,10 @@
     "form/x:S3StoreCustomRegion/field/region": {
       "original": "Region",
       "ru": "Регион"
+    },
+    "form/x:S3StoreCustomRegion/field/url": {
+      "original": "URL",
+      "ru": "URL конечной точки"
     },
     "form/x:Search/field/defaultLanguage": {
       "original": "Default Language",
@@ -20801,6 +20917,10 @@
     "form/x:SenderAuth/field/spfEhloVerify": {
       "original": "EHLO",
       "ru": "Проверка EHLO"
+    },
+    "form/x:SenderAuth/field/spfFromVerify": {
+      "original": "MAIL FROM",
+      "ru": "Проверка MAIL FROM"
     },
     "form/x:SenderAuth/section/section-0": {
       "original": "DKIM Verification",
@@ -21133,6 +21253,10 @@
     "form/x:SmimeTrustAnchor/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:SmimeTrustAnchor/field/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
     },
     "form/x:SmimeTrustAnchor/field/expiresAt": {
       "original": "Expiration Date",
@@ -21686,6 +21810,10 @@
       "original": "Enable spam filtering",
       "ru": "Включить фильтрацию спама"
     },
+    "form/x:SpamSettings/field/greylistFor": {
+      "original": "Duration",
+      "ru": "Длительность хранения в сером списке"
+    },
     "form/x:SpamSettings/field/maxAttachmentText": {
       "original": "Attachment text limit",
       "ru": "Лимит текста вложений"
@@ -21774,6 +21902,10 @@
       "original": "Account",
       "ru": "Учётная запись"
     },
+    "form/x:SpamTrainingSample/field/blobId": {
+      "original": "Message",
+      "ru": "Письмо"
+    },
     "form/x:SpamTrainingSample/field/deleteAfterUse": {
       "original": "Delete After Training",
       "ru": "Удалить после обучения"
@@ -21782,9 +21914,17 @@
       "original": "Expires At",
       "ru": "Действует до"
     },
+    "form/x:SpamTrainingSample/field/from": {
+      "original": "From",
+      "ru": "Отправитель (From)"
+    },
     "form/x:SpamTrainingSample/field/isSpam": {
       "original": "Is Spam",
       "ru": "Спам"
+    },
+    "form/x:SpamTrainingSample/field/subject": {
+      "original": "Subject",
+      "ru": "Тема письма (Subject)"
     },
     "form/x:SpamTrainingSample/section/section-0": {
       "original": "Training Sample",
@@ -21798,6 +21938,10 @@
       "original": "Signature",
       "ru": "Подпись"
     },
+    "form/x:SpfReportSettings/field/fromAddress": {
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)"
+    },
     "form/x:SpfReportSettings/field/fromName": {
       "original": "From Name",
       "ru": "Имя отправителя (From)"
@@ -21805,6 +21949,10 @@
     "form/x:SpfReportSettings/field/sendFrequency": {
       "original": "Send rate",
       "ru": "Частота отправки"
+    },
+    "form/x:SpfReportSettings/field/subject": {
+      "original": "Subject",
+      "ru": "Тема отчёта (Subject)"
     },
     "form/x:SpfReportSettings/section/section-0": {
       "original": "SPF Authentication Failure Reporting",
@@ -22045,6 +22193,10 @@
     "form/x:TaskCalendarAlarmNotification/section/section-2": {
       "original": "Status",
       "ru": "Состояние"
+    },
+    "form/x:TaskCalendarItipContents/field/from": {
+      "original": "From",
+      "ru": "Отправитель (From)"
     },
     "form/x:TaskCalendarItipContents/field/iCalendarData": {
       "original": "iCalendar Data",
@@ -22545,6 +22697,10 @@
     "form/x:TlsReportSettings/field/dkimSignDomain": {
       "original": "Signature",
       "ru": "Подпись"
+    },
+    "form/x:TlsReportSettings/field/fromAddress": {
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)"
     },
     "form/x:TlsReportSettings/field/fromName": {
       "original": "From Name",
@@ -24022,6 +24178,10 @@
       "original": "Email Address",
       "ru": "Адрес электронной почты"
     },
+    "list/x:MaskedEmail/column/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
     "list/x:MaskedEmail/column/forDomain": {
       "original": "Associated Domain",
       "ru": "Связанный домен"
@@ -24274,6 +24434,10 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "list/x:MtaInboundThrottle/column/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
     "list/x:MtaInboundThrottle/plural": {
       "original": "throttles",
       "ru": "ограничения частоты"
@@ -24318,6 +24482,10 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "list/x:MtaOutboundThrottle/column/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
     "list/x:MtaOutboundThrottle/plural": {
       "original": "throttles",
       "ru": "ограничения частоты"
@@ -24333,6 +24501,10 @@
     "list/x:MtaOutboundThrottle/title": {
       "original": "Outbound Rate Limits",
       "ru": "Ограничения скорости отправки"
+    },
+    "list/x:MtaQueueQuota/column/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
     },
     "list/x:MtaQueueQuota/column/messages": {
       "original": "Max Messages",
@@ -24794,6 +24966,10 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "list/x:SmimeTrustAnchor/column/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
     "list/x:SmimeTrustAnchor/column/expiresAt": {
       "original": "Expires At",
       "ru": "Действует до"
@@ -24821,6 +24997,10 @@
     "list/x:SpamDnsblServer/column/@type": {
       "original": "Scope",
       "ru": "Область применения"
+    },
+    "list/x:SpamDnsblServer/column/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
     },
     "list/x:SpamDnsblServer/column/name": {
       "original": "Rule ID",
@@ -24882,6 +25062,10 @@
       "original": "Scope",
       "ru": "Область применения"
     },
+    "list/x:SpamRule/column/enable": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
     "list/x:SpamRule/column/name": {
       "original": "Rule ID",
       "ru": "Идентификатор правила (ID)"
@@ -24942,9 +25126,17 @@
       "original": "Expires At",
       "ru": "Действует до"
     },
+    "list/x:SpamTrainingSample/column/from": {
+      "original": "From",
+      "ru": "Отправитель (From)"
+    },
     "list/x:SpamTrainingSample/column/isSpam": {
       "original": "Is Spam",
       "ru": "Спам"
+    },
+    "list/x:SpamTrainingSample/column/subject": {
+      "original": "Subject",
+      "ru": "Тема письма (Subject)"
     },
     "list/x:SpamTrainingSample/filter/accountId": {
       "original": "Account",
@@ -26594,6 +26786,26 @@
       "original": "Application Management: Update applications",
       "ru": "Управление приложениями: Обновить приложение"
     },
+    "variant/x:AlertEmail/Disabled/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
+    },
+    "variant/x:AlertEmail/Enabled/label": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
+    "variant/x:AlertEvent/Disabled/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
+    },
+    "variant/x:AlertEvent/Enabled/label": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
+    "variant/x:Asn/Disabled/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
+    },
     "variant/x:Asn/Dns/label": {
       "original": "DNS Lookup",
       "ru": "Поиск через DNS"
@@ -26706,6 +26918,10 @@
       "original": "Blob store",
       "ru": "Хранилище BLOB-объектов"
     },
+    "variant/x:CacheSwap/Disabled/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
+    },
     "variant/x:CacheSwap/InMemory/label": {
       "original": "In-memory store (Stalwart Keep or Redis)",
       "ru": "Хранилище в памяти (Stalwart Keep или Redis)"
@@ -26757,6 +26973,10 @@
     "variant/x:Coordinator/Default/label": {
       "original": "Use in-memory store (Stalwart Keep or Redis only)",
       "ru": "Использовать хранилище в памяти (только Stalwart Keep или Redis)"
+    },
+    "variant/x:Coordinator/Disabled/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
     },
     "variant/x:Coordinator/Kafka/label": {
       "original": "Kafka",
@@ -27046,9 +27266,21 @@
       "original": "SQLite",
       "ru": "Хранилище SQLite"
     },
+    "variant/x:MetricsOtel/Disabled/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
+    },
     "variant/x:MetricsOtel/Grpc/label": {
       "original": "gRPC",
       "ru": "Протокол gRPC"
+    },
+    "variant/x:MetricsPrometheus/Disabled/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
+    },
+    "variant/x:MetricsPrometheus/Enabled/label": {
+      "original": "Enabled",
+      "ru": "Включено"
     },
     "variant/x:MetricsStore/Default/label": {
       "original": "Use data store",
@@ -27414,11 +27646,23 @@
       "original": "Disabled",
       "ru": "Отключено"
     },
+    "variant/x:SpamAi/Enable/label": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
     "variant/x:SpamAiLearn/Disable/label": {
       "original": "Disabled",
       "ru": "Отключено"
     },
+    "variant/x:SpamAiLearn/Enable/label": {
+      "original": "Enabled",
+      "ru": "Включено"
+    },
     "variant/x:SpamAiWebSearch/Disable/label": {
+      "original": "Disabled",
+      "ru": "Отключено"
+    },
+    "variant/x:SpamClassifierModel/Disabled/label": {
       "original": "Disabled",
       "ru": "Отключено"
     },

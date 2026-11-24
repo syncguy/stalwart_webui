@@ -318,6 +318,25 @@ assert.equal(batchTextSafe('SPF MAIL FROM and EHLO','SPF MAIL FROM и HELO',34),
 assert.equal(batchTextSafe('OpenPGP and S/MIME','OpenPGP и S/MIME',34),true);
 assert.equal(batchTextSafe('OpenPGP and S/MIME','OpenPGP',34),false);
 
+const stage35=packets.find(p=>p.stage===35);
+if(stage35){
+  assert.equal(stage35.entries.length,61);
+  assert.equal(new Set(stage35.entries.map(e=>e.original)).size,13);
+  assert.equal(new Set(stage35.entries.map(e=>e.review.groupId)).size,43);
+  assert.equal(stage35.baseline,'af554d4bb3f3bf8b5c9cc1365ab82553fd5e8e72');
+  assert.equal(stage35.baselineCatalogSha256,'03ca6f4bb8ec0f50ed82d095bbcee2117ceaf8ce8b6eb23713ee44115cf80b65');
+  assert.deepEqual(stage35.scope,[{"section":"Account","screens":["x:AccountSettings","x:MaskedEmail","x:SpamTrainingSample"]},{"section":"Management","screens":["x:Account/User","x:Task","x:Task/TaskFailed"]},{"section":"Settings","screens":["x:Alert","x:Application","x:Asn","x:BlobStore","x:Cache","x:Coordinator","x:Directory","x:DkimReportSettings","x:DmarcReportSettings","x:DsnReportSettings","x:Email/EmailStorage","x:Encryption/EncryptionGateway","x:EventTracingLevel","x:FileStorage","x:InMemoryStore","x:Metrics/CollectorOtel","x:Metrics/CollectorPrometheus","x:MtaHook","x:MtaInboundThrottle","x:MtaMilter","x:MtaOutboundThrottle","x:MtaQueueQuota","x:MtaSts","x:MtaTlsStrategy","x:Search","x:SearchStore","x:SenderAuth","x:SmimeTrustAnchor","x:SpamAi","x:SpamClassifier","x:SpamDnsblServer","x:SpamRule","x:SpamSettings","x:SpfReportSettings","x:StoreLookup","x:TlsReportSettings","x:WebHook"]}]);
+  assert.equal(digest(stage35.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'ab1020f1f82d1932ec47866bcdd29d7da7fdee8827a6405f3e93d66428aabc5f');
+}
+assert.equal(batchTextSafe('From Address','Адрес отправителя (From)',35),true);
+assert.equal(batchTextSafe('From Address','Адрес отправителя',35),false);
+assert.equal(batchTextSafe('Subject','Тема письма (Subject)',35),true);
+assert.equal(batchTextSafe('Subject','Тема письма',35),false);
+assert.equal(batchTextSafe('Whether to allow invalid SSL certificates','Разрешать ли использование недействительных сертификатов SSL',35),true);
+assert.equal(batchTextSafe('Whether to allow invalid SSL certificates','Разрешать ли использование недействительных сертификатов',35),false);
+assert.equal(batchTextSafe('RCPT TO','Команда RCPT TO',35),true);
+assert.equal(batchTextSafe('RCPT TO','Команда MAIL FROM',35),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;

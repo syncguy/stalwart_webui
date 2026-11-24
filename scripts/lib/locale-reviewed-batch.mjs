@@ -111,13 +111,71 @@ export function eligibleRows(report,scope) {
     });
   });
 }
+// A one-time, pinned editorial closure of the Stage34 residual. The normal
+// eligibleRows path intentionally continues to reject every ambiguous group.
+export function reviewedAmbiguousRows(report,packet) {
+  assert.equal(packet.stage,35);
+  assert.equal(packet.baseline,'af554d4bb3f3bf8b5c9cc1365ab82553fd5e8e72');
+  assert.equal(packet.baselineCatalogSha256,'03ca6f4bb8ec0f50ed82d095bbcee2117ceaf8ce8b6eb23713ee44115cf80b65');
+  assert.equal(packet.status,'editor-reviewed');assert.equal(packet.apply,false);
+  const missing=report.rows.filter(r=>r.classification==='missing');
+  const pairDigest=rows=>digest(rows.map(r=>r.slot+'\0'+r.original+'\n').sort().join(''));
+  assert.equal(missing.length,61);
+  assert.equal(pairDigest(missing),'ab1020f1f82d1932ec47866bcdd29d7da7fdee8827a6405f3e93d66428aabc5f');
+  assert.equal(packet.entries.length,61);
+  assert.equal(pairDigest(packet.entries),pairDigest(missing));
+  assert.equal(new Set(packet.entries.map(e=>e.slot)).size,61);
+  const screens=new Map(),groups=new Map(),rows=new Map(missing.map(r=>[r.slot,r]));
+  for(const g of report.candidates)for(const id of g.rowIds){
+    const list=groups.get(id)??[];list.push(g);groups.set(id,list);
+  }
+  for(const e of packet.entries){
+    const r=rows.get(e.slot);assert.ok(r&&r.original===e.original);
+    assert.equal(r.catalogState,'missing');assert.equal(r.sourceConflict,false);
+    assert.ok(r.renderer.wired>0&&!r.renderer.unwired&&!r.renderer.review&&!r.intlUses&&r.usages.length);
+    const gs=groups.get(r.id)??[];assert.equal(gs.length,1);const g=gs[0];
+    assert.equal(g.ambiguous,true);assert.equal(g.reviewStatus,'pending');assert.equal(g.apply,false);
+    assert.ok(g.targets.every(t=>!t.catalogWrite));
+    assert.equal(e.review.groupId,g.id);assert.deepEqual(e.review.reviewFlags,[...g.reviewFlags].sort());
+    assert.ok(typeof e.review.rationale==='string'&&e.review.rationale.trim().length>=20);
+    for(const u of r.usages){
+      const c=report.usageContexts[u.context];
+      assert.equal(c.state,'wired');assert.equal(u.lookupSlot??r.slot,r.slot);
+      const set=screens.get(c.section)??new Set();set.add(c.screen);screens.set(c.section,set);
+    }
+  }
+  assert.deepEqual(packet.scope,[...screens].sort(([a],[b])=>a<b?-1:a>b?1:0).map(([section,set])=>({section,screens:[...set].sort()})));
+  assert.equal(eligibleRows(report,packet.scope).length,0);
+  return missing;
+}
 export function verifyReviewedBatch({packet,before,after,inputs,graph,makeSchema}) {
   assert.deepEqual(undoBatch(after,packet),before);
   const prevInputs={...inputs,catalog:before,schema:makeSchema(before)};
   const afterInputs={...inputs,catalog:after,schema:makeSchema(after)};
   const prev=compactReport(plan(prevInputs,graph)),next=compactReport(plan(afterInputs,graph));
-  const eligible=eligibleRows(prev,packet.scope),selected=new Map(eligible.map(r=>[r.slot,r]));
+  const eligible=packet.stage===35?reviewedAmbiguousRows(prev,packet):eligibleRows(prev,packet.scope),selected=new Map(eligible.map(r=>[r.slot,r]));
   assert.equal(selected.size,eligible.length);
+  if(packet.stage===35){
+    for(const change of [
+      p=>{p.stage=34;},p=>{p.apply=true;},p=>{p.baseline='0'.repeat(40);},
+      p=>{p.entries.pop();},p=>{p.entries[0].review.groupId='wrong';},
+      p=>{p.entries[0].review.reviewFlags=[];},p=>{p.entries[0].review.rationale='';},
+      p=>{p.scope[0].screens.pop();},p=>{p.entries[0].slot='form/x:ArchivedEmail/field/from';},
+    ]){
+      const mutated=structuredClone(packet);change(mutated);
+      assert.throws(()=>reviewedAmbiguousRows(prev,mutated));
+    }
+    // A group-level ambiguity decision must never authorize an unwired or
+    // unknown consumer, even when every other packet field is unchanged.
+    const r=selected.get('form/x:SpamTrainingSample/field/from');
+    const original=r.usages[0].lookupSlot;
+    try{r.usages[0].lookupSlot='form/x:ArchivedEmail/field/from';assert.throws(()=>reviewedAmbiguousRows(prev,packet));}
+    finally{if(original===undefined)delete r.usages[0].lookupSlot;else r.usages[0].lookupSlot=original;}
+    const state=prev.usageContexts[r.usages[0].context].state;
+    try{prev.usageContexts[r.usages[0].context].state='review';assert.throws(()=>reviewedAmbiguousRows(prev,packet));}
+    finally{prev.usageContexts[r.usages[0].context].state=state;}
+  }
+
   assert.deepEqual(packet.entries.map(e=>e.slot).sort(),[...selected.keys()].sort(),'Packet must cover exactly the eligible scope');
   const active=new Map(next.rows.map(r=>[r.id,r])),groupById=new Map();
   for(const g of prev.candidates)for(const id of g.rowIds)groupById.set(id,g);
@@ -134,7 +192,7 @@ export function verifyReviewedBatch({packet,before,after,inputs,graph,makeSchema
       assert.equal(inputs.permission.permissionDisplayLabel(permissionId,e.original),e.ru);
       assert.ok(textSafe(e.original,e.ru),'Protected placeholder mismatch: '+e.slot);
     }else assert.ok(batchTextSafe(e.original,e.ru,packet.stage),'Protected marker mismatch: '+e.slot);
-    if(packet.stage===34&&['enum/HeaderProtection/baseline/label','enum/HeaderProtection/noConfidentiality/label'].includes(e.slot)){
+    if((packet.stage===34&&['enum/HeaderProtection/baseline/label','enum/HeaderProtection/noConfidentiality/label'].includes(e.slot))||(packet.stage===35&&e.slot==='enum/HeaderProtection/none/label')){
       assert.equal(inputs.options.headerProtectionOptionLabel(e.original),e.ru,'Prior header protection wording changed: '+e.slot);
     }
     assert.equal(active.get(r.id).classification,'translated','Display path not fully translated: '+e.slot);
@@ -154,5 +212,6 @@ export function verifyReviewedBatch({packet,before,after,inputs,graph,makeSchema
   assert.equal(next.summary.classification.translated,prev.summary.classification.translated+packet.entries.length);
   assert.equal(next.summary.classification.missing,prev.summary.classification.missing-packet.entries.length);
   for(const k of Object.keys(prev.summary.classification))if(k!=='translated'&&k!=='missing')assert.equal(next.summary.classification[k],prev.summary.classification[k]);
+  if(packet.stage===35){assert.equal(next.summary.classification.missing,0);assert.equal(eligibleRows(next,packet.scope).length,0);}
   return {before:prev.summary,after:next.summary,eligible:eligible.length};
 }

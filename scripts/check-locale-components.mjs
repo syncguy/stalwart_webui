@@ -1728,11 +1728,13 @@ if(catalog.entries['enum/ClusterTaskType/accountMaintenance/label']){
         language=lang;hash=activeHash;select33=undefined;options33=[];
         const localized=lang==='ru'&&activeHash===pin.schemaHash;
         const html=render(VariantSelect,variantProps);
-        const label=v=>localized&&!(variantScope==='x:Asn'&&v.name==='Disabled')?ru('variant/'+variantScope+'/'+v.name+'/label'):v.label;
+        const label=v=>localized&&catalog.entries['variant/'+variantScope+'/'+v.name+'/label']?ru('variant/'+variantScope+'/'+v.name+'/label'):v.label;
         for(const v of variants){
           const slot='variant/'+variantScope+'/'+v.name+'/label';
           if(variantScope==='x:Asn'&&v.name==='Disabled'){
-            assert.equal(v.label,'Disabled');assert.ok(!catalog.entries[slot],slot);
+            assert.equal(v.label,'Disabled');
+            if(catalog.entries[slot])assert.deepEqual(catalog.entries[slot],{original:'Disabled',ru:'Отключено'});
+            else assert.ok(!catalog.entries[slot],slot);
           }else assert.equal(v.label,original(slot));
           assert.ok(html.includes(htmlText19(label(v))),slot);
           assert.ok(render(fieldValue20.VariantValue,{schema,objectName:variantScope,value:v.name}).includes(htmlText19(label(v))),slot);
@@ -2028,4 +2030,120 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
   assert.equal(enumCases34,13);assert.equal(enumLabels34,48);assert.equal(variantCases34,12);
   assert.equal(formCases34,50);assert.equal(columns34,2);
   console.log('PASS: Stage34 actual EnumWidget/EnumValue/VariantSelect/VariantValue/FormSections/FieldRow/ColumnHeader synthetic SSR; both pinned editions, prior headerProtection adapter wording, raw IDs and callbacks, unknown hash and raw split-form descriptions; no secret access, encryption, authentication, restoration, task execution or network');
+
+  // Stage35: every explicitly reviewed residual slot, on each actual pinned edition.
+  if(catalog.entries['enum/CompressionAlgo/none/label']){
+    const packet35=JSON.parse(read('scripts/data/stage35-ambiguous-missing-review.json'));
+    const instances=new Map(packet35.entries.map(e=>[e.slot,0]));
+    const counts={enum:0,variant:0,form:0,field:0,list:0};
+    let seenView;
+    const {DynamicView}=component('src/components/views/DynamicView.tsx',{
+      '@/components/ui/badge':{Badge:passthrough},
+      '@/components/values/FieldValue':{ValueRow:props=>{seenView=props;return h('div',null,props.label,props.description,String(props.value));}},
+      '@/lib/schemaResolver':resolver19,'@/lib/embeddedSchema':embedded19,
+    });
+    let views=0;
+    for(const pin of manifest19.schemas){
+      const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+      fixtureSchema19=schema;
+      const modes=[['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]];
+      for(const e of packet35.entries){
+        const [kind,key,part,name]=e.slot.split('/');
+        let present=false;
+        const snapshot=JSON.stringify({entry:e});
+        if(kind==='enum'){
+          const vs=resolver19.getEnum(schema,key),v=vs.find(v=>v.name===part);
+          if(!v)continue;
+          present=true;assert.equal(v.label,e.original,e.slot);const raw=JSON.stringify(vs);
+          const fieldName=key==='HeaderProtection'?'headerProtection':'synthetic';
+          let changed;
+          const props={type:{type:'enum',enumName:key,nullable:false},formField:{name:fieldName},value:v.name,onChange:x=>{changed=x;},readOnly:false,control:{}};
+          for(const [lang,activeHash] of modes){
+            language=lang;hash=activeHash;const local=lang==='ru'&&activeHash===pin.schemaHash;
+            const expected=local?e.ru:e.original;
+            const html=render(EnumWidget34,props);
+            assert.equal(enumControl34.options.find(o=>o.value===v.name).label,expected,e.slot);
+            assert.deepEqual(Array.from(enumControl34.options,o=>o.value),Array.from(vs,x=>x.name));
+            assert.ok(html.includes(htmlText19(expected)),e.slot);
+            assert.ok(render(scalar20.EnumValue,{schema,enumName:key,value:v.name}).includes(htmlText19(expected)),e.slot);
+            if(local&&key==='HeaderProtection')assert.equal(optionLabels34.headerProtectionOptionLabel(e.original),e.ru);
+            const next=vs.find(x=>x.name!==v.name).name;enumControl34.onValueChange(next);
+            assert.equal(changed,next);assert.equal(props.value,v.name);assert.equal(JSON.stringify(vs),raw);
+          }
+        }else if(kind==='variant'){
+          const vs=schema.schemas[key]?.variants,v=vs?.find(v=>v.name===part);
+          if(!v)continue;
+          present=true;assert.equal(v.label,e.original,e.slot);const raw=JSON.stringify(vs);let changed;
+          const props={variantScope:key,variants:vs,value:v.name,onChange:x=>{changed=x;},readOnly:false,ariaLabel:'Synthetic type'};
+          const segmented=vs.length>1&&vs.length<=4&&vs.reduce((n,x)=>n+x.label.length,0)<=44;
+          for(const [lang,activeHash] of modes){
+            language=lang;hash=activeHash;selected34=undefined;options34=[];const local=lang==='ru'&&activeHash===pin.schemaHash;
+            const expected=local?e.ru:e.original,html=render(VariantSelect,props);
+            assert.ok(html.includes(htmlText19(expected)),e.slot);
+            assert.ok(render(fieldValue20.VariantValue,{schema,objectName:key,value:v.name}).includes(htmlText19(expected)),e.slot);
+            if(segmented){
+              const control=find34(VariantSelect(props),n=>typeof n.type==='function'&&n.type.name==='SegmentedVariants')[0];
+              assert.ok(control,e.slot);
+              const radios=find34(control.type(control.props),n=>n.type==='button'&&n.props.role==='radio');
+              assert.deepEqual(Array.from(control.props.variants,x=>x.name),Array.from(vs,x=>x.name));
+              assert.equal(radios[vs.indexOf(v)].props.children,expected);
+              assert.equal(radios[vs.indexOf(v)].props['aria-checked'],true);
+              const index=vs.findIndex(x=>x.name!==v.name);radios[index].props.onClick();assert.equal(changed,vs[index].name);
+            }else{
+              assert.equal(selected34.value,v.name);assert.deepEqual(Array.from(options34,x=>x.value),Array.from(vs,x=>x.name));
+              assert.equal(options34.find(x=>x.value===v.name).children,expected);
+              const next=vs.find(x=>x.name!==v.name).name;selected34.onValueChange(next);assert.equal(changed,next);
+            }
+            assert.equal(props.value,v.name);assert.equal(JSON.stringify(vs),raw);
+          }
+        }else if(kind==='form'||kind==='field'){
+          const fieldName=kind==='form'?name:part,form=schema.forms[key],field=schema.fields[key]?.properties[fieldName];
+          if(!form||!field)continue;
+          const section=form.sections.find(s=>s.fields.some(f=>f.name===fieldName));assert.ok(section,e.slot);
+          const ff=section.fields.find(f=>f.name===fieldName);
+          present=true;assert.equal(kind==='form'?ff.label:field.description,e.original,e.slot);
+          const sectionKey='section-'+form.sections.indexOf(section);
+          const sections=[{key:sectionKey,title:section.title,fields:[{formField:ff,field}]}];
+          const value=fieldName==='enable'||fieldName==='allowInvalidCerts'?false:'synthetic-value',edited=typeof value==='boolean'?true:'edited-value';
+          const data={[fieldName]:value},raw=JSON.stringify({sections,data});let changed;
+          const props={sections,formKey:key,data,errors:{},readOnly:false,onFieldChange:(n,v)=>{changed=[n,v];}};
+          for(const [lang,activeHash] of modes){
+            language=lang;hash=activeHash;
+            const expected=lang==='ru'&&activeHash===pin.schemaHash?e.ru:e.original;
+            const html=render(FormSections,props);assert.ok(html.includes(htmlText19(expected)),e.slot);
+            assert.equal(capturedField.formField.name,fieldName);assert.equal(capturedField.value,value);
+            if(field.update!=='serverSet'){capturedField.onChange(edited);assert.deepEqual(changed,[fieldName,edited]);}
+            assert.equal(JSON.stringify({sections,data}),raw);
+            if(key==='x:SpamTrainingSample'&&['from','subject'].includes(fieldName)){
+              seenView=undefined;
+              const view=render(DynamicView,{schema,objectName:key,viewName:key,data,visibleFields:new Set([fieldName])});
+              assert.ok(view.includes(htmlText19(expected)),e.slot);
+              assert.equal(seenView.label,expected);assert.equal(seenView.value,value);
+              assert.equal(JSON.stringify({sections,data}),raw);
+            }
+          }
+          if(key==='x:SpamTrainingSample'&&['from','subject'].includes(fieldName))views++;
+        }else if(kind==='list'){
+          const column=schema.lists[key]?.columns.find(c=>c.name===name);
+          if(!column)continue;
+          present=true;assert.equal(column.label,e.original,e.slot);let sorted;
+          const raw=JSON.stringify(column),props={column,listKey:key,sortable:true,sort:null,onSort:x=>{sorted=x;}};
+          for(const [lang,activeHash] of modes){
+            language=lang;hash=activeHash;const expected=lang==='ru'&&activeHash===pin.schemaHash?e.ru:e.original;
+            assert.ok(render(ColumnHeader,props).includes(htmlText19(expected)),e.slot);
+            assert.ok(render(ColumnHeader,{...props,sortable:false}).includes(htmlText19(expected)),e.slot);
+            ColumnHeader(props).props.children.props.onClick();assert.equal(sorted,name);
+            assert.equal(JSON.stringify(column),raw);
+          }
+        }else assert.fail(e.slot);
+        assert.ok(present,e.slot);instances.set(e.slot,instances.get(e.slot)+1);counts[kind]++;
+        assert.equal(JSON.stringify({entry:e}),snapshot);
+      }
+    }
+    assert.equal(instances.size,61);assert.equal([...instances.values()].filter(x=>x===2).length,52);
+    assert.equal([...instances.values()].filter(x=>x===1).length,9);
+    assert.equal(Object.values(counts).reduce((a,b)=>a+b,0),113);assert.equal(views,4);
+    console.log('PASS: Stage35 all 61 residual slots, 113 edition instances '+JSON.stringify(counts)+'; exact raw IDs and callbacks, HeaderProtection parity, SpamTrainingSample DynamicView 4 cases, unknown hash and EN fallback; no server or browser');
+  }
+
 }
