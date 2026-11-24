@@ -15,6 +15,18 @@ assert.equal(packets[0].stage,19);
 assert.equal(packets[0].entries.length,146);
 assert.equal(packets[0].baseline,'b727b90b766a669964e891d814e1e31ce4039b24');
 assert.deepEqual(packets[0].scope,[{section:'Account',screens:['Mailbox','Calendar','AddressBook']},{section:'Settings',screens:['x:CalendarScheduling','x:CalendarAlarm','x:WebDav']}]);
+const stage20=packets.find(p=>p.stage===20);
+if(stage20){
+  assert.equal(stage20.entries.length,341);
+  assert.equal(stage20.baseline,'1797163a2db3c6d6bdc34f9c375fbfed6a496ab3');
+  assert.deepEqual(stage20.scope,[{section:'Management',screens:['x:ArfExternalReport','x:DmarcExternalReport','x:DmarcInternalReport','x:QueuedMessage','x:TlsExternalReport','x:TlsInternalReport']}]);
+}
+assert.equal(batchTextSafe('SMTP enhanced status code "4.7.1" (RFC 6710)','Код SMTP "4.7.1" (RFC 6710)',20),true);
+assert.equal(batchTextSafe('SMTP enhanced status code "4.7.1" (RFC 6710)','Код SMTP "5.7.1" (RFC 6710)',20),false);
+assert.equal(batchTextSafe('MAIL FROM and RCPT TO','MAIL FROM и RCPT TO',20),true);
+assert.equal(batchTextSafe('MAIL FROM and RCPT TO','MAIL FROM и MAIL FROM',20),false);
+assert.equal(batchTextSafe('MTA-STS policy','Политика TLS',20),false);
+assert.equal(batchTextSafe('DNS Tree Walk method (RFC 9989)','Метод обхода дерева DNS (RFC 7489)',20),false);
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;
