@@ -553,3 +553,121 @@ for(const pin of manifest19.schemas){
   }
 }
 console.log('PASS: Stage23 actual EnumWidget/EnumValue and FormSections/FieldRow SSR for ACME, DKIM, password algorithms and security settings; raw IDs and synthetic callbacks unchanged; no network or key operations');
+
+
+// Stage24: real metric selector, populated synthetic forms and numeric rendering.
+// Leaf controls remain mocked; no DOM, live metric collection, JMAP or network.
+if(catalog.entries['enum/MetricType/acme.auth-error/label']){
+  let checks24=[],labels24=new Map(),pills24=[];
+  const {EnumMultiSelect}=component('src/components/forms/widgets/EnumWidgets.tsx',{
+    'lucide-react':{Search:icon},
+    '@/components/ui/button':{Button:passthrough},
+    '@/components/ui/checkbox':{Checkbox:props=>{checks24.push(props);return null;}},
+    '@/components/ui/input':{Input:()=>null},
+    '@/components/ui/label':{Label:props=>{labels24.set(props.htmlFor,React.Children.toArray(props.children).filter(c=>typeof c==='string').join(''));return h('label',{htmlFor:props.htmlFor},props.children);}},
+    '@/components/ui/combobox':{Combobox:()=>null},
+    '@/components/ui/popover':{Popover:passthrough,PopoverContent:passthrough,PopoverTrigger:passthrough},
+    '@/components/common/HelpTooltip':{HelpTooltip:()=>null},
+    '@/hooks/usePermissions':{usePermissionCheckers:()=>({hasPermission:()=>true})},
+    '@/lib/schemaResolver':resolver19,
+    '@/components/forms/formContext':{useFormContext:()=>({schema:fixtureSchema19})},
+    '@/hooks/useSchemaText':{useSchemaText,useCanTranslateSchema:()=>language==='ru'&&catalog.meta.schemaHashes.includes(hash)},
+    '@/i18n/schemaPermissionText':{permissionDisplayLabel:(_id,label)=>label},
+    '@/components/ui/comboboxSearch':{filterComboboxOptions:options=>options},
+    '@/i18n/schemaOptionLabels':{headerProtectionOptionLabel:x=>x,localeOptionLabel:(_id,label)=>label},
+    '@/components/forms/widgets/RemovablePill':{RemovablePill:props=>{pills24.push(props);return h('span',null,props.children);}},
+  });
+  let editions24=0,forms24=new Set();
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;editions24++;
+    const variants=resolver19.getEnum(schema,'MetricType');
+    assert.equal(variants.length,399);
+    const items=['delivery.total-time','server.memory'],next='queue.count';
+    const raw=JSON.stringify({variants,items});
+    let event;
+    const props={enumName:'MetricType',items,onChange:v=>{event=v;},readOnly:false,control:{id:'metrics'}};
+    for(const lang of ['ru','en','ru']){
+      language=lang;checks24=[];labels24=new Map();pills24=[];
+      const html=render(EnumMultiSelect,props);
+      assert.equal(checks24.length,399);
+      assert.equal(labels24.size,399);
+      for(const [i,v] of variants.entries()){
+        const slot='enum/MetricType/'+v.name+'/label';
+        assert.equal(v.label,original(slot));
+        const id='metrics-dd-'+v.name.replace(/[^A-Za-z0-9_-]/g,'_');
+        assert.equal(checks24[i].id,id);
+        assert.equal(checks24[i].checked,items.includes(v.name));
+        assert.equal(labels24.get(id),lang==='ru'?ru(slot):v.label,slot);
+      }
+      for(const [i,name] of items.entries()){
+        const slot='enum/MetricType/'+name+'/label';
+        assert.equal(pills24[i].label,lang==='ru'?ru(slot):original(slot));
+        assert.ok(html.includes(htmlText19(pills24[i].label)));
+        assert.ok(render(scalar20.EnumValue,{schema,enumName:'MetricType',value:name}).includes(htmlText19(pills24[i].label)));
+      }
+      checks24[variants.findIndex(v=>v.name===next)].onCheckedChange();
+      assert.deepEqual(Array.from(event),[...items,next]);
+      pills24[0].onRemove();
+      assert.deepEqual(Array.from(event),[items[1]]);
+      assert.equal(JSON.stringify({variants,items}),raw);
+    }
+    hash='unknown';language='ru';checks24=[];labels24=new Map();pills24=[];
+    render(EnumMultiSelect,props);
+    assert.equal(pills24[0].label,original('enum/MetricType/'+items[0]+'/label'));
+    hash=pin.schemaHash;
+    for(const [formKey,name,value,changed] of [
+      ['x:Metrics','serviceName','synthetic-metrics','changed-metrics'],
+      ['x:MetricsOtelGrpc','interval','15s','30s'],
+      ['x:MetricsOtelHttp','timeout','10s','20s'],
+      ['x:MetricsOtelGrpc','url','http://localhost:4317','http://localhost:4318'],
+    ]){
+      const form=schema.forms[formKey],field=schema.fields[formKey]?.properties[name];
+      if(!form||!field)continue;
+      forms24.add(formKey+'/'+name);
+      const section=form.sections.find(s=>s.fields.some(f=>f.name===name));
+      const formField=section.fields.find(f=>f.name===name);
+      const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+      assert.equal(formField.label,original(slot));
+      assert.equal(field.description,original(desc));
+      const sectionKey='section-'+form.sections.indexOf(section);
+      const sections=[{key:sectionKey,title:section.title,fields:[{formField,field}]}];
+      const data={[name]:value},snapshot=JSON.stringify({sections,data});
+      let event;
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const html=render(FormSections,{sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}});
+        for(const key of [slot,desc])assert.ok(html.includes(htmlText19(lang==='ru'?ru(key):original(key))),key);
+        assert.ok(html.includes(htmlText19(value)));
+        assert.equal(capturedField.formField.name,name);
+        assert.equal(capturedField.value,value);
+        capturedField.onChange(changed);
+        assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({sections,data}),snapshot);
+      }
+    }
+  }
+  assert.equal(editions24,2);
+  assert.equal(forms24.size,4);
+  const numericCalls24=[];
+  const numeric24=component('src/components/values/ScalarValues.tsx',{
+    'lucide-react':{Check:icon,Loader2:icon,X:icon},
+    '@/components/ui/badge':{Badge:badge20},
+    '@/data/objectOptions':{useDisplayName:()=>({label:null,loading:false})},
+    '@/lib/format':{
+      formatDuration:v=>{numericCalls24.push(['duration',v]);return v+' ms';},
+      formatSize:v=>{numericCalls24.push(['size',v]);return v+' B';},
+      formatNumber:v=>{numericCalls24.push(['number',v]);return String(v);},
+    },
+    '@/lib/schemaResolver':resolver19,'@/lib/jmapUtils':{SECRET_MASK:'synthetic-secret-mask'},
+    '@/lib/embeddedSchema':embedded19,
+  });
+  for(const lang of ['ru','en','ru']){
+    language=lang;numericCalls24.length=0;
+    assert.ok(render(numeric24.NumberValue,{value:1500,format:'duration'}).includes('1500 ms'));
+    assert.ok(render(numeric24.NumberValue,{value:4096,format:'size'}).includes('4096 B'));
+    assert.ok(render(numeric24.NumberValue,{value:17,format:'integer'}).includes('17'));
+    assert.deepEqual(numericCalls24,[['duration',1500],['size',4096],['number',17]]);
+  }
+  console.log('PASS: Stage24 actual EnumMultiSelect (all 399 options), EnumValue, FormSections/FieldRow and NumberValue SSR; both pinned schemas, RU/EN/RU and unknown hash, raw IDs, callbacks and numeric/unit dispatch unchanged; leaf formatters mocked, no live metrics or network');
+}
