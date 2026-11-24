@@ -972,7 +972,7 @@ if(catalog.entries['enum/SieveCapability/body/label']){
     }
     models27++;
     const modelScope='x:SpamClassifierModel',modelVariants=schema.schemas[modelScope].variants;
-    assert.equal(modelVariants.length,2);
+    assert.deepEqual(Array.from(modelVariants,v=>v.name).sort(),['Disabled','FtrlCcfh','FtrlFh']);
     const modelRaw=JSON.stringify(modelVariants);
     for(const lang of ['ru','en','ru']){
       language=lang;select27=undefined;options27=[];
@@ -980,8 +980,11 @@ if(catalog.entries['enum/SieveCapability/body/label']){
       assert.equal(select27.value,'FtrlFh');
       assert.deepEqual(Array.from(options27,v=>v.value),Array.from(modelVariants,v=>v.name));
       for(const v of modelVariants){
-        const slot='variant/'+modelScope+'/'+v.name+'/label';
-        const label=lang==='ru'?ru(slot):original(slot);
+        const slot='variant/'+modelScope+'/'+v.name+'/label',entry=catalog.entries[slot];
+        // Disabled is an existing ambiguous candidate, not an accepted stage27 entry.
+        assert.equal(v.name==='Disabled',!entry);
+        if(entry)assert.equal(entry.original,v.label);
+        const label=lang==='ru'&&entry?entry.ru:v.label;
         assert.ok(html.includes(htmlText19(label)),slot);
         assert.ok(render(fieldValue20.VariantValue,{schema,objectName:modelScope,value:v.name}).includes(htmlText19(label)),slot);
       }
