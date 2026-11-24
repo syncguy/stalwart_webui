@@ -478,9 +478,9 @@
       "reason": "Stage18: редакторски проверенная точная привязка schemaHash + slot + original; runtime активирован, React/browser приёмка отдельно."
     }
   ],
-  "baselineSource": "0329795476291873dafd373178b982b8ba974cd4",
+  "baselineSource": "9c6736e5b12ef1642f92444e56ca1bb2b42657a7",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "da3783aa6c1f8922ba5491a4fdf830c0e585af11e7f79ace13cd504777ca640f",
+    "src/i18n/schema/ru.json": "7e76c2395bab34aa4a2b87a7681c741eddcf61f5d0d290f420366381ef495161",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
     "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
@@ -491,7 +491,8 @@
     "scripts/data/stage19-groupware-review.json": "4b052b7ea7c4bb4884fdf4abed1a53572836b641df4e1b8d6553f76277d8ecaf",
     "scripts/data/stage20-mail-reports-queue-review.json": "6d9ff541d5b8145a37c7e303f0899ee378d73252c88e4d7fb93f011b3049a98f",
     "scripts/data/stage21-maintenance-diagnostics-review.json": "844956e5f19720ca8942b27c705b21572f8e72fc305714c6098ebe5038cd8910",
-    "scripts/data/stage22-external-services-review.json": "026cd7e3ae2e06f2b660313bdc55e5a6f7424a6a5c6b05b202bc5f8c1114be30"
+    "scripts/data/stage22-external-services-review.json": "026cd7e3ae2e06f2b660313bdc55e5a6f7424a6a5c6b05b202bc5f8c1114be30",
+    "scripts/data/stage23-keys-security-review.json": "a5e9dedf6c92e5fa69ebc4e2e560b79b875db84ce9727ea768643e9a95bbed45"
   },
   "clientLiterals": [
     {
@@ -527,6 +528,7 @@
     "scripts/data/stage19-groupware-review.json",
     "scripts/data/stage20-mail-reports-queue-review.json",
     "scripts/data/stage21-maintenance-diagnostics-review.json",
-    "scripts/data/stage22-external-services-review.json"
+    "scripts/data/stage22-external-services-review.json",
+    "scripts/data/stage23-keys-security-review.json"
   ]
 }

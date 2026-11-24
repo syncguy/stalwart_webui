@@ -43,10 +43,12 @@ export function batchTextSafe(original,ru,stage=19) {
   const mailTokens=s=>[...s.matchAll(/\b(?:Authentication-Results|auth-failure|MTA-STS|TLS-RPT|MT-PRIORITY|MAIL FROM|RCPT TO|RFC \d+|hard fail|soft fail|DKIM|ADSP|DMARC|SPF|DANE|DNSSEC|DNS|TLSA|TLS|SMTP|HELO|EHLO|STARTTLS|WebPKI|ENVID|ORCPT|DSN|ARF|MX|MTA|TTL|IP|pct)\b|\bi=|"[0-9]+\.[0-9]+\.[0-9]+"/g)].map(m=>m[0]).sort();
   const maintenanceTokens=s=>[...s.matchAll(/\b(?:DKIM2|ARC|PTR|JSON|X-Spam-AI|S\/MIME|IMAP UIDs|ACME|OAuth|DAV|MIME|UTF-8|LZ4|Zstandard|ham)\b|"run"|MAIL FROM:<>/g)].map(m=>m[0]).sort();
   const externalTokens=s=>[...s.matchAll(/AI_<(?:CATEGORY|SIGNAL)>(?:_(?:HIGH|MEDIUM|LOW))?|\b(?:AI_UNCERTAIN|AI_|HIGH|MEDIUM|LOW|true|llm_prompt|Sieve|Azure OpenAI|OpenAI|llama\.cpp|vLLM|TypeSafe|OpenID Connect|Client ID Metadata Documents|JWTs?|PEM|ECDSA|HMAC|RSASSA-PSS|RSASSA-PKCS1-v1_5|MGF1|P-(?:256|384)|SHA-(?:256|384|512)|HTTPS|HTTP|SSL|URLs?|CSV|gzip|Gzipped|OAuth 2\.0)\b|\b\d+(?:\.\d+)?\b/g)].map(m=>({JWTs:'JWT',URLs:'URL',Gzipped:'gzip'})[m[0]]??m[0]).sort();
+  const securityTokens=s=>[...s.matchAll(/(?:>=|<) 10\^\d+|\b\d+/\d+\b|\b(?:DNS-PERSIST-01|DNS-01|HTTP-01|TLS-ALPN-01|SHA-1|AES-(?:128|192|256)-(?:CBC|GCM)|AES-GCM|ChaCha20-Poly1305|RSA-OAEP|RSA|OpenPGP|WKD|keys\.openpgp\.org|CA|CAA|accounturi|EAB|URIs?|SAN|Argon2id|Bcrypt|Pbkdf2|Scrypt|zxcvbn|API|Apple Mail|Thunderbird ESR|gpgsm|KMail|Microsoft Outlook|glob|[Bb]ase64|(?:Relaxed|Simple)/(?:Relaxed|Simple))\b/g)].map(m=>({URIs:'URI',Base64:'base64'})[m[0]]??m[0]).sort();
   return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
     (stage<20||json(mailTokens(original))===json(mailTokens(ru)))&&
     (stage<21||json(maintenanceTokens(original))===json(maintenanceTokens(ru)))&&
-    (stage<22||json(externalTokens(original))===json(externalTokens(ru)));
+    (stage<22||json(externalTokens(original))===json(externalTokens(ru)))&&
+    (stage<23||json(securityTokens(original))===json(securityTokens(ru)));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);

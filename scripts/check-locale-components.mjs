@@ -494,3 +494,62 @@ for(const pin of manifest19.schemas){
 }
 assert.equal(enterprise22,1,'AI settings expected only in pinned enterprise schema');
 console.log('PASS: Stage22 real FormSections/FieldRow, EnumWidget/EnumValue and VariantValue SSR for HTTP, OAuth and enterprise AI; raw values and callbacks unchanged, no actual network');
+
+
+// Stage23: key and certificate choices are display-only, with no real key material or network.
+for(const pin of manifest19.schemas){
+  const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+  hash=pin.schemaHash;
+  fixtureSchema19=schema;
+  for(const [enumName,selected,next] of [
+    ['AcmeChallengeType','DnsPersist01','Dns01'],
+    ['PasswordHashAlgorithm','argon2id','bcrypt'],
+    ['PasswordStrength','four','three'],
+    ['SymmetricCipher','aes256Gcm','chacha20Poly1305'],
+    ['DkimCanonicalization','relaxed/relaxed','simple/simple'],
+  ]){
+    const variants=resolver19.getEnum(schema,enumName);
+    const target=variants.find(v=>v.name===selected);
+    assert.ok(target&&variants.some(v=>v.name===next),enumName);
+    const slot='enum/'+enumName+'/'+selected+'/label';
+    assert.equal(target.label,original(slot));
+    const snapshot=JSON.stringify(variants);
+    let event;
+    const props={type:{type:'enum',enumName,nullable:false},formField:{name:'algorithm'},value:selected,onChange:v=>{event=v;},readOnly:false,control:{}};
+    for(const lang of ['ru','en','ru']){
+      language=lang;
+      const expected=htmlText19(lang==='ru'?ru(slot):original(slot));
+      assert.ok(render(EnumWidget,props).includes(expected),slot);
+      assert.equal(capturedCombo19.value,selected);
+      assert.deepEqual(Array.from(capturedCombo19.options,v=>v.value),Array.from(variants,v=>v.name));
+      capturedCombo19.onValueChange(next);
+      assert.equal(event,next);
+      assert.equal(props.value,selected);
+      assert.ok(render(scalar20.EnumValue,{schema,enumName,value:selected}).includes(expected),slot);
+      assert.equal(JSON.stringify(variants),snapshot);
+    }
+  }
+  for(const [formKey,name,value,changed] of [['x:AcmeProvider','reuseKey',false,true],['x:Authentication','minPasswordLength',16,20],['x:Security','authBanPeriod','15m','30m']]){
+    const form=schema.forms[formKey];
+    const section=form.sections.find(s=>s.fields.some(f=>f.name===name));
+    const formField=section.fields.find(f=>f.name===name),field=schema.fields[formKey].properties[name];
+    const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+    const sectionSlot='form/'+formKey+'/section/section-'+form.sections.indexOf(section);
+    assert.equal(formField.label,original(slot));
+    assert.equal(field.description,original(desc));
+    const sections=[{key:sectionSlot.split('/').at(-1),title:original(sectionSlot),fields:[{formField,field}]}];
+    const data={[name]:value},snapshot=JSON.stringify({sections,data});
+    let event;
+    for(const lang of ['ru','en','ru']){
+      language=lang;
+      const html=render(FormSections,{sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}});
+      for(const key of [slot,desc,sectionSlot])assert.ok(html.includes(htmlText19(lang==='ru'?ru(key):original(key))),key);
+      assert.equal(capturedField.formField.name,name);
+      assert.equal(capturedField.value,value);
+      capturedField.onChange(changed);
+      assert.deepEqual(event,[name,changed]);
+      assert.equal(JSON.stringify({sections,data}),snapshot);
+    }
+  }
+}
+console.log('PASS: Stage23 actual EnumWidget/EnumValue and FormSections/FieldRow SSR for ACME, DKIM, password algorithms and security settings; raw IDs and synthetic callbacks unchanged; no network or key operations');

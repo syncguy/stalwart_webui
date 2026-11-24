@@ -51,6 +51,18 @@ assert.equal(batchTextSafe('RSASSA-PSS using SHA-256 and MGF1 with SHA-256','RSA
 assert.equal(batchTextSafe('OAuth clients require at least 10 minutes','Клиентам OAuth требуется не менее 10 минут',22),true);
 assert.equal(batchTextSafe('OAuth clients require at least 10 minutes','Клиентам OAuth требуется не менее 1 минуты',22),false);
 assert.equal(batchTextSafe('HTTPS URL','HTTP URL',22),false);
+const stage23=packets.find(p=>p.stage===23);
+if(stage23){
+  assert.equal(stage23.entries.length,282);
+  assert.equal(stage23.baseline,'9c6736e5b12ef1642f92444e56ca1bb2b42657a7');
+  assert.deepEqual(stage23.scope,[{"section":"Settings","screens":["x:ExternalPublicKey","x:ExternalPublicKey/PendingExternalPublicKey","x:AcmeProvider","x:Certificate","x:SymmetricKey","x:SmimeTrustAnchor","x:Authentication","x:Security"]},{"section":"Account","screens":["x:PublicKey"]},{"section":"Management","screens":["x:DkimSignature"]}]);
+}
+assert.equal(batchTextSafe('DNS-PERSIST-01','Проверка DNS-PERSIST-01',23),true);
+assert.equal(batchTextSafe('DNS-PERSIST-01','Проверка DNS-01',23),false);
+assert.equal(batchTextSafe('AES-GCM with RSA-OAEP','AES-GCM с RSA-OAEP',23),true);
+assert.equal(batchTextSafe('AES-GCM with RSA-OAEP','AES-GCM с RSA',23),false);
+assert.equal(batchTextSafe('guesses >= 10^10','число попыток < 10^10',23),false);
+assert.equal(batchTextSafe('1/2 of remaining time','2/3 оставшегося срока',23),false);
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;

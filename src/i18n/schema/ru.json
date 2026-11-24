@@ -1122,6 +1122,38 @@
       "original": "User account",
       "ru": "Учётная запись пользователя"
     },
+    "enum/AcmeChallengeType/Dns01/label": {
+      "original": "DNS-01",
+      "ru": "Проверка DNS-01"
+    },
+    "enum/AcmeChallengeType/DnsPersist01/label": {
+      "original": "DNS-PERSIST-01",
+      "ru": "Проверка DNS-PERSIST-01"
+    },
+    "enum/AcmeChallengeType/Http01/label": {
+      "original": "HTTP-01",
+      "ru": "Проверка HTTP-01"
+    },
+    "enum/AcmeChallengeType/TlsAlpn01/label": {
+      "original": "TLS-ALPN-01",
+      "ru": "Проверка TLS-ALPN-01"
+    },
+    "enum/AcmeRenewBefore/R12/label": {
+      "original": "1/2 of the remaining time until expiration",
+      "ru": "1/2 оставшегося срока действия"
+    },
+    "enum/AcmeRenewBefore/R23/label": {
+      "original": "2/3 of the remaining time until expiration",
+      "ru": "2/3 оставшегося срока действия"
+    },
+    "enum/AcmeRenewBefore/R34/label": {
+      "original": "3/4 of the remaining time until expiration",
+      "ru": "3/4 оставшегося срока действия"
+    },
+    "enum/AcmeRenewBefore/R45/label": {
+      "original": "4/5 of the remaining time until expiration",
+      "ru": "4/5 оставшегося срока действия"
+    },
     "enum/AiOpenAiProfile/Azure/label": {
       "original": "Azure OpenAI",
       "ru": "Профиль Azure OpenAI"
@@ -1358,6 +1390,18 @@
       "original": "Remote server returned an unexpected SMTP response",
       "ru": "Удалённый сервер вернул неожиданный ответ SMTP"
     },
+    "enum/Dkim2Flag/feedback/label": {
+      "original": "Request feedback about how the message is handled during delivery",
+      "ru": "Запрашивать сведения об обработке сообщения при доставке"
+    },
+    "enum/Dkim2HashAlgorithm/sha256/label": {
+      "original": "SHA-256",
+      "ru": "Алгоритм SHA-256"
+    },
+    "enum/Dkim2HashAlgorithm/sha512/label": {
+      "original": "SHA-512",
+      "ru": "Алгоритм SHA-512"
+    },
     "enum/DkimAuthResult/fail/label": {
       "original": "DKIM signature verification failed",
       "ru": "Не удалось проверить подпись DKIM"
@@ -1385,6 +1429,46 @@
     "enum/DkimAuthResult/tempError/label": {
       "original": "Temporary error during verification",
       "ru": "Временная ошибка проверки"
+    },
+    "enum/DkimCanonicalization/relaxed/relaxed/label": {
+      "original": "Relaxed/Relaxed",
+      "ru": "Ослабленная/ослабленная (Relaxed/Relaxed)"
+    },
+    "enum/DkimCanonicalization/relaxed/simple/label": {
+      "original": "Relaxed/Simple",
+      "ru": "Ослабленная/простая (Relaxed/Simple)"
+    },
+    "enum/DkimCanonicalization/simple/relaxed/label": {
+      "original": "Simple/Relaxed",
+      "ru": "Простая/ослабленная (Simple/Relaxed)"
+    },
+    "enum/DkimCanonicalization/simple/simple/label": {
+      "original": "Simple/Simple",
+      "ru": "Простая/простая (Simple/Simple)"
+    },
+    "enum/DkimHash/sha1/label": {
+      "original": "SHA-1",
+      "ru": "Алгоритм SHA-1"
+    },
+    "enum/DkimHash/sha256/label": {
+      "original": "SHA-256",
+      "ru": "Алгоритм SHA-256"
+    },
+    "enum/DkimRotationStage/active/label": {
+      "original": "DKIM key is published in DNS and used for signing",
+      "ru": "Ключ DKIM опубликован в DNS и используется для подписи"
+    },
+    "enum/DkimRotationStage/pending/label": {
+      "original": "DKIM key is scheduled for DNS publication and not yet active",
+      "ru": "Ключ DKIM ожидает публикации в DNS и ещё не активен"
+    },
+    "enum/DkimRotationStage/retired/label": {
+      "original": "DKIM key has been removed from DNS and is pending deletion",
+      "ru": "Ключ DKIM удалён из DNS и ожидает удаления из хранилища"
+    },
+    "enum/DkimRotationStage/retiring/label": {
+      "original": "DKIM key has been superseded by a new key but still published in DNS",
+      "ru": "Ключ DKIM заменён новым ключом, но ещё опубликован в DNS"
     },
     "enum/DmarcActionDisposition/none/label": {
       "original": "No action taken",
@@ -1485,6 +1569,22 @@
     "enum/DmarcResult/unspecified/label": {
       "original": "Result not specified",
       "ru": "Результат не указан"
+    },
+    "enum/ExternalPublicKeyStatus/active/label": {
+      "original": "Active",
+      "ru": "Активен"
+    },
+    "enum/ExternalPublicKeyStatus/disabled/label": {
+      "original": "Disabled",
+      "ru": "Отключён"
+    },
+    "enum/ExternalPublicKeyStatus/pendingApproval/label": {
+      "original": "Pending approval (the current key stays in use)",
+      "ru": "Ожидает подтверждения (текущий ключ остаётся в использовании)"
+    },
+    "enum/ExternalPublicKeyStatus/rejected/label": {
+      "original": "Reject the replacement key",
+      "ru": "Отклонить заменяющий ключ"
     },
     "enum/FailureReportingOption/all/label": {
       "original": "Generate report if all authentication mechanisms fail",
@@ -1606,6 +1706,26 @@
       "original": "Type",
       "ru": "Тип"
     },
+    "enum/KeyTrust/discovered/label": {
+      "original": "Fetched from WKD or keys.openpgp.org",
+      "ru": "Получен из WKD или keys.openpgp.org"
+    },
+    "enum/KeyTrust/harvested/label": {
+      "original": "Harvested from authenticated mail without a CA chain",
+      "ru": "Получен из аутентифицированной почты без цепочки CA"
+    },
+    "enum/KeyTrust/manual/label": {
+      "original": "Manual",
+      "ru": "Добавлен вручную"
+    },
+    "enum/KeyTrust/unverified/label": {
+      "original": "Unverified",
+      "ru": "Не проверен"
+    },
+    "enum/KeyTrust/verified/label": {
+      "original": "Verified (CA chain or DNSSEC)",
+      "ru": "Проверен (цепочка CA или DNSSEC)"
+    },
     "enum/MessageFlag/authenticated/label": {
       "original": "Message was received from an authenticated session",
       "ru": "Сообщение получено в аутентифицированном сеансе"
@@ -1670,6 +1790,42 @@
       "original": "Same domain only",
       "ru": "Только тот же домен"
     },
+    "enum/PasswordHashAlgorithm/argon2id/label": {
+      "original": "Argon2id",
+      "ru": "Алгоритм Argon2id"
+    },
+    "enum/PasswordHashAlgorithm/bcrypt/label": {
+      "original": "Bcrypt",
+      "ru": "Алгоритм Bcrypt"
+    },
+    "enum/PasswordHashAlgorithm/pbkdf2/label": {
+      "original": "Pbkdf2",
+      "ru": "Алгоритм Pbkdf2"
+    },
+    "enum/PasswordHashAlgorithm/scrypt/label": {
+      "original": "Scrypt",
+      "ru": "Алгоритм Scrypt"
+    },
+    "enum/PasswordStrength/four/label": {
+      "original": "Very unguessable: strong protection from offline slow-hash scenario. (guesses >= 10^10)",
+      "ru": "Очень трудно подобрать: высокая устойчивость к автономному перебору с медленной хеш-функцией. (число попыток >= 10^10)"
+    },
+    "enum/PasswordStrength/one/label": {
+      "original": "Very guessable: protection from throttled online attacks. (guesses < 10^6)",
+      "ru": "Легко подобрать: защита от сетевого перебора с ограничением частоты. (число попыток < 10^6)"
+    },
+    "enum/PasswordStrength/three/label": {
+      "original": "Safely unguessable: moderate protection from offline slow-hash scenario. (guesses < 10^10)",
+      "ru": "Трудно подобрать: умеренная устойчивость к автономному перебору с медленной хеш-функцией. (число попыток < 10^10)"
+    },
+    "enum/PasswordStrength/two/label": {
+      "original": "Somewhat guessable: protection from unthrottled online attacks. (guesses < 10^8)",
+      "ru": "Относительно легко подобрать: защита от сетевого перебора без ограничения частоты. (число попыток < 10^8)"
+    },
+    "enum/PasswordStrength/zero/label": {
+      "original": "Too guessable: risky password. (guesses < 10^3)",
+      "ru": "Слишком легко подобрать: небезопасный пароль. (число попыток < 10^3)"
+    },
     "enum/PermissionsType/Inherit/label": {
       "original": "Inherited permissions",
       "ru": "Унаследованные права"
@@ -1681,6 +1837,38 @@
     "enum/PermissionsType/Replace/label": {
       "original": "Permissions replace all inherited permissions",
       "ru": "Заменить унаследованные права"
+    },
+    "enum/PublicKeyCapability/aead/label": {
+      "original": "Authenticated encryption",
+      "ru": "Аутентифицированное шифрование"
+    },
+    "enum/PublicKeyCapability/postQuantum/label": {
+      "original": "Post-quantum",
+      "ru": "Постквантовая криптография"
+    },
+    "enum/PublicKeyWarning/addressMismatch/label": {
+      "original": "None of the key's addresses belong to this account",
+      "ru": "Ни один адрес ключа не принадлежит этой учётной записи"
+    },
+    "enum/PublicKeyWarning/expiresSoon/label": {
+      "original": "Expires within 14 days",
+      "ru": "Срок действия истекает в течение 14 дней"
+    },
+    "enum/PublicKeyWarning/noKnownDecryptor/label": {
+      "original": "No common mail client can decrypt messages for this key type",
+      "ru": "Ни один распространённый почтовый клиент не может расшифровать сообщения для этого типа ключа"
+    },
+    "enum/PublicKeyWarning/postQuantumOnly/label": {
+      "original": "Only post-quantum keys, some clients cannot decrypt",
+      "ru": "Только постквантовые ключи, некоторые клиенты не могут расшифровать сообщения"
+    },
+    "enum/PublicKeyWarning/unusable/label": {
+      "original": "The key cannot be used for encryption",
+      "ru": "Ключ нельзя использовать для шифрования"
+    },
+    "enum/PublicKeyWarning/weakRsa/label": {
+      "original": "RSA key shorter than 3072 bits",
+      "ru": "Длина ключа RSA менее 3072 бит"
     },
     "enum/RecipientFlag/dsnSent/label": {
       "original": "A delivery status notification has been sent for this recipient",
@@ -1713,6 +1901,34 @@
     "enum/SharedObjectType/mailbox/label": {
       "original": "Mailbox",
       "ru": "Почтовый ящик"
+    },
+    "enum/SmimeCipher/aes128Cbc/label": {
+      "original": "AES-128-CBC",
+      "ru": "Шифр AES-128-CBC"
+    },
+    "enum/SmimeCipher/aes128Gcm/label": {
+      "original": "AES-128-GCM",
+      "ru": "Шифр AES-128-GCM"
+    },
+    "enum/SmimeCipher/aes192Cbc/label": {
+      "original": "AES-192-CBC",
+      "ru": "Шифр AES-192-CBC"
+    },
+    "enum/SmimeCipher/aes192Gcm/label": {
+      "original": "AES-192-GCM",
+      "ru": "Шифр AES-192-GCM"
+    },
+    "enum/SmimeCipher/aes256Cbc/label": {
+      "original": "AES-256-CBC",
+      "ru": "Шифр AES-256-CBC"
+    },
+    "enum/SmimeCipher/aes256Gcm/label": {
+      "original": "AES-256-GCM",
+      "ru": "Шифр AES-256-GCM"
+    },
+    "enum/SmimeCipher/chaCha20Poly1305/label": {
+      "original": "ChaCha20-Poly1305",
+      "ru": "Шифр ChaCha20-Poly1305"
     },
     "enum/SpamAiMode/Automatic/label": {
       "original": "Score the verdict",
@@ -1809,6 +2025,14 @@
     "enum/SpfDomainScope/unspecified/label": {
       "original": "Scope not specified",
       "ru": "Область проверки не указана"
+    },
+    "enum/SymmetricCipher/aes256Gcm/label": {
+      "original": "AES-256-GCM",
+      "ru": "Шифр AES-256-GCM"
+    },
+    "enum/SymmetricCipher/chacha20Poly1305/label": {
+      "original": "ChaCha20-Poly1305",
+      "ru": "Шифр ChaCha20-Poly1305"
     },
     "enum/TaskAccountMaintenanceType/purge/label": {
       "original": "Purge expired data from the account",
@@ -2310,6 +2534,66 @@
       "original": "May submit messages directly to this mailbox (IMAP ACL \"p\")",
       "ru": "Разрешено отправлять сообщения непосредственно в эту почтовую папку (IMAP ACL \"p\")."
     },
+    "field/x:AcmeProvider/accountHashPrefix/description": {
+      "original": "The prefix for hashed account URIs advertised by the ACME server in its directory, used to build DNS-PERSIST-01 validation records.",
+      "ru": "Префикс хешированных URI учётных записей, объявленный сервером ACME в своём каталоге и используемый для формирования проверочных записей DNS-PERSIST-01."
+    },
+    "field/x:AcmeProvider/accountKey/description": {
+      "original": "The account key used to authenticate with the ACME provider.",
+      "ru": "Ключ учётной записи для аутентификации у поставщика ACME."
+    },
+    "field/x:AcmeProvider/accountUri/description": {
+      "original": "The account URI returned by the ACME server after registration. Used for CAA record accounturi binding.",
+      "ru": "URI учётной записи, возвращённый сервером ACME после регистрации. Используется для привязки accounturi в записи CAA."
+    },
+    "field/x:AcmeProvider/caaIdentities/description": {
+      "original": "The CAA issuer domain names advertised by the ACME server in its directory, published in CAA issue records.",
+      "ru": "Доменные имена издателя CAA, объявленные сервером ACME в своём каталоге и публикуемые в записях CAA issue."
+    },
+    "field/x:AcmeProvider/challengeType/description": {
+      "original": "The ACME challenge type used to validate domain ownership",
+      "ru": "Тип проверки ACME для подтверждения владения доменом"
+    },
+    "field/x:AcmeProvider/contact/description": {
+      "original": "Contact email address, which is used for important communications regarding your ACME account and certificates",
+      "ru": "Контактный адрес электронной почты для важных уведомлений об учётной записи ACME и сертификатах"
+    },
+    "field/x:AcmeProvider/description/description": {
+      "original": "A name for this provider, used to identify it when selecting it for a domain",
+      "ru": "Имя поставщика для его идентификации при выборе для домена"
+    },
+    "field/x:AcmeProvider/directory/description": {
+      "original": "The URL of the ACME directory endpoint",
+      "ru": "URL конечной точки каталога ACME"
+    },
+    "field/x:AcmeProvider/eabHmacKey/description": {
+      "original": "The External Account Binding (EAB) HMAC key",
+      "ru": "Ключ HMAC для привязки внешней учётной записи (EAB)"
+    },
+    "field/x:AcmeProvider/eabKeyId/description": {
+      "original": "The External Account Binding (EAB) key ID",
+      "ru": "Идентификатор ключа для привязки внешней учётной записи (EAB)"
+    },
+    "field/x:AcmeProvider/issuerDomainNames/description": {
+      "original": "The issuer domain names advertised by the ACME server in its directory for DNS-PERSIST-01 validation records.",
+      "ru": "Доменные имена издателя, объявленные сервером ACME в своём каталоге для проверочных записей DNS-PERSIST-01."
+    },
+    "field/x:AcmeProvider/memberTenantId/description": {
+      "original": "Identifier for the tenant this ACME provider belongs to",
+      "ru": "Идентификатор арендатора, которому принадлежит поставщик ACME"
+    },
+    "field/x:AcmeProvider/preferredChain/description": {
+      "original": "Preferred certificate chain to use when multiple chains are available",
+      "ru": "Предпочтительная цепочка сертификатов, если доступны несколько цепочек"
+    },
+    "field/x:AcmeProvider/renewBefore/description": {
+      "original": "How long before expiration the certificate should be renewed",
+      "ru": "За какое время до истечения срока действия необходимо обновлять сертификат"
+    },
+    "field/x:AcmeProvider/reuseKey/description": {
+      "original": "Whether to reuse the existing private key when renewing a certificate",
+      "ru": "Использовать ли существующий закрытый ключ повторно при обновлении сертификата"
+    },
     "field/x:AddressBook/defaultDisplayName/description": {
       "original": "Specifies the default display name for a contact when it is created",
       "ru": "Задаёт отображаемое имя контакта по умолчанию при его создании."
@@ -2478,6 +2762,58 @@
       "original": "ARF format version",
       "ru": "Версия формата ARF"
     },
+    "field/x:Authentication/defaultAdminRoleIds/description": {
+      "original": "Default roles to assign for administrators.",
+      "ru": "Роли, назначаемые администраторам по умолчанию."
+    },
+    "field/x:Authentication/defaultGroupRoleIds/description": {
+      "original": "Default roles to assign for groups.",
+      "ru": "Роли, назначаемые группам по умолчанию."
+    },
+    "field/x:Authentication/defaultTenantRoleIds/description": {
+      "original": "Default roles to assign for tenants in multi-tenant environments.",
+      "ru": "Роли, назначаемые арендаторам по умолчанию в многопользовательской среде с несколькими арендаторами."
+    },
+    "field/x:Authentication/defaultUserRoleIds/description": {
+      "original": "Default roles to assign for accounts.",
+      "ru": "Роли, назначаемые учётным записям по умолчанию."
+    },
+    "field/x:Authentication/directoryId/description": {
+      "original": "External directory used for authentication, or null to use the internal directory",
+      "ru": "Внешний каталог для аутентификации или null для использования внутреннего каталога"
+    },
+    "field/x:Authentication/maxApiKeys/description": {
+      "original": "The default maximum number of API keys a user can create",
+      "ru": "Максимальное число ключей API, которые пользователь может создать, по умолчанию"
+    },
+    "field/x:Authentication/maxAppPasswords/description": {
+      "original": "The default maximum number of app passwords a user can create",
+      "ru": "Максимальное число паролей приложений, которые пользователь может создать, по умолчанию"
+    },
+    "field/x:Authentication/maxPasskeys/description": {
+      "original": "The default maximum number of passkeys a user can register",
+      "ru": "Максимальное число ключей доступа, которые пользователь может зарегистрировать, по умолчанию"
+    },
+    "field/x:Authentication/maxPasswordLength/description": {
+      "original": "Maximum length for user passwords in the internal directory.",
+      "ru": "Максимальная длина паролей пользователей во внутреннем каталоге."
+    },
+    "field/x:Authentication/minPasswordLength/description": {
+      "original": "Minimum length for user passwords in the internal directory.",
+      "ru": "Минимальная длина паролей пользователей во внутреннем каталоге."
+    },
+    "field/x:Authentication/minPasswordStrength/description": {
+      "original": "Minimum strength for user passwords in the internal directory, calculated using the zxcvbn algorithm.",
+      "ru": "Минимальная стойкость паролей пользователей во внутреннем каталоге, рассчитываемая алгоритмом zxcvbn."
+    },
+    "field/x:Authentication/passwordDefaultExpiry/description": {
+      "original": "Default expiration time for user passwords in the internal directory, after which the user will be required to change their password.",
+      "ru": "Срок действия паролей пользователей во внутреннем каталоге по умолчанию, после которого пользователю потребуется сменить пароль."
+    },
+    "field/x:Authentication/passwordHashAlgorithm/description": {
+      "original": "Password hashing algorithm to use for storing user passwords in the internal directory.",
+      "ru": "Алгоритм хеширования паролей для хранения паролей пользователей во внутреннем каталоге."
+    },
     "field/x:Calendar/availabilityRateLimit/description": {
       "original": "Maximum rate at which an account can query principal availability",
       "ru": "Максимальная частота запросов сведений о занятости пользователя от одной учётной записи."
@@ -2593,6 +2929,30 @@
     "field/x:CalendarScheduling/maxRecipients/description": {
       "original": "Sets the maximum number of recipients for outbound iTIP messages.",
       "ru": "Задаёт максимальное число получателей исходящих сообщений iTIP."
+    },
+    "field/x:Certificate/certificate/description": {
+      "original": "TLS certificate in PEM format",
+      "ru": "Сертификат TLS в формате PEM"
+    },
+    "field/x:Certificate/issuer/description": {
+      "original": "Certificate issuer",
+      "ru": "Издатель сертификата"
+    },
+    "field/x:Certificate/notValidAfter/description": {
+      "original": "Expiration date of the certificate",
+      "ru": "Дата окончания срока действия сертификата"
+    },
+    "field/x:Certificate/notValidBefore/description": {
+      "original": "Issuance date of the certificate",
+      "ru": "Дата выдачи сертификата"
+    },
+    "field/x:Certificate/privateKey/description": {
+      "original": "Private key in PEM format",
+      "ru": "Закрытый ключ в формате PEM"
+    },
+    "field/x:Certificate/subjectAlternativeNames/description": {
+      "original": "Subject Alternative Names (SAN) for the certificate",
+      "ru": "Альтернативные имена субъекта сертификата (SAN)"
     },
     "field/x:CertificateManagementProperties/acmeProviderId/description": {
       "original": "Identifier for the ACME provider managing certificates for this domain",
@@ -3078,6 +3438,58 @@
       "original": "Public key used for encrypting emails",
       "ru": "Открытый ключ для шифрования сообщений"
     },
+    "field/x:ExternalPublicKey/authenticatedEncryption/description": {
+      "original": "All mail clients holding the private key can read AES-GCM with RSA-OAEP. Applies to S/MIME RSA and elliptic-curve keys. Apple Mail and Thunderbird ESR cannot read it.",
+      "ru": "Все почтовые клиенты, использующие закрытый ключ, могут читать сообщения с AES-GCM и RSA-OAEP. Применимо к ключам S/MIME RSA и ключам на эллиптических кривых. Apple Mail и Thunderbird ESR не могут читать такие сообщения."
+    },
+    "field/x:ExternalPublicKey/blockedFingerprints/description": {
+      "original": "Fingerprints of keys that were revoked or rejected and are not accepted again",
+      "ru": "Отпечатки отозванных или отклонённых ключей, повторное принятие которых запрещено"
+    },
+    "field/x:ExternalPublicKey/capabilities/description": {
+      "original": "Encryption features supported by the key",
+      "ru": "Возможности шифрования, поддерживаемые ключом"
+    },
+    "field/x:ExternalPublicKey/description/description": {
+      "original": "Description of the key",
+      "ru": "Описание ключа"
+    },
+    "field/x:ExternalPublicKey/key/description": {
+      "original": "OpenPGP key or S/MIME certificate, armored, PEM, or binary encoded as base64; an S/MIME certificate may be followed by its intermediate certificates",
+      "ru": "Ключ OpenPGP или сертификат S/MIME в текстовом формате ASCII Armor, формате PEM либо двоичном формате с кодированием base64; после сертификата S/MIME могут следовать промежуточные сертификаты"
+    },
+    "field/x:ExternalPublicKey/kind/description": {
+      "original": "Type of key, taken from the key itself",
+      "ru": "Тип ключа, определённый по самому ключу"
+    },
+    "field/x:ExternalPublicKey/lastChecked/description": {
+      "original": "When the key was last confirmed by its discovery method or certificate check",
+      "ru": "Время последнего подтверждения ключа методом его обнаружения или проверкой сертификата"
+    },
+    "field/x:ExternalPublicKey/nextCheckAt/description": {
+      "original": "When the key is next fetched or checked",
+      "ru": "Время следующего получения или проверки ключа"
+    },
+    "field/x:ExternalPublicKey/nextKey/description": {
+      "original": "Replacement key waiting for approval, or for the current key to expire",
+      "ru": "Заменяющий ключ, ожидающий подтверждения или истечения срока действия текущего ключа"
+    },
+    "field/x:ExternalPublicKey/pinned/description": {
+      "original": "Never replace this key automatically",
+      "ru": "Никогда не заменять этот ключ автоматически"
+    },
+    "field/x:ExternalPublicKey/smimeCiphers/description": {
+      "original": "Content encryption algorithms advertised by the recipient in signed S/MIME messages",
+      "ru": "Алгоритмы шифрования содержимого, объявленные получателем в подписанных сообщениях S/MIME"
+    },
+    "field/x:ExternalPublicKey/smimeOaep/description": {
+      "original": "Whether the recipient advertised support for RSA-OAEP in signed S/MIME messages",
+      "ru": "Объявлял ли получатель поддержку RSA-OAEP в подписанных сообщениях S/MIME"
+    },
+    "field/x:ExternalPublicKey/smimeSignedAt/description": {
+      "original": "Signing time of the message the S/MIME capabilities were learned from",
+      "ru": "Время подписания сообщения, из которого получены сведения о возможностях S/MIME"
+    },
     "field/x:GroupAccount/aliases/description": {
       "original": "List of email aliases for the group",
       "ru": "Дополнительные почтовые адреса группы"
@@ -3390,6 +3802,62 @@
       "original": "List of permissions that are explicitly enabled.",
       "ru": "Список явно разрешённых прав доступа."
     },
+    "field/x:PublicKey/accountId/description": {
+      "original": "Identifier for the account this public key belongs to",
+      "ru": "Идентификатор учётной записи, которой принадлежит открытый ключ"
+    },
+    "field/x:PublicKey/authenticatedEncryption/description": {
+      "original": "All mail clients holding the private key can read AES-GCM with RSA-OAEP. Applies to S/MIME RSA and elliptic-curve keys. Apple Mail and Thunderbird ESR cannot read it.",
+      "ru": "Все почтовые клиенты, использующие закрытый ключ, могут читать сообщения с AES-GCM и RSA-OAEP. Применимо к ключам S/MIME RSA и ключам на эллиптических кривых. Apple Mail и Thunderbird ESR не могут читать такие сообщения."
+    },
+    "field/x:PublicKey/capabilities/description": {
+      "original": "Encryption features supported by the key",
+      "ru": "Возможности шифрования, поддерживаемые ключом"
+    },
+    "field/x:PublicKey/createdAt/description": {
+      "original": "Creation date of the public key",
+      "ru": "Дата создания открытого ключа"
+    },
+    "field/x:PublicKey/description/description": {
+      "original": "Description of the public key",
+      "ru": "Описание открытого ключа"
+    },
+    "field/x:PublicKey/emailAddresses/description": {
+      "original": "Email addresses bound to the key, taken from the key itself",
+      "ru": "Адреса электронной почты, привязанные к ключу и полученные из самого ключа"
+    },
+    "field/x:PublicKey/expiresAt/description": {
+      "original": "Expiration date of the key, taken from the key itself",
+      "ru": "Дата окончания срока действия ключа, полученная из самого ключа"
+    },
+    "field/x:PublicKey/fingerprints/description": {
+      "original": "Fingerprints of the keys or certificates used for encryption",
+      "ru": "Отпечатки ключей или сертификатов, используемых для шифрования"
+    },
+    "field/x:PublicKey/key/description": {
+      "original": "OpenPGP key or S/MIME certificate, armored, PEM, or binary encoded as base64",
+      "ru": "Ключ OpenPGP или сертификат S/MIME в текстовом формате ASCII Armor, формате PEM либо двоичном формате с кодированием base64"
+    },
+    "field/x:PublicKey/keyType/description": {
+      "original": "Type of key and its encryption algorithms, taken from the key itself",
+      "ru": "Тип ключа и его алгоритмы шифрования, определённые по самому ключу"
+    },
+    "field/x:PublicKey/kind/description": {
+      "original": "Type of key, taken from the key itself",
+      "ru": "Тип ключа, определённый по самому ключу"
+    },
+    "field/x:PublicKey/strictKeyWrapEncoding/description": {
+      "original": "Use the RFC 5753 key wrap encoding for elliptic-curve S/MIME certificates; required by gpgsm and KMail, may not be readable by Microsoft Outlook",
+      "ru": "Использовать кодирование обёртки ключа по RFC 5753 для сертификатов S/MIME на эллиптических кривых; требуется для gpgsm и KMail, может не поддерживаться Microsoft Outlook"
+    },
+    "field/x:PublicKey/warnings/description": {
+      "original": "Issues detected in the key that may affect security or compatibility",
+      "ru": "Проблемы ключа, которые могут влиять на безопасность или совместимость"
+    },
+    "field/x:PublicTextValue/value/description": {
+      "original": "Text value",
+      "ru": "Текстовое значение"
+    },
     "field/x:QueueExpiryAttempts/expiresAttempts/description": {
       "original": "Maximum number of delivery attempts before the message expires",
       "ru": "Максимальное число попыток доставки до истечения срока сообщения"
@@ -3526,6 +3994,42 @@
       "original": "Secret value of the credential",
       "ru": "Секретное значение учётных данных"
     },
+    "field/x:Security/abuseBanPeriod/description": {
+      "original": "The duration of the ban for abuse attempts",
+      "ru": "Продолжительность блокировки за попытки злоупотреблений"
+    },
+    "field/x:Security/abuseBanRate/description": {
+      "original": "The maximum number of abuse attempts (relaying or failed RCPT TO attempts) before the IP is banned",
+      "ru": "Максимальное число попыток злоупотреблений (ретрансляция или неудачные команды RCPT TO) до блокировки IP-адреса"
+    },
+    "field/x:Security/authBanPeriod/description": {
+      "original": "The duration of the ban for failed login attempts",
+      "ru": "Продолжительность блокировки за неудачные попытки входа"
+    },
+    "field/x:Security/authBanRate/description": {
+      "original": "The maximum number of failed login attempts before the IP is banned",
+      "ru": "Максимальное число неудачных попыток входа до блокировки IP-адреса"
+    },
+    "field/x:Security/loiterBanPeriod/description": {
+      "original": "The duration of the ban for loitering connections.",
+      "ru": "Продолжительность блокировки за неактивные соединения."
+    },
+    "field/x:Security/loiterBanRate/description": {
+      "original": "The maximum number of loitering disconnections before the IP is banned",
+      "ru": "Максимальное число разрывов неактивных соединений до блокировки IP-адреса"
+    },
+    "field/x:Security/scanBanPaths/description": {
+      "original": "The paths that will trigger an immediate ban if accessed. Each path should be a glob expression",
+      "ru": "Пути, обращение к которым вызывает немедленную блокировку. Каждый путь должен быть задан выражением glob"
+    },
+    "field/x:Security/scanBanPeriod/description": {
+      "original": "The duration of the ban for port scanning attempts",
+      "ru": "Продолжительность блокировки за попытки сканирования портов"
+    },
+    "field/x:Security/scanBanRate/description": {
+      "original": "The maximum number of port scanning attempts before the IP is banned",
+      "ru": "Максимальное число попыток сканирования портов до блокировки IP-адреса"
+    },
     "field/x:ServerResponse/responseCode/description": {
       "original": "SMTP response code from the remote server",
       "ru": "Код ответа SMTP удалённого сервера"
@@ -3541,6 +4045,26 @@
     "field/x:ServerResponse/responseMessage/description": {
       "original": "SMTP response message from the remote server",
       "ru": "Текст ответа SMTP удалённого сервера"
+    },
+    "field/x:SmimeTrustAnchor/certificate/description": {
+      "original": "CA certificate in PEM format",
+      "ru": "Сертификат CA в формате PEM"
+    },
+    "field/x:SmimeTrustAnchor/description/description": {
+      "original": "Description of the certificate authority",
+      "ru": "Описание удостоверяющего центра"
+    },
+    "field/x:SmimeTrustAnchor/enable/description": {
+      "original": "Whether the certificate authority is trusted",
+      "ru": "Считать ли удостоверяющий центр доверенным"
+    },
+    "field/x:SmimeTrustAnchor/expiresAt/description": {
+      "original": "Expiration date of the CA certificate, taken from the certificate itself",
+      "ru": "Дата окончания срока действия сертификата CA, полученная из самого сертификата"
+    },
+    "field/x:SmimeTrustAnchor/subject/description": {
+      "original": "Subject of the CA certificate, taken from the certificate itself",
+      "ru": "Субъект сертификата CA, полученный из самого сертификата"
     },
     "field/x:SpamAiCategory/description/description": {
       "original": "What messages belong to this category",
@@ -3745,6 +4269,22 @@
     "field/x:SubAddressingCustom/customRule/description": {
       "original": "Expression that defines custom sub-addressing rules for the domain",
       "ru": "Выражение, задающее собственные правила дополнительной адресации для домена"
+    },
+    "field/x:SymmetricKey/cipher/description": {
+      "original": "Encryption algorithm, which cannot be changed after the key is created",
+      "ru": "Алгоритм шифрования, который нельзя изменить после создания ключа"
+    },
+    "field/x:SymmetricKey/description/description": {
+      "original": "Description of the key",
+      "ru": "Описание ключа"
+    },
+    "field/x:SymmetricKey/fingerprint/description": {
+      "original": "Fingerprint of the key, used to detect a changed key file or environment variable",
+      "ru": "Отпечаток ключа для обнаружения изменений файла ключа или переменной окружения"
+    },
+    "field/x:SymmetricKey/key/description": {
+      "original": "Base64-encoded 256-bit key (for example, generated with `openssl rand -base64 32`), which cannot be changed after the key is created",
+      "ru": "256-битный ключ в кодировке Base64 (например, созданный командой `openssl rand -base64 32`), который нельзя изменить после создания"
     },
     "field/x:TaskBlobRecodeKey/keyId/description": {
       "original": "Key used to encrypt each blob",
@@ -4374,17 +4914,81 @@
       "original": "Account",
       "ru": "Учётная запись"
     },
+    "form/x:AcmeProvider/field/accountHashPrefix": {
+      "original": "Account hash prefix",
+      "ru": "Префикс хеша учётной записи"
+    },
+    "form/x:AcmeProvider/field/accountKey": {
+      "original": "Account Key",
+      "ru": "Ключ учётной записи"
+    },
+    "form/x:AcmeProvider/field/accountUri": {
+      "original": "Account URI",
+      "ru": "URI учётной записи"
+    },
+    "form/x:AcmeProvider/field/caaIdentities": {
+      "original": "CAA identities",
+      "ru": "Идентификаторы CAA"
+    },
+    "form/x:AcmeProvider/field/challengeType": {
+      "original": "Challenge type",
+      "ru": "Тип проверки"
+    },
+    "form/x:AcmeProvider/field/contact": {
+      "original": "Contact Email",
+      "ru": "Контактный адрес почты"
+    },
     "form/x:AcmeProvider/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:AcmeProvider/field/directory": {
+      "original": "Directory URL",
+      "ru": "URL каталога"
+    },
+    "form/x:AcmeProvider/field/eabHmacKey": {
+      "original": "HMAC Key",
+      "ru": "Ключ HMAC"
+    },
+    "form/x:AcmeProvider/field/eabKeyId": {
+      "original": "Key ID",
+      "ru": "Идентификатор ключа"
+    },
+    "form/x:AcmeProvider/field/issuerDomainNames": {
+      "original": "Issuer domain names",
+      "ru": "Доменные имена издателя"
     },
     "form/x:AcmeProvider/field/memberTenantId": {
       "original": "Tenant",
       "ru": "Арендатор"
     },
+    "form/x:AcmeProvider/field/preferredChain": {
+      "original": "Preferred chain",
+      "ru": "Предпочтительная цепочка"
+    },
+    "form/x:AcmeProvider/field/renewBefore": {
+      "original": "Renew before",
+      "ru": "Обновлять заранее"
+    },
+    "form/x:AcmeProvider/field/reuseKey": {
+      "original": "Reuse key",
+      "ru": "Использовать ключ повторно"
+    },
+    "form/x:AcmeProvider/section/section-0": {
+      "original": "ACME provider",
+      "ru": "Поставщик ACME"
+    },
+    "form/x:AcmeProvider/section/section-1": {
+      "original": "External Account Binding",
+      "ru": "Привязка внешней учётной записи"
+    },
     "form/x:AcmeProvider/section/section-2": {
       "original": "Account",
       "ru": "Учётная запись"
+    },
+    "form/x:AcmeProvider/section/section-3": {
+      "original": "Renewal Settings",
+      "ru": "Настройки обновления"
     },
     "form/x:Action/field/@type": {
       "original": "Action type",
@@ -4830,13 +5434,77 @@
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:Authentication/field/defaultAdminRoleIds": {
+      "original": "Admin Roles",
+      "ru": "Роли администраторов"
+    },
+    "form/x:Authentication/field/defaultGroupRoleIds": {
+      "original": "Group Roles",
+      "ru": "Роли групп"
+    },
+    "form/x:Authentication/field/defaultTenantRoleIds": {
+      "original": "Tenant Roles",
+      "ru": "Роли арендаторов"
+    },
+    "form/x:Authentication/field/defaultUserRoleIds": {
+      "original": "User Roles",
+      "ru": "Роли пользователей"
+    },
+    "form/x:Authentication/field/directoryId": {
+      "original": "Authentication Directory",
+      "ru": "Каталог аутентификации"
+    },
+    "form/x:Authentication/field/maxApiKeys": {
+      "original": "Max API Keys",
+      "ru": "Макс. число ключей API"
+    },
+    "form/x:Authentication/field/maxAppPasswords": {
+      "original": "Max App Passwords",
+      "ru": "Макс. число паролей приложений"
+    },
+    "form/x:Authentication/field/maxPasskeys": {
+      "original": "Max Passkeys",
+      "ru": "Макс. число ключей доступа"
+    },
+    "form/x:Authentication/field/maxPasswordLength": {
+      "original": "Max Length",
+      "ru": "Макс. длина"
+    },
+    "form/x:Authentication/field/minPasswordLength": {
+      "original": "Min Length",
+      "ru": "Мин. длина"
+    },
+    "form/x:Authentication/field/minPasswordStrength": {
+      "original": "Min Strength",
+      "ru": "Мин. стойкость"
+    },
+    "form/x:Authentication/field/passwordDefaultExpiry": {
+      "original": "Default Expiry",
+      "ru": "Срок действия по умолчанию"
+    },
+    "form/x:Authentication/field/passwordHashAlgorithm": {
+      "original": "Hash Algorithm",
+      "ru": "Алгоритм хеширования"
+    },
     "form/x:Authentication/section/section-0": {
       "original": "Directory",
       "ru": "Каталог"
     },
+    "form/x:Authentication/section/section-1": {
+      "original": "Password Policy",
+      "ru": "Политика паролей"
+    },
+    "form/x:Authentication/section/section-2": {
+      "original": "Default Roles",
+      "ru": "Роли по умолчанию"
+    },
     "form/x:Authentication/section/section-3": {
       "original": "App Passwords",
       "ru": "Пароли приложений"
+    },
+    "form/x:Authentication/subtitle": {
+      "original": "Configure the directory used to authenticate users, password policies for the internal directory, default roles assigned to new principals, and app password limits",
+      "ru": "Настройка каталога аутентификации пользователей, политики паролей внутреннего каталога, ролей по умолчанию для новых субъектов и ограничений числа паролей приложений"
     },
     "form/x:Authentication/title": {
       "original": "Authentication",
@@ -6754,17 +7422,77 @@
       "original": "Expiration Date",
       "ru": "Дата окончания срока"
     },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/fingerprint": {
+      "original": "Fingerprint",
+      "ru": "Отпечаток"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/firstSeen": {
+      "original": "First Seen",
+      "ru": "Первое обнаружение"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/keyType": {
+      "original": "Key Type",
+      "ru": "Тип ключа"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/lastSeen": {
+      "original": "Last Seen",
+      "ru": "Последнее обнаружение"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/nextCapabilities": {
+      "original": "Capabilities",
+      "ru": "Возможности"
+    },
     "form/x:ExternalPublicKey/PendingExternalPublicKey/field/nextExpiresAt": {
       "original": "Expiration Date",
       "ru": "Дата окончания срока"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/nextFingerprint": {
+      "original": "Fingerprint",
+      "ru": "Отпечаток"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/nextKeyType": {
+      "original": "Key Type",
+      "ru": "Тип ключа"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/source": {
+      "original": "Source",
+      "ru": "Источник"
     },
     "form/x:ExternalPublicKey/PendingExternalPublicKey/field/status": {
       "original": "Status",
       "ru": "Состояние"
     },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/trust": {
+      "original": "Trust",
+      "ru": "Доверие"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/section/section-0": {
+      "original": "External Public Key",
+      "ru": "Внешний открытый ключ"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/section/section-1": {
+      "original": "Current Key",
+      "ru": "Текущий ключ"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/section/section-2": {
+      "original": "Replacement Key",
+      "ru": "Заменяющий ключ"
+    },
     "form/x:ExternalPublicKey/PendingExternalPublicKey/section/section-3": {
       "original": "Details",
       "ru": "Сведения"
+    },
+    "form/x:ExternalPublicKey/field/authenticatedEncryption": {
+      "original": "Authenticated Encryption",
+      "ru": "Аутентифицированное шифрование"
+    },
+    "form/x:ExternalPublicKey/field/blockedFingerprints": {
+      "original": "Blocked Fingerprints",
+      "ru": "Заблокированные отпечатки"
+    },
+    "form/x:ExternalPublicKey/field/capabilities": {
+      "original": "Capabilities",
+      "ru": "Возможности"
     },
     "form/x:ExternalPublicKey/field/description": {
       "original": "Description",
@@ -6778,17 +7506,109 @@
       "original": "Expiration Date",
       "ru": "Дата окончания срока"
     },
+    "form/x:ExternalPublicKey/field/fingerprint": {
+      "original": "Fingerprint",
+      "ru": "Отпечаток"
+    },
+    "form/x:ExternalPublicKey/field/firstSeen": {
+      "original": "First Seen",
+      "ru": "Первое обнаружение"
+    },
+    "form/x:ExternalPublicKey/field/key": {
+      "original": "Key Data",
+      "ru": "Данные ключа"
+    },
+    "form/x:ExternalPublicKey/field/keyType": {
+      "original": "Key Type",
+      "ru": "Тип ключа"
+    },
     "form/x:ExternalPublicKey/field/kind": {
       "original": "Type",
       "ru": "Тип"
+    },
+    "form/x:ExternalPublicKey/field/lastChecked": {
+      "original": "Last Checked",
+      "ru": "Последняя проверка"
+    },
+    "form/x:ExternalPublicKey/field/lastSeen": {
+      "original": "Last Seen",
+      "ru": "Последнее обнаружение"
+    },
+    "form/x:ExternalPublicKey/field/nextCapabilities": {
+      "original": "Capabilities",
+      "ru": "Возможности"
+    },
+    "form/x:ExternalPublicKey/field/nextCheckAt": {
+      "original": "Next Check",
+      "ru": "Следующая проверка"
     },
     "form/x:ExternalPublicKey/field/nextExpiresAt": {
       "original": "Expiration Date",
       "ru": "Дата окончания срока"
     },
+    "form/x:ExternalPublicKey/field/nextFingerprint": {
+      "original": "Fingerprint",
+      "ru": "Отпечаток"
+    },
+    "form/x:ExternalPublicKey/field/nextKey": {
+      "original": "Key Data",
+      "ru": "Данные ключа"
+    },
+    "form/x:ExternalPublicKey/field/nextKeyType": {
+      "original": "Key Type",
+      "ru": "Тип ключа"
+    },
+    "form/x:ExternalPublicKey/field/pinned": {
+      "original": "Pinned",
+      "ru": "Закреплён"
+    },
+    "form/x:ExternalPublicKey/field/smimeCiphers": {
+      "original": "Ciphers",
+      "ru": "Шифры"
+    },
+    "form/x:ExternalPublicKey/field/smimeOaep": {
+      "original": "RSA-OAEP",
+      "ru": "Поддержка RSA-OAEP"
+    },
+    "form/x:ExternalPublicKey/field/smimeSignedAt": {
+      "original": "Signing Time",
+      "ru": "Время подписания"
+    },
+    "form/x:ExternalPublicKey/field/source": {
+      "original": "Source",
+      "ru": "Источник"
+    },
     "form/x:ExternalPublicKey/field/status": {
       "original": "Status",
       "ru": "Состояние"
+    },
+    "form/x:ExternalPublicKey/field/trust": {
+      "original": "Trust",
+      "ru": "Доверие"
+    },
+    "form/x:ExternalPublicKey/section/section-0": {
+      "original": "External Public Key",
+      "ru": "Внешний открытый ключ"
+    },
+    "form/x:ExternalPublicKey/section/section-1": {
+      "original": "Key Details",
+      "ru": "Сведения о ключе"
+    },
+    "form/x:ExternalPublicKey/section/section-2": {
+      "original": "Replacement Key",
+      "ru": "Заменяющий ключ"
+    },
+    "form/x:ExternalPublicKey/section/section-3": {
+      "original": "S/MIME Capabilities",
+      "ru": "Возможности S/MIME"
+    },
+    "form/x:ExternalPublicKey/section/section-4": {
+      "original": "History",
+      "ru": "История"
+    },
+    "form/x:ExternalPublicKey/section/section-5": {
+      "original": "Compatibility",
+      "ru": "Совместимость"
     },
     "form/x:FileStorage/section/section-0": {
       "original": "File Storage",
@@ -7806,6 +8626,14 @@
       "original": "Account",
       "ru": "Учётная запись"
     },
+    "form/x:PublicKey/field/authenticatedEncryption": {
+      "original": "Authenticated Encryption",
+      "ru": "Аутентифицированное шифрование"
+    },
+    "form/x:PublicKey/field/capabilities": {
+      "original": "Capabilities",
+      "ru": "Возможности"
+    },
     "form/x:PublicKey/field/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
@@ -7814,13 +8642,53 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "form/x:PublicKey/field/emailAddresses": {
+      "original": "Email Addresses",
+      "ru": "Адреса электронной почты"
+    },
     "form/x:PublicKey/field/expiresAt": {
       "original": "Expiration Date",
       "ru": "Дата окончания срока"
     },
+    "form/x:PublicKey/field/fingerprints": {
+      "original": "Fingerprints",
+      "ru": "Отпечатки"
+    },
+    "form/x:PublicKey/field/key": {
+      "original": "Key Data",
+      "ru": "Данные ключа"
+    },
+    "form/x:PublicKey/field/keyType": {
+      "original": "Key Type",
+      "ru": "Тип ключа"
+    },
     "form/x:PublicKey/field/kind": {
       "original": "Type",
       "ru": "Тип"
+    },
+    "form/x:PublicKey/field/strictKeyWrapEncoding": {
+      "original": "Strict Key Wrap Encoding",
+      "ru": "Строгое кодирование обёртки ключа"
+    },
+    "form/x:PublicKey/field/warnings": {
+      "original": "Warnings",
+      "ru": "Предупреждения"
+    },
+    "form/x:PublicKey/section/section-0": {
+      "original": "Public Key",
+      "ru": "Открытый ключ"
+    },
+    "form/x:PublicKey/section/section-1": {
+      "original": "Key Details",
+      "ru": "Сведения о ключе"
+    },
+    "form/x:PublicKey/section/section-2": {
+      "original": "Compatibility",
+      "ru": "Совместимость"
+    },
+    "form/x:PublicTextValue/field/value": {
+      "original": "Value",
+      "ru": "Значение"
     },
     "form/x:QueueExpiryAttempts/field/expiresAttempts": {
       "original": "Max Attempts",
@@ -8074,6 +8942,66 @@
       "original": "Secret",
       "ru": "Секрет"
     },
+    "form/x:Security/field/abuseBanPeriod": {
+      "original": "Duration",
+      "ru": "Продолжительность"
+    },
+    "form/x:Security/field/abuseBanRate": {
+      "original": "Rate",
+      "ru": "Частота"
+    },
+    "form/x:Security/field/authBanPeriod": {
+      "original": "Duration",
+      "ru": "Продолжительность"
+    },
+    "form/x:Security/field/authBanRate": {
+      "original": "Rate",
+      "ru": "Частота"
+    },
+    "form/x:Security/field/loiterBanPeriod": {
+      "original": "Duration",
+      "ru": "Продолжительность"
+    },
+    "form/x:Security/field/loiterBanRate": {
+      "original": "Rate",
+      "ru": "Частота"
+    },
+    "form/x:Security/field/scanBanPaths": {
+      "original": "HTTP banned paths",
+      "ru": "Запрещённые пути HTTP"
+    },
+    "form/x:Security/field/scanBanPeriod": {
+      "original": "Duration",
+      "ru": "Продолжительность"
+    },
+    "form/x:Security/field/scanBanRate": {
+      "original": "Rate",
+      "ru": "Частота"
+    },
+    "form/x:Security/section/section-0": {
+      "original": "Authentication failure ban",
+      "ru": "Блокировка за ошибки аутентификации"
+    },
+    "form/x:Security/section/section-1": {
+      "original": "Abuse attempt ban",
+      "ru": "Блокировка за злоупотребления"
+    },
+    "form/x:Security/section/section-2": {
+      "original": "Loitering ban",
+      "ru": "Блокировка за неактивные соединения"
+    },
+    "form/x:Security/section/section-3": {
+      "original": "Port scanning ban",
+      "ru": "Блокировка за сканирование портов"
+    },
+    "form/x:Security/subtitle": {
+      "original": "Configure thresholds and ban durations that automatically block remote IP addresses for repeated authentication failures, abuse attempts, loitering connections, and HTTP port scanning",
+      "ru": "Настройка порогов и длительности автоматической блокировки удалённых IP-адресов за повторные ошибки аутентификации, злоупотребления, неактивные соединения и сканирование портов HTTP"
+    },
+    "form/x:Security/title": {
+      "original": "Automatic IP Banning",
+      "ru": "Автоматическая блокировка IP-адресов"
+    },
     "form/x:SenderAuth/field/arcVerify": {
       "original": "Strategy",
       "ru": "Стратегия"
@@ -8161,6 +9089,18 @@
     "form/x:SmimeTrustAnchor/field/expiresAt": {
       "original": "Expiration Date",
       "ru": "Дата окончания срока"
+    },
+    "form/x:SmimeTrustAnchor/field/subject": {
+      "original": "Subject",
+      "ru": "Субъект"
+    },
+    "form/x:SmimeTrustAnchor/section/section-0": {
+      "original": "Trust Anchor",
+      "ru": "Якорь доверия"
+    },
+    "form/x:SmimeTrustAnchor/section/section-1": {
+      "original": "Certificate Details",
+      "ru": "Сведения о сертификате"
     },
     "form/x:SpamAi/field/@type": {
       "original": "AI Classifier",
@@ -8541,6 +9481,18 @@
     "form/x:SymmetricKey/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:SymmetricKey/field/fingerprint": {
+      "original": "Fingerprint",
+      "ru": "Отпечаток"
+    },
+    "form/x:SymmetricKey/field/key": {
+      "original": "Key",
+      "ru": "Ключ"
+    },
+    "form/x:SymmetricKey/section/section-0": {
+      "original": "Symmetric Key",
+      "ru": "Симметричный ключ"
     },
     "form/x:SystemSettings/NetworkServices/field/services/keyLabel": {
       "original": "Protocol",
@@ -9550,6 +10502,14 @@
       "original": "Accounts",
       "ru": "Учётные записи"
     },
+    "list/x:AcmeProvider/column/challengeType": {
+      "original": "Challenge type",
+      "ru": "Тип проверки"
+    },
+    "list/x:AcmeProvider/column/contact": {
+      "original": "Contact Email",
+      "ru": "Контактный адрес почты"
+    },
     "list/x:AcmeProvider/column/description": {
       "original": "Description",
       "ru": "Описание"
@@ -9561,6 +10521,22 @@
     "list/x:AcmeProvider/filter/text": {
       "original": "Text",
       "ru": "Текст"
+    },
+    "list/x:AcmeProvider/plural": {
+      "original": "providers",
+      "ru": "поставщики"
+    },
+    "list/x:AcmeProvider/singular": {
+      "original": "provider",
+      "ru": "поставщик"
+    },
+    "list/x:AcmeProvider/subtitle": {
+      "original": "Manage ACME TLS certificate providers",
+      "ru": "Управление поставщиками сертификатов TLS по ACME"
+    },
+    "list/x:AcmeProvider/title": {
+      "original": "ACME providers",
+      "ru": "Поставщики ACME"
     },
     "list/x:Action/column/@type": {
       "original": "Action",
@@ -9998,6 +10974,38 @@
       "original": "Email Address",
       "ru": "Адрес электронной почты"
     },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/column/keyType": {
+      "original": "Current Key Type",
+      "ru": "Тип текущего ключа"
+    },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/column/nextFingerprint": {
+      "original": "New Fingerprint",
+      "ru": "Новый отпечаток"
+    },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/column/nextKeyType": {
+      "original": "New Key Type",
+      "ru": "Тип нового ключа"
+    },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/column/source": {
+      "original": "Source",
+      "ru": "Источник"
+    },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/column/trust": {
+      "original": "Trust",
+      "ru": "Доверие"
+    },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/plural": {
+      "original": "pending key changes",
+      "ru": "ожидающие замены ключей"
+    },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/singular": {
+      "original": "pending key change",
+      "ru": "ожидающая замена ключа"
+    },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/subtitle": {
+      "original": "Review keys that replace an existing key and need approval before they are used",
+      "ru": "Проверка ключей, заменяющих существующий ключ и требующих подтверждения перед использованием"
+    },
     "list/x:ExternalPublicKey/PendingExternalPublicKey/title": {
       "original": "Pending Key Changes",
       "ru": "Ожидающие изменения ключей"
@@ -10006,13 +11014,33 @@
       "original": "Email Address",
       "ru": "Адрес электронной почты"
     },
+    "list/x:ExternalPublicKey/column/keyType": {
+      "original": "Key Type",
+      "ru": "Тип ключа"
+    },
     "list/x:ExternalPublicKey/column/status": {
       "original": "Status",
       "ru": "Состояние"
     },
+    "list/x:ExternalPublicKey/column/trust": {
+      "original": "Trust",
+      "ru": "Доверие"
+    },
     "list/x:ExternalPublicKey/filter/emailAddress": {
       "original": "Email Address",
       "ru": "Адрес электронной почты"
+    },
+    "list/x:ExternalPublicKey/plural": {
+      "original": "external public keys",
+      "ru": "внешние открытые ключи"
+    },
+    "list/x:ExternalPublicKey/singular": {
+      "original": "external public key",
+      "ru": "внешний открытый ключ"
+    },
+    "list/x:ExternalPublicKey/subtitle": {
+      "original": "Manage public keys of remote recipients used by the encryption gateway",
+      "ru": "Управление открытыми ключами удалённых получателей, используемыми шлюзом шифрования"
     },
     "list/x:ExternalPublicKey/title": {
       "original": "External Public Keys",
@@ -10374,13 +11402,33 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "list/x:PublicKey/column/emailAddresses": {
+      "original": "Email Addresses",
+      "ru": "Адреса электронной почты"
+    },
     "list/x:PublicKey/column/expiresAt": {
       "original": "Expires At",
       "ru": "Действует до"
     },
+    "list/x:PublicKey/column/keyType": {
+      "original": "Key Type",
+      "ru": "Тип ключа"
+    },
     "list/x:PublicKey/filter/accountId": {
       "original": "Account",
       "ru": "Учётная запись"
+    },
+    "list/x:PublicKey/plural": {
+      "original": "public keys",
+      "ru": "открытые ключи"
+    },
+    "list/x:PublicKey/singular": {
+      "original": "public key",
+      "ru": "открытый ключ"
+    },
+    "list/x:PublicKey/subtitle": {
+      "original": "Manage public keys for email encryption",
+      "ru": "Управление открытыми ключами для шифрования почты"
     },
     "list/x:PublicKey/title": {
       "original": "Public Keys",
@@ -10514,6 +11562,26 @@
       "original": "Expires At",
       "ru": "Действует до"
     },
+    "list/x:SmimeTrustAnchor/column/subject": {
+      "original": "Subject",
+      "ru": "Субъект"
+    },
+    "list/x:SmimeTrustAnchor/plural": {
+      "original": "trust anchors",
+      "ru": "якоря доверия"
+    },
+    "list/x:SmimeTrustAnchor/singular": {
+      "original": "trust anchor",
+      "ru": "якорь доверия"
+    },
+    "list/x:SmimeTrustAnchor/subtitle": {
+      "original": "Manage additional certificate authorities trusted for recipient S/MIME certificates",
+      "ru": "Управление дополнительными удостоверяющими центрами, которым доверяют при проверке сертификатов S/MIME получателей"
+    },
+    "list/x:SmimeTrustAnchor/title": {
+      "original": "S/MIME Trust Anchors",
+      "ru": "Якоря доверия S/MIME"
+    },
     "list/x:SpamDnsblServer/filter/name": {
       "original": "Name",
       "ru": "Имя"
@@ -10549,6 +11617,22 @@
     "list/x:SymmetricKey/column/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "list/x:SymmetricKey/column/fingerprint": {
+      "original": "Fingerprint",
+      "ru": "Отпечаток"
+    },
+    "list/x:SymmetricKey/plural": {
+      "original": "keys",
+      "ru": "ключи"
+    },
+    "list/x:SymmetricKey/singular": {
+      "original": "key",
+      "ru": "ключ"
+    },
+    "list/x:SymmetricKey/subtitle": {
+      "original": "Manage the keys used to encrypt email, Sieve script and file blobs at rest",
+      "ru": "Управление ключами шифрования хранящихся бинарных объектов: писем, скриптов Sieve и файлов"
     },
     "list/x:SymmetricKey/title": {
       "original": "Symmetric Keys",
@@ -11502,6 +12586,10 @@
       "original": "Represents a named set of emails, analogous to a folder or label in other systems.",
       "ru": "Именованный набор писем, аналог папки или метки в других системах."
     },
+    "object/x:AcmeProvider/description": {
+      "original": "Defines an ACME provider for automatic TLS certificate management.",
+      "ru": "Определяет поставщика ACME для автоматического управления сертификатами TLS."
+    },
     "object/x:Action/description": {
       "original": "Defines server management actions such as reloads, troubleshooting and cache operations.",
       "ru": "Действия управления сервером: применение настроек, диагностика и операции с кэшем."
@@ -11518,6 +12606,10 @@
       "original": "Stores an ARF feedback report received from an external source.",
       "ru": "Хранит отчёт обратной связи ARF, полученный из внешнего источника."
     },
+    "object/x:Authentication/description": {
+      "original": "Configures authentication settings including password policies and default roles.",
+      "ru": "Настраивает аутентификацию, в том числе политики паролей и роли по умолчанию."
+    },
     "object/x:Calendar/description": {
       "original": "Configures calendar settings including iCalendar limits and default names.",
       "ru": "Настройка календарей, включая ограничения iCalendar и имена по умолчанию."
@@ -11529,6 +12621,10 @@
     "object/x:CalendarScheduling/description": {
       "original": "Configures calendar scheduling, iTIP messaging, and HTTP RSVP settings.",
       "ru": "Настройка планирования календарных событий, сообщений iTIP и ответов через HTTP RSVP."
+    },
+    "object/x:Certificate/description": {
+      "original": "Defines a TLS certificate and its associated private key.",
+      "ru": "Определяет сертификат TLS и соответствующий закрытый ключ."
     },
     "object/x:DkimSignature/description": {
       "original": "Defines a DKIM signature used to sign outgoing email messages.",
@@ -11545,6 +12641,10 @@
     "object/x:Domain/description": {
       "original": "Defines an email domain and its DNS, DKIM, and TLS certificate settings.",
       "ru": "Параметры почтового домена, DNS, DKIM и сертификатов TLS."
+    },
+    "object/x:ExternalPublicKey/description": {
+      "original": "Public key of a remote recipient used by the encryption gateway, entered manually, kept up to date from a discovery method or learned from received mail.",
+      "ru": "Открытый ключ удалённого получателя для шлюза шифрования, введённый вручную, обновляемый методом обнаружения или полученный из входящей почты."
     },
     "object/x:HttpLookup/description": {
       "original": "Defines an HTTP-based lookup list.",
@@ -11570,6 +12670,10 @@
       "original": "Configures the OAuth and OpenID Connect provider settings.",
       "ru": "Настраивает поставщика OAuth и OpenID Connect."
     },
+    "object/x:PublicKey/description": {
+      "original": "Defines a public key for email encryption (OpenPGP or S/MIME).",
+      "ru": "Определяет открытый ключ для шифрования почты (OpenPGP или S/MIME)."
+    },
     "object/x:QueuedMessage/description": {
       "original": "Represents a queued email message pending delivery.",
       "ru": "Почтовое сообщение, ожидающее доставки в очереди."
@@ -11578,9 +12682,21 @@
       "original": "Defines a named set of permissions that can be assigned to accounts and groups.",
       "ru": "Набор прав доступа, назначаемых пользователям и группам."
     },
+    "object/x:Security/description": {
+      "original": "Configures automatic IP banning rules for abuse, authentication failures, and port scanning.",
+      "ru": "Настраивает правила автоматической блокировки IP-адресов за злоупотребления, ошибки аутентификации и сканирование портов."
+    },
+    "object/x:SmimeTrustAnchor/description": {
+      "original": "Additional certificate authority trusted when validating recipient S/MIME certificates.",
+      "ru": "Дополнительный доверенный удостоверяющий центр для проверки сертификатов S/MIME получателей."
+    },
     "object/x:SpamAi/description": {
       "original": "Configures the AI spam classifier. Spam rules whose condition references an AI_ tag, directly or through a tag emitted by another such rule, run after the classifier; all other rules run before it. Rules that build tag names dynamically are not detected.",
       "ru": "Настраивает ИИ-классификатор спама. Правила спам-фильтра, условия которых ссылаются на метку AI_ прямо или через метку, созданную другим таким правилом, выполняются после классификатора; остальные правила выполняются до него. Правила, формирующие имена меток динамически, не распознаются."
+    },
+    "object/x:SymmetricKey/description": {
+      "original": "Defines a symmetric key used to encrypt blobs at rest. Blobs encrypted with a key cannot be read without it, so keys can only be deleted by the recovery administrator.",
+      "ru": "Определяет симметричный ключ для шифрования бинарных объектов при хранении. Зашифрованные ключом объекты невозможно прочитать без него, поэтому удалять ключи может только администратор восстановления."
     },
     "object/x:Task/description": {
       "original": "Represents a background task scheduled for execution.",
@@ -11753,6 +12869,18 @@
     "variant/x:Permissions/Replace/label": {
       "original": "Permissions replace all inherited permissions",
       "ru": "Заменить унаследованные права"
+    },
+    "variant/x:PublicText/EnvironmentVariable/label": {
+      "original": "Text value read from environment variable",
+      "ru": "Текстовое значение из переменной окружения"
+    },
+    "variant/x:PublicText/File/label": {
+      "original": "Text value read from file",
+      "ru": "Текстовое значение из файла"
+    },
+    "variant/x:PublicText/Text/label": {
+      "original": "Text value",
+      "ru": "Текстовое значение"
     },
     "variant/x:QueueExpiry/Attempts/label": {
       "original": "Attempt-based expiry",
