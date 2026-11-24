@@ -74,4 +74,4 @@ assert.equal(digest(fs.readFileSync(catalogPath)), before, 'Утверждённ
 assert.deepEqual(report.diagnostics.adapterDrift, [], 'Исходники renderer изменились: требуется ревью адаптеров');
 assert.deepEqual(report.diagnostics.staleRules, [], 'Устаревшие контекстные правила');
 console.log(json(report.summary));
-console.log('Этап 37: отчёты созданы; утверждённый каталог сохранён. ' + path.relative(root, out));
+console.log('Этап 38: отчёты созданы; утверждённый каталог сохранён. ' + path.relative(root, out));
