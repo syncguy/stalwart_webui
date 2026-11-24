@@ -1,0 +1,352 @@
+{
+  "version": 1,
+  "stage": 18,
+  "baseline": "a441d9bafd2af9cdc2fa17aadc9ad4f8506e3d91",
+  "scope": {
+    "section": "Settings",
+    "screens": [
+      "x:AddressBook",
+      "x:Calendar"
+    ]
+  },
+  "status": "editor-reviewed-preview",
+  "apply": false,
+  "entries": [
+    {
+      "slot": "enum/VCardVersion/v3/label",
+      "original": "vCard 3.0",
+      "ru": "vCard 3.0",
+      "decision": "keep-original"
+    },
+    {
+      "slot": "enum/VCardVersion/v4/label",
+      "original": "vCard 4.0",
+      "ru": "vCard 4.0",
+      "decision": "keep-original"
+    },
+    {
+      "slot": "field/x:AddressBook/defaultDisplayName/description",
+      "original": "Specifies the default display name for a contact when it is created",
+      "ru": "Задаёт отображаемое имя контакта по умолчанию при его создании.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AddressBook/defaultHrefName/description",
+      "original": "Specifies the default href name for a contact when it is created",
+      "ru": "Задаёт имя ресурса (href) по умолчанию при создании контакта.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AddressBook/maxAddressBooks/description",
+      "original": "The default maximum number of address books a user can create",
+      "ru": "Максимальное число адресных книг, которые пользователь может создать (по умолчанию).",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AddressBook/maxAddressBooksPerCard/description",
+      "original": "Maximum number of address books a single contact card can belong to",
+      "ru": "Максимальное число адресных книг, в которые может входить одна карточка контакта.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AddressBook/maxContacts/description",
+      "original": "The default maximum number of contact cards a user can create",
+      "ru": "Максимальное число карточек контактов, которые пользователь может создать (по умолчанию).",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AddressBook/maxMediaSize/description",
+      "original": "Maximum total size of the media (photos, logos, sounds and keys) embedded in a single contact card",
+      "ru": "Максимальный суммарный размер встроенных в одну карточку контакта медиафайлов (фотографий, логотипов, звуков и ключей).",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AddressBook/maxVCardSize/description",
+      "original": "Specifies the maximum size of a vCard file that can be uploaded to the server",
+      "ru": "Максимальный размер файла vCard, который можно загрузить на сервер.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AddressBook/vCardVersion/description",
+      "original": "vCard version used when serializing contact cards for clients that do not request a specific version",
+      "ru": "Версия vCard, используемая при формировании карточек контактов для клиентов, не запрашивающих конкретную версию.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/availabilityRateLimit/description",
+      "original": "Maximum rate at which an account can query principal availability",
+      "ru": "Максимальная частота запросов сведений о занятости пользователя от одной учётной записи.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/defaultDisplayName/description",
+      "original": "Specifies the default display name for a calendar when it is created",
+      "ru": "Задаёт отображаемое имя календаря по умолчанию при его создании.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/defaultHrefName/description",
+      "original": "Specifies the default href name for a calendar when it is created",
+      "ru": "Задаёт имя ресурса (href) по умолчанию при создании календаря.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/maxAttachmentsSize/description",
+      "original": "Maximum total size of the attachments embedded in a single calendar event",
+      "ru": "Максимальный суммарный размер вложений, встроенных в одно событие календаря.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/maxAttendees/description",
+      "original": "Specifies the maximum number of attendees that can be included in a single iCalendar instance",
+      "ru": "Максимальное число участников в одном экземпляре события iCalendar.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/maxAvailabilityDuration/description",
+      "original": "Maximum time span that can be requested when querying the availability (free/busy) of a principal",
+      "ru": "Максимальная продолжительность периода, за который можно запросить сведения о занятости (свободен/занят).",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/maxCalendars/description",
+      "original": "The default maximum number of calendars a user can create",
+      "ru": "Максимальное число календарей, которые пользователь может создать (по умолчанию).",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/maxCalendarsPerEvent/description",
+      "original": "Maximum number of calendars a single calendar event can belong to",
+      "ru": "Максимальное число календарей, в которые может входить одно событие.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/maxEventNotifications/description",
+      "original": "The default maximum number of notifications a user can create for calendar events",
+      "ru": "Максимальное число уведомлений о событиях календаря, которые пользователь может создать (по умолчанию).",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/maxEvents/description",
+      "original": "The default maximum number of calendar events a user can create",
+      "ru": "Максимальное число событий календаря, которые пользователь может создать (по умолчанию).",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/maxExpandedQueryDuration/description",
+      "original": "Maximum time span between the after and before arguments of a calendar event query that expands recurrences",
+      "ru": "Максимальный интервал между параметрами after и before запроса событий календаря с развёртыванием повторений.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/maxICalendarSize/description",
+      "original": "Specifies the maximum size of an iCalendar file that can be uploaded to the server",
+      "ru": "Максимальный размер файла iCalendar, который можно загрузить на сервер.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/maxParticipantIdentities/description",
+      "original": "The default maximum number of participant identities a user can create",
+      "ru": "Максимальное число идентификаторов участника, которые пользователь может создать (по умолчанию).",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Calendar/maxRecurrenceExpansions/description",
+      "original": "Specifies the maximum number of instances that can be generated from a recurring iCalendar event",
+      "ru": "Максимальное число экземпляров, которые можно сформировать из повторяющегося события iCalendar.",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AddressBook/field/defaultDisplayName",
+      "original": "Default Display Name",
+      "ru": "Отображаемое имя по умолчанию",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AddressBook/field/defaultHrefName",
+      "original": "Default Href Name",
+      "ru": "Имя ресурса (href) по умолчанию",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AddressBook/field/maxAddressBooksPerCard",
+      "original": "Max Address Books per Card",
+      "ru": "Адресных книг на карточку (макс.)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AddressBook/field/maxContacts",
+      "original": "Contact Cards",
+      "ru": "Карточки контактов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AddressBook/field/maxMediaSize",
+      "original": "Max Media Size",
+      "ru": "Макс. размер медиафайлов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AddressBook/field/maxVCardSize",
+      "original": "Max vCard Size",
+      "ru": "Макс. размер vCard",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AddressBook/field/vCardVersion",
+      "original": "vCard Version",
+      "ru": "Версия vCard",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AddressBook/section/section-0",
+      "original": "Contacts Settings",
+      "ru": "Настройки контактов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AddressBook/section/section-1",
+      "original": "Default Quotas",
+      "ru": "Квоты по умолчанию",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AddressBook/subtitle",
+      "original": "Configure how address books and contacts are stored, the default vCard size limit, and per-account quotas for address books and contacts",
+      "ru": "Настройка хранения адресных книг и контактов, ограничения размера vCard по умолчанию и квот на адресные книги и контакты для каждой учётной записи.",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AddressBook/title",
+      "original": "Address Books and Contacts",
+      "ru": "Адресные книги и контакты",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/availabilityRateLimit",
+      "original": "Availability Requests",
+      "ru": "Запросы сведений о занятости",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/defaultDisplayName",
+      "original": "Default Display Name",
+      "ru": "Отображаемое имя по умолчанию",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/defaultHrefName",
+      "original": "Default Href Name",
+      "ru": "Имя ресурса (href) по умолчанию",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/maxAttachmentsSize",
+      "original": "Max Attachments Size",
+      "ru": "Макс. размер вложений",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/maxAttendees",
+      "original": "Max iCal Attendees",
+      "ru": "Макс. число участников iCalendar",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/maxAvailabilityDuration",
+      "original": "Max Availability Duration",
+      "ru": "Макс. период запроса занятости",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/maxCalendarsPerEvent",
+      "original": "Max Calendars per Event",
+      "ru": "Календарей на событие (макс.)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/maxEventNotifications",
+      "original": "Event Notifications",
+      "ru": "Уведомления о событиях",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/maxEvents",
+      "original": "Calendar Events",
+      "ru": "События календаря",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/maxExpandedQueryDuration",
+      "original": "Max Expanded Query Duration",
+      "ru": "Макс. период запроса с повторениями",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/maxICalendarSize",
+      "original": "Max iCal Size",
+      "ru": "Макс. размер iCalendar",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/maxParticipantIdentities",
+      "original": "Participant Identities",
+      "ru": "Идентификаторы участника",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/field/maxRecurrenceExpansions",
+      "original": "Max iCal Instances",
+      "ru": "Макс. число экземпляров iCalendar",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/section/section-0",
+      "original": "Calendar Settings",
+      "ru": "Настройки календаря",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/section/section-1",
+      "original": "Default Names",
+      "ru": "Имена по умолчанию",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/section/section-2",
+      "original": "Default Quotas",
+      "ru": "Квоты по умолчанию",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/section/section-3",
+      "original": "Rate Limiting",
+      "ru": "Ограничение частоты запросов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/subtitle",
+      "original": "Configure how calendars and events are stored, iCalendar object size and recurrence limits, and per-account quotas for calendars and events",
+      "ru": "Настройка хранения календарей и событий, ограничений размера объектов iCalendar и повторений, а также квот на календари и события для каждой учётной записи.",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Calendar/title",
+      "original": "Calendars and Events",
+      "ru": "Календари и события",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:AddressBook/description",
+      "original": "Configures address book and contact storage settings.",
+      "ru": "Настройка хранения адресных книг и контактов.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:Calendar/description",
+      "original": "Configures calendar settings including iCalendar limits and default names.",
+      "ru": "Настройка календарей, включая ограничения iCalendar и имена по умолчанию.",
+      "decision": "translate"
+    }
+  ]
+}
