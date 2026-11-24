@@ -9,6 +9,9 @@ import ruCatalog from './schema/ru.json';
 type Entry = { original: string; ru: string };
 const entries: Record<string, Entry> = ruCatalog.entries;
 const schemaHashes = new Set<string>(ruCatalog.meta.schemaHashes);
+// Stage18: conflicting source slots are scoped to edition and exact original.
+const scopedEntries: readonly (Entry & { schemaHash: string; slot: string })[] = ruCatalog.scopedEntries;
+const scopedSlots = new Set(scopedEntries.map(entry => entry.slot));
 
 // Stage9: bounded original-text fallback for task variants and indexing
 // columns that are supplied by the pinned server schemas. No raw enum names,
@@ -70,6 +73,10 @@ export function schemaText(
 ): string {
   if (!canTranslateSchema(schemaHash, language)) {
     return original;
+  }
+  if (scopedSlots.has(slot)) {
+    return scopedEntries.find(entry => entry.schemaHash === schemaHash
+      && entry.slot === slot && entry.original === original)?.ru ?? original;
   }
   const entry = entries[slot];
   if (entry) return entry.original === original ? entry.ru : original;
