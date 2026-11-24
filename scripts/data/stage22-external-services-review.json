@@ -1,0 +1,1185 @@
+{
+  "version": 1,
+  "stage": 22,
+  "baseline": "0329795476291873dafd373178b982b8ba974cd4",
+  "baselineCatalogSha256": "44b2092b6ccebbea6febeb2a84158391c455522eaf5d193217c704df037ad14e",
+  "scope": [
+    {
+      "section": "Settings",
+      "screens": [
+        "x:AiModel",
+        "x:SpamAi",
+        "x:HttpLookup",
+        "x:OidcProvider"
+      ]
+    }
+  ],
+  "status": "editor-reviewed",
+  "apply": false,
+  "entries": [
+    {
+      "slot": "enum/AiOpenAiProfile/Azure/label",
+      "original": "Azure OpenAI",
+      "ru": "Профиль Azure OpenAI",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/AiOpenAiProfile/Generic/label",
+      "original": "Generic",
+      "ru": "Универсальный",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/AiOpenAiProfile/LlamaCpp/label",
+      "original": "llama.cpp",
+      "ru": "Профиль llama.cpp",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/AiOpenAiProfile/OpenAi/label",
+      "original": "OpenAI",
+      "ru": "Профиль OpenAI",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/AiOpenAiProfile/Vllm/label",
+      "original": "vLLM",
+      "ru": "Профиль vLLM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/AiReasoning/Default/label",
+      "original": "Provider default",
+      "ru": "По умолчанию у поставщика",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/AiReasoning/High/label",
+      "original": "High",
+      "ru": "Высокий",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/AiReasoning/Low/label",
+      "original": "Low",
+      "ru": "Низкий",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/AiReasoning/Medium/label",
+      "original": "Medium",
+      "ru": "Средний",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/AiReasoning/Off/label",
+      "original": "Off",
+      "ru": "Отключено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/JwtSignatureAlgorithm/es256/label",
+      "original": "ECDSA using P-256 and SHA-256",
+      "ru": "ECDSA с P-256 и SHA-256",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/JwtSignatureAlgorithm/es384/label",
+      "original": "ECDSA using P-384 and SHA-384",
+      "ru": "ECDSA с P-384 и SHA-384",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/JwtSignatureAlgorithm/hs256/label",
+      "original": "HMAC using SHA-256",
+      "ru": "HMAC с SHA-256",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/JwtSignatureAlgorithm/ps256/label",
+      "original": "RSASSA-PSS using SHA-256 and MGF1 with SHA-256",
+      "ru": "RSASSA-PSS с SHA-256 и MGF1 с SHA-256",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/JwtSignatureAlgorithm/rs256/label",
+      "original": "RSASSA-PKCS1-v1_5 using SHA-256",
+      "ru": "RSASSA-PKCS1-v1_5 с SHA-256",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/JwtSignatureAlgorithm/hs384/label",
+      "original": "HMAC using SHA-384",
+      "ru": "HMAC с SHA-384",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/JwtSignatureAlgorithm/ps384/label",
+      "original": "RSASSA-PSS using SHA-384 and MGF1 with SHA-384",
+      "ru": "RSASSA-PSS с SHA-384 и MGF1 с SHA-384",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/JwtSignatureAlgorithm/rs384/label",
+      "original": "RSASSA-PKCS1-v1_5 using SHA-384",
+      "ru": "RSASSA-PKCS1-v1_5 с SHA-384",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/JwtSignatureAlgorithm/hs512/label",
+      "original": "HMAC using SHA-512",
+      "ru": "HMAC с SHA-512",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/JwtSignatureAlgorithm/ps512/label",
+      "original": "RSASSA-PSS using SHA-512 and MGF1 with SHA-512",
+      "ru": "RSASSA-PSS с SHA-512 и MGF1 с SHA-512",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/JwtSignatureAlgorithm/rs512/label",
+      "original": "RSASSA-PKCS1-v1_5 using SHA-512",
+      "ru": "RSASSA-PKCS1-v1_5 с SHA-512",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/OAuthClientMetadataPolicy/any/label",
+      "original": "Any HTTPS URL",
+      "ru": "Любой URL HTTPS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/OAuthClientMetadataPolicy/disabled/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/OAuthClientMetadataPolicy/sameDomain/label",
+      "original": "Same domain only",
+      "ru": "Только тот же домен",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpamAiMode/Automatic/label",
+      "original": "Score the verdict",
+      "ru": "Учитывать результат при оценке спама",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpamAiMode/Shadow/label",
+      "original": "Log the verdict without scoring it",
+      "ru": "Записывать результат в журнал без влияния на оценку",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/allowInvalidCerts/description",
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли использование недействительных сертификатов SSL",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/enable/description",
+      "original": "Whether to enable this HTTP list",
+      "ru": "Включать ли этот HTTP-список",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/format/description",
+      "original": "Format of the list",
+      "ru": "Формат списка",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/httpAuth/description",
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/httpHeaders/description",
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки для HTTP-запросов",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/isGzipped/description",
+      "original": "Whether to use gzip compression when downloading the list",
+      "ru": "Использовать ли сжатие gzip при скачивании списка",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/maxEntries/description",
+      "original": "Maximum number of entries allowed in the list. The list is truncated if it exceeds this limit.",
+      "ru": "Максимально допустимое количество записей в списке. При превышении этого ограничения список обрезается.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/maxEntrySize/description",
+      "original": "Maximum length of an entry in the list.",
+      "ru": "Максимальная длина записи в списке.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/maxSize/description",
+      "original": "Maximum size of the downloaded list and of each of its lines. A download exceeding this size is rejected and the previously loaded list is kept; lines exceeding it are skipped.",
+      "ru": "Максимальный размер скачиваемого списка и каждой его строки. Если размер скачиваемого списка превышает ограничение, он отклоняется и сохраняется ранее загруженный список; слишком длинные строки пропускаются.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/namespace/description",
+      "original": "Unique identifier for this store when used in lookups",
+      "ru": "Уникальный идентификатор этого хранилища при поиске по спискам",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/refreshInterval/description",
+      "original": "How often to refresh the list",
+      "ru": "Периодичность обновления списка",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/retry/description",
+      "original": "How long to wait before retrying to download the list in case of failure.",
+      "ru": "Время ожидания перед повторной попыткой скачать список в случае ошибки.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/timeout/description",
+      "original": "Timeout for HTTP requests",
+      "ru": "Время ожидания HTTP-запросов",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookup/url/description",
+      "original": "URL of the list",
+      "ru": "URL списка",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookupCsv/indexKey/description",
+      "original": "The position of the key field in the HTTP List.",
+      "ru": "Позиция поля ключа в HTTP-списке.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookupCsv/indexValue/description",
+      "original": "The position of the value field in the HTTP List.",
+      "ru": "Позиция поля значения в HTTP-списке.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookupCsv/separator/description",
+      "original": "The separator character used to parse the HTTP list.",
+      "ru": "Символ-разделитель для разбора HTTP-списка.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:HttpLookupCsv/skipFirst/description",
+      "original": "Whether to skip the first line of the list",
+      "ru": "Пропускать ли первую строку списка",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:OidcProvider/accessTokenExpiry/description",
+      "original": "Expiration time of an OAuth access token. OAuth clients require at least 10 minutes and expect at least 1 hour.",
+      "ru": "Срок действия токена доступа OAuth. Клиентам OAuth требуется не менее 10 минут, ожидаемый срок составляет не менее 1 часа.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:OidcProvider/authCodeExpiry/description",
+      "original": "Expiration time of an authorization code issued by the authorization code flow. OAuth clients require at least 10 minutes.",
+      "ru": "Срок действия кода авторизации, выдаваемого при использовании потока с кодом авторизации. Клиентам OAuth требуется не менее 10 минут.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:OidcProvider/clientMetadataDocuments/description",
+      "original": "Whether OAuth client ids that are HTTPS URLs of Client ID Metadata Documents published by third-party applications are accepted. Same domain accepts only documents hosted under the same registrable domain as this server. Third-party clients are always shown as unverified on the consent screen. Documents served by this server's own web applications are always accepted.",
+      "ru": "Принимать ли идентификаторы клиентов OAuth, представляющие собой HTTPS URL документов метаданных идентификатора клиента (Client ID Metadata Documents), опубликованных сторонними приложениями. Режим «Только тот же домен» допускает лишь документы в пределах того же регистрируемого домена, что и этот сервер. Сторонние клиенты всегда отображаются на экране согласия как непроверенные. Документы собственных веб-приложений сервера принимаются всегда.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:OidcProvider/encryptionKey/description",
+      "original": "Encryption key to use for OAuth",
+      "ru": "Ключ шифрования для OAuth",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:OidcProvider/idTokenExpiry/description",
+      "original": "Expiration time of an OpenID Connect ID token",
+      "ru": "Срок действия токена идентификации OpenID Connect",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:OidcProvider/refreshTokenExpiry/description",
+      "original": "How long an OAuth application can stay unused before it is signed out. Each refresh issues a new refresh token valid for this long, so a grant ends only after this much inactivity. Values below 30 days do not follow the OAuth profile for open public clients and make mail applications ask users to sign in again more often.",
+      "ru": "Допустимый период неактивности приложения OAuth до завершения сеанса. При каждом обновлении выдаётся новый токен обновления с этим сроком действия, поэтому разрешение прекращает действовать только после такого периода неактивности. Значения менее 30 дней не соответствуют профилю OAuth для открытых общедоступных клиентов и заставляют почтовые приложения чаще запрашивать повторный вход.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:OidcProvider/signatureAlgorithm/description",
+      "original": "JWT signature algorithm to use for OpenID Connect.",
+      "ru": "Алгоритм подписи JWT для OpenID Connect.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:OidcProvider/signatureKey/description",
+      "original": "Contents of the private key PEM used to sign JWTs for OpenID Connect.",
+      "ru": "Содержимое закрытого ключа в формате PEM для подписи JWTs в OpenID Connect.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:OidcProvider/userCodeExpiry/description",
+      "original": "Expiration time of a user code issued by the device authentication flow",
+      "ru": "Срок действия пользовательского кода, выдаваемого при аутентификации устройства",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiCategory/description/description",
+      "original": "What messages belong to this category",
+      "ru": "Какие сообщения относятся к этой категории",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiCategory/includes/description",
+      "original": "Examples of messages in this category",
+      "ru": "Примеры сообщений этой категории",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiCategory/name/description",
+      "original": "Category name, used in the tag names",
+      "ru": "Название категории, используемое в именах меток",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiLearnProperties/minProbability/description",
+      "original": "Minimum verdict probability required to use the message as a training sample",
+      "ru": "Минимальная вероятность результата классификации, необходимая для использования сообщения в качестве обучающего образца",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiLearnProperties/sampleRate/description",
+      "original": "Fraction of eligible messages used as training samples",
+      "ru": "Доля подходящих сообщений, используемых в качестве обучающих образцов",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/addHeader/description",
+      "original": "Whether to add the X-Spam-AI header with the verdict",
+      "ru": "Добавлять ли заголовок X-Spam-AI с результатом классификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/breakerCooldown/description",
+      "original": "Time a model is skipped after the failure threshold is reached",
+      "ru": "Время, в течение которого модель пропускается после достижения порога ошибок",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/breakerThreshold/description",
+      "original": "Number of consecutive failures after which a model is not queried until the cooldown expires",
+      "ru": "Число последовательных ошибок, после которого запросы к модели прекращаются до окончания периода ожидания",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/bucketHigh/description",
+      "original": "Minimum category probability for the HIGH tag",
+      "ru": "Минимальная вероятность категории для метки HIGH",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/bucketMedium/description",
+      "original": "Minimum category probability for the MEDIUM tag; lower probabilities produce the LOW tag",
+      "ru": "Минимальная вероятность категории для метки MEDIUM; при меньшей вероятности формируется метка LOW",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/categories/description",
+      "original": "Categories the classifier chooses from. Each category produces the tags AI_<CATEGORY>_HIGH, AI_<CATEGORY>_MEDIUM and AI_<CATEGORY>_LOW.",
+      "ru": "Категории, из которых выбирает классификатор. Каждой категории соответствуют метки AI_<CATEGORY>_HIGH, AI_<CATEGORY>_MEDIUM и AI_<CATEGORY>_LOW.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/condition/description",
+      "original": "Expression evaluated after the statistical classifier and the rules that do not depend on AI tags. The classifier runs only when it returns true.",
+      "ru": "Выражение, вычисляемое после статистического классификатора и правил, не зависящих от меток ИИ. ИИ-классификатор запускается только при результате true.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/deadline/description",
+      "original": "Maximum time the AI stage may take for one message, including retries and all tiers",
+      "ru": "Максимальное время работы этапа ИИ для одного сообщения, включая повторные попытки и все уровни",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/explanation/description",
+      "original": "Whether to ask generative models for a short explanation of the verdict",
+      "ru": "Запрашивать ли у генеративных моделей краткое пояснение результата",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/includeAttachments/description",
+      "original": "Whether to send attachment names and content types",
+      "ru": "Передавать ли имена вложений и типы их содержимого",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/includeAuth/description",
+      "original": "Whether to send the SPF, DKIM, DMARC and ARC results",
+      "ru": "Передавать ли результаты SPF, DKIM, DMARC и ARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/includeLinks/description",
+      "original": "Whether to send link texts and destination hosts",
+      "ru": "Передавать ли тексты ссылок и имена узлов назначения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/instructions/description",
+      "original": "Instructions sent to generative models as the system prompt",
+      "ru": "Инструкции, передаваемые генеративным моделям в качестве системного запроса",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/learn/description",
+      "original": "Whether confident verdicts are used to train the statistical classifier",
+      "ru": "Использовать ли результаты с высокой уверенностью для обучения статистического классификатора",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/maxAttachments/description",
+      "original": "Maximum number of attachments sent to the model",
+      "ru": "Максимальное число вложений, сведения о которых передаются модели",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/maxInputChars/description",
+      "original": "Maximum number of body characters sent to the model",
+      "ru": "Максимальное число символов тела сообщения, передаваемых модели",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/maxLinks/description",
+      "original": "Maximum number of links sent to the model",
+      "ru": "Максимальное число ссылок, передаваемых модели",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/mode/description",
+      "original": "Whether the classifier verdict is scored or only logged and added to the headers",
+      "ru": "Учитывается ли результат классификации при оценке спама или только записывается в журнал и заголовки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/signals/description",
+      "original": "Yes or no questions answered for each message. Each signal produces the tag AI_<SIGNAL> when it is likely true.",
+      "ru": "Вопросы с ответом «да» или «нет» для каждого сообщения. Каждый сигнал формирует метку AI_<SIGNAL>, если соответствующее утверждение с высокой вероятностью истинно (true).",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/tiers/description",
+      "original": "Models to query in order. A tier only runs when the previous tier was uncertain or returned one of its escalation categories.",
+      "ru": "Последовательность моделей для опроса. Следующий уровень запускается только при неопределённом результате предыдущего или при получении одной из категорий перехода на следующий уровень.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/trimQuotes/description",
+      "original": "Whether to remove quoted replies and signatures from the body before sending it",
+      "ru": "Удалять ли цитаты из ответов и подписи из тела сообщения перед его передачей",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/uncertainBelow/description",
+      "original": "Verdicts with a confidence below this value produce the AI_UNCERTAIN tag instead of a category tag",
+      "ru": "При уверенности ниже этого значения вместо метки категории формируется метка AI_UNCERTAIN",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/verbalHigh/description",
+      "original": "Probability assigned to a high confidence answer from a model without log probabilities",
+      "ru": "Вероятность, назначаемая ответу с высокой уверенностью от модели без логарифмических вероятностей",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/verbalLow/description",
+      "original": "Probability assigned to a low confidence answer from a model without log probabilities",
+      "ru": "Вероятность, назначаемая ответу с низкой уверенностью от модели без логарифмических вероятностей",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/verbalMedium/description",
+      "original": "Probability assigned to a medium confidence answer from a model without log probabilities",
+      "ru": "Вероятность, назначаемая ответу со средней уверенностью от модели без логарифмических вероятностей",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiProperties/webSearch/description",
+      "original": "Web search provider used to describe unknown sender domains",
+      "ru": "Поставщик веб-поиска для получения сведений о неизвестных доменах отправителей",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiSignal/name/description",
+      "original": "Signal name, used in the tag name",
+      "ru": "Название сигнала, используемое в имени метки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiSignal/question/description",
+      "original": "Question about the message; a yes answer means the signal is present",
+      "ru": "Вопрос о сообщении; положительный ответ означает наличие сигнала",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiTier/escalateBelow/description",
+      "original": "Run the next tier when the confidence of this tier is below this value",
+      "ru": "Запускать следующий уровень, когда уверенность текущего уровня ниже этого значения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiTier/escalateOn/description",
+      "original": "Run the next tier when this tier returns one of these categories",
+      "ru": "Запускать следующий уровень, когда текущий возвращает одну из этих категорий",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:SpamAiTier/modelId/description",
+      "original": "The AI model to query",
+      "ru": "Модель ИИ для отправки запросов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AiModel/field/@type",
+      "original": "Provider",
+      "ru": "Поставщик",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AiModelAnthropic/field/httpHeaders/keyLabel",
+      "original": "Header Name",
+      "ru": "Имя заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AiModelAnthropic/field/httpHeaders/valueLabel",
+      "original": "Header Value",
+      "ru": "Значение заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AiModelGemini/field/httpHeaders/keyLabel",
+      "original": "Header Name",
+      "ru": "Имя заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AiModelGemini/field/httpHeaders/valueLabel",
+      "original": "Header Value",
+      "ru": "Значение заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AiModelOllama/field/httpHeaders/keyLabel",
+      "original": "Header Name",
+      "ru": "Имя заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AiModelOllama/field/httpHeaders/valueLabel",
+      "original": "Header Value",
+      "ru": "Значение заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AiModelOpenAi/field/httpHeaders/keyLabel",
+      "original": "Header Name",
+      "ru": "Имя заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AiModelOpenAi/field/httpHeaders/valueLabel",
+      "original": "Header Value",
+      "ru": "Значение заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AiModelTypeSafe/field/httpHeaders/keyLabel",
+      "original": "Header Name",
+      "ru": "Имя заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AiModelTypeSafe/field/httpHeaders/valueLabel",
+      "original": "Header Value",
+      "ru": "Значение заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/allowInvalidCerts",
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/enable",
+      "original": "Enable list",
+      "ru": "Включить список",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/format",
+      "original": "Format",
+      "ru": "Формат",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/httpHeaders",
+      "original": "Headers",
+      "ru": "Заголовки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/isGzipped",
+      "original": "Gzipped",
+      "ru": "Сжатие gzip",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/maxEntries",
+      "original": "Max entries",
+      "ru": "Макс. число записей",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/maxEntrySize",
+      "original": "Entry length",
+      "ru": "Длина записи",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/namespace",
+      "original": "Namespace",
+      "ru": "Пространство имён",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/refreshInterval",
+      "original": "Refresh Interval",
+      "ru": "Интервал обновления",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/retry",
+      "original": "Retry",
+      "ru": "Повторная попытка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/timeout",
+      "original": "Timeout",
+      "ru": "Время ожидания",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/field/url",
+      "original": "URL",
+      "ru": "URL списка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/section/section-0",
+      "original": "HTTP List Settings",
+      "ru": "Настройки HTTP-списка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/section/section-1",
+      "original": "Configuration",
+      "ru": "Конфигурация",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookup/section/section-4",
+      "original": "Headers",
+      "ru": "Заголовки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookupCsv/field/indexKey",
+      "original": "Key Index",
+      "ru": "Индекс ключа",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookupCsv/field/indexValue",
+      "original": "Value Index",
+      "ru": "Индекс значения",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookupCsv/field/separator",
+      "original": "Separator",
+      "ru": "Разделитель",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:HttpLookupCsv/field/skipFirst",
+      "original": "Skip Header",
+      "ru": "Пропустить строку заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/field/accessTokenExpiry",
+      "original": "Access token",
+      "ru": "Токен доступа",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/field/authCodeExpiry",
+      "original": "Auth code",
+      "ru": "Код авторизации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/field/clientMetadataDocuments",
+      "original": "Client ID Metadata Documents",
+      "ru": "Документы метаданных идентификаторов клиентов (Client ID Metadata Documents)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/field/encryptionKey",
+      "original": "Key",
+      "ru": "Ключ",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/field/idTokenExpiry",
+      "original": "ID Token",
+      "ru": "Токен идентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/field/refreshTokenExpiry",
+      "original": "Refresh token idle timeout",
+      "ru": "Срок неактивности токена обновления",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/field/signatureAlgorithm",
+      "original": "Signature algorithm",
+      "ru": "Алгоритм подписи",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/field/signatureKey",
+      "original": "Signature Key",
+      "ru": "Ключ подписи",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/field/userCodeExpiry",
+      "original": "User code",
+      "ru": "Код пользователя",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/section/section-0",
+      "original": "OAuth Settings",
+      "ru": "Настройки OAuth",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/section/section-1",
+      "original": "Token Expiration",
+      "ru": "Сроки действия токенов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/section/section-2",
+      "original": "Client Registration",
+      "ru": "Регистрация клиентов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/section/section-3",
+      "original": "OpenID Connect",
+      "ru": "Настройки OpenID Connect",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/subtitle",
+      "original": "Configure the OAuth 2.0 and OpenID Connect provider, including token lifetimes, client registration, JWT signing, and the encryption key used to protect issued tokens",
+      "ru": "Настройка поставщика OAuth 2.0 и OpenID Connect: сроки действия токенов, регистрация клиентов, подпись JWT и ключ шифрования для защиты выданных токенов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:OidcProvider/title",
+      "original": "OAuth and OpenID Connect",
+      "ru": "Настройки OAuth и OpenID Connect",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAi/subtitle",
+      "original": "Configure the optional AI classifier that analyzes uncertain messages using generative language models or TypeSafe decision models, including when it runs, the categories and signals it reports and how its answers are converted into spam filter tags",
+      "ru": "Настройка необязательного ИИ-классификатора, анализирующего сообщения с неопределённым результатом проверки с помощью генеративных языковых моделей или моделей принятия решений TypeSafe: условия запуска, категории и сигналы, преобразование ответов в метки спам-фильтра",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAi/title",
+      "original": "AI Spam Classifier",
+      "ru": "ИИ-классификатор спама",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiCategory/field/includes",
+      "original": "Includes",
+      "ru": "Примеры сообщений",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiLearnProperties/field/minProbability",
+      "original": "Minimum probability",
+      "ru": "Минимальная вероятность",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiLearnProperties/field/sampleRate",
+      "original": "Sample rate",
+      "ru": "Доля обучающих образцов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/addHeader",
+      "original": "Add X-Spam-AI header",
+      "ru": "Добавлять заголовок X-Spam-AI",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/breakerCooldown",
+      "original": "Failure cooldown",
+      "ru": "Пауза после ошибок",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/breakerThreshold",
+      "original": "Failure threshold",
+      "ru": "Порог ошибок",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/bucketHigh",
+      "original": "High probability",
+      "ru": "Высокая вероятность",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/bucketMedium",
+      "original": "Medium probability",
+      "ru": "Средняя вероятность",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/categories",
+      "original": "Categories",
+      "ru": "Категории",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/condition",
+      "original": "Run when",
+      "ru": "Условие запуска",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/deadline",
+      "original": "Deadline",
+      "ru": "Предельное время выполнения",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/explanation",
+      "original": "Request explanation",
+      "ru": "Запрашивать пояснение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/includeAttachments",
+      "original": "Send attachments",
+      "ru": "Передавать сведения о вложениях",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/includeAuth",
+      "original": "Send authentication results",
+      "ru": "Передавать результаты аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/includeLinks",
+      "original": "Send links",
+      "ru": "Передавать ссылки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/instructions",
+      "original": "Instructions",
+      "ru": "Инструкции",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/learn",
+      "original": "Train classifier",
+      "ru": "Обучать классификатор",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/maxAttachments",
+      "original": "Maximum attachments",
+      "ru": "Макс. число вложений",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/maxInputChars",
+      "original": "Maximum body characters",
+      "ru": "Макс. число символов тела",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/maxLinks",
+      "original": "Maximum links",
+      "ru": "Макс. число ссылок",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/mode",
+      "original": "Mode",
+      "ru": "Режим",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/signals",
+      "original": "Signals",
+      "ru": "Сигналы",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/tiers",
+      "original": "Models",
+      "ru": "Модели",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/trimQuotes",
+      "original": "Remove quotes and signatures",
+      "ru": "Удалять цитаты и подписи",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/uncertainBelow",
+      "original": "Uncertain below confidence",
+      "ru": "Порог уверенности для неопределённого результата",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/verbalHigh",
+      "original": "Verbal high confidence",
+      "ru": "Высокая уверенность (словесная оценка)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/verbalLow",
+      "original": "Verbal low confidence",
+      "ru": "Низкая уверенность (словесная оценка)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/verbalMedium",
+      "original": "Verbal medium confidence",
+      "ru": "Средняя уверенность (словесная оценка)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/field/webSearch",
+      "original": "Web search",
+      "ru": "Веб-поиск",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/section/section-1",
+      "original": "Prompt",
+      "ru": "Запрос к модели",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/section/section-2",
+      "original": "Scoring",
+      "ru": "Оценка спама",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/section/section-3",
+      "original": "Input",
+      "ru": "Входные данные",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiProperties/section/section-5",
+      "original": "Learning",
+      "ru": "Обучение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiSignal/field/question",
+      "original": "Question",
+      "ru": "Вопрос",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiTier/field/escalateBelow",
+      "original": "Escalate below confidence",
+      "ru": "Порог уверенности для следующего уровня",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiTier/field/escalateOn",
+      "original": "Escalate on categories",
+      "ru": "Категории перехода на следующий уровень",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:SpamAiTier/field/modelId",
+      "original": "Model",
+      "ru": "Модель",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:AiModel/column/@type",
+      "original": "Provider",
+      "ru": "Поставщик",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:AiModel/column/model",
+      "original": "Model",
+      "ru": "Модель",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:AiModel/plural",
+      "original": "AI models",
+      "ru": "модели ИИ",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:AiModel/singular",
+      "original": "AI model",
+      "ru": "модель ИИ",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:AiModel/subtitle",
+      "original": "Manage the AI model endpoints used by AI-assisted features",
+      "ru": "Управление конечными точками моделей ИИ, используемыми функциями с поддержкой ИИ",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:AiModel/title",
+      "original": "AI Models",
+      "ru": "Модели ИИ",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:HttpLookup/column/enable",
+      "original": "Enable",
+      "ru": "Включено",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:HttpLookup/column/namespace",
+      "original": "Namespace",
+      "ru": "Пространство имён",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:HttpLookup/column/url",
+      "original": "URL",
+      "ru": "URL списка",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:HttpLookup/plural",
+      "original": "lists",
+      "ru": "списки",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:HttpLookup/singular",
+      "original": "list",
+      "ru": "список",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:HttpLookup/subtitle",
+      "original": "Manage HTTP list lookups",
+      "ru": "Управление списками для поиска через HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:AiModel/description",
+      "original": "Defines an AI model endpoint used by AI-assisted features such as the spam classifier and the Sieve llm_prompt function.",
+      "ru": "Определяет конечную точку модели ИИ для таких функций, как классификатор спама и функция Sieve llm_prompt.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:HttpLookup/description",
+      "original": "Defines an HTTP-based lookup list.",
+      "ru": "Определяет список для поиска, получаемый по HTTP.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:OidcProvider/description",
+      "original": "Configures the OAuth and OpenID Connect provider settings.",
+      "ru": "Настраивает поставщика OAuth и OpenID Connect.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:SpamAi/description",
+      "original": "Configures the AI spam classifier. Spam rules whose condition references an AI_ tag, directly or through a tag emitted by another such rule, run after the classifier; all other rules run before it. Rules that build tag names dynamically are not detected.",
+      "ru": "Настраивает ИИ-классификатор спама. Правила спам-фильтра, условия которых ссылаются на метку AI_ прямо или через метку, созданную другим таким правилом, выполняются после классификатора; остальные правила выполняются до него. Правила, формирующие имена меток динамически, не распознаются.",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:HttpLookupFormat/Csv/label",
+      "original": "CSV",
+      "ru": "Таблица CSV",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:HttpLookupFormat/List/label",
+      "original": "List",
+      "ru": "Список",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:SpamAi/Disable/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:SpamAiLearn/Disable/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:SpamAiWebSearch/Disable/label",
+      "original": "Disabled",
+      "ru": "Отключено",
+      "decision": "translate"
+    }
+  ]
+}
