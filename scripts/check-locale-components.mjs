@@ -11,6 +11,7 @@ import * as jsxRuntime from 'react/jsx-runtime';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { sourceModule, loadInputs, at } from './lib/locale-source.mjs';
 import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.mjs';
+import {loadVariantPacket,undoVariants} from './lib/locale-variant-labels.mjs';
 import { buildUsageGraph } from './lib/locale-graph.mjs';
 import { classify } from './lib/locale-planner.mjs';
 import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
@@ -2161,7 +2162,7 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 {
   const inputs37=loadInputs(process.cwd());
   const packet37=loadFieldDescriptionPacket(process.cwd(),inputs37.policy);
-  const stage37Catalog=undoFormContext(catalog,loadFormContextPacket(process.cwd(),inputs37.policy));
+  const stage37Catalog=undoFormContext(undoVariants(catalog,loadVariantPacket(process.cwd(),inputs37.policy)),loadFormContextPacket(process.cwd(),inputs37.policy));
   const oldCatalog=undoFieldDescriptions(stage37Catalog,packet37);
   const oldInputs={...inputs37,catalog:oldCatalog,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':oldCatalog})};
   const oldRows=classify(oldInputs,buildUsageGraph(oldInputs)).rows.filter(r=>
@@ -2250,7 +2251,7 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 // presence (several sections and fields can have the same English label).
 {
   const inputs38=loadInputs(process.cwd());
-  const oldCatalog=undoFormContext(catalog,loadFormContextPacket(process.cwd(),inputs38.policy));
+  const oldCatalog=undoFormContext(undoVariants(catalog,loadVariantPacket(process.cwd(),inputs38.policy)),loadFormContextPacket(process.cwd(),inputs38.policy));
   const oldInputs={...inputs38,catalog:oldCatalog,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':oldCatalog})};
   const rows38=classify(oldInputs,buildUsageGraph({...oldInputs,fieldOwners:true})).rows.filter(r=>
     r.classification==='renderer-unwired'&&['form-field-label','form-section','form'].includes(r.category));
@@ -2327,4 +2328,153 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
   assert.equal(screens.size,33);
   assert.equal(covered.size,1251);
   console.log('PASS: Stage38 actual DynamicView/title hook '+JSON.stringify(count)+'; '+covered.size+' source pairs, '+screens.size+' screens; invisible section usages='+JSON.stringify(unrenderable)+'; RU/EN/unknown hash, exact form slot and raw data preserved; no browser/network');
+}
+
+// Stage39: execute the actual detail badge for every historical raw usage,
+// plus the real selector, list-cell and nested display paths on pinned data.
+// All mutations are synthetic callbacks; no server, browser or external IO.
+{
+  const inputs39=loadInputs(process.cwd());
+  const packet39=loadVariantPacket(process.cwd(),inputs39.policy);
+  const previous39=undoVariants(catalog,packet39);
+  const old39={...inputs39,catalog:previous39,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':previous39})};
+  const scope39=classify(old39,buildUsageGraph({...old39,fieldOwners:true,formOwners:true})).rows.filter(r=>r.classification==='renderer-unwired');
+  assert.equal(scope39.length,135);
+  const pins39=new Map(inputs39.pins.map(p=>[p.schemaHash,p.data]));
+  let calls39=[],select39,options39=[],fixtureSchema39;
+  const tracked39=()=> (slot,original)=>{calls39.push([slot,original]);return schemaText(hash,language,slot,original);};
+  const {DynamicView:DynamicView39}=component('src/components/views/DynamicView.tsx',{
+    '@/components/ui/badge':{Badge:badge20},
+    '@/components/values/FieldValue':{ValueRow:()=>null},
+    '@/hooks/useSchemaText':{useSchemaText:tracked39},
+    '@/lib/schemaResolver':resolver19,'@/lib/embeddedSchema':embedded19,
+  });
+  const {VariantSelect:VariantSelect39}=component('src/components/forms/VariantSelect.tsx',{
+    '@/components/ui/select':{
+      Select:props=>{select39=props;return h('div',null,props.children);},
+      SelectContent:passthrough,SelectTrigger:passthrough,SelectValue:()=>null,
+      SelectItem:props=>{options39.push(props);return h('span',null,props.children);},
+    },
+    '@/hooks/useSchemaText':{useSchemaText:tracked39},
+    '@/components/forms/FieldRow':{FieldLabel:props=>h('span',null,props.label)},
+    '@/components/forms/formContext':{fieldIds:()=>({inputId:'variant39',labelId:'label39'}),useFieldScope:()=>({path:[]}),useFormContext:()=>({idPrefix:'synthetic'}),useInPanel:()=>false},
+    '@/components/forms/formLogic':{VARIANT_FIELD:'@type'},
+  });
+  const {FormSections:FormSections39}=component('src/components/forms/FormSections.tsx',{
+    '@/i18n/schemaFormContext':{sectionDisplayContext},
+    '@/components/forms/FieldRow':{FieldRow:()=>null},
+    '@/components/forms/VariantSelect':{VariantSelect:VariantSelect39},
+  });
+  const {EmbeddedObjectEditor:EmbeddedObjectEditor39}=component('src/components/forms/widgets/EmbeddedObjectWidget.tsx',{
+    '@/components/forms/FieldRow':{FieldRow:()=>null},
+    '@/components/forms/VariantSelect':{VariantSelect:VariantSelect39},
+    '@/components/forms/formContext':{
+      EnclosingSchemaContext:passthrough,PanelContext:passthrough,
+      useFormContext:()=>({schema:fixtureSchema39,mode:'edit',baseline:null}),
+      useInPanel:()=>true,
+    },
+    '@/lib/schemaResolver':resolver19,'@/lib/embeddedSchema':embedded19,
+  });
+  function find39(node,predicate){
+    if(!React.isValidElement(node))return [];
+    return [...(predicate(node)?[node]:[]),...React.Children.toArray(node.props.children).flatMap(child=>find39(child,predicate))];
+  }
+  const modes39=pinHash=>[['ru',pinHash],['en',pinHash],['ru','unknown'],['ru',pinHash]];
+  const clear39=()=>{select39=undefined;options39=[];calls39=[];};
+  const count39={detail:0,list:0,selector:0,form:0,embedded:0,changedOriginal:0};
+  const screens39=new Set();
+  const covered39=new Set();
+  for(const row of scope39){
+    const [,objectName,id]=row.slot.split('/');
+    const entry=catalog.entries[row.slot];
+    assert.equal(entry.original,row.original,row.slot);
+    for(const loc of row.locations){
+      const schema=pins39.get(loc.schemaHash),sch=schema.schemas[objectName],variants=sch.variants;
+      const rawVariant=variants.find(v=>v.name===id);
+      assert.ok(rawVariant,row.slot);assert.equal(rawVariant.label,row.original,row.slot);
+      assert.equal(at(schema,loc.sourcePointer),row.original,row.slot);
+      fixtureSchema39=schema;
+      const data={'@type':id},populated={...data,syntheticMarker:'synthetic-value'};
+      const snapshot=JSON.stringify({variants,data,populated});
+      const segmented=variants.length>1&&variants.length<=4&&variants.reduce((n,v)=>n+v.label.length,0)<=44;
+      const next=variants.find(v=>v.name!==id)?.name;
+      let changed;
+      const props={variantScope:objectName,variants,value:id,onChange:v=>{changed=v;},readOnly:false,ariaLabel:'Synthetic type'};
+      for(const [lang,activeHash] of modes39(loc.schemaHash)){
+        language=lang;hash=activeHash;clear39();
+        const expected=lang==='ru'&&activeHash===loc.schemaHash?entry.ru:row.original;
+        const html=render(VariantSelect39,props);
+        assert.ok(html.includes(htmlText19(expected)),row.slot);
+        assert.ok(calls39.some(([slot,o])=>slot===row.slot&&o===row.original),row.slot+' selector lookup');
+        if(segmented){
+          assert.ok(html.includes('role="radiogroup"'));
+          const control=find39(VariantSelect39(props),n=>typeof n.type==='function'&&n.type.name==='SegmentedVariants')[0];
+          assert.ok(control,row.slot);
+          assert.equal(control.props.value,id);
+          assert.deepEqual(Array.from(control.props.variants,v=>v.name),Array.from(variants,v=>v.name));
+          const radios=find39(control.type(control.props),n=>n.type==='button'&&n.props.role==='radio');
+          const i=variants.findIndex(v=>v.name===id);
+          assert.equal(radios[i].props.children,expected);assert.equal(radios[i].props['aria-checked'],true);
+          if(next){radios[variants.findIndex(v=>v.name===next)].props.onClick();assert.equal(changed,next);}
+        }else{
+          assert.ok(select39,row.slot);assert.equal(select39.value,id);
+          assert.deepEqual(Array.from(options39,v=>v.value),Array.from(variants,v=>v.name));
+          assert.equal(options39.find(v=>v.value===id).children,expected);
+          if(next){select39.onValueChange(next);assert.equal(changed,next);}
+        }
+        assert.equal(props.value,id);
+        assert.ok(render(fieldValue20.VariantValue,{schema,objectName,value:id}).includes(htmlText19(expected)),row.slot);
+        assert.ok(render(fieldValue20.ObjectValue,{schema,objectName,value:data}).includes(htmlText19(expected)),row.slot+' empty nested');
+        assert.ok(render(fieldValue20.ObjectValue,{schema,objectName,value:populated,defaultOpen:true}).includes(htmlText19(expected)),row.slot+' populated nested');
+        assert.ok(render(fieldValue20.EmbeddedSummaryValue,{schema,objectName,value:populated}).includes(htmlText19(expected)),row.slot+' compact nested');
+        // The real FormSections variant adapter receives canonical objectName,
+        // with a synthetic type row just as the dynamic form renderer does.
+        clear39();
+        const section={key:'section-0',fields:[{formField:{name:'@type',label:'Type'},field:null}]};
+        const variant={variants,value:id,onChange:v=>{changed=v;}};
+        assert.ok(render(FormSections39,{sections:[section],formKey:objectName,data,errors:{},readOnly:false,onFieldChange:()=>{},variant}).includes(htmlText19(expected)),row.slot+' form adapter');
+        assert.ok(calls39.some(([slot,o])=>slot===row.slot&&o===row.original),row.slot+' form lookup');
+        clear39();
+        const embedded=render(EmbeddedObjectEditor39,{objectName,value:data,onChange:()=>{},readOnly:false,control:{'aria-label':'Synthetic type'}});
+        assert.ok(embedded.includes(htmlText19(expected)),row.slot+' embedded editor');
+        assert.ok(calls39.some(([slot,o])=>slot===row.slot&&o===row.original),row.slot+' embedded lookup');
+        assert.equal(JSON.stringify({variants,data,populated}),snapshot,row.slot);
+      }
+      count39.selector++;count39.form++;count39.embedded++;
+      // Same raw ID with a changed server-supplied original must stay English.
+      const altered=row.original+' changed';
+      const changedSchema={...schema,schemas:{...schema.schemas,[objectName]:{...sch,variants:variants.map(v=>v.name===id?{...v,label:altered}:v)}}};
+      language='ru';hash=loc.schemaHash;clear39();
+      assert.ok(render(DynamicView39,{schema:changedSchema,objectName,viewName:objectName,data}).includes(htmlText19(altered)),row.slot+' changed detail fallback');
+      assert.ok(calls39.some(([slot,o])=>slot===row.slot&&o===altered),row.slot+' changed detail lookup');
+      assert.ok(render(ListCell,{schema:changedSchema,objectName,column:'@type',field:undefined,value:id}).includes(htmlText19(altered)),row.slot+' changed list fallback');
+      assert.ok(render(VariantSelect39,{...props,variants:changedSchema.schemas[objectName].variants}).includes(htmlText19(altered)),row.slot+' changed selector fallback');
+      count39.changedOriginal++;
+    }
+    for(const u of row.usages){
+      if(!['detail','list-cell'].includes(u.mode))continue;
+      const schema=pins39.get(u.schemaHash),data={'@type':id};
+      const object=resolver19.resolveObject(schema,u.screen);
+      assert.ok(object,u.screen);assert.equal(object.objectName,objectName,row.slot+' '+u.screen);
+      for(const [lang,activeHash] of modes39(u.schemaHash)){
+        language=lang;hash=activeHash;clear39();
+        const expected=lang==='ru'&&activeHash===u.schemaHash?entry.ru:row.original;
+        if(u.mode==='detail'){
+          assert.equal(u.state,'unwired');
+          const html=render(DynamicView39,{schema,objectName,viewName:u.screen,data});
+          assert.ok(html.includes(htmlText19(expected)),row.slot+' '+u.screen);
+          assert.ok(calls39.some(([slot,o])=>slot===row.slot&&o===row.original),row.slot+' detail lookup');
+        }else{
+          assert.ok(render(ListCell,{schema,objectName,column:'@type',field:undefined,value:id}).includes(htmlText19(expected)),row.slot+' '+u.screen+' list cell');
+        }
+        assert.equal(data['@type'],id);
+      }
+      if(u.mode==='detail'){count39.detail++;screens39.add(u.section+'\0'+u.screen);}
+      else count39.list++;
+    }
+    covered39.add(row.slot);
+  }
+  assert.deepEqual(count39,{detail:296,list:281,selector:258,form:258,embedded:258,changedOriginal:258});
+  assert.equal(screens39.size,14);assert.equal(covered39.size,135);
+  console.log('PASS: Stage39 actual DynamicView, VariantSelect, FormSections, ListCell, ObjectValue, EmbeddedSummaryValue, EmbeddedObjectEditor; '+JSON.stringify(count39)+'; 135 exact pairs, 14 affected screens; RU/EN/unknown hash, changed-original fallback, raw IDs, callbacks and schema unchanged; no browser/network');
 }
