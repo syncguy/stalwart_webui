@@ -11,9 +11,7 @@
     "failedTitle": "Action failed",
     "noAdditionalData": "No additional data returned.",
     "otherGroup": "Other",
-    "title": "Actions",
-    "updateAppsScopeWarning": "Updates all configured web applications, not only this interface. Check every application's resource URL and external download policy before continuing.",
-    "negativeCacheExplanation": "Clears cached unsuccessful lookup results so the next requests check again. Stored data is not deleted."
+    "title": "Actions"
   },
   "bootstrap": {
     "complete": "Setup complete",
@@ -213,7 +211,6 @@
     "selectEllipsis": "Select...",
     "selectKey": "Select key...",
     "selectOptions": "Select options...",
-    "selectPermissions": "Select permissions...",
     "time": "Time",
     "type": "Type",
     "typeAndPressEnter": "Type and press Enter...",
@@ -385,7 +382,6 @@
     "selectFilterPlaceholder": "Select {{label}}...",
     "selectNamed": "Select {{label}}",
     "showing": "Showing {{from}}-{{to}} of {{total}} {{name}}",
-    "showingRange": "Showing {{from}}-{{to}} of {{total}}",
     "showingItems": "Showing {{count}} items",
     "sortAscending": "Sort ascending",
     "sortClear": "Clear sort",
@@ -505,7 +501,6 @@
     "valuePlaceholder": "Value..."
   },
   "tryEnterprise": "Try Enterprise",
-  "interfaceLanguage": "Language",
   "userMenu": "User menu",
   "value": {
     "itemCount_one": "{{count}} item",
@@ -675,7 +670,20 @@
     "searchLabel": "Search {{label}}",
     "noMatch": "No entries match “{{search}}”."
   },
-  "logs": {
-    "noTracersConfigured": "No log tracers configured on the server"
+  "webuiRu": {
+    "actions": {
+      "updateAppsScopeWarning": "Updates all configured web applications, not only this interface. Check every application's resource URL and external download policy before continuing.",
+      "negativeCacheExplanation": "Clears cached unsuccessful lookup results so the next requests check again. Stored data is not deleted."
+    },
+    "field": {
+      "selectPermissions": "Select permissions..."
+    },
+    "list": {
+      "showingRange": "Showing {{from}}-{{to}} of {{total}}"
+    },
+    "interfaceLanguage": "Language",
+    "logs": {
+      "noTracersConfigured": "No log tracers configured on the server"
+    }
   }
 }
