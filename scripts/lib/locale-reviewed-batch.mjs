@@ -111,7 +111,8 @@ export function verifyReviewedBatch({packet,before,after,inputs,graph,makeSchema
     // Stage29 consolidates already-accepted Permission labels into the ordinary catalog.
     // Existing display wording can abbreviate protocol prefixes; do not silently rewrite it.
     // Only this exact stage and exact pinned permission id/original/RU may use this path.
-    const permissionId=packet.stage===29?e.slot.match(/^enum\\/Permission\\/([^/]+)\\/label$/)?.[1]:undefined;
+    const permissionParts=e.slot.split('/');
+    const permissionId=packet.stage===29&&permissionParts.length===4&&permissionParts[0]==='enum'&&permissionParts[1]==='Permission'&&permissionParts[3]==='label'?permissionParts[2]:undefined;
     if(permissionId){
       assert.deepEqual(inputs.permissionCatalog.entries[permissionId],{original:e.original,ru:e.ru},'Pinned Permission label mismatch: '+e.slot);
       assert.equal(inputs.permission.permissionDisplayLabel(permissionId,e.original),e.ru);
