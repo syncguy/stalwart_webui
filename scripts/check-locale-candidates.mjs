@@ -9,11 +9,13 @@ import { loadInputs, readJson, digest, json, ptr, at, sourceModule } from './lib
 import { buildUsageGraph } from './lib/locale-graph.mjs';
 import { CATEGORIES, classify, candidates, preview, textSafe, diffRows, translationMemory, semanticGroup, plan, compactReport } from './lib/locale-planner.mjs';
 import {loadReviewedBatches,baselineCatalog} from './lib/locale-reviewed-batch.mjs';
+import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
 import './lib/offline-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const inputs = loadInputs(root);
-const graph = buildUsageGraph(inputs);
+const legacyGraph = buildUsageGraph(inputs);
+const graph = buildUsageGraph({ ...inputs, fieldOwners: true });
 const report = readJson(fs.readFileSync(path.join(root, '.artifacts/locale-candidates/classification.json'), 'utf8'), 'classification');
 const row = slot => report.rows.find(r => r.slot === slot);
 const uses = r => r.usages.map(u => ({ ...report.usageContexts[u.context], text: report.displayTexts[u.text],
@@ -200,7 +202,9 @@ console.log(`Этап 17: ${cases} групп проверок PASS. Это offl
 const packet18 = readJson(fs.readFileSync(path.join(root, 'scripts/data/stage18-address-calendar-review.json'), 'utf8'), 'stage18 packet');
 const scopes18 = new Set(['x:AddressBook', 'x:Calendar']);
 const laterBatches = loadReviewedBatches(root,inputs.policy);
-const stage18Catalog = baselineCatalog(inputs.catalog,laterBatches);
+const stage37Packet = loadFieldDescriptionPacket(root,inputs.policy);
+const stage35Catalog = undoFieldDescriptions(inputs.catalog,stage37Packet);
+const stage18Catalog = baselineCatalog(stage35Catalog,laterBatches);
 const laterTranslations = laterBatches.reduce((n,p)=>n+p.entries.length,0);
 const baselineCatalog18 = structuredClone(stage18Catalog);
 for (const e of packet18.entries) if (e.decision === 'translate') delete baselineCatalog18.entries[e.slot];
@@ -213,7 +217,10 @@ baselinePolicy18.keepOriginal = baselinePolicy18.keepOriginal.filter(r => !packe
 const rawRuntime18 = fs.readFileSync(path.join(root, 'src/i18n/schemaText.ts'), 'utf8');
 const beforeInputs18 = { ...inputs, catalog: baselineCatalog18, policy: baselinePolicy18,
   schema: sourceModule(rawRuntime18, 'schemaText.ts', { './schema/ru.json': { ...baselineCatalog18, scopedEntries: [] } }) };
-const beforeReport18 = compactReport(plan(beforeInputs18, graph));
+const beforeReport18 = compactReport(plan(beforeInputs18, legacyGraph));
+const stage35Inputs={...inputs,catalog:stage35Catalog,schema:sourceModule(rawRuntime18,'schemaText.ts',{'./schema/ru.json':stage35Catalog})};
+const legacyRows=classify(stage35Inputs,legacyGraph).rows;
+const legacyCount=c=>legacyRows.filter(r=>r.classification===c).length;
 const missing18 = beforeReport18.rows.filter(r => r.classification === 'missing' &&
   r.usages.some(u => {
     const c = beforeReport18.usageContexts[u.context];
@@ -316,7 +323,56 @@ check('Stage18: exact four reviewed scoped entries; no shared fallback or unexpe
   }
   assert.equal(beforeReport18.conflicts.length, 2);
   assert.ok(beforeReport18.conflicts.every(c => c.variants.every(v => !v.scopedBindingVerified)));
-  assert.equal(report.summary.classification.translated, beforeReport18.summary.classification.translated + 58 + laterTranslations);
-  assert.equal(report.summary.classification.missing, beforeReport18.summary.classification.missing - 56 - laterTranslations);
+  assert.equal(legacyCount('translated'), beforeReport18.summary.classification.translated + 58 + laterTranslations);
+  assert.equal(legacyCount('missing'), beforeReport18.summary.classification.missing - 56 - laterTranslations);
 });
 console.log('Stage18: applied 54 translations, two preserved standard labels, four exact scoped bindings. Static/source tests, not React/browser acceptance.');
+
+check('Stage37: exact historical scope, all canonical description paths and no translation regression', () => {
+  assert.equal(report.stage,37);
+  assert.equal(legacyCount('translated'),6418);
+  assert.equal(legacyCount('missing'),0);
+  assert.equal(legacyCount('renderer-unwired'),2364);
+  const old=legacyRows.filter(r=>r.classification==='renderer-unwired'&&r.slot.startsWith('field/')&&r.slot.endsWith('/description'));
+  assert.equal(old.length,978);
+  assert.equal(old.filter(r=>r.catalogState==='missing').length,947);
+  assert.deepEqual(old.filter(r=>r.catalogState==='missing').map(r=>r.slot).sort(),[...stage37Packet.slots].sort());
+  const active=new Map(report.rows.map(r=>[r.id,r]));
+  let mismatches=0;
+  const screens=new Set();
+  for(const prior of old){
+    const current=active.get(prior.id);
+    assert.equal(current.classification,'translated',prior.slot);
+    for(const u of prior.usages.filter(u=>u.state==='slot-mismatch')){
+      mismatches++;screens.add(u.section+'\0'+u.screen);
+    }
+    for(const u of uses(current)){
+      assert.equal(u.state,'wired',prior.slot);
+      assert.equal(u.lookupSlot,current.slot,prior.slot);
+      assert.equal(u.text.ru,current.acceptedTranslation,prior.slot);
+    }
+    for(const l of current.locations){
+      assert.equal(at(inputs.pins.find(p=>p.schemaHash===l.schemaHash).data,l.sourcePointer),current.original);
+      const lookup=inputs.schema.schemaText;
+      assert.equal(lookup(l.schemaHash,'ru',current.slot,current.original),current.acceptedTranslation);
+      assert.equal(lookup(l.schemaHash,'en',current.slot,current.original),current.original);
+      assert.equal(lookup(l.schemaHash,'ru',current.slot,current.original+' changed'),current.original+' changed');
+      assert.equal(lookup('unknown','ru',current.slot,current.original),current.original);
+    }
+  }
+  assert.equal(mismatches,2336);
+  assert.equal(screens.size,38);
+  for(const prior of legacyRows){
+    const current=active.get(prior.id);
+    if(prior.classification==='translated')assert.equal(current.classification,'translated','Prior translation regressed: '+prior.slot);
+    if(!prior.slot.startsWith('field/')||!prior.slot.endsWith('/description'))
+      assert.equal(current.classification,prior.classification,'Unrelated classification changed: '+prior.slot);
+  }
+  for(const mutate of [p=>p.slots.pop(),p=>p.slots.push(p.slots[0]),p=>p.translations[0]+=' {{unexpected}}',p=>p.apply=true]){
+    const p=structuredClone(stage37Packet);mutate(p);assert.throws(()=>undoFieldDescriptions(inputs.catalog,p));
+  }
+  const tampered=structuredClone(inputs.catalog);
+  tampered.entries[Object.keys(stage35Catalog.entries)[0]].ru+=' changed';
+  assert.throws(()=>undoFieldDescriptions(tampered,stage37Packet));
+  console.log('Stage37 exact scope: '+old.length+' descriptions; '+mismatches+' historical mismatched usages; '+screens.size+' affected screens; 947 new catalog entries, 31 previous entries reconnected.');
+});
