@@ -480,7 +480,7 @@
   ],
   "baselineSource": "6491192ec301bb32f7ed500d18f3dd94f358945b",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "6c74b7a66c5186e23d2f630b4a4fa198a98615215415fdd9645b8cd7cb45860c",
+    "src/i18n/schema/ru.json": "320bbaa5c36d7f637aa0cd90a8c31456e7b4d9d801c5542e808c5edbfac7aad3",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
     "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
@@ -509,7 +509,7 @@
     "scripts/lib/locale-field-descriptions.mjs": "2177dbbddfd188621f8491ae8571418f1d69540a059a03f201376ef9a3d52038",
     "scripts/lib/locale-graph.mjs": "e47670ce89e2e3a27f05ecd788c1a64cdf98c00e405cf7a15eb8593676a514a3",
     "scripts/lib/locale-form-context.mjs": "ef2fe2295fbc84c35636650c361328b27711fc1ed8c20bc460b612b6ca61e557",
-    "scripts/data/stage38-form-context-review.json": "ca637571c912b8aa62aafe8e8001637787f37ed317d216d0c62329773efcba90"
+    "scripts/data/stage38-form-context-review.json": "376c86eb95423f7da3a76b24fa33834a4f1df2cd05de1c7c6b9684e311de913e"
   },
   "clientLiterals": [
     {
