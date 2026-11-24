@@ -1698,19 +1698,22 @@ if(catalog.entries['enum/ClusterTaskType/accountMaintenance/label']){
       for(const [i,v] of caps.entries()){
         const slot='enum/ClusterTaskType/'+v.name+'/label';
         assert.equal(v.label,original(slot));
-        const id='cluster-tasks-dd-'+v.name.replace(/[^A-Za-z0-9_-]/g,'_');
+        const id='cluster-tasks-'+v.name.replace(/[^A-Za-z0-9_-]/g,'_');
         assert.equal(checks33[i].id,id);assert.equal(checks33[i].checked,items.includes(v.name));
         assert.equal(labels33.get(id),localized?ru(slot):v.label,slot);
         assert.ok(render(scalar20.EnumValue,{schema,enumName:'ClusterTaskType',value:v.name}).includes(htmlText19(localized?ru(slot):v.label)),slot);
       }
-      for(const [i,id] of items.entries()){
-        const slot='enum/ClusterTaskType/'+id+'/label';
-        assert.equal(pills33[i].label,localized?ru(slot):original(slot));
-        assert.ok(html.includes(htmlText19(pills33[i].label)),slot);
+      // Exactly ten variants use the inline grid, not the searchable popover/pills.
+      assert.equal(pills33.length,0);
+      assert.ok(html.includes('sm:grid-cols-2'));
+      for(const v of caps){
+        const slot='enum/ClusterTaskType/'+v.name+'/label';
+        assert.ok(html.includes(htmlText19(localized?ru(slot):v.label)),slot);
       }
       checks33[caps.findIndex(v=>v.name===next)].onCheckedChange();
       assert.deepEqual(Array.from(event),[...items,next]);
-      pills33[0].onRemove();assert.deepEqual(Array.from(event),[items[1]]);
+      checks33[caps.findIndex(v=>v.name===items[0])].onCheckedChange();
+      assert.deepEqual(Array.from(event),[items[1]]);
       assert.equal(JSON.stringify({caps,items}),capRaw);
     }
     multi33++;
