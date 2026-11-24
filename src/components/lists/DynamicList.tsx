@@ -117,7 +117,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
   // Only translate this exact server-provided description for the Logs view.
   // Other JMAP errors are displayed unchanged to avoid concealing diagnostic data.
   const listError = listKey === 'x:Log' && listState.error === 'No log tracers configured on the server'
-    ? t('logs.noTracersConfigured', 'No log tracers configured on the server')
+    ? t('webuiRu.logs.noTracersConfigured', 'No log tracers configured on the server')
     : listState.error;
 
   const busy = listState.isFetching || actions.pending;
