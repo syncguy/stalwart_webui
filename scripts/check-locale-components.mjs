@@ -784,3 +784,101 @@ if(catalog.entries['variant/x:DataStore/Sqlite/label']){
   assert.ok(formCases25>=6,'storage form coverage');
   console.log('PASS: Stage25 actual VariantSelect, EnumWidget/EnumValue, FormSections/FieldRow synthetic SSR; edition-pinned storage/backend labels, region IDs, raw callbacks, compression, cache size/TTL, metadata and indexing limits; no storage connections or configuration writes');
 }
+
+
+// Stage26: SMTP transport display only; no actual connections, policy evaluation or delivery.
+if(catalog.entries['enum/MtaIpStrategy/v4Only/label']){
+  let formCases26=0,enumCases26=0,columns26=0;
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;
+    for(const [enumName,selected,next] of [
+      ['MtaIpStrategy','v4Only','v6ThenV4'],
+      ['MilterVersion','v2','v6'],
+      ['MtaRequiredOrOptional','require','optional'],
+      ['MtaInboundThrottleKey','authenticatedAs','remoteIp'],
+      ['MtaStage','auth','connect'],
+      ['PolicyEnforcement','enforce','testing'],
+    ]){
+      const variants=resolver19.getEnum(schema,enumName);
+      assert.ok(variants.some(v=>v.name===selected)&&variants.some(v=>v.name===next),enumName);
+      const slot='enum/'+enumName+'/'+selected+'/label',raw=JSON.stringify(variants);
+      let event;
+      const props={type:{type:'enum',enumName,nullable:false},formField:{name:'mode'},value:selected,onChange:v=>{event=v;},readOnly:false,control:{}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const label=lang==='ru'?ru(slot):original(slot);
+        assert.ok(render(EnumWidget,props).includes(htmlText19(label)),slot);
+        assert.equal(capturedCombo19.value,selected);
+        assert.deepEqual(Array.from(capturedCombo19.options,v=>v.value),Array.from(variants,v=>v.name));
+        capturedCombo19.onValueChange(next);
+        assert.equal(event,next);
+        assert.ok(render(scalar20.EnumValue,{schema,enumName,value:selected}).includes(htmlText19(label)),slot);
+        assert.equal(JSON.stringify(variants),raw);
+        assert.equal(props.value,selected);
+      }
+      hash='unknown';language='ru';
+      assert.ok(render(EnumWidget,props).includes(htmlText19(original(slot))),slot);
+      hash=pin.schemaHash;enumCases26++;
+    }
+    for(const [formKey,name,value,changed] of [
+      ['x:MtaInboundSession','idleTimeout','1m','2m'],
+      ['x:MtaMilter','port',10025,10026],
+      ['x:MtaMilter','tempFailOnError',true,false],
+      ['x:MtaStageAuth','maxFailures',3,5],
+      ['x:MtaStageData','maxMessages',100,200],
+      ['x:MtaTlsStrategy','allowInvalidCerts',false,true],
+      ['x:MtaHook','url','https://example.invalid/hook','https://example.invalid/other'],
+      ['x:MtaDeliveryExpirationAttempts','maxAttempts',5,10],
+      ['x:MtaQueueQuota','messages',100,200],
+    ]){
+      const form=schema.forms[formKey],field=schema.fields[formKey]?.properties[name];
+      assert.ok(form&&field,formKey+'/'+name);
+      const section=form.sections.find(s=>s.fields.some(f=>f.name===name));
+      assert.ok(section,formKey+'/'+name);
+      const formField=section.fields.find(f=>f.name===name);
+      const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+      assert.equal(formField.label,original(slot));
+      assert.equal(field.description,original(desc));
+      const sections=[{key:'section-'+form.sections.indexOf(section),title:section.title,fields:[{formField,field}]}];
+      const data={[name]:value},snapshot=JSON.stringify({sections,data});
+      let event;
+      const props={sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const html=render(FormSections,props);
+        for(const key of [slot,desc])assert.ok(html.includes(htmlText19(lang==='ru'?ru(key):original(key))),key);
+        assert.equal(capturedField.formField.name,name);
+        assert.equal(capturedField.value,value);
+        capturedField.onChange(changed);
+        assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({sections,data}),snapshot);
+      }
+      hash='unknown';language='ru';
+      assert.ok(render(FormSections,props).includes(htmlText19(original(slot))),slot);
+      hash=pin.schemaHash;formCases26++;
+    }
+    for(const [listKey,name] of [['x:MtaQueueQuota','messages'],['x:MtaMilter','host'],['x:MtaDeliverySchedule','queueId']]){
+      const column=schema.lists[listKey].columns.find(v=>v.name===name);
+      const slot='list/'+listKey+'/column/'+name;
+      assert.equal(column.label,original(slot));
+      const snapshot=JSON.stringify(column);
+      let sorted;
+      const props={column,listKey,sortable:true,sort:null,onSort:v=>{sorted=v;}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const label=lang==='ru'?ru(slot):original(slot);
+        assert.ok(render(ColumnHeader,props).includes(htmlText19(label)),slot);
+        assert.ok(render(ColumnHeader,{...props,sortable:false}).includes(htmlText19(label)),slot);
+        ColumnHeader(props).props.children.props.onClick();
+        assert.equal(sorted,name);
+        assert.equal(JSON.stringify(column),snapshot);
+      }
+      columns26++;
+    }
+  }
+  assert.equal(enumCases26,12);
+  assert.equal(formCases26,18);
+  assert.equal(columns26,6);
+  console.log('PASS: Stage26 actual EnumWidget/EnumValue, FormSections/FieldRow and ColumnHeader synthetic SSR; both pinned editions, SMTP strategy/Milter/relay settings, raw callbacks and sort keys, unknown hash fallback; no SMTP traffic or policy changes');
+}

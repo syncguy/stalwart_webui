@@ -3402,17 +3402,137 @@
       "original": "Total number of users",
       "ru": "Общее число пользователей"
     },
+    "enum/MilterVersion/v2/label": {
+      "original": "Version 2",
+      "ru": "Версия 2"
+    },
+    "enum/MilterVersion/v6/label": {
+      "original": "Version 6",
+      "ru": "Версия 6"
+    },
+    "enum/MtaInboundThrottleKey/authenticatedAs/label": {
+      "original": "Authenticated As",
+      "ru": "Имя аутентифицированного пользователя"
+    },
+    "enum/MtaInboundThrottleKey/heloDomain/label": {
+      "original": "EHLO Domain",
+      "ru": "Домен EHLO"
+    },
+    "enum/MtaInboundThrottleKey/listener/label": {
+      "original": "Listener",
+      "ru": "Слушатель"
+    },
+    "enum/MtaInboundThrottleKey/localIp/label": {
+      "original": "Local IP",
+      "ru": "Локальный IP"
+    },
+    "enum/MtaInboundThrottleKey/rcpt/label": {
+      "original": "Recipient",
+      "ru": "Получатель"
+    },
+    "enum/MtaInboundThrottleKey/rcptDomain/label": {
+      "original": "Recipient Domain",
+      "ru": "Домен получателя"
+    },
+    "enum/MtaInboundThrottleKey/remoteIp/label": {
+      "original": "Remote IP",
+      "ru": "Удалённый IP"
+    },
     "enum/MtaInboundThrottleKey/sender/label": {
       "original": "Sender",
       "ru": "Отправитель"
+    },
+    "enum/MtaInboundThrottleKey/senderDomain/label": {
+      "original": "Sender Domain",
+      "ru": "Домен отправителя"
+    },
+    "enum/MtaIpStrategy/v4Only/label": {
+      "original": "IPv4 Only",
+      "ru": "Только IPv4"
+    },
+    "enum/MtaIpStrategy/v4ThenV6/label": {
+      "original": "IPv4 then IPv6",
+      "ru": "Сначала IPv4, затем IPv6"
+    },
+    "enum/MtaIpStrategy/v6Only/label": {
+      "original": "IPv6 Only",
+      "ru": "Только IPv6"
+    },
+    "enum/MtaIpStrategy/v6ThenV4/label": {
+      "original": "IPv6 then IPv4",
+      "ru": "Сначала IPv6, затем IPv4"
+    },
+    "enum/MtaOutboundThrottleKey/localIp/label": {
+      "original": "Local IP",
+      "ru": "Локальный IP"
+    },
+    "enum/MtaOutboundThrottleKey/mx/label": {
+      "original": "MX Host",
+      "ru": "Узел MX"
+    },
+    "enum/MtaOutboundThrottleKey/rcptDomain/label": {
+      "original": "Recipient Domain",
+      "ru": "Домен получателя"
+    },
+    "enum/MtaOutboundThrottleKey/remoteIp/label": {
+      "original": "Remote IP",
+      "ru": "Удалённый IP"
     },
     "enum/MtaOutboundThrottleKey/sender/label": {
       "original": "Sender",
       "ru": "Отправитель"
     },
+    "enum/MtaOutboundThrottleKey/senderDomain/label": {
+      "original": "Sender Domain",
+      "ru": "Домен отправителя"
+    },
+    "enum/MtaProtocol/lmtp/label": {
+      "original": "LMTP",
+      "ru": "Протокол LMTP"
+    },
+    "enum/MtaQueueQuotaKey/rcpt/label": {
+      "original": "Recipient",
+      "ru": "Получатель"
+    },
+    "enum/MtaQueueQuotaKey/rcptDomain/label": {
+      "original": "Recipient Domain",
+      "ru": "Домен получателя"
+    },
     "enum/MtaQueueQuotaKey/sender/label": {
       "original": "Sender",
       "ru": "Отправитель"
+    },
+    "enum/MtaQueueQuotaKey/senderDomain/label": {
+      "original": "Sender Domain",
+      "ru": "Домен отправителя"
+    },
+    "enum/MtaRequiredOrOptional/optional/label": {
+      "original": "Optional",
+      "ru": "Необязательно"
+    },
+    "enum/MtaRequiredOrOptional/require/label": {
+      "original": "Required",
+      "ru": "Обязательно"
+    },
+    "enum/MtaStage/auth/label": {
+      "original": "AUTH",
+      "ru": "AUTH (аутентификация)"
+    },
+    "enum/MtaStage/connect/label": {
+      "original": "Connect",
+      "ru": "Подключение"
+    },
+    "enum/MtaStage/data/label": {
+      "original": "DATA",
+      "ru": "DATA (данные)"
+    },
+    "enum/MtaStage/ehlo/label": {
+      "original": "EHLO",
+      "ru": "Команда EHLO"
+    },
+    "enum/MtaStage/mail/label": {
+      "original": "MAIL FROM",
+      "ru": "Команда MAIL FROM"
     },
     "enum/OAuthClientMetadataPolicy/any/label": {
       "original": "Any HTTPS URL",
@@ -3473,6 +3593,14 @@
     "enum/PermissionsType/Replace/label": {
       "original": "Permissions replace all inherited permissions",
       "ru": "Заменить унаследованные права"
+    },
+    "enum/PolicyEnforcement/enforce/label": {
+      "original": "Enforce",
+      "ru": "Принудительное применение"
+    },
+    "enum/PolicyEnforcement/testing/label": {
+      "original": "Testing",
+      "ru": "Тестирование"
     },
     "enum/PublicKeyCapability/aead/label": {
       "original": "Authenticated encryption",
@@ -5985,6 +6113,506 @@
     "field/x:MetricsPrometheusProperties/authUsername/description": {
       "original": "The Prometheus endpoint's username for Basic authentication",
       "ru": "Имя пользователя конечной точки Prometheus для аутентификации Basic"
+    },
+    "field/x:MtaConnectionIpHost/ehloHostname/description": {
+      "original": "Overrides the EHLO hostname that will be used when connecting from this IP address",
+      "ru": "Переопределяет имя узла EHLO при подключении с этого IP-адреса"
+    },
+    "field/x:MtaConnectionIpHost/localIp/description": {
+      "original": "Local IPv4 and IPv6 address to use when delivering emails to remote SMTP servers",
+      "ru": "Локальный адрес IPv4 и IPv6 для доставки почты на удалённые серверы SMTP"
+    },
+    "field/x:MtaConnectionStrategy/connectTimeout/description": {
+      "original": "Maximum time to wait for the connection to be established",
+      "ru": "Максимальное время ожидания установления соединения"
+    },
+    "field/x:MtaConnectionStrategy/dataTimeout/description": {
+      "original": "Maximum time to wait for the DATA command response",
+      "ru": "Максимальное время ожидания ответа на команду DATA"
+    },
+    "field/x:MtaConnectionStrategy/description/description": {
+      "original": "Short description of the connection strategy",
+      "ru": "Краткое описание стратегии подключения"
+    },
+    "field/x:MtaConnectionStrategy/ehloHostname/description": {
+      "original": "Overrides the EHLO hostname that will be used when connecting using this strategy",
+      "ru": "Переопределяет имя узла EHLO при подключении с использованием этой стратегии"
+    },
+    "field/x:MtaConnectionStrategy/ehloTimeout/description": {
+      "original": "Maximum time to wait for the EHLO command response",
+      "ru": "Максимальное время ожидания ответа на команду EHLO"
+    },
+    "field/x:MtaConnectionStrategy/greetingTimeout/description": {
+      "original": "Maximum time to wait for the SMTP greeting message",
+      "ru": "Максимальное время ожидания приветствия SMTP"
+    },
+    "field/x:MtaConnectionStrategy/localIps/description": {
+      "original": "List of local IPv4 and IPv6 addresses to use when delivering emails to remote SMTP servers",
+      "ru": "Список локальных адресов IPv4 и IPv6 для доставки почты на удалённые серверы SMTP"
+    },
+    "field/x:MtaConnectionStrategy/mailFromTimeout/description": {
+      "original": "Maximum time to wait for the MAIL-FROM command response",
+      "ru": "Максимальное время ожидания ответа на команду MAIL-FROM"
+    },
+    "field/x:MtaConnectionStrategy/name/description": {
+      "original": "Short identifier for the strategy",
+      "ru": "Краткий идентификатор стратегии"
+    },
+    "field/x:MtaConnectionStrategy/rcptToTimeout/description": {
+      "original": "Maximum time to wait for the RCPT-TO command response",
+      "ru": "Максимальное время ожидания ответа на команду RCPT-TO"
+    },
+    "field/x:MtaDeliveryExpirationAttempts/maxAttempts/description": {
+      "original": "Maximum number of delivery attempts before the message is considered failed",
+      "ru": "Максимальное число попыток доставки, после которого сообщение считается недоставленным"
+    },
+    "field/x:MtaDeliveryExpirationTtl/expire/description": {
+      "original": "Time after which the message will be expired if it is not delivered",
+      "ru": "Время, по истечении которого срок доставки сообщения истечёт, если оно не доставлено"
+    },
+    "field/x:MtaDeliverySchedule/description/description": {
+      "original": "A short description of the schedule, which can be used to identify it in the list of schedules",
+      "ru": "Краткое описание расписания для его идентификации в списке расписаний"
+    },
+    "field/x:MtaDeliverySchedule/expiry/description": {
+      "original": "Whether to expire messages after a number of delivery attempts or after certain time (TTL)",
+      "ru": "Завершать ли попытки доставки по достижении заданного числа попыток или по истечении определённого времени (TTL)"
+    },
+    "field/x:MtaDeliverySchedule/name/description": {
+      "original": "Short identifier for the schedule",
+      "ru": "Краткий идентификатор расписания"
+    },
+    "field/x:MtaDeliverySchedule/notify/description": {
+      "original": "List of delayed delivery DSN notification intervals",
+      "ru": "Список интервалов уведомлений DSN о задержке доставки"
+    },
+    "field/x:MtaDeliverySchedule/queueId/description": {
+      "original": "The name of the virtual queue to use for this schedule",
+      "ru": "Имя виртуальной очереди, используемой этим расписанием"
+    },
+    "field/x:MtaDeliverySchedule/retry/description": {
+      "original": "List of retry intervals for message delivery",
+      "ru": "Список интервалов повторных попыток доставки сообщений"
+    },
+    "field/x:MtaDeliveryScheduleInterval/duration/description": {
+      "original": "Time interval for retries or notifications",
+      "ru": "Интервал повторных попыток или уведомлений"
+    },
+    "field/x:MtaDeliveryScheduleIntervals/intervals/description": {
+      "original": "List of intervals",
+      "ru": "Список интервалов"
+    },
+    "field/x:MtaExtensions/chunking/description": {
+      "original": "Enables chunking (RFC 3030), an extension that allows large messages to be transferred in chunks which may reduce the load on the network and server.",
+      "ru": "Включает передачу блоками (RFC 3030): расширение позволяет передавать большие сообщения частями, что может снизить нагрузку на сеть и сервер."
+    },
+    "field/x:MtaExtensions/deliverBy/description": {
+      "original": "Specifies the maximum delivery time for a message using the DELIVERBY (RFC 2852) extension, which allows the sender to request a specific delivery time for a message",
+      "ru": "Задаёт максимальное время доставки сообщения с помощью расширения DELIVERBY (RFC 2852), позволяющего отправителю запросить конкретный срок доставки сообщения"
+    },
+    "field/x:MtaExtensions/dsn/description": {
+      "original": "Enables delivery status notifications (RFC 3461), which allows the sender to request a delivery status notification (DSN) from the recipient's mail server",
+      "ru": "Включает уведомления о состоянии доставки (RFC 3461), позволяющие отправителю запросить уведомление о состоянии доставки (DSN) у почтового сервера получателя"
+    },
+    "field/x:MtaExtensions/expn/description": {
+      "original": "Specifies whether to enable the EXPN command, which allows the sender to request the membership of a mailing list. It is recommended to disable this command to prevent spammers from harvesting email addresses",
+      "ru": "Определяет, разрешена ли команда EXPN, позволяющая отправителю запросить список участников рассылки. Рекомендуется отключить эту команду, чтобы предотвратить сбор почтовых адресов спамерами"
+    },
+    "field/x:MtaExtensions/futureRelease/description": {
+      "original": "Specifies the maximum time that a message can be held for delivery using the FUTURERELEASE (RFC 4865) extension",
+      "ru": "Задаёт максимальное время, на которое можно отложить доставку сообщения с помощью расширения FUTURERELEASE (RFC 4865)"
+    },
+    "field/x:MtaExtensions/mtPriority/description": {
+      "original": "Specifies the priority assignment policy to advertise on the MT-PRIORITY (RFC 6710) extension, which allows the sender to specify a priority for a message. Available policies are mixer, stanag4406 and nsep, or false to disable this extension",
+      "ru": "Задаёт политику назначения приоритета, объявляемую в расширении MT-PRIORITY (RFC 6710), которое позволяет отправителю указать приоритет сообщения. Доступные политики: mixer, stanag4406 и nsep; значение false отключает расширение"
+    },
+    "field/x:MtaExtensions/noSoliciting/description": {
+      "original": "Specifies the text to include in the NOSOLICITING (RFC 3865) message, which indicates that the server does not accept unsolicited commercial email (UCE or spam)",
+      "ru": "Задаёт текст для сообщения NOSOLICITING (RFC 3865), указывающего, что сервер не принимает нежелательную коммерческую почту (UCE, или спам)"
+    },
+    "field/x:MtaExtensions/pipelining/description": {
+      "original": "Enables SMTP pipelining (RFC 2920), which enables multiple commands to be sent in a single request to speed up communication between the client and server",
+      "ru": "Включает конвейерную обработку SMTP (RFC 2920), позволяющую передавать несколько команд в одном запросе для ускорения обмена между клиентом и сервером"
+    },
+    "field/x:MtaExtensions/requireTls/description": {
+      "original": "Enables require TLS (RFC 8689), an extension that allows clients to require TLS encryption for the SMTP session",
+      "ru": "Включает расширение обязательного TLS (RFC 8689), позволяющее клиентам требовать шифрования TLS для сеанса SMTP"
+    },
+    "field/x:MtaExtensions/vrfy/description": {
+      "original": "Specifies whether to enable the VRFY command, which allows the sender to verify the existence of a mailbox. It is recommended to disable this command to prevent spammers from harvesting email addresses",
+      "ru": "Определяет, разрешена ли команда VRFY, позволяющая отправителю проверить существование почтового ящика. Рекомендуется отключить эту команду, чтобы предотвратить сбор почтовых адресов спамерами"
+    },
+    "field/x:MtaHook/allowInvalidCerts/description": {
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли недействительные сертификаты SSL"
+    },
+    "field/x:MtaHook/enable/description": {
+      "original": "Expression that determines whether to enable this hook",
+      "ru": "Выражение, определяющее, следует ли включить этот обработчик"
+    },
+    "field/x:MtaHook/httpAuth/description": {
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP"
+    },
+    "field/x:MtaHook/httpHeaders/description": {
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки для HTTP-запросов"
+    },
+    "field/x:MtaHook/maxResponseSize/description": {
+      "original": "Maximum size, in bytes, of a response that Stalwart will accept from this MTA Hook server",
+      "ru": "Максимальный размер ответа в байтах, который Stalwart примет от этого сервера MTA Hook"
+    },
+    "field/x:MtaHook/stages/description": {
+      "original": "Which SMTP stages to run this hook on",
+      "ru": "Этапы SMTP, на которых выполняется этот обработчик"
+    },
+    "field/x:MtaHook/tempFailOnError/description": {
+      "original": "Whether to respond with a temporary failure (typically a 4xx SMTP status code) when Stalwart encounters an error while communicating with this MTA Hook server",
+      "ru": "Возвращать ли временный отказ (обычно код состояния SMTP 4xx), если при обмене Stalwart с этим сервером MTA Hook возникает ошибка"
+    },
+    "field/x:MtaHook/timeout/description": {
+      "original": "Timeout for HTTP requests",
+      "ru": "Время ожидания HTTP-запросов"
+    },
+    "field/x:MtaHook/url/description": {
+      "original": "URL of the hook endpoint",
+      "ru": "URL конечной точки обработчика"
+    },
+    "field/x:MtaInboundSession/idleTimeout/description": {
+      "original": "How long to wait for a client to send a command before timing out",
+      "ru": "Время ожидания команды клиента до истечения тайм-аута"
+    },
+    "field/x:MtaInboundSession/maxDuration/description": {
+      "original": "The maximum duration of a session",
+      "ru": "Максимальная длительность сеанса"
+    },
+    "field/x:MtaInboundSession/transferLimit/description": {
+      "original": "The maximum number of bytes that can be transferred per session",
+      "ru": "Максимальное число байтов, передаваемых за сеанс"
+    },
+    "field/x:MtaInboundThrottle/description/description": {
+      "original": "Short description for the throttle",
+      "ru": "Краткое описание ограничения частоты"
+    },
+    "field/x:MtaInboundThrottle/enable/description": {
+      "original": "Whether to enable this throttle",
+      "ru": "Включать ли это ограничение частоты"
+    },
+    "field/x:MtaInboundThrottle/key/description": {
+      "original": "Optional list of context variables that determine where this throttle should be applied",
+      "ru": "Необязательный список переменных контекста, определяющих область применения этого ограничения частоты"
+    },
+    "field/x:MtaInboundThrottle/match/description": {
+      "original": "Enable the imposition of concurrency and rate limits only when a specific condition is met",
+      "ru": "Применять ограничения числа одновременных операций и частоты только при выполнении заданного условия"
+    },
+    "field/x:MtaInboundThrottle/rate/description": {
+      "original": "Number of incoming requests over a period of time that the rate limiter will allow",
+      "ru": "Число входящих запросов за заданный период, разрешённое ограничителем частоты"
+    },
+    "field/x:MtaMilter/allowInvalidCerts/description": {
+      "original": "Whether Stalwart should connect to a Milter filter server that has an invalid TLS certificate",
+      "ru": "Определяет, должен ли Stalwart подключаться к серверу фильтра Milter с недействительным сертификатом TLS"
+    },
+    "field/x:MtaMilter/commandTimeout/description": {
+      "original": "How long Stalwart will wait to send a command to the Milter server",
+      "ru": "Время, в течение которого Stalwart будет ожидать отправки команды серверу Milter"
+    },
+    "field/x:MtaMilter/connectTimeout/description": {
+      "original": "Maximum amount of time that Stalwart will wait to establish a connection with this Milter server",
+      "ru": "Максимальное время, в течение которого Stalwart будет ожидать установления соединения с этим сервером Milter"
+    },
+    "field/x:MtaMilter/dataTimeout/description": {
+      "original": "Maximum amount of time Stalwart will wait for a response from the Milter server",
+      "ru": "Максимальное время, в течение которого Stalwart будет ожидать ответа сервера Milter"
+    },
+    "field/x:MtaMilter/enable/description": {
+      "original": "Expression that determines whether to enable this milter",
+      "ru": "Выражение, определяющее, следует ли включить этот фильтр milter"
+    },
+    "field/x:MtaMilter/flagsAction/description": {
+      "original": "Optional flags to set on the Milter connection. See the Milter protocol documentation for details on available flags.",
+      "ru": "Необязательные флаги действий для соединения Milter. Подробности о доступных флагах см. в документации протокола Milter."
+    },
+    "field/x:MtaMilter/flagsProtocol/description": {
+      "original": "Optional protocol flags to set on the Milter connection. See the Milter protocol documentation for details on available protocol flags.",
+      "ru": "Необязательные флаги протокола для соединения Milter. Подробности о доступных флагах протокола см. в документации Milter."
+    },
+    "field/x:MtaMilter/host/description": {
+      "original": "Hostname or IP address of the server where the Milter filter is running",
+      "ru": "Имя узла или IP-адрес сервера, на котором работает фильтр Milter"
+    },
+    "field/x:MtaMilter/maxResponseSize/description": {
+      "original": "Maximum size, in bytes, of a response that Stalwart will accept from this Milter server",
+      "ru": "Максимальный размер ответа в байтах, который Stalwart примет от этого сервера Milter"
+    },
+    "field/x:MtaMilter/port/description": {
+      "original": "Network port on the Milter filter host server",
+      "ru": "Сетевой порт узла, на котором работает фильтр Milter"
+    },
+    "field/x:MtaMilter/protocolVersion/description": {
+      "original": "Version of the Milter protocol that Stalwart should use when communicating with the Milter server",
+      "ru": "Версия протокола Milter, которую Stalwart должен использовать для обмена с сервером Milter"
+    },
+    "field/x:MtaMilter/stages/description": {
+      "original": "Which SMTP stages to run the milter on",
+      "ru": "Этапы SMTP, на которых выполняется фильтр milter"
+    },
+    "field/x:MtaMilter/tempFailOnError/description": {
+      "original": "Whether to respond with a temporary failure (typically a 4xx SMTP status code) when Stalwart encounters an error while communicating with this Milter server",
+      "ru": "Возвращать ли временный отказ (обычно код состояния SMTP 4xx), если при обмене Stalwart с этим сервером Milter возникает ошибка"
+    },
+    "field/x:MtaMilter/useTls/description": {
+      "original": "Whether to use Transport Layer Security (TLS) for the connection between Stalwart and the Milter filter",
+      "ru": "Использовать ли протокол защиты транспортного уровня (TLS) для соединения между Stalwart и фильтром Milter"
+    },
+    "field/x:MtaOutboundStrategy/connection/description": {
+      "original": "An expression that returns the connection strategy to use when delivering messages to remote SMTP servers",
+      "ru": "Выражение, возвращающее стратегию подключения для доставки сообщений на удалённые серверы SMTP"
+    },
+    "field/x:MtaOutboundStrategy/route/description": {
+      "original": "An expression that returns the route name to use when delivering queued messages",
+      "ru": "Выражение, возвращающее имя маршрута для доставки сообщений из очереди"
+    },
+    "field/x:MtaOutboundStrategy/schedule/description": {
+      "original": "An expression that returns the scheduling strategy to use when queueing messages",
+      "ru": "Выражение, возвращающее стратегию планирования при постановке сообщений в очередь"
+    },
+    "field/x:MtaOutboundStrategy/tls/description": {
+      "original": "An expression that returns the TLS strategy to use when delivering messages to remote SMTP servers",
+      "ru": "Выражение, возвращающее стратегию TLS для доставки сообщений на удалённые серверы SMTP"
+    },
+    "field/x:MtaOutboundThrottle/description/description": {
+      "original": "Short description for the throttle",
+      "ru": "Краткое описание ограничения частоты"
+    },
+    "field/x:MtaOutboundThrottle/enable/description": {
+      "original": "Whether to enable this throttle",
+      "ru": "Включать ли это ограничение частоты"
+    },
+    "field/x:MtaOutboundThrottle/key/description": {
+      "original": "Optional list of context variables that determine where this throttle should be applied",
+      "ru": "Необязательный список переменных контекста, определяющих область применения этого ограничения частоты"
+    },
+    "field/x:MtaOutboundThrottle/match/description": {
+      "original": "Enable the imposition of concurrency and rate limits only when a specific condition is met",
+      "ru": "Применять ограничения числа одновременных операций и частоты только при выполнении заданного условия"
+    },
+    "field/x:MtaOutboundThrottle/rate/description": {
+      "original": "Number of incoming requests over a period of time that the rate limiter will allow",
+      "ru": "Число входящих запросов за заданный период, разрешённое ограничителем частоты"
+    },
+    "field/x:MtaQueueQuota/description/description": {
+      "original": "Short description for the quota",
+      "ru": "Краткое описание квоты"
+    },
+    "field/x:MtaQueueQuota/enable/description": {
+      "original": "Whether to enable this quota",
+      "ru": "Включать ли эту квоту"
+    },
+    "field/x:MtaQueueQuota/key/description": {
+      "original": "Optional list of context variables that determine where this quota should be applied",
+      "ru": "Необязательный список переменных контекста, определяющих область применения этой квоты"
+    },
+    "field/x:MtaQueueQuota/match/description": {
+      "original": "Enable the imposition of concurrency and rate limits only when a specific condition is met",
+      "ru": "Применять ограничения числа одновременных операций и частоты только при выполнении заданного условия"
+    },
+    "field/x:MtaQueueQuota/messages/description": {
+      "original": "Maximum number of messages in the queue that this quota will allow",
+      "ru": "Максимальное число сообщений в очереди, разрешённое этой квотой"
+    },
+    "field/x:MtaQueueQuota/size/description": {
+      "original": "Maximum total size of messages in the queue that this quota will allow",
+      "ru": "Максимальный суммарный размер сообщений в очереди, разрешённый этой квотой"
+    },
+    "field/x:MtaStageAuth/maxFailures/description": {
+      "original": "Maximum number of authentication errors allowed before the session is disconnected",
+      "ru": "Максимальное число ошибок аутентификации до разрыва сеанса"
+    },
+    "field/x:MtaStageAuth/mustMatchSender/description": {
+      "original": "Specifies whether the authenticated user or any of their associated e-mail addresses must match the sender of the email message",
+      "ru": "Определяет, должен ли аутентифицированный пользователь или один из связанных с ним адресов электронной почты соответствовать отправителю сообщения"
+    },
+    "field/x:MtaStageAuth/require/description": {
+      "original": "Specifies whether authentication is necessary to send email messages",
+      "ru": "Определяет, требуется ли аутентификация для отправки почтовых сообщений"
+    },
+    "field/x:MtaStageAuth/saslMechanisms/description": {
+      "original": "A list of SASL authentication mechanisms offered to clients, or an empty list to disable authentication. Stalwart supports PLAIN, LOGIN, OAUTHBEARER and XOAUTH2. OAUTHBEARER and XOAUTH2 are never offered on connections without TLS, whatever this expression returns.",
+      "ru": "Список механизмов аутентификации SASL, предлагаемых клиентам, или пустой список для отключения аутентификации. Stalwart поддерживает PLAIN, LOGIN, OAUTHBEARER и XOAUTH2. OAUTHBEARER и XOAUTH2 никогда не предлагаются при соединениях без TLS, независимо от результата этого выражения."
+    },
+    "field/x:MtaStageAuth/waitOnFail/description": {
+      "original": "Time interval to wait after an authentication failure",
+      "ru": "Время ожидания после неудачной аутентификации"
+    },
+    "field/x:MtaStageConnect/hostname/description": {
+      "original": "The SMTP server hostname",
+      "ru": "Имя узла сервера SMTP"
+    },
+    "field/x:MtaStageConnect/script/description": {
+      "original": "Which Sieve script to run when a client connects",
+      "ru": "Сценарий Sieve, выполняемый при подключении клиента"
+    },
+    "field/x:MtaStageConnect/smtpGreeting/description": {
+      "original": "The greeting message sent by the SMTP/LMTP server",
+      "ru": "Приветственное сообщение сервера SMTP/LMTP"
+    },
+    "field/x:MtaStageData/addAuthResultsHeader/description": {
+      "original": "Whether to add an Authentication-Results header to the message",
+      "ru": "Добавлять ли заголовок Authentication-Results в сообщение"
+    },
+    "field/x:MtaStageData/addDateHeader/description": {
+      "original": "Whether to add a Date header to the message",
+      "ru": "Добавлять ли заголовок Date в сообщение"
+    },
+    "field/x:MtaStageData/addDeliveredToHeader/description": {
+      "original": "Whether to add a Delivered-To header to the message",
+      "ru": "Добавлять ли заголовок Delivered-To в сообщение"
+    },
+    "field/x:MtaStageData/addMessageIdHeader/description": {
+      "original": "Whether to add a Message-Id header to the message",
+      "ru": "Добавлять ли заголовок Message-Id в сообщение"
+    },
+    "field/x:MtaStageData/addReceivedHeader/description": {
+      "original": "Whether to add a Received header to the message",
+      "ru": "Добавлять ли заголовок Received в сообщение"
+    },
+    "field/x:MtaStageData/addReceivedSpfHeader/description": {
+      "original": "Whether to add a Received-SPF header to the message",
+      "ru": "Добавлять ли заголовок Received-SPF в сообщение"
+    },
+    "field/x:MtaStageData/addReturnPathHeader/description": {
+      "original": "Whether to add a Return-Path header to the message",
+      "ru": "Добавлять ли заголовок Return-Path в сообщение"
+    },
+    "field/x:MtaStageData/dkimSignDomain/description": {
+      "original": "Domain to use for DKIM signing",
+      "ru": "Домен для подписи DKIM"
+    },
+    "field/x:MtaStageData/enableSpamFilter/description": {
+      "original": "Whether to enable the spam filter for incoming messages",
+      "ru": "Включать ли фильтрацию спама для входящих сообщений"
+    },
+    "field/x:MtaStageData/maxMessageSize/description": {
+      "original": "Maximum size of a message in bytes",
+      "ru": "Максимальный размер сообщения в байтах"
+    },
+    "field/x:MtaStageData/maxMessages/description": {
+      "original": "Maximum number of messages that can be submitted per SMTP session",
+      "ru": "Максимальное число сообщений, которые можно отправить за один сеанс SMTP"
+    },
+    "field/x:MtaStageData/maxReceivedHeaders/description": {
+      "original": "Maximum limit on the number of Received headers, which helps to prevent message loops",
+      "ru": "Максимальное число заголовков Received, ограничение которого помогает предотвращать зацикливание сообщений"
+    },
+    "field/x:MtaStageData/script/description": {
+      "original": "Which Sieve script to run after the client sends a DATA command",
+      "ru": "Сценарий Sieve, выполняемый после отправки клиентом команды DATA"
+    },
+    "field/x:MtaStageEhlo/rejectNonFqdn/description": {
+      "original": "Whether to reject EHLO commands that do not include a fully-qualified domain name as a parameter",
+      "ru": "Отклонять ли команды EHLO, в которых в качестве параметра не указано полное доменное имя"
+    },
+    "field/x:MtaStageEhlo/require/description": {
+      "original": "Whether the remote client must send an EHLO command before starting an SMTP transaction",
+      "ru": "Определяет, должен ли удалённый клиент отправить команду EHLO перед началом транзакции SMTP"
+    },
+    "field/x:MtaStageEhlo/script/description": {
+      "original": "Which Sieve script to run after the client sends an EHLO command",
+      "ru": "Сценарий Sieve, выполняемый после отправки клиентом команды EHLO"
+    },
+    "field/x:MtaStageMail/isSenderAllowed/description": {
+      "original": "Expression that returns true when the sender is allowed to send",
+      "ru": "Выражение, возвращающее true, если отправителю разрешена отправка"
+    },
+    "field/x:MtaStageMail/rewrite/description": {
+      "original": "Expression to rewrite the sender address",
+      "ru": "Выражение для переписывания адреса отправителя"
+    },
+    "field/x:MtaStageMail/script/description": {
+      "original": "Which Sieve script to run after the client sends a MAIL command",
+      "ru": "Сценарий Sieve, выполняемый после отправки клиентом команды MAIL"
+    },
+    "field/x:MtaStageRcpt/allowRelaying/description": {
+      "original": "Whether to allow relaying for non-local domains",
+      "ru": "Разрешать ли ретрансляцию для нелокальных доменов"
+    },
+    "field/x:MtaStageRcpt/maxFailures/description": {
+      "original": "Maximum number of recipient errors before the session is disconnected",
+      "ru": "Максимальное число ошибок получателей до разрыва сеанса"
+    },
+    "field/x:MtaStageRcpt/maxRecipients/description": {
+      "original": "Maximum number of recipients per message",
+      "ru": "Максимальное число получателей одного сообщения"
+    },
+    "field/x:MtaStageRcpt/rewrite/description": {
+      "original": "Expression to rewrite the recipient address",
+      "ru": "Выражение для переписывания адреса получателя"
+    },
+    "field/x:MtaStageRcpt/script/description": {
+      "original": "Which Sieve script to run after the client sends a RCPT command",
+      "ru": "Сценарий Sieve, выполняемый после отправки клиентом команды RCPT"
+    },
+    "field/x:MtaStageRcpt/waitOnFail/description": {
+      "original": "Amount of time to wait after a recipient error",
+      "ru": "Время ожидания после ошибки получателя"
+    },
+    "field/x:MtaSts/maxAge/description": {
+      "original": "Maximum time to cache the MTA-STS policy",
+      "ru": "Максимальное время кэширования политики MTA-STS"
+    },
+    "field/x:MtaSts/mode/description": {
+      "original": "Whether to enforce, test, or disable the MTA-STS policy",
+      "ru": "Применять, тестировать или отключать политику MTA-STS"
+    },
+    "field/x:MtaSts/mxHosts/description": {
+      "original": "Override the allowed MX hosts for the MTA-STS policy domain. If empty, the MX hosts are determined from the system settings",
+      "ru": "Переопределяет разрешённые узлы MX для домена политики MTA-STS. Если поле пустое, узлы MX определяются настройками системы"
+    },
+    "field/x:MtaTlsStrategy/allowInvalidCerts/description": {
+      "original": "Whether to allow connections to servers with invalid TLS certificates",
+      "ru": "Разрешать ли подключения к серверам с недействительными сертификатами TLS"
+    },
+    "field/x:MtaTlsStrategy/dane/description": {
+      "original": "Whether DANE is required, optional, or disabled",
+      "ru": "Определяет, требуется ли DANE, допускается ли его использование или оно отключено"
+    },
+    "field/x:MtaTlsStrategy/description/description": {
+      "original": "A short description of the TLS strategy, which can be used to identify it in the list of strategies",
+      "ru": "Краткое описание стратегии TLS для её идентификации в списке стратегий"
+    },
+    "field/x:MtaTlsStrategy/mtaSts/description": {
+      "original": "Whether MTA-STS is required, optional, or disabled",
+      "ru": "Определяет, требуется ли MTA-STS, допускается ли его использование или оно отключено"
+    },
+    "field/x:MtaTlsStrategy/mtaStsTimeout/description": {
+      "original": "Maximum time to wait for the MTA-STS policy lookup to complete",
+      "ru": "Максимальное время ожидания завершения поиска политики MTA-STS"
+    },
+    "field/x:MtaTlsStrategy/name/description": {
+      "original": "Short identifier for the TLS strategy",
+      "ru": "Краткий идентификатор стратегии TLS"
+    },
+    "field/x:MtaTlsStrategy/startTls/description": {
+      "original": "Whether TLS support is required, optional, or disabled",
+      "ru": "Определяет, требуется ли поддержка TLS, допускается ли она или отключена"
+    },
+    "field/x:MtaTlsStrategy/tlsTimeout/description": {
+      "original": "Maximum time to wait for the TLS handshake to complete",
+      "ru": "Максимальное время ожидания завершения согласования TLS"
+    },
+    "field/x:MtaVirtualQueue/description/description": {
+      "original": "A short description of the queue, which can be used to identify it in the list of queues",
+      "ru": "Краткое описание очереди для её идентификации в списке очередей"
+    },
+    "field/x:MtaVirtualQueue/name/description": {
+      "original": "Unique identifier for the queue, max 8 characters",
+      "ru": "Уникальный идентификатор очереди, не более 8 символов"
+    },
+    "field/x:MtaVirtualQueue/threadsPerNode/description": {
+      "original": "Maximum number of threads to use for delivery on each node in the cluster",
+      "ru": "Максимальное число потоков доставки на каждом узле кластера"
     },
     "field/x:OAuthClient/clientId/description": {
       "original": "Unique identifier of the OAuth client. It may be the HTTPS URL of a Client ID Metadata Document to pre-register an application that publishes one. Identifiers generated by this server never start with https://.",
@@ -11242,17 +11870,77 @@
       "original": "Metrics Store",
       "ru": "Хранилище метрик"
     },
+    "form/x:MtaConnectionIpHost/field/ehloHostname": {
+      "original": "EHLO Hostname",
+      "ru": "Имя узла EHLO"
+    },
+    "form/x:MtaConnectionIpHost/field/localIp": {
+      "original": "Local IP",
+      "ru": "Локальный IP"
+    },
+    "form/x:MtaConnectionStrategy/field/connectTimeout": {
+      "original": "Connect",
+      "ru": "Подключение"
+    },
+    "form/x:MtaConnectionStrategy/field/dataTimeout": {
+      "original": "DATA",
+      "ru": "DATA (данные)"
+    },
     "form/x:MtaConnectionStrategy/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:MtaConnectionStrategy/field/ehloHostname": {
+      "original": "EHLO Hostname",
+      "ru": "Имя узла EHLO"
+    },
+    "form/x:MtaConnectionStrategy/field/ehloTimeout": {
+      "original": "EHLO",
+      "ru": "Команда EHLO"
+    },
+    "form/x:MtaConnectionStrategy/field/greetingTimeout": {
+      "original": "Greeting",
+      "ru": "Приветствие"
+    },
+    "form/x:MtaConnectionStrategy/field/localIps": {
+      "original": "Local IPs",
+      "ru": "Локальные сетевые адреса"
+    },
+    "form/x:MtaConnectionStrategy/field/mailFromTimeout": {
+      "original": "MAIL-FROM",
+      "ru": "Команда MAIL-FROM"
     },
     "form/x:MtaConnectionStrategy/field/name": {
       "original": "Name",
       "ru": "Имя"
     },
+    "form/x:MtaConnectionStrategy/field/rcptToTimeout": {
+      "original": "RCPT-TO",
+      "ru": "Команда RCPT-TO"
+    },
+    "form/x:MtaConnectionStrategy/section/section-0": {
+      "original": "Connection Strategy",
+      "ru": "Стратегия подключения"
+    },
+    "form/x:MtaConnectionStrategy/section/section-1": {
+      "original": "Timeouts",
+      "ru": "Время ожидания"
+    },
+    "form/x:MtaConnectionStrategy/section/section-2": {
+      "original": "Local IP Addresses",
+      "ru": "Локальные IP-адреса"
+    },
+    "form/x:MtaDeliveryExpirationAttempts/field/maxAttempts": {
+      "original": "Max Attempts",
+      "ru": "Макс. число попыток"
+    },
     "form/x:MtaDeliveryExpirationAttempts/section/section-0": {
       "original": "Expiration",
       "ru": "Срок действия"
+    },
+    "form/x:MtaDeliveryExpirationTtl/field/expire": {
+      "original": "Time To Live",
+      "ru": "Время жизни"
     },
     "form/x:MtaDeliveryExpirationTtl/section/section-0": {
       "original": "Expiration",
@@ -11262,37 +11950,341 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "form/x:MtaDeliverySchedule/field/description/placeholder": {
+      "original": "Schedule description",
+      "ru": "Описание расписания"
+    },
+    "form/x:MtaDeliverySchedule/field/expiry": {
+      "original": "Expiration Strategy",
+      "ru": "Стратегия истечения срока доставки"
+    },
     "form/x:MtaDeliverySchedule/field/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "form/x:MtaDeliverySchedule/field/notify": {
+      "original": "Notify Intervals",
+      "ru": "Интервалы уведомлений"
+    },
+    "form/x:MtaDeliverySchedule/field/queueId": {
+      "original": "Virtual Queue",
+      "ru": "Виртуальная очередь"
+    },
+    "form/x:MtaDeliverySchedule/field/retry": {
+      "original": "Retry Intervals",
+      "ru": "Интервалы повторных попыток"
+    },
+    "form/x:MtaDeliverySchedule/section/section-0": {
+      "original": "Schedule Details",
+      "ru": "Параметры расписания"
+    },
+    "form/x:MtaDeliverySchedule/section/section-1": {
+      "original": "Delivery Retry Intervals",
+      "ru": "Интервалы повторных попыток доставки"
+    },
+    "form/x:MtaDeliverySchedule/section/section-2": {
+      "original": "Delayed Delivery Notifications",
+      "ru": "Уведомления о задержке доставки"
+    },
+    "form/x:MtaDeliverySchedule/section/section-3": {
+      "original": "Message Expiration",
+      "ru": "Истечение срока доставки сообщения"
+    },
+    "form/x:MtaDeliveryScheduleInterval/field/duration": {
+      "original": "Duration",
+      "ru": "Длительность"
+    },
+    "form/x:MtaDeliveryScheduleIntervals/field/intervals": {
+      "original": "Intervals",
+      "ru": "Интервалы"
+    },
+    "form/x:MtaExtensions/field/chunking": {
+      "original": "Chunking",
+      "ru": "Передача блоками"
+    },
+    "form/x:MtaExtensions/field/deliverBy": {
+      "original": "Deliver By",
+      "ru": "Срок доставки"
+    },
+    "form/x:MtaExtensions/field/dsn": {
+      "original": "DSN",
+      "ru": "Уведомления DSN"
+    },
+    "form/x:MtaExtensions/field/expn": {
+      "original": "EXPN",
+      "ru": "Команда EXPN"
+    },
+    "form/x:MtaExtensions/field/futureRelease": {
+      "original": "Future Release",
+      "ru": "Отложенная отправка"
+    },
+    "form/x:MtaExtensions/field/mtPriority": {
+      "original": "MT Priority",
+      "ru": "Приоритет MT"
+    },
+    "form/x:MtaExtensions/field/noSoliciting": {
+      "original": "No-Soliciting",
+      "ru": "Отказ от нежелательной почты (No-Soliciting)"
+    },
+    "form/x:MtaExtensions/field/pipelining": {
+      "original": "Pipelining",
+      "ru": "Конвейерная обработка"
+    },
+    "form/x:MtaExtensions/field/requireTls": {
+      "original": "Require TLS",
+      "ru": "Требовать TLS"
+    },
+    "form/x:MtaExtensions/field/vrfy": {
+      "original": "VRFY",
+      "ru": "Команда VRFY"
+    },
+    "form/x:MtaExtensions/section/section-0": {
+      "original": "SMTP Extensions",
+      "ru": "Расширения SMTP"
+    },
+    "form/x:MtaExtensions/subtitle": {
+      "original": "Configure which SMTP protocol extensions are advertised to clients, such as PIPELINING, CHUNKING, REQUIRETLS, DSN, EXPN/VRFY, FUTURERELEASE, DELIVERBY, and MT-PRIORITY",
+      "ru": "Настройте расширения протокола SMTP, объявляемые клиентам: например, PIPELINING, CHUNKING, REQUIRETLS, DSN, EXPN/VRFY, FUTURERELEASE, DELIVERBY и MT-PRIORITY"
+    },
+    "form/x:MtaExtensions/title": {
+      "original": "SMTP Extensions",
+      "ru": "Расширения SMTP"
+    },
+    "form/x:MtaHook/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:MtaHook/field/enable": {
+      "original": "Enable",
+      "ru": "Включить"
     },
     "form/x:MtaHook/field/httpAuth": {
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:MtaHook/field/httpHeaders": {
+      "original": "HTTP Headers",
+      "ru": "Заголовки HTTP"
+    },
+    "form/x:MtaHook/field/maxResponseSize": {
+      "original": "Max Size",
+      "ru": "Макс. размер"
+    },
+    "form/x:MtaHook/field/stages": {
+      "original": "Run on stages",
+      "ru": "Этапы выполнения"
+    },
+    "form/x:MtaHook/field/tempFailOnError": {
+      "original": "TempFail on Error",
+      "ru": "Временный отказ при ошибке"
+    },
+    "form/x:MtaHook/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:MtaHook/field/url": {
+      "original": "Endpoint URL",
+      "ru": "URL конечной точки"
+    },
+    "form/x:MtaHook/section/section-0": {
+      "original": "MTA Hook settings",
+      "ru": "Настройки обработчика MTA Hook"
+    },
+    "form/x:MtaHook/section/section-1": {
+      "original": "Options",
+      "ru": "Параметры"
+    },
+    "form/x:MtaHook/section/section-2": {
+      "original": "Response",
+      "ru": "Ответ"
+    },
     "form/x:MtaHook/section/section-3": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:MtaInboundSession/field/idleTimeout": {
+      "original": "Idle Timeout",
+      "ru": "Время ожидания команды"
+    },
+    "form/x:MtaInboundSession/field/maxDuration": {
+      "original": "Duration",
+      "ru": "Длительность"
+    },
+    "form/x:MtaInboundSession/field/transferLimit": {
+      "original": "Bytes Limit",
+      "ru": "Лимит в байтах"
+    },
+    "form/x:MtaInboundSession/section/section-0": {
+      "original": "SMTP Session Limits",
+      "ru": "Ограничения сеансов SMTP"
+    },
+    "form/x:MtaInboundSession/subtitle": {
+      "original": "Configure inbound SMTP session limits, including the maximum session duration, command idle timeout, and per-session data transfer limit",
+      "ru": "Настройте ограничения входящих сеансов SMTP: максимальную длительность сеанса, время ожидания команды и лимит передаваемых за сеанс данных"
+    },
+    "form/x:MtaInboundSession/title": {
+      "original": "Inbound SMTP Sessions",
+      "ru": "Входящие сеансы SMTP"
     },
     "form/x:MtaInboundThrottle/field/description": {
       "original": "Description",
       "ru": "Описание"
     },
+    "form/x:MtaInboundThrottle/field/key": {
+      "original": "Keys",
+      "ru": "Ключи"
+    },
+    "form/x:MtaInboundThrottle/field/match": {
+      "original": "Match condition",
+      "ru": "Условие соответствия"
+    },
+    "form/x:MtaInboundThrottle/field/rate": {
+      "original": "Rate limit",
+      "ru": "Ограничение частоты"
+    },
+    "form/x:MtaInboundThrottle/section/section-0": {
+      "original": "Inbound Rate Limiter",
+      "ru": "Ограничение частоты входящих запросов"
+    },
+    "form/x:MtaMilter/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:MtaMilter/field/commandTimeout": {
+      "original": "Command",
+      "ru": "Команда"
+    },
+    "form/x:MtaMilter/field/connectTimeout": {
+      "original": "Connection",
+      "ru": "Соединение"
+    },
+    "form/x:MtaMilter/field/dataTimeout": {
+      "original": "Data",
+      "ru": "Данные"
+    },
+    "form/x:MtaMilter/field/enable": {
+      "original": "Enable",
+      "ru": "Включить"
+    },
+    "form/x:MtaMilter/field/flagsAction": {
+      "original": "Action Flags",
+      "ru": "Флаги действий"
+    },
+    "form/x:MtaMilter/field/flagsProtocol": {
+      "original": "Protocol Flags",
+      "ru": "Флаги протокола"
+    },
+    "form/x:MtaMilter/field/host": {
+      "original": "Host",
+      "ru": "Узел"
+    },
+    "form/x:MtaMilter/field/maxResponseSize": {
+      "original": "Max Response",
+      "ru": "Макс. размер ответа"
+    },
+    "form/x:MtaMilter/field/port": {
+      "original": "Port",
+      "ru": "Порт"
+    },
+    "form/x:MtaMilter/field/protocolVersion": {
+      "original": "Protocol Version",
+      "ru": "Версия протокола"
+    },
+    "form/x:MtaMilter/field/stages": {
+      "original": "Run on stages",
+      "ru": "Этапы выполнения"
+    },
+    "form/x:MtaMilter/field/tempFailOnError": {
+      "original": "TempFail on Error",
+      "ru": "Временный отказ при ошибке"
+    },
     "form/x:MtaMilter/field/useTls": {
       "original": "Enable TLS",
       "ru": "Включить TLS"
+    },
+    "form/x:MtaMilter/section/section-0": {
+      "original": "Milter settings",
+      "ru": "Настройки Milter"
+    },
+    "form/x:MtaMilter/section/section-1": {
+      "original": "Options",
+      "ru": "Параметры"
+    },
+    "form/x:MtaMilter/section/section-2": {
+      "original": "Timeouts",
+      "ru": "Время ожидания"
+    },
+    "form/x:MtaOutboundStrategy/field/connection": {
+      "original": "Connection",
+      "ru": "Соединение"
+    },
+    "form/x:MtaOutboundStrategy/field/route": {
+      "original": "Routing",
+      "ru": "Маршрутизация"
     },
     "form/x:MtaOutboundStrategy/field/schedule": {
       "original": "Scheduling",
       "ru": "Планирование"
     },
+    "form/x:MtaOutboundStrategy/section/section-0": {
+      "original": "Outbound Strategies",
+      "ru": "Стратегии исходящей доставки"
+    },
+    "form/x:MtaOutboundStrategy/subtitle": {
+      "original": "Configure the expressions used to select the routing, scheduling, connection, and TLS strategies applied when delivering messages from the outbound queue",
+      "ru": "Настройте выражения для выбора маршрута, расписания, подключения и стратегии TLS при доставке сообщений из исходящей очереди"
+    },
+    "form/x:MtaOutboundStrategy/title": {
+      "original": "Outbound Delivery Strategy",
+      "ru": "Стратегия исходящей доставки"
+    },
     "form/x:MtaOutboundThrottle/field/description": {
       "original": "Description",
       "ru": "Описание"
     },
+    "form/x:MtaOutboundThrottle/field/key": {
+      "original": "Keys",
+      "ru": "Ключи"
+    },
+    "form/x:MtaOutboundThrottle/field/match": {
+      "original": "Match condition",
+      "ru": "Условие соответствия"
+    },
+    "form/x:MtaOutboundThrottle/field/rate": {
+      "original": "Rate limit",
+      "ru": "Ограничение частоты"
+    },
+    "form/x:MtaOutboundThrottle/section/section-0": {
+      "original": "Outbound Rate Limiter",
+      "ru": "Ограничение частоты исходящих запросов"
+    },
     "form/x:MtaQueueQuota/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:MtaQueueQuota/field/key": {
+      "original": "Keys",
+      "ru": "Ключи"
+    },
+    "form/x:MtaQueueQuota/field/match": {
+      "original": "Match condition",
+      "ru": "Условие соответствия"
+    },
+    "form/x:MtaQueueQuota/field/messages": {
+      "original": "Max Messages",
+      "ru": "Макс. число сообщений"
+    },
+    "form/x:MtaQueueQuota/field/size": {
+      "original": "Max Size",
+      "ru": "Макс. размер"
+    },
+    "form/x:MtaQueueQuota/section/section-0": {
+      "original": "Quota",
+      "ru": "Квота"
+    },
+    "form/x:MtaRoute/field/@type": {
+      "original": "Route type",
+      "ru": "Тип маршрута"
     },
     "form/x:MtaRouteCommon/field/description": {
       "original": "Description",
@@ -11334,21 +12326,117 @@
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:MtaStageAuth/field/maxFailures": {
+      "original": "Max Errors",
+      "ru": "Макс. число ошибок"
+    },
+    "form/x:MtaStageAuth/field/mustMatchSender": {
+      "original": "Must match sender",
+      "ru": "Требовать соответствия отправителя"
+    },
+    "form/x:MtaStageAuth/field/require": {
+      "original": "Require Authentication",
+      "ru": "Требовать аутентификацию"
+    },
+    "form/x:MtaStageAuth/field/saslMechanisms": {
+      "original": "Allowed Mechanisms",
+      "ru": "Разрешённые механизмы"
+    },
+    "form/x:MtaStageAuth/field/waitOnFail": {
+      "original": "Error wait",
+      "ru": "Ожидание после ошибки"
+    },
     "form/x:MtaStageAuth/section/section-0": {
       "original": "AUTH Stage",
       "ru": "Этап AUTH"
+    },
+    "form/x:MtaStageAuth/section/section-1": {
+      "original": "Authentication Errors",
+      "ru": "Ошибки аутентификации"
+    },
+    "form/x:MtaStageAuth/subtitle": {
+      "original": "Configure SMTP authentication requirements, including the SASL mechanisms offered, when authentication is mandatory, sender matching rules, and limits on failed attempts",
+      "ru": "Настройте требования к аутентификации SMTP: предлагаемые механизмы SASL, обязательность аутентификации, правила соответствия отправителя и ограничения неудачных попыток"
+    },
+    "form/x:MtaStageAuth/title": {
+      "original": "SMTP AUTH Stage",
+      "ru": "Этап SMTP AUTH"
+    },
+    "form/x:MtaStageConnect/field/hostname": {
+      "original": "Server hostname",
+      "ru": "Имя узла сервера"
+    },
+    "form/x:MtaStageConnect/field/script": {
+      "original": "Run Script",
+      "ru": "Выполнить сценарий"
+    },
+    "form/x:MtaStageConnect/field/smtpGreeting": {
+      "original": "SMTP greeting",
+      "ru": "Приветствие SMTP"
     },
     "form/x:MtaStageConnect/section/section-0": {
       "original": "Connect Stage",
       "ru": "Этап подключения"
     },
+    "form/x:MtaStageConnect/subtitle": {
+      "original": "Configure the SMTP greeting and hostname advertised to clients on connection, and select an optional Sieve script to run when a client connects",
+      "ru": "Настройте приветствие SMTP и имя узла, сообщаемое клиентам при подключении, и выберите необязательный сценарий Sieve, выполняемый при подключении клиента"
+    },
+    "form/x:MtaStageConnect/title": {
+      "original": "SMTP Connect Stage",
+      "ru": "Этап подключения SMTP"
+    },
+    "form/x:MtaStageData/field/addAuthResultsHeader": {
+      "original": "Authentication-Results",
+      "ru": "Заголовок Authentication-Results"
+    },
+    "form/x:MtaStageData/field/addDateHeader": {
+      "original": "Date",
+      "ru": "Заголовок Date"
+    },
+    "form/x:MtaStageData/field/addDeliveredToHeader": {
+      "original": "Delivered-To",
+      "ru": "Заголовок Delivered-To"
+    },
+    "form/x:MtaStageData/field/addMessageIdHeader": {
+      "original": "Message-Id",
+      "ru": "Заголовок Message-Id"
+    },
     "form/x:MtaStageData/field/addReceivedHeader": {
       "original": "Received",
       "ru": "Получено"
     },
+    "form/x:MtaStageData/field/addReceivedSpfHeader": {
+      "original": "Received-SPF",
+      "ru": "Заголовок Received-SPF"
+    },
+    "form/x:MtaStageData/field/addReturnPathHeader": {
+      "original": "Return-Path",
+      "ru": "Заголовок Return-Path"
+    },
+    "form/x:MtaStageData/field/dkimSignDomain": {
+      "original": "Signature",
+      "ru": "Подпись"
+    },
+    "form/x:MtaStageData/field/enableSpamFilter": {
+      "original": "Spam filtering",
+      "ru": "Фильтрация спама"
+    },
     "form/x:MtaStageData/field/maxMessageSize": {
       "original": "Size",
       "ru": "Размер"
+    },
+    "form/x:MtaStageData/field/maxMessages": {
+      "original": "Messages",
+      "ru": "Сообщения"
+    },
+    "form/x:MtaStageData/field/maxReceivedHeaders": {
+      "original": "Received Headers",
+      "ru": "Заголовки Received"
+    },
+    "form/x:MtaStageData/field/script": {
+      "original": "Run Script",
+      "ru": "Выполнить сценарий"
     },
     "form/x:MtaStageData/section/section-0": {
       "original": "DATA Stage",
@@ -11358,33 +12446,197 @@
       "original": "Limits",
       "ru": "Ограничения"
     },
+    "form/x:MtaStageData/section/section-2": {
+      "original": "Add Headers",
+      "ru": "Добавление заголовков"
+    },
+    "form/x:MtaStageData/section/section-3": {
+      "original": "DKIM Signing",
+      "ru": "Подпись DKIM"
+    },
+    "form/x:MtaStageData/subtitle": {
+      "original": "Configure how messages are processed during the SMTP DATA stage, including size and header limits, spam filtering, custom Sieve scripts, DKIM signing, and which headers are added to messages",
+      "ru": "Настройте обработку сообщений на этапе SMTP DATA, включая ограничения размера и заголовков, фильтрацию спама, пользовательские сценарии Sieve, подпись DKIM и добавляемые к сообщениям заголовки"
+    },
+    "form/x:MtaStageData/title": {
+      "original": "SMTP DATA Stage",
+      "ru": "Этап SMTP DATA"
+    },
+    "form/x:MtaStageEhlo/field/rejectNonFqdn": {
+      "original": "Reject Non-FQDN",
+      "ru": "Отклонять неполные доменные имена (Non-FQDN)"
+    },
+    "form/x:MtaStageEhlo/field/require": {
+      "original": "Require EHLO",
+      "ru": "Требовать EHLO"
+    },
+    "form/x:MtaStageEhlo/field/script": {
+      "original": "Run Script",
+      "ru": "Выполнить сценарий"
+    },
     "form/x:MtaStageEhlo/section/section-0": {
       "original": "EHLO Stage",
       "ru": "Этап EHLO"
+    },
+    "form/x:MtaStageEhlo/subtitle": {
+      "original": "Configure SMTP EHLO command requirements, including whether EHLO is mandatory, FQDN validation, and an optional Sieve script to run after the client sends EHLO",
+      "ru": "Настройте требования к команде SMTP EHLO: обязательность EHLO, проверку полного доменного имени (FQDN) и необязательный сценарий Sieve, выполняемый после команды EHLO клиента"
+    },
+    "form/x:MtaStageEhlo/title": {
+      "original": "SMTP EHLO Stage",
+      "ru": "Этап SMTP EHLO"
+    },
+    "form/x:MtaStageMail/field/isSenderAllowed": {
+      "original": "Sender is allowed",
+      "ru": "Отправителю разрешена отправка"
+    },
+    "form/x:MtaStageMail/field/rewrite": {
+      "original": "Sender Rewriting",
+      "ru": "Переписывание адреса отправителя"
+    },
+    "form/x:MtaStageMail/field/script": {
+      "original": "Run Script",
+      "ru": "Выполнить сценарий"
     },
     "form/x:MtaStageMail/section/section-0": {
       "original": "MAIL FROM Stage",
       "ru": "Этап MAIL FROM"
     },
+    "form/x:MtaStageMail/subtitle": {
+      "original": "Configure the SMTP MAIL FROM stage, including sender authorization rules, sender address rewriting, and an optional Sieve script to run after the client sends MAIL FROM",
+      "ru": "Настройте этап SMTP MAIL FROM: правила авторизации отправителя, переписывание адреса отправителя и необязательный сценарий Sieve, выполняемый после команды MAIL FROM клиента"
+    },
+    "form/x:MtaStageMail/title": {
+      "original": "SMTP MAIL FROM Stage",
+      "ru": "Этап SMTP MAIL FROM"
+    },
+    "form/x:MtaStageRcpt/field/allowRelaying": {
+      "original": "Allow Relaying",
+      "ru": "Разрешить ретрансляцию"
+    },
+    "form/x:MtaStageRcpt/field/maxFailures": {
+      "original": "Max Errors",
+      "ru": "Макс. число ошибок"
+    },
+    "form/x:MtaStageRcpt/field/maxRecipients": {
+      "original": "Max Recipients",
+      "ru": "Макс. число получателей"
+    },
+    "form/x:MtaStageRcpt/field/rewrite": {
+      "original": "Recipient Rewriting",
+      "ru": "Переписывание адреса получателя"
+    },
+    "form/x:MtaStageRcpt/field/script": {
+      "original": "Run Script",
+      "ru": "Выполнить сценарий"
+    },
+    "form/x:MtaStageRcpt/field/waitOnFail": {
+      "original": "Error wait",
+      "ru": "Ожидание после ошибки"
+    },
     "form/x:MtaStageRcpt/section/section-0": {
       "original": "RCPT TO Stage",
       "ru": "Этап RCPT TO"
+    },
+    "form/x:MtaStageRcpt/section/section-1": {
+      "original": "Recipient Errors",
+      "ru": "Ошибки получателей"
+    },
+    "form/x:MtaStageRcpt/subtitle": {
+      "original": "Configure the SMTP RCPT TO stage, including relaying rules, the maximum number of recipients per message, recipient address rewriting, error handling, and Sieve hooks",
+      "ru": "Настройте этап SMTP RCPT TO: правила ретрансляции, максимальное число получателей сообщения, переписывание адресов получателей, обработку ошибок и сценарии Sieve"
+    },
+    "form/x:MtaStageRcpt/title": {
+      "original": "SMTP RCPT TO Stage",
+      "ru": "Этап SMTP RCPT TO"
+    },
+    "form/x:MtaSts/field/maxAge": {
+      "original": "Max lifetime",
+      "ru": "Макс. время жизни"
+    },
+    "form/x:MtaSts/field/mode": {
+      "original": "Policy Application",
+      "ru": "Применение политики"
+    },
+    "form/x:MtaSts/field/mxHosts": {
+      "original": "MX Patterns (override)",
+      "ru": "Шаблоны MX (переопределение)"
+    },
+    "form/x:MtaSts/section/section-0": {
+      "original": "MTA-STS Policy",
+      "ru": "Политика MTA-STS"
+    },
+    "form/x:MtaSts/subtitle": {
+      "original": "Configure the MTA-STS policy published for inbound mail, including enforcement mode, the maximum cache lifetime, and an optional override of the MX host patterns",
+      "ru": "Настройте публикуемую для входящей почты политику MTA-STS: режим применения, максимальное время кэширования и необязательную замену шаблонов имён узлов MX"
+    },
+    "form/x:MtaSts/title": {
+      "original": "MTA-STS Policy",
+      "ru": "Политика MTA-STS"
+    },
+    "form/x:MtaTlsStrategy/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:MtaTlsStrategy/field/dane": {
+      "original": "DANE",
+      "ru": "Проверка DANE"
     },
     "form/x:MtaTlsStrategy/field/description": {
       "original": "Description",
       "ru": "Описание"
     },
+    "form/x:MtaTlsStrategy/field/description/placeholder": {
+      "original": "TLS Strategy description",
+      "ru": "Описание стратегии TLS"
+    },
+    "form/x:MtaTlsStrategy/field/mtaSts": {
+      "original": "MTA-STS",
+      "ru": "Политика MTA-STS"
+    },
+    "form/x:MtaTlsStrategy/field/mtaStsTimeout": {
+      "original": "MTA-STS",
+      "ru": "Политика MTA-STS"
+    },
     "form/x:MtaTlsStrategy/field/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "form/x:MtaTlsStrategy/field/startTls": {
+      "original": "STARTTLS",
+      "ru": "Использование STARTTLS"
+    },
+    "form/x:MtaTlsStrategy/section/section-0": {
+      "original": "TLS Strategy",
+      "ru": "Стратегия TLS"
+    },
+    "form/x:MtaTlsStrategy/section/section-1": {
+      "original": "Security Requirements",
+      "ru": "Требования безопасности"
+    },
+    "form/x:MtaTlsStrategy/section/section-2": {
+      "original": "Timeouts",
+      "ru": "Время ожидания"
     },
     "form/x:MtaVirtualQueue/field/description": {
       "original": "Description",
       "ru": "Описание"
     },
+    "form/x:MtaVirtualQueue/field/description/placeholder": {
+      "original": "Queue description",
+      "ru": "Описание очереди"
+    },
     "form/x:MtaVirtualQueue/field/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "form/x:MtaVirtualQueue/field/threadsPerNode": {
+      "original": "Delivery Threads",
+      "ru": "Потоки доставки"
+    },
+    "form/x:MtaVirtualQueue/section/section-0": {
+      "original": "Virtual Queue",
+      "ru": "Виртуальная очередь"
     },
     "form/x:MySqlSettings/field/authSecret": {
       "original": "Password",
@@ -14674,6 +15926,18 @@
       "original": "Name",
       "ru": "Имя"
     },
+    "list/x:MtaConnectionStrategy/plural": {
+      "original": "strategies",
+      "ru": "стратегии"
+    },
+    "list/x:MtaConnectionStrategy/singular": {
+      "original": "strategy",
+      "ru": "стратегия"
+    },
+    "list/x:MtaConnectionStrategy/subtitle": {
+      "original": "Manage connection strategies for message delivery",
+      "ru": "Управление стратегиями подключения для доставки сообщений"
+    },
     "list/x:MtaConnectionStrategy/title": {
       "original": "Connection Strategies",
       "ru": "Стратегии подключений"
@@ -14686,9 +15950,45 @@
       "original": "Name",
       "ru": "Имя"
     },
+    "list/x:MtaDeliverySchedule/column/queueId": {
+      "original": "Virtual Queue",
+      "ru": "Виртуальная очередь"
+    },
     "list/x:MtaDeliverySchedule/filter/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "list/x:MtaDeliverySchedule/plural": {
+      "original": "schedules",
+      "ru": "расписания"
+    },
+    "list/x:MtaDeliverySchedule/singular": {
+      "original": "schedule",
+      "ru": "расписание"
+    },
+    "list/x:MtaDeliverySchedule/subtitle": {
+      "original": "Manage schedules for message delivery",
+      "ru": "Управление расписаниями доставки сообщений"
+    },
+    "list/x:MtaDeliverySchedule/title": {
+      "original": "Schedules",
+      "ru": "Расписания"
+    },
+    "list/x:MtaHook/column/url": {
+      "original": "Endpoint URL",
+      "ru": "URL конечной точки"
+    },
+    "list/x:MtaHook/plural": {
+      "original": "hooks",
+      "ru": "обработчики"
+    },
+    "list/x:MtaHook/singular": {
+      "original": "hook",
+      "ru": "обработчик"
+    },
+    "list/x:MtaHook/subtitle": {
+      "original": "Manage MTA Hooks",
+      "ru": "Управление обработчиками MTA Hooks"
     },
     "list/x:MtaHook/title": {
       "original": "MTA Hooks",
@@ -14698,17 +15998,89 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "list/x:MtaInboundThrottle/plural": {
+      "original": "throttles",
+      "ru": "ограничения частоты"
+    },
+    "list/x:MtaInboundThrottle/singular": {
+      "original": "throttle",
+      "ru": "ограничение частоты"
+    },
+    "list/x:MtaInboundThrottle/subtitle": {
+      "original": "Manage inbound rate limits",
+      "ru": "Управление ограничениями частоты входящих запросов"
+    },
     "list/x:MtaInboundThrottle/title": {
       "original": "Inbound Rate Limits",
       "ru": "Ограничения скорости приёма"
+    },
+    "list/x:MtaMilter/column/host": {
+      "original": "Host",
+      "ru": "Узел"
+    },
+    "list/x:MtaMilter/column/port": {
+      "original": "Port",
+      "ru": "Порт"
+    },
+    "list/x:MtaMilter/plural": {
+      "original": "milters",
+      "ru": "фильтры milter"
+    },
+    "list/x:MtaMilter/singular": {
+      "original": "milter",
+      "ru": "фильтр milter"
+    },
+    "list/x:MtaMilter/subtitle": {
+      "original": "Manage Milter filters",
+      "ru": "Управление фильтрами Milter"
+    },
+    "list/x:MtaMilter/title": {
+      "original": "Milter filters",
+      "ru": "Фильтры Milter"
     },
     "list/x:MtaOutboundThrottle/column/description": {
       "original": "Description",
       "ru": "Описание"
     },
+    "list/x:MtaOutboundThrottle/plural": {
+      "original": "throttles",
+      "ru": "ограничения частоты"
+    },
+    "list/x:MtaOutboundThrottle/singular": {
+      "original": "throttle",
+      "ru": "ограничение частоты"
+    },
+    "list/x:MtaOutboundThrottle/subtitle": {
+      "original": "Manage outbound rate limits",
+      "ru": "Управление ограничениями частоты исходящих запросов"
+    },
     "list/x:MtaOutboundThrottle/title": {
       "original": "Outbound Rate Limits",
       "ru": "Ограничения скорости отправки"
+    },
+    "list/x:MtaQueueQuota/column/messages": {
+      "original": "Max Messages",
+      "ru": "Макс. число сообщений"
+    },
+    "list/x:MtaQueueQuota/column/size": {
+      "original": "Max Size",
+      "ru": "Макс. размер"
+    },
+    "list/x:MtaQueueQuota/plural": {
+      "original": "quotas",
+      "ru": "квоты"
+    },
+    "list/x:MtaQueueQuota/singular": {
+      "original": "quota",
+      "ru": "квота"
+    },
+    "list/x:MtaQueueQuota/subtitle": {
+      "original": "Manage quotas on message queues",
+      "ru": "Управление квотами очередей сообщений"
+    },
+    "list/x:MtaQueueQuota/title": {
+      "original": "Quota Queues",
+      "ru": "Квоты очередей"
     },
     "list/x:MtaRoute/column/@type": {
       "original": "Type",
@@ -14718,9 +16090,25 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "list/x:MtaRoute/column/name": {
+      "original": "ID",
+      "ru": "Идентификатор (ID)"
+    },
     "list/x:MtaRoute/filter/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "list/x:MtaRoute/plural": {
+      "original": "routes",
+      "ru": "маршруты"
+    },
+    "list/x:MtaRoute/singular": {
+      "original": "route",
+      "ru": "маршрут"
+    },
+    "list/x:MtaRoute/subtitle": {
+      "original": "Manage routes for message delivery",
+      "ru": "Управление маршрутами доставки сообщений"
     },
     "list/x:MtaRoute/title": {
       "original": "Routes",
@@ -14738,6 +16126,18 @@
       "original": "Name",
       "ru": "Имя"
     },
+    "list/x:MtaTlsStrategy/plural": {
+      "original": "strategies",
+      "ru": "стратегии"
+    },
+    "list/x:MtaTlsStrategy/singular": {
+      "original": "strategy",
+      "ru": "стратегия"
+    },
+    "list/x:MtaTlsStrategy/subtitle": {
+      "original": "Manage TLS strategies for message delivery",
+      "ru": "Управление стратегиями TLS для доставки сообщений"
+    },
     "list/x:MtaTlsStrategy/title": {
       "original": "TLS Strategies",
       "ru": "Стратегии TLS"
@@ -14750,9 +16150,25 @@
       "original": "Name",
       "ru": "Имя"
     },
+    "list/x:MtaVirtualQueue/column/threadsPerNode": {
+      "original": "Delivery Threads",
+      "ru": "Потоки доставки"
+    },
     "list/x:MtaVirtualQueue/filter/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "list/x:MtaVirtualQueue/plural": {
+      "original": "queues",
+      "ru": "очереди"
+    },
+    "list/x:MtaVirtualQueue/singular": {
+      "original": "queue",
+      "ru": "очередь"
+    },
+    "list/x:MtaVirtualQueue/subtitle": {
+      "original": "Manage virtual queues for message delivery",
+      "ru": "Управление виртуальными очередями доставки сообщений"
     },
     "list/x:MtaVirtualQueue/title": {
       "original": "Virtual Queues",
@@ -16230,6 +17646,86 @@
       "original": "Configures the storage backend for metrics data.",
       "ru": "Настраивает серверное хранилище данных метрик."
     },
+    "object/x:MtaConnectionStrategy/description": {
+      "original": "Defines a connection strategy for outbound message delivery.",
+      "ru": "Определяет стратегию подключения для исходящей доставки сообщений."
+    },
+    "object/x:MtaDeliverySchedule/description": {
+      "original": "Defines retry and notification intervals for message delivery.",
+      "ru": "Определяет интервалы повторных попыток доставки и уведомлений."
+    },
+    "object/x:MtaExtensions/description": {
+      "original": "Configures SMTP protocol extensions offered to clients.",
+      "ru": "Настраивает расширения протокола SMTP, предлагаемые клиентам."
+    },
+    "object/x:MtaHook/description": {
+      "original": "Defines an MTA hook endpoint for message processing.",
+      "ru": "Определяет конечную точку обработчика MTA Hook для обработки сообщений."
+    },
+    "object/x:MtaInboundSession/description": {
+      "original": "Configures inbound SMTP session timeouts and transfer limits.",
+      "ru": "Настраивает время ожидания и ограничения передачи данных во входящих сеансах SMTP."
+    },
+    "object/x:MtaInboundThrottle/description": {
+      "original": "Defines an inbound rate limit rule for SMTP connections.",
+      "ru": "Определяет правило ограничения частоты входящих подключений SMTP."
+    },
+    "object/x:MtaMilter/description": {
+      "original": "Defines a Milter filter endpoint for message processing.",
+      "ru": "Определяет конечную точку фильтра Milter для обработки сообщений."
+    },
+    "object/x:MtaOutboundStrategy/description": {
+      "original": "Configures outbound message delivery routing, scheduling, and TLS strategies.",
+      "ru": "Настраивает маршрутизацию, планирование и стратегии TLS исходящей доставки."
+    },
+    "object/x:MtaOutboundThrottle/description": {
+      "original": "Defines an outbound rate limit rule for message delivery.",
+      "ru": "Определяет правило ограничения частоты исходящей доставки сообщений."
+    },
+    "object/x:MtaQueueQuota/description": {
+      "original": "Defines a quota rule for message queues.",
+      "ru": "Определяет правило квоты для очередей сообщений."
+    },
+    "object/x:MtaRoute/description": {
+      "original": "Defines a routing rule for outbound message delivery.",
+      "ru": "Определяет правило маршрутизации исходящей доставки сообщений."
+    },
+    "object/x:MtaStageAuth/description": {
+      "original": "Configures SMTP authentication requirements and error handling.",
+      "ru": "Настраивает требования к аутентификации SMTP и обработку ошибок."
+    },
+    "object/x:MtaStageConnect/description": {
+      "original": "Configures SMTP connection greeting and hostname settings.",
+      "ru": "Настраивает приветствие при подключении SMTP и имя узла."
+    },
+    "object/x:MtaStageData/description": {
+      "original": "Configures message processing rules for the SMTP DATA stage.",
+      "ru": "Настраивает правила обработки сообщений на этапе SMTP DATA."
+    },
+    "object/x:MtaStageEhlo/description": {
+      "original": "Configures EHLO command requirements and validation.",
+      "ru": "Настраивает требования к команде EHLO и её проверку."
+    },
+    "object/x:MtaStageMail/description": {
+      "original": "Configures MAIL FROM stage processing and sender validation.",
+      "ru": "Настраивает обработку этапа MAIL FROM и проверку отправителя."
+    },
+    "object/x:MtaStageRcpt/description": {
+      "original": "Configures RCPT TO stage processing and recipient validation.",
+      "ru": "Настраивает обработку этапа RCPT TO и проверку получателя."
+    },
+    "object/x:MtaSts/description": {
+      "original": "Configures the MTA-STS policy for the server.",
+      "ru": "Настраивает политику MTA-STS сервера."
+    },
+    "object/x:MtaTlsStrategy/description": {
+      "original": "Defines a TLS security strategy for outbound connections.",
+      "ru": "Определяет стратегию безопасности TLS для исходящих соединений."
+    },
+    "object/x:MtaVirtualQueue/description": {
+      "original": "Defines a virtual queue for organizing outbound message delivery.",
+      "ru": "Определяет виртуальную очередь для организации исходящей доставки сообщений."
+    },
     "object/x:OAuthClient/description": {
       "original": "Defines a registered OAuth client application.",
       "ru": "Зарегистрированное клиентское приложение OAuth."
@@ -16689,6 +18185,22 @@
     "variant/x:MetricsStore/PostgreSql/label": {
       "original": "PostgreSQL",
       "ru": "Хранилище PostgreSQL"
+    },
+    "variant/x:MtaDeliveryExpiration/Attempts/label": {
+      "original": "Delivery Attempts",
+      "ru": "Попытки доставки"
+    },
+    "variant/x:MtaDeliveryExpiration/Ttl/label": {
+      "original": "Time To Live",
+      "ru": "Время жизни"
+    },
+    "variant/x:MtaDeliveryScheduleIntervalsOrDefault/Custom/label": {
+      "original": "Specify custom intervals",
+      "ru": "Задать собственные интервалы"
+    },
+    "variant/x:MtaDeliveryScheduleIntervalsOrDefault/Default/label": {
+      "original": "Use default intervals",
+      "ru": "Использовать интервалы по умолчанию"
     },
     "variant/x:Permissions/Inherit/label": {
       "original": "Inherited permissions",

@@ -106,6 +106,25 @@ assert.equal(batchTextSafe('one eighth between 256 MiB and 8 GiB','одна во
 assert.equal(batchTextSafe('one sixteenth of the messages','одна шестнадцатая числа сообщений',25),true);
 assert.equal(batchTextSafe('one sixteenth of the messages','одна восьмая числа сообщений',25),false);
 
+const stage26=packets.find(p=>p.stage===26);
+if(stage26){
+  assert.equal(stage26.entries.length,378);
+  assert.equal(new Set(stage26.entries.map(e=>e.original)).size,322);
+  assert.equal(stage26.baseline,'f72042f33ead091872637425f44bbe3b670fed0f');
+  assert.deepEqual(stage26.scope,[{"section":"Settings","screens":["x:MtaConnectionStrategy","x:MtaDeliverySchedule","x:MtaExtensions","x:MtaHook","x:MtaInboundSession","x:MtaInboundThrottle","x:MtaMilter","x:MtaOutboundStrategy","x:MtaOutboundThrottle","x:MtaQueueQuota","x:MtaRoute","x:MtaStageAuth","x:MtaStageConnect","x:MtaStageData","x:MtaStageEhlo","x:MtaStageMail","x:MtaStageRcpt","x:MtaSts","x:MtaTlsStrategy","x:MtaVirtualQueue"]},{"section":"Management","screens":["x:QueuedMessage"]}]);
+  assert.equal(digest(stage26.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'4b582430caf12f0ccff103f5317d974b3ea2d84710e1c5a284aad91d31fceb12');
+}
+assert.equal(batchTextSafe('SASL PLAIN LOGIN OAUTHBEARER XOAUTH2 only with TLS','Механизмы SASL PLAIN LOGIN OAUTHBEARER XOAUTH2 только с TLS',26),true);
+assert.equal(batchTextSafe('SASL PLAIN LOGIN OAUTHBEARER XOAUTH2 only with TLS','Механизмы SASL PLAIN LOGIN OAUTHBEARER только с TLS',26),false);
+assert.equal(batchTextSafe('Temporary SMTP failure 4xx','Временный отказ SMTP 4xx',26),true);
+assert.equal(batchTextSafe('Temporary SMTP failure 4xx','Временный отказ SMTP 5xx',26),false);
+assert.equal(batchTextSafe('Add Received-SPF and Return-Path','Добавить Received-SPF и Return-Path',26),true);
+assert.equal(batchTextSafe('Add Received-SPF and Return-Path','Добавить Received и Return-Path',26),false);
+assert.equal(batchTextSafe('MT-PRIORITY (RFC 6710) mixer stanag4406 nsep or false','MT-PRIORITY (RFC 6710) mixer stanag4406 nsep или false',26),true);
+assert.equal(batchTextSafe('MT-PRIORITY (RFC 6710) mixer stanag4406 nsep or false','MT-PRIORITY (RFC 6710) mixer stanag4406 test или false',26),false);
+assert.equal(batchTextSafe('PIPELINING CHUNKING REQUIRETLS EXPN/VRFY FUTURERELEASE DELIVERBY','Расширения PIPELINING CHUNKING REQUIRETLS EXPN/VRFY FUTURERELEASE DELIVERBY',26),true);
+assert.equal(batchTextSafe('PIPELINING CHUNKING REQUIRETLS EXPN/VRFY FUTURERELEASE DELIVERBY','Расширения PIPELINING CHUNKING TLS EXPN/VRFY FUTURERELEASE DELIVERBY',26),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;

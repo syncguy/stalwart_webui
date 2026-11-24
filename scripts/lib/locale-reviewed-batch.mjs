@@ -48,13 +48,15 @@ export function batchTextSafe(original,ru,stage=19) {
   const storageTokens=s=>[...s.matchAll(/\b(?:AZURE_[A-Z_]+|privateMetadata|x-amz-security-token|IPv[46]|SAS|LSM|memtables|PDF|RTF|EPUB|ZIP|OpenDocument|Office|TXT|DNSBL|Valkey|MeiliSearch|Azurite|Microsoft Entra ID|Digital Ocean|Wasabi|Yandex Object Storage|[a-z]{2}-(?:[a-z]+-)+\d|ams3|fra1|nyc3|sgp1)\b|\/shared\/(?:admin|comment)|mailto:postmaster@example\.org/g)].map(m=>m[0]).sort();
   const metadataTokens=s=>/\bprivateMetadata\b/.test(s)?[...s.matchAll(/\b(?:metadata|privateMetadata)\b/g)].map(m=>m[0]).sort():[];
   const fractionTokens=s=>[...s.matchAll(/\bone sixteenth\b|\bone eighth\b|\ba quarter\b|(?<![А-Яа-яЁё])(?:одна шестнадцатая|одна восьмая|четверть)(?![А-Яа-яЁё])/g)].map(m=>({'one sixteenth':'1/16','одна шестнадцатая':'1/16','one eighth':'1/8','одна восьмая':'1/8','a quarter':'1/4','четверть':'1/4'})[m[0]]).sort();
+  const smtpTokens=s=>[...s.matchAll(/\b(?:SASL|PLAIN|LOGIN|OAUTHBEARER|XOAUTH2|PIPELINING|CHUNKING|REQUIRETLS|EXPN|VRFY|FUTURERELEASE|DELIVERBY|NOSOLICITING|UCE|FQDN|LMTP|AUTH|DATA|MAIL-FROM|RCPT-TO|MAIL|RCPT|Received-SPF|Received|Delivered-To|Message-Id|Return-Path|No-Soliciting|Date|mixer|stanag4406|nsep|4xx)\b/g)].map(m=>m[0]).sort();
   return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
     (stage<20||json(mailTokens(original))===json(mailTokens(ru)))&&
     (stage<21||json(maintenanceTokens(original))===json(maintenanceTokens(ru)))&&
     (stage<22||json(externalTokens(original))===json(externalTokens(ru)))&&
     (stage<23||json(securityTokens(original))===json(securityTokens(ru)))&&
     (stage<24||json(telemetryTokens(original))===json(telemetryTokens(ru)))&&
-    (stage<25||(json(storageTokens(original))===json(storageTokens(ru))&&json(metadataTokens(original))===json(metadataTokens(ru))&&json(fractionTokens(original))===json(fractionTokens(ru))));
+    (stage<25||(json(storageTokens(original))===json(storageTokens(ru))&&json(metadataTokens(original))===json(metadataTokens(ru))&&json(fractionTokens(original))===json(fractionTokens(ru))))&&
+    (stage<26||json(smtpTokens(original))===json(smtpTokens(ru)));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);
