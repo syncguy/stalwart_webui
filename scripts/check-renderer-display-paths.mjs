@@ -25,6 +25,11 @@ for (const fragment of [
 assert.equal(fieldValue.includes('label={entry.label}'), false, 'Raw embedded label bypass returned');
 assert.equal(fieldValue.includes('description={entry.field?.description}'), false, 'Raw embedded description bypass returned');
 
+const dynamicView = read('src/components/views/DynamicView.tsx');
+must(dynamicView, "const typeName = data['@type'];", 'DynamicView raw type');
+must(dynamicView, 'display(`variant/${objectName}/${typeName}/label`, typeLabel)', 'DynamicView variant badge');
+assert.equal(dynamicView.includes('>{typeLabel}</Badge>'), false, 'Raw detail variant badge bypass returned');
+
 const fieldRow = read('src/components/forms/FieldRow.tsx');
 const sections = read('src/components/forms/FormSections.tsx');
 for (const subkey of ['keyLabel', 'valueLabel', 'placeholder']) {
