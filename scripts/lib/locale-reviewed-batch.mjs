@@ -45,12 +45,16 @@ export function batchTextSafe(original,ru,stage=19) {
   const externalTokens=s=>[...s.matchAll(/AI_<(?:CATEGORY|SIGNAL)>(?:_(?:HIGH|MEDIUM|LOW))?|\b(?:AI_UNCERTAIN|AI_|HIGH|MEDIUM|LOW|true|llm_prompt|Sieve|Azure OpenAI|OpenAI|llama\.cpp|vLLM|TypeSafe|OpenID Connect|Client ID Metadata Documents|JWTs?|PEM|ECDSA|HMAC|RSASSA-PSS|RSASSA-PKCS1-v1_5|MGF1|P-(?:256|384)|SHA-(?:256|384|512)|HTTPS|HTTP|SSL|URLs?|CSV|gzip|Gzipped|OAuth 2\.0)\b|\b\d+(?:\.\d+)?\b/g)].map(m=>({JWTs:'JWT',URLs:'URL',Gzipped:'gzip'})[m[0]]??m[0]).sort();
   const securityTokens=s=>[...s.matchAll(/(?:>=|<) 10\^\d+|\b\d+\/\d+\b|\b(?:DNS-PERSIST-01|DNS-01|HTTP-01|TLS-ALPN-01|SHA-1|AES-(?:128|192|256)-(?:CBC|GCM)|AES-GCM|ChaCha20-Poly1305|RSA-OAEP|RSA|OpenPGP|WKD|keys\.openpgp\.org|CA|CAA|accounturi|EAB|URIs?|SAN|Argon2id|Bcrypt|Pbkdf2|Scrypt|zxcvbn|API|Apple Mail|Thunderbird ESR|gpgsm|KMail|Microsoft Outlook|glob|[Bb]ase64|(?:Relaxed|Simple)\/(?:Relaxed|Simple))\b/g)].map(m=>({URIs:'URI',Base64:'base64'})[m[0]]??m[0]).sort();
   const telemetryTokens=s=>[...s.matchAll(/\/v1\/metrics\b|\b(?:I\/O|AI|SNI|ALPN|CRL|PubSub|IPREV|JMAP|WebSocket|ManageSieve|POP3|Milter|DNSBL|Pyzor|Message-Instance|X-Forwarded-For|RPC|OpenTelemetry|Prometheus|gRPC|Stalwart|Basic|localhost|metric_name|Azure|ElasticSearch|FoundationDB|LDAP|MySQL|mySQL|PostgreSQL|Redis|RocksDB|S3|SQLite)\b|\b\d+(?:\.\d+)?\s?(?:ms|s|min|h|B|KiB|MiB|GiB|kB|MB|GB|%)\b/g)].map(m=>m[0]).sort();
+  const storageTokens=s=>[...s.matchAll(/\b(?:AZURE_[A-Z_]+|privateMetadata|x-amz-security-token|IPv[46]|SAS|LSM|memtables|PDF|RTF|EPUB|ZIP|OpenDocument|Office|TXT|DNSBL|Valkey|MeiliSearch|Azurite|Microsoft Entra ID|Digital Ocean|Wasabi|Yandex Object Storage|[a-z]{2}-(?:[a-z]+-)+\d|ams3|fra1|nyc3|sgp1)\b|\/shared\/(?:admin|comment)|mailto:postmaster@example\.org/g)].map(m=>m[0]).sort();
+  const metadataTokens=s=>/\bprivateMetadata\b/.test(s)?[...s.matchAll(/\b(?:metadata|privateMetadata)\b/g)].map(m=>m[0]).sort():[];
+  const fractionTokens=s=>[...s.matchAll(/\bone sixteenth\b|\bone eighth\b|\ba quarter\b|(?<![А-Яа-яЁё])(?:одна шестнадцатая|одна восьмая|четверть)(?![А-Яа-яЁё])/g)].map(m=>({'one sixteenth':'1/16','одна шестнадцатая':'1/16','one eighth':'1/8','одна восьмая':'1/8','a quarter':'1/4','четверть':'1/4'})[m[0]]).sort();
   return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
     (stage<20||json(mailTokens(original))===json(mailTokens(ru)))&&
     (stage<21||json(maintenanceTokens(original))===json(maintenanceTokens(ru)))&&
     (stage<22||json(externalTokens(original))===json(externalTokens(ru)))&&
     (stage<23||json(securityTokens(original))===json(securityTokens(ru)))&&
-    (stage<24||json(telemetryTokens(original))===json(telemetryTokens(ru)));
+    (stage<24||json(telemetryTokens(original))===json(telemetryTokens(ru)))&&
+    (stage<25||(json(storageTokens(original))===json(storageTokens(ru))&&json(metadataTokens(original))===json(metadataTokens(ru))&&json(fractionTokens(original))===json(fractionTokens(ru))));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);
