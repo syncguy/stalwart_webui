@@ -2,7 +2,7 @@
 import { compare, ptr } from './locale-source.mjs';
 
 // fieldOwners=false replays the historical pre-stage37 renderer contract only.
-export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false, formOwners = false }) {
+export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false, formOwners = false, variantBadges = false }) {
   const byPointer = new Map();
   const usages = new Map(inventory.rows.map(r => [r.slot + '\0' + r.original, new Map()]));
   const screens = new Map();
@@ -137,9 +137,14 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
         const raw = s.schemas[name];
         for (const v of variants) {
           const i = raw.variants.findIndex(x => x.name === v.name);
+          // Stage39: DynamicView top-level badge now uses the exact raw object/type
+          // identity. Keep the old raw path available for historical replay.
+          const topDetail = ctx.mode === 'detail' && name === object.objectName;
+          const rawBadge = topDetail && !variantBadges;
           emit(pin, ptr('schemas', name, 'variants', i, 'label'), ctx,
-            ctx.mode === 'detail' && name === object.objectName ? null : undefined,
-            'VariantSelect/ObjectValue', ctx.state === 'review' ? 'review' : ctx.mode === 'detail' && name === object.objectName ? 'unwired' : 'wired');
+            rawBadge ? null : undefined,
+            topDetail && variantBadges ? 'DynamicView' : 'VariantSelect/ObjectValue',
+            ctx.state === 'review' ? 'review' : rawBadge ? 'unwired' : 'wired');
         }
       }
       function formUses(formKey, fieldsKey, fields, ctx, embedded, offset, lookupKey) {
