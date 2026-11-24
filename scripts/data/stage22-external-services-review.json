@@ -326,7 +326,7 @@
     {
       "slot": "field/x:OidcProvider/signatureKey/description",
       "original": "Contents of the private key PEM used to sign JWTs for OpenID Connect.",
-      "ru": "Содержимое закрытого ключа в формате PEM для подписи JWTs в OpenID Connect.",
+      "ru": "Содержимое закрытого ключа в формате PEM для подписи токенов JWT в OpenID Connect.",
       "decision": "translate"
     },
     {
