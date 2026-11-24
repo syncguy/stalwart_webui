@@ -58,6 +58,16 @@ assert.ok(report.memory.every(x=>x.slots.length>0));
 assert.ok(report.astReferences.every(x=>x.file.startsWith('src/')));
 assert.ok(report.dynamicCalls.every(x=>x.kind&&x.file.startsWith('src/')));
 const allClientIds=new Set(report.clients.map(x=>x.messageId));
-assert.ok(allClientIds.has('webuiRu.list.showingRange'));
+for (const legacy of [
+  'actions.updateAppsScopeWarning',
+  'actions.negativeCacheExplanation',
+  'field.selectPermissions',
+  'list.showingRange',
+  'interfaceLanguage',
+  'logs.noTracersConfigured',
+]) {
+  assert.ok(allClientIds.has('webuiRu.' + legacy), 'Missing fork client key: ' + legacy);
+  assert.ok(!allClientIds.has(legacy), 'Legacy fork client key still present: ' + legacy);
+}
 assert.equal(report.summary.status.translated>0,true);
 console.log('Stage16 offline inventory structural assertions PASS. This is static source coverage, not browser/render PASS.');
