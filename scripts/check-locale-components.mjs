@@ -9,7 +9,8 @@ import ts from 'typescript';
 import React from 'react';
 import * as jsxRuntime from 'react/jsx-runtime';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { sourceModule, loadInputs } from './lib/locale-source.mjs';
+import { sourceModule, loadInputs, at } from './lib/locale-source.mjs';
+import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.mjs';
 import { buildUsageGraph } from './lib/locale-graph.mjs';
 import { classify } from './lib/locale-planner.mjs';
 import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
@@ -2160,7 +2161,8 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 {
   const inputs37=loadInputs(process.cwd());
   const packet37=loadFieldDescriptionPacket(process.cwd(),inputs37.policy);
-  const oldCatalog=undoFieldDescriptions(catalog,packet37);
+  const stage37Catalog=undoFormContext(catalog,loadFormContextPacket(process.cwd(),inputs37.policy));
+  const oldCatalog=undoFieldDescriptions(stage37Catalog,packet37);
   const oldInputs={...inputs37,catalog:oldCatalog,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':oldCatalog})};
   const oldRows=classify(oldInputs,buildUsageGraph(oldInputs)).rows.filter(r=>
     r.classification==='renderer-unwired'&&r.slot.startsWith('field/')&&r.slot.endsWith('/description'));
@@ -2241,4 +2243,88 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
   assert.equal(covered.size,978);
   assert.equal(networkSettings,14);
   console.log('PASS: Stage37 actual DynamicView/FormSections/FieldRow; '+JSON.stringify(modes37)+'; 978 descriptions, 38 affected screens, NetworkSettings 14 edition usages, RU/EN/RU and unknown hash, unchanged raw fields and callbacks; no browser or network');
+}
+
+// Stage38: actual merged form layout and title hook, pinned schemas, all
+// historical form-caption mismatches. Assert lookup identity, not only text
+// presence (several sections and fields can have the same English label).
+{
+  const inputs38=loadInputs(process.cwd());
+  const oldCatalog=undoFormContext(catalog,loadFormContextPacket(process.cwd(),inputs38.policy));
+  const oldInputs={...inputs38,catalog:oldCatalog,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':oldCatalog})};
+  const rows38=classify(oldInputs,buildUsageGraph({...oldInputs,fieldOwners:true})).rows.filter(r=>
+    r.classification==='renderer-unwired'&&['form-field-label','form-section','form'].includes(r.category));
+  assert.equal(rows38.length,1251);
+  const pins=new Map(inputs38.pins.map(p=>[p.schemaHash,p.data]));
+  let calls=[],seen=[];
+  const trackedDisplay=()=> (slot,original)=> {
+    calls.push([slot,original]);return schemaText(hash,language,slot,original);
+  };
+  const {DynamicView:DynamicView38}=component('src/components/views/DynamicView.tsx',{
+    '@/components/ui/badge':{Badge:passthrough},
+    '@/components/values/FieldValue':{ValueRow:props=>{seen.push(props);return h('div',null,props.label,props.description,String(props.value));}},
+    '@/hooks/useSchemaText':{useSchemaText:trackedDisplay},
+    '@/lib/schemaResolver':resolver19,'@/lib/embeddedSchema':embedded19,
+  });
+  // Execute the actual title hook from DynamicForm, isolated from editor,
+  // network, router and store hooks. No duplicate implementation in test.
+  const titleSource=ts.createSourceFile('DynamicForm.tsx',read('src/components/forms/DynamicForm.tsx'),ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+  const titleNode=titleSource.statements.find(n=>ts.isFunctionDeclaration(n)&&n.name?.text==='useFormTitle');
+  assert.ok(titleNode);
+  const {useFormTitle:title38}=sourceModule("import {useTranslation,useSchemaText,coerceLabel} from 'mock';\nexport "+titleNode.getText(titleSource),'title38.ts',{
+    mock:{useTranslation:()=>({t:(_key,fallback)=>fallback}),useSchemaText:trackedDisplay,coerceLabel:()=>''}
+  });
+  const count={field:0,section:0,title:0},screens=new Set(),covered=new Set();
+  const unrenderable=[];
+  for(const row of rows38){
+    const entry=catalog.entries[row.slot];assert.equal(entry.original,row.original,row.slot);
+    for(const u of row.usages.filter(u=>u.state==='slot-mismatch')){
+      const schema=pins.get(u.schemaHash),object=resolver19.resolveObject(schema,u.screen);
+      assert.ok(object,u.screen);
+      const sch=resolver19.resolveSchema(schema,object.objectName);
+      const variantName=u.conditions.find(x=>x.startsWith('variant:'))?.slice(8);
+      const resolved=sch.type==='single'?sch:sch.variants.find(v=>v.name===variantName);
+      const pointer=u.sourcePointer.split('/').slice(1).map(x=>x.replace(/~1/g,'/').replace(/~0/g,'~'));
+      const formKey=pointer[1],form=schema.forms[formKey];
+      assert.equal(pointer[0],'forms');
+      assert.equal(at(schema,u.sourcePointer),row.original,row.slot);
+      const kind=row.category==='form'?'title':row.category==='form-section'?'section':'field';
+      const section=kind==='title'?null:form.sections[Number(pointer[3])];
+      const fieldName=kind==='field'?section.fields[Number(pointer[5])].name:
+        kind==='section'?section.fields.find(f=>f.name!=='@type'&&resolved?.fields?.properties[f.name])?.name:undefined;
+      const field=fieldName?resolved?.fields?.properties[fieldName]:undefined;
+      if(kind!=='title'&&!field){
+        // A section with no visible data field cannot render on a read-only
+        // card. Record that boundary rather than fabricate a visible field.
+        assert.equal(kind,'section',row.slot);
+        unrenderable.push({slot:row.slot,screen:u.screen,hash:u.schemaHash});
+        continue;
+      }
+      const data={...(variantName?{'@type':variantName}:{}),...(fieldName?{[fieldName]:'synthetic-value'}:{})};
+      const before=JSON.stringify({form,data,field});
+      for(const [lang,activeHash] of [['ru',u.schemaHash],['en',u.schemaHash],['ru','unknown'],['ru',u.schemaHash]]){
+        language=lang;hash=activeHash;calls=[];seen=[];
+        const expected=lang==='ru'&&activeHash===u.schemaHash?entry.ru:row.original;
+        if(kind==='title'){
+          assert.equal(sch.type,'single',row.slot);
+          const selected=resolver19.resolveForm(schema,u.screen,object.objectName,sch.schemaName);
+          assert.equal(selected,form,row.slot);
+          assert.equal(title38({schema,resolved:{object},mode:'edit',isSingleton:true,state:{data},parentForm:null,variantForm:selected}),expected,row.slot);
+        }else{
+          const html=render(DynamicView38,{schema,objectName:object.objectName,viewName:u.screen,data,visibleFields:new Set([fieldName])});
+          assert.ok(html.includes(htmlText19(expected)),row.slot+' '+u.screen);
+          if(kind==='field')assert.ok(seen.some(p=>p.label===expected&&p.type===field.type&&p.value===data[fieldName]),row.slot);
+        }
+        assert.ok(calls.some(([slot,original])=>slot===row.slot&&original===row.original),row.slot+' wrong lookup');
+        assert.equal(JSON.stringify({form,data,field}),before,row.slot);
+      }
+      count[kind]++;screens.add(u.section+'\0'+u.screen);covered.add(row.slot);
+    }
+  }
+  assert.equal(count.field,2241);
+  assert.equal(count.title,36);
+  assert.equal(count.section+unrenderable.length,861);
+  assert.equal(screens.size,33);
+  assert.equal(covered.size,1251);
+  console.log('PASS: Stage38 actual DynamicView/title hook '+JSON.stringify(count)+'; '+covered.size+' source pairs, '+screens.size+' screens; invisible section usages='+JSON.stringify(unrenderable)+'; RU/EN/unknown hash, exact form slot and raw data preserved; no browser/network');
 }
