@@ -34913,6 +34913,530 @@
     "form/x:TracerStdout/section/section-2": {
       "original": "Event filtering",
       "ru": "Фильтрация событий"
+    },
+    "variant/x:AiModel/Anthropic/label": {
+      "original": "Anthropic",
+      "ru": "Сервис Anthropic"
+    },
+    "variant/x:AiModel/Gemini/label": {
+      "original": "Google Gemini",
+      "ru": "Сервис Google Gemini"
+    },
+    "variant/x:AiModel/Ollama/label": {
+      "original": "Ollama",
+      "ru": "Сервис Ollama"
+    },
+    "variant/x:AiModel/OpenAi/label": {
+      "original": "OpenAI compatible",
+      "ru": "Совместимый с OpenAI"
+    },
+    "variant/x:AiModel/TypeSafe/label": {
+      "original": "TypeSafe",
+      "ru": "Сервис TypeSafe"
+    },
+    "variant/x:ArchivedItem/CalendarEvent/label": {
+      "original": "Archived Calendar Event",
+      "ru": "Архивное событие календаря"
+    },
+    "variant/x:ArchivedItem/ContactCard/label": {
+      "original": "Archived Contact Card",
+      "ru": "Архивная карточка контакта"
+    },
+    "variant/x:ArchivedItem/Email/label": {
+      "original": "Archived Email message",
+      "ru": "Архивное письмо"
+    },
+    "variant/x:ArchivedItem/FileNode/label": {
+      "original": "Archived File",
+      "ru": "Архивный файл"
+    },
+    "variant/x:ArchivedItem/SieveScript/label": {
+      "original": "Archived Sieve Script",
+      "ru": "Архивный скрипт Sieve"
+    },
+    "variant/x:Directory/Ldap/label": {
+      "original": "LDAP Directory",
+      "ru": "Каталог LDAP"
+    },
+    "variant/x:Directory/Oidc/label": {
+      "original": "OpenID Connect",
+      "ru": "Провайдер OpenID Connect"
+    },
+    "variant/x:Directory/Sql/label": {
+      "original": "SQL Database",
+      "ru": "База данных SQL"
+    },
+    "variant/x:DkimSignature/Dkim1Ed25519Sha256/label": {
+      "original": "DKIM1 (Ed25519 SHA-256)",
+      "ru": "Подпись DKIM1 (Ed25519 SHA-256)"
+    },
+    "variant/x:DkimSignature/Dkim1RsaSha256/label": {
+      "original": "DKIM1 (RSA SHA-256)",
+      "ru": "Подпись DKIM1 (RSA SHA-256)"
+    },
+    "variant/x:DkimSignature/Dkim2Ed25519Sha256/label": {
+      "original": "DKIM2 (Ed25519 SHA-256)",
+      "ru": "Подпись DKIM2 (Ed25519 SHA-256)"
+    },
+    "variant/x:DkimSignature/Dkim2MlDsa44/label": {
+      "original": "DKIM2 (ML-DSA-44)",
+      "ru": "Подпись DKIM2 (ML-DSA-44)"
+    },
+    "variant/x:DkimSignature/Dkim2RsaSha256/label": {
+      "original": "DKIM2 (RSA SHA-256)",
+      "ru": "Подпись DKIM2 (RSA SHA-256)"
+    },
+    "variant/x:DnsServer/Alidns/label": {
+      "original": "Alibaba Cloud DNS",
+      "ru": "Провайдер: Alibaba Cloud DNS"
+    },
+    "variant/x:DnsServer/ArvanCloud/label": {
+      "original": "ArvanCloud",
+      "ru": "Провайдер: ArvanCloud"
+    },
+    "variant/x:DnsServer/Autodns/label": {
+      "original": "InterNetX AutoDNS",
+      "ru": "Провайдер: InterNetX AutoDNS"
+    },
+    "variant/x:DnsServer/AzureDns/label": {
+      "original": "Microsoft Azure DNS",
+      "ru": "Провайдер: Microsoft Azure DNS"
+    },
+    "variant/x:DnsServer/BaiduCloud/label": {
+      "original": "Baidu Cloud DNS",
+      "ru": "Провайдер: Baidu Cloud DNS"
+    },
+    "variant/x:DnsServer/BluecatV2/label": {
+      "original": "BlueCat Address Manager",
+      "ru": "Провайдер: BlueCat Address Manager"
+    },
+    "variant/x:DnsServer/Bunny/label": {
+      "original": "BunnyDNS",
+      "ru": "Провайдер: BunnyDNS"
+    },
+    "variant/x:DnsServer/Cloudflare/label": {
+      "original": "Cloudflare",
+      "ru": "Провайдер: Cloudflare"
+    },
+    "variant/x:DnsServer/ClouDns/label": {
+      "original": "ClouDNS",
+      "ru": "Провайдер: ClouDNS"
+    },
+    "variant/x:DnsServer/Constellix/label": {
+      "original": "Constellix",
+      "ru": "Провайдер: Constellix"
+    },
+    "variant/x:DnsServer/Cpanel/label": {
+      "original": "cPanel",
+      "ru": "Провайдер: cPanel"
+    },
+    "variant/x:DnsServer/Ddnss/label": {
+      "original": "DDNSS.de",
+      "ru": "Провайдер: DDNSS.de"
+    },
+    "variant/x:DnsServer/DeSEC/label": {
+      "original": "DeSEC",
+      "ru": "Провайдер: DeSEC"
+    },
+    "variant/x:DnsServer/DigitalOcean/label": {
+      "original": "DigitalOcean",
+      "ru": "Провайдер: DigitalOcean"
+    },
+    "variant/x:DnsServer/Dnsimple/label": {
+      "original": "DNSimple",
+      "ru": "Провайдер: DNSimple"
+    },
+    "variant/x:DnsServer/DnsMadeEasy/label": {
+      "original": "DNS Made Easy",
+      "ru": "Провайдер: DNS Made Easy"
+    },
+    "variant/x:DnsServer/Domeneshop/label": {
+      "original": "Domeneshop",
+      "ru": "Провайдер: Domeneshop"
+    },
+    "variant/x:DnsServer/Dreamhost/label": {
+      "original": "Dreamhost",
+      "ru": "Провайдер: Dreamhost"
+    },
+    "variant/x:DnsServer/DuckDns/label": {
+      "original": "DuckDNS",
+      "ru": "Провайдер: DuckDNS"
+    },
+    "variant/x:DnsServer/Dynu/label": {
+      "original": "Dynu",
+      "ru": "Провайдер: Dynu"
+    },
+    "variant/x:DnsServer/EasyDns/label": {
+      "original": "EasyDNS",
+      "ru": "Провайдер: EasyDNS"
+    },
+    "variant/x:DnsServer/EdgeDns/label": {
+      "original": "Akamai EdgeDNS",
+      "ru": "Провайдер: Akamai EdgeDNS"
+    },
+    "variant/x:DnsServer/Exoscale/label": {
+      "original": "Exoscale",
+      "ru": "Провайдер: Exoscale"
+    },
+    "variant/x:DnsServer/FreeMyIp/label": {
+      "original": "freemyip.com",
+      "ru": "Провайдер: freemyip.com"
+    },
+    "variant/x:DnsServer/GandiV5/label": {
+      "original": "Gandi LiveDNS v5",
+      "ru": "Провайдер: Gandi LiveDNS v5"
+    },
+    "variant/x:DnsServer/Gcore/label": {
+      "original": "Gcore",
+      "ru": "Провайдер: Gcore"
+    },
+    "variant/x:DnsServer/Glesys/label": {
+      "original": "GleSYS",
+      "ru": "Провайдер: GleSYS"
+    },
+    "variant/x:DnsServer/Godaddy/label": {
+      "original": "GoDaddy",
+      "ru": "Провайдер: GoDaddy"
+    },
+    "variant/x:DnsServer/GoogleCloudDns/label": {
+      "original": "Google Cloud DNS",
+      "ru": "Провайдер: Google Cloud DNS"
+    },
+    "variant/x:DnsServer/Hetzner/label": {
+      "original": "Hetzner",
+      "ru": "Провайдер: Hetzner"
+    },
+    "variant/x:DnsServer/HostingDe/label": {
+      "original": "hosting.de",
+      "ru": "Провайдер: hosting.de"
+    },
+    "variant/x:DnsServer/Hostinger/label": {
+      "original": "Hostinger",
+      "ru": "Провайдер: Hostinger"
+    },
+    "variant/x:DnsServer/HuaweiCloud/label": {
+      "original": "Huawei Cloud DNS",
+      "ru": "Провайдер: Huawei Cloud DNS"
+    },
+    "variant/x:DnsServer/Hurricane/label": {
+      "original": "Hurricane Electric",
+      "ru": "Провайдер: Hurricane Electric"
+    },
+    "variant/x:DnsServer/IbmCloud/label": {
+      "original": "IBM Cloud",
+      "ru": "Провайдер: IBM Cloud"
+    },
+    "variant/x:DnsServer/Infoblox/label": {
+      "original": "Infoblox NIOS WAPI",
+      "ru": "Провайдер: Infoblox NIOS WAPI"
+    },
+    "variant/x:DnsServer/Infomaniak/label": {
+      "original": "Infomaniak",
+      "ru": "Провайдер: Infomaniak"
+    },
+    "variant/x:DnsServer/Inwx/label": {
+      "original": "INWX",
+      "ru": "Провайдер: INWX"
+    },
+    "variant/x:DnsServer/Ionos/label": {
+      "original": "IONOS",
+      "ru": "Провайдер: IONOS"
+    },
+    "variant/x:DnsServer/Ipv64/label": {
+      "original": "IPv64",
+      "ru": "Провайдер: IPv64"
+    },
+    "variant/x:DnsServer/Joker/label": {
+      "original": "Joker",
+      "ru": "Провайдер: Joker"
+    },
+    "variant/x:DnsServer/Lightsail/label": {
+      "original": "AWS Lightsail",
+      "ru": "Провайдер: AWS Lightsail"
+    },
+    "variant/x:DnsServer/Linode/label": {
+      "original": "Linode",
+      "ru": "Провайдер: Linode"
+    },
+    "variant/x:DnsServer/LuaDns/label": {
+      "original": "LuaDNS",
+      "ru": "Провайдер: LuaDNS"
+    },
+    "variant/x:DnsServer/MythicBeasts/label": {
+      "original": "Mythic Beasts",
+      "ru": "Провайдер: Mythic Beasts"
+    },
+    "variant/x:DnsServer/Namecheap/label": {
+      "original": "Namecheap",
+      "ru": "Провайдер: Namecheap"
+    },
+    "variant/x:DnsServer/NameDotCom/label": {
+      "original": "Name.com",
+      "ru": "Провайдер: Name.com"
+    },
+    "variant/x:DnsServer/NameSilo/label": {
+      "original": "NameSilo",
+      "ru": "Провайдер: NameSilo"
+    },
+    "variant/x:DnsServer/Netcup/label": {
+      "original": "Netcup",
+      "ru": "Провайдер: Netcup"
+    },
+    "variant/x:DnsServer/Netlify/label": {
+      "original": "Netlify",
+      "ru": "Провайдер: Netlify"
+    },
+    "variant/x:DnsServer/Nifcloud/label": {
+      "original": "Nifcloud",
+      "ru": "Провайдер: Nifcloud"
+    },
+    "variant/x:DnsServer/Ns1/label": {
+      "original": "NS1",
+      "ru": "Провайдер: NS1"
+    },
+    "variant/x:DnsServer/OracleCloud/label": {
+      "original": "Oracle Cloud",
+      "ru": "Провайдер: Oracle Cloud"
+    },
+    "variant/x:DnsServer/Ovh/label": {
+      "original": "OVH",
+      "ru": "Провайдер: OVH"
+    },
+    "variant/x:DnsServer/Plesk/label": {
+      "original": "Plesk",
+      "ru": "Провайдер: Plesk"
+    },
+    "variant/x:DnsServer/Porkbun/label": {
+      "original": "Porkbun",
+      "ru": "Провайдер: Porkbun"
+    },
+    "variant/x:DnsServer/PowerDns/label": {
+      "original": "PowerDNS Authoritative",
+      "ru": "Авторитетный сервер PowerDNS"
+    },
+    "variant/x:DnsServer/Route53/label": {
+      "original": "AWS Route53",
+      "ru": "Провайдер: AWS Route53"
+    },
+    "variant/x:DnsServer/Safedns/label": {
+      "original": "ANS SafeDNS",
+      "ru": "Провайдер: ANS SafeDNS"
+    },
+    "variant/x:DnsServer/Scaleway/label": {
+      "original": "Scaleway",
+      "ru": "Провайдер: Scaleway"
+    },
+    "variant/x:DnsServer/Spaceship/label": {
+      "original": "Spaceship",
+      "ru": "Провайдер: Spaceship"
+    },
+    "variant/x:DnsServer/TencentCloud/label": {
+      "original": "Tencent Cloud DNSPod",
+      "ru": "Провайдер: Tencent Cloud DNSPod"
+    },
+    "variant/x:DnsServer/Transip/label": {
+      "original": "TransIP",
+      "ru": "Провайдер: TransIP"
+    },
+    "variant/x:DnsServer/Tsig/label": {
+      "original": "RFC2136 (TSIG)",
+      "ru": "Динамическое обновление RFC2136 (TSIG)"
+    },
+    "variant/x:DnsServer/UltraDns/label": {
+      "original": "UltraDNS",
+      "ru": "Провайдер: UltraDNS"
+    },
+    "variant/x:DnsServer/Vercel/label": {
+      "original": "Vercel",
+      "ru": "Провайдер: Vercel"
+    },
+    "variant/x:DnsServer/Volcengine/label": {
+      "original": "Volcano Engine",
+      "ru": "Провайдер: Volcano Engine"
+    },
+    "variant/x:DnsServer/Vultr/label": {
+      "original": "Vultr",
+      "ru": "Провайдер: Vultr"
+    },
+    "variant/x:DnsServer/WebSupport/label": {
+      "original": "WebSupport",
+      "ru": "Провайдер: WebSupport"
+    },
+    "variant/x:DnsServer/YandexCloud/label": {
+      "original": "Yandex Cloud",
+      "ru": "Провайдер: Yandex Cloud"
+    },
+    "variant/x:MtaRoute/Local/label": {
+      "original": "Local Delivery",
+      "ru": "Локальная доставка"
+    },
+    "variant/x:MtaRoute/Mx/label": {
+      "original": "Remote Delivery (MX)",
+      "ru": "Удалённая доставка (MX)"
+    },
+    "variant/x:MtaRoute/Relay/label": {
+      "original": "Relay Host",
+      "ru": "Узел ретрансляции"
+    },
+    "variant/x:SpamDnsblServer/Any/label": {
+      "original": "Any",
+      "ru": "Любой тип"
+    },
+    "variant/x:SpamDnsblServer/Body/label": {
+      "original": "Body",
+      "ru": "Текст письма"
+    },
+    "variant/x:SpamDnsblServer/Email/label": {
+      "original": "E-mail",
+      "ru": "Адрес электронной почты"
+    },
+    "variant/x:SpamDnsblServer/Header/label": {
+      "original": "Header",
+      "ru": "Заголовок письма"
+    },
+    "variant/x:SpamDnsblServer/Ip/label": {
+      "original": "IP",
+      "ru": "IP-адрес"
+    },
+    "variant/x:SpamDnsblServer/Url/label": {
+      "original": "URL",
+      "ru": "Веб-адрес (URL)"
+    },
+    "variant/x:SpamRule/Any/label": {
+      "original": "Any",
+      "ru": "Любой тип"
+    },
+    "variant/x:SpamRule/Body/label": {
+      "original": "Body",
+      "ru": "Текст письма"
+    },
+    "variant/x:SpamRule/Email/label": {
+      "original": "E-mail",
+      "ru": "Адрес электронной почты"
+    },
+    "variant/x:SpamRule/Header/label": {
+      "original": "Header",
+      "ru": "Заголовок письма"
+    },
+    "variant/x:SpamRule/Ip/label": {
+      "original": "IP",
+      "ru": "IP-адрес"
+    },
+    "variant/x:SpamRule/Url/label": {
+      "original": "URL",
+      "ru": "Веб-адрес (URL)"
+    },
+    "variant/x:SpamTag/Discard/label": {
+      "original": "Discard",
+      "ru": "Удалить без уведомления"
+    },
+    "variant/x:SpamTag/Reject/label": {
+      "original": "Reject",
+      "ru": "Отклонять"
+    },
+    "variant/x:SpamTag/Score/label": {
+      "original": "Assign Score",
+      "ru": "Назначить оценку"
+    },
+    "variant/x:Task/AccountMaintenance/label": {
+      "original": "Perform account maintenance operations",
+      "ru": "Обслуживание учётной записи"
+    },
+    "variant/x:Task/AcmeRenewal/label": {
+      "original": "Perform ACME certificate renewal for a domain",
+      "ru": "Обновить сертификат домена через ACME"
+    },
+    "variant/x:Task/BlobRecode/label": {
+      "original": "Rewrite stored blobs with new compression and encryption settings",
+      "ru": "Перезаписать сохранённые бинарные объекты с новыми параметрами сжатия и шифрования"
+    },
+    "variant/x:Task/CalendarAlarmEmail/label": {
+      "original": "Calendar alarm e-mail",
+      "ru": "Письмо с напоминанием календаря"
+    },
+    "variant/x:Task/CalendarAlarmNotification/label": {
+      "original": "Calendar alarm notification",
+      "ru": "Уведомление календаря"
+    },
+    "variant/x:Task/CalendarItipMessage/label": {
+      "original": "Calendar iTIP message",
+      "ru": "Календарное сообщение iTIP"
+    },
+    "variant/x:Task/DestroyAccount/label": {
+      "original": "Destroy account and all associated data",
+      "ru": "Удаление учётной записи со всеми данными"
+    },
+    "variant/x:Task/DkimManagement/label": {
+      "original": "Perform DKIM key rotation for a domain",
+      "ru": "Выполнить ротацию ключей DKIM домена"
+    },
+    "variant/x:Task/DmarcReport/label": {
+      "original": "Send DMARC report to remote server",
+      "ru": "Отправка отчёта DMARC на удалённый сервер"
+    },
+    "variant/x:Task/DmarcReportWindow/label": {
+      "original": "Create the DMARC aggregate reports of an ended window",
+      "ru": "Сформировать агрегированные отчёты DMARC за завершившийся период"
+    },
+    "variant/x:Task/DnsManagement/label": {
+      "original": "Perform DNS management for a domain",
+      "ru": "Выполнить управление DNS домена"
+    },
+    "variant/x:Task/ExternalPublicKeyMaintenance/label": {
+      "original": "Fetch external public keys and recheck S/MIME certificates",
+      "ru": "Получить внешние открытые ключи и повторно проверить сертификаты S/MIME"
+    },
+    "variant/x:Task/MergeThreads/label": {
+      "original": "Merge email threads",
+      "ru": "Объединение цепочек писем"
+    },
+    "variant/x:Task/RestoreArchivedItem/label": {
+      "original": "Restore archived item",
+      "ru": "Восстановление архивного элемента"
+    },
+    "variant/x:Task/ShareRevokeCleanup/label": {
+      "original": "Remove per-user data left behind by a revoked share",
+      "ru": "Удалить индивидуальные данные пользователей, оставшиеся после отзыва общего доступа"
+    },
+    "variant/x:Task/SpamFilterMaintenance/label": {
+      "original": "Perform spam filter maintenance operations",
+      "ru": "Выполнить обслуживание спам-фильтра"
+    },
+    "variant/x:Task/StoreMaintenance/label": {
+      "original": "Perform store maintenance operations",
+      "ru": "Обслуживание хранилища"
+    },
+    "variant/x:Task/TenantMaintenance/label": {
+      "original": "Perform tenant maintenance operations",
+      "ru": "Обслуживание арендатора"
+    },
+    "variant/x:Task/TlsReport/label": {
+      "original": "Send TLS report to remote server",
+      "ru": "Отправка отчёта TLS на удалённый сервер"
+    },
+    "variant/x:Task/TlsReportWindow/label": {
+      "original": "Create the TLS aggregate reports of an ended window",
+      "ru": "Сформировать агрегированные отчёты TLS за завершившийся период"
+    },
+    "variant/x:Tracer/Journal/label": {
+      "original": "Systemd Journal",
+      "ru": "Журнал Systemd"
+    },
+    "variant/x:Tracer/Log/label": {
+      "original": "Log file",
+      "ru": "Файл журнала"
+    },
+    "variant/x:Tracer/OtelGrpc/label": {
+      "original": "Open Telemetry (gRPC)",
+      "ru": "Телеметрия OpenTelemetry (gRPC)"
+    },
+    "variant/x:Tracer/OtelHttp/label": {
+      "original": "Open Telemetry (HTTP)",
+      "ru": "Телеметрия OpenTelemetry (HTTP)"
+    },
+    "variant/x:Tracer/Stdout/label": {
+      "original": "Console",
+      "ru": "Консоль"
     }
   },
   "scopedEntries": [
