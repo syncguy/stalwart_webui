@@ -104,11 +104,14 @@ export function DynamicView({ schema, objectName, viewName, data, visibleFields,
   const layout = resolveViewLayout(schema, objectName, viewName, data);
   if (!layout) return null;
   const sections = buildViewSections(layout, data, visibleFields);
-  const typeLabel = variantLabel(schema, objectName, data['@type']);
+  const typeName = data['@type'];
+  const typeLabel = variantLabel(schema, objectName, typeName);
 
   return (
     <div className="space-y-3.5">
-      {typeLabel && <Badge variant="default">{typeLabel}</Badge>}
+      {typeLabel && typeof typeName === 'string' && (
+        <Badge variant="default">{display(`variant/${objectName}/${typeName}/label`, typeLabel)}</Badge>
+      )}
       {sections.map((section) => (
         <section key={section.key} className="tile @container px-5 pb-1.5 sm:px-6">
           {section.title && (
