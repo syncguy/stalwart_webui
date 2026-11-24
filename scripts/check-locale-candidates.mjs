@@ -10,12 +10,14 @@ import { buildUsageGraph } from './lib/locale-graph.mjs';
 import { CATEGORIES, classify, candidates, preview, textSafe, diffRows, translationMemory, semanticGroup, plan, compactReport } from './lib/locale-planner.mjs';
 import {loadReviewedBatches,baselineCatalog} from './lib/locale-reviewed-batch.mjs';
 import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
+import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.mjs';
 import './lib/offline-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const inputs = loadInputs(root);
 const legacyGraph = buildUsageGraph(inputs);
-const graph = buildUsageGraph({ ...inputs, fieldOwners: true });
+const stage37Graph = buildUsageGraph({ ...inputs, fieldOwners: true });
+const graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true });
 const report = readJson(fs.readFileSync(path.join(root, '.artifacts/locale-candidates/classification.json'), 'utf8'), 'classification');
 const row = slot => report.rows.find(r => r.slot === slot);
 const uses = r => r.usages.map(u => ({ ...report.usageContexts[u.context], text: report.displayTexts[u.text],
@@ -91,7 +93,8 @@ check('Enum explanation действительно wired, неизвестные
   assert.ok(report.rows.some(r => uses(r).some(u => u.state === 'review')));
   assert.ok(report.rows.some(r => r.classification === 'renderer-unwired'));
   const alias = row('form/x:AiModelAnthropic/field/model');
-  assert.ok(uses(alias).some(u => u.mode === 'detail' && u.state === 'slot-mismatch'));
+  assert.ok(uses(alias).some(u => u.mode === 'detail' && u.state === 'wired' && u.lookupSlot===alias.slot));
+  assert.ok(stage37Graph.usages.get(alias.slot+'\0'+alias.original).some(u=>u.mode==='detail'&&u.state==='slot-mismatch'));
 });
 check('Технические примеры сохранены, обычные placeholders не исключаются', () => {
   assert.equal(row('form/x:MySqlStore/field/maxAllowedPacket/placeholder').classification, 'technical');
@@ -203,7 +206,9 @@ const packet18 = readJson(fs.readFileSync(path.join(root, 'scripts/data/stage18-
 const scopes18 = new Set(['x:AddressBook', 'x:Calendar']);
 const laterBatches = loadReviewedBatches(root,inputs.policy);
 const stage37Packet = loadFieldDescriptionPacket(root,inputs.policy);
-const stage35Catalog = undoFieldDescriptions(inputs.catalog,stage37Packet);
+const packet38=loadFormContextPacket(root,inputs.policy);
+const stage37Catalog=undoFormContext(inputs.catalog,packet38);
+const stage35Catalog = undoFieldDescriptions(stage37Catalog,stage37Packet);
 const stage18Catalog = baselineCatalog(stage35Catalog,laterBatches);
 const laterTranslations = laterBatches.reduce((n,p)=>n+p.entries.length,0);
 const baselineCatalog18 = structuredClone(stage18Catalog);
@@ -220,6 +225,9 @@ const beforeInputs18 = { ...inputs, catalog: baselineCatalog18, policy: baseline
 const beforeReport18 = compactReport(plan(beforeInputs18, legacyGraph));
 const stage35Inputs={...inputs,catalog:stage35Catalog,schema:sourceModule(rawRuntime18,'schemaText.ts',{'./schema/ru.json':stage35Catalog})};
 const legacyRows=classify(stage35Inputs,legacyGraph).rows;
+const stage37Inputs={...inputs,catalog:stage37Catalog,schema:sourceModule(rawRuntime18,'schemaText.ts',{'./schema/ru.json':stage37Catalog})};
+const stage37Rows=classify(stage37Inputs,stage37Graph).rows;
+const stage37ById=new Map(stage37Rows.map(r=>[r.id,r]));
 const legacyCount=c=>legacyRows.filter(r=>r.classification===c).length;
 const missing18 = beforeReport18.rows.filter(r => r.classification === 'missing' &&
   r.usages.some(u => {
@@ -329,7 +337,7 @@ check('Stage18: exact four reviewed scoped entries; no shared fallback or unexpe
 console.log('Stage18: applied 54 translations, two preserved standard labels, four exact scoped bindings. Static/source tests, not React/browser acceptance.');
 
 check('Stage37: exact historical scope, all canonical description paths and no translation regression', () => {
-  assert.equal(report.stage,37);
+  assert.equal(report.stage,38);
   assert.equal(legacyCount('translated'),6418);
   assert.equal(legacyCount('missing'),0);
   assert.equal(legacyCount('renderer-unwired'),2364);
@@ -366,13 +374,59 @@ check('Stage37: exact historical scope, all canonical description paths and no t
     const current=active.get(prior.id);
     if(prior.classification==='translated')assert.equal(current.classification,'translated','Prior translation regressed: '+prior.slot);
     if(!prior.slot.startsWith('field/')||!prior.slot.endsWith('/description'))
-      assert.equal(current.classification,prior.classification,'Unrelated classification changed: '+prior.slot);
+      assert.equal(stage37ById.get(prior.id).classification,prior.classification,'Historical unrelated classification changed: '+prior.slot);
   }
   for(const mutate of [p=>p.slots.pop(),p=>p.slots.push(p.slots[0]),p=>p.translations[0]+=' {{unexpected}}',p=>p.apply=true]){
-    const p=structuredClone(stage37Packet);mutate(p);assert.throws(()=>undoFieldDescriptions(inputs.catalog,p));
+    const p=structuredClone(stage37Packet);mutate(p);assert.throws(()=>undoFieldDescriptions(stage37Catalog,p));
   }
-  const tampered=structuredClone(inputs.catalog);
+  const tampered=structuredClone(stage37Catalog);
   tampered.entries[Object.keys(stage35Catalog.entries)[0]].ru+=' changed';
   assert.throws(()=>undoFieldDescriptions(tampered,stage37Packet));
   console.log('Stage37 exact scope: '+old.length+' descriptions; '+mismatches+' historical mismatched usages; '+screens.size+' affected screens; 947 new catalog entries, 31 previous entries reconnected.');
+});
+
+check('Stage38: exact form-owner scope; previous catalog and classifications preserved',()=>{
+  const scope=stage37Rows.filter(r=>r.classification==='renderer-unwired'&&['form-field-label','form-section','form'].includes(r.category));
+  assert.equal(scope.length,1251);
+  const pairDigest=rows=>digest(rows.map(r=>r.slot+'\0'+r.original+'\n').sort().join(''));
+  assert.equal(pairDigest(scope),packet38.scopePairSha256);
+  const missing=scope.filter(r=>r.catalogState==='missing');
+  assert.equal(missing.length,841);
+  assert.equal(pairDigest(missing),packet38.pairSha256);
+  assert.deepEqual(missing.map(r=>r.slot).sort(),packet38.entries.map(e=>e.slot).sort());
+  const target=new Set(scope.map(r=>r.id)),active=new Map(report.rows.map(r=>[r.id,r]));
+  const screens=new Set();let mismatches=0;
+  for(const prior of stage37Rows){
+    const now=active.get(prior.id);
+    assert.equal(now.classification,target.has(prior.id)?'translated':prior.classification,prior.slot);
+    if(!target.has(prior.id))continue;
+    for(const u of prior.usages.filter(u=>u.state==='slot-mismatch')){
+      mismatches++;screens.add(u.section+'\0'+u.screen);
+    }
+    for(const u of uses(now)){
+      assert.equal(u.state,'wired',now.slot);
+      assert.equal(u.lookupSlot,now.slot,now.slot);
+      assert.equal(u.text.ru,now.acceptedTranslation,now.slot);
+    }
+    for(const l of now.locations){
+      const pin=inputs.pins.find(p=>p.schemaHash===l.schemaHash);
+      assert.equal(at(pin.data,l.sourcePointer),now.original,now.slot);
+      const lookup=inputs.schema.schemaText;
+      assert.equal(lookup(l.schemaHash,'ru',now.slot,now.original),now.acceptedTranslation);
+      assert.equal(lookup(l.schemaHash,'en',now.slot,now.original),now.original);
+      assert.equal(lookup(l.schemaHash,'ru',now.slot,now.original+' changed'),now.original+' changed');
+      assert.equal(lookup('unknown','ru',now.slot,now.original),now.original);
+    }
+  }
+  assert.equal(mismatches,3138);assert.equal(screens.size,33);
+  assert.equal(report.summary.classification.translated,8647);
+  assert.equal(report.summary.classification['renderer-unwired'],135);
+  assert.equal(report.summary.classification.missing,0);
+  for(const mutate of [p=>p.entries.pop(),p=>p.entries.push(p.entries[0]),p=>p.entries[0].ru+=' {{unexpected}}',p=>p.apply=true]){
+    const p=structuredClone(packet38);mutate(p);assert.throws(()=>undoFormContext(inputs.catalog,p));
+  }
+  const tampered=structuredClone(inputs.catalog);
+  tampered.entries[Object.keys(stage37Catalog.entries)[0]].ru+=' changed';
+  assert.throws(()=>undoFormContext(tampered,packet38));
+  console.log('Stage38: 1251 form captions; 841 new entries, 410 reconnected, 3138 historical mismatch usages on 33 screens; 135 variant rows remain.');
 });
