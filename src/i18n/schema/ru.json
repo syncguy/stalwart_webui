@@ -3410,6 +3410,58 @@
       "original": "Version 6",
       "ru": "Версия 6"
     },
+    "enum/ModelSize/16/label": {
+      "original": "65k",
+      "ru": "65k параметров"
+    },
+    "enum/ModelSize/17/label": {
+      "original": "131k",
+      "ru": "131k параметров"
+    },
+    "enum/ModelSize/18/label": {
+      "original": "262k",
+      "ru": "262k параметров"
+    },
+    "enum/ModelSize/19/label": {
+      "original": "524k",
+      "ru": "524k параметров"
+    },
+    "enum/ModelSize/20/label": {
+      "original": "1M",
+      "ru": "1M параметров"
+    },
+    "enum/ModelSize/21/label": {
+      "original": "2M",
+      "ru": "2M параметров"
+    },
+    "enum/ModelSize/22/label": {
+      "original": "4M",
+      "ru": "4M параметров"
+    },
+    "enum/ModelSize/23/label": {
+      "original": "8M",
+      "ru": "8M параметров"
+    },
+    "enum/ModelSize/24/label": {
+      "original": "16M",
+      "ru": "16M параметров"
+    },
+    "enum/ModelSize/25/label": {
+      "original": "33M",
+      "ru": "33M параметров"
+    },
+    "enum/ModelSize/26/label": {
+      "original": "67M",
+      "ru": "67M параметров"
+    },
+    "enum/ModelSize/27/label": {
+      "original": "134M",
+      "ru": "134M параметров"
+    },
+    "enum/ModelSize/28/label": {
+      "original": "268M",
+      "ru": "268M параметров"
+    },
     "enum/MtaInboundThrottleKey/authenticatedAs/label": {
       "original": "Authenticated As",
       "ru": "Имя аутентифицированного пользователя"
@@ -3753,6 +3805,202 @@
     "enum/SharedObjectType/mailbox/label": {
       "original": "Mailbox",
       "ru": "Почтовый ящик"
+    },
+    "enum/SieveCapability/body/label": {
+      "original": "Body Test",
+      "ru": "Проверка тела сообщения"
+    },
+    "enum/SieveCapability/comparator-elbonia/label": {
+      "original": "Elbonia Comparator",
+      "ru": "Сравнение Elbonia"
+    },
+    "enum/SieveCapability/comparator-i;ascii-casemap/label": {
+      "original": "ASCII Case Map Comparator",
+      "ru": "Сравнение ASCII без учёта регистра"
+    },
+    "enum/SieveCapability/comparator-i;ascii-numeric/label": {
+      "original": "ASCII Numeric Comparator",
+      "ru": "Числовое сравнение ASCII"
+    },
+    "enum/SieveCapability/comparator-i;octet/label": {
+      "original": "Octet Comparator",
+      "ru": "Побайтовое сравнение"
+    },
+    "enum/SieveCapability/convert/label": {
+      "original": "Message Conversion",
+      "ru": "Преобразование сообщения"
+    },
+    "enum/SieveCapability/copy/label": {
+      "original": "Copying Without Side Effects",
+      "ru": "Копирование без побочных эффектов"
+    },
+    "enum/SieveCapability/date/label": {
+      "original": "Date Tests",
+      "ru": "Проверки даты (Date)"
+    },
+    "enum/SieveCapability/duplicate/label": {
+      "original": "Duplicate Delivery Detection",
+      "ru": "Обнаружение повторной доставки"
+    },
+    "enum/SieveCapability/editheader/label": {
+      "original": "Edit Header",
+      "ru": "Редактирование заголовков"
+    },
+    "enum/SieveCapability/enclose/label": {
+      "original": "MIME Part Enclosure",
+      "ru": "Вложение части MIME"
+    },
+    "enum/SieveCapability/encoded-character/label": {
+      "original": "Encoded Character Support",
+      "ru": "Поддержка кодированных символов"
+    },
+    "enum/SieveCapability/enotify/label": {
+      "original": "Email Notifications",
+      "ru": "Почтовые уведомления"
+    },
+    "enum/SieveCapability/envelope-deliverby/label": {
+      "original": "Envelope Deliver-By",
+      "ru": "Deliver-By конверта"
+    },
+    "enum/SieveCapability/envelope-dsn/label": {
+      "original": "Envelope DSN (Delivery Status Notification)",
+      "ru": "DSN конверта (уведомление о состоянии доставки)"
+    },
+    "enum/SieveCapability/envelope/label": {
+      "original": "Envelope Test",
+      "ru": "Проверка конверта"
+    },
+    "enum/SieveCapability/environment/label": {
+      "original": "Environment Information",
+      "ru": "Сведения об окружении"
+    },
+    "enum/SieveCapability/ereject/label": {
+      "original": "Extended Reject (SMTP-level)",
+      "ru": "Расширенное отклонение (на уровне SMTP)"
+    },
+    "enum/SieveCapability/extlists/label": {
+      "original": "Externally Stored Lists",
+      "ru": "Списки во внешнем хранилище"
+    },
+    "enum/SieveCapability/extracttext/label": {
+      "original": "Extract Text from MIME Parts",
+      "ru": "Извлечение текста из частей MIME"
+    },
+    "enum/SieveCapability/fcc/label": {
+      "original": "File Carbon Copy",
+      "ru": "Сохранение копии сообщения"
+    },
+    "enum/SieveCapability/fileinto/label": {
+      "original": "File Into Mailbox",
+      "ru": "Помещение сообщения в почтовую папку"
+    },
+    "enum/SieveCapability/foreverypart/label": {
+      "original": "For Every MIME Part",
+      "ru": "Обработка каждой части MIME"
+    },
+    "enum/SieveCapability/ihave/label": {
+      "original": "Conditional Extension Test",
+      "ru": "Проверка наличия расширений"
+    },
+    "enum/SieveCapability/imap4flags/label": {
+      "original": "IMAP Flags",
+      "ru": "Флаги IMAP"
+    },
+    "enum/SieveCapability/imapsieve/label": {
+      "original": "IMAP Events in Sieve",
+      "ru": "События IMAP в Sieve"
+    },
+    "enum/SieveCapability/include/label": {
+      "original": "Script Inclusion",
+      "ru": "Подключение сценариев"
+    },
+    "enum/SieveCapability/index/label": {
+      "original": "Header Index",
+      "ru": "Индекс заголовка"
+    },
+    "enum/SieveCapability/mailbox/label": {
+      "original": "Mailbox Existence Check",
+      "ru": "Проверка существования почтовой папки"
+    },
+    "enum/SieveCapability/mailboxid/label": {
+      "original": "Mailbox by OBJECTID",
+      "ru": "Почтовая папка по OBJECTID"
+    },
+    "enum/SieveCapability/mboxmetadata/label": {
+      "original": "Mailbox Metadata Access",
+      "ru": "Доступ к метаданным почтовых папок"
+    },
+    "enum/SieveCapability/mime/label": {
+      "original": "MIME Part Tests",
+      "ru": "Проверки частей MIME"
+    },
+    "enum/SieveCapability/redirect-deliverby/label": {
+      "original": "Redirect with Deliver-By",
+      "ru": "Перенаправление с Deliver-By"
+    },
+    "enum/SieveCapability/redirect-dsn/label": {
+      "original": "Redirect with DSN",
+      "ru": "Перенаправление с DSN"
+    },
+    "enum/SieveCapability/regex/label": {
+      "original": "Regular Expression Matching",
+      "ru": "Сопоставление с регулярным выражением"
+    },
+    "enum/SieveCapability/reject/label": {
+      "original": "Reject Message",
+      "ru": "Отклонение сообщения"
+    },
+    "enum/SieveCapability/relational/label": {
+      "original": "Relational Tests",
+      "ru": "Проверки отношений между значениями"
+    },
+    "enum/SieveCapability/replace/label": {
+      "original": "MIME Part Replacement",
+      "ru": "Замена части MIME"
+    },
+    "enum/SieveCapability/servermetadata/label": {
+      "original": "Server Metadata Access",
+      "ru": "Доступ к метаданным сервера"
+    },
+    "enum/SieveCapability/spamtest/label": {
+      "original": "Spam Test",
+      "ru": "Проверка на спам"
+    },
+    "enum/SieveCapability/spamtestplus/label": {
+      "original": "Extended Spam Test",
+      "ru": "Расширенная проверка на спам"
+    },
+    "enum/SieveCapability/special-use/label": {
+      "original": "Special-Use Mailboxes",
+      "ru": "Почтовые папки специального назначения"
+    },
+    "enum/SieveCapability/subaddress/label": {
+      "original": "Subaddress (Detail) Matching",
+      "ru": "Сопоставление подадреса (Detail)"
+    },
+    "enum/SieveCapability/vacation-seconds/label": {
+      "original": "Vacation with Seconds Parameter",
+      "ru": "Расширение vacation с интервалом в секундах"
+    },
+    "enum/SieveCapability/vacation/label": {
+      "original": "Vacation Auto-Reply",
+      "ru": "Автоответ об отсутствии"
+    },
+    "enum/SieveCapability/variables/label": {
+      "original": "Variables",
+      "ru": "Переменные"
+    },
+    "enum/SieveCapability/virustest/label": {
+      "original": "Virus Test",
+      "ru": "Проверка на вирусы"
+    },
+    "enum/SieveCapability/vnd.stalwart.expressions/label": {
+      "original": "Expression Evaluation (Stalwart)",
+      "ru": "Вычисление выражений (Stalwart)"
+    },
+    "enum/SieveCapability/vnd.stalwart.while/label": {
+      "original": "While Loop (Stalwart)",
+      "ru": "Цикл While (Stalwart)"
     },
     "enum/SmimeCipher/aes128Cbc/label": {
       "original": "AES-128-CBC",
@@ -4405,6 +4653,18 @@
     "field/MailboxRights/maySubmit/description": {
       "original": "May submit messages directly to this mailbox (IMAP ACL \"p\")",
       "ru": "Разрешено отправлять сообщения непосредственно в эту почтовую папку (IMAP ACL \"p\")."
+    },
+    "field/SieveScript/blobId/description": {
+      "original": "Identifier of the blob containing the raw Sieve script content",
+      "ru": "Идентификатор BLOB-объекта с исходным содержимым сценария Sieve"
+    },
+    "field/SieveScript/isActive/description": {
+      "original": "Whether this script is the one currently filtering incoming messages. Only one script may be active per account.",
+      "ru": "Используется ли этот сценарий в настоящее время для фильтрации входящих сообщений. В каждой учётной записи может быть активен только один сценарий."
+    },
+    "field/SieveScript/name/description": {
+      "original": "User-visible name for the script, unique within the account",
+      "ru": "Отображаемое пользователю имя сценария, уникальное в пределах учётной записи"
     },
     "field/x:AcmeProvider/accountHashPrefix/description": {
       "original": "The prefix for hashed account URIs advertised by the ACME server in its directory, used to build DNS-PERSIST-01 validation records.",
@@ -5721,6 +5981,26 @@
     "field/x:FoundationDbStore/transactionTimeout/description": {
       "original": "Transaction timeout",
       "ru": "Время ожидания транзакции"
+    },
+    "field/x:FtrlParameters/alpha/description": {
+      "original": "The alpha parameter for the FTRL-Proximal algorithm",
+      "ru": "Параметр alpha алгоритма FTRL-Proximal"
+    },
+    "field/x:FtrlParameters/beta/description": {
+      "original": "The beta parameter for the FTRL-Proximal algorithm",
+      "ru": "Параметр beta алгоритма FTRL-Proximal"
+    },
+    "field/x:FtrlParameters/l1Ratio/description": {
+      "original": "The L1 regularization parameter for the FTRL-Proximal algorithm",
+      "ru": "Параметр регуляризации L1 алгоритма FTRL-Proximal"
+    },
+    "field/x:FtrlParameters/l2Ratio/description": {
+      "original": "The L2 regularization parameter for the FTRL-Proximal algorithm",
+      "ru": "Параметр регуляризации L2 алгоритма FTRL-Proximal"
+    },
+    "field/x:FtrlParameters/numFeatures/description": {
+      "original": "The number of parameters (2^n)",
+      "ru": "Число параметров (2^n)"
     },
     "field/x:GroupAccount/aliases/description": {
       "original": "List of email aliases for the group",
@@ -7142,6 +7422,190 @@
       "original": "Stores to use for sharding",
       "ru": "Хранилища для распределения по сегментам"
     },
+    "field/x:SieveSystemInterpreter/defaultFromAddress/description": {
+      "original": "Default email address to use for the from field in email notifications sent from a Sieve script",
+      "ru": "Адрес электронной почты по умолчанию для поля from в почтовых уведомлениях, отправляемых сценарием Sieve"
+    },
+    "field/x:SieveSystemInterpreter/defaultFromName/description": {
+      "original": "Default name to use for the from field in email notifications sent from a Sieve script",
+      "ru": "Имя по умолчанию для поля from в почтовых уведомлениях, отправляемых сценарием Sieve"
+    },
+    "field/x:SieveSystemInterpreter/defaultReturnPath/description": {
+      "original": "Default return path to use in email notifications sent from a Sieve script",
+      "ru": "Обратный адрес по умолчанию в почтовых уведомлениях, отправляемых сценарием Sieve"
+    },
+    "field/x:SieveSystemInterpreter/dkimSignDomain/description": {
+      "original": "Which domain's DKIM signatures to use when signing the email notifications sent from a Sieve script",
+      "ru": "Подписи DKIM какого домена использовать для подписания почтовых уведомлений, отправляемых сценарием Sieve"
+    },
+    "field/x:SieveSystemInterpreter/maxCpuCycles/description": {
+      "original": "Maximum number CPU cycles a script can use",
+      "ru": "Максимальное число циклов CPU, которое может использовать сценарий"
+    },
+    "field/x:SieveSystemInterpreter/maxNestedIncludes/description": {
+      "original": "Maximum number of nested includes",
+      "ru": "Максимальное число вложенных подключений сценариев"
+    },
+    "field/x:SieveSystemInterpreter/maxOutMessages/description": {
+      "original": "Maximum number of outgoing messages",
+      "ru": "Максимальное число исходящих сообщений"
+    },
+    "field/x:SieveSystemInterpreter/maxReceivedHeaders/description": {
+      "original": "Maximum number of received headers",
+      "ru": "Максимальное число заголовков Received"
+    },
+    "field/x:SieveSystemInterpreter/maxRedirects/description": {
+      "original": "Maximum number of redirects",
+      "ru": "Максимальное число перенаправлений"
+    },
+    "field/x:SieveSystemInterpreter/maxVarSize/description": {
+      "original": "Maximum size of a variable",
+      "ru": "Максимальный размер переменной"
+    },
+    "field/x:SieveSystemInterpreter/messageIdHostname/description": {
+      "original": "Override the default local hostname to use when generating a Message-Id header",
+      "ru": "Переопределяет локальное имя узла по умолчанию при формировании заголовка Message-Id"
+    },
+    "field/x:SieveSystemInterpreter/noCapabilityCheck/description": {
+      "original": "If enabled, language extensions can be used without being explicitly declared using the require statement",
+      "ru": "Если включено, расширения языка можно использовать без явного объявления оператором require"
+    },
+    "field/x:SieveSystemScript/contents/description": {
+      "original": "Content of the script",
+      "ru": "Содержимое сценария"
+    },
+    "field/x:SieveSystemScript/description/description": {
+      "original": "Description of the script",
+      "ru": "Описание сценария"
+    },
+    "field/x:SieveSystemScript/isActive/description": {
+      "original": "Whether the script is active",
+      "ru": "Активен ли сценарий"
+    },
+    "field/x:SieveSystemScript/name/description": {
+      "original": "Name of the script",
+      "ru": "Имя сценария"
+    },
+    "field/x:SieveUserInterpreter/allowedNotifyUris/description": {
+      "original": "List of allowed URIs for the notify extension",
+      "ru": "Список разрешённых URI для расширения notify"
+    },
+    "field/x:SieveUserInterpreter/defaultExpiryDuplicate/description": {
+      "original": "Default expiration time for IDs stored by the duplicate extension from user scripts",
+      "ru": "Срок хранения по умолчанию идентификаторов, сохраняемых расширением duplicate в пользовательских сценариях"
+    },
+    "field/x:SieveUserInterpreter/defaultExpiryVacation/description": {
+      "original": "Default expiration time for IDs stored by the vacation extension",
+      "ru": "Срок хранения по умолчанию идентификаторов, сохраняемых расширением vacation"
+    },
+    "field/x:SieveUserInterpreter/defaultSubject/description": {
+      "original": "Default subject of vacation responses",
+      "ru": "Тема автоответов об отсутствии по умолчанию"
+    },
+    "field/x:SieveUserInterpreter/defaultSubjectPrefix/description": {
+      "original": "Default subject prefix of vacation responses",
+      "ru": "Префикс темы автоответов об отсутствии по умолчанию"
+    },
+    "field/x:SieveUserInterpreter/disableCapabilities/description": {
+      "original": "List of capabilities to disable in the user interpreter",
+      "ru": "Список расширений, отключаемых в пользовательском интерпретаторе"
+    },
+    "field/x:SieveUserInterpreter/dkimSignDomain/description": {
+      "original": "Which domain's DKIM signatures to use when signing messages generated by a user's Sieve script, such as vacation auto-replies",
+      "ru": "Подписи DKIM какого домена использовать для подписания сообщений, создаваемых пользовательским сценарием Sieve, например автоответов об отсутствии"
+    },
+    "field/x:SieveUserInterpreter/maxCpuCycles/description": {
+      "original": "Maximum number CPU cycles a script can use",
+      "ru": "Максимальное число циклов CPU, которое может использовать сценарий"
+    },
+    "field/x:SieveUserInterpreter/maxHeaderSize/description": {
+      "original": "Maximum size of a header",
+      "ru": "Максимальный размер заголовка"
+    },
+    "field/x:SieveUserInterpreter/maxIncludes/description": {
+      "original": "Maximum number of includes",
+      "ru": "Максимальное число подключаемых сценариев"
+    },
+    "field/x:SieveUserInterpreter/maxLocalVars/description": {
+      "original": "Maximum number of local variables",
+      "ru": "Максимальное число локальных переменных"
+    },
+    "field/x:SieveUserInterpreter/maxMatchVars/description": {
+      "original": "Maximum number of match variables",
+      "ru": "Максимальное число переменных совпадений"
+    },
+    "field/x:SieveUserInterpreter/maxNestedBlocks/description": {
+      "original": "Maximum number of nested blocks",
+      "ru": "Максимальное число вложенных блоков"
+    },
+    "field/x:SieveUserInterpreter/maxNestedForEvery/description": {
+      "original": "Maximum number of nested foreach blocks",
+      "ru": "Максимальное число вложенных блоков foreach"
+    },
+    "field/x:SieveUserInterpreter/maxNestedIncludes/description": {
+      "original": "Maximum number of nested includes",
+      "ru": "Максимальное число вложенных подключений сценариев"
+    },
+    "field/x:SieveUserInterpreter/maxNestedTests/description": {
+      "original": "Maximum number of nested tests",
+      "ru": "Максимальное число вложенных проверок"
+    },
+    "field/x:SieveUserInterpreter/maxOutMessages/description": {
+      "original": "Maximum number of outgoing messages",
+      "ru": "Максимальное число исходящих сообщений"
+    },
+    "field/x:SieveUserInterpreter/maxReceivedHeaders/description": {
+      "original": "Maximum number of received headers",
+      "ru": "Максимальное число заголовков Received"
+    },
+    "field/x:SieveUserInterpreter/maxRedirects/description": {
+      "original": "Maximum number of redirects",
+      "ru": "Максимальное число перенаправлений"
+    },
+    "field/x:SieveUserInterpreter/maxScriptNameLength/description": {
+      "original": "Maximum length of a script name",
+      "ru": "Максимальная длина имени сценария"
+    },
+    "field/x:SieveUserInterpreter/maxScriptSize/description": {
+      "original": "Maximum size of a script",
+      "ru": "Максимальный размер сценария"
+    },
+    "field/x:SieveUserInterpreter/maxScripts/description": {
+      "original": "The default maximum number of sieve scripts a user can create",
+      "ru": "Максимальное число сценариев Sieve, доступное пользователю по умолчанию"
+    },
+    "field/x:SieveUserInterpreter/maxStringLength/description": {
+      "original": "Maximum length of a string",
+      "ru": "Максимальная длина строки"
+    },
+    "field/x:SieveUserInterpreter/maxVarNameLength/description": {
+      "original": "Maximum length of a variable name",
+      "ru": "Максимальная длина имени переменной"
+    },
+    "field/x:SieveUserInterpreter/maxVarSize/description": {
+      "original": "Maximum size of a variable",
+      "ru": "Максимальный размер переменной"
+    },
+    "field/x:SieveUserInterpreter/protectedHeaders/description": {
+      "original": "List of headers that cannot be deleted or added using the editheader extension",
+      "ru": "Список заголовков, которые нельзя удалять или добавлять с помощью расширения editheader"
+    },
+    "field/x:SieveUserScript/contents/description": {
+      "original": "Content of the script",
+      "ru": "Содержимое сценария"
+    },
+    "field/x:SieveUserScript/description/description": {
+      "original": "Description of the script",
+      "ru": "Описание сценария"
+    },
+    "field/x:SieveUserScript/isActive/description": {
+      "original": "Whether the script is active",
+      "ru": "Активен ли сценарий"
+    },
+    "field/x:SieveUserScript/name/description": {
+      "original": "Name of the script",
+      "ru": "Имя сценария"
+    },
     "field/x:SmimeTrustAnchor/certificate/description": {
       "original": "CA certificate in PEM format",
       "ru": "Сертификат CA в формате PEM"
@@ -7306,6 +7770,74 @@
       "original": "The AI model to query",
       "ru": "Модель ИИ для отправки запросов"
     },
+    "field/x:SpamClassifier/holdSamplesFor/description": {
+      "original": "Duration to hold training samples for",
+      "ru": "Срок хранения обучающих образцов"
+    },
+    "field/x:SpamClassifier/learnHamFromCard/description": {
+      "original": "Whether to automatically learn ham messages from senders in the user's address book.",
+      "ru": "Автоматически обучаться на обычной почте (ham) от отправителей из адресной книги пользователя."
+    },
+    "field/x:SpamClassifier/learnHamFromReply/description": {
+      "original": "Whether to automatically learn ham messages that are replies to messages sent by the recipient.",
+      "ru": "Автоматически обучаться на обычной почте (ham), являющейся ответами на сообщения, отправленные получателем."
+    },
+    "field/x:SpamClassifier/learnSpamFromRblHits/description": {
+      "original": "Minimum number of distinct DNSBL tags (named with the `RBL_` prefix and scoring above 1.0) that a message classified as spam must receive to be auto-learned as spam. Set to 0 to disable",
+      "ru": "Минимальное число различных меток DNSBL (с префиксом `RBL_` и баллом выше 1.0), которые должно получить классифицированное как спам сообщение для автоматического обучения на спаме. Установите 0, чтобы отключить"
+    },
+    "field/x:SpamClassifier/learnSpamFromTraps/description": {
+      "original": "Train as spam messages sent to spam trap addresses",
+      "ru": "Обучаться на спаме из сообщений, отправленных на адреса ловушек спама"
+    },
+    "field/x:SpamClassifier/minHamSamples/description": {
+      "original": "Minimum number of ham samples required for training",
+      "ru": "Минимальное число образцов обычной почты (ham), необходимое для обучения"
+    },
+    "field/x:SpamClassifier/minSpamSamples/description": {
+      "original": "Minimum number of spam samples required for training",
+      "ru": "Минимальное число образцов спама, необходимое для обучения"
+    },
+    "field/x:SpamClassifier/model/description": {
+      "original": "The spam classifier model to use.",
+      "ru": "Используемая модель классификации спама."
+    },
+    "field/x:SpamClassifier/reservoirCapacity/description": {
+      "original": "The capacity of the training sample reservoir",
+      "ru": "Ёмкость резервуара обучающих образцов"
+    },
+    "field/x:SpamClassifier/trainInterval/description": {
+      "original": "How often to train the spam classifier",
+      "ru": "Периодичность обучения классификатора спама"
+    },
+    "field/x:SpamClassifierFtrlCcfh/featureL2Normalize/description": {
+      "original": "Whether to L2-normalize feature values in the spam classifier",
+      "ru": "Выполнять ли нормализацию L2 значений признаков в классификаторе спама"
+    },
+    "field/x:SpamClassifierFtrlCcfh/featureLogScale/description": {
+      "original": "Whether to apply sublinear scaling to feature values in the spam classifier",
+      "ru": "Применять ли сублинейное масштабирование значений признаков в классификаторе спама"
+    },
+    "field/x:SpamClassifierFtrlCcfh/indicatorParameters/description": {
+      "original": "Hyperparameters for the indicator features in the FTRL-CCFH model",
+      "ru": "Гиперпараметры индикаторных признаков модели FTRL-CCFH"
+    },
+    "field/x:SpamClassifierFtrlCcfh/parameters/description": {
+      "original": "Hyperparameters for the FTRL-FH model",
+      "ru": "Гиперпараметры модели FTRL-FH"
+    },
+    "field/x:SpamClassifierFtrlFh/featureL2Normalize/description": {
+      "original": "Whether to L2-normalize feature values in the spam classifier",
+      "ru": "Выполнять ли нормализацию L2 значений признаков в классификаторе спама"
+    },
+    "field/x:SpamClassifierFtrlFh/featureLogScale/description": {
+      "original": "Whether to apply sublinear scaling to feature values in the spam classifier",
+      "ru": "Применять ли сублинейное масштабирование значений признаков в классификаторе спама"
+    },
+    "field/x:SpamClassifierFtrlFh/parameters/description": {
+      "original": "Hyperparameters for the FTRL-FH model",
+      "ru": "Гиперпараметры модели FTRL-FH"
+    },
     "field/x:SpamClassify/aiFacts/description": {
       "original": "Message facts sent to the AI classifier, as JSON",
       "ru": "Сведения о сообщении, переданные ИИ-классификатору в формате JSON"
@@ -7361,6 +7893,154 @@
     "field/x:SpamClassify/tags/description": {
       "original": "List of tags contributing to the spam classification of the message",
       "ru": "Список меток, влияющих на классификацию сообщения на спам"
+    },
+    "field/x:SpamDnsblSettings/domainLimit/description": {
+      "original": "Maximum number of DNSBL checks for domain names",
+      "ru": "Максимальное число проверок DNSBL для доменных имён"
+    },
+    "field/x:SpamDnsblSettings/emailLimit/description": {
+      "original": "Maximum number of DNSBL checks for E-mail addresses",
+      "ru": "Максимальное число проверок DNSBL для адресов электронной почты"
+    },
+    "field/x:SpamDnsblSettings/ipLimit/description": {
+      "original": "Maximum number of DNSBL checks for IP addresses",
+      "ru": "Максимальное число проверок DNSBL для IP-адресов"
+    },
+    "field/x:SpamDnsblSettings/urlLimit/description": {
+      "original": "Maximum number of DNSBL checks for URLs",
+      "ru": "Максимальное число проверок DNSBL для URL"
+    },
+    "field/x:SpamFileExtension/contentTypes/description": {
+      "original": "The MIME types associated with this file extension",
+      "ru": "Типы MIME, связанные с этим расширением файла"
+    },
+    "field/x:SpamFileExtension/extension/description": {
+      "original": "The file name extension",
+      "ru": "Расширение имени файла"
+    },
+    "field/x:SpamFileExtension/isArchive/description": {
+      "original": "Whether this file extension is considered an archive",
+      "ru": "Считается ли это расширение файла признаком архива"
+    },
+    "field/x:SpamFileExtension/isBad/description": {
+      "original": "Whether this file extension is considered bad",
+      "ru": "Считается ли это расширение файла нежелательным"
+    },
+    "field/x:SpamFileExtension/isNz/description": {
+      "original": "Whether this file extension is considered a NZ file",
+      "ru": "Считается ли это расширение файла признаком NZ-файла"
+    },
+    "field/x:SpamPyzor/allowCount/description": {
+      "original": "The number of times the hash appears in the Pyzor allowlist",
+      "ru": "Число появлений хеша в разрешающем списке Pyzor"
+    },
+    "field/x:SpamPyzor/blockCount/description": {
+      "original": "The number of times the hash appears in the Pyzor blocklist",
+      "ru": "Число появлений хеша в блокирующем списке Pyzor"
+    },
+    "field/x:SpamPyzor/enable/description": {
+      "original": "Whether to enable the Pyzor classifier. Pyzor is a collaborative, networked system to detect and report spam. Disabled by default.",
+      "ru": "Включать ли классификатор Pyzor. Pyzor — совместная сетевая система обнаружения спама и передачи сведений о нём. По умолчанию отключена."
+    },
+    "field/x:SpamPyzor/host/description": {
+      "original": "The hostname of the Pyzor server",
+      "ru": "Имя узла сервера Pyzor"
+    },
+    "field/x:SpamPyzor/port/description": {
+      "original": "The port to connect to the Pyzor server",
+      "ru": "Порт подключения к серверу Pyzor"
+    },
+    "field/x:SpamPyzor/ratio/description": {
+      "original": "The ratio of the number of times the hash appears in the Pyzor allowlist to the blocklist",
+      "ru": "Отношение числа появлений хеша в разрешающем списке Pyzor к числу появлений в блокирующем списке"
+    },
+    "field/x:SpamPyzor/timeout/description": {
+      "original": "The timeout for the Pyzor server. If the server does not respond within this time, the check is considered failed.",
+      "ru": "Время ожидания ответа сервера Pyzor. Если сервер не отвечает за это время, проверка считается неуспешной."
+    },
+    "field/x:SpamSettings/enable/description": {
+      "original": "Whether to enable the spam filter",
+      "ru": "Включать ли фильтр спама"
+    },
+    "field/x:SpamSettings/greylistFor/description": {
+      "original": "How long a sender and recipient pair is remembered after its first delivery attempt was deferred. Retries for the same pair within this period are accepted; once it expires, the pair is greylisted again. Only applies to unauthenticated sessions. Disabled when unset.",
+      "ru": "Время хранения пары отправитель–получатель после первой отложенной попытки доставки. Повторные попытки для той же пары в течение этого срока принимаются; после его истечения пара снова попадает в серый список. Применяется только к сеансам без аутентификации. Отключено, если значение не задано."
+    },
+    "field/x:SpamSettings/maxAttachmentText/description": {
+      "original": "Maximum amount of text analysed from each non-body text part, such as text attachments",
+      "ru": "Максимальный объём текста, анализируемого в каждой части вне тела сообщения, например в текстовом вложении"
+    },
+    "field/x:SpamSettings/maxBodyText/description": {
+      "original": "Maximum amount of text analysed from each body text part, the rest is ignored",
+      "ru": "Максимальный объём текста, анализируемого в каждой текстовой части тела сообщения; остальной текст игнорируется"
+    },
+    "field/x:SpamSettings/maxMessageText/description": {
+      "original": "Maximum amount of text analysed per message across all parts",
+      "ru": "Максимальный суммарный объём анализируемого текста всех частей сообщения"
+    },
+    "field/x:SpamSettings/maxRedirectUrls/description": {
+      "original": "Maximum number of URL redirector requests sent per message; cached results do not count towards this limit",
+      "ru": "Максимальное число запросов к службам перенаправления URL на сообщение; результаты из кэша не учитываются в этом ограничении"
+    },
+    "field/x:SpamSettings/redirectCacheTtl/description": {
+      "original": "Time to cache the destination of a resolved URL redirect",
+      "ru": "Время кэширования адреса назначения разрешённого перенаправления URL"
+    },
+    "field/x:SpamSettings/redirectTimeout/description": {
+      "original": "Time after which a URL redirector request is considered failed",
+      "ru": "Время, по истечении которого запрос к службе перенаправления URL считается неуспешным"
+    },
+    "field/x:SpamSettings/scoreDiscard/description": {
+      "original": "Discard messages with a score at or above this threshold. Set to 0 or below to disable; rejection takes precedence",
+      "ru": "Удалять без уведомления сообщения с баллом, равным этому порогу или превышающим его. Установите 0 или меньше, чтобы отключить; отклонение имеет приоритет"
+    },
+    "field/x:SpamSettings/scoreReject/description": {
+      "original": "Reject messages with a score at or above this threshold. Set to 0 or below to disable",
+      "ru": "Отклонять сообщения с баллом, равным этому порогу или превышающим его. Установите 0 или меньше, чтобы отключить"
+    },
+    "field/x:SpamSettings/scoreSpam/description": {
+      "original": "Mark as Spam messages with a score at or above this threshold",
+      "ru": "Помечать как спам сообщения с баллом, равным этому порогу или превышающим его"
+    },
+    "field/x:SpamSettings/spamFilterRulesUrl/description": {
+      "original": "URL to download spam filter rules from",
+      "ru": "URL для скачивания правил фильтра спама"
+    },
+    "field/x:SpamSettings/trustContacts/description": {
+      "original": "Never classify messages as spam if they are sent from addresses present in the user's address book.",
+      "ru": "Никогда не считать спамом сообщения с адресов из адресной книги пользователя."
+    },
+    "field/x:SpamSettings/trustReplies/description": {
+      "original": "Never classify messages as spam if they are replies to messages sent by the recipient.",
+      "ru": "Никогда не считать спамом ответы на сообщения, отправленные получателем."
+    },
+    "field/x:SpamTrainingSample/accountId/description": {
+      "original": "Identifier of the account associated with this training sample",
+      "ru": "Идентификатор учётной записи, связанной с этим обучающим образцом"
+    },
+    "field/x:SpamTrainingSample/blobId/description": {
+      "original": "Reference to the stored message content",
+      "ru": "Ссылка на сохранённое содержимое сообщения"
+    },
+    "field/x:SpamTrainingSample/deleteAfterUse/description": {
+      "original": "Indicates whether the training sample should be deleted after being used for training",
+      "ru": "Указывает, нужно ли удалить обучающий образец после его использования для обучения"
+    },
+    "field/x:SpamTrainingSample/expiresAt/description": {
+      "original": "Timestamp when the training sample is scheduled to expire",
+      "ru": "Дата и время истечения срока хранения обучающего образца"
+    },
+    "field/x:SpamTrainingSample/from/description": {
+      "original": "Email address of the sender of the message associated with this training sample",
+      "ru": "Адрес электронной почты отправителя сообщения, связанного с этим обучающим образцом"
+    },
+    "field/x:SpamTrainingSample/isSpam/description": {
+      "original": "Indicates whether the sample is spam (true) or ham (false)",
+      "ru": "Указывает, является ли образец спамом (true) или обычной почтой (ham, false)"
+    },
+    "field/x:SpamTrainingSample/subject/description": {
+      "original": "Subject of the message associated with this training sample",
+      "ru": "Тема сообщения, связанного с этим обучающим образцом"
     },
     "field/x:StoreLookup/namespace/description": {
       "original": "Unique identifier for this store when used in lookups",
@@ -7978,9 +8658,21 @@
       "original": "Type",
       "ru": "Тип"
     },
+    "form/SieveScript/field/blobId": {
+      "original": "Script Content",
+      "ru": "Содержимое сценария"
+    },
+    "form/SieveScript/field/isActive": {
+      "original": "Active",
+      "ru": "Активен"
+    },
     "form/SieveScript/field/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "form/SieveScript/section/section-0": {
+      "original": "Script",
+      "ru": "Сценарий"
     },
     "form/VacationResponse/field/toDate": {
       "original": "To",
@@ -11150,6 +11842,26 @@
       "original": "Transaction Settings",
       "ru": "Параметры транзакций"
     },
+    "form/x:FtrlParameters/field/alpha": {
+      "original": "Alpha",
+      "ru": "Коэффициент Alpha"
+    },
+    "form/x:FtrlParameters/field/beta": {
+      "original": "Beta",
+      "ru": "Коэффициент Beta"
+    },
+    "form/x:FtrlParameters/field/l1Ratio": {
+      "original": "L1 Ratio",
+      "ru": "Коэффициент L1"
+    },
+    "form/x:FtrlParameters/field/l2Ratio": {
+      "original": "L2 Ratio",
+      "ru": "Коэффициент L2"
+    },
+    "form/x:FtrlParameters/field/numFeatures": {
+      "original": "Parameters",
+      "ru": "Параметры"
+    },
     "form/x:GroupAccount/field/aliases": {
       "original": "Email Aliases",
       "ru": "Почтовые псевдонимы"
@@ -11653,6 +12365,38 @@
     "form/x:MeilisearchStore/section/section-3": {
       "original": "Headers",
       "ru": "Заголовки"
+    },
+    "form/x:MemoryLookupKey/SpamBlockedDomain/field/key": {
+      "original": "Domain Name",
+      "ru": "Доменное имя"
+    },
+    "form/x:MemoryLookupKey/SpamBlockedDomain/section/section-0": {
+      "original": "Blocked Domain",
+      "ru": "Заблокированный домен"
+    },
+    "form/x:MemoryLookupKey/SpamTrap/field/key": {
+      "original": "E-mail Address",
+      "ru": "Адрес электронной почты"
+    },
+    "form/x:MemoryLookupKey/SpamTrap/section/section-0": {
+      "original": "Trap Address",
+      "ru": "Адрес ловушки спама"
+    },
+    "form/x:MemoryLookupKey/SpamTrustedDomain/field/key": {
+      "original": "Domain Name",
+      "ru": "Доменное имя"
+    },
+    "form/x:MemoryLookupKey/SpamTrustedDomain/section/section-0": {
+      "original": "Domain Name",
+      "ru": "Доменное имя"
+    },
+    "form/x:MemoryLookupKey/SpamUrlRedirector/field/key": {
+      "original": "Domain Name",
+      "ru": "Доменное имя"
+    },
+    "form/x:MemoryLookupKey/SpamUrlRedirector/section/section-0": {
+      "original": "URL Redirector",
+      "ru": "Служба перенаправления URL"
     },
     "form/x:Metadata/field/dataTypes": {
       "original": "Data Types",
@@ -13686,9 +14430,53 @@
       "original": "Sharing",
       "ru": "Общий доступ"
     },
+    "form/x:SieveSystemInterpreter/field/defaultFromAddress": {
+      "original": "From Address",
+      "ru": "Адрес отправителя"
+    },
+    "form/x:SieveSystemInterpreter/field/defaultFromName": {
+      "original": "From Name",
+      "ru": "Имя отправителя"
+    },
+    "form/x:SieveSystemInterpreter/field/defaultReturnPath": {
+      "original": "Return Path",
+      "ru": "Обратный адрес"
+    },
     "form/x:SieveSystemInterpreter/field/dkimSignDomain": {
       "original": "DKIM Signatures",
       "ru": "Подписи DKIM"
+    },
+    "form/x:SieveSystemInterpreter/field/maxCpuCycles": {
+      "original": "CPU",
+      "ru": "Ресурсы CPU"
+    },
+    "form/x:SieveSystemInterpreter/field/maxNestedIncludes": {
+      "original": "Nested Includes",
+      "ru": "Вложенные подключения сценариев"
+    },
+    "form/x:SieveSystemInterpreter/field/maxOutMessages": {
+      "original": "Outgoing Messages",
+      "ru": "Исходящие сообщения"
+    },
+    "form/x:SieveSystemInterpreter/field/maxReceivedHeaders": {
+      "original": "Received Headers",
+      "ru": "Заголовки Received"
+    },
+    "form/x:SieveSystemInterpreter/field/maxRedirects": {
+      "original": "Redirects",
+      "ru": "Перенаправления"
+    },
+    "form/x:SieveSystemInterpreter/field/maxVarSize": {
+      "original": "Variable Size",
+      "ru": "Размер переменной"
+    },
+    "form/x:SieveSystemInterpreter/field/messageIdHostname": {
+      "original": "Hostname",
+      "ru": "Имя узла"
+    },
+    "form/x:SieveSystemInterpreter/field/noCapabilityCheck": {
+      "original": "Allow undeclared capabilities",
+      "ru": "Разрешить необъявленные расширения"
     },
     "form/x:SieveSystemInterpreter/section/section-0": {
       "original": "Defaults",
@@ -13698,33 +14486,185 @@
       "original": "Limits",
       "ru": "Ограничения"
     },
+    "form/x:SieveSystemInterpreter/subtitle": {
+      "original": "Configure the trusted system Sieve interpreter, including default sender identity, DKIM signing, resource limits, and security caps for system-installed scripts",
+      "ru": "Настройте доверенный системный интерпретатор Sieve: отправителя по умолчанию, подпись DKIM, ресурсные ограничения и ограничения безопасности для системных сценариев"
+    },
+    "form/x:SieveSystemInterpreter/title": {
+      "original": "System Sieve Interpreter",
+      "ru": "Системный интерпретатор Sieve"
+    },
+    "form/x:SieveSystemScript/field/contents": {
+      "original": "Contents",
+      "ru": "Содержимое"
+    },
     "form/x:SieveSystemScript/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:SieveSystemScript/field/isActive": {
+      "original": "Active",
+      "ru": "Активен"
     },
     "form/x:SieveSystemScript/field/name": {
       "original": "Name",
       "ru": "Имя"
     },
+    "form/x:SieveSystemScript/section/section-0": {
+      "original": "System Script",
+      "ru": "Системный сценарий"
+    },
+    "form/x:SieveUserInterpreter/field/allowedNotifyUris": {
+      "original": "Notification URIs",
+      "ru": "URI уведомлений"
+    },
+    "form/x:SieveUserInterpreter/field/defaultExpiryDuplicate": {
+      "original": "Untrusted Expiry",
+      "ru": "Срок хранения для недоверенных сценариев"
+    },
+    "form/x:SieveUserInterpreter/field/defaultExpiryVacation": {
+      "original": "Default Expiry",
+      "ru": "Срок хранения по умолчанию"
+    },
+    "form/x:SieveUserInterpreter/field/defaultSubject": {
+      "original": "Default Subject",
+      "ru": "Тема по умолчанию"
+    },
+    "form/x:SieveUserInterpreter/field/defaultSubjectPrefix": {
+      "original": "Default Prefix",
+      "ru": "Префикс по умолчанию"
+    },
+    "form/x:SieveUserInterpreter/field/disableCapabilities": {
+      "original": "Disable Capabilities",
+      "ru": "Отключённые расширения"
+    },
     "form/x:SieveUserInterpreter/field/dkimSignDomain": {
       "original": "DKIM Signatures",
       "ru": "Подписи DKIM"
+    },
+    "form/x:SieveUserInterpreter/field/maxCpuCycles": {
+      "original": "CPU",
+      "ru": "Ресурсы CPU"
+    },
+    "form/x:SieveUserInterpreter/field/maxHeaderSize": {
+      "original": "Header Size",
+      "ru": "Размер заголовка"
+    },
+    "form/x:SieveUserInterpreter/field/maxIncludes": {
+      "original": "Includes",
+      "ru": "Подключаемые сценарии"
+    },
+    "form/x:SieveUserInterpreter/field/maxLocalVars": {
+      "original": "Local Variables",
+      "ru": "Локальные переменные"
+    },
+    "form/x:SieveUserInterpreter/field/maxMatchVars": {
+      "original": "Match Variables",
+      "ru": "Переменные совпадений"
+    },
+    "form/x:SieveUserInterpreter/field/maxNestedBlocks": {
+      "original": "Nested Blocks",
+      "ru": "Вложенные блоки"
+    },
+    "form/x:SieveUserInterpreter/field/maxNestedForEvery": {
+      "original": "Nested Foreach",
+      "ru": "Вложенные циклы Foreach"
+    },
+    "form/x:SieveUserInterpreter/field/maxNestedIncludes": {
+      "original": "Nested Includes",
+      "ru": "Вложенные подключения сценариев"
+    },
+    "form/x:SieveUserInterpreter/field/maxNestedTests": {
+      "original": "Nested Tests",
+      "ru": "Вложенные проверки"
+    },
+    "form/x:SieveUserInterpreter/field/maxOutMessages": {
+      "original": "Outgoing Messages",
+      "ru": "Исходящие сообщения"
+    },
+    "form/x:SieveUserInterpreter/field/maxReceivedHeaders": {
+      "original": "Received Headers",
+      "ru": "Заголовки Received"
+    },
+    "form/x:SieveUserInterpreter/field/maxRedirects": {
+      "original": "Redirects",
+      "ru": "Перенаправления"
+    },
+    "form/x:SieveUserInterpreter/field/maxScriptNameLength": {
+      "original": "Name Length",
+      "ru": "Длина имени"
+    },
+    "form/x:SieveUserInterpreter/field/maxScriptSize": {
+      "original": "Script Size",
+      "ru": "Размер сценария"
+    },
+    "form/x:SieveUserInterpreter/field/maxScripts": {
+      "original": "Max. Scripts",
+      "ru": "Макс. число сценариев"
+    },
+    "form/x:SieveUserInterpreter/field/maxStringLength": {
+      "original": "String Length",
+      "ru": "Длина строки"
+    },
+    "form/x:SieveUserInterpreter/field/maxVarNameLength": {
+      "original": "Variable Name Length",
+      "ru": "Длина имени переменной"
+    },
+    "form/x:SieveUserInterpreter/field/maxVarSize": {
+      "original": "Variable Size",
+      "ru": "Размер переменной"
+    },
+    "form/x:SieveUserInterpreter/field/protectedHeaders": {
+      "original": "Protected Headers",
+      "ru": "Защищённые заголовки"
     },
     "form/x:SieveUserInterpreter/section/section-0": {
       "original": "Security",
       "ru": "Безопасность"
     },
+    "form/x:SieveUserInterpreter/section/section-1": {
+      "original": "Vacation Extension",
+      "ru": "Расширение vacation"
+    },
+    "form/x:SieveUserInterpreter/section/section-2": {
+      "original": "Duplicate Extension",
+      "ru": "Расширение duplicate"
+    },
     "form/x:SieveUserInterpreter/section/section-3": {
       "original": "Limits",
       "ru": "Ограничения"
+    },
+    "form/x:SieveUserInterpreter/section/section-4": {
+      "original": "Signing",
+      "ru": "Подпись"
+    },
+    "form/x:SieveUserInterpreter/subtitle": {
+      "original": "Configure the untrusted user Sieve interpreter, including allowed notification URIs, protected headers, disabled capabilities, vacation defaults and per-script resource limits",
+      "ru": "Настройте интерпретатор недоверенных пользовательских сценариев Sieve: разрешённые URI уведомлений, защищённые заголовки, отключённые расширения, параметры автоответов по умолчанию и ограничения ресурсов отдельных сценариев"
+    },
+    "form/x:SieveUserInterpreter/title": {
+      "original": "User Sieve Interpreter",
+      "ru": "Пользовательский интерпретатор Sieve"
+    },
+    "form/x:SieveUserScript/field/contents": {
+      "original": "Contents",
+      "ru": "Содержимое"
     },
     "form/x:SieveUserScript/field/description": {
       "original": "Description",
       "ru": "Описание"
     },
+    "form/x:SieveUserScript/field/isActive": {
+      "original": "Active",
+      "ru": "Активен"
+    },
     "form/x:SieveUserScript/field/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "form/x:SieveUserScript/section/section-0": {
+      "original": "User Script",
+      "ru": "Пользовательский сценарий"
     },
     "form/x:SmimeTrustAnchor/field/certificate": {
       "original": "Certificate",
@@ -13930,6 +14870,98 @@
       "original": "Model",
       "ru": "Модель"
     },
+    "form/x:SpamClassifier/field/holdSamplesFor": {
+      "original": "Hold samples for",
+      "ru": "Срок хранения образцов"
+    },
+    "form/x:SpamClassifier/field/learnHamFromCard": {
+      "original": "Learn ham from address books",
+      "ru": "Обучение на обычной почте (ham) от контактов"
+    },
+    "form/x:SpamClassifier/field/learnHamFromReply": {
+      "original": "Learn ham from trusted replies",
+      "ru": "Обучение на обычной почте (ham) из доверенных ответов"
+    },
+    "form/x:SpamClassifier/field/learnSpamFromRblHits": {
+      "original": "RBL hits",
+      "ru": "Совпадения RBL"
+    },
+    "form/x:SpamClassifier/field/learnSpamFromTraps": {
+      "original": "Learn spam from spam traps",
+      "ru": "Обучение на спаме из ловушек"
+    },
+    "form/x:SpamClassifier/field/minHamSamples": {
+      "original": "Min. Ham samples",
+      "ru": "Мин. число образцов обычной почты (Ham)"
+    },
+    "form/x:SpamClassifier/field/minSpamSamples": {
+      "original": "Min. Spam samples",
+      "ru": "Мин. число образцов спама"
+    },
+    "form/x:SpamClassifier/field/model": {
+      "original": "Model",
+      "ru": "Модель"
+    },
+    "form/x:SpamClassifier/field/reservoirCapacity": {
+      "original": "Capacity",
+      "ru": "Ёмкость"
+    },
+    "form/x:SpamClassifier/field/trainInterval": {
+      "original": "Training interval",
+      "ru": "Интервал обучения"
+    },
+    "form/x:SpamClassifier/section/section-0": {
+      "original": "Spam Classifier",
+      "ru": "Классификатор спама"
+    },
+    "form/x:SpamClassifier/section/section-1": {
+      "original": "Training",
+      "ru": "Обучение"
+    },
+    "form/x:SpamClassifier/section/section-2": {
+      "original": "Reservoir Sampling",
+      "ru": "Резервуарная выборка"
+    },
+    "form/x:SpamClassifier/section/section-3": {
+      "original": "Auto-learn",
+      "ru": "Автоматическое обучение"
+    },
+    "form/x:SpamClassifier/subtitle": {
+      "original": "Configure the statistical spam classifier model and its training behaviour, including auto-learning sources, training cadence, and the size of the training reservoir",
+      "ru": "Настройте статистическую модель классификации спама и её обучение: источники автоматического обучения, периодичность обучения и объём резервуара обучающих образцов"
+    },
+    "form/x:SpamClassifier/title": {
+      "original": "Spam Classifier",
+      "ru": "Классификатор спама"
+    },
+    "form/x:SpamClassifierFtrlCcfh/field/featureL2Normalize": {
+      "original": "L2 (euclidean) normalization",
+      "ru": "Нормализация L2 (евклидова)"
+    },
+    "form/x:SpamClassifierFtrlCcfh/field/featureLogScale": {
+      "original": "Sublinear term frequency scaling (log1p)",
+      "ru": "Сублинейное масштабирование частоты термов (log1p)"
+    },
+    "form/x:SpamClassifierFtrlCcfh/field/indicatorParameters": {
+      "original": "Parameters",
+      "ru": "Параметры"
+    },
+    "form/x:SpamClassifierFtrlCcfh/field/parameters": {
+      "original": "Parameters",
+      "ru": "Параметры"
+    },
+    "form/x:SpamClassifierFtrlFh/field/featureL2Normalize": {
+      "original": "L2 (euclidean) normalization",
+      "ru": "Нормализация L2 (евклидова)"
+    },
+    "form/x:SpamClassifierFtrlFh/field/featureLogScale": {
+      "original": "Sublinear term frequency scaling (log1p)",
+      "ru": "Сублинейное масштабирование частоты термов (log1p)"
+    },
+    "form/x:SpamClassifierFtrlFh/field/parameters": {
+      "original": "Parameters",
+      "ru": "Параметры"
+    },
     "form/x:SpamClassify/field/aiFacts": {
       "original": "Facts",
       "ru": "Сведения о сообщении"
@@ -14002,6 +15034,10 @@
       "original": "AI Classifier",
       "ru": "ИИ-классификатор"
     },
+    "form/x:SpamDnsblServer/field/@type": {
+      "original": "DNSBL server type",
+      "ru": "Тип сервера DNSBL"
+    },
     "form/x:SpamDnsblServerAny/field/description": {
       "original": "Description",
       "ru": "Описание"
@@ -14029,6 +15065,106 @@
     "form/x:SpamDnsblServerUrl/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:SpamDnsblSettings/field/domainLimit": {
+      "original": "Domain Checks",
+      "ru": "Проверки доменов"
+    },
+    "form/x:SpamDnsblSettings/field/emailLimit": {
+      "original": "E-mail Checks",
+      "ru": "Проверки адресов электронной почты"
+    },
+    "form/x:SpamDnsblSettings/field/ipLimit": {
+      "original": "IP Checks",
+      "ru": "Проверки IP-адресов"
+    },
+    "form/x:SpamDnsblSettings/field/urlLimit": {
+      "original": "URL Checks",
+      "ru": "Проверки URL"
+    },
+    "form/x:SpamDnsblSettings/section/section-0": {
+      "original": "DNSBL Limits",
+      "ru": "Ограничения DNSBL"
+    },
+    "form/x:SpamDnsblSettings/subtitle": {
+      "original": "Configure the maximum number of DNSBL lookups performed per message for IP addresses, domain names, email addresses, and URLs",
+      "ru": "Настройте максимальное число запросов DNSBL на сообщение для IP-адресов, доменных имён, адресов электронной почты и URL"
+    },
+    "form/x:SpamDnsblSettings/title": {
+      "original": "DNSBL Lookup Limits",
+      "ru": "Ограничения запросов DNSBL"
+    },
+    "form/x:SpamFileExtension/field/contentTypes": {
+      "original": "MIME Types",
+      "ru": "Типы MIME"
+    },
+    "form/x:SpamFileExtension/field/extension": {
+      "original": "Extension",
+      "ru": "Расширение"
+    },
+    "form/x:SpamFileExtension/field/isArchive": {
+      "original": "Archive",
+      "ru": "Архив"
+    },
+    "form/x:SpamFileExtension/field/isBad": {
+      "original": "Bad extension",
+      "ru": "Нежелательное расширение"
+    },
+    "form/x:SpamFileExtension/field/isNz": {
+      "original": "NZB",
+      "ru": "Файл NZB"
+    },
+    "form/x:SpamFileExtension/section/section-0": {
+      "original": "File Extension",
+      "ru": "Расширение файла"
+    },
+    "form/x:SpamPyzor/field/allowCount": {
+      "original": "Allow Count",
+      "ru": "Число разрешающих отметок"
+    },
+    "form/x:SpamPyzor/field/blockCount": {
+      "original": "Block Count",
+      "ru": "Число блокирующих отметок"
+    },
+    "form/x:SpamPyzor/field/enable": {
+      "original": "Enable Pyzor classifier",
+      "ru": "Включить классификатор Pyzor"
+    },
+    "form/x:SpamPyzor/field/host": {
+      "original": "Hostname",
+      "ru": "Имя узла"
+    },
+    "form/x:SpamPyzor/field/port": {
+      "original": "Port",
+      "ru": "Порт"
+    },
+    "form/x:SpamPyzor/field/ratio": {
+      "original": "Ratio",
+      "ru": "Соотношение"
+    },
+    "form/x:SpamPyzor/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:SpamPyzor/section/section-0": {
+      "original": "Pyzor Settings",
+      "ru": "Настройки Pyzor"
+    },
+    "form/x:SpamPyzor/section/section-1": {
+      "original": "Classification",
+      "ru": "Классификация"
+    },
+    "form/x:SpamPyzor/subtitle": {
+      "original": "Configure the Pyzor collaborative spam detection client, including the upstream server, timeouts, and the block/allow count thresholds used for classification",
+      "ru": "Настройте клиент совместного обнаружения спама Pyzor: внешний сервер, время ожидания и пороговые значения числа блокирующих и разрешающих отметок для классификации"
+    },
+    "form/x:SpamPyzor/title": {
+      "original": "Pyzor Classifier",
+      "ru": "Классификатор Pyzor"
+    },
+    "form/x:SpamRule/field/@type": {
+      "original": "Rule type",
+      "ru": "Тип правила"
     },
     "form/x:SpamRuleAny/field/description": {
       "original": "Description",
@@ -14086,21 +15222,117 @@
       "original": "Priority",
       "ru": "Приоритет"
     },
+    "form/x:SpamSettings/field/enable": {
+      "original": "Enable spam filtering",
+      "ru": "Включить фильтрацию спама"
+    },
+    "form/x:SpamSettings/field/maxAttachmentText": {
+      "original": "Attachment text limit",
+      "ru": "Лимит текста вложений"
+    },
+    "form/x:SpamSettings/field/maxBodyText": {
+      "original": "Body part text limit",
+      "ru": "Лимит текста части тела сообщения"
+    },
+    "form/x:SpamSettings/field/maxMessageText": {
+      "original": "Message text limit",
+      "ru": "Лимит текста сообщения"
+    },
+    "form/x:SpamSettings/field/maxRedirectUrls": {
+      "original": "Maximum requests per message",
+      "ru": "Максимальное число запросов на сообщение"
+    },
+    "form/x:SpamSettings/field/redirectCacheTtl": {
+      "original": "Cache TTL",
+      "ru": "Время жизни кэша (TTL)"
+    },
+    "form/x:SpamSettings/field/redirectTimeout": {
+      "original": "Request timeout",
+      "ru": "Время ожидания запроса"
+    },
+    "form/x:SpamSettings/field/scoreDiscard": {
+      "original": "Discard threshold",
+      "ru": "Порог удаления без уведомления"
+    },
+    "form/x:SpamSettings/field/scoreReject": {
+      "original": "Reject threshold",
+      "ru": "Порог отклонения"
+    },
+    "form/x:SpamSettings/field/scoreSpam": {
+      "original": "Spam threshold",
+      "ru": "Порог пометки как спам"
+    },
+    "form/x:SpamSettings/field/spamFilterRulesUrl": {
+      "original": "Rules URL",
+      "ru": "URL правил"
+    },
+    "form/x:SpamSettings/field/trustContacts": {
+      "original": "Do not classify emails from contacts as spam",
+      "ru": "Не считать спамом письма от контактов"
+    },
+    "form/x:SpamSettings/field/trustReplies": {
+      "original": "Do not classify trusted email replies as spam",
+      "ru": "Не считать спамом доверенные ответы на письма"
+    },
+    "form/x:SpamSettings/section/section-0": {
+      "original": "Spam Filter Settings",
+      "ru": "Настройки фильтра спама"
+    },
+    "form/x:SpamSettings/section/section-1": {
+      "original": "Spam Filter Overrides",
+      "ru": "Исключения фильтра спама"
+    },
+    "form/x:SpamSettings/section/section-2": {
+      "original": "Greylisting",
+      "ru": "Серые списки"
+    },
+    "form/x:SpamSettings/section/section-3": {
+      "original": "External Rules",
+      "ru": "Внешние правила"
+    },
+    "form/x:SpamSettings/section/section-4": {
+      "original": "Text Analysis Limits",
+      "ru": "Ограничения анализа текста"
+    },
     "form/x:SpamSettings/section/section-5": {
       "original": "URL Redirectors",
       "ru": "URL-перенаправления"
+    },
+    "form/x:SpamSettings/subtitle": {
+      "original": "Configure global spam filter behaviour, including spam/discard/reject score thresholds, greylisting, contact and reply trust overrides, and the URL used to fetch shared filter rules",
+      "ru": "Настройте общую работу фильтра спама: пороги пометки, удаления без уведомления и отклонения сообщений по баллам, серые списки, исключения для контактов и ответов, а также URL получения общих правил фильтрации"
     },
     "form/x:SpamSettings/title": {
       "original": "Spam Filter",
       "ru": "Антиспам"
     },
+    "form/x:SpamTag/field/@type": {
+      "original": "Tag type",
+      "ru": "Тип метки"
+    },
     "form/x:SpamTrainingSample/field/accountId": {
       "original": "Account",
       "ru": "Учётная запись"
     },
+    "form/x:SpamTrainingSample/field/deleteAfterUse": {
+      "original": "Delete After Training",
+      "ru": "Удалить после обучения"
+    },
     "form/x:SpamTrainingSample/field/expiresAt": {
       "original": "Expires At",
       "ru": "Действует до"
+    },
+    "form/x:SpamTrainingSample/field/isSpam": {
+      "original": "Is Spam",
+      "ru": "Спам"
+    },
+    "form/x:SpamTrainingSample/section/section-0": {
+      "original": "Training Sample",
+      "ru": "Обучающий образец"
+    },
+    "form/x:SpamTrainingSample/section/section-1": {
+      "original": "Options",
+      "ru": "Параметры"
     },
     "form/x:SqlDirectory/field/description": {
       "original": "Description",
@@ -15070,9 +16302,25 @@
       "original": "Type",
       "ru": "Тип"
     },
+    "list/SieveScript/column/isActive": {
+      "original": "Active",
+      "ru": "Активен"
+    },
     "list/SieveScript/column/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "list/SieveScript/plural": {
+      "original": "scripts",
+      "ru": "сценарии"
+    },
+    "list/SieveScript/singular": {
+      "original": "script",
+      "ru": "сценарий"
+    },
+    "list/SieveScript/subtitle": {
+      "original": "Manage Sieve filter scripts for the account",
+      "ru": "Управление сценариями фильтрации Sieve для учётной записи"
     },
     "list/SieveScript/title": {
       "original": "Sieve Scripts",
@@ -15910,6 +17158,86 @@
       "original": "Account",
       "ru": "Учётная запись"
     },
+    "list/x:MemoryLookupKey/SpamBlockedDomain/column/key": {
+      "original": "Domain Name",
+      "ru": "Доменное имя"
+    },
+    "list/x:MemoryLookupKey/SpamBlockedDomain/plural": {
+      "original": "domains",
+      "ru": "домены"
+    },
+    "list/x:MemoryLookupKey/SpamBlockedDomain/singular": {
+      "original": "domain",
+      "ru": "домен"
+    },
+    "list/x:MemoryLookupKey/SpamBlockedDomain/subtitle": {
+      "original": "Manage blocked domain names",
+      "ru": "Управление заблокированными доменными именами"
+    },
+    "list/x:MemoryLookupKey/SpamBlockedDomain/title": {
+      "original": "Blocked domain names",
+      "ru": "Заблокированные доменные имена"
+    },
+    "list/x:MemoryLookupKey/SpamTrap/column/key": {
+      "original": "E-mail Address",
+      "ru": "Адрес электронной почты"
+    },
+    "list/x:MemoryLookupKey/SpamTrap/plural": {
+      "original": "addresses",
+      "ru": "адреса"
+    },
+    "list/x:MemoryLookupKey/SpamTrap/singular": {
+      "original": "address",
+      "ru": "адрес"
+    },
+    "list/x:MemoryLookupKey/SpamTrap/subtitle": {
+      "original": "Manage e-mail addresses designated as SPAM traps",
+      "ru": "Управление адресами электронной почты, используемыми в качестве ловушек спама"
+    },
+    "list/x:MemoryLookupKey/SpamTrap/title": {
+      "original": "Spam trap addresses",
+      "ru": "Адреса ловушек спама"
+    },
+    "list/x:MemoryLookupKey/SpamTrustedDomain/column/key": {
+      "original": "Domain Name",
+      "ru": "Доменное имя"
+    },
+    "list/x:MemoryLookupKey/SpamTrustedDomain/plural": {
+      "original": "domains",
+      "ru": "домены"
+    },
+    "list/x:MemoryLookupKey/SpamTrustedDomain/singular": {
+      "original": "domain",
+      "ru": "домен"
+    },
+    "list/x:MemoryLookupKey/SpamTrustedDomain/subtitle": {
+      "original": "Manage trusted domain names",
+      "ru": "Управление доверенными доменными именами"
+    },
+    "list/x:MemoryLookupKey/SpamTrustedDomain/title": {
+      "original": "Trusted domain names",
+      "ru": "Доверенные доменные имена"
+    },
+    "list/x:MemoryLookupKey/SpamUrlRedirector/column/key": {
+      "original": "Domain Name",
+      "ru": "Доменное имя"
+    },
+    "list/x:MemoryLookupKey/SpamUrlRedirector/plural": {
+      "original": "domains",
+      "ru": "домены"
+    },
+    "list/x:MemoryLookupKey/SpamUrlRedirector/singular": {
+      "original": "domain",
+      "ru": "домен"
+    },
+    "list/x:MemoryLookupKey/SpamUrlRedirector/subtitle": {
+      "original": "Manage domain names from URL redirection services",
+      "ru": "Управление доменными именами служб перенаправления URL"
+    },
+    "list/x:MemoryLookupKey/SpamUrlRedirector/title": {
+      "original": "URL redirector domains",
+      "ru": "Домены служб перенаправления URL"
+    },
     "list/x:Metric/title": {
       "original": "Metrics",
       "ru": "Метрики"
@@ -16442,17 +17770,57 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "list/x:SieveSystemScript/column/name": {
+      "original": "Script Id",
+      "ru": "Идентификатор сценария (ID)"
+    },
     "list/x:SieveSystemScript/filter/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "list/x:SieveSystemScript/plural": {
+      "original": "scripts",
+      "ru": "сценарии"
+    },
+    "list/x:SieveSystemScript/singular": {
+      "original": "script",
+      "ru": "сценарий"
+    },
+    "list/x:SieveSystemScript/subtitle": {
+      "original": "Manage Sieve scripts executed by the system interpreter",
+      "ru": "Управление сценариями Sieve, выполняемыми системным интерпретатором"
+    },
+    "list/x:SieveSystemScript/title": {
+      "original": "System Sieve scripts",
+      "ru": "Системные сценарии Sieve"
     },
     "list/x:SieveUserScript/column/description": {
       "original": "Description",
       "ru": "Описание"
     },
+    "list/x:SieveUserScript/column/name": {
+      "original": "Script Id",
+      "ru": "Идентификатор сценария (ID)"
+    },
     "list/x:SieveUserScript/filter/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "list/x:SieveUserScript/plural": {
+      "original": "scripts",
+      "ru": "сценарии"
+    },
+    "list/x:SieveUserScript/singular": {
+      "original": "script",
+      "ru": "сценарий"
+    },
+    "list/x:SieveUserScript/subtitle": {
+      "original": "Manage global Sieve scripts that can be imported by users",
+      "ru": "Управление глобальными сценариями Sieve, которые могут подключать пользователи"
+    },
+    "list/x:SieveUserScript/title": {
+      "original": "User Sieve scripts",
+      "ru": "Пользовательские сценарии Sieve"
     },
     "list/x:SmimeTrustAnchor/column/description": {
       "original": "Description",
@@ -16482,9 +17850,73 @@
       "original": "S/MIME Trust Anchors",
       "ru": "Якоря доверия S/MIME"
     },
+    "list/x:SpamDnsblServer/column/@type": {
+      "original": "Scope",
+      "ru": "Область применения"
+    },
+    "list/x:SpamDnsblServer/column/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила (ID)"
+    },
     "list/x:SpamDnsblServer/filter/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "list/x:SpamDnsblServer/plural": {
+      "original": "servers",
+      "ru": "серверы"
+    },
+    "list/x:SpamDnsblServer/singular": {
+      "original": "server",
+      "ru": "сервер"
+    },
+    "list/x:SpamDnsblServer/subtitle": {
+      "original": "Manage DNS block and allowlists",
+      "ru": "Управление блокирующими и разрешающими списками DNS"
+    },
+    "list/x:SpamDnsblServer/title": {
+      "original": "DNSBl Servers",
+      "ru": "Серверы DNSBL"
+    },
+    "list/x:SpamFileExtension/column/extension": {
+      "original": "Extension",
+      "ru": "Расширение"
+    },
+    "list/x:SpamFileExtension/column/isArchive": {
+      "original": "Archive",
+      "ru": "Архив"
+    },
+    "list/x:SpamFileExtension/column/isBad": {
+      "original": "Bad extension",
+      "ru": "Нежелательное расширение"
+    },
+    "list/x:SpamFileExtension/filter/extension": {
+      "original": "Extension",
+      "ru": "Расширение"
+    },
+    "list/x:SpamFileExtension/plural": {
+      "original": "extensions",
+      "ru": "расширения"
+    },
+    "list/x:SpamFileExtension/singular": {
+      "original": "extension",
+      "ru": "расширение"
+    },
+    "list/x:SpamFileExtension/subtitle": {
+      "original": "Manage rules for file name extensions",
+      "ru": "Управление правилами для расширений имён файлов"
+    },
+    "list/x:SpamFileExtension/title": {
+      "original": "MIME Types",
+      "ru": "Типы MIME"
+    },
+    "list/x:SpamRule/column/@type": {
+      "original": "Scope",
+      "ru": "Область применения"
+    },
+    "list/x:SpamRule/column/name": {
+      "original": "Rule ID",
+      "ru": "Идентификатор правила (ID)"
     },
     "list/x:SpamRule/column/priority": {
       "original": "Priority",
@@ -16494,17 +17926,77 @@
       "original": "Name",
       "ru": "Имя"
     },
+    "list/x:SpamRule/plural": {
+      "original": "rules",
+      "ru": "правила"
+    },
+    "list/x:SpamRule/singular": {
+      "original": "rule",
+      "ru": "правило"
+    },
+    "list/x:SpamRule/subtitle": {
+      "original": "Manage spam filter rules",
+      "ru": "Управление правилами фильтра спама"
+    },
     "list/x:SpamRule/title": {
       "original": "Rules",
       "ru": "Правила"
+    },
+    "list/x:SpamTag/column/score": {
+      "original": "Score or action",
+      "ru": "Балл или действие"
+    },
+    "list/x:SpamTag/column/tag": {
+      "original": "Tag name",
+      "ru": "Имя метки"
+    },
+    "list/x:SpamTag/filter/tag": {
+      "original": "Tag name",
+      "ru": "Имя метки"
+    },
+    "list/x:SpamTag/plural": {
+      "original": "tags",
+      "ru": "метки"
+    },
+    "list/x:SpamTag/singular": {
+      "original": "tag",
+      "ru": "метка"
+    },
+    "list/x:SpamTag/subtitle": {
+      "original": "Manage scores assigned to spam tags",
+      "ru": "Управление баллами, назначаемыми меткам спама"
+    },
+    "list/x:SpamTag/title": {
+      "original": "Spam Scores",
+      "ru": "Баллы спама"
     },
     "list/x:SpamTrainingSample/column/expiresAt": {
       "original": "Expires At",
       "ru": "Действует до"
     },
+    "list/x:SpamTrainingSample/column/isSpam": {
+      "original": "Is Spam",
+      "ru": "Спам"
+    },
     "list/x:SpamTrainingSample/filter/accountId": {
       "original": "Account",
       "ru": "Учётная запись"
+    },
+    "list/x:SpamTrainingSample/plural": {
+      "original": "samples",
+      "ru": "образцы"
+    },
+    "list/x:SpamTrainingSample/singular": {
+      "original": "sample",
+      "ru": "образец"
+    },
+    "list/x:SpamTrainingSample/subtitle": {
+      "original": "Manage spam classifier training samples",
+      "ru": "Управление обучающими образцами классификатора спама"
+    },
+    "list/x:SpamTrainingSample/title": {
+      "original": "Spam Training Samples",
+      "ru": "Обучающие образцы классификатора спама"
     },
     "list/x:StoreLookup/column/namespace": {
       "original": "Namespace",
@@ -17530,6 +19022,10 @@
       "original": "Represents a named set of emails, analogous to a folder or label in other systems.",
       "ru": "Именованный набор писем, аналог папки или метки в других системах."
     },
+    "object/SieveScript/description": {
+      "original": "Defines a Sieve filter script that processes incoming messages for the account.",
+      "ru": "Определяет сценарий фильтрации Sieve для обработки входящих сообщений учётной записи."
+    },
     "object/x:AcmeProvider/description": {
       "original": "Defines an ACME provider for automatic TLS certificate management.",
       "ru": "Определяет поставщика ACME для автоматического управления сертификатами TLS."
@@ -17758,6 +19254,22 @@
       "original": "Configures automatic IP banning rules for abuse, authentication failures, and port scanning.",
       "ru": "Настраивает правила автоматической блокировки IP-адресов за злоупотребления, ошибки аутентификации и сканирование портов."
     },
+    "object/x:SieveSystemInterpreter/description": {
+      "original": "Configures the system-level Sieve script interpreter settings and limits.",
+      "ru": "Настраивает параметры и ограничения системного интерпретатора сценариев Sieve."
+    },
+    "object/x:SieveSystemScript/description": {
+      "original": "Defines a system Sieve script executed by the server.",
+      "ru": "Определяет системный сценарий Sieve, выполняемый сервером."
+    },
+    "object/x:SieveUserInterpreter/description": {
+      "original": "Configures the user-level Sieve script interpreter settings and limits.",
+      "ru": "Настраивает параметры и ограничения пользовательского интерпретатора сценариев Sieve."
+    },
+    "object/x:SieveUserScript/description": {
+      "original": "Defines a global Sieve script available for user imports.",
+      "ru": "Определяет глобальный сценарий Sieve, доступный для подключения пользователями."
+    },
     "object/x:SmimeTrustAnchor/description": {
       "original": "Additional certificate authority trusted when validating recipient S/MIME certificates.",
       "ru": "Дополнительный доверенный удостоверяющий центр для проверки сертификатов S/MIME получателей."
@@ -17765,6 +19277,42 @@
     "object/x:SpamAi/description": {
       "original": "Configures the AI spam classifier. Spam rules whose condition references an AI_ tag, directly or through a tag emitted by another such rule, run after the classifier; all other rules run before it. Rules that build tag names dynamically are not detected.",
       "ru": "Настраивает ИИ-классификатор спама. Правила спам-фильтра, условия которых ссылаются на метку AI_ прямо или через метку, созданную другим таким правилом, выполняются после классификатора; остальные правила выполняются до него. Правила, формирующие имена меток динамически, не распознаются."
+    },
+    "object/x:SpamClassifier/description": {
+      "original": "Configures the spam classifier model, training parameters, and auto-learning settings.",
+      "ru": "Настраивает модель классификации спама, параметры обучения и автоматическое обучение."
+    },
+    "object/x:SpamDnsblServer/description": {
+      "original": "Defines a DNSBL server used for spam filtering lookups.",
+      "ru": "Определяет сервер DNSBL для проверок при фильтрации спама."
+    },
+    "object/x:SpamDnsblSettings/description": {
+      "original": "Configures DNSBL query limits for spam filtering.",
+      "ru": "Настраивает ограничения запросов DNSBL для фильтрации спама."
+    },
+    "object/x:SpamFileExtension/description": {
+      "original": "Defines a file extension classification rule for spam filtering.",
+      "ru": "Определяет правило классификации расширений файлов для фильтрации спама."
+    },
+    "object/x:SpamPyzor/description": {
+      "original": "Configures the Pyzor collaborative spam detection service.",
+      "ru": "Настраивает службу совместного обнаружения спама Pyzor."
+    },
+    "object/x:SpamRule/description": {
+      "original": "Defines a spam filter rule for message classification.",
+      "ru": "Определяет правило фильтра спама для классификации сообщений."
+    },
+    "object/x:SpamSettings/description": {
+      "original": "Configures global spam filter thresholds, greylisting, and trust settings.",
+      "ru": "Настраивает общие пороги фильтра спама, серые списки и параметры доверия."
+    },
+    "object/x:SpamTag/description": {
+      "original": "Defines a score or action assigned to a spam classification tag.",
+      "ru": "Определяет балл или действие, назначенное метке классификации спама."
+    },
+    "object/x:SpamTrainingSample/description": {
+      "original": "Stores an email sample used for spam classifier training.",
+      "ru": "Хранит образец письма для обучения классификатора спама."
     },
     "object/x:StoreLookup/description": {
       "original": "Defines an external store used for lookups.",
@@ -18481,6 +20029,14 @@
     "variant/x:SpamAiWebSearch/Disable/label": {
       "original": "Disabled",
       "ru": "Отключено"
+    },
+    "variant/x:SpamClassifierModel/FtrlCcfh/label": {
+      "original": "FTRL-Proximal + Cuckoo Feature Hashing",
+      "ru": "FTRL-Proximal + хеширование признаков Cuckoo"
+    },
+    "variant/x:SpamClassifierModel/FtrlFh/label": {
+      "original": "FTRL-Proximal + Feature Hashing",
+      "ru": "FTRL-Proximal + хеширование признаков"
     },
     "variant/x:SpamDnsblServer/Domain/label": {
       "original": "Domain",

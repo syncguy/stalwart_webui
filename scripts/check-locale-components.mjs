@@ -882,3 +882,180 @@ if(catalog.entries['enum/MtaIpStrategy/v4Only/label']){
   assert.equal(columns26,6);
   console.log('PASS: Stage26 actual EnumWidget/EnumValue, FormSections/FieldRow and ColumnHeader synthetic SSR; both pinned editions, SMTP strategy/Milter/relay settings, raw callbacks and sort keys, unknown hash fallback; no SMTP traffic or policy changes');
 }
+
+
+// Stage27: Sieve capability names, classifier parameters and spam lists; display-only synthetic SSR.
+if(catalog.entries['enum/SieveCapability/body/label']){
+  let checks27=[],labels27=new Map(),pills27=[],search27,select27,options27=[];
+  const {EnumMultiSelect}=component('src/components/forms/widgets/EnumWidgets.tsx',{
+    'lucide-react':{Search:icon},
+    '@/components/ui/button':{Button:passthrough},
+    '@/components/ui/checkbox':{Checkbox:props=>{checks27.push(props);return null;}},
+    '@/components/ui/input':{Input:()=>null},
+    '@/components/ui/label':{Label:props=>{labels27.set(props.htmlFor,React.Children.toArray(props.children).filter(c=>typeof c==='string').join(''));return h('label',{htmlFor:props.htmlFor},props.children);}},
+    '@/components/ui/combobox':{Combobox:()=>null},
+    '@/components/ui/popover':{Popover:passthrough,PopoverContent:passthrough,PopoverTrigger:passthrough},
+    '@/components/common/HelpTooltip':{HelpTooltip:()=>null},
+    '@/hooks/usePermissions':{usePermissionCheckers:()=>({hasPermission:()=>true})},
+    '@/lib/schemaResolver':resolver19,
+    '@/components/forms/formContext':{useFormContext:()=>({schema:fixtureSchema19})},
+    '@/hooks/useSchemaText':{useSchemaText,useCanTranslateSchema:()=>language==='ru'&&catalog.meta.schemaHashes.includes(hash)},
+    '@/i18n/schemaPermissionText':{permissionDisplayLabel:(_id,label)=>label},
+    '@/components/ui/comboboxSearch':{filterComboboxOptions:options=>options},
+    '@/i18n/schemaOptionLabels':{headerProtectionOptionLabel:x=>x,localeOptionLabel:(_id,label)=>label},
+    '@/components/forms/widgets/RemovablePill':{RemovablePill:props=>{pills27.push(props);return h('span',null,props.children);}},
+  });
+  const selectDeps27={Select:props=>{select27=props;return h('div',null,props.children);},SelectContent:passthrough,SelectTrigger:passthrough,SelectValue:()=>null,SelectItem:props=>{options27.push(props);return h('span',null,props.children);}};
+  const {VariantSelect}=component('src/components/forms/VariantSelect.tsx',{
+    '@/components/ui/select':selectDeps27,
+    '@/components/forms/FieldRow':{FieldLabel:props=>h('span',null,props.label)},
+    '@/components/forms/formContext':{fieldIds:()=>({inputId:'classifier-type',labelId:'classifier-label'}),useFieldScope:()=>({path:[]}),useFormContext:()=>({idPrefix:'synthetic'}),useInPanel:()=>false},
+    '@/components/forms/formLogic':{VARIANT_FIELD:'@type'},
+  });
+  const {FilterField}=component('src/components/lists/FilterFields.tsx',{
+    '@/components/ui/input':{Input:()=>null},'@/components/ui/select':selectDeps27,
+    '@/components/ui/combobox':{Combobox:()=>null},'@/components/common/ObjectPicker':{ObjectPicker:()=>null},
+    '@/components/common/SearchInput':{SearchInput:props=>{search27=props;return h('input',{value:props.value,readOnly:true});}},
+    '@/lib/schemaResolver':resolver19,
+  });
+  let multi27=0,models27=0,variants27=0,forms27=0,columns27=0,filters27=0;
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;
+    const caps=resolver19.getEnum(schema,'SieveCapability');
+    const items=['body','comparator-i;ascii-casemap'],next='regex';
+    assert.ok(items.every(id=>caps.some(v=>v.name===id))&&caps.some(v=>v.name===next));
+    const capRaw=JSON.stringify({caps,items});
+    let event;
+    const props={enumName:'SieveCapability',items,onChange:v=>{event=v;},readOnly:false,control:{id:'capabilities'}};
+    for(const lang of ['ru','en','ru']){
+      language=lang;checks27=[];labels27=new Map();pills27=[];
+      const html=render(EnumMultiSelect,props);
+      assert.equal(checks27.length,caps.length);
+      for(const [i,v] of caps.entries()){
+        const slot='enum/SieveCapability/'+v.name+'/label',entry=catalog.entries[slot];
+        const id='capabilities-dd-'+v.name.replace(/[^A-Za-z0-9_-]/g,'_');
+        assert.equal(checks27[i].id,id);
+        assert.equal(checks27[i].checked,items.includes(v.name));
+        assert.equal(labels27.get(id),lang==='ru'&&entry?.original===v.label?entry.ru:v.label,slot);
+      }
+      for(const [i,id] of items.entries()){
+        const slot='enum/SieveCapability/'+id+'/label';
+        assert.equal(pills27[i].label,lang==='ru'?ru(slot):original(slot));
+        assert.ok(html.includes(htmlText19(pills27[i].label)),slot);
+        assert.ok(render(scalar20.EnumValue,{schema,enumName:'SieveCapability',value:id}).includes(htmlText19(pills27[i].label)),slot);
+      }
+      checks27[caps.findIndex(v=>v.name===next)].onCheckedChange();
+      assert.deepEqual(Array.from(event),[...items,next]);
+      pills27[0].onRemove();assert.deepEqual(Array.from(event),[items[1]]);
+      assert.equal(JSON.stringify({caps,items}),capRaw);
+    }
+    hash='unknown';language='ru';checks27=[];labels27=new Map();pills27=[];
+    render(EnumMultiSelect,props);
+    assert.equal(pills27[0].label,original('enum/SieveCapability/body/label'));
+    hash=pin.schemaHash;multi27++;
+    const sizes=resolver19.getEnum(schema,'ModelSize');
+    const selected=sizes.find(v=>String(v.name)==='16'),changed=sizes.find(v=>String(v.name)==='28');
+    assert.ok(selected&&changed);
+    const sizeRaw=JSON.stringify(sizes);
+    const sizeProps={type:{type:'enum',enumName:'ModelSize',nullable:false},formField:{name:'numFeatures'},value:selected.name,onChange:v=>{event=v;},readOnly:false,control:{}};
+    for(const lang of ['ru','en','ru']){
+      language=lang;const html=render(EnumWidget,sizeProps);
+      for(const v of sizes){
+        const slot='enum/ModelSize/'+v.name+'/label';
+        assert.ok(html.includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+      }
+      assert.equal(capturedCombo19.value,selected.name);
+      assert.deepEqual(Array.from(capturedCombo19.options,v=>v.value),Array.from(sizes,v=>v.name));
+      capturedCombo19.onValueChange(changed.name);assert.equal(event,changed.name);
+      assert.equal(JSON.stringify(sizes),sizeRaw);
+    }
+    models27++;
+    const modelScope='x:SpamClassifierModel',modelVariants=schema.schemas[modelScope].variants;
+    assert.equal(modelVariants.length,2);
+    const modelRaw=JSON.stringify(modelVariants);
+    for(const lang of ['ru','en','ru']){
+      language=lang;select27=undefined;options27=[];
+      const html=render(VariantSelect,{variantScope:modelScope,variants:modelVariants,value:'FtrlFh',onChange:v=>{event=v;},readOnly:false,ariaLabel:'Classifier'});
+      assert.equal(select27.value,'FtrlFh');
+      assert.deepEqual(Array.from(options27,v=>v.value),Array.from(modelVariants,v=>v.name));
+      for(const v of modelVariants){
+        const slot='variant/'+modelScope+'/'+v.name+'/label';
+        const label=lang==='ru'?ru(slot):original(slot);
+        assert.ok(html.includes(htmlText19(label)),slot);
+        assert.ok(render(fieldValue20.VariantValue,{schema,objectName:modelScope,value:v.name}).includes(htmlText19(label)),slot);
+      }
+      select27.onValueChange('FtrlCcfh');assert.equal(event,'FtrlCcfh');
+      assert.equal(JSON.stringify(modelVariants),modelRaw);
+    }
+    variants27++;
+    for(const [formKey,name,value,changed] of [
+      ['x:SieveSystemInterpreter','noCapabilityCheck',false,true],
+      ['x:SieveUserInterpreter','maxScripts',10,20],
+      ['x:SieveUserInterpreter','maxReceivedHeaders',30,40],
+      ['x:SieveUserScript','contents','require ["fileinto"]; keep;','keep;'],
+      ['SieveScript','isActive',false,true],
+      ['x:SpamSettings','scoreDiscard',0,15],
+      ['x:SpamSettings','scoreReject',0,20],
+      ['x:SpamSettings','spamFilterRulesUrl','https://example.invalid/rules','https://example.invalid/other'],
+      ['x:SpamPyzor','enable',false,true],
+      ['x:SpamClassifier','learnSpamFromRblHits',0,3],
+      ['x:FtrlParameters','numFeatures','16','28'],
+      ['x:SpamTrainingSample','deleteAfterUse',false,true],
+    ]){
+      const form=schema.forms[formKey],field=schema.fields[formKey]?.properties[name];
+      assert.ok(form&&field,formKey+'/'+name);
+      const section=form.sections.find(s=>s.fields.some(f=>f.name===name));
+      assert.ok(section,formKey+'/'+name);
+      const formField=section.fields.find(f=>f.name===name);
+      const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+      assert.equal(formField.label,original(slot));
+      assert.equal(field.description,original(desc));
+      const sections=[{key:'section-'+form.sections.indexOf(section),title:section.title,fields:[{formField,field}]}];
+      const data={[name]:value},snapshot=JSON.stringify({sections,data});
+      const formProps={sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const html=render(FormSections,formProps);
+        for(const key of [slot,desc])assert.ok(html.includes(htmlText19(lang==='ru'?ru(key):original(key))),key);
+        assert.equal(capturedField.formField.name,name);
+        assert.equal(capturedField.value,value);
+        capturedField.onChange(changed);assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({sections,data}),snapshot);
+      }
+      hash='unknown';language='ru';
+      assert.ok(render(FormSections,formProps).includes(htmlText19(original(slot))),slot);
+      hash=pin.schemaHash;forms27++;
+    }
+    for(const [listKey,name] of [['x:SpamTag','score'],['x:SpamFileExtension','extension'],['SieveScript','isActive']]){
+      const column=schema.lists[listKey].columns.find(v=>v.name===name),slot='list/'+listKey+'/column/'+name;
+      assert.equal(column.label,original(slot));
+      let sorted;const raw=JSON.stringify(column),props={column,listKey,sortable:true,sort:null,onSort:v=>{sorted=v;}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;const label=lang==='ru'?ru(slot):original(slot);
+        assert.ok(render(ColumnHeader,props).includes(htmlText19(label)),slot);
+        assert.ok(render(ColumnHeader,{...props,sortable:false}).includes(htmlText19(label)),slot);
+        ColumnHeader(props).props.children.props.onClick();assert.equal(sorted,name);
+        assert.equal(JSON.stringify(column),raw);
+      }
+      columns27++;
+    }
+    for(const [listKey,name,value,changed] of [['x:SpamFileExtension','extension','zip','pdf'],['x:SpamTag','tag','RBL_TEST','RBL_NEXT']]){
+      const filter=schema.lists[listKey].filters.find(v=>v.field===name),slot='list/'+listKey+'/filter/'+name;
+      assert.equal(filter.label,original(slot));assert.equal(filter.type,'text');
+      const values={[name]:value},raw=JSON.stringify({filter,values});
+      const props={schema,listKey,filter,values,isXPrefixed:true,onChange:(k,v)=>{event=[k,v];},onCommit:()=>{throw Error('Unexpected commit');}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;search27=undefined;
+        assert.ok(render(FilterField,props).includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+        assert.equal(search27.value,value);
+        search27.onValueChange(changed);assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({filter,values}),raw);
+      }
+      filters27++;
+    }
+  }
+  assert.equal(multi27,2);assert.equal(models27,2);assert.equal(variants27,2);
+  assert.equal(forms27,24);assert.equal(columns27,6);assert.equal(filters27,4);
+  console.log('PASS: Stage27 actual EnumMultiSelect/EnumWidget/EnumValue/VariantSelect/VariantValue/FormSections/FieldRow/ColumnHeader/FilterField synthetic SSR; both pinned editions, Sieve capabilities, classifier model and numeric IDs, raw script/threshold/filter values and callbacks; no script execution, classifier training, rule downloads or network');
+}

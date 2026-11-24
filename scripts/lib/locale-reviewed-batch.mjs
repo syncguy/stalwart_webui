@@ -49,14 +49,25 @@ export function batchTextSafe(original,ru,stage=19) {
   const metadataTokens=s=>/\bprivateMetadata\b/.test(s)?[...s.matchAll(/\b(?:metadata|privateMetadata)\b/g)].map(m=>m[0]).sort():[];
   const fractionTokens=s=>[...s.matchAll(/\bone sixteenth\b|\bone eighth\b|\ba quarter\b|(?<![А-Яа-яЁё])(?:одна шестнадцатая|одна восьмая|четверть)(?![А-Яа-яЁё])/g)].map(m=>({'one sixteenth':'1/16','одна шестнадцатая':'1/16','one eighth':'1/8','одна восьмая':'1/8','a quarter':'1/4','четверть':'1/4'})[m[0]]).sort();
   const smtpTokens=s=>[...s.matchAll(/\b(?:SASL|PLAIN|LOGIN|OAUTHBEARER|XOAUTH2|PIPELINING|CHUNKING|REQUIRETLS|EXPN|VRFY|FUTURERELEASE|DELIVERBY|NOSOLICITING|UCE|FQDN|LMTP|AUTH|DATA|MAIL-FROM|RCPT-TO|MAIL|RCPT|Received-SPF|Received|Delivered-To|Message-Id|Return-Path|No-Soliciting|Date|mixer|stanag4406|nsep|4xx)\b/g)].map(m=>m[0]).sort();
+  // Three exact source casing errors in stage27; do not normalize arbitrary input or historical packets.
+  const markerOriginal=stage===27?({
+    'DNSBl Servers':'DNSBL Servers',
+    'Maximum number of received headers':'Maximum number of Received headers',
+    'The default maximum number of sieve scripts a user can create':'The default maximum number of Sieve scripts a user can create',
+  })[original]??original:original;
+  const sieveTokens=s=>[...s.matchAll(/\b(?:ASCII|CPU|OBJECTID|NZB|NZ|FTRL-Proximal|FTRL-FH|FTRL-CCFH|L1|L2|log1p|Elbonia|Cuckoo|Deliver-By|RBL|require|notify|editheader|foreach|Foreach|While|Detail|Ham|Alpha|Beta|alpha|beta|[0-9]+[kM])\b|\b2\^n\b/g)].map(m=>m[0]).sort();
+  const extension=original.match(/\b(duplicate|vacation|notify|editheader) extension\b/i)?.[1].toLowerCase();
+  const rawExtensionSafe=!extension||new RegExp('\\b'+extension+'\\b').test(ru);
+  const rawFromSafe=!original.includes('from field')||/\bfrom\b/.test(ru);
   return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
     (stage<20||json(mailTokens(original))===json(mailTokens(ru)))&&
     (stage<21||json(maintenanceTokens(original))===json(maintenanceTokens(ru)))&&
-    (stage<22||json(externalTokens(original))===json(externalTokens(ru)))&&
+    (stage<22||json(externalTokens(markerOriginal))===json(externalTokens(ru)))&&
     (stage<23||json(securityTokens(original))===json(securityTokens(ru)))&&
-    (stage<24||json(telemetryTokens(original))===json(telemetryTokens(ru)))&&
-    (stage<25||(json(storageTokens(original))===json(storageTokens(ru))&&json(metadataTokens(original))===json(metadataTokens(ru))&&json(fractionTokens(original))===json(fractionTokens(ru))))&&
-    (stage<26||json(smtpTokens(original))===json(smtpTokens(ru)));
+    (stage<24||json(telemetryTokens(markerOriginal))===json(telemetryTokens(ru)))&&
+    (stage<25||(json(storageTokens(markerOriginal))===json(storageTokens(ru))&&json(metadataTokens(original))===json(metadataTokens(ru))&&json(fractionTokens(original))===json(fractionTokens(ru))))&&
+    (stage<26||json(smtpTokens(markerOriginal))===json(smtpTokens(ru)))&&
+    (stage<27||(json(sieveTokens(markerOriginal))===json(sieveTokens(ru))&&rawExtensionSafe&&rawFromSafe));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);

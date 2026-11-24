@@ -125,6 +125,32 @@ assert.equal(batchTextSafe('MT-PRIORITY (RFC 6710) mixer stanag4406 nsep or fals
 assert.equal(batchTextSafe('PIPELINING CHUNKING REQUIRETLS EXPN/VRFY FUTURERELEASE DELIVERBY','Расширения PIPELINING CHUNKING REQUIRETLS EXPN/VRFY FUTURERELEASE DELIVERBY',26),true);
 assert.equal(batchTextSafe('PIPELINING CHUNKING REQUIRETLS EXPN/VRFY FUTURERELEASE DELIVERBY','Расширения PIPELINING CHUNKING TLS EXPN/VRFY FUTURERELEASE DELIVERBY',26),false);
 
+const stage27=packets.find(p=>p.stage===27);
+if(stage27){
+  assert.equal(stage27.entries.length,389);
+  assert.equal(new Set(stage27.entries.map(e=>e.original)).size,334);
+  assert.equal(stage27.baseline,'9835d17fa27f6e8f44096c0a3e39b668ed7ee640');
+  assert.deepEqual(stage27.scope,[{"section":"Account","screens":["SieveScript","x:SpamTrainingSample"]},{"section":"Settings","screens":["x:MemoryLookupKey/SpamBlockedDomain","x:MemoryLookupKey/SpamTrap","x:MemoryLookupKey/SpamTrustedDomain","x:MemoryLookupKey/SpamUrlRedirector","x:SieveSystemInterpreter","x:SieveSystemScript","x:SieveUserInterpreter","x:SieveUserScript","x:SpamAi","x:SpamClassifier","x:SpamDnsblServer","x:SpamDnsblSettings","x:SpamFileExtension","x:SpamPyzor","x:SpamRule","x:SpamSettings","x:SpamTag"]}]);
+  assert.equal(digest(stage27.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'313c1e12f00452d5c3a8d2eb6667e29949627ab27c490ec0dbd369ecc1a99cc2');
+}
+assert.equal(batchTextSafe('131k','131k параметров',27),true);
+assert.equal(batchTextSafe('131k','131M параметров',27),false);
+assert.equal(batchTextSafe('The number of parameters (2^n)','Число параметров (2^n)',27),true);
+assert.equal(batchTextSafe('The number of parameters (2^n)','Число параметров (2^m)',27),false);
+assert.equal(batchTextSafe('FTRL-Proximal + Cuckoo Feature Hashing','FTRL-Proximal + хеширование признаков Cuckoo',27),true);
+assert.equal(batchTextSafe('FTRL-Proximal + Cuckoo Feature Hashing','FTRL-Proximal + хеширование признаков',27),false);
+assert.equal(batchTextSafe('List of allowed URIs for the notify extension','Список разрешённых URI для расширения notify',27),true);
+assert.equal(batchTextSafe('List of allowed URIs for the notify extension','Список разрешённых URI для расширения include',27),false);
+assert.equal(batchTextSafe('Default expiration time for IDs stored by the duplicate extension from user scripts','Срок хранения идентификаторов расширения duplicate',27),true);
+assert.equal(batchTextSafe('Default expiration time for IDs stored by the duplicate extension from user scripts','Срок хранения идентификаторов расширения vacation',27),false);
+assert.equal(batchTextSafe('DNSBl Servers','Серверы DNSBL',27),true);
+assert.equal(batchTextSafe('DNSBl Servers','Серверы DNS',27),false);
+assert.equal(batchTextSafe('DNSBl Servers','Серверы DNSBL',26),false);
+assert.equal(batchTextSafe('Discard messages with a score at or above this threshold. Set to 0 or below to disable; rejection takes precedence','Удалять без уведомления сообщения с баллом, равным этому порогу или превышающим его. Установите 0 или меньше, чтобы отключить; отклонение имеет приоритет',27),true);
+assert.equal(batchTextSafe('Discard messages with a score at or above this threshold. Set to 0 or below to disable; rejection takes precedence','Удалять сообщения. Установите 1 или меньше',27),false);
+assert.equal(batchTextSafe('DNSBL tags named with the `RBL_` prefix and scoring above 1.0','Метки DNSBL с префиксом `RBL_` и баллом выше 1.0',27),true);
+assert.equal(batchTextSafe('DNSBL tags named with the `RBL_` prefix and scoring above 1.0','Метки DNSBL с префиксом `OTHER_` и баллом выше 1.0',27),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;
