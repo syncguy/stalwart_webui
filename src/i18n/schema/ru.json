@@ -1282,6 +1282,38 @@
       "original": "User role",
       "ru": "Роль пользователя"
     },
+    "field/x:AddressBook/defaultDisplayName/description": {
+      "original": "Specifies the default display name for a contact when it is created",
+      "ru": "Задаёт отображаемое имя контакта по умолчанию при его создании."
+    },
+    "field/x:AddressBook/defaultHrefName/description": {
+      "original": "Specifies the default href name for a contact when it is created",
+      "ru": "Задаёт имя ресурса (href) по умолчанию при создании контакта."
+    },
+    "field/x:AddressBook/maxAddressBooks/description": {
+      "original": "The default maximum number of address books a user can create",
+      "ru": "Максимальное число адресных книг, которые пользователь может создать (по умолчанию)."
+    },
+    "field/x:AddressBook/maxAddressBooksPerCard/description": {
+      "original": "Maximum number of address books a single contact card can belong to",
+      "ru": "Максимальное число адресных книг, в которые может входить одна карточка контакта."
+    },
+    "field/x:AddressBook/maxContacts/description": {
+      "original": "The default maximum number of contact cards a user can create",
+      "ru": "Максимальное число карточек контактов, которые пользователь может создать (по умолчанию)."
+    },
+    "field/x:AddressBook/maxMediaSize/description": {
+      "original": "Maximum total size of the media (photos, logos, sounds and keys) embedded in a single contact card",
+      "ru": "Максимальный суммарный размер встроенных в одну карточку контакта медиафайлов (фотографий, логотипов, звуков и ключей)."
+    },
+    "field/x:AddressBook/maxVCardSize/description": {
+      "original": "Specifies the maximum size of a vCard file that can be uploaded to the server",
+      "ru": "Максимальный размер файла vCard, который можно загрузить на сервер."
+    },
+    "field/x:AddressBook/vCardVersion/description": {
+      "original": "vCard version used when serializing contact cards for clients that do not request a specific version",
+      "ru": "Версия vCard, используемая при формировании карточек контактов для клиентов, не запрашивающих конкретную версию."
+    },
     "field/x:ArfExternalReport/expiresAt/description": {
       "original": "When the report is scheduled to be deleted",
       "ru": "Время запланированного удаления отчёта"
@@ -1309,6 +1341,62 @@
     "field/x:ArfExternalReport/to/description": {
       "original": "List of recipient email addresses",
       "ru": "Список адресов получателей письма"
+    },
+    "field/x:Calendar/availabilityRateLimit/description": {
+      "original": "Maximum rate at which an account can query principal availability",
+      "ru": "Максимальная частота запросов сведений о занятости пользователя от одной учётной записи."
+    },
+    "field/x:Calendar/defaultDisplayName/description": {
+      "original": "Specifies the default display name for a calendar when it is created",
+      "ru": "Задаёт отображаемое имя календаря по умолчанию при его создании."
+    },
+    "field/x:Calendar/defaultHrefName/description": {
+      "original": "Specifies the default href name for a calendar when it is created",
+      "ru": "Задаёт имя ресурса (href) по умолчанию при создании календаря."
+    },
+    "field/x:Calendar/maxAttachmentsSize/description": {
+      "original": "Maximum total size of the attachments embedded in a single calendar event",
+      "ru": "Максимальный суммарный размер вложений, встроенных в одно событие календаря."
+    },
+    "field/x:Calendar/maxAttendees/description": {
+      "original": "Specifies the maximum number of attendees that can be included in a single iCalendar instance",
+      "ru": "Максимальное число участников в одном экземпляре события iCalendar."
+    },
+    "field/x:Calendar/maxAvailabilityDuration/description": {
+      "original": "Maximum time span that can be requested when querying the availability (free/busy) of a principal",
+      "ru": "Максимальная продолжительность периода, за который можно запросить сведения о занятости (свободен/занят)."
+    },
+    "field/x:Calendar/maxCalendars/description": {
+      "original": "The default maximum number of calendars a user can create",
+      "ru": "Максимальное число календарей, которые пользователь может создать (по умолчанию)."
+    },
+    "field/x:Calendar/maxCalendarsPerEvent/description": {
+      "original": "Maximum number of calendars a single calendar event can belong to",
+      "ru": "Максимальное число календарей, в которые может входить одно событие."
+    },
+    "field/x:Calendar/maxEventNotifications/description": {
+      "original": "The default maximum number of notifications a user can create for calendar events",
+      "ru": "Максимальное число уведомлений о событиях календаря, которые пользователь может создать (по умолчанию)."
+    },
+    "field/x:Calendar/maxEvents/description": {
+      "original": "The default maximum number of calendar events a user can create",
+      "ru": "Максимальное число событий календаря, которые пользователь может создать (по умолчанию)."
+    },
+    "field/x:Calendar/maxExpandedQueryDuration/description": {
+      "original": "Maximum time span between the after and before arguments of a calendar event query that expands recurrences",
+      "ru": "Максимальный интервал между параметрами after и before запроса событий календаря с развёртыванием повторений."
+    },
+    "field/x:Calendar/maxICalendarSize/description": {
+      "original": "Specifies the maximum size of an iCalendar file that can be uploaded to the server",
+      "ru": "Максимальный размер файла iCalendar, который можно загрузить на сервер."
+    },
+    "field/x:Calendar/maxParticipantIdentities/description": {
+      "original": "The default maximum number of participant identities a user can create",
+      "ru": "Максимальное число идентификаторов участника, которые пользователь может создать (по умолчанию)."
+    },
+    "field/x:Calendar/maxRecurrenceExpansions/description": {
+      "original": "Specifies the maximum number of instances that can be generated from a recurring iCalendar event",
+      "ru": "Максимальное число экземпляров, которые можно сформировать из повторяющегося события iCalendar."
     },
     "field/x:CertificateManagementProperties/acmeProviderId/description": {
       "original": "Identifier for the ACME provider managing certificates for this domain",
@@ -2138,9 +2226,53 @@
       "original": "Action type",
       "ru": "Тип действия"
     },
+    "form/x:AddressBook/field/defaultDisplayName": {
+      "original": "Default Display Name",
+      "ru": "Отображаемое имя по умолчанию"
+    },
+    "form/x:AddressBook/field/defaultHrefName": {
+      "original": "Default Href Name",
+      "ru": "Имя ресурса (href) по умолчанию"
+    },
     "form/x:AddressBook/field/maxAddressBooks": {
       "original": "Address Books",
       "ru": "Адресные книги"
+    },
+    "form/x:AddressBook/field/maxAddressBooksPerCard": {
+      "original": "Max Address Books per Card",
+      "ru": "Адресных книг на карточку (макс.)"
+    },
+    "form/x:AddressBook/field/maxContacts": {
+      "original": "Contact Cards",
+      "ru": "Карточки контактов"
+    },
+    "form/x:AddressBook/field/maxMediaSize": {
+      "original": "Max Media Size",
+      "ru": "Макс. размер медиафайлов"
+    },
+    "form/x:AddressBook/field/maxVCardSize": {
+      "original": "Max vCard Size",
+      "ru": "Макс. размер vCard"
+    },
+    "form/x:AddressBook/field/vCardVersion": {
+      "original": "vCard Version",
+      "ru": "Версия vCard"
+    },
+    "form/x:AddressBook/section/section-0": {
+      "original": "Contacts Settings",
+      "ru": "Настройки контактов"
+    },
+    "form/x:AddressBook/section/section-1": {
+      "original": "Default Quotas",
+      "ru": "Квоты по умолчанию"
+    },
+    "form/x:AddressBook/subtitle": {
+      "original": "Configure how address books and contacts are stored, the default vCard size limit, and per-account quotas for address books and contacts",
+      "ru": "Настройка хранения адресных книг и контактов, ограничения размера vCard по умолчанию и квот на адресные книги и контакты для каждой учётной записи."
+    },
+    "form/x:AddressBook/title": {
+      "original": "Address Books and Contacts",
+      "ru": "Адресные книги и контакты"
     },
     "form/x:AiModelAnthropic/field/name": {
       "original": "Name",
@@ -2226,10 +2358,6 @@
       "original": "Restrictions",
       "ru": "Ограничения"
     },
-    "form/x:Application/field/description": {
-      "original": "Description",
-      "ru": "Описание"
-    },
     "form/x:AppPassword/field/allowedIps": {
       "original": "Allowed IPs",
       "ru": "Разрешённые IP-адреса"
@@ -2265,6 +2393,10 @@
     "form/x:AppPassword/section/section-2": {
       "original": "Restrictions",
       "ru": "Ограничения"
+    },
+    "form/x:Application/field/description": {
+      "original": "Description",
+      "ru": "Описание"
     },
     "form/x:ArchivedCalendarEvent/field/accountId": {
       "original": "Account",
@@ -2482,9 +2614,85 @@
       "original": "Scheduling",
       "ru": "Планирование"
     },
+    "form/x:Calendar/field/availabilityRateLimit": {
+      "original": "Availability Requests",
+      "ru": "Запросы сведений о занятости"
+    },
+    "form/x:Calendar/field/defaultDisplayName": {
+      "original": "Default Display Name",
+      "ru": "Отображаемое имя по умолчанию"
+    },
+    "form/x:Calendar/field/defaultHrefName": {
+      "original": "Default Href Name",
+      "ru": "Имя ресурса (href) по умолчанию"
+    },
+    "form/x:Calendar/field/maxAttachmentsSize": {
+      "original": "Max Attachments Size",
+      "ru": "Макс. размер вложений"
+    },
+    "form/x:Calendar/field/maxAttendees": {
+      "original": "Max iCal Attendees",
+      "ru": "Макс. число участников iCalendar"
+    },
+    "form/x:Calendar/field/maxAvailabilityDuration": {
+      "original": "Max Availability Duration",
+      "ru": "Макс. период запроса занятости"
+    },
     "form/x:Calendar/field/maxCalendars": {
       "original": "Calendars",
       "ru": "Календари"
+    },
+    "form/x:Calendar/field/maxCalendarsPerEvent": {
+      "original": "Max Calendars per Event",
+      "ru": "Календарей на событие (макс.)"
+    },
+    "form/x:Calendar/field/maxEventNotifications": {
+      "original": "Event Notifications",
+      "ru": "Уведомления о событиях"
+    },
+    "form/x:Calendar/field/maxEvents": {
+      "original": "Calendar Events",
+      "ru": "События календаря"
+    },
+    "form/x:Calendar/field/maxExpandedQueryDuration": {
+      "original": "Max Expanded Query Duration",
+      "ru": "Макс. период запроса с повторениями"
+    },
+    "form/x:Calendar/field/maxICalendarSize": {
+      "original": "Max iCal Size",
+      "ru": "Макс. размер iCalendar"
+    },
+    "form/x:Calendar/field/maxParticipantIdentities": {
+      "original": "Participant Identities",
+      "ru": "Идентификаторы участника"
+    },
+    "form/x:Calendar/field/maxRecurrenceExpansions": {
+      "original": "Max iCal Instances",
+      "ru": "Макс. число экземпляров iCalendar"
+    },
+    "form/x:Calendar/section/section-0": {
+      "original": "Calendar Settings",
+      "ru": "Настройки календаря"
+    },
+    "form/x:Calendar/section/section-1": {
+      "original": "Default Names",
+      "ru": "Имена по умолчанию"
+    },
+    "form/x:Calendar/section/section-2": {
+      "original": "Default Quotas",
+      "ru": "Квоты по умолчанию"
+    },
+    "form/x:Calendar/section/section-3": {
+      "original": "Rate Limiting",
+      "ru": "Ограничение частоты запросов"
+    },
+    "form/x:Calendar/subtitle": {
+      "original": "Configure how calendars and events are stored, iCalendar object size and recurrence limits, and per-account quotas for calendars and events",
+      "ru": "Настройка хранения календарей и событий, ограничений размера объектов iCalendar и повторений, а также квот на календари и события для каждой учётной записи."
+    },
+    "form/x:Calendar/title": {
+      "original": "Calendars and Events",
+      "ru": "Календари и события"
     },
     "form/x:Certificate/field/certificate": {
       "original": "Certificate",
@@ -2958,6 +3166,22 @@
       "original": "Details",
       "ru": "Сведения"
     },
+    "form/x:DnsServerClouDns/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerClouDns/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerClouDns/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerClouDns/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
     "form/x:DnsServerCloud/field/description": {
       "original": "Description",
       "ru": "Описание"
@@ -2987,22 +3211,6 @@
       "ru": "Аутентификация"
     },
     "form/x:DnsServerCloudflare/section/section-2": {
-      "original": "Details",
-      "ru": "Сведения"
-    },
-    "form/x:DnsServerClouDns/field/description": {
-      "original": "Description",
-      "ru": "Описание"
-    },
-    "form/x:DnsServerClouDns/field/memberTenantId": {
-      "original": "Tenant",
-      "ru": "Арендатор"
-    },
-    "form/x:DnsServerClouDns/section/section-0": {
-      "original": "Authentication",
-      "ru": "Аутентификация"
-    },
-    "form/x:DnsServerClouDns/section/section-2": {
       "original": "Details",
       "ru": "Сведения"
     },
@@ -3038,22 +3246,6 @@
       "original": "Details",
       "ru": "Сведения"
     },
-    "form/x:DnsServerDnsimple/field/description": {
-      "original": "Description",
-      "ru": "Описание"
-    },
-    "form/x:DnsServerDnsimple/field/memberTenantId": {
-      "original": "Tenant",
-      "ru": "Арендатор"
-    },
-    "form/x:DnsServerDnsimple/section/section-0": {
-      "original": "Authentication",
-      "ru": "Аутентификация"
-    },
-    "form/x:DnsServerDnsimple/section/section-2": {
-      "original": "Details",
-      "ru": "Сведения"
-    },
     "form/x:DnsServerDnsMadeEasy/field/description": {
       "original": "Description",
       "ru": "Описание"
@@ -3067,6 +3259,22 @@
       "ru": "Аутентификация"
     },
     "form/x:DnsServerDnsMadeEasy/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerDnsimple/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerDnsimple/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerDnsimple/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerDnsimple/section/section-2": {
       "original": "Details",
       "ru": "Сведения"
     },
@@ -3342,22 +3550,6 @@
       "original": "Details",
       "ru": "Сведения"
     },
-    "form/x:DnsServerNamecheap/field/description": {
-      "original": "Description",
-      "ru": "Описание"
-    },
-    "form/x:DnsServerNamecheap/field/memberTenantId": {
-      "original": "Tenant",
-      "ru": "Арендатор"
-    },
-    "form/x:DnsServerNamecheap/section/section-0": {
-      "original": "Authentication",
-      "ru": "Аутентификация"
-    },
-    "form/x:DnsServerNamecheap/section/section-3": {
-      "original": "Details",
-      "ru": "Сведения"
-    },
     "form/x:DnsServerNameDotCom/field/description": {
       "original": "Description",
       "ru": "Описание"
@@ -3371,6 +3563,22 @@
       "ru": "Аутентификация"
     },
     "form/x:DnsServerNameDotCom/section/section-2": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
+    "form/x:DnsServerNamecheap/field/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "form/x:DnsServerNamecheap/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор"
+    },
+    "form/x:DnsServerNamecheap/section/section-0": {
+      "original": "Authentication",
+      "ru": "Аутентификация"
+    },
+    "form/x:DnsServerNamecheap/section/section-3": {
       "original": "Details",
       "ru": "Сведения"
     },
@@ -3846,6 +4054,26 @@
       "original": "Encryption Settings",
       "ru": "Настройки шифрования"
     },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/expiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/nextExpiresAt": {
+      "original": "Expiration Date",
+      "ru": "Дата окончания срока"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "form/x:ExternalPublicKey/PendingExternalPublicKey/section/section-3": {
+      "original": "Details",
+      "ru": "Сведения"
+    },
     "form/x:ExternalPublicKey/field/description": {
       "original": "Description",
       "ru": "Описание"
@@ -3869,26 +4097,6 @@
     "form/x:ExternalPublicKey/field/status": {
       "original": "Status",
       "ru": "Состояние"
-    },
-    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/emailAddress": {
-      "original": "Email Address",
-      "ru": "Адрес электронной почты"
-    },
-    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/expiresAt": {
-      "original": "Expiration Date",
-      "ru": "Дата окончания срока"
-    },
-    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/nextExpiresAt": {
-      "original": "Expiration Date",
-      "ru": "Дата окончания срока"
-    },
-    "form/x:ExternalPublicKey/PendingExternalPublicKey/field/status": {
-      "original": "Status",
-      "ru": "Состояние"
-    },
-    "form/x:ExternalPublicKey/PendingExternalPublicKey/section/section-3": {
-      "original": "Details",
-      "ru": "Сведения"
     },
     "form/x:FileStorage/section/section-0": {
       "original": "File Storage",
@@ -4026,6 +4234,18 @@
       "original": "Credential",
       "ru": "Учётные данные"
     },
+    "form/x:InMemoryStore/title": {
+      "original": "In-Memory Store",
+      "ru": "Хранилище в памяти"
+    },
+    "form/x:InMemorySwap/section/section-0": {
+      "original": "Storage",
+      "ru": "Хранение"
+    },
+    "form/x:InMemorySwap/section/section-4": {
+      "original": "Limits",
+      "ru": "Ограничения"
+    },
     "form/x:IndexQueueStatus/field/status": {
       "original": "Status",
       "ru": "Состояние"
@@ -4041,18 +4261,6 @@
     "form/x:IndexStatusFailed/section/section-0": {
       "original": "Failed",
       "ru": "С ошибками"
-    },
-    "form/x:InMemoryStore/title": {
-      "original": "In-Memory Store",
-      "ru": "Хранилище в памяти"
-    },
-    "form/x:InMemorySwap/section/section-0": {
-      "original": "Storage",
-      "ru": "Хранение"
-    },
-    "form/x:InMemorySwap/section/section-4": {
-      "original": "Limits",
-      "ru": "Ограничения"
     },
     "form/x:Jmap/JmapLimits/field/maxRequestSize": {
       "original": "Size",
@@ -4770,6 +4978,10 @@
       "original": "Type",
       "ru": "Тип"
     },
+    "form/x:QueueExpiryTtl/field/expiresAt": {
+      "original": "Expires At",
+      "ru": "Действует до"
+    },
     "form/x:QueuedMessage/field/createdAt": {
       "original": "Received At",
       "ru": "Время получения"
@@ -4857,10 +5069,6 @@
     "form/x:QueuedRecipient/section/section-3": {
       "original": "Details",
       "ru": "Сведения"
-    },
-    "form/x:QueueExpiryTtl/field/expiresAt": {
-      "original": "Expires At",
-      "ru": "Действует до"
     },
     "form/x:RedisClusterStore/field/authSecret": {
       "original": "Password",
@@ -6150,14 +6358,6 @@
       "original": "API Keys",
       "ru": "Ключи API"
     },
-    "list/x:Application/column/description": {
-      "original": "Description",
-      "ru": "Описание"
-    },
-    "list/x:Application/title": {
-      "original": "Web Applications",
-      "ru": "Веб-приложения"
-    },
     "list/x:AppPassword/column/description": {
       "original": "Description",
       "ru": "Описание"
@@ -6185,6 +6385,14 @@
     "list/x:AppPassword/title": {
       "original": "App Passwords",
       "ru": "Пароли приложений"
+    },
+    "list/x:Application/column/description": {
+      "original": "Description",
+      "ru": "Описание"
+    },
+    "list/x:Application/title": {
+      "original": "Web Applications",
+      "ru": "Веб-приложения"
     },
     "list/x:ArchivedItem/column/accountId": {
       "original": "Account",
@@ -6506,6 +6714,14 @@
       "original": "Domains",
       "ru": "Домены"
     },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/column/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты"
+    },
+    "list/x:ExternalPublicKey/PendingExternalPublicKey/title": {
+      "original": "Pending Key Changes",
+      "ru": "Ожидающие изменения ключей"
+    },
     "list/x:ExternalPublicKey/column/emailAddress": {
       "original": "Email Address",
       "ru": "Адрес электронной почты"
@@ -6517,14 +6733,6 @@
     "list/x:ExternalPublicKey/filter/emailAddress": {
       "original": "Email Address",
       "ru": "Адрес электронной почты"
-    },
-    "list/x:ExternalPublicKey/PendingExternalPublicKey/column/emailAddress": {
-      "original": "Email Address",
-      "ru": "Адрес электронной почты"
-    },
-    "list/x:ExternalPublicKey/PendingExternalPublicKey/title": {
-      "original": "Pending Key Changes",
-      "ru": "Ожидающие изменения ключей"
     },
     "list/x:ExternalPublicKey/title": {
       "original": "External Public Keys",
@@ -7018,6 +7226,30 @@
       "original": "Symmetric Keys",
       "ru": "Симметричные ключи"
     },
+    "list/x:Task/TaskFailed/column/@type": {
+      "original": "Task type",
+      "ru": "Тип задания"
+    },
+    "list/x:Task/TaskFailed/column/status": {
+      "original": "Status",
+      "ru": "Состояние"
+    },
+    "list/x:Task/TaskFailed/filter/@type": {
+      "original": "Task type",
+      "ru": "Тип задания"
+    },
+    "list/x:Task/TaskFailed/singular": {
+      "original": "failed task",
+      "ru": "задание"
+    },
+    "list/x:Task/TaskFailed/subtitle": {
+      "original": "View failed background tasks",
+      "ru": "Просмотр фоновых заданий, завершившихся с ошибкой"
+    },
+    "list/x:Task/TaskFailed/title": {
+      "original": "Failed Tasks",
+      "ru": "Задания с ошибками"
+    },
     "list/x:Task/column/@type": {
       "original": "Task type",
       "ru": "Тип задания"
@@ -7053,30 +7285,6 @@
     "list/x:Task/subtitle": {
       "original": "Manage background tasks scheduled for execution",
       "ru": "Управление запланированными фоновыми заданиями"
-    },
-    "list/x:Task/TaskFailed/column/@type": {
-      "original": "Task type",
-      "ru": "Тип задания"
-    },
-    "list/x:Task/TaskFailed/column/status": {
-      "original": "Status",
-      "ru": "Состояние"
-    },
-    "list/x:Task/TaskFailed/filter/@type": {
-      "original": "Task type",
-      "ru": "Тип задания"
-    },
-    "list/x:Task/TaskFailed/singular": {
-      "original": "failed task",
-      "ru": "задание"
-    },
-    "list/x:Task/TaskFailed/subtitle": {
-      "original": "View failed background tasks",
-      "ru": "Просмотр фоновых заданий, завершившихся с ошибкой"
-    },
-    "list/x:Task/TaskFailed/title": {
-      "original": "Failed Tasks",
-      "ru": "Задания с ошибками"
     },
     "list/x:Task/title": {
       "original": "Tasks",
@@ -7170,10 +7378,6 @@
       "original": "Outbound TLS Reports",
       "ru": "Исходящие отчёты TLS"
     },
-    "list/x:Trace/column/events": {
-      "original": "Events",
-      "ru": "События"
-    },
     "list/x:Trace/InboundDelivery/column/from": {
       "original": "From",
       "ru": "От"
@@ -7261,6 +7465,10 @@
     "list/x:Trace/OutboundDelivery/title": {
       "original": "Outbound Delivery Attempts",
       "ru": "Попытки исходящей доставки"
+    },
+    "list/x:Trace/column/events": {
+      "original": "Events",
+      "ru": "События"
     },
     "list/x:Trace/plural": {
       "original": "traces",
@@ -7954,6 +8162,14 @@
       "original": "Defines server management actions such as reloads, troubleshooting and cache operations.",
       "ru": "Действия управления сервером: применение настроек, диагностика и операции с кэшем."
     },
+    "object/x:AddressBook/description": {
+      "original": "Configures address book and contact storage settings.",
+      "ru": "Настройка хранения адресных книг и контактов."
+    },
+    "object/x:Calendar/description": {
+      "original": "Configures calendar settings including iCalendar limits and default names.",
+      "ru": "Настройка календарей, включая ограничения iCalendar и имена по умолчанию."
+    },
     "object/x:DkimSignature/description": {
       "original": "Defines a DKIM signature used to sign outgoing email messages.",
       "ru": "Подпись DKIM, используемая для подписания исходящих писем."
@@ -8138,5 +8354,31 @@
       "original": "User role",
       "ru": "Роль пользователя"
     }
-  }
+  },
+  "scopedEntries": [
+    {
+      "schemaHash": "fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs",
+      "slot": "form/x:MySqlStore/section/section-3",
+      "original": "Read Replicas",
+      "ru": "Реплики для чтения"
+    },
+    {
+      "schemaHash": "Pryc909aTNRr_k6uwZLvZNs74YaPQv-PXQ38t2K7VlY",
+      "slot": "form/x:MySqlStore/section/section-3",
+      "original": "Pools",
+      "ru": "Пулы соединений"
+    },
+    {
+      "schemaHash": "fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs",
+      "slot": "form/x:PostgreSqlStore/section/section-3",
+      "original": "Read Replicas",
+      "ru": "Реплики для чтения"
+    },
+    {
+      "schemaHash": "Pryc909aTNRr_k6uwZLvZNs74YaPQv-PXQ38t2K7VlY",
+      "slot": "form/x:PostgreSqlStore/section/section-3",
+      "original": "Pools",
+      "ru": "Пулы соединений"
+    }
+  ]
 }
