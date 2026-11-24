@@ -61,8 +61,9 @@ assert.ok(hook.includes('canTranslateSchema(schemaHash, i18n.resolvedLanguage ??
 
 const enumSource = fs.readFileSync('src/components/forms/widgets/EnumWidgets.tsx', 'utf8');
 assert.ok(enumSource.includes('useCanTranslateSchema()'));
-assert.ok(enumSource.includes("formField.name === 'locale'"));
-assert.ok(enumSource.includes("label = localeOptionLabel(v.name, translated)"));
+// Locale now uses the same pinned lookup as ordinary enum values.
+assert.ok(enumSource.includes('const translated = display(`enum/${type.enumName}/${v.name}/label`, v.label)'));
+assert.ok(!enumSource.includes('localeOptionLabel'));
 assert.ok(enumSource.includes("formField.name === 'headerProtection'"));
 assert.ok(enumSource.includes("label = headerProtectionOptionLabel(translated)"));
 assert.ok(enumSource.includes('value: v.name'));
@@ -76,7 +77,10 @@ assert.ok(map.includes('<SelectItem key={v.name} value={v.name}>'));
 assert.ok(map.includes('[trimmedKey]: defaultMapValue('));
 
 const zone = fs.readFileSync('src/components/forms/widgets/TimeZoneWidget.tsx', 'utf8');
-assert.ok(zone.includes('timeZoneOptionLabel(v.name, v.label)'));
+assert.ok(zone.includes('display(`enum/${type.enumName}/${v.name}/label`, v.label)'));
+assert.ok(!zone.includes('timeZoneOptionLabel'));
+const zoneValue = fs.readFileSync('src/components/values/TimeZoneValue.tsx', 'utf8');
+assert.ok(zoneValue.includes('display(`enum/${type.enumName}/${name}/label`, entry.label)'));
 assert.ok(zone.includes('value: v.name'));
 assert.ok(zone.includes('description: offset'));
 assert.ok(zone.includes('keywords: [v.name, v.label, label'));

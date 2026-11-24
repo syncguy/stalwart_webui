@@ -1,0 +1,5533 @@
+{
+  "version": 1,
+  "stage": 42,
+  "status": "editor-reviewed",
+  "apply": false,
+  "baseline": "cc1f3c859ac8d51b2edb4fb63b60813b920735e5",
+  "baselineCatalogSha256": "7762ef2cb72d07962e1d672a87d0c380ef3e887242f81bdd4920ebce50aee84e",
+  "pairSha256": "80bc6ff6f1e1a838edd5b22d8781a8066184d1ebc7b715834c6f9b6f3fcfb885",
+  "scopePairSha256": "80bc6ff6f1e1a838edd5b22d8781a8066184d1ebc7b715834c6f9b6f3fcfb885",
+  "scope": "598 IANA TimeZone and 322 BCP47 Locale exact labels, both pinned editions; reviewed Russian city/region, language/script/dialect and territory; raw IDs in labels and data; no Intl display names, no new schema hashes or runtime dependencies.",
+  "entries": [
+    {
+      "slot": "enum/Locale/aa-DJ/label",
+      "original": "Afar language locale for Djibouti (Cadu/Laaqo Dialects).",
+      "ru": "Афарский (Джибути, диалекты Cadu/Laaqo) — aa-DJ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/aa-ER/label",
+      "original": "Afar language locale for Eritrea (Cadu/Laaqo Dialects).",
+      "ru": "Афарский (Эритрея, диалекты Cadu/Laaqo) — aa-ER",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/aa-ET/label",
+      "original": "Afar language locale for Ethiopia (Cadu/Carra Dialects).",
+      "ru": "Афарский (Эфиопия, диалекты Cadu/Carra) — aa-ET",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/af-ZA/label",
+      "original": "Afrikaans locale for South Africa.",
+      "ru": "Африкаанс (ЮАР) — af-ZA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/agr-PE/label",
+      "original": "Awajún (agr) locale for Peru.",
+      "ru": "Авахун (Перу, agr) — agr-PE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ak-GH/label",
+      "original": "Akan locale for Ghana.",
+      "ru": "Акан (Гана) — ak-GH",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/am-ET/label",
+      "original": "Amharic language locale for Ethiopia.",
+      "ru": "Амхарский (Эфиопия) — am-ET",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/an-ES/label",
+      "original": "Aragonese locale for Spain.",
+      "ru": "Арагонский (Испания) — an-ES",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/anp-IN/label",
+      "original": "Angika language locale for India.",
+      "ru": "Ангика (Индия) — anp-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-001/label",
+      "original": "Arabic locale for the world.",
+      "ru": "Арабский (весь мир) — ar-001",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-AE/label",
+      "original": "Arabic language locale for United Arab Emirates.",
+      "ru": "Арабский (ОАЭ) — ar-AE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-BH/label",
+      "original": "Arabic language locale for Bahrain.",
+      "ru": "Арабский (Бахрейн) — ar-BH",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-DZ/label",
+      "original": "Arabic language locale for Algeria.",
+      "ru": "Арабский (Алжир) — ar-DZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-EG/label",
+      "original": "Arabic language locale for Egypt.",
+      "ru": "Арабский (Египет) — ar-EG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-IN/label",
+      "original": "Arabic language locale for India.",
+      "ru": "Арабский (Индия) — ar-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-IQ/label",
+      "original": "Arabic language locale for Iraq.",
+      "ru": "Арабский (Ирак) — ar-IQ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-JO/label",
+      "original": "Arabic language locale for Jordan.",
+      "ru": "Арабский (Иордания) — ar-JO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-KW/label",
+      "original": "Arabic language locale for Kuwait.",
+      "ru": "Арабский (Кувейт) — ar-KW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-LB/label",
+      "original": "Arabic language locale for Lebanon.",
+      "ru": "Арабский (Ливан) — ar-LB",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-LY/label",
+      "original": "Arabic language locale for Libyan Arab Jamahiriya.",
+      "ru": "Арабский (Ливийская Арабская Джамахирия) — ar-LY",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-MA/label",
+      "original": "Arabic language locale for Morocco.",
+      "ru": "Арабский (Марокко) — ar-MA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-OM/label",
+      "original": "Arabic language locale for Oman.",
+      "ru": "Арабский (Оман) — ar-OM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-QA/label",
+      "original": "Arabic language locale for Qatar.",
+      "ru": "Арабский (Катар) — ar-QA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-SA/label",
+      "original": "Arabic locale for Saudi Arabia.",
+      "ru": "Арабский (Саудовская Аравия) — ar-SA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-SD/label",
+      "original": "Arabic language locale for Sudan.",
+      "ru": "Арабский (Судан) — ar-SD",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-SS/label",
+      "original": "Arabic language locale for South Sudan.",
+      "ru": "Арабский (Южный Судан) — ar-SS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-SY/label",
+      "original": "Arabic language locale for Syrian Arab Republic.",
+      "ru": "Арабский (Сирийская Арабская Республика) — ar-SY",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-TN/label",
+      "original": "Arabic language locale for Tunisia.",
+      "ru": "Арабский (Тунис) — ar-TN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ar-YE/label",
+      "original": "Arabic language locale for Yemen.",
+      "ru": "Арабский (Йемен) — ar-YE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/as-IN/label",
+      "original": "Assamese language locale for India.",
+      "ru": "Ассамский (Индия) — as-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ast-ES/label",
+      "original": "Asturian locale for Spain.",
+      "ru": "Астурийский (Испания) — ast-ES",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ayc-PE/label",
+      "original": "Aymara (ayc) locale for Peru.",
+      "ru": "Аймара (Перу, ayc) — ayc-PE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/az-AZ/label",
+      "original": "Azeri language locale for Azerbaijan (latin).",
+      "ru": "Азербайджанский (Азербайджан, латиница) — az-AZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/az-IR/label",
+      "original": "South Azerbaijani language locale for Iran.",
+      "ru": "Южноазербайджанский (Иран) — az-IR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/az-Latn-AZ/label",
+      "original": "Azerbaijani Latin-script locale for Azerbaijan.",
+      "ru": "Азербайджанский (Азербайджан, латиница) — az-Latn-AZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/be-BY/label",
+      "original": "Belarusian locale for Belarus.",
+      "ru": "Белорусский (Беларусь) — be-BY",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/be-Latn-BY/label",
+      "original": "Belarusian Latin-Script locale for Belarus.",
+      "ru": "Белорусский (Беларусь, латиница) — be-Latn-BY",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/bem-ZM/label",
+      "original": "Bemba locale for Zambia.",
+      "ru": "Бемба (Замбия) — bem-ZM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ber-DZ/label",
+      "original": "Berber language locale for Algeria (latin).",
+      "ru": "Берберский (Алжир, латиница) — ber-DZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ber-MA/label",
+      "original": "Berber language locale for Morocco (tifinagh).",
+      "ru": "Берберский (Марокко, тифинаг) — ber-MA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/bg-BG/label",
+      "original": "Bulgarian locale for Bulgaria.",
+      "ru": "Болгарский (Болгария) — bg-BG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/bhb-IN/label",
+      "original": "Bhili(devanagari) language locale for India.",
+      "ru": "Бхили (Индия, деванагари) — bhb-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/bho-IN/label",
+      "original": "Bhojpuri language locale for India.",
+      "ru": "Бходжпури (Индия) — bho-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/bho-NP/label",
+      "original": "Bhojpuri language locale for Nepal.",
+      "ru": "Бходжпури (Непал) — bho-NP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/bi-VU/label",
+      "original": "Bislama language locale for Vanuatu.",
+      "ru": "Бислама (Вануату) — bi-VU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/bn-BD/label",
+      "original": "Bangla language locale for Bangladesh.",
+      "ru": "Бенгальский (Бангладеш) — bn-BD",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/bn-IN/label",
+      "original": "Bangla language locale for India.",
+      "ru": "Бенгальский (Индия) — bn-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/bo-CN/label",
+      "original": "Tibetan language locale for P.R. of China.",
+      "ru": "Тибетский (КНР) — bo-CN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/bo-IN/label",
+      "original": "Tibetan language locale for India.",
+      "ru": "Тибетский (Индия) — bo-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/br-FR/label",
+      "original": "Breton language locale for France.",
+      "ru": "Бретонский (Франция) — br-FR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/brx-IN/label",
+      "original": "Bodo language locale for India.",
+      "ru": "Бодо (Индия) — brx-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/bs-BA/label",
+      "original": "Bosnian language locale for Bosnia and Herzegowina.",
+      "ru": "Боснийский (Босния и Герцеговина) — bs-BA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/byn-ER/label",
+      "original": "Blin language locale for Eritrea.",
+      "ru": "Билин (Эритрея) — byn-ER",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ca-AD/label",
+      "original": "Catalan locale for Andorra .",
+      "ru": "Каталанский (Андорра) — ca-AD",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ca-ES-valencia/label",
+      "original": "Valencian (southern Catalan) locale for Spain with Euro.",
+      "ru": "Валенсийский (южнокаталанский, Испания, евро) — ca-ES-valencia",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ca-ES/label",
+      "original": "Catalan locale for Spain.",
+      "ru": "Каталанский (Испания) — ca-ES",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ca-FR/label",
+      "original": "Catalan locale for France .",
+      "ru": "Каталанский (Франция) — ca-FR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ca-IT/label",
+      "original": "Catalan locale for Italy (L'Alguer) .",
+      "ru": "Каталанский (Италия, Альгеро) — ca-IT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ce-RU/label",
+      "original": "Chechen locale for RUSSIAN FEDERATION.",
+      "ru": "Чеченский (Российская Федерация) — ce-RU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/chr-US/label",
+      "original": "Cherokee language locale for United States.",
+      "ru": "Чероки (США) — chr-US",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/cmn-TW/label",
+      "original": "Mandarin Chinese locale for the Republic of China.",
+      "ru": "Китайский мандаринский (Тайвань, Китайская Республика) — cmn-TW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/crh-UA/label",
+      "original": "Crimean Tatar (Crimean Turkish) language locale for Ukraine.",
+      "ru": "Крымскотатарский (крымский турецкий, Украина) — crh-UA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/cs-CZ/label",
+      "original": "Czech locale for the Czech Republic.",
+      "ru": "Чешский (Чехия) — cs-CZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/csb-PL/label",
+      "original": "Kashubian locale for Poland.",
+      "ru": "Кашубский (Польша) — csb-PL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/cv-RU/label",
+      "original": "Chuvash locale for Russia.",
+      "ru": "Чувашский (Россия) — cv-RU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/cy-GB/label",
+      "original": "Welsh language locale for Great Britain.",
+      "ru": "Валлийский (Великобритания) — cy-GB",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/da-DK/label",
+      "original": "Danish locale for Denmark.",
+      "ru": "Датский (Дания) — da-DK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/de-AT/label",
+      "original": "German locale for Austria.",
+      "ru": "Немецкий (Австрия) — de-AT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/de-BE/label",
+      "original": "German locale for Belgium.",
+      "ru": "Немецкий (Бельгия) — de-BE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/de-CH/label",
+      "original": "German locale for Switzerland.",
+      "ru": "Немецкий (Швейцария) — de-CH",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/de-DE/label",
+      "original": "German locale for Germany.",
+      "ru": "Немецкий (Германия) — de-DE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/de-IT/label",
+      "original": "German language locale for Italy.",
+      "ru": "Немецкий (Италия) — de-IT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/de-LI/label",
+      "original": "German locale for Liechtenstein.",
+      "ru": "Немецкий (Лихтенштейн) — de-LI",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/de-LU/label",
+      "original": "German locale for Luxemburg.",
+      "ru": "Немецкий (Люксембург) — de-LU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/doi-IN/label",
+      "original": "Dogri language locale for India.",
+      "ru": "Догри (Индия) — doi-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/dsb-DE/label",
+      "original": "Lower Sorbian locale for Germany.",
+      "ru": "Нижнелужицкий (Германия) — dsb-DE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/dv-MV/label",
+      "original": "Dhivehi Language Locale for Maldives.",
+      "ru": "Дивехи (Мальдивы) — dv-MV",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/dz-BT/label",
+      "original": "Dzongkha language locale for Bhutan.",
+      "ru": "Дзонг-кэ (Бутан) — dz-BT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/el-CY/label",
+      "original": "Greek locale for Cyprus.",
+      "ru": "Греческий (Кипр) — el-CY",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/el-GR/label",
+      "original": "Greek locale for Greece.",
+      "ru": "Греческий (Греция) — el-GR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-001/label",
+      "original": "English locale for the world.",
+      "ru": "Английский (весь мир) — en-001",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-150/label",
+      "original": "English locale for Europe.",
+      "ru": "Английский (Европа) — en-150",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-AG/label",
+      "original": "English language locale for Antigua and Barbuda.",
+      "ru": "Английский (Антигуа и Барбуда) — en-AG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-AU/label",
+      "original": "English locale for Australia.",
+      "ru": "Английский (Австралия) — en-AU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-BW/label",
+      "original": "English locale for Botswana.",
+      "ru": "Английский (Ботсвана) — en-BW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-CA/label",
+      "original": "English locale for Canada.",
+      "ru": "Английский (Канада) — en-CA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-DK/label",
+      "original": "English locale for Denmark.",
+      "ru": "Английский (Дания) — en-DK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-GB/label",
+      "original": "English locale for Britain.",
+      "ru": "Английский (Великобритания) — en-GB",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-HK/label",
+      "original": "English locale for Hong Kong.",
+      "ru": "Английский (Гонконг) — en-HK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-IE/label",
+      "original": "English locale for Ireland.",
+      "ru": "Английский (Ирландия) — en-IE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-IL/label",
+      "original": "English locale for Israel.",
+      "ru": "Английский (Израиль) — en-IL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-IN/label",
+      "original": "English language locale for India.",
+      "ru": "Английский (Индия) — en-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-NG/label",
+      "original": "English locale for Nigeria.",
+      "ru": "Английский (Нигерия) — en-NG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-NZ/label",
+      "original": "English locale for New Zealand.",
+      "ru": "Английский (Новая Зеландия) — en-NZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-PH/label",
+      "original": "English language locale for Philippines.",
+      "ru": "Английский (Филиппины) — en-PH",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-SC/label",
+      "original": "English locale for the Seychelles.",
+      "ru": "Английский (Сейшельские острова) — en-SC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-SG/label",
+      "original": "English language locale for Singapore.",
+      "ru": "Английский (Сингапур) — en-SG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-US/label",
+      "original": "English locale for the USA.",
+      "ru": "Английский (США) — en-US",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-ZA/label",
+      "original": "English locale for South Africa.",
+      "ru": "Английский (ЮАР) — en-ZA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-ZM/label",
+      "original": "English locale for Zambia.",
+      "ru": "Английский (Замбия) — en-ZM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/en-ZW/label",
+      "original": "English locale for Zimbabwe.",
+      "ru": "Английский (Зимбабве) — en-ZW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/eo/label",
+      "original": "Esperanto language locale.",
+      "ru": "Эсперанто — eo",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-419/label",
+      "original": "Spanish locale for Latin America.",
+      "ru": "Испанский (Латинская Америка) — es-419",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-AR/label",
+      "original": "Spanish locale for Argentina.",
+      "ru": "Испанский (Аргентина) — es-AR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-BO/label",
+      "original": "Spanish locale for Bolivia.",
+      "ru": "Испанский (Боливия) — es-BO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-CL/label",
+      "original": "Spanish locale for Chile.",
+      "ru": "Испанский (Чили) — es-CL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-CO/label",
+      "original": "Spanish locale for Colombia.",
+      "ru": "Испанский (Колумбия) — es-CO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-CR/label",
+      "original": "Spanish locale for Costa Rica.",
+      "ru": "Испанский (Коста-Рика) — es-CR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-CU/label",
+      "original": "Spanish locale for Cuba.",
+      "ru": "Испанский (Куба) — es-CU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-DO/label",
+      "original": "Spanish locale for Dominican Republic.",
+      "ru": "Испанский (Доминиканская Республика) — es-DO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-EC/label",
+      "original": "Spanish locale for Ecuador.",
+      "ru": "Испанский (Эквадор) — es-EC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-ES/label",
+      "original": "Spanish locale for Spain.",
+      "ru": "Испанский (Испания) — es-ES",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-GT/label",
+      "original": "Spanish locale for Guatemala.",
+      "ru": "Испанский (Гватемала) — es-GT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-HN/label",
+      "original": "Spanish locale for Honduras.",
+      "ru": "Испанский (Гондурас) — es-HN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-MX/label",
+      "original": "Spanish locale for Mexico.",
+      "ru": "Испанский (Мексика) — es-MX",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-NI/label",
+      "original": "Spanish locale for Nicaragua.",
+      "ru": "Испанский (Никарагуа) — es-NI",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-PA/label",
+      "original": "Spanish locale for Panama.",
+      "ru": "Испанский (Панама) — es-PA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-PE/label",
+      "original": "Spanish locale for Peru.",
+      "ru": "Испанский (Перу) — es-PE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-PR/label",
+      "original": "Spanish locale for Puerto Rico.",
+      "ru": "Испанский (Пуэрто-Рико) — es-PR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-PY/label",
+      "original": "Spanish locale for Paraguay.",
+      "ru": "Испанский (Парагвай) — es-PY",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-SV/label",
+      "original": "Spanish locale for El Salvador.",
+      "ru": "Испанский (Сальвадор) — es-SV",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-US/label",
+      "original": "Spanish locale for the USA.",
+      "ru": "Испанский (США) — es-US",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-UY/label",
+      "original": "Spanish locale for Uruguay.",
+      "ru": "Испанский (Уругвай) — es-UY",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/es-VE/label",
+      "original": "Spanish locale for Venezuela.",
+      "ru": "Испанский (Венесуэла) — es-VE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/et-EE/label",
+      "original": "Estonian locale for Estonia.",
+      "ru": "Эстонский (Эстония) — et-EE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/eu-ES/label",
+      "original": "Basque locale for Spain.",
+      "ru": "Баскский (Испания) — eu-ES",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fa-IR/label",
+      "original": "Persian locale for Iran.",
+      "ru": "Персидский (Иран) — fa-IR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ff-SN/label",
+      "original": "Fulah locale for Senegal.",
+      "ru": "Фула (Сенегал) — ff-SN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fi-FI/label",
+      "original": "Finnish locale for Finland.",
+      "ru": "Финский (Финляндия) — fi-FI",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fil-PH/label",
+      "original": "Filipino language locale for Philippines.",
+      "ru": "Филиппинский (Филиппины) — fil-PH",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fo-FO/label",
+      "original": "Faroese locale for Faroe Islands.",
+      "ru": "Фарерский (Фарерские острова) — fo-FO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fr-BE/label",
+      "original": "French locale for Belgium.",
+      "ru": "Французский (Бельгия) — fr-BE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fr-CA/label",
+      "original": "French locale for Canada.",
+      "ru": "Французский (Канада) — fr-CA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fr-CH/label",
+      "original": "French locale for Switzerland.",
+      "ru": "Французский (Швейцария) — fr-CH",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fr-FR/label",
+      "original": "French locale for France.",
+      "ru": "Французский (Франция) — fr-FR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fr-LU/label",
+      "original": "French locale for Luxemburg.",
+      "ru": "Французский (Люксембург) — fr-LU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fur-IT/label",
+      "original": "Furlan locale for Italy.",
+      "ru": "Фриульский (Италия) — fur-IT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fy-DE/label",
+      "original": "Sater Frisian and North Frisian Locale for Germany.",
+      "ru": "Затерландский фризский и севернофризский (Германия) — fy-DE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/fy-NL/label",
+      "original": "Frisian locale for the Netherlands.",
+      "ru": "Фризский (Нидерланды) — fy-NL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ga-IE/label",
+      "original": "Irish locale for Ireland.",
+      "ru": "Ирландский (Ирландия) — ga-IE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/gd-GB/label",
+      "original": "Scots Gaelic language locale for Great Britain.",
+      "ru": "Шотландский гэльский (Великобритания) — gd-GB",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/gez-ER/label",
+      "original": "Ge'ez language locale for Eritrea.",
+      "ru": "Геэз (Эритрея) — gez-ER",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/gez-ET/label",
+      "original": "Ge'ez language locale for Ethiopia.",
+      "ru": "Геэз (Эфиопия) — gez-ET",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/gl-ES/label",
+      "original": "Galician locale for Spain.",
+      "ru": "Галисийский (Испания) — gl-ES",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/gu-IN/label",
+      "original": "Gujarati Language Locale For India.",
+      "ru": "Гуджарати (Индия) — gu-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/gv-GB/label",
+      "original": "Manx Gaelic locale for Britain.",
+      "ru": "Мэнский гэльский (Великобритания) — gv-GB",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ha-NG/label",
+      "original": "Hausa locale for Nigeria.",
+      "ru": "Хауса (Нигерия) — ha-NG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/hak-TW/label",
+      "original": "Hakka Chinese locale for the Republic of China.",
+      "ru": "Китайский хакка (Тайвань, Китайская Республика) — hak-TW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/he-IL/label",
+      "original": "Hebrew locale for Israel.",
+      "ru": "Иврит (Израиль) — he-IL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/hi-IN/label",
+      "original": "Hindi language locale for India.",
+      "ru": "Хинди (Индия) — hi-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/hif-FJ/label",
+      "original": "Fiji Hindi (Latin) language locale for Fiji.",
+      "ru": "Фиджийский хинди (Фиджи, латиница) — hif-FJ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/hne-IN/label",
+      "original": "Chhattisgarhi language locale for India.",
+      "ru": "Чхаттисгархи (Индия) — hne-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/hr-HR/label",
+      "original": "Croatian locale for Croatia.",
+      "ru": "Хорватский (Хорватия) — hr-HR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/hsb-DE/label",
+      "original": "Upper Sorbian locale for Germany.",
+      "ru": "Верхнелужицкий (Германия) — hsb-DE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ht-HT/label",
+      "original": "Kreyol locale for Haiti.",
+      "ru": "Гаитянский креольский (Гаити) — ht-HT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/hu-HU/label",
+      "original": "Hungarian locale for Hungary.",
+      "ru": "Венгерский (Венгрия) — hu-HU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/hy-AM/label",
+      "original": "Armenian language locale for Armenia.",
+      "ru": "Армянский (Армения) — hy-AM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ia-FR/label",
+      "original": "Interlingua locale for France.",
+      "ru": "Интерлингва (Франция) — ia-FR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/id-ID/label",
+      "original": "Indonesian locale for Indonesia.",
+      "ru": "Индонезийский (Индонезия) — id-ID",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ig-NG/label",
+      "original": "Igbo locale for Nigeria.",
+      "ru": "Игбо (Нигерия) — ig-NG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ik-CA/label",
+      "original": "Inupiaq locale for Canada.",
+      "ru": "Инупиак (Канада) — ik-CA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/is-IS/label",
+      "original": "Icelandic locale for Iceland.",
+      "ru": "Исландский (Исландия) — is-IS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/it-CH/label",
+      "original": "Italian locale for Switzerland.",
+      "ru": "Итальянский (Швейцария) — it-CH",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/it-IT/label",
+      "original": "Italian locale for Italy.",
+      "ru": "Итальянский (Италия) — it-IT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/iu-CA/label",
+      "original": "Inuktitut language locale for Nunavut, Canada.",
+      "ru": "Инуктитут (Нунавут, Канада) — iu-CA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ja-JP/label",
+      "original": "Japanese language locale for Japan.",
+      "ru": "Японский (Япония) — ja-JP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ka-GE/label",
+      "original": "Georgian language locale for Georgia.",
+      "ru": "Грузинский (Грузия) — ka-GE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/kab-DZ/label",
+      "original": "Kabyle language locale for Algeria.",
+      "ru": "Кабильский (Алжир) — kab-DZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/kk-KZ/label",
+      "original": "Kazakh locale for Kazakhstan.",
+      "ru": "Казахский (Казахстан) — kk-KZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/kl-GL/label",
+      "original": "Greenlandic locale for Greenland.",
+      "ru": "Гренландский (Гренландия) — kl-GL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/km-KH/label",
+      "original": "Khmer locale for Cambodia.",
+      "ru": "Кхмерский (Камбоджа) — km-KH",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/kn-IN/label",
+      "original": "Kannada language locale for India.",
+      "ru": "Каннада (Индия) — kn-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ko-KR/label",
+      "original": "Korean locale for Republic of Korea.",
+      "ru": "Корейский (Республика Корея) — ko-KR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/kok-IN/label",
+      "original": "Konkani language locale for India.",
+      "ru": "Конкани (Индия) — kok-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ks-Deva-IN/label",
+      "original": "Kashmiri(devanagari) language locale for India.",
+      "ru": "Кашмири (Индия, деванагари) — ks-Deva-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ks-IN/label",
+      "original": "Kashmiri language locale for India.",
+      "ru": "Кашмири (Индия) — ks-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ku-TR/label",
+      "original": "Kurdish (latin) locale for Turkey.",
+      "ru": "Курдский (Турция, латиница) — ku-TR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/kw-GB/label",
+      "original": "Cornish locale for Britain.",
+      "ru": "Корнский (Великобритания) — kw-GB",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ky-KG/label",
+      "original": "Kyrgyz Language Locale for Kyrgyzstan.",
+      "ru": "Киргизский (Киргизия) — ky-KG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/lb-LU/label",
+      "original": "Luxembourgish locale for Luxembourg.",
+      "ru": "Люксембургский (Люксембург) — lb-LU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/lg-UG/label",
+      "original": "Luganda locale for Uganda.",
+      "ru": "Луганда (Уганда) — lg-UG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/li-BE/label",
+      "original": "Limburgish Language Locale for Belgium.",
+      "ru": "Лимбургский (Бельгия) — li-BE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/li-NL/label",
+      "original": "Limburgish Language Locale for the Netherlands.",
+      "ru": "Лимбургский (Нидерланды) — li-NL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/lij-IT/label",
+      "original": "Ligurian locale for Italy.",
+      "ru": "Лигурийский (Италия) — lij-IT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ln-CD/label",
+      "original": "Lingala locale for Democratic Republic of the Congo.",
+      "ru": "Лингала (Демократическая Республика Конго) — ln-CD",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/lo-LA/label",
+      "original": "Lao locale for Laos.",
+      "ru": "Лаосский (Лаос) — lo-LA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/lt-LT/label",
+      "original": "Lithuanian locale for Lithuania.",
+      "ru": "Литовский (Литва) — lt-LT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/lv-LV/label",
+      "original": "Latvian locale for Latvia.",
+      "ru": "Латышский (Латвия) — lv-LV",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/lzh-TW/label",
+      "original": "Literary Chinese locale for the Republic of China.",
+      "ru": "Классический литературный китайский (Тайвань, Китайская Республика) — lzh-TW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mag-IN/label",
+      "original": "Magahi language locale for India.",
+      "ru": "Магахи (Индия) — mag-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mai-IN/label",
+      "original": "Maithili language locale for India.",
+      "ru": "Майтхили (Индия) — mai-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mai-NP/label",
+      "original": "Maithili language locale for Nepal.",
+      "ru": "Майтхили (Непал) — mai-NP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mfe-MU/label",
+      "original": "Morisyen locale for Mauritius.",
+      "ru": "Маврикийский креольский (Маврикий) — mfe-MU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mg-MG/label",
+      "original": "Malagasy locale for Madagascar.",
+      "ru": "Малагасийский (Мадагаскар) — mg-MG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mhr-RU/label",
+      "original": "Mari locale for Russia.",
+      "ru": "Марийский (Россия) — mhr-RU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mi-NZ/label",
+      "original": "Maori language locale for New Zealand.",
+      "ru": "Маори (Новая Зеландия) — mi-NZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/miq-NI/label",
+      "original": "Miskito language locale for Nicaragua.",
+      "ru": "Мискито (Никарагуа) — miq-NI",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mjw-IN/label",
+      "original": "Karbi language locale for India.",
+      "ru": "Карби (Индия) — mjw-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mk-MK/label",
+      "original": "Macedonian locale for Macedonia.",
+      "ru": "Македонский (Македония) — mk-MK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ml-IN/label",
+      "original": "Malayalam language locale for India.",
+      "ru": "Малаялам (Индия) — ml-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mn-MN/label",
+      "original": "Mongolian locale for Mongolia.",
+      "ru": "Монгольский (Монголия) — mn-MN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mni-IN/label",
+      "original": "Manipuri language locale for India.",
+      "ru": "Манипури (Индия) — mni-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mnw-MM/label",
+      "original": "Mon language locale for Myanmar.",
+      "ru": "Монский (Мьянма) — mnw-MM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mr-IN/label",
+      "original": "Marathi language locale for India.",
+      "ru": "Маратхи (Индия) — mr-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ms-MY/label",
+      "original": "Malay language locale for Malaysia.",
+      "ru": "Малайский (Малайзия) — ms-MY",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/mt-MT/label",
+      "original": "Maltese language locale for Malta.",
+      "ru": "Мальтийский (Мальта) — mt-MT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/my-MM/label",
+      "original": "Burmese language locale for Myanmar.",
+      "ru": "Бирманский (Мьянма) — my-MM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nan-Latn-TW/label",
+      "original": "Minnan language locale for Taiwan.",
+      "ru": "Южноминьский китайский (Тайвань, латиница) — nan-Latn-TW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nan-TW/label",
+      "original": "Min Nan Chinese locale for the Republic of China.",
+      "ru": "Южноминьский китайский (Тайвань, Китайская Республика) — nan-TW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nb-NO/label",
+      "original": "Norwegian (Bokmål) locale for Norway.",
+      "ru": "Норвежский (букмол) (Норвегия) — nb-NO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nds-DE/label",
+      "original": "Low(lands) Saxon Language Locale for Germany.",
+      "ru": "Нижнесаксонский (Германия) — nds-DE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nds-NL/label",
+      "original": "Low(lands) Saxon Language Locale for the Netherlands.",
+      "ru": "Нижнесаксонский (Нидерланды) — nds-NL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ne-NP/label",
+      "original": "Nepali language locale for Nepal.",
+      "ru": "Непальский (Непал) — ne-NP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nhn-MX/label",
+      "original": "Central Nahuatl for Mexico.",
+      "ru": "Центральный науатль (Мексика) — nhn-MX",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/niu-NU/label",
+      "original": "Niuean (Vagahau Niue) locale for Niue.",
+      "ru": "Ниуэ (Vagahau Niue, Ниуэ) — niu-NU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/niu-NZ/label",
+      "original": "Niuean (Vagahau Niue) locale for New Zealand.",
+      "ru": "Ниуэ (Vagahau Niue, Новая Зеландия) — niu-NZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nl-AW/label",
+      "original": "Dutch language locale for Aruba.",
+      "ru": "Нидерландский (Аруба) — nl-AW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nl-BE/label",
+      "original": "Dutch locale for Belgium.",
+      "ru": "Нидерландский (Бельгия) — nl-BE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nl-NL/label",
+      "original": "Dutch locale for the Netherlands.",
+      "ru": "Нидерландский (Нидерланды) — nl-NL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nn-NO/label",
+      "original": "Nynorsk language locale for Norway.",
+      "ru": "Норвежский (нюношк, Норвегия) — nn-NO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nr-ZA/label",
+      "original": "Southern Ndebele locale for South Africa.",
+      "ru": "Южный ндебеле (ЮАР) — nr-ZA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/nso-ZA/label",
+      "original": "Northern Sotho locale for South Africa.",
+      "ru": "Северный сото (ЮАР) — nso-ZA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/oc-FR/label",
+      "original": "Occitan Language Locale for France.",
+      "ru": "Окситанский (Франция) — oc-FR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/om-ET/label",
+      "original": "Oromo language locale for Ethiopia.",
+      "ru": "Оромо (Эфиопия) — om-ET",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/om-KE/label",
+      "original": "Oromo language locale for Kenya.",
+      "ru": "Оромо (Кения) — om-KE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/or-IN/label",
+      "original": "Odia language locale for India.",
+      "ru": "Одия (Индия) — or-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/os-RU/label",
+      "original": "Ossetian locale for Russia.",
+      "ru": "Осетинский (Россия) — os-RU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/pa-IN/label",
+      "original": "Punjabi language locale for Indian Punjabi(Gurmukhi).",
+      "ru": "Панджаби (Индия, гурмукхи) — pa-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/pa-PK/label",
+      "original": "Punjabi (Shahmukhi) Language Locale for Pakistan.",
+      "ru": "Панджаби (Пакистан, шахмукхи) — pa-PK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/pap-AW/label",
+      "original": "Papiamento Language for Aruba.",
+      "ru": "Папьяменто (Аруба) — pap-AW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/pap-CW/label",
+      "original": "Papiamento language for Curaçao.",
+      "ru": "Папьяменто (Кюрасао) — pap-CW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/pl-PL/label",
+      "original": "Polish locale for Poland.",
+      "ru": "Польский (Польша) — pl-PL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ps-AF/label",
+      "original": "Pashto locale for Afghanistan.",
+      "ru": "Пушту (Афганистан) — ps-AF",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/pt-BR/label",
+      "original": "Portuguese locale for Brasil.",
+      "ru": "Португальский (Бразилия) — pt-BR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/pt-PT/label",
+      "original": "Portuguese locale for Portugal.",
+      "ru": "Португальский (Португалия) — pt-PT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/quz-PE/label",
+      "original": "Cusco Quechua locale for Peru.",
+      "ru": "Кечуа (Куско) (Перу) — quz-PE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/raj-IN/label",
+      "original": "Rajasthani language locale for India.",
+      "ru": "Раджастхани (Индия) — raj-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ro-RO/label",
+      "original": "Romanian locale for Romania.",
+      "ru": "Румынский (Румыния) — ro-RO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ru-RU/label",
+      "original": "Russian locale for Russia.",
+      "ru": "Русский (Россия) — ru-RU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ru-UA/label",
+      "original": "Russian locale for Ukraine.",
+      "ru": "Русский (Украина) — ru-UA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/rw-RW/label",
+      "original": "Kinyarwanda language locale for Rwanda.",
+      "ru": "Киньяруанда (Руанда) — rw-RW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sa-IN/label",
+      "original": "Sanskrit language locale for India.",
+      "ru": "Санскрит (Индия) — sa-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sah-RU/label",
+      "original": "Sakha (Yakut) locale for Russian Federation.",
+      "ru": "Саха (якутский, Российская Федерация) — sah-RU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sat-IN/label",
+      "original": "Santali language locale for India.",
+      "ru": "Сантали (Индия) — sat-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sc-IT/label",
+      "original": "Sardinian locale for Italy.",
+      "ru": "Сардинский (Италия) — sc-IT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sd-Deva-IN/label",
+      "original": "Sindhi language locale for India.",
+      "ru": "Синдхи (Индия, деванагари) — sd-Deva-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sd-IN/label",
+      "original": "Sindhi language locale for India.",
+      "ru": "Синдхи (Индия) — sd-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/se-NO/label",
+      "original": "Northern Saami language locale for Norway.",
+      "ru": "Северносаамский (Норвегия) — se-NO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sgs-LT/label",
+      "original": "Samogitian language locale for Lithuania.",
+      "ru": "Жемайтский (Литва) — sgs-LT",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/shn-MM/label",
+      "original": "Shan language locale for Myanmar.",
+      "ru": "Шанский (Мьянма) — shn-MM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/shs-CA/label",
+      "original": "Shuswap locale for Canada.",
+      "ru": "Шусвап (Канада) — shs-CA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/si-LK/label",
+      "original": "Sinhala language locale for Sri Lanka.",
+      "ru": "Сингальский (Шри-Ланка) — si-LK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sid-ET/label",
+      "original": "Sidama language locale for Ethiopia.",
+      "ru": "Сидама (Эфиопия) — sid-ET",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sk-SK/label",
+      "original": "Slovak locale for Slovak.",
+      "ru": "Словацкий (Словакия) — sk-SK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sl-SI/label",
+      "original": "Slovenian locale for Slovenia.",
+      "ru": "Словенский (Словения) — sl-SI",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sm-WS/label",
+      "original": "Samoan language locale for Samoa.",
+      "ru": "Самоанский (Самоа) — sm-WS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/so-DJ/label",
+      "original": "Somali language locale for Djibouti.",
+      "ru": "Сомалийский (Джибути) — so-DJ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/so-ET/label",
+      "original": "Somali language locale for Ethiopia.",
+      "ru": "Сомалийский (Эфиопия) — so-ET",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/so-KE/label",
+      "original": "Somali language locale for Kenya.",
+      "ru": "Сомалийский (Кения) — so-KE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/so-SO/label",
+      "original": "Somali language locale for Somalia.",
+      "ru": "Сомалийский (Сомали) — so-SO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sq-AL/label",
+      "original": "Albanian language locale for Albania.",
+      "ru": "Албанский (Албания) — sq-AL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sq-MK/label",
+      "original": "Albanian language locale for Macedonia.",
+      "ru": "Албанский (Македония) — sq-MK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sr-Latn-BA/label",
+      "original": "Serbian Latin-script locale for Bosnia and Herzegovina.",
+      "ru": "Сербский (Босния и Герцеговина, латиница) — sr-Latn-BA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sr-Latn-ME/label",
+      "original": "Serbian Latin-script locale for Montenegro.",
+      "ru": "Сербский (Черногория, латиница) — sr-Latn-ME",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sr-Latn-RS/label",
+      "original": "Serbian Latin locale for Serbia.",
+      "ru": "Сербский (Сербия, латиница) — sr-Latn-RS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sr-ME/label",
+      "original": "Serbian locale for Montenegro.",
+      "ru": "Сербский (Черногория) — sr-ME",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sr-RS/label",
+      "original": "Serbian locale for Serbia.",
+      "ru": "Сербский (Сербия) — sr-RS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ss-ZA/label",
+      "original": "Swati locale for South Africa.",
+      "ru": "Свати (ЮАР) — ss-ZA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ssy-ER/label",
+      "original": "Afar language locale for Eritrea (Saaho Dialect).",
+      "ru": "Афарский (Эритрея, диалект сахо — Saaho) — ssy-ER",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/st-ZA/label",
+      "original": "Sotho locale for South Africa.",
+      "ru": "Сото (ЮАР) — st-ZA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sv-FI/label",
+      "original": "Swedish locale for Finland.",
+      "ru": "Шведский (Финляндия) — sv-FI",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sv-SE/label",
+      "original": "Swedish locale for Sweden.",
+      "ru": "Шведский (Швеция) — sv-SE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sw-KE/label",
+      "original": "Swahili locale for Kenya.",
+      "ru": "Суахили (Кения) — sw-KE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/sw-TZ/label",
+      "original": "Swahili locale for Tanzania.",
+      "ru": "Суахили (Танзания) — sw-TZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/szl-PL/label",
+      "original": "Silesian locale for Poland.",
+      "ru": "Силезский (Польша) — szl-PL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ta-IN/label",
+      "original": "Tamil language locale for India.",
+      "ru": "Тамильский (Индия) — ta-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ta-LK/label",
+      "original": "Tamil language locale for Sri Lanka.",
+      "ru": "Тамильский (Шри-Ланка) — ta-LK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/tcy-IN/label",
+      "original": "Tulu language locale for India.",
+      "ru": "Тулу (Индия) — tcy-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/te-IN/label",
+      "original": "Telugu language locale for India.",
+      "ru": "Телугу (Индия) — te-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/tg-TJ/label",
+      "original": "Tajik language locale for Tajikistan.",
+      "ru": "Таджикский (Таджикистан) — tg-TJ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/th-TH/label",
+      "original": "Thai locale for Thailand.",
+      "ru": "Тайский (Таиланд) — th-TH",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/the-NP/label",
+      "original": "Tharu language locale for Nepal.",
+      "ru": "Тхару (Непал) — the-NP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ti-ER/label",
+      "original": "Tigrigna language locale for Eritrea.",
+      "ru": "Тигринья (Эритрея) — ti-ER",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ti-ET/label",
+      "original": "Tigrigna language locale for Ethiopia.",
+      "ru": "Тигринья (Эфиопия) — ti-ET",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/tig-ER/label",
+      "original": "Tigre language locale for Eritrea.",
+      "ru": "Тигре (Эритрея) — tig-ER",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/tk-TM/label",
+      "original": "Turkmen locale for Turkmenistan.",
+      "ru": "Туркменский (Туркменистан) — tk-TM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/tl-PH/label",
+      "original": "Tagalog language locale for Philippines.",
+      "ru": "Тагальский (Филиппины) — tl-PH",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/tn-ZA/label",
+      "original": "Tswana locale for South Africa.",
+      "ru": "Тсвана (ЮАР) — tn-ZA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/to-TO/label",
+      "original": "Tongan language locale for Tonga.",
+      "ru": "Тонганский (Тонга) — to-TO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/tpi-PG/label",
+      "original": "Tok Pisin language locale for Papua New Guinea.",
+      "ru": "Ток-писин (Папуа — Новая Гвинея) — tpi-PG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/tr-CY/label",
+      "original": "Turkish language locale for Cyprus.",
+      "ru": "Турецкий (Кипр) — tr-CY",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/tr-TR/label",
+      "original": "Turkish locale for Turkey.",
+      "ru": "Турецкий (Турция) — tr-TR",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ts-ZA/label",
+      "original": "Tsonga locale for South Africa.",
+      "ru": "Тсонга (ЮАР) — ts-ZA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/tt-Latn-RU/label",
+      "original": "Tatar language locale using IQTElif alphabet for Russia.",
+      "ru": "Татарский (Россия, алфавит IQTElif) — tt-Latn-RU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/tt-RU/label",
+      "original": "Tatar language locale for Russia.",
+      "ru": "Татарский (Россия) — tt-RU",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ug-CN/label",
+      "original": "Uyghur locale for China.",
+      "ru": "Уйгурский (Китай) — ug-CN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/uk-UA/label",
+      "original": "Ukrainian Language Locale for Ukraine.",
+      "ru": "Украинский (Украина) — uk-UA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/unm-US/label",
+      "original": "Unami Delaware locale for the USA.",
+      "ru": "Унами (делаварский) (США) — unm-US",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ur-IN/label",
+      "original": "Urdu language locale for India.",
+      "ru": "Урду (Индия) — ur-IN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ur-PK/label",
+      "original": "Urdu Language Locale for Pakistan.",
+      "ru": "Урду (Пакистан) — ur-PK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/uz-Cyrl-UZ/label",
+      "original": "Uzbek (cyrillic) locale for Uzbekistan.",
+      "ru": "Узбекский (Узбекистан, кириллица) — uz-Cyrl-UZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/uz-Latn-UZ/label",
+      "original": "Uzbek Latin-script locale for Uzbekistan.",
+      "ru": "Узбекский (Узбекистан, латиница) — uz-Latn-UZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/uz-UZ/label",
+      "original": "Uzbek (latin) locale for Uzbekistan.",
+      "ru": "Узбекский (Узбекистан, латиница) — uz-UZ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/ve-ZA/label",
+      "original": "Venda locale for South Africa.",
+      "ru": "Венда (ЮАР) — ve-ZA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/vi-VN/label",
+      "original": "Vietnamese language locale for Vietnam.",
+      "ru": "Вьетнамский (Вьетнам) — vi-VN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/wa-BE/label",
+      "original": "Walloon Language Locale for Belgium.",
+      "ru": "Валлонский (Бельгия) — wa-BE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/wae-CH/label",
+      "original": "Walser locale for Switzerland.",
+      "ru": "Вальзерский (Швейцария) — wae-CH",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/wal-ET/label",
+      "original": "Walaita language locale for Ethiopia.",
+      "ru": "Воламо (Эфиопия) — wal-ET",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/wo-SN/label",
+      "original": "Wolof locale for Senegal.",
+      "ru": "Волоф (Сенегал) — wo-SN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/xh-ZA/label",
+      "original": "Xhosa locale for South Africa.",
+      "ru": "Коса (ЮАР) — xh-ZA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/yi-US/label",
+      "original": "Yiddish Language locale for the USA.",
+      "ru": "Идиш (США) — yi-US",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/yo-NG/label",
+      "original": "Yoruba locale for Nigeria.",
+      "ru": "Йоруба (Нигерия) — yo-NG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/yue-HK/label",
+      "original": "Yue Chinese (Cantonese) language locale for Hong Kong.",
+      "ru": "Китайский (кантонский) (Гонконг) — yue-HK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/yuw-PG/label",
+      "original": "YauNungon locale for Papua New Guinea.",
+      "ru": "Яу-нунгон (Папуа — Новая Гвинея) — yuw-PG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/zh-CN/label",
+      "original": "Chinese locale for Peoples Republic of China.",
+      "ru": "Китайский (КНР) — zh-CN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/zh-HK/label",
+      "original": "Chinese language locale for Hong Kong.",
+      "ru": "Китайский (Гонконг) — zh-HK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/zh-Hans/label",
+      "original": "Chinese locale in Simplified script.",
+      "ru": "Китайский (упрощённое письмо) — zh-Hans",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/zh-Hant-HK/label",
+      "original": "Chinese locale in Traditional script for Hong Kong.",
+      "ru": "Китайский (Гонконг, традиционное письмо) — zh-Hant-HK",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/zh-Hant/label",
+      "original": "Chinese locale in Traditional script.",
+      "ru": "Китайский (традиционное письмо) — zh-Hant",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/zh-SG/label",
+      "original": "Chinese language locale for Singapore.",
+      "ru": "Китайский (Сингапур) — zh-SG",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/zh-TW/label",
+      "original": "Chinese locale for Taiwan R.O.C.",
+      "ru": "Китайский (Тайвань, Китайская Республика) — zh-TW",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/Locale/zu-ZA/label",
+      "original": "Zulu locale for South Africa.",
+      "ru": "Зулу (ЮАР) — zu-ZA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Abidjan/label",
+      "original": "Africa/Abidjan",
+      "ru": "Абиджан (Africa/Abidjan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Accra/label",
+      "original": "Africa/Accra",
+      "ru": "Аккра (Africa/Accra)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Addis_Ababa/label",
+      "original": "Africa/Addis Ababa",
+      "ru": "Аддис-Абеба (Africa/Addis_Ababa)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Algiers/label",
+      "original": "Africa/Algiers",
+      "ru": "Алжир (Africa/Algiers)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Asmara/label",
+      "original": "Africa/Asmara",
+      "ru": "Асмэра (Africa/Asmara)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Asmera/label",
+      "original": "Africa/Asmera",
+      "ru": "Асмэра (Africa/Asmera)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Bamako/label",
+      "original": "Africa/Bamako",
+      "ru": "Бамако (Africa/Bamako)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Bangui/label",
+      "original": "Africa/Bangui",
+      "ru": "Банги (Africa/Bangui)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Banjul/label",
+      "original": "Africa/Banjul",
+      "ru": "Банжул (Africa/Banjul)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Bissau/label",
+      "original": "Africa/Bissau",
+      "ru": "Бисау (Africa/Bissau)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Blantyre/label",
+      "original": "Africa/Blantyre",
+      "ru": "Блантайр (Africa/Blantyre)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Brazzaville/label",
+      "original": "Africa/Brazzaville",
+      "ru": "Браззавиль (Africa/Brazzaville)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Bujumbura/label",
+      "original": "Africa/Bujumbura",
+      "ru": "Бужумбура (Africa/Bujumbura)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Cairo/label",
+      "original": "Africa/Cairo",
+      "ru": "Каир (Africa/Cairo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Casablanca/label",
+      "original": "Africa/Casablanca",
+      "ru": "Касабланка (Africa/Casablanca)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Ceuta/label",
+      "original": "Africa/Ceuta",
+      "ru": "Сеута (Africa/Ceuta)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Conakry/label",
+      "original": "Africa/Conakry",
+      "ru": "Конакри (Africa/Conakry)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Dakar/label",
+      "original": "Africa/Dakar",
+      "ru": "Дакар (Africa/Dakar)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Dar_es_Salaam/label",
+      "original": "Africa/Dar es Salaam",
+      "ru": "Дар-эс-Салам (Africa/Dar_es_Salaam)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Djibouti/label",
+      "original": "Africa/Djibouti",
+      "ru": "Джибути (Africa/Djibouti)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Douala/label",
+      "original": "Africa/Douala",
+      "ru": "Дуала (Africa/Douala)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/El_Aaiun/label",
+      "original": "Africa/El Aaiun",
+      "ru": "Эль-Аюн (Africa/El_Aaiun)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Freetown/label",
+      "original": "Africa/Freetown",
+      "ru": "Фритаун (Africa/Freetown)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Gaborone/label",
+      "original": "Africa/Gaborone",
+      "ru": "Габороне (Africa/Gaborone)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Harare/label",
+      "original": "Africa/Harare",
+      "ru": "Хараре (Africa/Harare)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Johannesburg/label",
+      "original": "Africa/Johannesburg",
+      "ru": "Йоханнесбург (Africa/Johannesburg)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Juba/label",
+      "original": "Africa/Juba",
+      "ru": "Джуба (Africa/Juba)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Kampala/label",
+      "original": "Africa/Kampala",
+      "ru": "Кампала (Africa/Kampala)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Khartoum/label",
+      "original": "Africa/Khartoum",
+      "ru": "Хартум (Africa/Khartoum)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Kigali/label",
+      "original": "Africa/Kigali",
+      "ru": "Кигали (Africa/Kigali)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Kinshasa/label",
+      "original": "Africa/Kinshasa",
+      "ru": "Киншаса (Africa/Kinshasa)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Lagos/label",
+      "original": "Africa/Lagos",
+      "ru": "Лагос (Africa/Lagos)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Libreville/label",
+      "original": "Africa/Libreville",
+      "ru": "Либревиль (Africa/Libreville)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Lome/label",
+      "original": "Africa/Lome",
+      "ru": "Ломе (Africa/Lome)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Luanda/label",
+      "original": "Africa/Luanda",
+      "ru": "Луанда (Africa/Luanda)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Lubumbashi/label",
+      "original": "Africa/Lubumbashi",
+      "ru": "Лубумбаши (Africa/Lubumbashi)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Lusaka/label",
+      "original": "Africa/Lusaka",
+      "ru": "Лусака (Africa/Lusaka)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Malabo/label",
+      "original": "Africa/Malabo",
+      "ru": "Малабо (Africa/Malabo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Maputo/label",
+      "original": "Africa/Maputo",
+      "ru": "Мапуту (Africa/Maputo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Maseru/label",
+      "original": "Africa/Maseru",
+      "ru": "Масеру (Africa/Maseru)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Mbabane/label",
+      "original": "Africa/Mbabane",
+      "ru": "Мбабане (Africa/Mbabane)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Mogadishu/label",
+      "original": "Africa/Mogadishu",
+      "ru": "Могадишо (Africa/Mogadishu)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Monrovia/label",
+      "original": "Africa/Monrovia",
+      "ru": "Монровия (Africa/Monrovia)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Nairobi/label",
+      "original": "Africa/Nairobi",
+      "ru": "Найроби (Africa/Nairobi)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Ndjamena/label",
+      "original": "Africa/Ndjamena",
+      "ru": "Нджамена (Africa/Ndjamena)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Niamey/label",
+      "original": "Africa/Niamey",
+      "ru": "Ниамей (Africa/Niamey)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Nouakchott/label",
+      "original": "Africa/Nouakchott",
+      "ru": "Нуакшот (Africa/Nouakchott)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Ouagadougou/label",
+      "original": "Africa/Ouagadougou",
+      "ru": "Уагадугу (Africa/Ouagadougou)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Porto-Novo/label",
+      "original": "Africa/Porto-Novo",
+      "ru": "Порто-Ново (Africa/Porto-Novo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Sao_Tome/label",
+      "original": "Africa/Sao Tome",
+      "ru": "Сан-Томе (Africa/Sao_Tome)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Timbuktu/label",
+      "original": "Africa/Timbuktu",
+      "ru": "Тимбукту (Africa/Timbuktu)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Tripoli/label",
+      "original": "Africa/Tripoli",
+      "ru": "Триполи (Africa/Tripoli)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Tunis/label",
+      "original": "Africa/Tunis",
+      "ru": "Тунис (Africa/Tunis)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Africa/Windhoek/label",
+      "original": "Africa/Windhoek",
+      "ru": "Виндхук (Africa/Windhoek)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Adak/label",
+      "original": "America/Adak",
+      "ru": "Адак (America/Adak)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Anchorage/label",
+      "original": "America/Anchorage",
+      "ru": "Анкоридж (America/Anchorage)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Anguilla/label",
+      "original": "America/Anguilla",
+      "ru": "Ангилья (America/Anguilla)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Antigua/label",
+      "original": "America/Antigua",
+      "ru": "Антигуа (America/Antigua)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Araguaina/label",
+      "original": "America/Araguaina",
+      "ru": "Арагуаина (America/Araguaina)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/Buenos_Aires/label",
+      "original": "America/Argentina/Buenos Aires",
+      "ru": "Буэнос-Айрес, Аргентина (America/Argentina/Buenos_Aires)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/Catamarca/label",
+      "original": "America/Argentina/Catamarca",
+      "ru": "Катамарка, Аргентина (America/Argentina/Catamarca)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/ComodRivadavia/label",
+      "original": "America/Argentina/ComodRivadavia",
+      "ru": "Комодоро-Ривадавия, Аргентина (America/Argentina/ComodRivadavia)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/Cordoba/label",
+      "original": "America/Argentina/Cordoba",
+      "ru": "Кордова, Аргентина (America/Argentina/Cordoba)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/Jujuy/label",
+      "original": "America/Argentina/Jujuy",
+      "ru": "Жужуй, Аргентина (America/Argentina/Jujuy)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/La_Rioja/label",
+      "original": "America/Argentina/La Rioja",
+      "ru": "Ла-Риоха, Аргентина (America/Argentina/La_Rioja)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/Mendoza/label",
+      "original": "America/Argentina/Mendoza",
+      "ru": "Мендоса, Аргентина (America/Argentina/Mendoza)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/Rio_Gallegos/label",
+      "original": "America/Argentina/Rio Gallegos",
+      "ru": "Рио-Гальегос, Аргентина (America/Argentina/Rio_Gallegos)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/Salta/label",
+      "original": "America/Argentina/Salta",
+      "ru": "Сальта, Аргентина (America/Argentina/Salta)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/San_Juan/label",
+      "original": "America/Argentina/San Juan",
+      "ru": "Сан-Хуан, Аргентина (America/Argentina/San_Juan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/San_Luis/label",
+      "original": "America/Argentina/San Luis",
+      "ru": "Сан-Луис, Аргентина (America/Argentina/San_Luis)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/Tucuman/label",
+      "original": "America/Argentina/Tucuman",
+      "ru": "Тукуман, Аргентина (America/Argentina/Tucuman)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Argentina/Ushuaia/label",
+      "original": "America/Argentina/Ushuaia",
+      "ru": "Ушуая, Аргентина (America/Argentina/Ushuaia)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Aruba/label",
+      "original": "America/Aruba",
+      "ru": "Аруба (America/Aruba)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Asuncion/label",
+      "original": "America/Asuncion",
+      "ru": "Асунсьон (America/Asuncion)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Atikokan/label",
+      "original": "America/Atikokan",
+      "ru": "Атикокан (America/Atikokan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Atka/label",
+      "original": "America/Atka",
+      "ru": "Атка (America/Atka)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Bahia/label",
+      "original": "America/Bahia",
+      "ru": "Баия (America/Bahia)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Bahia_Banderas/label",
+      "original": "America/Bahia Banderas",
+      "ru": "Баия-де-Бандерас (America/Bahia_Banderas)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Barbados/label",
+      "original": "America/Barbados",
+      "ru": "Барбадос (America/Barbados)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Belem/label",
+      "original": "America/Belem",
+      "ru": "Белен (America/Belem)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Belize/label",
+      "original": "America/Belize",
+      "ru": "Белиз (America/Belize)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Blanc-Sablon/label",
+      "original": "America/Blanc-Sablon",
+      "ru": "Блан-Саблон (America/Blanc-Sablon)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Boa_Vista/label",
+      "original": "America/Boa Vista",
+      "ru": "Боа-Виста (America/Boa_Vista)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Bogota/label",
+      "original": "America/Bogota",
+      "ru": "Богота (America/Bogota)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Boise/label",
+      "original": "America/Boise",
+      "ru": "Бойсе (America/Boise)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Buenos_Aires/label",
+      "original": "America/Buenos Aires",
+      "ru": "Буэнос-Айрес (America/Buenos_Aires)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Cambridge_Bay/label",
+      "original": "America/Cambridge Bay",
+      "ru": "Кеймбридж-Бей (America/Cambridge_Bay)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Campo_Grande/label",
+      "original": "America/Campo Grande",
+      "ru": "Кампу-Гранди (America/Campo_Grande)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Cancun/label",
+      "original": "America/Cancun",
+      "ru": "Канкун (America/Cancun)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Caracas/label",
+      "original": "America/Caracas",
+      "ru": "Каракас (America/Caracas)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Catamarca/label",
+      "original": "America/Catamarca",
+      "ru": "Катамарка (America/Catamarca)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Cayenne/label",
+      "original": "America/Cayenne",
+      "ru": "Кайенна (America/Cayenne)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Cayman/label",
+      "original": "America/Cayman",
+      "ru": "Каймановы острова (America/Cayman)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Chicago/label",
+      "original": "America/Chicago",
+      "ru": "Чикаго (America/Chicago)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Chihuahua/label",
+      "original": "America/Chihuahua",
+      "ru": "Чиуауа (America/Chihuahua)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Ciudad_Juarez/label",
+      "original": "America/Ciudad Juarez",
+      "ru": "Сьюдад-Хуарес (America/Ciudad_Juarez)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Coral_Harbour/label",
+      "original": "America/Coral Harbour",
+      "ru": "Корал-Харбор (America/Coral_Harbour)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Cordoba/label",
+      "original": "America/Cordoba",
+      "ru": "Кордова (America/Cordoba)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Costa_Rica/label",
+      "original": "America/Costa Rica",
+      "ru": "Коста-Рика (America/Costa_Rica)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Coyhaique/label",
+      "original": "America/Coyhaique",
+      "ru": "Койайке (America/Coyhaique)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Creston/label",
+      "original": "America/Creston",
+      "ru": "Крестон (America/Creston)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Cuiaba/label",
+      "original": "America/Cuiaba",
+      "ru": "Куяба (America/Cuiaba)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Curacao/label",
+      "original": "America/Curacao",
+      "ru": "Кюрасао (America/Curacao)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Danmarkshavn/label",
+      "original": "America/Danmarkshavn",
+      "ru": "Данмарксхавн (America/Danmarkshavn)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Dawson/label",
+      "original": "America/Dawson",
+      "ru": "Доусон (America/Dawson)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Dawson_Creek/label",
+      "original": "America/Dawson Creek",
+      "ru": "Доусон-Крик (America/Dawson_Creek)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Denver/label",
+      "original": "America/Denver",
+      "ru": "Денвер (America/Denver)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Detroit/label",
+      "original": "America/Detroit",
+      "ru": "Детройт (America/Detroit)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Dominica/label",
+      "original": "America/Dominica",
+      "ru": "Доминика (America/Dominica)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Edmonton/label",
+      "original": "America/Edmonton",
+      "ru": "Эдмонтон (America/Edmonton)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Eirunepe/label",
+      "original": "America/Eirunepe",
+      "ru": "Эйрунепе (America/Eirunepe)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/El_Salvador/label",
+      "original": "America/El Salvador",
+      "ru": "Сальвадор (America/El_Salvador)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Ensenada/label",
+      "original": "America/Ensenada",
+      "ru": "Энсенада (America/Ensenada)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Fort_Nelson/label",
+      "original": "America/Fort Nelson",
+      "ru": "Форт-Нельсон (America/Fort_Nelson)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Fort_Wayne/label",
+      "original": "America/Fort Wayne",
+      "ru": "Форт-Уэйн (America/Fort_Wayne)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Fortaleza/label",
+      "original": "America/Fortaleza",
+      "ru": "Форталеза (America/Fortaleza)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Glace_Bay/label",
+      "original": "America/Glace Bay",
+      "ru": "Глейс-Бей (America/Glace_Bay)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Godthab/label",
+      "original": "America/Godthab",
+      "ru": "Готхоб (America/Godthab)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Goose_Bay/label",
+      "original": "America/Goose Bay",
+      "ru": "Гус-Бей (America/Goose_Bay)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Grand_Turk/label",
+      "original": "America/Grand Turk",
+      "ru": "Гранд-Терк (America/Grand_Turk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Grenada/label",
+      "original": "America/Grenada",
+      "ru": "Гренада (America/Grenada)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Guadeloupe/label",
+      "original": "America/Guadeloupe",
+      "ru": "Гваделупа (America/Guadeloupe)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Guatemala/label",
+      "original": "America/Guatemala",
+      "ru": "Гватемала (America/Guatemala)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Guayaquil/label",
+      "original": "America/Guayaquil",
+      "ru": "Гуаякиль (America/Guayaquil)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Guyana/label",
+      "original": "America/Guyana",
+      "ru": "Гайана (America/Guyana)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Halifax/label",
+      "original": "America/Halifax",
+      "ru": "Галифакс (America/Halifax)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Havana/label",
+      "original": "America/Havana",
+      "ru": "Гавана (America/Havana)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Hermosillo/label",
+      "original": "America/Hermosillo",
+      "ru": "Эрмосильо (America/Hermosillo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Indiana/Indianapolis/label",
+      "original": "America/Indiana/Indianapolis",
+      "ru": "Индианаполис, Индиана (America/Indiana/Indianapolis)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Indiana/Knox/label",
+      "original": "America/Indiana/Knox",
+      "ru": "Нокс, Индиана (America/Indiana/Knox)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Indiana/Marengo/label",
+      "original": "America/Indiana/Marengo",
+      "ru": "Маренго, Индиана (America/Indiana/Marengo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Indiana/Petersburg/label",
+      "original": "America/Indiana/Petersburg",
+      "ru": "Питерсберг, Индиана (America/Indiana/Petersburg)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Indiana/Tell_City/label",
+      "original": "America/Indiana/Tell City",
+      "ru": "Телл-Сити, Индиана (America/Indiana/Tell_City)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Indiana/Vevay/label",
+      "original": "America/Indiana/Vevay",
+      "ru": "Вивей, Индиана (America/Indiana/Vevay)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Indiana/Vincennes/label",
+      "original": "America/Indiana/Vincennes",
+      "ru": "Винсенс, Индиана (America/Indiana/Vincennes)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Indiana/Winamac/label",
+      "original": "America/Indiana/Winamac",
+      "ru": "Уинамак, Индиана (America/Indiana/Winamac)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Indianapolis/label",
+      "original": "America/Indianapolis",
+      "ru": "Индианаполис (America/Indianapolis)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Inuvik/label",
+      "original": "America/Inuvik",
+      "ru": "Инувик (America/Inuvik)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Iqaluit/label",
+      "original": "America/Iqaluit",
+      "ru": "Икалуит (America/Iqaluit)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Jamaica/label",
+      "original": "America/Jamaica",
+      "ru": "Ямайка (America/Jamaica)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Jujuy/label",
+      "original": "America/Jujuy",
+      "ru": "Жужуй (America/Jujuy)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Juneau/label",
+      "original": "America/Juneau",
+      "ru": "Джуно (America/Juneau)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Kentucky/Louisville/label",
+      "original": "America/Kentucky/Louisville",
+      "ru": "Луисвилл, Кентукки (America/Kentucky/Louisville)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Kentucky/Monticello/label",
+      "original": "America/Kentucky/Monticello",
+      "ru": "Монтичелло, Кентукки (America/Kentucky/Monticello)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Knox_IN/label",
+      "original": "America/Knox IN",
+      "ru": "Нокс, Индиана (America/Knox_IN)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Kralendijk/label",
+      "original": "America/Kralendijk",
+      "ru": "Кралендейк (America/Kralendijk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/La_Paz/label",
+      "original": "America/La Paz",
+      "ru": "Ла-Пас (America/La_Paz)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Lima/label",
+      "original": "America/Lima",
+      "ru": "Лима (America/Lima)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Los_Angeles/label",
+      "original": "America/Los Angeles",
+      "ru": "Лос-Анджелес (America/Los_Angeles)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Louisville/label",
+      "original": "America/Louisville",
+      "ru": "Луисвилл (America/Louisville)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Lower_Princes/label",
+      "original": "America/Lower Princes",
+      "ru": "Лоуэр-Принсес (America/Lower_Princes)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Maceio/label",
+      "original": "America/Maceio",
+      "ru": "Масейо (America/Maceio)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Managua/label",
+      "original": "America/Managua",
+      "ru": "Манагуа (America/Managua)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Manaus/label",
+      "original": "America/Manaus",
+      "ru": "Манаус (America/Manaus)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Marigot/label",
+      "original": "America/Marigot",
+      "ru": "Мариго (America/Marigot)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Martinique/label",
+      "original": "America/Martinique",
+      "ru": "Мартиника (America/Martinique)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Matamoros/label",
+      "original": "America/Matamoros",
+      "ru": "Матаморос (America/Matamoros)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Mazatlan/label",
+      "original": "America/Mazatlan",
+      "ru": "Масатлан (America/Mazatlan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Mendoza/label",
+      "original": "America/Mendoza",
+      "ru": "Мендоса (America/Mendoza)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Menominee/label",
+      "original": "America/Menominee",
+      "ru": "Меномини (America/Menominee)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Merida/label",
+      "original": "America/Merida",
+      "ru": "Мерида (America/Merida)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Metlakatla/label",
+      "original": "America/Metlakatla",
+      "ru": "Метлакатла (America/Metlakatla)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Mexico_City/label",
+      "original": "America/Mexico City",
+      "ru": "Мехико (America/Mexico_City)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Miquelon/label",
+      "original": "America/Miquelon",
+      "ru": "Микелон (America/Miquelon)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Moncton/label",
+      "original": "America/Moncton",
+      "ru": "Монктон (America/Moncton)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Monterrey/label",
+      "original": "America/Monterrey",
+      "ru": "Монтеррей (America/Monterrey)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Montevideo/label",
+      "original": "America/Montevideo",
+      "ru": "Монтевидео (America/Montevideo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Montreal/label",
+      "original": "America/Montreal",
+      "ru": "Монреаль (America/Montreal)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Montserrat/label",
+      "original": "America/Montserrat",
+      "ru": "Монтсеррат (America/Montserrat)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Nassau/label",
+      "original": "America/Nassau",
+      "ru": "Нассау (America/Nassau)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/New_York/label",
+      "original": "America/New York",
+      "ru": "Нью-Йорк (America/New_York)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Nipigon/label",
+      "original": "America/Nipigon",
+      "ru": "Нипигон (America/Nipigon)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Nome/label",
+      "original": "America/Nome",
+      "ru": "Ном (America/Nome)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Noronha/label",
+      "original": "America/Noronha",
+      "ru": "Фернанду-ди-Норонья (America/Noronha)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/North_Dakota/Beulah/label",
+      "original": "America/North Dakota/Beulah",
+      "ru": "Бьюла, Северная Дакота (America/North_Dakota/Beulah)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/North_Dakota/Center/label",
+      "original": "America/North Dakota/Center",
+      "ru": "Сентер, Северная Дакота (America/North_Dakota/Center)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/North_Dakota/New_Salem/label",
+      "original": "America/North Dakota/New Salem",
+      "ru": "Нью-Сейлем, Северная Дакота (America/North_Dakota/New_Salem)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Nuuk/label",
+      "original": "America/Nuuk",
+      "ru": "Нуук (America/Nuuk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Ojinaga/label",
+      "original": "America/Ojinaga",
+      "ru": "Охинага (America/Ojinaga)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Panama/label",
+      "original": "America/Panama",
+      "ru": "Панама (America/Panama)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Pangnirtung/label",
+      "original": "America/Pangnirtung",
+      "ru": "Пангниртунг (America/Pangnirtung)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Paramaribo/label",
+      "original": "America/Paramaribo",
+      "ru": "Парамарибо (America/Paramaribo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Phoenix/label",
+      "original": "America/Phoenix",
+      "ru": "Финикс (America/Phoenix)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Port-au-Prince/label",
+      "original": "America/Port-au-Prince",
+      "ru": "Порт-о-Пренс (America/Port-au-Prince)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Port_of_Spain/label",
+      "original": "America/Port of Spain",
+      "ru": "Порт-оф-Спейн (America/Port_of_Spain)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Porto_Acre/label",
+      "original": "America/Porto Acre",
+      "ru": "Порту-Акри (America/Porto_Acre)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Porto_Velho/label",
+      "original": "America/Porto Velho",
+      "ru": "Порту-Велью (America/Porto_Velho)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Puerto_Rico/label",
+      "original": "America/Puerto Rico",
+      "ru": "Пуэрто-Рико (America/Puerto_Rico)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Punta_Arenas/label",
+      "original": "America/Punta Arenas",
+      "ru": "Пунта-Аренас (America/Punta_Arenas)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Rainy_River/label",
+      "original": "America/Rainy River",
+      "ru": "Рейни-Ривер (America/Rainy_River)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Rankin_Inlet/label",
+      "original": "America/Rankin Inlet",
+      "ru": "Ранкин-Инлет (America/Rankin_Inlet)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Recife/label",
+      "original": "America/Recife",
+      "ru": "Ресифи (America/Recife)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Regina/label",
+      "original": "America/Regina",
+      "ru": "Реджайна (America/Regina)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Resolute/label",
+      "original": "America/Resolute",
+      "ru": "Резольют (America/Resolute)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Rio_Branco/label",
+      "original": "America/Rio Branco",
+      "ru": "Риу-Бранку (America/Rio_Branco)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Rosario/label",
+      "original": "America/Rosario",
+      "ru": "Росарио (America/Rosario)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Santa_Isabel/label",
+      "original": "America/Santa Isabel",
+      "ru": "Санта-Исабель (America/Santa_Isabel)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Santarem/label",
+      "original": "America/Santarem",
+      "ru": "Сантарен (America/Santarem)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Santiago/label",
+      "original": "America/Santiago",
+      "ru": "Сантьяго (America/Santiago)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Santo_Domingo/label",
+      "original": "America/Santo Domingo",
+      "ru": "Санто-Доминго (America/Santo_Domingo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Sao_Paulo/label",
+      "original": "America/Sao Paulo",
+      "ru": "Сан-Паулу (America/Sao_Paulo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Scoresbysund/label",
+      "original": "America/Scoresbysund",
+      "ru": "Скорсбисунн (America/Scoresbysund)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Shiprock/label",
+      "original": "America/Shiprock",
+      "ru": "Шипрок (America/Shiprock)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Sitka/label",
+      "original": "America/Sitka",
+      "ru": "Ситка (America/Sitka)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/St_Barthelemy/label",
+      "original": "America/St Barthelemy",
+      "ru": "Сен-Бартелеми (America/St_Barthelemy)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/St_Johns/label",
+      "original": "America/St Johns",
+      "ru": "Сент-Джонс (America/St_Johns)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/St_Kitts/label",
+      "original": "America/St Kitts",
+      "ru": "Сент-Китс (America/St_Kitts)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/St_Lucia/label",
+      "original": "America/St Lucia",
+      "ru": "Сент-Люсия (America/St_Lucia)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/St_Thomas/label",
+      "original": "America/St Thomas",
+      "ru": "Сент-Томас (America/St_Thomas)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/St_Vincent/label",
+      "original": "America/St Vincent",
+      "ru": "Сент-Винсент (America/St_Vincent)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Swift_Current/label",
+      "original": "America/Swift Current",
+      "ru": "Суифт-Каррент (America/Swift_Current)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Tegucigalpa/label",
+      "original": "America/Tegucigalpa",
+      "ru": "Тегусигальпа (America/Tegucigalpa)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Thule/label",
+      "original": "America/Thule",
+      "ru": "Туле (America/Thule)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Thunder_Bay/label",
+      "original": "America/Thunder Bay",
+      "ru": "Тандер-Бей (America/Thunder_Bay)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Tijuana/label",
+      "original": "America/Tijuana",
+      "ru": "Тихуана (America/Tijuana)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Toronto/label",
+      "original": "America/Toronto",
+      "ru": "Торонто (America/Toronto)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Tortola/label",
+      "original": "America/Tortola",
+      "ru": "Тортола (America/Tortola)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Vancouver/label",
+      "original": "America/Vancouver",
+      "ru": "Ванкувер (America/Vancouver)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Virgin/label",
+      "original": "America/Virgin",
+      "ru": "Виргинские острова (America/Virgin)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Whitehorse/label",
+      "original": "America/Whitehorse",
+      "ru": "Уайтхорс (America/Whitehorse)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Winnipeg/label",
+      "original": "America/Winnipeg",
+      "ru": "Виннипег (America/Winnipeg)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Yakutat/label",
+      "original": "America/Yakutat",
+      "ru": "Якутат (America/Yakutat)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/America/Yellowknife/label",
+      "original": "America/Yellowknife",
+      "ru": "Йеллоунайф (America/Yellowknife)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/Casey/label",
+      "original": "Antarctica/Casey",
+      "ru": "Кейси (Antarctica/Casey)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/Davis/label",
+      "original": "Antarctica/Davis",
+      "ru": "Дейвис (Antarctica/Davis)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/DumontDUrville/label",
+      "original": "Antarctica/DumontDUrville",
+      "ru": "Дюмон-д’Юрвиль (Antarctica/DumontDUrville)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/Macquarie/label",
+      "original": "Antarctica/Macquarie",
+      "ru": "Маккуори (Antarctica/Macquarie)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/Mawson/label",
+      "original": "Antarctica/Mawson",
+      "ru": "Моусон (Antarctica/Mawson)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/McMurdo/label",
+      "original": "Antarctica/McMurdo",
+      "ru": "Мак-Мердо (Antarctica/McMurdo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/Palmer/label",
+      "original": "Antarctica/Palmer",
+      "ru": "Палмер (Antarctica/Palmer)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/Rothera/label",
+      "original": "Antarctica/Rothera",
+      "ru": "Ротера (Antarctica/Rothera)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/South_Pole/label",
+      "original": "Antarctica/South Pole",
+      "ru": "Южный полюс (Antarctica/South_Pole)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/Syowa/label",
+      "original": "Antarctica/Syowa",
+      "ru": "Сёва (Antarctica/Syowa)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/Troll/label",
+      "original": "Antarctica/Troll",
+      "ru": "Тролль (Antarctica/Troll)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Antarctica/Vostok/label",
+      "original": "Antarctica/Vostok",
+      "ru": "Восток (Antarctica/Vostok)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Arctic/Longyearbyen/label",
+      "original": "Arctic/Longyearbyen",
+      "ru": "Лонгйир (Arctic/Longyearbyen)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Aden/label",
+      "original": "Asia/Aden",
+      "ru": "Аден (Asia/Aden)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Almaty/label",
+      "original": "Asia/Almaty",
+      "ru": "Алматы (Asia/Almaty)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Amman/label",
+      "original": "Asia/Amman",
+      "ru": "Амман (Asia/Amman)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Anadyr/label",
+      "original": "Asia/Anadyr",
+      "ru": "Анадырь (Asia/Anadyr)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Aqtau/label",
+      "original": "Asia/Aqtau",
+      "ru": "Актау (Asia/Aqtau)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Aqtobe/label",
+      "original": "Asia/Aqtobe",
+      "ru": "Актобе (Asia/Aqtobe)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Ashgabat/label",
+      "original": "Asia/Ashgabat",
+      "ru": "Ашхабад (Asia/Ashgabat)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Ashkhabad/label",
+      "original": "Asia/Ashkhabad",
+      "ru": "Ашхабад (Asia/Ashkhabad)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Atyrau/label",
+      "original": "Asia/Atyrau",
+      "ru": "Атырау (Asia/Atyrau)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Baghdad/label",
+      "original": "Asia/Baghdad",
+      "ru": "Багдад (Asia/Baghdad)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Bahrain/label",
+      "original": "Asia/Bahrain",
+      "ru": "Бахрейн (Asia/Bahrain)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Baku/label",
+      "original": "Asia/Baku",
+      "ru": "Баку (Asia/Baku)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Bangkok/label",
+      "original": "Asia/Bangkok",
+      "ru": "Бангкок (Asia/Bangkok)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Barnaul/label",
+      "original": "Asia/Barnaul",
+      "ru": "Барнаул (Asia/Barnaul)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Beirut/label",
+      "original": "Asia/Beirut",
+      "ru": "Бейрут (Asia/Beirut)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Bishkek/label",
+      "original": "Asia/Bishkek",
+      "ru": "Бишкек (Asia/Bishkek)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Brunei/label",
+      "original": "Asia/Brunei",
+      "ru": "Бруней (Asia/Brunei)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Calcutta/label",
+      "original": "Asia/Calcutta",
+      "ru": "Калькутта (Asia/Calcutta)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Chita/label",
+      "original": "Asia/Chita",
+      "ru": "Чита (Asia/Chita)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Choibalsan/label",
+      "original": "Asia/Choibalsan",
+      "ru": "Чойбалсан (Asia/Choibalsan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Chongqing/label",
+      "original": "Asia/Chongqing",
+      "ru": "Чунцин (Asia/Chongqing)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Chungking/label",
+      "original": "Asia/Chungking",
+      "ru": "Чунцин (Asia/Chungking)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Colombo/label",
+      "original": "Asia/Colombo",
+      "ru": "Коломбо (Asia/Colombo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Dacca/label",
+      "original": "Asia/Dacca",
+      "ru": "Дакка (Asia/Dacca)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Damascus/label",
+      "original": "Asia/Damascus",
+      "ru": "Дамаск (Asia/Damascus)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Dhaka/label",
+      "original": "Asia/Dhaka",
+      "ru": "Дакка (Asia/Dhaka)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Dili/label",
+      "original": "Asia/Dili",
+      "ru": "Дили (Asia/Dili)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Dubai/label",
+      "original": "Asia/Dubai",
+      "ru": "Дубай (Asia/Dubai)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Dushanbe/label",
+      "original": "Asia/Dushanbe",
+      "ru": "Душанбе (Asia/Dushanbe)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Famagusta/label",
+      "original": "Asia/Famagusta",
+      "ru": "Фамагуста (Asia/Famagusta)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Gaza/label",
+      "original": "Asia/Gaza",
+      "ru": "Газа (Asia/Gaza)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Harbin/label",
+      "original": "Asia/Harbin",
+      "ru": "Харбин (Asia/Harbin)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Hebron/label",
+      "original": "Asia/Hebron",
+      "ru": "Хеврон (Asia/Hebron)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Ho_Chi_Minh/label",
+      "original": "Asia/Ho Chi Minh",
+      "ru": "Хошимин (Asia/Ho_Chi_Minh)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Hong_Kong/label",
+      "original": "Asia/Hong Kong",
+      "ru": "Гонконг (Asia/Hong_Kong)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Hovd/label",
+      "original": "Asia/Hovd",
+      "ru": "Ховд (Asia/Hovd)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Irkutsk/label",
+      "original": "Asia/Irkutsk",
+      "ru": "Иркутск (Asia/Irkutsk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Istanbul/label",
+      "original": "Asia/Istanbul",
+      "ru": "Стамбул (Asia/Istanbul)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Jakarta/label",
+      "original": "Asia/Jakarta",
+      "ru": "Джакарта (Asia/Jakarta)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Jayapura/label",
+      "original": "Asia/Jayapura",
+      "ru": "Джаяпура (Asia/Jayapura)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Jerusalem/label",
+      "original": "Asia/Jerusalem",
+      "ru": "Иерусалим (Asia/Jerusalem)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Kabul/label",
+      "original": "Asia/Kabul",
+      "ru": "Кабул (Asia/Kabul)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Kamchatka/label",
+      "original": "Asia/Kamchatka",
+      "ru": "Камчатка (Asia/Kamchatka)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Karachi/label",
+      "original": "Asia/Karachi",
+      "ru": "Карачи (Asia/Karachi)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Kashgar/label",
+      "original": "Asia/Kashgar",
+      "ru": "Кашгар (Asia/Kashgar)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Kathmandu/label",
+      "original": "Asia/Kathmandu",
+      "ru": "Катманду (Asia/Kathmandu)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Katmandu/label",
+      "original": "Asia/Katmandu",
+      "ru": "Катманду (Asia/Katmandu)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Khandyga/label",
+      "original": "Asia/Khandyga",
+      "ru": "Хандыга (Asia/Khandyga)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Kolkata/label",
+      "original": "Asia/Kolkata",
+      "ru": "Калькутта (Asia/Kolkata)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Krasnoyarsk/label",
+      "original": "Asia/Krasnoyarsk",
+      "ru": "Красноярск (Asia/Krasnoyarsk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Kuala_Lumpur/label",
+      "original": "Asia/Kuala Lumpur",
+      "ru": "Куала-Лумпур (Asia/Kuala_Lumpur)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Kuching/label",
+      "original": "Asia/Kuching",
+      "ru": "Кучинг (Asia/Kuching)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Kuwait/label",
+      "original": "Asia/Kuwait",
+      "ru": "Кувейт (Asia/Kuwait)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Macao/label",
+      "original": "Asia/Macao",
+      "ru": "Макао (Asia/Macao)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Macau/label",
+      "original": "Asia/Macau",
+      "ru": "Макао (Asia/Macau)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Magadan/label",
+      "original": "Asia/Magadan",
+      "ru": "Магадан (Asia/Magadan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Makassar/label",
+      "original": "Asia/Makassar",
+      "ru": "Макасар (Asia/Makassar)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Manila/label",
+      "original": "Asia/Manila",
+      "ru": "Манила (Asia/Manila)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Muscat/label",
+      "original": "Asia/Muscat",
+      "ru": "Маскат (Asia/Muscat)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Nicosia/label",
+      "original": "Asia/Nicosia",
+      "ru": "Никосия (Asia/Nicosia)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Novokuznetsk/label",
+      "original": "Asia/Novokuznetsk",
+      "ru": "Новокузнецк (Asia/Novokuznetsk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Novosibirsk/label",
+      "original": "Asia/Novosibirsk",
+      "ru": "Новосибирск (Asia/Novosibirsk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Omsk/label",
+      "original": "Asia/Omsk",
+      "ru": "Омск (Asia/Omsk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Oral/label",
+      "original": "Asia/Oral",
+      "ru": "Уральск (Asia/Oral)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Phnom_Penh/label",
+      "original": "Asia/Phnom Penh",
+      "ru": "Пномпень (Asia/Phnom_Penh)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Pontianak/label",
+      "original": "Asia/Pontianak",
+      "ru": "Понтианак (Asia/Pontianak)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Pyongyang/label",
+      "original": "Asia/Pyongyang",
+      "ru": "Пхеньян (Asia/Pyongyang)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Qatar/label",
+      "original": "Asia/Qatar",
+      "ru": "Катар (Asia/Qatar)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Qostanay/label",
+      "original": "Asia/Qostanay",
+      "ru": "Костанай (Asia/Qostanay)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Qyzylorda/label",
+      "original": "Asia/Qyzylorda",
+      "ru": "Кызылорда (Asia/Qyzylorda)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Rangoon/label",
+      "original": "Asia/Rangoon",
+      "ru": "Рангун (Asia/Rangoon)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Riyadh/label",
+      "original": "Asia/Riyadh",
+      "ru": "Эр-Рияд (Asia/Riyadh)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Saigon/label",
+      "original": "Asia/Saigon",
+      "ru": "Сайгон (Asia/Saigon)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Sakhalin/label",
+      "original": "Asia/Sakhalin",
+      "ru": "Сахалин (Asia/Sakhalin)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Samarkand/label",
+      "original": "Asia/Samarkand",
+      "ru": "Самарканд (Asia/Samarkand)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Seoul/label",
+      "original": "Asia/Seoul",
+      "ru": "Сеул (Asia/Seoul)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Shanghai/label",
+      "original": "Asia/Shanghai",
+      "ru": "Шанхай (Asia/Shanghai)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Singapore/label",
+      "original": "Asia/Singapore",
+      "ru": "Сингапур (Asia/Singapore)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Srednekolymsk/label",
+      "original": "Asia/Srednekolymsk",
+      "ru": "Среднеколымск (Asia/Srednekolymsk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Taipei/label",
+      "original": "Asia/Taipei",
+      "ru": "Тайбэй (Asia/Taipei)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Tashkent/label",
+      "original": "Asia/Tashkent",
+      "ru": "Ташкент (Asia/Tashkent)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Tbilisi/label",
+      "original": "Asia/Tbilisi",
+      "ru": "Тбилиси (Asia/Tbilisi)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Tehran/label",
+      "original": "Asia/Tehran",
+      "ru": "Тегеран (Asia/Tehran)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Tel_Aviv/label",
+      "original": "Asia/Tel Aviv",
+      "ru": "Тель-Авив (Asia/Tel_Aviv)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Thimbu/label",
+      "original": "Asia/Thimbu",
+      "ru": "Тхимпху (Asia/Thimbu)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Thimphu/label",
+      "original": "Asia/Thimphu",
+      "ru": "Тхимпху (Asia/Thimphu)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Tokyo/label",
+      "original": "Asia/Tokyo",
+      "ru": "Токио (Asia/Tokyo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Tomsk/label",
+      "original": "Asia/Tomsk",
+      "ru": "Томск (Asia/Tomsk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Ujung_Pandang/label",
+      "original": "Asia/Ujung Pandang",
+      "ru": "Уджунгпанданг (Asia/Ujung_Pandang)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Ulaanbaatar/label",
+      "original": "Asia/Ulaanbaatar",
+      "ru": "Улан-Батор (Asia/Ulaanbaatar)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Ulan_Bator/label",
+      "original": "Asia/Ulan Bator",
+      "ru": "Улан-Батор (Asia/Ulan_Bator)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Urumqi/label",
+      "original": "Asia/Urumqi",
+      "ru": "Урумчи (Asia/Urumqi)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Ust-Nera/label",
+      "original": "Asia/Ust-Nera",
+      "ru": "Усть-Нера (Asia/Ust-Nera)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Vientiane/label",
+      "original": "Asia/Vientiane",
+      "ru": "Вьентьян (Asia/Vientiane)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Vladivostok/label",
+      "original": "Asia/Vladivostok",
+      "ru": "Владивосток (Asia/Vladivostok)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Yakutsk/label",
+      "original": "Asia/Yakutsk",
+      "ru": "Якутск (Asia/Yakutsk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Yangon/label",
+      "original": "Asia/Yangon",
+      "ru": "Янгон (Asia/Yangon)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Yekaterinburg/label",
+      "original": "Asia/Yekaterinburg",
+      "ru": "Екатеринбург (Asia/Yekaterinburg)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Asia/Yerevan/label",
+      "original": "Asia/Yerevan",
+      "ru": "Ереван (Asia/Yerevan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/Azores/label",
+      "original": "Atlantic/Azores",
+      "ru": "Азорские острова (Atlantic/Azores)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/Bermuda/label",
+      "original": "Atlantic/Bermuda",
+      "ru": "Бермудские острова (Atlantic/Bermuda)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/Canary/label",
+      "original": "Atlantic/Canary",
+      "ru": "Канарские острова (Atlantic/Canary)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/Cape_Verde/label",
+      "original": "Atlantic/Cape Verde",
+      "ru": "Кабо-Верде (Atlantic/Cape_Verde)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/Faeroe/label",
+      "original": "Atlantic/Faeroe",
+      "ru": "Фарерские острова (Atlantic/Faeroe)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/Faroe/label",
+      "original": "Atlantic/Faroe",
+      "ru": "Фарерские острова (Atlantic/Faroe)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/Jan_Mayen/label",
+      "original": "Atlantic/Jan Mayen",
+      "ru": "Ян-Майен (Atlantic/Jan_Mayen)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/Madeira/label",
+      "original": "Atlantic/Madeira",
+      "ru": "Мадейра (Atlantic/Madeira)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/Reykjavik/label",
+      "original": "Atlantic/Reykjavik",
+      "ru": "Рейкьявик (Atlantic/Reykjavik)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/South_Georgia/label",
+      "original": "Atlantic/South Georgia",
+      "ru": "Южная Георгия (Atlantic/South_Georgia)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/St_Helena/label",
+      "original": "Atlantic/St Helena",
+      "ru": "Остров Святой Елены (Atlantic/St_Helena)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Atlantic/Stanley/label",
+      "original": "Atlantic/Stanley",
+      "ru": "Стэнли (Atlantic/Stanley)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/ACT/label",
+      "original": "Australia/ACT",
+      "ru": "Австралийская столичная территория (Australia/ACT)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Adelaide/label",
+      "original": "Australia/Adelaide",
+      "ru": "Аделаида (Australia/Adelaide)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Brisbane/label",
+      "original": "Australia/Brisbane",
+      "ru": "Брисбен (Australia/Brisbane)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Broken_Hill/label",
+      "original": "Australia/Broken Hill",
+      "ru": "Брокен-Хилл (Australia/Broken_Hill)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Canberra/label",
+      "original": "Australia/Canberra",
+      "ru": "Канберра (Australia/Canberra)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Currie/label",
+      "original": "Australia/Currie",
+      "ru": "Карри (Australia/Currie)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Darwin/label",
+      "original": "Australia/Darwin",
+      "ru": "Дарвин (Australia/Darwin)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Eucla/label",
+      "original": "Australia/Eucla",
+      "ru": "Юкла (Australia/Eucla)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Hobart/label",
+      "original": "Australia/Hobart",
+      "ru": "Хобарт (Australia/Hobart)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/LHI/label",
+      "original": "Australia/LHI",
+      "ru": "Остров Лорд-Хау (Australia/LHI)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Lindeman/label",
+      "original": "Australia/Lindeman",
+      "ru": "Линдеман (Australia/Lindeman)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Lord_Howe/label",
+      "original": "Australia/Lord Howe",
+      "ru": "Остров Лорд-Хау (Australia/Lord_Howe)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Melbourne/label",
+      "original": "Australia/Melbourne",
+      "ru": "Мельбурн (Australia/Melbourne)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/NSW/label",
+      "original": "Australia/NSW",
+      "ru": "Новый Южный Уэльс (Australia/NSW)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/North/label",
+      "original": "Australia/North",
+      "ru": "Северная территория (Australia/North)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Perth/label",
+      "original": "Australia/Perth",
+      "ru": "Перт (Australia/Perth)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Queensland/label",
+      "original": "Australia/Queensland",
+      "ru": "Квинсленд (Australia/Queensland)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/South/label",
+      "original": "Australia/South",
+      "ru": "Южная Австралия (Australia/South)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Sydney/label",
+      "original": "Australia/Sydney",
+      "ru": "Сидней (Australia/Sydney)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Tasmania/label",
+      "original": "Australia/Tasmania",
+      "ru": "Тасмания (Australia/Tasmania)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Victoria/label",
+      "original": "Australia/Victoria",
+      "ru": "Виктория (Australia/Victoria)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/West/label",
+      "original": "Australia/West",
+      "ru": "Западная Австралия (Australia/West)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Australia/Yancowinna/label",
+      "original": "Australia/Yancowinna",
+      "ru": "Янковинна (Australia/Yancowinna)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Brazil/Acre/label",
+      "original": "Brazil/Acre",
+      "ru": "Акри, Бразилия (Brazil/Acre)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Brazil/DeNoronha/label",
+      "original": "Brazil/DeNoronha",
+      "ru": "Фернанду-ди-Норонья, Бразилия (Brazil/DeNoronha)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Brazil/East/label",
+      "original": "Brazil/East",
+      "ru": "Восточная Бразилия (Brazil/East)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Brazil/West/label",
+      "original": "Brazil/West",
+      "ru": "Западная Бразилия (Brazil/West)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/CET/label",
+      "original": "CET",
+      "ru": "Центральноевропейское время (CET)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/CST6CDT/label",
+      "original": "CST6CDT",
+      "ru": "Центральное время США с сезонным переходом (CST6CDT)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Canada/Atlantic/label",
+      "original": "Canada/Atlantic",
+      "ru": "Атлантическая зона, Канада (Canada/Atlantic)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Canada/Central/label",
+      "original": "Canada/Central",
+      "ru": "Центральная зона, Канада (Canada/Central)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Canada/Eastern/label",
+      "original": "Canada/Eastern",
+      "ru": "Восточная зона, Канада (Canada/Eastern)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Canada/Mountain/label",
+      "original": "Canada/Mountain",
+      "ru": "Горная зона, Канада (Canada/Mountain)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Canada/Newfoundland/label",
+      "original": "Canada/Newfoundland",
+      "ru": "Ньюфаундленд (Canada/Newfoundland)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Canada/Pacific/label",
+      "original": "Canada/Pacific",
+      "ru": "Тихоокеанская зона, Канада (Canada/Pacific)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Canada/Saskatchewan/label",
+      "original": "Canada/Saskatchewan",
+      "ru": "Саскачеван (Canada/Saskatchewan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Canada/Yukon/label",
+      "original": "Canada/Yukon",
+      "ru": "Юкон (Canada/Yukon)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Chile/Continental/label",
+      "original": "Chile/Continental",
+      "ru": "Континентальное Чили (Chile/Continental)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Chile/EasterIsland/label",
+      "original": "Chile/EasterIsland",
+      "ru": "Остров Пасхи, Чили (Chile/EasterIsland)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Cuba/label",
+      "original": "Cuba",
+      "ru": "Куба (Cuba)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/EET/label",
+      "original": "EET",
+      "ru": "Восточноевропейское время (EET)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/EST/label",
+      "original": "EST",
+      "ru": "Восточное стандартное время (EST)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/EST5EDT/label",
+      "original": "EST5EDT",
+      "ru": "Восточное время США с сезонным переходом (EST5EDT)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Egypt/label",
+      "original": "Egypt",
+      "ru": "Египет (Egypt)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Eire/label",
+      "original": "Eire",
+      "ru": "Ирландия (Eire)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+0/label",
+      "original": "Etc/GMT+0",
+      "ru": "Среднее время по Гринвичу (Etc/GMT+0)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+1/label",
+      "original": "Etc/GMT+1",
+      "ru": "Фиксированная зона GMT (Etc/GMT+1)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+10/label",
+      "original": "Etc/GMT+10",
+      "ru": "Фиксированная зона GMT (Etc/GMT+10)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+11/label",
+      "original": "Etc/GMT+11",
+      "ru": "Фиксированная зона GMT (Etc/GMT+11)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+12/label",
+      "original": "Etc/GMT+12",
+      "ru": "Фиксированная зона GMT (Etc/GMT+12)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+2/label",
+      "original": "Etc/GMT+2",
+      "ru": "Фиксированная зона GMT (Etc/GMT+2)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+3/label",
+      "original": "Etc/GMT+3",
+      "ru": "Фиксированная зона GMT (Etc/GMT+3)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+4/label",
+      "original": "Etc/GMT+4",
+      "ru": "Фиксированная зона GMT (Etc/GMT+4)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+5/label",
+      "original": "Etc/GMT+5",
+      "ru": "Фиксированная зона GMT (Etc/GMT+5)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+6/label",
+      "original": "Etc/GMT+6",
+      "ru": "Фиксированная зона GMT (Etc/GMT+6)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+7/label",
+      "original": "Etc/GMT+7",
+      "ru": "Фиксированная зона GMT (Etc/GMT+7)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+8/label",
+      "original": "Etc/GMT+8",
+      "ru": "Фиксированная зона GMT (Etc/GMT+8)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT+9/label",
+      "original": "Etc/GMT+9",
+      "ru": "Фиксированная зона GMT (Etc/GMT+9)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-0/label",
+      "original": "Etc/GMT-0",
+      "ru": "Среднее время по Гринвичу (Etc/GMT-0)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-1/label",
+      "original": "Etc/GMT-1",
+      "ru": "Фиксированная зона GMT (Etc/GMT-1)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-10/label",
+      "original": "Etc/GMT-10",
+      "ru": "Фиксированная зона GMT (Etc/GMT-10)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-11/label",
+      "original": "Etc/GMT-11",
+      "ru": "Фиксированная зона GMT (Etc/GMT-11)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-12/label",
+      "original": "Etc/GMT-12",
+      "ru": "Фиксированная зона GMT (Etc/GMT-12)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-13/label",
+      "original": "Etc/GMT-13",
+      "ru": "Фиксированная зона GMT (Etc/GMT-13)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-14/label",
+      "original": "Etc/GMT-14",
+      "ru": "Фиксированная зона GMT (Etc/GMT-14)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-2/label",
+      "original": "Etc/GMT-2",
+      "ru": "Фиксированная зона GMT (Etc/GMT-2)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-3/label",
+      "original": "Etc/GMT-3",
+      "ru": "Фиксированная зона GMT (Etc/GMT-3)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-4/label",
+      "original": "Etc/GMT-4",
+      "ru": "Фиксированная зона GMT (Etc/GMT-4)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-5/label",
+      "original": "Etc/GMT-5",
+      "ru": "Фиксированная зона GMT (Etc/GMT-5)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-6/label",
+      "original": "Etc/GMT-6",
+      "ru": "Фиксированная зона GMT (Etc/GMT-6)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-7/label",
+      "original": "Etc/GMT-7",
+      "ru": "Фиксированная зона GMT (Etc/GMT-7)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-8/label",
+      "original": "Etc/GMT-8",
+      "ru": "Фиксированная зона GMT (Etc/GMT-8)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT-9/label",
+      "original": "Etc/GMT-9",
+      "ru": "Фиксированная зона GMT (Etc/GMT-9)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT/label",
+      "original": "Etc/GMT",
+      "ru": "Среднее время по Гринвичу (Etc/GMT)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/GMT0/label",
+      "original": "Etc/GMT0",
+      "ru": "Среднее время по Гринвичу (Etc/GMT0)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/Greenwich/label",
+      "original": "Etc/Greenwich",
+      "ru": "Среднее время по Гринвичу (Etc/Greenwich)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/UCT/label",
+      "original": "Etc/UCT",
+      "ru": "Всемирное координированное время (Etc/UCT)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/UTC/label",
+      "original": "Etc/UTC",
+      "ru": "Всемирное координированное время (Etc/UTC)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/Universal/label",
+      "original": "Etc/Universal",
+      "ru": "Всемирное координированное время (Etc/Universal)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Etc/Zulu/label",
+      "original": "Etc/Zulu",
+      "ru": "Всемирное координированное время (Etc/Zulu)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Amsterdam/label",
+      "original": "Europe/Amsterdam",
+      "ru": "Амстердам (Europe/Amsterdam)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Andorra/label",
+      "original": "Europe/Andorra",
+      "ru": "Андорра (Europe/Andorra)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Astrakhan/label",
+      "original": "Europe/Astrakhan",
+      "ru": "Астрахань (Europe/Astrakhan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Athens/label",
+      "original": "Europe/Athens",
+      "ru": "Афины (Europe/Athens)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Belfast/label",
+      "original": "Europe/Belfast",
+      "ru": "Белфаст (Europe/Belfast)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Belgrade/label",
+      "original": "Europe/Belgrade",
+      "ru": "Белград (Europe/Belgrade)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Berlin/label",
+      "original": "Europe/Berlin",
+      "ru": "Берлин (Europe/Berlin)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Bratislava/label",
+      "original": "Europe/Bratislava",
+      "ru": "Братислава (Europe/Bratislava)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Brussels/label",
+      "original": "Europe/Brussels",
+      "ru": "Брюссель (Europe/Brussels)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Bucharest/label",
+      "original": "Europe/Bucharest",
+      "ru": "Бухарест (Europe/Bucharest)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Budapest/label",
+      "original": "Europe/Budapest",
+      "ru": "Будапешт (Europe/Budapest)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Busingen/label",
+      "original": "Europe/Busingen",
+      "ru": "Бюзинген (Europe/Busingen)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Chisinau/label",
+      "original": "Europe/Chisinau",
+      "ru": "Кишинёв (Europe/Chisinau)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Copenhagen/label",
+      "original": "Europe/Copenhagen",
+      "ru": "Копенгаген (Europe/Copenhagen)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Dublin/label",
+      "original": "Europe/Dublin",
+      "ru": "Дублин (Europe/Dublin)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Gibraltar/label",
+      "original": "Europe/Gibraltar",
+      "ru": "Гибралтар (Europe/Gibraltar)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Guernsey/label",
+      "original": "Europe/Guernsey",
+      "ru": "Гернси (Europe/Guernsey)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Helsinki/label",
+      "original": "Europe/Helsinki",
+      "ru": "Хельсинки (Europe/Helsinki)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Isle_of_Man/label",
+      "original": "Europe/Isle of Man",
+      "ru": "Остров Мэн (Europe/Isle_of_Man)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Istanbul/label",
+      "original": "Europe/Istanbul",
+      "ru": "Стамбул (Europe/Istanbul)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Jersey/label",
+      "original": "Europe/Jersey",
+      "ru": "Джерси (Europe/Jersey)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Kaliningrad/label",
+      "original": "Europe/Kaliningrad",
+      "ru": "Калининград (Europe/Kaliningrad)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Kiev/label",
+      "original": "Europe/Kiev",
+      "ru": "Киев (Europe/Kiev)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Kirov/label",
+      "original": "Europe/Kirov",
+      "ru": "Киров (Europe/Kirov)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Kyiv/label",
+      "original": "Europe/Kyiv",
+      "ru": "Киев (Europe/Kyiv)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Lisbon/label",
+      "original": "Europe/Lisbon",
+      "ru": "Лиссабон (Europe/Lisbon)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Ljubljana/label",
+      "original": "Europe/Ljubljana",
+      "ru": "Любляна (Europe/Ljubljana)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/London/label",
+      "original": "Europe/London",
+      "ru": "Лондон (Europe/London)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Luxembourg/label",
+      "original": "Europe/Luxembourg",
+      "ru": "Люксембург (Europe/Luxembourg)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Madrid/label",
+      "original": "Europe/Madrid",
+      "ru": "Мадрид (Europe/Madrid)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Malta/label",
+      "original": "Europe/Malta",
+      "ru": "Мальта (Europe/Malta)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Mariehamn/label",
+      "original": "Europe/Mariehamn",
+      "ru": "Мариехамн (Europe/Mariehamn)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Minsk/label",
+      "original": "Europe/Minsk",
+      "ru": "Минск (Europe/Minsk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Monaco/label",
+      "original": "Europe/Monaco",
+      "ru": "Монако (Europe/Monaco)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Moscow/label",
+      "original": "Europe/Moscow",
+      "ru": "Москва (Europe/Moscow)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Nicosia/label",
+      "original": "Europe/Nicosia",
+      "ru": "Никосия (Europe/Nicosia)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Oslo/label",
+      "original": "Europe/Oslo",
+      "ru": "Осло (Europe/Oslo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Paris/label",
+      "original": "Europe/Paris",
+      "ru": "Париж (Europe/Paris)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Podgorica/label",
+      "original": "Europe/Podgorica",
+      "ru": "Подгорица (Europe/Podgorica)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Prague/label",
+      "original": "Europe/Prague",
+      "ru": "Прага (Europe/Prague)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Riga/label",
+      "original": "Europe/Riga",
+      "ru": "Рига (Europe/Riga)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Rome/label",
+      "original": "Europe/Rome",
+      "ru": "Рим (Europe/Rome)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Samara/label",
+      "original": "Europe/Samara",
+      "ru": "Самара (Europe/Samara)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/San_Marino/label",
+      "original": "Europe/San Marino",
+      "ru": "Сан-Марино (Europe/San_Marino)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Sarajevo/label",
+      "original": "Europe/Sarajevo",
+      "ru": "Сараево (Europe/Sarajevo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Saratov/label",
+      "original": "Europe/Saratov",
+      "ru": "Саратов (Europe/Saratov)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Simferopol/label",
+      "original": "Europe/Simferopol",
+      "ru": "Симферополь (Europe/Simferopol)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Skopje/label",
+      "original": "Europe/Skopje",
+      "ru": "Скопье (Europe/Skopje)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Sofia/label",
+      "original": "Europe/Sofia",
+      "ru": "София (Europe/Sofia)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Stockholm/label",
+      "original": "Europe/Stockholm",
+      "ru": "Стокгольм (Europe/Stockholm)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Tallinn/label",
+      "original": "Europe/Tallinn",
+      "ru": "Таллин (Europe/Tallinn)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Tirane/label",
+      "original": "Europe/Tirane",
+      "ru": "Тирана (Europe/Tirane)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Tiraspol/label",
+      "original": "Europe/Tiraspol",
+      "ru": "Тирасполь (Europe/Tiraspol)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Ulyanovsk/label",
+      "original": "Europe/Ulyanovsk",
+      "ru": "Ульяновск (Europe/Ulyanovsk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Uzhgorod/label",
+      "original": "Europe/Uzhgorod",
+      "ru": "Ужгород (Europe/Uzhgorod)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Vaduz/label",
+      "original": "Europe/Vaduz",
+      "ru": "Вадуц (Europe/Vaduz)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Vatican/label",
+      "original": "Europe/Vatican",
+      "ru": "Ватикан (Europe/Vatican)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Vienna/label",
+      "original": "Europe/Vienna",
+      "ru": "Вена (Europe/Vienna)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Vilnius/label",
+      "original": "Europe/Vilnius",
+      "ru": "Вильнюс (Europe/Vilnius)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Volgograd/label",
+      "original": "Europe/Volgograd",
+      "ru": "Волгоград (Europe/Volgograd)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Warsaw/label",
+      "original": "Europe/Warsaw",
+      "ru": "Варшава (Europe/Warsaw)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Zagreb/label",
+      "original": "Europe/Zagreb",
+      "ru": "Загреб (Europe/Zagreb)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Zaporozhye/label",
+      "original": "Europe/Zaporozhye",
+      "ru": "Запорожье (Europe/Zaporozhye)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Europe/Zurich/label",
+      "original": "Europe/Zurich",
+      "ru": "Цюрих (Europe/Zurich)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Factory/label",
+      "original": "Factory",
+      "ru": "Служебная зона (Factory)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/GB-Eire/label",
+      "original": "GB-Eire",
+      "ru": "Великобритания и Ирландия (GB-Eire)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/GB/label",
+      "original": "GB",
+      "ru": "Великобритания (GB)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/GMT+0/label",
+      "original": "GMT+0",
+      "ru": "Среднее время по Гринвичу (GMT+0)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/GMT-0/label",
+      "original": "GMT-0",
+      "ru": "Среднее время по Гринвичу (GMT-0)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/GMT/label",
+      "original": "GMT",
+      "ru": "Среднее время по Гринвичу (GMT)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/GMT0/label",
+      "original": "GMT0",
+      "ru": "Среднее время по Гринвичу (GMT0)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Greenwich/label",
+      "original": "Greenwich",
+      "ru": "Среднее время по Гринвичу (Greenwich)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/HST/label",
+      "original": "HST",
+      "ru": "Гавайское стандартное время (HST)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Hongkong/label",
+      "original": "Hongkong",
+      "ru": "Гонконг (Hongkong)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Iceland/label",
+      "original": "Iceland",
+      "ru": "Исландия (Iceland)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Indian/Antananarivo/label",
+      "original": "Indian/Antananarivo",
+      "ru": "Антананариву (Indian/Antananarivo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Indian/Chagos/label",
+      "original": "Indian/Chagos",
+      "ru": "Чагос (Indian/Chagos)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Indian/Christmas/label",
+      "original": "Indian/Christmas",
+      "ru": "Остров Рождества (Indian/Christmas)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Indian/Cocos/label",
+      "original": "Indian/Cocos",
+      "ru": "Кокосовые острова (Indian/Cocos)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Indian/Comoro/label",
+      "original": "Indian/Comoro",
+      "ru": "Коморские острова (Indian/Comoro)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Indian/Kerguelen/label",
+      "original": "Indian/Kerguelen",
+      "ru": "Кергелен (Indian/Kerguelen)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Indian/Mahe/label",
+      "original": "Indian/Mahe",
+      "ru": "Маэ (Indian/Mahe)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Indian/Maldives/label",
+      "original": "Indian/Maldives",
+      "ru": "Мальдивы (Indian/Maldives)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Indian/Mauritius/label",
+      "original": "Indian/Mauritius",
+      "ru": "Маврикий (Indian/Mauritius)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Indian/Mayotte/label",
+      "original": "Indian/Mayotte",
+      "ru": "Майотта (Indian/Mayotte)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Indian/Reunion/label",
+      "original": "Indian/Reunion",
+      "ru": "Реюньон (Indian/Reunion)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Iran/label",
+      "original": "Iran",
+      "ru": "Иран (Iran)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Israel/label",
+      "original": "Israel",
+      "ru": "Израиль (Israel)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Jamaica/label",
+      "original": "Jamaica",
+      "ru": "Ямайка (Jamaica)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Japan/label",
+      "original": "Japan",
+      "ru": "Япония (Japan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Kwajalein/label",
+      "original": "Kwajalein",
+      "ru": "Кваджалейн (Kwajalein)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Libya/label",
+      "original": "Libya",
+      "ru": "Ливия (Libya)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/MET/label",
+      "original": "MET",
+      "ru": "Среднеевропейское время (MET)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/MST/label",
+      "original": "MST",
+      "ru": "Горное стандартное время (MST)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/MST7MDT/label",
+      "original": "MST7MDT",
+      "ru": "Горное время США с сезонным переходом (MST7MDT)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Mexico/BajaNorte/label",
+      "original": "Mexico/BajaNorte",
+      "ru": "Северная Нижняя Калифорния (Mexico/BajaNorte)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Mexico/BajaSur/label",
+      "original": "Mexico/BajaSur",
+      "ru": "Южная Нижняя Калифорния (Mexico/BajaSur)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Mexico/General/label",
+      "original": "Mexico/General",
+      "ru": "Основная зона Мексики (Mexico/General)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/NZ-CHAT/label",
+      "original": "NZ-CHAT",
+      "ru": "Острова Чатем (NZ-CHAT)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/NZ/label",
+      "original": "NZ",
+      "ru": "Новая Зеландия (NZ)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Navajo/label",
+      "original": "Navajo",
+      "ru": "Навахо (Navajo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/PRC/label",
+      "original": "PRC",
+      "ru": "Китай (КНР) (PRC)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/PST8PDT/label",
+      "original": "PST8PDT",
+      "ru": "Тихоокеанское время США с сезонным переходом (PST8PDT)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Apia/label",
+      "original": "Pacific/Apia",
+      "ru": "Апиа (Pacific/Apia)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Auckland/label",
+      "original": "Pacific/Auckland",
+      "ru": "Окленд (Pacific/Auckland)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Bougainville/label",
+      "original": "Pacific/Bougainville",
+      "ru": "Бугенвиль (Pacific/Bougainville)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Chatham/label",
+      "original": "Pacific/Chatham",
+      "ru": "Чатем (Pacific/Chatham)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Chuuk/label",
+      "original": "Pacific/Chuuk",
+      "ru": "Чуук (Pacific/Chuuk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Easter/label",
+      "original": "Pacific/Easter",
+      "ru": "Остров Пасхи (Pacific/Easter)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Efate/label",
+      "original": "Pacific/Efate",
+      "ru": "Эфате (Pacific/Efate)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Enderbury/label",
+      "original": "Pacific/Enderbury",
+      "ru": "Эндербери (Pacific/Enderbury)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Fakaofo/label",
+      "original": "Pacific/Fakaofo",
+      "ru": "Факаофо (Pacific/Fakaofo)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Fiji/label",
+      "original": "Pacific/Fiji",
+      "ru": "Фиджи (Pacific/Fiji)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Funafuti/label",
+      "original": "Pacific/Funafuti",
+      "ru": "Фунафути (Pacific/Funafuti)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Galapagos/label",
+      "original": "Pacific/Galapagos",
+      "ru": "Галапагосские острова (Pacific/Galapagos)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Gambier/label",
+      "original": "Pacific/Gambier",
+      "ru": "Гамбье (Pacific/Gambier)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Guadalcanal/label",
+      "original": "Pacific/Guadalcanal",
+      "ru": "Гуадалканал (Pacific/Guadalcanal)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Guam/label",
+      "original": "Pacific/Guam",
+      "ru": "Гуам (Pacific/Guam)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Honolulu/label",
+      "original": "Pacific/Honolulu",
+      "ru": "Гонолулу (Pacific/Honolulu)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Johnston/label",
+      "original": "Pacific/Johnston",
+      "ru": "Джонстон (Pacific/Johnston)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Kanton/label",
+      "original": "Pacific/Kanton",
+      "ru": "Кантон (Pacific/Kanton)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Kiritimati/label",
+      "original": "Pacific/Kiritimati",
+      "ru": "Киритимати (Pacific/Kiritimati)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Kosrae/label",
+      "original": "Pacific/Kosrae",
+      "ru": "Косраэ (Pacific/Kosrae)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Kwajalein/label",
+      "original": "Pacific/Kwajalein",
+      "ru": "Кваджалейн (Pacific/Kwajalein)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Majuro/label",
+      "original": "Pacific/Majuro",
+      "ru": "Маджуро (Pacific/Majuro)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Marquesas/label",
+      "original": "Pacific/Marquesas",
+      "ru": "Маркизские острова (Pacific/Marquesas)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Midway/label",
+      "original": "Pacific/Midway",
+      "ru": "Мидуэй (Pacific/Midway)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Nauru/label",
+      "original": "Pacific/Nauru",
+      "ru": "Науру (Pacific/Nauru)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Niue/label",
+      "original": "Pacific/Niue",
+      "ru": "Ниуэ (Pacific/Niue)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Norfolk/label",
+      "original": "Pacific/Norfolk",
+      "ru": "Норфолк (Pacific/Norfolk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Noumea/label",
+      "original": "Pacific/Noumea",
+      "ru": "Нумеа (Pacific/Noumea)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Pago_Pago/label",
+      "original": "Pacific/Pago Pago",
+      "ru": "Паго-Паго (Pacific/Pago_Pago)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Palau/label",
+      "original": "Pacific/Palau",
+      "ru": "Палау (Pacific/Palau)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Pitcairn/label",
+      "original": "Pacific/Pitcairn",
+      "ru": "Питкэрн (Pacific/Pitcairn)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Pohnpei/label",
+      "original": "Pacific/Pohnpei",
+      "ru": "Понпеи (Pacific/Pohnpei)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Ponape/label",
+      "original": "Pacific/Ponape",
+      "ru": "Понапе (Pacific/Ponape)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Port_Moresby/label",
+      "original": "Pacific/Port Moresby",
+      "ru": "Порт-Морсби (Pacific/Port_Moresby)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Rarotonga/label",
+      "original": "Pacific/Rarotonga",
+      "ru": "Раротонга (Pacific/Rarotonga)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Saipan/label",
+      "original": "Pacific/Saipan",
+      "ru": "Сайпан (Pacific/Saipan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Samoa/label",
+      "original": "Pacific/Samoa",
+      "ru": "Самоа (Pacific/Samoa)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Tahiti/label",
+      "original": "Pacific/Tahiti",
+      "ru": "Таити (Pacific/Tahiti)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Tarawa/label",
+      "original": "Pacific/Tarawa",
+      "ru": "Тарава (Pacific/Tarawa)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Tongatapu/label",
+      "original": "Pacific/Tongatapu",
+      "ru": "Тонгатапу (Pacific/Tongatapu)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Truk/label",
+      "original": "Pacific/Truk",
+      "ru": "Трук (Pacific/Truk)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Wake/label",
+      "original": "Pacific/Wake",
+      "ru": "Уэйк (Pacific/Wake)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Wallis/label",
+      "original": "Pacific/Wallis",
+      "ru": "Уоллис (Pacific/Wallis)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Pacific/Yap/label",
+      "original": "Pacific/Yap",
+      "ru": "Яп (Pacific/Yap)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Poland/label",
+      "original": "Poland",
+      "ru": "Польша (Poland)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Portugal/label",
+      "original": "Portugal",
+      "ru": "Португалия (Portugal)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/ROC/label",
+      "original": "ROC",
+      "ru": "Тайвань (ROC)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/ROK/label",
+      "original": "ROK",
+      "ru": "Республика Корея (ROK)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Singapore/label",
+      "original": "Singapore",
+      "ru": "Сингапур (Singapore)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Turkey/label",
+      "original": "Turkey",
+      "ru": "Турция (Turkey)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/UCT/label",
+      "original": "UCT",
+      "ru": "Всемирное координированное время (UCT)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/Alaska/label",
+      "original": "US/Alaska",
+      "ru": "Аляска (US/Alaska)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/Aleutian/label",
+      "original": "US/Aleutian",
+      "ru": "Алеутские острова (US/Aleutian)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/Arizona/label",
+      "original": "US/Arizona",
+      "ru": "Аризона (US/Arizona)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/Central/label",
+      "original": "US/Central",
+      "ru": "Центральная зона США (US/Central)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/East-Indiana/label",
+      "original": "US/East-Indiana",
+      "ru": "Восточная Индиана (US/East-Indiana)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/Eastern/label",
+      "original": "US/Eastern",
+      "ru": "Восточная зона США (US/Eastern)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/Hawaii/label",
+      "original": "US/Hawaii",
+      "ru": "Гавайи (US/Hawaii)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/Indiana-Starke/label",
+      "original": "US/Indiana-Starke",
+      "ru": "Старк, Индиана (US/Indiana-Starke)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/Michigan/label",
+      "original": "US/Michigan",
+      "ru": "Мичиган (US/Michigan)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/Mountain/label",
+      "original": "US/Mountain",
+      "ru": "Горная зона США (US/Mountain)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/Pacific/label",
+      "original": "US/Pacific",
+      "ru": "Тихоокеанская зона США (US/Pacific)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/US/Samoa/label",
+      "original": "US/Samoa",
+      "ru": "Самоа (US/Samoa)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/UTC/label",
+      "original": "UTC",
+      "ru": "Всемирное координированное время (UTC)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Universal/label",
+      "original": "Universal",
+      "ru": "Всемирное координированное время (Universal)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/W-SU/label",
+      "original": "W-SU",
+      "ru": "Московское время (W-SU)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/WET/label",
+      "original": "WET",
+      "ru": "Западноевропейское время (WET)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TimeZone/Zulu/label",
+      "original": "Zulu",
+      "ru": "Всемирное координированное время (Zulu)",
+      "decision": "translate"
+    }
+  ]
+}

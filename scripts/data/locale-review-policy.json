@@ -13,11 +13,11 @@
     "src/components/forms/formLogic.ts": "2dac722cec6a60009df67975689b2e50b94011bed734496e210148dd16ab8049",
     "src/components/forms/useDynamicForm.ts": "3bf9fb886b74ee1e3b2e6f4f8ddc4d8795149bfcb53855043502399173f43155",
     "src/components/forms/widgets/EmbeddedObjectWidget.tsx": "1f2f7e6017f38439049b0a7fa6c2aef01131c3dea74c6c74820c86f16360e22b",
-    "src/components/forms/widgets/EnumWidgets.tsx": "7fda3639a94ff630f1484e6c9aa7afadb58298b87ee609fe3997e54faa1695ff",
+    "src/components/forms/widgets/EnumWidgets.tsx": "8957fa464fa82142f02d57ffb62d68d6e0679717f202108b55c213ed1ae53340",
     "src/components/forms/widgets/MapWidget.tsx": "4065c1a3311b0962f76bb1b50fdaaf1551e0a3ac291cae71062ab342cd7b48c0",
     "src/components/forms/widgets/ObjectListWidget.tsx": "bf307c2ccdcf0a3c8ad61897de91cdb3a7c70a14d87d20a89082e76928a637d5",
     "src/components/forms/widgets/StringWidgets.tsx": "05e5bc15f80ec7306ca876aa7f01839f855c8d5fe9702464c8b75136c0ddd474",
-    "src/components/forms/widgets/TimeZoneWidget.tsx": "3f86b44be773c6be928c348926d7a9cd26e8178dabc67f31a43632d2137a0dc1",
+    "src/components/forms/widgets/TimeZoneWidget.tsx": "95a88962f4ac0cb6e92e50c8295fd5f584eea05f86ca91d1d07baa843bb0b238",
     "src/components/layout/MainContent.tsx": "0dea1faf3bfa22a3f0740f69cfe6a4e7bd424ca5b51a4c131d1c8e33b84cc8f1",
     "src/components/layout/TopBar.tsx": "7768b555d09819b7caa98d7c61a87bd079d9ff5fa72957d941f4db560a3b0c6b",
     "src/components/lists/DynamicList.tsx": "959c176cdae448ec7b5b597f71d1b7fccd9cfe03a835cfb8c9288b3549ebc413",
@@ -55,7 +55,11 @@
     "src/features/tracing/components/LiveTracingSession.tsx": "295a4e2fa82ec4e0aee1b928afa79b6657aaa66963c12a6701129974dbd46da6",
     "src/features/tracing/liveTracing.ts": "dd2ef1156e594c5248d9aa7a0cc2c9227562fa28083cd3fce7c51f7c9ddde293",
     "src/features/tracing/normalize.ts": "e74c624869074343ea109b6c81a15820fd9d97e6495e90326e74ad368acfee2f",
-    "src/hooks/useSchemaText.ts": "1dadcba10a9313bc276efdc892f28ee2942b666b5694e63252f179ad54953030"
+    "src/hooks/useSchemaText.ts": "1dadcba10a9313bc276efdc892f28ee2942b666b5694e63252f179ad54953030",
+    "src/components/ui/combobox.tsx": "47277fb2476ae18a9ce50037e1d4fd39d78c092540251df914ef1e7cbe7b5396",
+    "src/components/values/TimeZoneValue.tsx": "3ce6eafdf4c83ea10f387f430526dea81a941ef28bd61a61f062d210b1b8a538",
+    "src/components/ui/comboboxSearch.ts": "08b75f2d9464c0e1ff3a5b23c16b4428946beaaefc4f8d104ff1a97ffc0bbcca",
+    "src/lib/format.ts": "afbaac37f1344d744388cb6fb8073959c9f271f29ae2f083c51f740e7007cf3c"
   },
   "keepOriginal": [
     {
@@ -490,7 +494,7 @@
   ],
   "baselineSource": "6491192ec301bb32f7ed500d18f3dd94f358945b",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "7762ef2cb72d07962e1d672a87d0c380ef3e887242f81bdd4920ebce50aee84e",
+    "src/i18n/schema/ru.json": "3b17ec1946b4a6d8866823d3937a33bef60e00c846d8415b1451a98b47229e25",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
     "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
@@ -517,14 +521,18 @@
     "scripts/data/stage35-ambiguous-missing-review.json": "8e933f83969d6e4d9d7be44bb5b8aa258265bbcb5f04a1dac166c2284d51b4e8",
     "scripts/data/stage37-field-descriptions-review.json": "6a8236cdc6f3521788e3a2c5b1cf4698293fe5f6f5b5f2966c81ba752080e8b6",
     "scripts/lib/locale-field-descriptions.mjs": "2177dbbddfd188621f8491ae8571418f1d69540a059a03f201376ef9a3d52038",
-    "scripts/lib/locale-graph.mjs": "2eafbf7731a4aa7487f0ce502f095aebfa5bdc102e39727b5e912f7dfe86bad5",
+    "scripts/lib/locale-graph.mjs": "970375b3c29f88672af439469be7fcff7abe57cd440b15faa36ed72f6e99e965",
     "scripts/lib/locale-form-context.mjs": "ef2fe2295fbc84c35636650c361328b27711fc1ed8c20bc460b612b6ca61e557",
     "scripts/data/stage38-form-context-review.json": "376c86eb95423f7da3a76b24fa33834a4f1df2cd05de1c7c6b9684e311de913e",
     "scripts/lib/locale-variant-labels.mjs": "51a3896b38046c886d07af6ab36319931d07c5f169f3626876de29e8117ff717",
     "scripts/data/stage39-variants-review.json": "00a7c95a01068a84293374e33b339e7ecb557206c75891ffb7579c6469b9bbad",
     "scripts/data/stage41-trace-review.json": "c1c8d76ad6adecba47d54c575f9da425f525b3bbed9eb94ccf7185d979d978a3",
     "scripts/lib/locale-trace-labels.mjs": "85f53fee20d8a1605b3bb87a5e524c1fff9e15eb68c65be7514f6d8b1a2d6135",
-    "scripts/lib/locale-trace-components.mjs": "2617fec6bbb44d758dfefc3c8147dbcc1f7f8e9281cb7577f97c6bafc96fa161"
+    "scripts/lib/locale-trace-components.mjs": "2617fec6bbb44d758dfefc3c8147dbcc1f7f8e9281cb7577f97c6bafc96fa161",
+    "scripts/data/stage42-regional-labels-review.json": "20bbe70c7a554aaca0b4e45ee5e9b82b870bf1036791e0555147e1785ca95571",
+    "scripts/lib/locale-regional-labels.mjs": "b47efdb1f09182ebcdc4d801049226461bcdb687325c5b9cccb0e8ee0b0caca3",
+    "scripts/lib/locale-regional-components.mjs": "7c6dc1c077083662b9f02cd145691e8a8610fd8405c09fca82190470526f3466",
+    "scripts/check-option-labels.mjs": "347d0b7635ba80e726954c525ef369ba1448a0a3f5a18acdcd8a40c185e57b99"
   },
   "clientLiterals": [
     {

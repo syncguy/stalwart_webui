@@ -2,7 +2,7 @@
 import { compare, ptr } from './locale-source.mjs';
 
 // fieldOwners=false replays the historical pre-stage37 renderer contract only.
-export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false, formOwners = false, variantBadges = false, traceLabels = false }) {
+export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false, formOwners = false, variantBadges = false, traceLabels = false, regionalLabels = false }) {
   const byPointer = new Map();
   const usages = new Map(inventory.rows.map(r => [r.slot + '\0' + r.original, new Map()]));
   const screens = new Map();
@@ -118,9 +118,11 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
           let renderer = edit ? role === 'set' ? 'EnumMultiSelect' : role === 'map-key' ? 'MapKeyLabel' : 'EnumWidget' : 'EnumValue/ScalarLabel';
           if (ctx.mode === 'filter') renderer = 'EnumFilter';
           if (edit && role === 'map-key' && fieldName === 'quotas') renderer += ':quota';
-          if (edit && role === 'scalar' && fieldName === 'locale') renderer += ':Intl.Locale';
+          if (!regionalLabels && edit && role === 'scalar' && fieldName === 'locale') renderer += ':Intl.Locale';
           if (edit && role === 'scalar' && fieldName === 'headerProtection') renderer += ':headerProtection';
-          if (type.enumName === 'TimeZone' && role === 'scalar') renderer = 'TimeZoneWidget/Value:Intl';
+          if (type.enumName === 'TimeZone' && role === 'scalar') {
+            renderer = regionalLabels ? (edit ? 'TimeZoneWidget' : 'TimeZoneValue') : 'TimeZoneWidget/Value:Intl';
+          }
           const ec = { ...ctx, via: ctx.via + ':' + role + ':' + fieldName,
             conditions: [...ctx.conditions, ...(type.enumName === 'Permission' && edit ? ['enum-permission-filter:hasPermission(raw-ID)'] : [])] };
           emit(pin, ptr('enums', type.enumName, i, 'label'), ec, undefined, renderer);

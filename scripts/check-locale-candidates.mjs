@@ -13,6 +13,7 @@ import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-fie
 import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.mjs';
 import {loadVariantPacket,undoVariants} from './lib/locale-variant-labels.mjs';
 import {loadTracePacket,undoTrace} from './lib/locale-trace-labels.mjs';
+import {loadRegionalPacket,undoRegional} from './lib/locale-regional-labels.mjs';
 import './lib/offline-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -21,7 +22,8 @@ const legacyGraph = buildUsageGraph(inputs);
 const stage37Graph = buildUsageGraph({ ...inputs, fieldOwners: true });
 const stage38Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true });
 const stage39Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true });
-const graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true });
+const stage41Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true });
+const graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true, regionalLabels: true });
 const report = readJson(fs.readFileSync(path.join(root, '.artifacts/locale-candidates/classification.json'), 'utf8'), 'classification');
 const row = slot => report.rows.find(r => r.slot === slot);
 const uses = r => r.usages.map(u => ({ ...report.usageContexts[u.context], text: report.displayTexts[u.text],
@@ -107,7 +109,8 @@ check('Технические примеры сохранены, обычные 
   assert.notEqual(row('form/x:Role/field/description/placeholder').classification, 'technical');
   assert.equal(row('form/x:Domain/section/section-2').classification, 'keep-original');
   const timeZone = row('enum/TimeZone/Africa~1Abidjan/label') ?? row('enum/TimeZone/Africa/Abidjan/label');
-  assert.ok(uses(timeZone).some(u => u.text.conditional));
+  assert.ok(stage41Graph.usages.get(timeZone.slot+'\0'+timeZone.original).some(u => u.renderer.includes(':Intl')));
+  assert.ok(uses(timeZone).every(u => !u.text.conditional));
 });
 check('Изменение original блокирует прежний перевод и preview', () => {
   const old = sourceRow('form/x:Domain/field/name');
@@ -214,7 +217,9 @@ const stage37Packet = loadFieldDescriptionPacket(root,inputs.policy);
 const packet38=loadFormContextPacket(root,inputs.policy);
 const packet39=loadVariantPacket(root,inputs.policy);
 const packet41=loadTracePacket(root,inputs.policy);
-const stage39Catalog=undoTrace(inputs.catalog,packet41);
+const packet42=loadRegionalPacket(root,inputs.policy);
+const stage41Catalog=undoRegional(inputs.catalog,packet42);
+const stage39Catalog=undoTrace(stage41Catalog,packet41);
 const stage38Catalog=undoVariants(stage39Catalog,packet39);
 const stage37Catalog=undoFormContext(stage38Catalog,packet38);
 const stage35Catalog = undoFieldDescriptions(stage37Catalog,stage37Packet);
@@ -241,6 +246,10 @@ const stage38Rows=classify(stage38Inputs,stage38Graph).rows;
 const stage39Inputs={...inputs,catalog:stage39Catalog,schema:sourceModule(rawRuntime18,'schemaText.ts',{'./schema/ru.json':stage39Catalog})};
 const stage39Report=compactReport(plan(stage39Inputs,stage39Graph));
 const stage39Rows=classify(stage39Inputs,stage39Graph).rows;
+const stage41Inputs={...inputs,catalog:stage41Catalog,schema:sourceModule(rawRuntime18,'schemaText.ts',{'./schema/ru.json':stage41Catalog})};
+const stage41Report=compactReport(plan(stage41Inputs,stage41Graph));
+const stage41Rows=classify(stage41Inputs,stage41Graph).rows;
+const uses41=r=>r.usages.map(u=>({...stage41Report.usageContexts[u.context],text:stage41Report.displayTexts[u.text],lookupSlot:Object.hasOwn(u,'lookupSlot')?u.lookupSlot:r.slot}));
 const stage37ById=new Map(stage37Rows.map(r=>[r.id,r]));
 const legacyCount=c=>legacyRows.filter(r=>r.classification===c).length;
 const missing18 = beforeReport18.rows.filter(r => r.classification === 'missing' &&
@@ -351,7 +360,7 @@ check('Stage18: exact four reviewed scoped entries; no shared fallback or unexpe
 console.log('Stage18: applied 54 translations, two preserved standard labels, four exact scoped bindings. Static/source tests, not React/browser acceptance.');
 
 check('Stage37: exact historical scope, all canonical description paths and no translation regression', () => {
-  assert.equal(report.stage,41);
+  assert.equal(report.stage,42);
   assert.equal(legacyCount('translated'),6418);
   assert.equal(legacyCount('missing'),0);
   assert.equal(legacyCount('renderer-unwired'),2364);
@@ -505,20 +514,20 @@ check('Stage41: exact EventType/Key transitions and no regression in other rows'
   const pairs=rows=>digest(rows.map(r=>r.slot+'\0'+r.original+'\n').sort().join(''));
   assert.equal(pairs(scope),packet41.scopePairSha256);
   assert.equal(pairs(scope.filter(r=>r.catalogState==='missing')),packet41.pairSha256);
-  const intermediate=new Map(classify(stage39Inputs,graph).rows.map(r=>[r.id,r]));
-  const target=new Set(scope.map(r=>r.id)),active=new Map(report.rows.map(r=>[r.id,r]));
+  const intermediate=new Map(classify(stage39Inputs,stage41Graph).rows.map(r=>[r.id,r]));
+  const target=new Set(scope.map(r=>r.id)),active=new Map(stage41Report.rows.map(r=>[r.id,r]));
   for(const prior of stage39Rows){
     const mid=intermediate.get(prior.id),now=active.get(prior.id);
     assert.equal(mid.classification,target.has(prior.id)?(prior.catalogState==='translated'?'translated':'missing'):prior.classification,prior.slot);
     assert.equal(now.classification,target.has(prior.id)?'translated':prior.classification,prior.slot);
     if(prior.acceptedTranslation!==null)assert.equal(now.acceptedTranslation,prior.acceptedTranslation,prior.slot);
     if(!target.has(prior.id))continue;
-    for(const u of uses(now)){
+    for(const u of uses41(now)){
       assert.equal(u.state,'wired',now.slot);
       assert.equal(u.lookupSlot,now.slot,now.slot);
       assert.equal(u.text.ru,now.acceptedTranslation,now.slot);
     }
-    assert.ok(uses(now).some(u=>u.renderer.includes('useTraceLabels')),now.slot);
+    assert.ok(uses41(now).some(u=>u.renderer.includes('useTraceLabels')),now.slot);
     for(const l of now.locations){
       assert.equal(at(inputs.pins.find(p=>p.schemaHash===l.schemaHash).data,l.sourcePointer),now.original,now.slot);
       const lookup=inputs.schema.schemaText;
@@ -528,16 +537,76 @@ check('Stage41: exact EventType/Key transitions and no regression in other rows'
       assert.equal(lookup('unknown','ru',now.slot,now.original),now.original);
     }
   }
-  assert.ok(report.usageContexts.some(u=>u.screen==='CustomComponent/LiveTracing'&&u.conditions.some(c=>c.includes('liveTracing'))));
-  assert.equal(report.screens.length,153);
-  assert.deepEqual(report.summary.classification,{'translated':10223,'missing':0,'keep-original':58,'technical':74,'renderer-unwired':0,'unreachable/conditional':812,'needs-review':1079});
-  assert.equal(report.summary.acceptedCatalogEntries,10289);
-  assert.equal(report.summary.acceptedScopedEntries,4);
+  assert.ok(stage41Report.usageContexts.some(u=>u.screen==='CustomComponent/LiveTracing'&&u.conditions.some(c=>c.includes('liveTracing'))));
+  assert.equal(stage41Report.screens.length,153);
+  assert.deepEqual(stage41Report.summary.classification,{'translated':10223,'missing':0,'keep-original':58,'technical':74,'renderer-unwired':0,'unreachable/conditional':812,'needs-review':1079});
+  assert.equal(stage41Report.summary.acceptedCatalogEntries,10289);
+  assert.equal(stage41Report.summary.acceptedScopedEntries,4);
   for(const mutate of [p=>p.entries.pop(),p=>p.entries.push(p.entries[0]),p=>p.entries[0].ru+=' {{unexpected}}',p=>p.existing.pop(),p=>p.apply=true]){
-    const p=structuredClone(packet41);mutate(p);assert.throws(()=>undoTrace(inputs.catalog,p));
+    const p=structuredClone(packet41);mutate(p);assert.throws(()=>undoTrace(stage41Catalog,p));
   }
-  const tampered=structuredClone(inputs.catalog);
+  const tampered=structuredClone(stage41Catalog);
   tampered.entries[Object.keys(stage39Catalog.entries)[0]].ru+=' changed';
   assert.throws(()=>undoTrace(tampered,packet41));
   console.log('Stage41: 1441 exact pairs; 1434 new entries; intermediate 7 translated + 1434 missing; no unrelated classification changes.');
+});
+
+check('Stage42: all 920 exact TimeZone/Locale labels, prior catalogue and usage identity',()=>{
+  const scope=stage41Rows.filter(r=>/^enum\/(TimeZone|Locale)\//.test(r.slot));
+  assert.equal(scope.length,920);
+  assert.ok(scope.every(r=>r.classification==='needs-review'&&r.catalogState==='missing'));
+  assert.equal(digest(scope.map(r=>r.slot+'\0'+r.original+'\n').sort().join('')),packet42.scopePairSha256);
+  assert.deepEqual(scope.map(r=>r.slot).sort(),packet42.entries.map(e=>e.slot).sort());
+  const intermediate=new Map(classify(stage41Inputs,graph).rows.map(r=>[r.id,r]));
+  const targets=new Set(scope.map(r=>r.id)),active=new Map(report.rows.map(r=>[r.id,r]));
+  let totalUses=0,intlUses=0;const screens=new Set();
+  const norm=(u,previous)=> {
+    const {text,renderer,...rest}=u;
+    return JSON.stringify({...rest,renderer:previous?renderer==='TimeZoneWidget/Value:Intl'?(['create','edit','singleton','action'].includes(u.mode)?'TimeZoneWidget':'TimeZoneValue'):renderer.replace(':Intl.Locale',''):renderer});
+  };
+  for(const prior of stage41Rows){
+    const now=active.get(prior.id),mid=intermediate.get(prior.id);
+    assert.equal(mid.classification,targets.has(prior.id)?'missing':prior.classification,prior.slot);
+    assert.equal(now.classification,targets.has(prior.id)?'translated':prior.classification,prior.slot);
+    assert.deepEqual(now.locations,prior.locations,prior.slot);
+    assert.deepEqual(now.sections,prior.sections,prior.slot);
+    assert.equal(now.access,prior.access,prior.slot);
+    assert.equal(now.reachability,prior.reachability,prior.slot);
+    if(!targets.has(prior.id)){
+      assert.equal(now.acceptedTranslation,prior.acceptedTranslation,prior.slot);
+      continue;
+    }
+    assert.equal(prior.intlUses>0,true,prior.slot);
+    assert.equal(now.intlUses,0,prior.slot);
+    const actual=uses(now);
+    // Context/lookup identity must be identical after the explicit renderer rename.
+    // sourcePointer is encoded by row.locations in compact reports.
+    const priorCompact=uses41(stage41Report.rows.find(r=>r.id===prior.id));
+    assert.deepEqual(priorCompact.map(u=>norm(u,true)).sort(),actual.map(u=>norm(u,false)).sort(),prior.slot);
+    assert.ok(actual.every(u=>u.state==='wired'&&u.lookupSlot===now.slot&&u.text.ru===now.acceptedTranslation&&!u.text.conditional),now.slot);
+    totalUses+=actual.length;intlUses+=prior.intlUses;
+    for(const u of actual)screens.add(u.section+'\0'+u.screen);
+    for(const l of now.locations){
+      assert.equal(at(inputs.pins.find(p=>p.schemaHash===l.schemaHash).data,l.sourcePointer),now.original,now.slot);
+      const lookup=inputs.schema.schemaText;
+      assert.equal(lookup(l.schemaHash,'ru',now.slot,now.original),now.acceptedTranslation);
+      assert.equal(lookup(l.schemaHash,'en',now.slot,now.original),now.original);
+      assert.equal(lookup(l.schemaHash,'ru',now.slot,now.original+' changed'),now.original+' changed');
+      assert.equal(lookup('unknown','ru',now.slot,now.original),now.original);
+    }
+  }
+  assert.equal(totalUses,17756);
+  assert.equal(intlUses,15180);
+  assert.equal(screens.size,5);
+  assert.equal(report.screens.length,153);
+  assert.deepEqual(report.summary.classification,{'translated':11143,'missing':0,'keep-original':58,'technical':74,'renderer-unwired':0,'unreachable/conditional':812,'needs-review':159});
+  assert.equal(report.summary.acceptedCatalogEntries,11209);
+  assert.equal(report.summary.acceptedScopedEntries,4);
+  for(const mutate of [p=>p.entries.pop(),p=>p.entries.push(p.entries[0]),p=>p.entries[0].ru+=' {{unexpected}}',p=>p.entries[0].ru='wrong ID',p=>p.apply=true]){
+    const p=structuredClone(packet42);mutate(p);assert.throws(()=>undoRegional(inputs.catalog,p));
+  }
+  const tampered=structuredClone(inputs.catalog);
+  tampered.entries[Object.keys(stage41Catalog.entries)[0]].ru+=' changed';
+  assert.throws(()=>undoRegional(tampered,packet42));
+  console.log('Stage42: 920 exact labels / 1840 edition bindings, 17756 uses on five screens, 15180 Intl-dependent usages removed; no unrelated classifications changed.');
 });

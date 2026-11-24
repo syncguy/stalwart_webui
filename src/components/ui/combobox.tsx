@@ -94,7 +94,7 @@ export function Combobox({
         >
           <span className="flex items-center gap-2 truncate">
             {selected?.marker}
-            {selected?.label ?? placeholder}
+            {selected?.label ?? (value || placeholder)}
           </span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>

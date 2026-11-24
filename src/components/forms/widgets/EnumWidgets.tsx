@@ -20,7 +20,7 @@ import { useFormContext } from '@/components/forms/formContext';
 import { useCanTranslateSchema, useSchemaText } from '@/hooks/useSchemaText';
 import { permissionDisplayLabel } from '@/i18n/schemaPermissionText';
 import { filterComboboxOptions } from '@/components/ui/comboboxSearch';
-import { headerProtectionOptionLabel, localeOptionLabel } from '@/i18n/schemaOptionLabels';
+import { headerProtectionOptionLabel } from '@/i18n/schemaOptionLabels';
 import { RemovablePill } from '@/components/forms/widgets/RemovablePill';
 import type { ControlProps, WidgetProps } from '@/components/forms/widgets/types';
 import type { EnumVariant, FieldTypeEnum } from '@/types/schema';
@@ -51,9 +51,7 @@ export function EnumWidget({ type, formField, value, onChange, readOnly, control
   const options: ComboboxOption[] = variants.map((v) => {
     const translated = display(`enum/${type.enumName}/${v.name}/label`, v.label);
     let label = translated;
-    if (canTranslate && formField.name === 'locale') {
-      label = localeOptionLabel(v.name, translated);
-    } else if (canTranslate && formField.name === 'headerProtection') {
+    if (canTranslate && formField.name === 'headerProtection') {
       label = headerProtectionOptionLabel(translated);
     }
     return {
