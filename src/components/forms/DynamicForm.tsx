@@ -178,6 +178,8 @@ export function DynamicForm({
   const variantFormKey = sch?.type === 'single'
     ? (schema?.forms[viewName] ? viewName : schema?.forms[formKey] ? formKey : sch.schemaName)
     : sch?.variants.find((v) => v.name === state.variant)?.schemaName;
+  const fieldOwner = sch?.type === 'single' ? sch.schemaName
+    : sch?.variants.find((v) => v.name === state.variant)?.schemaName;
   const parentSectionCount = model.parentForm?.sections.length ?? 0;
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
   const title = useFormTitle(model);
@@ -269,6 +271,7 @@ export function DynamicForm({
             tenantId={typeof tenantValue === 'string' ? tenantValue : null}
           >
             <FormSections
+              fieldOwner={fieldOwner}
               formKey={formKey}
               variantFormKey={variantFormKey}
               parentSectionCount={parentSectionCount}
