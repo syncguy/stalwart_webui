@@ -186,7 +186,7 @@ export function EnumMultiSelect({ enumName, items, onChange, readOnly, minItems,
           <Button {...control} type="button" variant="secondary" size="sm" disabled={readOnly}>
             <Search aria-hidden="true" />
             {enumName === 'Permission'
-              ? t('field.selectPermissions', 'Select permissions...')
+              ? t('webuiRu.field.selectPermissions', 'Select permissions...')
               : t('field.selectOptions', 'Select options...')}
           </Button>
         </PopoverTrigger>
