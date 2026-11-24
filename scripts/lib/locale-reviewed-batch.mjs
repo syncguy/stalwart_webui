@@ -41,8 +41,10 @@ export function baselineCatalog(catalog,batches) {
 export function batchTextSafe(original,ru,stage=19) {
   const tokens=s=>[...s.matchAll(/\$(?:seen|draft)\b|\/api\/calendar\/rsvp\b|IMAP ACLs? "[a-z]+"|\b(?:shareWith|isSubscribed|mayWriteOwn|mayUpdatePrivate|mayRSVP|PROPFIND|iTIP|iMIP|HTTP RSVP|WebDAV|iCalendar|IANA|CSS|RGB|XML|HTML|null|false)\b/g)].map(m=>m[0]).sort();
   const mailTokens=s=>[...s.matchAll(/\b(?:Authentication-Results|auth-failure|MTA-STS|TLS-RPT|MT-PRIORITY|MAIL FROM|RCPT TO|RFC \d+|hard fail|soft fail|DKIM|ADSP|DMARC|SPF|DANE|DNSSEC|DNS|TLSA|TLS|SMTP|HELO|EHLO|STARTTLS|WebPKI|ENVID|ORCPT|DSN|ARF|MX|MTA|TTL|IP|pct)\b|\bi=|"[0-9]+\.[0-9]+\.[0-9]+"/g)].map(m=>m[0]).sort();
+  const maintenanceTokens=s=>[...s.matchAll(/\b(?:DKIM2|ARC|PTR|JSON|X-Spam-AI|S\/MIME|IMAP UIDs|ACME|OAuth|DAV|MIME|UTF-8|LZ4|Zstandard|ham)\b|"run"|MAIL FROM:<>/g)].map(m=>m[0]).sort();
   return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
-    (stage<20||json(mailTokens(original))===json(mailTokens(ru)));
+    (stage<20||json(mailTokens(original))===json(mailTokens(ru)))&&
+    (stage<21||json(maintenanceTokens(original))===json(maintenanceTokens(ru)));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);
