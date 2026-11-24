@@ -58,6 +58,6 @@ assert.ok(report.memory.every(x=>x.slots.length>0));
 assert.ok(report.astReferences.every(x=>x.file.startsWith('src/')));
 assert.ok(report.dynamicCalls.every(x=>x.kind&&x.file.startsWith('src/')));
 const allClientIds=new Set(report.clients.map(x=>x.messageId));
-assert.ok(allClientIds.has('list.showingRange'));
+assert.ok(allClientIds.has('webuiRu.list.showingRange'));
 assert.equal(report.summary.status.translated>0,true);
 console.log('Stage16 offline inventory structural assertions PASS. This is static source coverage, not browser/render PASS.');
