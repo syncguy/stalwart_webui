@@ -426,3 +426,71 @@ for(const pin of manifest19.schemas){
   }
 }
 console.log('PASS: Stage21 actual maintenance EnumWidget/EnumValue and diagnostic VariantValue SSR; both pinned schemas, unchanged raw operation IDs, synthetic callbacks only');
+
+
+// Stage22: outbound service settings, display-only; no real HTTP or AI requests.
+let enterprise22=0;
+for(const pin of manifest19.schemas){
+  const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+  hash=pin.schemaHash;
+  fixtureSchema19=schema;
+  const selections=[['JwtSignatureAlgorithm','ps256','rs512'],['OAuthClientMetadataPolicy','sameDomain','disabled']];
+  if(schema.enums.SpamAiMode){
+    enterprise22++;
+    selections.push(['SpamAiMode','Shadow','Automatic'],['AiOpenAiProfile','Generic','OpenAi']);
+  }
+  for(const [enumName,selected,next] of selections){
+    const variants=resolver19.getEnum(schema,enumName);
+    const target=variants.find(v=>v.name===selected);
+    assert.ok(target&&variants.some(v=>v.name===next),enumName);
+    const slot='enum/'+enumName+'/'+selected+'/label';
+    assert.equal(target.label,original(slot));
+    const raw=JSON.stringify(variants);
+    let event;
+    const props={type:{type:'enum',enumName,nullable:false},formField:{name:'mode'},value:selected,onChange:v=>{event=v;},readOnly:false,control:{}};
+    for(const lang of ['ru','en','ru']){
+      language=lang;
+      const expected=htmlText19(lang==='ru'?ru(slot):original(slot));
+      assert.ok(render(EnumWidget,props).includes(expected),slot);
+      assert.equal(capturedCombo19.value,selected);
+      assert.deepEqual(Array.from(capturedCombo19.options,v=>v.value),Array.from(variants,v=>v.name));
+      capturedCombo19.onValueChange(next);
+      assert.equal(event,next);
+      assert.equal(props.value,selected);
+      assert.ok(render(scalar20.EnumValue,{schema,enumName,value:selected}).includes(expected),slot);
+      assert.equal(JSON.stringify(variants),raw);
+    }
+  }
+  for(const [formKey,name] of [['x:HttpLookup','allowInvalidCerts'],...(schema.forms['x:SpamAiProperties']?[['x:SpamAiProperties','includeAttachments'],['x:SpamAiProperties','includeLinks'],['x:SpamAiProperties','includeAuth']]:[])]){
+    const section=schema.forms[formKey].sections.find(s=>s.fields.some(f=>f.name===name));
+    const formField=section.fields.find(f=>f.name===name),field=schema.fields[formKey].properties[name];
+    const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+    assert.equal(formField.label,original(slot));
+    assert.equal(field.description,original(desc));
+    const sectionSlot='form/'+formKey+'/section/section-'+schema.forms[formKey].sections.indexOf(section);
+    const sections=[{key:sectionSlot.split('/').at(-1),title:original(sectionSlot),fields:[{formField,field}]}];
+    const data={[name]:false},snapshot=JSON.stringify({sections,data});
+    let event;
+    const props={sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,value)=>{event=[key,value];}};
+    for(const lang of ['ru','en','ru']){
+      language=lang;
+      const html=render(FormSections,props);
+      for(const key of [slot,desc,sectionSlot])assert.ok(html.includes(htmlText19(lang==='ru'?ru(key):original(key))),key);
+      assert.equal(capturedField.formField.name,name);
+      assert.equal(capturedField.value,false);
+      capturedField.onChange(true);
+      assert.deepEqual(event,[name,true]);
+      assert.equal(JSON.stringify({sections,data}),snapshot);
+    }
+  }
+  for(const value of ['Csv','List']){
+    const objectName='x:HttpLookupFormat',slot='variant/'+objectName+'/'+value+'/label';
+    assert.equal(embedded19.variantLabel(schema,objectName,value),original(slot));
+    for(const lang of ['ru','en','ru']){
+      language=lang;
+      assert.ok(render(fieldValue20.VariantValue,{schema,objectName,value}).includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+    }
+  }
+}
+assert.equal(enterprise22,1,'AI settings expected only in pinned enterprise schema');
+console.log('PASS: Stage22 real FormSections/FieldRow, EnumWidget/EnumValue and VariantValue SSR for HTTP, OAuth and enterprise AI; raw values and callbacks unchanged, no actual network');
