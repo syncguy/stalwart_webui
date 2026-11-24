@@ -478,9 +478,9 @@
       "reason": "Stage18: редакторски проверенная точная привязка schemaHash + slot + original; runtime активирован, React/browser приёмка отдельно."
     }
   ],
-  "baselineSource": "1729dd9b9852d0bcd12658f78ea714310e7f3834",
+  "baselineSource": "331603bd35ef1c6aa2d8168c634b6b01723f7440",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "80bd648f945f2fb7cc091014baf3c006ae6b454b3462df8ccbaabdeabc156c03",
+    "src/i18n/schema/ru.json": "ff6a11e4b0be63c32b2de26ec03f131ec0806f6390c6fef97bfc0232af05d50f",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
     "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
@@ -493,7 +493,8 @@
     "scripts/data/stage21-maintenance-diagnostics-review.json": "844956e5f19720ca8942b27c705b21572f8e72fc305714c6098ebe5038cd8910",
     "scripts/data/stage22-external-services-review.json": "026cd7e3ae2e06f2b660313bdc55e5a6f7424a6a5c6b05b202bc5f8c1114be30",
     "scripts/data/stage23-keys-security-review.json": "a5e9dedf6c92e5fa69ebc4e2e560b79b875db84ce9727ea768643e9a95bbed45",
-    "scripts/data/stage24-metrics-telemetry-review.json": "bdc77224d41188c261d2c0705c80e972d14c55a6bc6304f13c61f88cda66edf7"
+    "scripts/data/stage24-metrics-telemetry-review.json": "bdc77224d41188c261d2c0705c80e972d14c55a6bc6304f13c61f88cda66edf7",
+    "scripts/data/stage25-storage-cache-review.json": "4ef40e24f535070cc310cc460d0220e372be2764d8897862f15aec11f56b9171"
   },
   "clientLiterals": [
     {
@@ -531,6 +532,7 @@
     "scripts/data/stage21-maintenance-diagnostics-review.json",
     "scripts/data/stage22-external-services-review.json",
     "scripts/data/stage23-keys-security-review.json",
-    "scripts/data/stage24-metrics-telemetry-review.json"
+    "scripts/data/stage24-metrics-telemetry-review.json",
+    "scripts/data/stage25-storage-cache-review.json"
   ]
 }
