@@ -151,6 +151,29 @@ assert.equal(batchTextSafe('Discard messages with a score at or above this thres
 assert.equal(batchTextSafe('DNSBL tags named with the `RBL_` prefix and scoring above 1.0','Метки DNSBL с префиксом `RBL_` и баллом выше 1.0',27),true);
 assert.equal(batchTextSafe('DNSBL tags named with the `RBL_` prefix and scoring above 1.0','Метки DNSBL с префиксом `OTHER_` и баллом выше 1.0',27),false);
 
+
+const stage28=packets.find(p=>p.stage===28);
+if(stage28){
+  assert.equal(stage28.entries.length,195);
+  assert.equal(new Set(stage28.entries.map(e=>e.original)).size,152);
+  assert.equal(stage28.baseline,'caade105c28386f2e15493cf2e5bdc47ec86f256');
+  assert.deepEqual(stage28.scope,[{"section":"Settings","screens":["x:AllowedIp","x:BlockedIp","x:DnsResolver","x:DnsServer","x:NetworkListener","x:SystemSettings/NetworkServices","x:SystemSettings/NetworkSettings"]}]);
+  assert.equal(digest(stage28.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'f10513a37ef694a95cb96b4a9494be8b80e2f6f37030a77c4abc2022eb0b98e9');
+}
+assert.equal(batchTextSafe('DNS over TLS','Запросы DNS через TLS',28),true);
+assert.equal(batchTextSafe('DNS over TLS','Запросы DNS через TCP',28),false);
+assert.equal(batchTextSafe('HMAC-SHA256-128','Алгоритм HMAC-SHA256-128',28),true);
+assert.equal(batchTextSafe('HMAC-SHA256-128','Алгоритм HMAC-SHA256-256',28),false);
+assert.equal(batchTextSafe('HMAC-SHA1','Алгоритм HMAC-SHA224',28),false);
+assert.equal(batchTextSafe('EDNS (Extension Mechanisms for DNS)','EDNS (механизмы расширения DNS)',28),true);
+assert.equal(batchTextSafe('EDNS (Extension Mechanisms for DNS)','Механизмы расширения DNS',28),false);
+assert.equal(batchTextSafe('Try TCP on UDP error','Пробовать TCP при ошибке UDP',28),true);
+assert.equal(batchTextSafe('Try TCP on UDP error','Пробовать TCP при ошибке TCP',28),false);
+assert.equal(batchTextSafe('TOS and TTL','Значения TOS и TTL',28),true);
+assert.equal(batchTextSafe('TOS and TTL','Значение TTL',28),false);
+assert.equal(batchTextSafe('0 or 1','0 или 1',28),true);
+assert.equal(batchTextSafe('0 or 1','1 или 2',28),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;

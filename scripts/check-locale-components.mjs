@@ -1062,3 +1062,102 @@ if(catalog.entries['enum/SieveCapability/body/label']){
   assert.equal(forms27,24);assert.equal(columns27,6);assert.equal(filters27,4);
   console.log('PASS: Stage27 actual EnumMultiSelect/EnumWidget/EnumValue/VariantSelect/VariantValue/FormSections/FieldRow/ColumnHeader/FilterField synthetic SSR; both pinned editions, Sieve capabilities, classifier model and numeric IDs, raw script/threshold/filter values and callbacks; no script execution, classifier training, rule downloads or network');
 }
+
+// Stage28: DNS and network display only; no actual connections, policy evaluation or delivery.
+if(catalog.entries['enum/DnsResolverProtocol/tcp/label']){
+  let formCases28=0,enumCases28=0,columns28=0;
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;
+    for(const [enumName,selected,next] of [
+      ['DnsResolverProtocol','tcp','udp'],
+      ['TsigAlgorithm','hmac-sha256','hmac-sha512'],
+      ['NetworkListenerProtocol','imap','lmtp'],
+      ['TlsVersion','tls12','tls13'],
+      ['BlockReason','manual','authFailure'],
+      ['ServiceProtocol','smtp','caldav'],
+    ]){
+      const variants=resolver19.getEnum(schema,enumName);
+      assert.ok(variants.some(v=>v.name===selected)&&variants.some(v=>v.name===next),enumName);
+      const slot='enum/'+enumName+'/'+selected+'/label',raw=JSON.stringify(variants);
+      let event;
+      const props={type:{type:'enum',enumName,nullable:false},formField:{name:'mode'},value:selected,onChange:v=>{event=v;},readOnly:false,control:{}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const label=lang==='ru'?ru(slot):original(slot);
+        assert.ok(render(EnumWidget,props).includes(htmlText19(label)),slot);
+        assert.equal(capturedCombo19.value,selected);
+        assert.deepEqual(Array.from(capturedCombo19.options,v=>v.value),Array.from(variants,v=>v.name));
+        capturedCombo19.onValueChange(next);
+        assert.equal(event,next);
+        assert.ok(render(scalar20.EnumValue,{schema,enumName,value:selected}).includes(htmlText19(label)),slot);
+        assert.equal(JSON.stringify(variants),raw);
+        assert.equal(props.value,selected);
+      }
+      hash='unknown';language='ru';
+      assert.ok(render(EnumWidget,props).includes(htmlText19(original(slot))),slot);
+      hash=pin.schemaHash;enumCases28++;
+    }
+    for(const [formKey,name,value,changed] of [
+      ['x:DnsCustomResolver','address','192.0.2.1','192.0.2.2'],
+      ['x:DnsCustomResolver','port',53,853],
+      ['x:DnsResolverCommon','enableEdns',true,false],
+      ['x:DnsResolverCustom','maxConcurrentRequests',0,1],
+      ['x:DnsResolverTls','useTls',true,false],
+      ['x:NetworkListener','socketTtl',64,32],
+      ['x:Service','cleartext',false,true],
+      ['x:AllowedIp','reason','synthetic allow','synthetic change'],
+      ['x:BlockedIp','address','192.0.2.0/24','198.51.100.0/24'],
+    ]){
+      const form=schema.forms[formKey],field=schema.fields[formKey]?.properties[name];
+      assert.ok(form&&field,formKey+'/'+name);
+      const section=form.sections.find(s=>s.fields.some(f=>f.name===name));
+      assert.ok(section,formKey+'/'+name);
+      const formField=section.fields.find(f=>f.name===name);
+      const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+      assert.equal(formField.label,original(slot));
+      assert.equal(field.description,original(desc));
+      const sections=[{key:'section-'+form.sections.indexOf(section),title:section.title,fields:[{formField,field}]}];
+      const data={[name]:value},snapshot=JSON.stringify({sections,data});
+      let event;
+      const props={sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const html=render(FormSections,props);
+        for(const key of [slot,desc])assert.ok(html.includes(htmlText19(lang==='ru'?ru(key):original(key))),key);
+        assert.equal(capturedField.formField.name,name);
+        assert.equal(capturedField.value,value);
+        capturedField.onChange(changed);
+        assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({sections,data}),snapshot);
+      }
+      hash='unknown';language='ru';
+      assert.ok(render(FormSections,props).includes(htmlText19(original(slot))),slot);
+      hash=pin.schemaHash;formCases28++;
+    }
+    for(const [listKey,name] of [['x:DnsServer','ttl'],['x:AllowedIp','address'],['x:BlockedIp','reason']]){
+      const column=schema.lists[listKey].columns.find(v=>v.name===name);
+      const slot='list/'+listKey+'/column/'+name;
+      assert.equal(column.label,original(slot));
+      const snapshot=JSON.stringify(column);
+      let sorted;
+      const props={column,listKey,sortable:true,sort:null,onSort:v=>{sorted=v;}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const label=lang==='ru'?ru(slot):original(slot);
+        assert.ok(render(ColumnHeader,props).includes(htmlText19(label)),slot);
+        assert.ok(render(ColumnHeader,{...props,sortable:false}).includes(htmlText19(label)),slot);
+        ColumnHeader(props).props.children.props.onClick();
+        assert.equal(sorted,name);
+        assert.equal(JSON.stringify(column),snapshot);
+      }
+      columns28++;
+    }
+  }
+  assert.equal(enumCases28,12);
+  assert.equal(formCases28,18);
+  assert.equal(columns28,6);
+  console.log('PASS: Stage28 actual EnumWidget/EnumValue, FormSections/FieldRow and ColumnHeader synthetic SSR; both pinned editions, DNS protocols/TSIG/TLS/listener and address settings, raw callbacks and sort keys, unknown hash fallback; no DNS requests, network connections or policy changes');
+}
+
+

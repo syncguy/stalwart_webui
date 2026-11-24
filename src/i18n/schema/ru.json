@@ -1310,6 +1310,30 @@
       "original": "Identity alignment not specified",
       "ru": "Согласование идентификаторов не указано"
     },
+    "enum/BlockReason/authFailure/label": {
+      "original": "Excessive failed authentication attempts",
+      "ru": "Слишком много неудачных попыток аутентификации"
+    },
+    "enum/BlockReason/loitering/label": {
+      "original": "Excessive loitering connections",
+      "ru": "Слишком много простаивающих соединений"
+    },
+    "enum/BlockReason/manual/label": {
+      "original": "Manually blocked IP address",
+      "ru": "IP-адрес заблокирован вручную"
+    },
+    "enum/BlockReason/other/label": {
+      "original": "Other reason",
+      "ru": "Другая причина"
+    },
+    "enum/BlockReason/portScanning/label": {
+      "original": "Excessive port scanning attempts",
+      "ru": "Слишком много попыток сканирования портов"
+    },
+    "enum/BlockReason/rcptToFailure/label": {
+      "original": "Excessive failed RCPT TO commands",
+      "ru": "Слишком много неудачных команд RCPT TO"
+    },
     "enum/ClusterNodeStatus/active/label": {
       "original": "Active",
       "ru": "Активен"
@@ -1578,6 +1602,18 @@
       "original": "Result not specified",
       "ru": "Результат не указан"
     },
+    "enum/DnsResolverProtocol/tcp/label": {
+      "original": "TCP",
+      "ru": "Протокол TCP"
+    },
+    "enum/DnsResolverProtocol/tls/label": {
+      "original": "DNS over TLS",
+      "ru": "Запросы DNS через TLS"
+    },
+    "enum/DnsResolverProtocol/udp/label": {
+      "original": "UDP",
+      "ru": "Протокол UDP"
+    },
     "enum/ExternalPublicKeyStatus/active/label": {
       "original": "Active",
       "ru": "Активен"
@@ -1641,6 +1677,14 @@
     "enum/IndexType/telemetry/label": {
       "original": "Telemetry",
       "ru": "Телеметрия"
+    },
+    "enum/IpProtocol/tcp/label": {
+      "original": "TCP",
+      "ru": "Протокол TCP"
+    },
+    "enum/IpProtocol/udp/label": {
+      "original": "UDP",
+      "ru": "Протокол UDP"
     },
     "enum/JwtSignatureAlgorithm/es256/label": {
       "original": "ECDSA using P-256 and SHA-256",
@@ -3586,6 +3630,18 @@
       "original": "MAIL FROM",
       "ru": "Команда MAIL FROM"
     },
+    "enum/NetworkListenerProtocol/imap/label": {
+      "original": "IMAP4",
+      "ru": "Протокол IMAP4"
+    },
+    "enum/NetworkListenerProtocol/lmtp/label": {
+      "original": "LMTP",
+      "ru": "Протокол LMTP"
+    },
+    "enum/NetworkListenerProtocol/manageSieve/label": {
+      "original": "ManageSieve",
+      "ru": "Протокол ManageSieve"
+    },
     "enum/OAuthClientMetadataPolicy/any/label": {
       "original": "Any HTTPS URL",
       "ru": "Любой URL HTTPS"
@@ -3597,6 +3653,30 @@
     "enum/OAuthClientMetadataPolicy/sameDomain/label": {
       "original": "Same domain only",
       "ru": "Только тот же домен"
+    },
+    "enum/OvhEndpoint/kimsufi-ca/label": {
+      "original": "Kimsufi CA",
+      "ru": "Сервис Kimsufi CA"
+    },
+    "enum/OvhEndpoint/kimsufi-eu/label": {
+      "original": "Kimsufi EU",
+      "ru": "Сервис Kimsufi EU"
+    },
+    "enum/OvhEndpoint/ovh-ca/label": {
+      "original": "OVH CA",
+      "ru": "Сервис OVH CA"
+    },
+    "enum/OvhEndpoint/ovh-eu/label": {
+      "original": "OVH EU",
+      "ru": "Сервис OVH EU"
+    },
+    "enum/OvhEndpoint/soyoustart-ca/label": {
+      "original": "Soyoustart CA",
+      "ru": "Сервис Soyoustart CA"
+    },
+    "enum/OvhEndpoint/soyoustart-eu/label": {
+      "original": "Soyoustart EU",
+      "ru": "Сервис Soyoustart EU"
     },
     "enum/PasswordHashAlgorithm/argon2id/label": {
       "original": "Argon2id",
@@ -3653,6 +3733,38 @@
     "enum/PolicyEnforcement/testing/label": {
       "original": "Testing",
       "ru": "Тестирование"
+    },
+    "enum/ProviderInfo/contactUri/label": {
+      "original": "Contact information URI",
+      "ru": "URI контактной информации"
+    },
+    "enum/ProviderInfo/developerDocumentation/label": {
+      "original": "URL with developer-facing documentation",
+      "ru": "URL документации для разработчиков"
+    },
+    "enum/ProviderInfo/logoHeight/label": {
+      "original": "Logo height in pixels",
+      "ru": "Высота логотипа в пикселях"
+    },
+    "enum/ProviderInfo/logoUrl/label": {
+      "original": "URL to a logo image for the provider",
+      "ru": "URL изображения логотипа поставщика услуг"
+    },
+    "enum/ProviderInfo/logoWidth/label": {
+      "original": "Logo width in pixels",
+      "ru": "Ширина логотипа в пикселях"
+    },
+    "enum/ProviderInfo/providerName/label": {
+      "original": "Provider name",
+      "ru": "Название поставщика услуг"
+    },
+    "enum/ProviderInfo/providerShortName/label": {
+      "original": "Short provider name",
+      "ru": "Краткое название поставщика услуг"
+    },
+    "enum/ProviderInfo/userDocumentation/label": {
+      "original": "URL with user-facing documentation",
+      "ru": "URL документации для пользователей"
     },
     "enum/PublicKeyCapability/aead/label": {
       "original": "Authenticated encryption",
@@ -3789,6 +3901,22 @@
     "enum/SearchEmailField/to/label": {
       "original": "To Address",
       "ru": "Адрес получателя (To)"
+    },
+    "enum/ServiceProtocol/caldav/label": {
+      "original": "CalDAV",
+      "ru": "Протокол CalDAV"
+    },
+    "enum/ServiceProtocol/carddav/label": {
+      "original": "CardDAV",
+      "ru": "Протокол CardDAV"
+    },
+    "enum/ServiceProtocol/managesieve/label": {
+      "original": "ManageSieve",
+      "ru": "Протокол ManageSieve"
+    },
+    "enum/ServiceProtocol/smtp/label": {
+      "original": "SMTP submission",
+      "ru": "Отправка почты по SMTP"
     },
     "enum/SharedObjectType/addressBook/label": {
       "original": "Address Book",
@@ -4410,6 +4538,14 @@
       "original": "General certificate validation failure",
       "ru": "Общая ошибка проверки сертификата"
     },
+    "enum/TlsVersion/tls12/label": {
+      "original": "TLS version 1.2",
+      "ru": "Версия TLS 1.2"
+    },
+    "enum/TlsVersion/tls13/label": {
+      "original": "TLS version 1.3",
+      "ru": "Версия TLS 1.3"
+    },
     "enum/TracingLevelOpt/debug/label": {
       "original": "Debug - Errors, warnings, info and debug are logged",
       "ru": "Debug — ошибки, предупреждения, информационные и отладочные сообщения"
@@ -4429,6 +4565,46 @@
     "enum/TracingLevelOpt/warn/label": {
       "original": "Warning - Errors and warnings are logged",
       "ru": "Warning — ошибки и предупреждения"
+    },
+    "enum/TsigAlgorithm/gss/label": {
+      "original": "GSS",
+      "ru": "Алгоритм GSS"
+    },
+    "enum/TsigAlgorithm/hmac-md5/label": {
+      "original": "HMAC-MD5",
+      "ru": "Алгоритм HMAC-MD5"
+    },
+    "enum/TsigAlgorithm/hmac-sha1/label": {
+      "original": "HMAC-SHA1",
+      "ru": "Алгоритм HMAC-SHA1"
+    },
+    "enum/TsigAlgorithm/hmac-sha224/label": {
+      "original": "HMAC-SHA224",
+      "ru": "Алгоритм HMAC-SHA224"
+    },
+    "enum/TsigAlgorithm/hmac-sha256-128/label": {
+      "original": "HMAC-SHA256-128",
+      "ru": "Алгоритм HMAC-SHA256-128"
+    },
+    "enum/TsigAlgorithm/hmac-sha256/label": {
+      "original": "HMAC-SHA256",
+      "ru": "Алгоритм HMAC-SHA256"
+    },
+    "enum/TsigAlgorithm/hmac-sha384-192/label": {
+      "original": "HMAC-SHA384-192",
+      "ru": "Алгоритм HMAC-SHA384-192"
+    },
+    "enum/TsigAlgorithm/hmac-sha384/label": {
+      "original": "HMAC-SHA384",
+      "ru": "Алгоритм HMAC-SHA384"
+    },
+    "enum/TsigAlgorithm/hmac-sha512-256/label": {
+      "original": "HMAC-SHA512-256",
+      "ru": "Алгоритм HMAC-SHA512-256"
+    },
+    "enum/TsigAlgorithm/hmac-sha512/label": {
+      "original": "HMAC-SHA512",
+      "ru": "Алгоритм HMAC-SHA512"
     },
     "enum/UserRolesType/Admin/label": {
       "original": "Administrator role",
@@ -4798,6 +4974,22 @@
       "original": "The message of the event to trigger",
       "ru": "Сообщение создаваемого события"
     },
+    "field/x:AllowedIp/address/description": {
+      "original": "The IP address or mask to allow",
+      "ru": "Разрешаемый IP-адрес или маска"
+    },
+    "field/x:AllowedIp/createdAt/description": {
+      "original": "The date and time when this IP address was allowed",
+      "ru": "Дата и время разрешения этого IP-адреса"
+    },
+    "field/x:AllowedIp/expiresAt/description": {
+      "original": "The date and time when this IP address allowance will expire",
+      "ru": "Дата и время окончания действия разрешения для этого IP-адреса"
+    },
+    "field/x:AllowedIp/reason/description": {
+      "original": "The reason for allowing this IP address",
+      "ru": "Причина разрешения этого IP-адреса"
+    },
     "field/x:ArfExternalReport/expiresAt/description": {
       "original": "When the report is scheduled to be deleted",
       "ru": "Время запланированного удаления отчёта"
@@ -5077,6 +5269,22 @@
     "field/x:BlobStoreSwap/store/description": {
       "original": "Blob store in which cache snapshots are stored",
       "ru": "Хранилище BLOB-объектов для снимков кэша"
+    },
+    "field/x:BlockedIp/address/description": {
+      "original": "The IP address or mask to block",
+      "ru": "Блокируемый IP-адрес или маска"
+    },
+    "field/x:BlockedIp/createdAt/description": {
+      "original": "The date and time when this IP address was blocked",
+      "ru": "Дата и время блокировки этого IP-адреса"
+    },
+    "field/x:BlockedIp/expiresAt/description": {
+      "original": "The date and time when this IP address block will expire",
+      "ru": "Дата и время окончания блокировки этого IP-адреса"
+    },
+    "field/x:BlockedIp/reason/description": {
+      "original": "The reason for blocking this IP address",
+      "ru": "Причина блокировки этого IP-адреса"
     },
     "field/x:Cache/accessTokens/description": {
       "original": "Maximum size of the access tokens cache",
@@ -5738,6 +5946,18 @@
       "original": "Result of the SPF check based on MAIL FROM address",
       "ru": "Результат проверки SPF по адресу MAIL FROM"
     },
+    "field/x:DnsCustomResolver/address/description": {
+      "original": "Address of the DNS server",
+      "ru": "Адрес сервера DNS"
+    },
+    "field/x:DnsCustomResolver/port/description": {
+      "original": "Port of the DNS server",
+      "ru": "Порт сервера DNS"
+    },
+    "field/x:DnsCustomResolver/protocol/description": {
+      "original": "Protocol to use for DNS queries",
+      "ru": "Протокол для запросов DNS"
+    },
     "field/x:DnsManagementProperties/dnsServerId/description": {
       "original": "Identifier for the DNS server provider managing DNS records for this domain",
       "ru": "Идентификатор провайдера DNS, управляющего DNS-записями этого домена"
@@ -5745,6 +5965,86 @@
     "field/x:DnsManagementProperties/publishRecords/description": {
       "original": "Which DNS record types should be automatically published and kept in sync",
       "ru": "Типы DNS-записей, которые необходимо автоматически публиковать и поддерживать в актуальном состоянии"
+    },
+    "field/x:DnsResolverCommon/attempts/description": {
+      "original": "Number of times a resolution request will be retried before it is considered failed",
+      "ru": "Число повторных попыток разрешения имени, после которых запрос считается неудачным"
+    },
+    "field/x:DnsResolverCommon/enableEdns/description": {
+      "original": "Whether to enable EDNS (Extension Mechanisms for DNS) support",
+      "ru": "Включать ли поддержку EDNS (механизмов расширения DNS)"
+    },
+    "field/x:DnsResolverCommon/maxConcurrentRequests/description": {
+      "original": "Maximum number of name servers queried in parallel for each lookup (0 or 1 queries them one at a time)",
+      "ru": "Максимальное число серверов имён, опрашиваемых параллельно при каждом запросе (при 0 или 1 они опрашиваются по одному)"
+    },
+    "field/x:DnsResolverCommon/preserveIntermediates/description": {
+      "original": "Whether to preserve the intermediate name servers in the DNS resolution results",
+      "ru": "Сохранять ли промежуточные серверы имён в результатах разрешения DNS"
+    },
+    "field/x:DnsResolverCommon/tcpOnError/description": {
+      "original": "Whether to try using TCP for resolution requests if an error occurs during a UDP resolution request",
+      "ru": "Пробовать ли TCP для разрешения имён при ошибке запроса по UDP"
+    },
+    "field/x:DnsResolverCommon/timeout/description": {
+      "original": "Time after which a resolution request will be timed out if no response is received",
+      "ru": "Время, по истечении которого запрос разрешения имени завершается по тайм-ауту при отсутствии ответа"
+    },
+    "field/x:DnsResolverCustom/attempts/description": {
+      "original": "Number of times a resolution request will be retried before it is considered failed",
+      "ru": "Число повторных попыток разрешения имени, после которых запрос считается неудачным"
+    },
+    "field/x:DnsResolverCustom/enableEdns/description": {
+      "original": "Whether to enable EDNS (Extension Mechanisms for DNS) support",
+      "ru": "Включать ли поддержку EDNS (механизмов расширения DNS)"
+    },
+    "field/x:DnsResolverCustom/maxConcurrentRequests/description": {
+      "original": "Maximum number of name servers queried in parallel for each lookup (0 or 1 queries them one at a time)",
+      "ru": "Максимальное число серверов имён, опрашиваемых параллельно при каждом запросе (при 0 или 1 они опрашиваются по одному)"
+    },
+    "field/x:DnsResolverCustom/preserveIntermediates/description": {
+      "original": "Whether to preserve the intermediate name servers in the DNS resolution results",
+      "ru": "Сохранять ли промежуточные серверы имён в результатах разрешения DNS"
+    },
+    "field/x:DnsResolverCustom/servers/description": {
+      "original": "List of custom DNS server URLs to use for resolution",
+      "ru": "Список URL собственных серверов DNS для разрешения имён"
+    },
+    "field/x:DnsResolverCustom/tcpOnError/description": {
+      "original": "Whether to try using TCP for resolution requests if an error occurs during a UDP resolution request",
+      "ru": "Пробовать ли TCP для разрешения имён при ошибке запроса по UDP"
+    },
+    "field/x:DnsResolverCustom/timeout/description": {
+      "original": "Time after which a resolution request will be timed out if no response is received",
+      "ru": "Время, по истечении которого запрос разрешения имени завершается по тайм-ауту при отсутствии ответа"
+    },
+    "field/x:DnsResolverTls/attempts/description": {
+      "original": "Number of times a resolution request will be retried before it is considered failed",
+      "ru": "Число повторных попыток разрешения имени, после которых запрос считается неудачным"
+    },
+    "field/x:DnsResolverTls/enableEdns/description": {
+      "original": "Whether to enable EDNS (Extension Mechanisms for DNS) support",
+      "ru": "Включать ли поддержку EDNS (механизмов расширения DNS)"
+    },
+    "field/x:DnsResolverTls/maxConcurrentRequests/description": {
+      "original": "Maximum number of name servers queried in parallel for each lookup (0 or 1 queries them one at a time)",
+      "ru": "Максимальное число серверов имён, опрашиваемых параллельно при каждом запросе (при 0 или 1 они опрашиваются по одному)"
+    },
+    "field/x:DnsResolverTls/preserveIntermediates/description": {
+      "original": "Whether to preserve the intermediate name servers in the DNS resolution results",
+      "ru": "Сохранять ли промежуточные серверы имён в результатах разрешения DNS"
+    },
+    "field/x:DnsResolverTls/tcpOnError/description": {
+      "original": "Whether to try using TCP for resolution requests if an error occurs during a UDP resolution request",
+      "ru": "Пробовать ли TCP для разрешения имён при ошибке запроса по UDP"
+    },
+    "field/x:DnsResolverTls/timeout/description": {
+      "original": "Time after which a resolution request will be timed out if no response is received",
+      "ru": "Время, по истечении которого запрос разрешения имени завершается по тайм-ауту при отсутствии ответа"
+    },
+    "field/x:DnsResolverTls/useTls/description": {
+      "original": "Whether to use TLS for DNS resolution",
+      "ru": "Использовать ли TLS для разрешения DNS"
     },
     "field/x:Domain/aliases/description": {
       "original": "List of additional domain names that are aliases of this domain",
@@ -6130,6 +6430,14 @@
       "original": "Whether to skip the first line of the list",
       "ru": "Пропускать ли первую строку списка"
     },
+    "field/x:HurricaneCredential/secret/description": {
+      "original": "DDNS key for the zone",
+      "ru": "Ключ DDNS для зоны"
+    },
+    "field/x:HurricaneCredential/zone/description": {
+      "original": "DNS zone (origin) the credential applies to",
+      "ru": "Зона DNS (origin), к которой относятся учётные данные"
+    },
     "field/x:InMemorySwap/chunkSize/description": {
       "original": "Size of each snapshot chunk, stored as one value. Smaller chunks hold up other requests to the store for less time",
       "ru": "Размер каждой части снимка, сохраняемой как одно значение. Меньшие части на более короткое время задерживают другие запросы к хранилищу"
@@ -6178,6 +6486,18 @@
       "original": "Current processing state of the queue",
       "ru": "Текущее состояние обработки очереди"
     },
+    "field/x:JokerAuthApiKey/apiKey/description": {
+      "original": "Joker DMAPI API key",
+      "ru": "Ключ API Joker DMAPI"
+    },
+    "field/x:JokerAuthUsernamePassword/password/description": {
+      "original": "Joker DMAPI account password",
+      "ru": "Пароль учётной записи Joker DMAPI"
+    },
+    "field/x:JokerAuthUsernamePassword/username/description": {
+      "original": "Joker DMAPI account username",
+      "ru": "Имя пользователя учётной записи Joker DMAPI"
+    },
     "field/x:LocalFileSwap/flushChanges/description": {
       "original": "Minimum number of changes accumulated against an account cache before its snapshot is rewritten. Large accounts need proportionally more: one sixteenth of the messages or resources in the cache",
       "ru": "Минимальное число изменений кэша учётной записи до перезаписи снимка. Для крупных учётных записей требуется пропорционально больше: одна шестнадцатая числа сообщений или ресурсов в кэше"
@@ -6213,6 +6533,14 @@
     "field/x:Log/timestamp/description": {
       "original": "Timestamp of the log entry",
       "ru": "Время записи журнала"
+    },
+    "field/x:MailExchanger/hostname/description": {
+      "original": "The hostname of the mail exchanger, or null to use the default hostname",
+      "ru": "Имя узла почтового сервера или null для использования имени узла по умолчанию"
+    },
+    "field/x:MailExchanger/priority/description": {
+      "original": "The priority of the mail exchanger, lower values are preferred. Mail exchangers with the same priority will be selected randomly.",
+      "ru": "Приоритет почтового сервера: меньшие значения предпочтительнее. Почтовые серверы с одинаковым приоритетом выбираются случайным образом."
     },
     "field/x:MailingList/aliases/description": {
       "original": "List of email aliases for the mailing list",
@@ -6894,6 +7222,82 @@
       "original": "Maximum number of threads to use for delivery on each node in the cluster",
       "ru": "Максимальное число потоков доставки на каждом узле кластера"
     },
+    "field/x:NetworkListener/bind/description": {
+      "original": "The addresses the listener will bind to",
+      "ru": "Адреса, к которым привязывается слушатель"
+    },
+    "field/x:NetworkListener/implicitTls/description": {
+      "original": "Whether to use implicit TLS",
+      "ru": "Использовать ли неявный TLS"
+    },
+    "field/x:NetworkListener/maxConnections/description": {
+      "original": "The maximum number of concurrent connections this listener accepts, shared by all its bind addresses. If not set, the default from System Settings applies",
+      "ru": "Максимальное число одновременных соединений для этого слушателя, общее для всех его адресов привязки. Если не задано, применяется значение по умолчанию из системных настроек"
+    },
+    "field/x:NetworkListener/name/description": {
+      "original": "Unique identifier for the listener",
+      "ru": "Уникальный идентификатор слушателя"
+    },
+    "field/x:NetworkListener/overrideProxyTrustedNetworks/description": {
+      "original": "Enable proxy protocol for connections from these networks",
+      "ru": "Включить протокол прокси для соединений из этих сетей"
+    },
+    "field/x:NetworkListener/protocol/description": {
+      "original": "The protocol used by the listener",
+      "ru": "Протокол, используемый слушателем"
+    },
+    "field/x:NetworkListener/socketBacklog/description": {
+      "original": "The maximum number of incoming connections that can be pending in the backlog queue",
+      "ru": "Максимальное число входящих соединений, ожидающих приёма в очереди"
+    },
+    "field/x:NetworkListener/socketNoDelay/description": {
+      "original": "Whether the Nagle algorithm should be disabled for the socket",
+      "ru": "Отключать ли алгоритм Нейгла (Nagle) для сокета"
+    },
+    "field/x:NetworkListener/socketReceiveBufferSize/description": {
+      "original": "The size of the buffer used for receiving data",
+      "ru": "Размер буфера приёма данных"
+    },
+    "field/x:NetworkListener/socketReuseAddress/description": {
+      "original": "Whether the socket can be bound to an address that is already in use by another socket",
+      "ru": "Разрешать ли привязку сокета к адресу, уже используемому другим сокетом"
+    },
+    "field/x:NetworkListener/socketReusePort/description": {
+      "original": "Whether multiple sockets can be bound to the same address and port",
+      "ru": "Разрешать ли привязку нескольких сокетов к одному адресу и порту"
+    },
+    "field/x:NetworkListener/socketSendBufferSize/description": {
+      "original": "The size of the buffer used for sending data",
+      "ru": "Размер буфера отправки данных"
+    },
+    "field/x:NetworkListener/socketTosV4/description": {
+      "original": "The type of service (TOS) value for the socket, which determines the priority of the traffic sent through the socket",
+      "ru": "Значение типа обслуживания (TOS) сокета, определяющее приоритет отправляемого через него трафика"
+    },
+    "field/x:NetworkListener/socketTtl/description": {
+      "original": "Time-to-live (TTL) value for the socket, which determines how many hops a packet can make before it is discarded",
+      "ru": "Значение времени жизни (TTL) сокета, определяющее допустимое число переходов пакета до его отбрасывания"
+    },
+    "field/x:NetworkListener/tlsDisableCipherSuites/description": {
+      "original": "Which cipher suites to disable",
+      "ru": "Какие наборы шифров отключить"
+    },
+    "field/x:NetworkListener/tlsDisableProtocols/description": {
+      "original": "Which TLS protocols to disable",
+      "ru": "Какие версии протокола TLS отключить"
+    },
+    "field/x:NetworkListener/tlsIgnoreClientOrder/description": {
+      "original": "Whether to ignore the client's cipher order",
+      "ru": "Игнорировать ли порядок шифров, предлагаемый клиентом"
+    },
+    "field/x:NetworkListener/tlsTimeout/description": {
+      "original": "TLS handshake timeout",
+      "ru": "Время ожидания согласования TLS"
+    },
+    "field/x:NetworkListener/useTls/description": {
+      "original": "Whether to enable TLS for this listener",
+      "ru": "Включать ли TLS для этого слушателя"
+    },
     "field/x:OAuthClient/clientId/description": {
       "original": "Unique identifier of the OAuth client. It may be the HTTPS URL of a Client ID Metadata Document to pre-register an application that publishes one. Identifiers generated by this server never start with https://.",
       "ru": "Уникальный идентификатор клиента OAuth. Для предварительной регистрации приложения допускается HTTPS-адрес документа метаданных Client ID. Идентификаторы, созданные сервером, не начинаются с https://."
@@ -7413,6 +7817,14 @@
     "field/x:ServerResponse/responseMessage/description": {
       "original": "SMTP response message from the remote server",
       "ru": "Текст ответа SMTP удалённого сервера"
+    },
+    "field/x:Service/cleartext/description": {
+      "original": "Whether to advertise the service as available without TLS encryption. This does not affect whether the service actually accepts cleartext connections, which is configured separately for each network listener.",
+      "ru": "Объявлять ли службу доступной без шифрования TLS. Это не влияет на фактический приём незашифрованных соединений, который настраивается отдельно для каждого сетевого слушателя."
+    },
+    "field/x:Service/hostname/description": {
+      "original": "The hostname of the service, or null to use the server's default hostname",
+      "ru": "Имя узла службы или null для использования имени узла сервера по умолчанию"
     },
     "field/x:ShardedBlobStore/stores/description": {
       "original": "Stores to use for sharding",
@@ -8970,9 +9382,25 @@
       "original": "The value of 'metric_name' is %{metric_name}%",
       "ru": "Значение 'metric_name': %{metric_name}%"
     },
+    "form/x:AllowedIp/field/address": {
+      "original": "IP Address(es)",
+      "ru": "IP-адреса"
+    },
     "form/x:AllowedIp/field/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
+    },
+    "form/x:AllowedIp/field/expiresAt": {
+      "original": "Expiration date",
+      "ru": "Дата окончания действия"
+    },
+    "form/x:AllowedIp/field/reason": {
+      "original": "Reason for allowing",
+      "ru": "Причина разрешения"
+    },
+    "form/x:AllowedIp/section/section-0": {
+      "original": "Allow IP address",
+      "ru": "Разрешить IP-адрес"
     },
     "form/x:ApiKey/field/allowedIps": {
       "original": "Allowed IPs",
@@ -9474,9 +9902,25 @@
       "original": "Limits",
       "ru": "Ограничения"
     },
+    "form/x:BlockedIp/field/address": {
+      "original": "IP Address",
+      "ru": "IP-адрес"
+    },
     "form/x:BlockedIp/field/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
+    },
+    "form/x:BlockedIp/field/expiresAt": {
+      "original": "Expiration date",
+      "ru": "Дата окончания действия"
+    },
+    "form/x:BlockedIp/field/reason": {
+      "original": "Reason for blocking",
+      "ru": "Причина блокировки"
+    },
+    "form/x:BlockedIp/section/section-0": {
+      "original": "Block IP address",
+      "ru": "Заблокировать IP-адрес"
     },
     "form/x:Bootstrap/section/section-1": {
       "original": "Storage",
@@ -10486,6 +10930,14 @@
       "original": "Details",
       "ru": "Сведения"
     },
+    "form/x:DnsCustomResolver/field/address": {
+      "original": "Address",
+      "ru": "Адрес"
+    },
+    "form/x:DnsCustomResolver/field/port": {
+      "original": "Port",
+      "ru": "Порт"
+    },
     "form/x:DnsCustomResolver/field/protocol": {
       "original": "Protocol",
       "ru": "Протокол"
@@ -10502,13 +10954,73 @@
       "original": "Record Types",
       "ru": "Типы DNS-записей"
     },
+    "form/x:DnsResolver/field/@type": {
+      "original": "DNS resolver type",
+      "ru": "Тип резолвера DNS"
+    },
+    "form/x:DnsResolver/subtitle": {
+      "original": "Configure the resolver used by Stalwart for all DNS lookups, including MX, TXT, RBL and TLSA records used during mail delivery and policy evaluation",
+      "ru": "Настройка резолвера, используемого Stalwart для всех запросов DNS, включая записи MX, TXT, RBL и TLSA при доставке почты и проверке политик"
+    },
     "form/x:DnsResolver/title": {
       "original": "DNS Resolver",
       "ru": "Резолвер DNS"
     },
+    "form/x:DnsResolverCommon/field/attempts": {
+      "original": "Max Attempts",
+      "ru": "Макс. число попыток"
+    },
+    "form/x:DnsResolverCommon/field/enableEdns": {
+      "original": "Enable EDNS",
+      "ru": "Включить EDNS"
+    },
+    "form/x:DnsResolverCommon/field/maxConcurrentRequests": {
+      "original": "Concurrent Requests",
+      "ru": "Параллельные запросы"
+    },
+    "form/x:DnsResolverCommon/field/preserveIntermediates": {
+      "original": "Preserve Intermediates",
+      "ru": "Сохранять промежуточные серверы"
+    },
+    "form/x:DnsResolverCommon/field/tcpOnError": {
+      "original": "Try TCP on Error",
+      "ru": "Пробовать TCP при ошибке"
+    },
+    "form/x:DnsResolverCommon/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
     "form/x:DnsResolverCommon/section/section-0": {
       "original": "Settings",
       "ru": "Настройки"
+    },
+    "form/x:DnsResolverCustom/field/attempts": {
+      "original": "Max Attempts",
+      "ru": "Макс. число попыток"
+    },
+    "form/x:DnsResolverCustom/field/enableEdns": {
+      "original": "Enable EDNS",
+      "ru": "Включить EDNS"
+    },
+    "form/x:DnsResolverCustom/field/maxConcurrentRequests": {
+      "original": "Concurrent Requests",
+      "ru": "Параллельные запросы"
+    },
+    "form/x:DnsResolverCustom/field/preserveIntermediates": {
+      "original": "Preserve Intermediates",
+      "ru": "Сохранять промежуточные серверы"
+    },
+    "form/x:DnsResolverCustom/field/servers": {
+      "original": "DNS Servers",
+      "ru": "Серверы DNS"
+    },
+    "form/x:DnsResolverCustom/field/tcpOnError": {
+      "original": "Try TCP on Error",
+      "ru": "Пробовать TCP при ошибке"
+    },
+    "form/x:DnsResolverCustom/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
     },
     "form/x:DnsResolverCustom/section/section-0": {
       "original": "Servers",
@@ -10518,9 +11030,41 @@
       "original": "Settings",
       "ru": "Настройки"
     },
+    "form/x:DnsResolverTls/field/attempts": {
+      "original": "Max Attempts",
+      "ru": "Макс. число попыток"
+    },
+    "form/x:DnsResolverTls/field/enableEdns": {
+      "original": "Enable EDNS",
+      "ru": "Включить EDNS"
+    },
+    "form/x:DnsResolverTls/field/maxConcurrentRequests": {
+      "original": "Concurrent Requests",
+      "ru": "Параллельные запросы"
+    },
+    "form/x:DnsResolverTls/field/preserveIntermediates": {
+      "original": "Preserve Intermediates",
+      "ru": "Сохранять промежуточные серверы"
+    },
+    "form/x:DnsResolverTls/field/tcpOnError": {
+      "original": "Try TCP on Error",
+      "ru": "Пробовать TCP при ошибке"
+    },
+    "form/x:DnsResolverTls/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:DnsResolverTls/field/useTls": {
+      "original": "Use TLS",
+      "ru": "Использовать TLS"
+    },
     "form/x:DnsResolverTls/section/section-0": {
       "original": "Settings",
       "ru": "Настройки"
+    },
+    "form/x:DnsServer/field/@type": {
+      "original": "DNS server type",
+      "ru": "Тип сервера DNS"
     },
     "form/x:DnsServerAlidns/field/description": {
       "original": "Description",
@@ -12058,6 +12602,14 @@
       "original": "Skip Header",
       "ru": "Пропустить строку заголовка"
     },
+    "form/x:HurricaneCredential/field/secret": {
+      "original": "DDNS Key",
+      "ru": "Ключ DDNS"
+    },
+    "form/x:HurricaneCredential/field/zone": {
+      "original": "Zone",
+      "ru": "Зона"
+    },
     "form/x:HurricaneCredential/section/section-0": {
       "original": "Credential",
       "ru": "Учётные данные"
@@ -12154,9 +12706,17 @@
       "original": "Calendars",
       "ru": "Календари"
     },
+    "form/x:JokerAuthApiKey/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
     "form/x:JokerAuthUsernamePassword/field/password": {
       "original": "Password",
       "ru": "Пароль"
+    },
+    "form/x:JokerAuthUsernamePassword/field/username": {
+      "original": "Username",
+      "ru": "Имя пользователя"
     },
     "form/x:JokerAuthUsernamePassword/section/section-0": {
       "original": "Credentials",
@@ -12253,6 +12813,10 @@
     "form/x:Log/section/section-0": {
       "original": "Log Entry",
       "ru": "Запись журнала"
+    },
+    "form/x:MailExchanger/field/hostname": {
+      "original": "Hostname",
+      "ru": "Имя узла"
     },
     "form/x:MailExchanger/field/priority": {
       "original": "Priority",
@@ -13482,6 +14046,10 @@
       "original": "Type of Service",
       "ru": "Класс обслуживания"
     },
+    "form/x:NetworkListener/field/socketTtl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
     "form/x:NetworkListener/field/tlsDisableCipherSuites": {
       "original": "Disabled Ciphersuites",
       "ru": "Отключённые наборы шифров"
@@ -14409,6 +14977,14 @@
     "form/x:ServerResponse/field/responseMessage": {
       "original": "Message",
       "ru": "Текст ответа"
+    },
+    "form/x:Service/field/cleartext": {
+      "original": "Allow Cleartext",
+      "ru": "Объявлять доступ без шифрования"
+    },
+    "form/x:Service/field/hostname": {
+      "original": "Hostname",
+      "ru": "Имя узла"
     },
     "form/x:ShardedBlobStore/field/stores": {
       "original": "Stores",
@@ -15390,17 +15966,73 @@
       "original": "Symmetric Key",
       "ru": "Симметричный ключ"
     },
+    "form/x:SystemSettings/NetworkServices/field/mailExchangers": {
+      "original": "Mail Exchangers",
+      "ru": "Почтовые серверы"
+    },
+    "form/x:SystemSettings/NetworkServices/field/providerInfo": {
+      "original": "Provider Information",
+      "ru": "Сведения о поставщике услуг"
+    },
+    "form/x:SystemSettings/NetworkServices/field/providerInfo/keyLabel": {
+      "original": "Field",
+      "ru": "Поле"
+    },
+    "form/x:SystemSettings/NetworkServices/field/providerInfo/valueLabel": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "form/x:SystemSettings/NetworkServices/field/services": {
+      "original": "Advertised Services",
+      "ru": "Объявляемые службы"
+    },
     "form/x:SystemSettings/NetworkServices/field/services/keyLabel": {
       "original": "Protocol",
       "ru": "Протокол"
+    },
+    "form/x:SystemSettings/NetworkServices/section/section-0": {
+      "original": "Mail Exchangers",
+      "ru": "Почтовые серверы"
     },
     "form/x:SystemSettings/NetworkServices/section/section-1": {
       "original": "Services",
       "ru": "Службы"
     },
+    "form/x:SystemSettings/NetworkServices/section/section-2": {
+      "original": "Provider Information",
+      "ru": "Сведения о поставщике услуг"
+    },
+    "form/x:SystemSettings/NetworkServices/subtitle": {
+      "original": "Configure network services advertised in auto-configuration and DNS records, including mail exchangers and service endpoints for various protocols.",
+      "ru": "Настройка сетевых служб, объявляемых при автонастройке и в записях DNS, включая почтовые серверы и точки подключения для различных протоколов."
+    },
+    "form/x:SystemSettings/NetworkSettings/field/defaultCertificateId": {
+      "original": "Default Certificate",
+      "ru": "Сертификат по умолчанию"
+    },
+    "form/x:SystemSettings/NetworkSettings/field/defaultDomainId": {
+      "original": "Default Domain",
+      "ru": "Домен по умолчанию"
+    },
+    "form/x:SystemSettings/NetworkSettings/field/defaultHostname": {
+      "original": "Default Hostname",
+      "ru": "Имя узла по умолчанию"
+    },
+    "form/x:SystemSettings/NetworkSettings/field/includeSecrets": {
+      "original": "Include secrets in responses",
+      "ru": "Включать секреты в ответы"
+    },
+    "form/x:SystemSettings/NetworkSettings/field/maxBufferedMemory": {
+      "original": "Max Buffered Memory",
+      "ru": "Макс. объём памяти для буферизации"
+    },
     "form/x:SystemSettings/NetworkSettings/field/maxConnections": {
       "original": "Max Connections",
       "ru": "Максимум соединений"
+    },
+    "form/x:SystemSettings/NetworkSettings/field/proxyTrustedNetworks": {
+      "original": "Trusted Networks",
+      "ru": "Доверенные сети"
     },
     "form/x:SystemSettings/NetworkSettings/section/section-0": {
       "original": "Defaults",
@@ -15409,6 +16041,18 @@
     "form/x:SystemSettings/NetworkSettings/section/section-1": {
       "original": "Limits",
       "ru": "Ограничения"
+    },
+    "form/x:SystemSettings/NetworkSettings/section/section-2": {
+      "original": "Proxy",
+      "ru": "Прокси"
+    },
+    "form/x:SystemSettings/NetworkSettings/section/section-3": {
+      "original": "Management API",
+      "ru": "API управления"
+    },
+    "form/x:SystemSettings/NetworkSettings/subtitle": {
+      "original": "Configures network-related settings including the default hostname, domain, TLS certificate, maximum connections, trusted proxy networks, and whether the management API returns secrets.",
+      "ru": "Настройка сети: имя узла, домен и сертификат TLS по умолчанию, максимальное число соединений, доверенные сети прокси и возможность возврата секретов через API управления."
     },
     "form/x:Task/field/@type": {
       "original": "Task type",
@@ -16550,6 +17194,10 @@
       "original": "Alerts",
       "ru": "Оповещения"
     },
+    "list/x:AllowedIp/column/address": {
+      "original": "IP Address(es)",
+      "ru": "IP-адреса"
+    },
     "list/x:AllowedIp/column/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
@@ -16557,6 +17205,30 @@
     "list/x:AllowedIp/column/expiresAt": {
       "original": "Expires At",
       "ru": "Действует до"
+    },
+    "list/x:AllowedIp/column/reason": {
+      "original": "Reason for allowing",
+      "ru": "Причина разрешения"
+    },
+    "list/x:AllowedIp/filter/address": {
+      "original": "Address",
+      "ru": "Адрес"
+    },
+    "list/x:AllowedIp/plural": {
+      "original": "addresses",
+      "ru": "адреса"
+    },
+    "list/x:AllowedIp/singular": {
+      "original": "address",
+      "ru": "адрес"
+    },
+    "list/x:AllowedIp/subtitle": {
+      "original": "Manage allowed IP addresses",
+      "ru": "Управление разрешёнными IP-адресами"
+    },
+    "list/x:AllowedIp/title": {
+      "original": "Allowed IP addresses",
+      "ru": "Разрешённые IP-адреса"
     },
     "list/x:ApiKey/column/description": {
       "original": "Description",
@@ -16654,6 +17326,10 @@
       "original": "ARF Reports",
       "ru": "Входящие отчёты ARF"
     },
+    "list/x:BlockedIp/column/address": {
+      "original": "IP Address(es)",
+      "ru": "IP-адреса"
+    },
     "list/x:BlockedIp/column/createdAt": {
       "original": "Created At",
       "ru": "Дата создания"
@@ -16661,6 +17337,30 @@
     "list/x:BlockedIp/column/expiresAt": {
       "original": "Expires At",
       "ru": "Действует до"
+    },
+    "list/x:BlockedIp/column/reason": {
+      "original": "Reason",
+      "ru": "Причина"
+    },
+    "list/x:BlockedIp/filter/address": {
+      "original": "Address",
+      "ru": "Адрес"
+    },
+    "list/x:BlockedIp/plural": {
+      "original": "addresses",
+      "ru": "адреса"
+    },
+    "list/x:BlockedIp/singular": {
+      "original": "address",
+      "ru": "адрес"
+    },
+    "list/x:BlockedIp/subtitle": {
+      "original": "Manage blocked IP addresses",
+      "ru": "Управление заблокированными IP-адресами"
+    },
+    "list/x:BlockedIp/title": {
+      "original": "Blocked IP addresses",
+      "ru": "Заблокированные IP-адреса"
     },
     "list/x:Certificate/column/subjectAlternativeNames": {
       "original": "Subject Alternative Names",
@@ -16882,9 +17582,37 @@
       "original": "Outbound DMARC Reports",
       "ru": "Исходящие отчёты DMARC"
     },
+    "list/x:DnsServer/column/@type": {
+      "original": "DNS server type",
+      "ru": "Тип сервера DNS"
+    },
+    "list/x:DnsServer/column/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "list/x:DnsServer/column/ttl": {
+      "original": "TTL",
+      "ru": "Время жизни (TTL)"
+    },
     "list/x:DnsServer/filter/memberTenantId": {
       "original": "Tenant",
       "ru": "Арендатор"
+    },
+    "list/x:DnsServer/plural": {
+      "original": "DNS servers",
+      "ru": "серверы DNS"
+    },
+    "list/x:DnsServer/singular": {
+      "original": "DNS server",
+      "ru": "сервер DNS"
+    },
+    "list/x:DnsServer/subtitle": {
+      "original": "Manage DNS servers",
+      "ru": "Управление серверами DNS"
+    },
+    "list/x:DnsServer/title": {
+      "original": "DNS servers",
+      "ru": "Серверы DNS"
     },
     "list/x:Domain/action/x:Domain/DomainZone": {
       "original": "View Zone File",
@@ -19046,6 +19774,10 @@
       "original": "Defines an alert rule triggered by metric conditions.",
       "ru": "Определяет правило оповещения, срабатывающее по условиям метрик."
     },
+    "object/x:AllowedIp/description": {
+      "original": "Defines an allowed IP address or network range.",
+      "ru": "Определяет разрешённый IP-адрес или диапазон сети."
+    },
     "object/x:ArfExternalReport/description": {
       "original": "Stores an ARF feedback report received from an external source.",
       "ru": "Хранит отчёт обратной связи ARF, полученный из внешнего источника."
@@ -19057,6 +19789,10 @@
     "object/x:BlobStore/description": {
       "original": "Configures the blob storage backend for messages and files.",
       "ru": "Настраивает хранилище BLOB-объектов для сообщений и файлов."
+    },
+    "object/x:BlockedIp/description": {
+      "original": "Defines a blocked IP address or network range.",
+      "ru": "Определяет заблокированный IP-адрес или диапазон сети."
     },
     "object/x:Cache/description": {
       "original": "Configures in-memory cache sizes for data, DNS records, and authorization tokens.",
@@ -19093,6 +19829,14 @@
     "object/x:DmarcInternalReport/description": {
       "original": "Stores an outbound DMARC aggregate report pending delivery.",
       "ru": "Хранит исходящий агрегированный отчёт DMARC, ожидающий доставки."
+    },
+    "object/x:DnsResolver/description": {
+      "original": "Configures the DNS resolver used for domain lookups.",
+      "ru": "Настройка резолвера DNS для разрешения доменных имён."
+    },
+    "object/x:DnsServer/description": {
+      "original": "Defines a DNS server for automatic record management.",
+      "ru": "Определяет сервер DNS для автоматического управления записями."
     },
     "object/x:Domain/description": {
       "original": "Defines an email domain and its DNS, DKIM, and TLS certificate settings.",
@@ -19222,6 +19966,10 @@
       "original": "Defines a virtual queue for organizing outbound message delivery.",
       "ru": "Определяет виртуальную очередь для организации исходящей доставки сообщений."
     },
+    "object/x:NetworkListener/description": {
+      "original": "Defines a network listener for accepting incoming connections.",
+      "ru": "Определяет сетевой слушатель для приёма входящих соединений."
+    },
     "object/x:OAuthClient/description": {
       "original": "Defines a registered OAuth client application.",
       "ru": "Зарегистрированное клиентское приложение OAuth."
@@ -19321,6 +20069,10 @@
     "object/x:SymmetricKey/description": {
       "original": "Defines a symmetric key used to encrypt blobs at rest. Blobs encrypted with a key cannot be read without it, so keys can only be deleted by the recovery administrator.",
       "ru": "Определяет симметричный ключ для шифрования бинарных объектов при хранении. Зашифрованные ключом объекты невозможно прочитать без него, поэтому удалять ключи может только администратор восстановления."
+    },
+    "object/x:SystemSettings/description": {
+      "original": "Configures core server settings including hostname and network services.",
+      "ru": "Основные настройки сервера, включая имя узла и сетевые службы."
     },
     "object/x:Task/description": {
       "original": "Represents a background task scheduled for execution.",
@@ -19606,6 +20358,26 @@
       "original": "Manual DNS management",
       "ru": "Ручное управление DNS"
     },
+    "variant/x:DnsResolver/Cloudflare/label": {
+      "original": "Cloudflare DNS",
+      "ru": "Серверы Cloudflare DNS"
+    },
+    "variant/x:DnsResolver/Custom/label": {
+      "original": "Custom DNS",
+      "ru": "Собственные серверы DNS"
+    },
+    "variant/x:DnsResolver/Google/label": {
+      "original": "Google DNS",
+      "ru": "Серверы Google DNS"
+    },
+    "variant/x:DnsResolver/Quad9/label": {
+      "original": "Quad9 DNS",
+      "ru": "Серверы Quad9 DNS"
+    },
+    "variant/x:DnsResolver/System/label": {
+      "original": "System Resolver",
+      "ru": "Системный резолвер"
+    },
     "variant/x:EncryptionAtRest/Disabled/label": {
       "original": "Disabled",
       "ru": "Отключено"
@@ -19677,6 +20449,14 @@
     "variant/x:InMemorySwapStore/RedisSentinel/label": {
       "original": "Redis Sentinel",
       "ru": "Хранилище Redis Sentinel"
+    },
+    "variant/x:JokerAuth/ApiKey/label": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "variant/x:JokerAuth/UsernamePassword/label": {
+      "original": "Username and Password",
+      "ru": "Имя пользователя и пароль"
     },
     "variant/x:LookupStore/Keep/label": {
       "original": "Stalwart Keep",

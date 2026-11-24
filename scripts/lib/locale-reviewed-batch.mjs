@@ -59,6 +59,7 @@ export function batchTextSafe(original,ru,stage=19) {
   const extension=original.match(/\b(duplicate|vacation|notify|editheader) extension\b/i)?.[1].toLowerCase();
   const rawExtensionSafe=!extension||new RegExp('\\b'+extension+'\\b').test(ru);
   const rawFromSafe=!original.includes('from field')||/\bfrom\b/.test(ru);
+  const networkTokens=s=>[...s.matchAll(/\b(?:HMAC-(?:MD5|SHA1|SHA224|SHA256(?:-128)?|SHA384(?:-192)?|SHA512(?:-256)?)|DDNS|EDNS|TCP|UDP|IMAP4|CalDAV|CardDAV|GSS|TOS|DMAPI|Joker|Cloudflare|Google|Quad9|OVH|Kimsufi|Soyoustart|EU|Nagle|origin)\b/g)].map(m=>m[0]).sort();
   return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
     (stage<20||json(mailTokens(original))===json(mailTokens(ru)))&&
     (stage<21||json(maintenanceTokens(original))===json(maintenanceTokens(ru)))&&
@@ -67,7 +68,8 @@ export function batchTextSafe(original,ru,stage=19) {
     (stage<24||json(telemetryTokens(markerOriginal))===json(telemetryTokens(ru)))&&
     (stage<25||(json(storageTokens(markerOriginal))===json(storageTokens(ru))&&json(metadataTokens(original))===json(metadataTokens(ru))&&json(fractionTokens(original))===json(fractionTokens(ru))))&&
     (stage<26||json(smtpTokens(markerOriginal))===json(smtpTokens(ru)))&&
-    (stage<27||(json(sieveTokens(markerOriginal))===json(sieveTokens(ru))&&rawExtensionSafe&&rawFromSafe));
+    (stage<27||(json(sieveTokens(markerOriginal))===json(sieveTokens(ru))&&rawExtensionSafe&&rawFromSafe))&&
+    (stage<28||json(networkTokens(original))===json(networkTokens(ru)));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);
