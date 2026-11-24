@@ -590,7 +590,7 @@
           "multiple-contextual-translations",
           "no-translation-in-audited-consumers"
         ],
-        "rationale": "SPF report subject."
+        "rationale": "Subject of the SPF report email, not an identity or certificate subject."
       }
     },
     {
