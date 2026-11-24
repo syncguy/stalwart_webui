@@ -68,11 +68,20 @@ check('Оба конфликта разделены по hash и original, бе�
     }
   }
 });
-check('Permission учитывается только в реальном EnumMultiSelect helper', () => {
-  const r = row('enum/Permission/sysAccountGet/label');
-  assert.ok(uses(r).some(u => u.renderer === 'EnumMultiSelect' && u.text.ru === 'Учётные записи: Просмотр'));
-  assert.ok(uses(r).some(u => u.mode === 'detail' && u.text.ru === r.original));
-  assert.notEqual(r.classification, 'translated');
+check('Permission: прежний helper и расширение на все wired consumers после stage29', () => {
+  const slot='enum/Permission/sysAccountGet/label', r=row(slot);
+  const prior=structuredClone(inputs.catalog);
+  delete prior.entries[slot];
+  const priorSchema=sourceModule(fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8'),'schemaText.ts',{'./schema/ru.json':prior});
+  const before=classifyOne(sourceRow(slot),{catalog:prior,schema:priorSchema}).row;
+  assert.ok(before.usages.some(u=>u.renderer==='EnumMultiSelect'&&u.text.ru==='Учётные записи: Просмотр'));
+  assert.ok(before.usages.some(u=>u.mode==='detail'&&u.text.ru===before.original));
+  assert.notEqual(before.classification,'translated');
+  if(inputs.catalog.entries[slot]){
+    assert.equal(r.classification,'translated');
+    assert.ok(uses(r).some(u=>u.mode==='detail'&&u.text.ru==='Учётные записи: Просмотр'));
+    assert.ok(uses(r).every(u=>u.state==='wired'&&u.text.ru==='Учётные записи: Просмотр'));
+  }else assert.equal(r.classification,before.classification);
 });
 check('Enum explanation действительно wired, неизвестные custom-пути не засчитаны', () => {
   const r = row('enum/EventType/acme.auth-start/explanation');
