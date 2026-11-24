@@ -23,6 +23,7 @@ interface VariantControl {
 interface FormSectionsProps {
   sections: RenderableSection[];
   formKey?: string;
+  fieldOwner?: string;
   variantFormKey?: string;
   parentSectionCount?: number;
   sectionId?: (key: string) => string;
@@ -37,6 +38,7 @@ interface FormSectionsProps {
 export function FormSections({
   sections,
   formKey,
+  fieldOwner,
   variantFormKey,
   parentSectionCount = 0,
   sectionId,
@@ -107,6 +109,7 @@ export function FormSections({
                 field={field}
                 formField={formField}
                 formKey={context.formKey}
+                fieldOwner={fieldOwner}
                 value={data[formField.name]}
                 onChange={(v) => onFieldChange(formField.name, v)}
                 error={errors[formField.name]}
