@@ -8,6 +8,7 @@ import ts from 'typescript';
 // Execute source-path regression guard together with the pinned schema checks.
 import './check-renderer-display-paths.mjs';
 import {loadReviewedBatches} from './lib/locale-reviewed-batch.mjs';
+import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
 
 const catalog = JSON.parse(fs.readFileSync('src/i18n/schema/ru.json', 'utf8'));
 const { entries, meta } = catalog;
@@ -195,7 +196,7 @@ assert.match(embeddedSource, /formKey=\{resolved\.schemaName \?\? undefined\}/);
 assert.match(embeddedSource, /onChange=\{changeVariant\}/);
 const nestedFieldSource = fs.readFileSync('src/components/forms/FieldRow.tsx', 'utf8');
 assert.match(nestedFieldSource, /const label = formKey \? display\(/);
-assert.match(nestedFieldSource, /const description = formKey\s*\? display\(/);
+assert.match(nestedFieldSource, /const description = descriptionOwner\s*\? display\(/);
 assert.doesNotMatch(nestedFieldSource, /formKey && topLevel \? display/);
 const stableVariantSource = fs.readFileSync('src/components/forms/VariantSelect.tsx', 'utf8');
 assert.match(stableVariantSource, /const segmented = isSegmented\(variants\)/);
@@ -523,7 +524,7 @@ const tableSource = fs.readFileSync('src/components/lists/DynamicList.tsx', 'utf
 const enumValueSource = fs.readFileSync('src/components/values/ScalarValues.tsx', 'utf8');
 assert.ok(viewSource.includes('display(`form/${viewName}/section/${section.key}`, section.title)'));
 assert.ok(viewSource.includes('display(`form/${viewName}/field/${formField.name}`, formField.label)'));
-assert.ok(viewSource.includes('`field/${viewName}/${formField.name}/description`'));
+assert.ok(viewSource.includes('`field/${layout.fieldOwner}/${formField.name}/description`'));
 assert.ok(viewSource.includes('value={data[formField.name]}'));
 assert.ok(viewPageSource.includes('display(`list/${listKey}/singular`, rawSingularName)'));
 assert.ok(viewPageSource.includes('objectId, undefined, { accountId }'));
@@ -661,7 +662,12 @@ for (const [slot, original, expectedRu] of reportSlots) {
 }
 const reviewedPolicy=JSON.parse(fs.readFileSync('scripts/data/locale-review-policy.json','utf8'));
 const reviewedCount=loadReviewedBatches(process.cwd(),reviewedPolicy).reduce((n,p)=>n+p.entries.length,0);
-assert.equal(Object.keys(entries).length, 2084+reviewedCount, 'Unexpected contextual slot inventory');
+const stage37Packet=loadFieldDescriptionPacket(process.cwd(),reviewedPolicy);
+const stage35Catalog=undoFieldDescriptions(catalog,stage37Packet);
+assert.equal(Object.keys(stage35Catalog.entries).length,2084+reviewedCount);
+assert.equal(Object.keys(entries).length,2084+reviewedCount+stage37Packet.slots.length,'Unexpected contextual slot inventory');
+assert.ok(dynamicFormStage5.includes('fieldOwner={fieldOwner}'));
+assert.ok(formSectionsStage5.includes('fieldOwner={fieldOwner}'));
 // Both source schemas define forms for each of these read-only JMAP object views.
 assert.ok(viewPageSource.includes('<DynamicView'));
 assert.ok(viewSource.includes('value={data[formField.name]}'));
