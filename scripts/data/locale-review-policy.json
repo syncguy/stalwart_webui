@@ -480,7 +480,7 @@
   ],
   "baselineSource": "6491192ec301bb32f7ed500d18f3dd94f358945b",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "04a0fe6cb4f3b4f0ef57734d4b500060374f1910babdacad11ecd8f644c327ba",
+    "src/i18n/schema/ru.json": "03ca6f4bb8ec0f50ed82d095bbcee2117ceaf8ce8b6eb23713ee44115cf80b65",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
     "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
@@ -502,7 +502,8 @@
     "scripts/data/stage30-store-coordinator-review.json": "d94e592cb76cae0dcb939f47bb9eca61cf124b56dbed15908cc132a5cf0ba7d0",
     "scripts/data/stage31-client-protocols-review.json": "8fceb3098454e11a854f7d7c98af5ed7b71cd776e505088cdc9f8b5f0ad5cf61",
     "scripts/data/stage32-reports-retention-review.json": "65349b34d90c1588ec55153bd322a8e3b7d8a7ae29fe96c6dc251ad994ebfa34",
-    "scripts/data/stage33-lookup-application-hooks-review.json": "3f7a89e61a1eaf0b8c82776312bffbcb6eeec6feb359c2c93699a2d106010255"
+    "scripts/data/stage33-lookup-application-hooks-review.json": "3f7a89e61a1eaf0b8c82776312bffbcb6eeec6feb359c2c93699a2d106010255",
+    "scripts/data/stage34-shared-residual-review.json": "544a6c529e5f70767de707efe5b5bfd90328890500fb3cc1085a9cb12833df73"
   },
   "clientLiterals": [
     {
@@ -549,6 +550,7 @@
     "scripts/data/stage30-store-coordinator-review.json",
     "scripts/data/stage31-client-protocols-review.json",
     "scripts/data/stage32-reports-retention-review.json",
-    "scripts/data/stage33-lookup-application-hooks-review.json"
+    "scripts/data/stage33-lookup-application-hooks-review.json",
+    "scripts/data/stage34-shared-residual-review.json"
   ]
 }

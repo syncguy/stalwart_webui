@@ -1840,3 +1840,192 @@ if(catalog.entries['enum/ClusterTaskType/accountMaintenance/label']){
   assert.equal(forms33,51);assert.equal(enterprise33,3);assert.equal(placeholder33,2);assert.equal(columns33,12);
   console.log('PASS: Stage33 actual EnumMultiSelect/EnumValue, VariantSelect/VariantValue, FormSections/FieldRow and ColumnHeader synthetic SSR; both pinned editions, raw IDs, callback payloads, immutable placeholder source, unknown-hash fallback and Enterprise-only settings; no network, application or hook activation, licensing or task execution');
 }
+
+
+// Stage34: close the globally wired residual, keeping prior adapter wording and raw identities.
+// All controls, secrets, endpoints and retry values below are synthetic, never used by a server.
+if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
+  let selected34,options34=[];
+  const optionLabels34=sourceModule(read('src/i18n/schemaOptionLabels.ts'),'schemaOptionLabels.ts');
+  let enumControl34;
+  const {EnumWidget:EnumWidget34}=component('src/components/forms/widgets/EnumWidgets.tsx',{
+    'lucide-react':{Search:icon},
+    '@/components/ui/button':{Button:passthrough},'@/components/ui/checkbox':{Checkbox:()=>null},
+    '@/components/ui/input':{Input:()=>null},'@/components/ui/label':{Label:passthrough},
+    '@/components/ui/combobox':{Combobox:props=>{enumControl34=props;return h('div',null,props.options.map(o=>h('span',{key:o.value},o.label)));}},
+    '@/components/ui/popover':{Popover:passthrough,PopoverContent:passthrough,PopoverTrigger:passthrough},
+    '@/components/common/HelpTooltip':{HelpTooltip:()=>null},
+    '@/hooks/usePermissions':{usePermissionCheckers:()=>({hasPermission:()=>true})},
+    '@/lib/schemaResolver':resolver19,
+    '@/components/forms/formContext':{useFormContext:()=>({schema:fixtureSchema19})},
+    '@/hooks/useSchemaText':{useSchemaText,useCanTranslateSchema:()=>language==='ru'&&catalog.meta.schemaHashes.includes(hash)},
+    '@/i18n/schemaPermissionText':{permissionDisplayLabel:(_id,label)=>label},
+    '@/components/ui/comboboxSearch':{filterComboboxOptions:options=>options},
+    '@/i18n/schemaOptionLabels':optionLabels34,
+    '@/components/forms/widgets/RemovablePill':{RemovablePill:()=>null},
+  });
+  const {VariantSelect}=component('src/components/forms/VariantSelect.tsx',{
+    '@/components/ui/select':{
+      Select:props=>{selected34=props;return h('div',null,props.children);},
+      SelectContent:passthrough,SelectTrigger:passthrough,SelectValue:()=>null,
+      SelectItem:props=>{options34.push(props);return h('span',null,props.children);},
+    },
+    '@/components/forms/FieldRow':{FieldLabel:props=>h('span',null,props.label)},
+    '@/components/forms/formContext':{fieldIds:()=>({inputId:'residual-type',labelId:'residual-label'}),useFieldScope:()=>({path:[]}),useFormContext:()=>({idPrefix:'synthetic'}),useInPanel:()=>false},
+    '@/components/forms/formLogic':{VARIANT_FIELD:'@type'},
+  });
+  const find34=(node,predicate)=>!React.isValidElement(node)?[]:[...(predicate(node)?[node]:[]),...React.Children.toArray(node.props.children).flatMap(child=>find34(child,predicate))];
+  const packet34=JSON.parse(read('scripts/data/stage34-shared-residual-review.json'));
+  const newSlots34=new Set(packet34.entries.map(e=>e.slot));
+  const expected34=(slot,raw,localized)=>{
+    const e=catalog.entries[slot];
+    return localized&&e?.original===raw?e.ru:raw;
+  };
+  let enumCases34=0,enumLabels34=0,variantCases34=0,formCases34=0,columns34=0;
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;
+    for(const enumName of ['ArchivedItemStatus','AzureEnvironment','EventPolicy','HeaderProtection','PublicKeyKind','SpecialUse','TracingLevel']){
+      const variants=resolver19.getEnum(schema,enumName);
+      if(enumName==='ArchivedItemStatus'&&pin.edition==='oss'){assert.equal(variants.length,0);continue;}
+      assert.ok(variants.length>=2,enumName);
+      const raw=JSON.stringify(variants);
+      let event;
+      const fieldName=enumName==='HeaderProtection'?'headerProtection':'synthetic';
+      const props={type:{type:'enum',enumName,nullable:false},formField:{name:fieldName},value:variants[0].name,onChange:v=>{event=v;},readOnly:false,control:{}};
+      const newVariants=variants.filter(v=>newSlots34.has('enum/'+enumName+'/'+v.name+'/label'));
+      assert.ok(newVariants.length>0,enumName);
+      for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+        language=lang;hash=activeHash;
+        const localized=lang==='ru'&&activeHash===pin.schemaHash;
+        const html=render(EnumWidget34,props);
+        assert.deepEqual(Array.from(enumControl34.options,v=>v.value),Array.from(variants,v=>v.name));
+        for(const [i,v] of variants.entries()){
+          const slot='enum/'+enumName+'/'+v.name+'/label',label=expected34(slot,v.label,localized);
+          if(newSlots34.has(slot))assert.equal(original(slot),v.label,slot);
+          const controlLabel=localized&&fieldName==='headerProtection'?optionLabels34.headerProtectionOptionLabel(label):label;
+          if(localized&&fieldName==='headerProtection'&&newSlots34.has(slot)){
+            assert.equal(label,optionLabels34.headerProtectionOptionLabel(v.label),'Previously translated adapter label changed');
+          }
+          assert.equal(enumControl34.options[i].label,controlLabel,slot);
+          assert.ok(html.includes(htmlText19(controlLabel)),slot);
+          assert.ok(render(scalar20.EnumValue,{schema,enumName,value:v.name}).includes(htmlText19(label)),slot);
+        }
+        assert.equal(enumControl34.value,variants[0].name);
+        enumControl34.onValueChange(variants[1].name);assert.equal(event,variants[1].name);
+        assert.equal(props.value,variants[0].name);assert.equal(JSON.stringify(variants),raw);
+      }
+      enumCases34++;enumLabels34+=newVariants.length;
+    }
+    for(const variantScope of ['x:HttpAuth','x:SecretKey','x:SecretKeyOptional','x:SecretText','x:SecretTextOptional','x:TaskRetryStrategy']){
+      const variants=schema.schemas[variantScope].variants,raw=JSON.stringify(variants);
+      const expectedIds=packet34.entries.filter(e=>e.slot.startsWith('variant/'+variantScope+'/')).map(e=>e.slot.split('/')[2]).sort();
+      assert.deepEqual(Array.from(variants,v=>v.name).sort(),expectedIds,variantScope);
+      let event;
+      const props={variantScope,variants,value:variants[0].name,onChange:v=>{event=v;},readOnly:false,ariaLabel:'Synthetic type'};
+      const segmented=variants.length>1&&variants.length<=4&&variants.reduce((sum,v)=>sum+v.label.length,0)<=44;
+      for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+        language=lang;hash=activeHash;selected34=undefined;options34=[];
+        const localized=lang==='ru'&&activeHash===pin.schemaHash;
+        const html=render(VariantSelect,props);
+        const label=v=>expected34('variant/'+variantScope+'/'+v.name+'/label',v.label,localized);
+        for(const v of variants){
+          const slot='variant/'+variantScope+'/'+v.name+'/label';
+          assert.equal(original(slot),v.label);
+          assert.ok(html.includes(htmlText19(label(v))),slot);
+          assert.ok(render(fieldValue20.VariantValue,{schema,objectName:variantScope,value:v.name}).includes(htmlText19(label(v))),slot);
+        }
+        if(segmented){
+          assert.ok(html.includes('role="radiogroup"'));
+          const controls=find34(VariantSelect(props),n=>typeof n.type==='function'&&n.type.name==='SegmentedVariants');
+          assert.equal(controls.length,1);
+          const control=controls[0];assert.equal(control.props.value,variants[0].name);
+          assert.deepEqual(Array.from(control.props.variants,v=>v.name),Array.from(variants,v=>v.name));
+          const radios=find34(control.type(control.props),n=>n.type==='button'&&n.props.role==='radio');
+          assert.equal(radios.length,variants.length);
+          for(const [i,v] of variants.entries()){
+            assert.equal(radios[i].props.children,label(v));
+            assert.equal(radios[i].props['aria-checked'],i===0);
+          }
+          radios[1].props.onClick();
+        }else{
+          assert.equal(selected34.value,variants[0].name);
+          assert.deepEqual(Array.from(options34,v=>v.value),Array.from(variants,v=>v.name));
+          selected34.onValueChange(variants[1].name);
+        }
+        assert.equal(event,variants[1].name);assert.equal(props.value,variants[0].name);assert.equal(JSON.stringify(variants),raw);
+      }
+      variantCases34++;
+    }
+    for(const [formKey,objectKey,name,value,changed] of [
+      ['x:HttpAuthBasic','x:HttpAuthBasic','username','synthetic-user','edited-user'],
+      ['x:HttpAuthBasic','x:HttpAuthBasic','secret','synthetic-secret','edited-secret'],
+      ['x:HttpAuthBearer','x:HttpAuthBearer','bearerToken','synthetic-token','edited-token'],
+      ['x:SecretKeyEnvironmentVariable','x:SecretKeyEnvironmentVariable','variableName','SYNTHETIC_KEY','EDITED_KEY'],
+      ['x:SecretKeyFile','x:SecretKeyFile','filePath','/synthetic','/edited'],
+      ['x:SecretKeyValue','x:SecretKeyValue','secret','synthetic-secret','edited-secret'],
+      ['x:SecretTextValue','x:SecretTextValue','secret','synthetic-secret','edited-secret'],
+      ['x:SenderAuth','x:SenderAuth','dkimStrict',false,true],
+      ['x:SenderAuth','x:SenderAuth','spfEhloVerify','relaxed','strict'],
+      ['x:SenderAuth','x:SenderAuth','reverseIpVerify','relaxed','strict'],
+      ['x:Sharing','x:Sharing','allowDirectoryQueries',false,true],
+      ['x:Sharing','x:Sharing','maxShares',5,10],
+      ['x:TaskManager','x:TaskManager','alertAfter',5,10],
+      ['x:TaskRetryStrategyBackoff','x:TaskRetryStrategyBackoff','factor',2,3],
+      ['x:TaskRetryStrategyBackoff','x:TaskRetryStrategyBackoff','initialDelay','10s','20s'],
+      ['x:TaskRetryStrategyBackoff','x:TaskRetryStrategyBackoff','jitter',false,true],
+      ['x:TaskRetryStrategyBackoff','x:TaskRetryStrategyBackoff','maxDelay','1m','2m'],
+      ['x:TaskRetryStrategyFixed','x:TaskRetryStrategyFixed','delay','10s','20s'],
+      ['x:Encryption/EncryptionDiscovery','x:Encryption','discoveryProxy','https://example.invalid/proxy','https://example.invalid/other'],
+      ['x:Encryption/EncryptionDiscovery','x:Encryption','keyRefreshInterval','7d','14d'],
+      ['x:Encryption/EncryptionGateway','x:Encryption','gatewayEnable',false,true],
+      ['x:Encryption/EncryptionGateway','x:Encryption','gatewayHeaderProtection','baseline','noConfidentiality'],
+      ['x:Encryption/EncryptionStorage','x:Encryption','atRestEnable',false,true],
+      ['x:Encryption/EncryptionTrust','x:Encryption','useBundledRoots',false,true],
+      ['x:Encryption/EncryptionTrust','x:Encryption','maxCrlSize',1024,2048],
+    ]){
+      const form=schema.forms[formKey],field=schema.fields[objectKey]?.properties[name];
+      assert.ok(form&&field,formKey+'/'+name);
+      const section=form.sections.find(s=>s.fields.some(f=>f.name===name));assert.ok(section,formKey+'/'+name);
+      const formField=section.fields.find(f=>f.name===name);
+      const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+      assert.ok(newSlots34.has(slot)||newSlots34.has(desc),slot);
+      if(newSlots34.has(slot))assert.equal(formField.label,original(slot));
+      if(newSlots34.has(desc))assert.equal(field.description,original(desc));
+      const sectionKey='section-'+form.sections.indexOf(section),sectionSlot='form/'+formKey+'/section/'+sectionKey;
+      const sections=[{key:sectionKey,title:section.title,fields:[{formField,field}]}];
+      const data={[name]:value},snapshot=JSON.stringify({sections,data});let event;
+      const props={sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}};
+      for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+        language=lang;hash=activeHash;
+        const localized=lang==='ru'&&activeHash===pin.schemaHash;
+        const html=render(FormSections,props);
+        assert.ok(html.includes(htmlText19(expected34(slot,formField.label,localized))),slot);
+        if(section.title)assert.ok(html.includes(htmlText19(expected34(sectionSlot,section.title,localized))),sectionSlot);
+        if(field.description)assert.ok(html.includes(htmlText19(expected34(desc,field.description,localized))),desc);
+        assert.equal(capturedField.formField.name,name);assert.equal(capturedField.value,value);
+        capturedField.onChange(changed);assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({sections,data}),snapshot);
+      }
+      formCases34++;
+    }
+    if(pin.edition==='oss'){assert.ok(!schema.lists['x:ArchivedItem']);}
+    else for(const name of ['archivedAt','archivedUntil']){
+      const listKey='x:ArchivedItem',column=schema.lists[listKey].columns.find(v=>v.name===name),slot='list/'+listKey+'/column/'+name;
+      assert.equal(column.label,original(slot));let sorted;
+      const raw=JSON.stringify(column),props={column,listKey,sortable:true,sort:null,onSort:v=>{sorted=v;}};
+      for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+        language=lang;hash=activeHash;
+        const label=expected34(slot,column.label,lang==='ru'&&activeHash===pin.schemaHash);
+        assert.ok(render(ColumnHeader,props).includes(htmlText19(label)),slot);
+        assert.ok(render(ColumnHeader,{...props,sortable:false}).includes(htmlText19(label)),slot);
+        ColumnHeader(props).props.children.props.onClick();assert.equal(sorted,name);
+        assert.equal(JSON.stringify(column),raw);
+      }
+      columns34++;
+    }
+  }
+  assert.equal(enumCases34,13);assert.equal(enumLabels34,48);assert.equal(variantCases34,12);
+  assert.equal(formCases34,50);assert.equal(columns34,2);
+  console.log('PASS: Stage34 actual EnumWidget/EnumValue/VariantSelect/VariantValue/FormSections/FieldRow/ColumnHeader synthetic SSR; both pinned editions, prior headerProtection adapter wording, raw IDs and callbacks, unknown hash and raw split-form descriptions; no secret access, encryption, authentication, restoration, task execution or network');
+}

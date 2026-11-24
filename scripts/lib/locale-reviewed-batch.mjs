@@ -71,6 +71,9 @@ export function batchTextSafe(original,ru,stage=19) {
   const lookupTokens=s=>[...s.matchAll(/\b(?:ASN|Geo|OIDC|Client ID|Webadmin)\b|\/(?:admin|tmp)\b/g)].map(m=>m[0]).sort();
   // Only the exact stage33 display label has initial-capital Glob, unlike the glob marker in its description.
   const securityOriginal=stage===33&&original==='Glob Pattern'?'glob Pattern':original;
+  const residualTokens=s=>[...s.matchAll(/\b(?:HKP|Bearer|Subject)\b/g)].map(m=>m[0]).sort();
+  // Stage34 consolidates the exact previously translated headerProtection adapter label.
+  const subjectOriginal=stage===34&&original==='Protected, Subject hidden'&&ru==='Защищены, тема скрыта'?original.replace('Subject',''):original;
   return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
     (stage<20||json(mailTokens(reportOriginal))===json(mailTokens(ru)))&&
     (stage<21||json(maintenanceTokens(original))===json(maintenanceTokens(ru)))&&
@@ -85,7 +88,8 @@ export function batchTextSafe(original,ru,stage=19) {
     (stage<30||json(coordinatorTokens(original))===json(coordinatorTokens(ru)))&&
     (stage<31||json(clientProtocolTokens(original))===json(clientProtocolTokens(ru)))&&
     (stage<32||json(reportTokens(original))===json(reportTokens(ru)))&&
-    (stage<33||json(lookupTokens(original))===json(lookupTokens(ru)));
+    (stage<33||json(lookupTokens(original))===json(lookupTokens(ru)))&&
+    (stage<34||json(residualTokens(subjectOriginal))===json(residualTokens(ru)));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);
@@ -130,6 +134,9 @@ export function verifyReviewedBatch({packet,before,after,inputs,graph,makeSchema
       assert.equal(inputs.permission.permissionDisplayLabel(permissionId,e.original),e.ru);
       assert.ok(textSafe(e.original,e.ru),'Protected placeholder mismatch: '+e.slot);
     }else assert.ok(batchTextSafe(e.original,e.ru,packet.stage),'Protected marker mismatch: '+e.slot);
+    if(packet.stage===34&&['enum/HeaderProtection/baseline/label','enum/HeaderProtection/noConfidentiality/label'].includes(e.slot)){
+      assert.equal(inputs.options.headerProtectionOptionLabel(e.original),e.ru,'Prior header protection wording changed: '+e.slot);
+    }
     assert.equal(active.get(r.id).classification,'translated','Display path not fully translated: '+e.slot);
     const g=groupById.get(r.id);
     for(const l of r.locations){

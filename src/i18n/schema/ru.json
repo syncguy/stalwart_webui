@@ -1194,6 +1194,14 @@
       "original": "Off",
       "ru": "Отключено"
     },
+    "enum/ArchivedItemStatus/archived/label": {
+      "original": "Item is archived and available for restoration",
+      "ru": "Элемент архивирован и доступен для восстановления"
+    },
+    "enum/ArchivedItemStatus/requestRestore/label": {
+      "original": "Request item restoration",
+      "ru": "Запросить восстановление элемента"
+    },
     "enum/ArchivedItemType/CalendarEvent/label": {
       "original": "Archived Calendar Event",
       "ru": "Архивное событие календаря"
@@ -1309,6 +1317,18 @@
     "enum/ArfIdentityAlignment/unspecified/label": {
       "original": "Identity alignment not specified",
       "ru": "Согласование идентификаторов не указано"
+    },
+    "enum/AzureEnvironment/china/label": {
+      "original": "China",
+      "ru": "Китай"
+    },
+    "enum/AzureEnvironment/public/label": {
+      "original": "Public",
+      "ru": "Общедоступное облако"
+    },
+    "enum/AzureEnvironment/us-government/label": {
+      "original": "US Government",
+      "ru": "Правительственное облако США"
     },
     "enum/BlockReason/authFailure/label": {
       "original": "Excessive failed authentication attempts",
@@ -1686,6 +1706,14 @@
       "original": "UDP",
       "ru": "Протокол UDP"
     },
+    "enum/EventPolicy/exclude/label": {
+      "original": "Exclude the specified events",
+      "ru": "Исключить указанные события"
+    },
+    "enum/EventPolicy/include/label": {
+      "original": "Only include the specified events",
+      "ru": "Включать только указанные события"
+    },
     "enum/ExternalPublicKeyStatus/active/label": {
       "original": "Active",
       "ru": "Активен"
@@ -1717,6 +1745,14 @@
     "enum/FailureReportingOption/spfFailure/label": {
       "original": "Generate report if SPF authentication fails",
       "ru": "Создавать отчёт при неудачной проверке SPF"
+    },
+    "enum/HeaderProtection/baseline/label": {
+      "original": "Protected, Subject hidden",
+      "ru": "Защищены, тема скрыта"
+    },
+    "enum/HeaderProtection/noConfidentiality/label": {
+      "original": "Protected, headers visible",
+      "ru": "Защищены, заголовки видимы"
     },
     "enum/IncludeInAvailability/all/label": {
       "original": "Include all events",
@@ -6634,6 +6670,14 @@
       "original": "Post-quantum",
       "ru": "Постквантовая криптография"
     },
+    "enum/PublicKeyKind/openPgp/label": {
+      "original": "OpenPGP",
+      "ru": "Ключ OpenPGP"
+    },
+    "enum/PublicKeyKind/smime/label": {
+      "original": "S/MIME",
+      "ru": "Сертификат S/MIME"
+    },
     "enum/PublicKeyWarning/addressMismatch/label": {
       "original": "None of the key's addresses belong to this account",
       "ru": "Ни один адрес ключа не принадлежит этой учётной записи"
@@ -7074,13 +7118,49 @@
       "original": "Domain",
       "ru": "Домен"
     },
+    "enum/SpecialUse/archive/label": {
+      "original": "Archive",
+      "ru": "Архив"
+    },
+    "enum/SpecialUse/drafts/label": {
+      "original": "Drafts",
+      "ru": "Черновики"
+    },
+    "enum/SpecialUse/important/label": {
+      "original": "Important",
+      "ru": "Важные"
+    },
     "enum/SpecialUse/inbox/label": {
       "original": "Inbox",
       "ru": "Входящие"
     },
+    "enum/SpecialUse/junk/label": {
+      "original": "Junk",
+      "ru": "Спам"
+    },
+    "enum/SpecialUse/memos/label": {
+      "original": "Memos",
+      "ru": "Заметки"
+    },
     "enum/SpecialUse/scheduled/label": {
       "original": "Scheduled",
       "ru": "Запланированные"
+    },
+    "enum/SpecialUse/sent/label": {
+      "original": "Sent",
+      "ru": "Отправленные"
+    },
+    "enum/SpecialUse/shared/label": {
+      "original": "Shared Folders",
+      "ru": "Общие папки"
+    },
+    "enum/SpecialUse/snoozed/label": {
+      "original": "Snoozed",
+      "ru": "Отложенные"
+    },
+    "enum/SpecialUse/trash/label": {
+      "original": "Trash",
+      "ru": "Корзина"
     },
     "enum/SpfAuthResult/fail/label": {
       "original": "SPF check failed (hard fail)",
@@ -7537,6 +7617,26 @@
     "enum/TlsVersion/tls13/label": {
       "original": "TLS version 1.3",
       "ru": "Версия TLS 1.3"
+    },
+    "enum/TracingLevel/debug/label": {
+      "original": "Debug",
+      "ru": "Отладка"
+    },
+    "enum/TracingLevel/error/label": {
+      "original": "Error",
+      "ru": "Ошибка"
+    },
+    "enum/TracingLevel/info/label": {
+      "original": "Info",
+      "ru": "Информация"
+    },
+    "enum/TracingLevel/trace/label": {
+      "original": "Trace",
+      "ru": "Трассировка"
+    },
+    "enum/TracingLevel/warn/label": {
+      "original": "Warning",
+      "ru": "Предупреждение"
     },
     "enum/TracingLevelOpt/debug/label": {
       "original": "Debug - Errors, warnings, info and debug are logged",
@@ -9686,6 +9786,18 @@
       "original": "Additional headers to include in HTTP responses",
       "ru": "Дополнительные заголовки ответов HTTP"
     },
+    "field/x:HttpAuthBasic/secret/description": {
+      "original": "Password for HTTP Basic Authentication",
+      "ru": "Пароль для аутентификации HTTP Basic"
+    },
+    "field/x:HttpAuthBasic/username/description": {
+      "original": "Username for HTTP Basic Authentication",
+      "ru": "Имя пользователя для аутентификации HTTP Basic"
+    },
+    "field/x:HttpAuthBearer/bearerToken/description": {
+      "original": "Bearer token for HTTP Bearer Authentication",
+      "ru": "Токен Bearer для аутентификации HTTP Bearer"
+    },
     "field/x:HttpForm/defaultFromAddress/description": {
       "original": "The default e-mail address to use when the sender does not provide one.",
       "ru": "Почтовый адрес по умолчанию, если отправитель его не указал."
@@ -11746,6 +11858,22 @@
       "original": "Secret value of the credential",
       "ru": "Секретное значение учётных данных"
     },
+    "field/x:SecretKeyEnvironmentVariable/variableName/description": {
+      "original": "Environment variable name to read the secret from",
+      "ru": "Имя переменной окружения, из которой считывается секретное значение"
+    },
+    "field/x:SecretKeyFile/filePath/description": {
+      "original": "File path to read the secret from",
+      "ru": "Путь к файлу, из которого считывается секретное значение"
+    },
+    "field/x:SecretKeyValue/secret/description": {
+      "original": "Password or secret value",
+      "ru": "Пароль или секретное значение"
+    },
+    "field/x:SecretTextValue/secret/description": {
+      "original": "Password or secret value",
+      "ru": "Пароль или секретное значение"
+    },
     "field/x:Security/abuseBanPeriod/description": {
       "original": "The duration of the ban for abuse attempts",
       "ru": "Продолжительность блокировки за попытки злоупотреблений"
@@ -11782,6 +11910,34 @@
       "original": "The maximum number of port scanning attempts before the IP is banned",
       "ru": "Максимальное число попыток сканирования портов до блокировки IP-адреса"
     },
+    "field/x:SenderAuth/arcVerify/description": {
+      "original": "Whether ARC verification is strict, relaxed or disabled.",
+      "ru": "Режим проверки ARC: строгий, мягкий или отключённый."
+    },
+    "field/x:SenderAuth/dkimStrict/description": {
+      "original": "Whether to ignore insecure DKIM signatures such as those containing a length parameter",
+      "ru": "Игнорировать ли небезопасные подписи DKIM, например содержащие параметр длины"
+    },
+    "field/x:SenderAuth/dkimVerify/description": {
+      "original": "Whether DKIM verification is strict, relaxed or disabled",
+      "ru": "Режим проверки DKIM: строгий, мягкий или отключённый"
+    },
+    "field/x:SenderAuth/dmarcVerify/description": {
+      "original": "Whether DMARC verification is strict, relaxed or disabled",
+      "ru": "Режим проверки DMARC: строгий, мягкий или отключённый"
+    },
+    "field/x:SenderAuth/reverseIpVerify/description": {
+      "original": "How strict to be when verifying the reverse DNS of the client IP",
+      "ru": "Степень строгости проверки обратной записи DNS для адреса IP клиента"
+    },
+    "field/x:SenderAuth/spfEhloVerify/description": {
+      "original": "Whether SPF EHLO verification is strict, relaxed or disabled",
+      "ru": "Режим проверки SPF для EHLO: строгий, мягкий или отключённый"
+    },
+    "field/x:SenderAuth/spfFromVerify/description": {
+      "original": "Whether SPF MAIL FROM verification is strict, relaxed or disabled",
+      "ru": "Режим проверки SPF для MAIL FROM: строгий, мягкий или отключённый"
+    },
     "field/x:ServerResponse/responseCode/description": {
       "original": "SMTP response code from the remote server",
       "ru": "Код ответа SMTP удалённого сервера"
@@ -11813,6 +11969,14 @@
     "field/x:ShardedInMemoryStore/stores/description": {
       "original": "Stores to use for sharding",
       "ru": "Хранилища для распределения по сегментам"
+    },
+    "field/x:Sharing/allowDirectoryQueries/description": {
+      "original": "Whether authenticated users can query the directory via WebDAV and JMAP",
+      "ru": "Могут ли аутентифицированные пользователи выполнять запросы к каталогу через WebDAV и JMAP"
+    },
+    "field/x:Sharing/maxShares/description": {
+      "original": "Specifies the maximum number of sharees that can be added to a single shared item (calendar, address book or file)",
+      "ru": "Максимальное число пользователей, которым можно предоставить общий доступ к одному объекту (календарю, адресной книге или файлу)"
     },
     "field/x:SieveSystemInterpreter/defaultFromAddress/description": {
       "original": "Default email address to use for the from field in email notifications sent from a Sieve script",
@@ -12517,6 +12681,34 @@
     "field/x:TaskCalendarItipContents/to/description": {
       "original": "Email addresses of the recipients of the iTIP message",
       "ru": "Адреса электронной почты получателей сообщения iTIP"
+    },
+    "field/x:TaskManager/alertAfter/description": {
+      "original": "Number of failed attempts after which a task is reported as stalled; stalled tasks keep retrying with the configured strategy",
+      "ru": "Число неудачных попыток, после которого задание отмечается как зависшее; повторные попытки продолжаются в соответствии с настроенной стратегией"
+    },
+    "field/x:TaskManager/strategy/description": {
+      "original": "Strategy used to compute the delay before a task that failed with a transient error is retried",
+      "ru": "Стратегия расчёта задержки перед повторным выполнением задания после временной ошибки"
+    },
+    "field/x:TaskRetryStrategyBackoff/factor/description": {
+      "original": "Backoff factor for calculating retry delays",
+      "ru": "Коэффициент увеличения задержки между повторными попытками"
+    },
+    "field/x:TaskRetryStrategyBackoff/initialDelay/description": {
+      "original": "Initial delay before retrying a failed task",
+      "ru": "Начальная задержка перед повторным выполнением неудавшегося задания"
+    },
+    "field/x:TaskRetryStrategyBackoff/jitter/description": {
+      "original": "Whether to apply jitter to the retry delay to avoid thundering herd problem",
+      "ru": "Добавлять ли случайное отклонение к задержке, чтобы избежать одновременного запуска множества повторных попыток"
+    },
+    "field/x:TaskRetryStrategyBackoff/maxDelay/description": {
+      "original": "Maximum delay between retry attempts",
+      "ru": "Максимальная задержка между повторными попытками"
+    },
+    "field/x:TaskRetryStrategyFixed/delay/description": {
+      "original": "Fixed delay before retrying a failed task",
+      "ru": "Фиксированная задержка перед повторным выполнением неудавшегося задания"
     },
     "field/x:Tenant/createdAt/description": {
       "original": "Creation date of the tenant",
@@ -13705,6 +13897,10 @@
     "form/x:ArchivedFileNode/field/status": {
       "original": "Status",
       "ru": "Состояние"
+    },
+    "form/x:ArchivedItem/field/@type": {
+      "original": "Item type",
+      "ru": "Тип элемента"
     },
     "form/x:ArchivedSieveScript/field/accountId": {
       "original": "Account",
@@ -16634,25 +16830,117 @@
       "original": "Subscribe automatically",
       "ru": "Подписываться автоматически"
     },
+    "form/x:Encryption/EncryptionDiscovery/field/discoveryProxy": {
+      "original": "HTTP proxy",
+      "ru": "Прокси-сервер HTTP"
+    },
+    "form/x:Encryption/EncryptionDiscovery/field/harvestKeys": {
+      "original": "Harvest keys from",
+      "ru": "Источники извлечения ключей"
+    },
+    "form/x:Encryption/EncryptionDiscovery/field/hkpServers": {
+      "original": "HKP keyservers",
+      "ru": "Серверы ключей HKP"
+    },
+    "form/x:Encryption/EncryptionDiscovery/field/keyRefreshInterval": {
+      "original": "Key refresh interval",
+      "ru": "Интервал обновления ключей"
+    },
+    "form/x:Encryption/EncryptionDiscovery/field/negativeCacheTtl": {
+      "original": "Unknown address cache lifetime",
+      "ru": "Срок хранения неизвестных адресов в кэше"
+    },
+    "form/x:Encryption/EncryptionDiscovery/field/sourceTimeout": {
+      "original": "Fetch timeout",
+      "ru": "Время ожидания получения данных"
+    },
+    "form/x:Encryption/EncryptionDiscovery/section/section-0": {
+      "original": "Harvesting",
+      "ru": "Извлечение ключей"
+    },
+    "form/x:Encryption/EncryptionDiscovery/section/section-1": {
+      "original": "Discovery",
+      "ru": "Поиск ключей"
+    },
     "form/x:Encryption/EncryptionDiscovery/section/section-2": {
       "original": "Cache",
       "ru": "Кэш"
+    },
+    "form/x:Encryption/EncryptionDiscovery/subtitle": {
+      "original": "Configure how registered keys are fetched and how keys are learned from received messages",
+      "ru": "Настройка получения зарегистрированных ключей и извлечения ключей из входящих сообщений"
     },
     "form/x:Encryption/EncryptionDiscovery/title": {
       "original": "Key Discovery",
       "ru": "Поиск ключей"
     },
+    "form/x:Encryption/EncryptionGateway/field/gatewayEnable": {
+      "original": "Enable encryption gateway",
+      "ru": "Включить шлюз шифрования"
+    },
+    "form/x:Encryption/EncryptionGateway/field/gatewayEncryptSigned": {
+      "original": "Encrypt signed messages",
+      "ru": "Шифровать подписанные сообщения"
+    },
+    "form/x:Encryption/EncryptionGateway/field/gatewayHeaderProtection": {
+      "original": "Header protection",
+      "ru": "Защита заголовков"
+    },
+    "form/x:Encryption/EncryptionGateway/field/gatewayMethods": {
+      "original": "Key types",
+      "ru": "Типы ключей"
+    },
+    "form/x:Encryption/EncryptionGateway/field/gatewayMinTrust": {
+      "original": "Minimum key trust",
+      "ru": "Минимальный уровень доверия к ключу"
+    },
+    "form/x:Encryption/EncryptionGateway/field/gatewayOutbound": {
+      "original": "Encrypt with stored keys",
+      "ru": "Шифровать с использованием сохранённых ключей"
+    },
+    "form/x:Encryption/EncryptionGateway/section/section-0": {
+      "original": "Modes",
+      "ru": "Режимы"
+    },
     "form/x:Encryption/EncryptionGateway/section/section-1": {
       "original": "Encryption",
       "ru": "Шифрование"
+    },
+    "form/x:Encryption/EncryptionGateway/subtitle": {
+      "original": "Configure automatic encryption of messages for remote recipients",
+      "ru": "Настройка автоматического шифрования сообщений для удалённых получателей"
+    },
+    "form/x:Encryption/EncryptionStorage/field/atRestEnable": {
+      "original": "Enable encryption at rest",
+      "ru": "Включить шифрование при хранении"
     },
     "form/x:Encryption/EncryptionStorage/section/section-0": {
       "original": "Encryption at Rest",
       "ru": "Шифрование при хранении"
     },
+    "form/x:Encryption/EncryptionStorage/subtitle": {
+      "original": "Configure whether stored messages are encrypted for accounts that set up encryption at rest",
+      "ru": "Настройка шифрования хранимых сообщений для учётных записей, в которых настроено шифрование при хранении"
+    },
     "form/x:Encryption/EncryptionStorage/title": {
       "original": "Encryption at Rest",
       "ru": "Шифрование при хранении"
+    },
+    "form/x:Encryption/EncryptionTrust/field/maxCrlSize": {
+      "original": "Maximum revocation list size",
+      "ru": "Максимальный размер списка отозванных сертификатов"
+    },
+    "form/x:Encryption/EncryptionTrust/field/useBundledRoots": {
+      "original": "Trust bundled root certificates",
+      "ru": "Доверять встроенным корневым сертификатам"
+    },
+    "form/x:Encryption/EncryptionTrust/section/section-0": {
+      "original": "Trust",
+      "ru": "Доверие"
+    },
+    "form/x:Encryption/EncryptionTrust/subtitle": {
+      "original": "Configure how recipient S/MIME certificates are validated",
+      "ru": "Настройка проверки сертификатов S/MIME получателей"
     },
     "form/x:Encryption/EncryptionTrust/title": {
       "original": "S/MIME Trust",
@@ -17177,6 +17465,14 @@
     "form/x:HttpAuthBasic/field/secret": {
       "original": "Password",
       "ru": "Пароль"
+    },
+    "form/x:HttpAuthBasic/field/username": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:HttpAuthBearer/field/bearerToken": {
+      "original": "Bearer Token",
+      "ru": "Токен Bearer"
     },
     "form/x:HttpForm/field/defaultFromAddress": {
       "original": "E-mail default",
@@ -20398,6 +20694,14 @@
       "original": "Restrictions",
       "ru": "Ограничения"
     },
+    "form/x:SecretKeyEnvironmentVariable/field/variableName": {
+      "original": "Variable Name",
+      "ru": "Имя переменной"
+    },
+    "form/x:SecretKeyFile/field/filePath": {
+      "original": "File Path",
+      "ru": "Путь к файлу"
+    },
     "form/x:SecretKeyValue/field/secret": {
       "original": "Secret",
       "ru": "Секрет"
@@ -20478,6 +20782,10 @@
       "original": "Strategy",
       "ru": "Стратегия"
     },
+    "form/x:SenderAuth/field/dkimStrict": {
+      "original": "Ignore insecure DKIM signatures",
+      "ru": "Игнорировать небезопасные подписи DKIM"
+    },
     "form/x:SenderAuth/field/dkimVerify": {
       "original": "Strategy",
       "ru": "Стратегия"
@@ -20485,6 +20793,38 @@
     "form/x:SenderAuth/field/dmarcVerify": {
       "original": "Strategy",
       "ru": "Стратегия"
+    },
+    "form/x:SenderAuth/field/reverseIpVerify": {
+      "original": "Reverse IP",
+      "ru": "Обратная проверка IP"
+    },
+    "form/x:SenderAuth/field/spfEhloVerify": {
+      "original": "EHLO",
+      "ru": "Проверка EHLO"
+    },
+    "form/x:SenderAuth/section/section-0": {
+      "original": "DKIM Verification",
+      "ru": "Проверка DKIM"
+    },
+    "form/x:SenderAuth/section/section-1": {
+      "original": "DMARC Verification",
+      "ru": "Проверка DMARC"
+    },
+    "form/x:SenderAuth/section/section-2": {
+      "original": "ARC Verification",
+      "ru": "Проверка ARC"
+    },
+    "form/x:SenderAuth/section/section-3": {
+      "original": "SPF Verification",
+      "ru": "Проверка SPF"
+    },
+    "form/x:SenderAuth/section/section-4": {
+      "original": "Reverse IP Verification",
+      "ru": "Обратная проверка IP"
+    },
+    "form/x:SenderAuth/subtitle": {
+      "original": "Configure verification of inbound message authentication, including DKIM, SPF, DMARC, ARC, and reverse DNS",
+      "ru": "Настройка проверки аутентификации входящих сообщений, включая DKIM, SPF, DMARC, ARC и обратные записи DNS"
     },
     "form/x:SenderAuth/title": {
       "original": "Sender Authentication",
@@ -20529,6 +20869,22 @@
     "form/x:ShardedInMemoryStore/section/section-0": {
       "original": "Configuration",
       "ru": "Конфигурация"
+    },
+    "form/x:Sharing/field/allowDirectoryQueries": {
+      "original": "Allow Directory Queries",
+      "ru": "Разрешить запросы к каталогу"
+    },
+    "form/x:Sharing/field/maxShares": {
+      "original": "Max Shares",
+      "ru": "Макс. число пользователей с общим доступом"
+    },
+    "form/x:Sharing/section/section-0": {
+      "original": "Sharing Settings",
+      "ru": "Настройки общего доступа"
+    },
+    "form/x:Sharing/subtitle": {
+      "original": "Configure how calendars, address books, and files can be shared between users, including the maximum number of sharees and whether directory queries are permitted",
+      "ru": "Настройка общего доступа пользователей к календарям, адресным книгам и файлам, включая максимальное число пользователей с доступом и разрешение запросов к каталогу"
     },
     "form/x:Sharing/title": {
       "original": "Sharing",
@@ -21798,9 +22154,25 @@
       "original": "Status",
       "ru": "Состояние"
     },
+    "form/x:TaskManager/field/alertAfter": {
+      "original": "Alert After Attempts",
+      "ru": "Оповещение после числа попыток"
+    },
+    "form/x:TaskManager/field/strategy": {
+      "original": "Retry Strategy",
+      "ru": "Стратегия повторных попыток"
+    },
     "form/x:TaskManager/section/section-0": {
       "original": "Task Manager",
       "ru": "Диспетчер задач"
+    },
+    "form/x:TaskManager/section/section-1": {
+      "original": "Retry Strategy",
+      "ru": "Стратегия повторных попыток"
+    },
+    "form/x:TaskManager/subtitle": {
+      "original": "Configure how background tasks are retried after transient failures and when a task that keeps failing is reported as stalled",
+      "ru": "Настройка повторного выполнения фоновых заданий после временных ошибок и условий, при которых задание с повторяющимися ошибками отмечается как зависшее"
     },
     "form/x:TaskManager/title": {
       "original": "Task Manager",
@@ -21853,6 +22225,26 @@
     "form/x:TaskRestoreArchivedItem/section/section-1": {
       "original": "Status",
       "ru": "Состояние"
+    },
+    "form/x:TaskRetryStrategyBackoff/field/factor": {
+      "original": "Backoff Factor",
+      "ru": "Коэффициент увеличения задержки"
+    },
+    "form/x:TaskRetryStrategyBackoff/field/initialDelay": {
+      "original": "Initial Delay",
+      "ru": "Начальная задержка"
+    },
+    "form/x:TaskRetryStrategyBackoff/field/jitter": {
+      "original": "Apply Jitter",
+      "ru": "Добавлять случайное отклонение"
+    },
+    "form/x:TaskRetryStrategyBackoff/field/maxDelay": {
+      "original": "Max Delay",
+      "ru": "Макс. задержка"
+    },
+    "form/x:TaskRetryStrategyFixed/field/delay": {
+      "original": "Delay",
+      "ru": "Задержка"
     },
     "form/x:TaskShareRevokeCleanup/field/accountId": {
       "original": "Account",
@@ -23002,6 +23394,14 @@
       "original": "Account",
       "ru": "Учётная запись"
     },
+    "list/x:ArchivedItem/column/archivedAt": {
+      "original": "Archived At",
+      "ru": "Дата архивирования"
+    },
+    "list/x:ArchivedItem/column/archivedUntil": {
+      "original": "Archived Until",
+      "ru": "Хранить в архиве до"
+    },
     "list/x:ArchivedItem/column/status": {
       "original": "Status",
       "ru": "Состояние"
@@ -23009,6 +23409,18 @@
     "list/x:ArchivedItem/filter/accountId": {
       "original": "Account",
       "ru": "Учётная запись"
+    },
+    "list/x:ArchivedItem/plural": {
+      "original": "archived items",
+      "ru": "архивные элементы"
+    },
+    "list/x:ArchivedItem/singular": {
+      "original": "archived item",
+      "ru": "архивный элемент"
+    },
+    "list/x:ArchivedItem/subtitle": {
+      "original": "Manage archived items available for restoration",
+      "ru": "Управление архивными элементами, доступными для восстановления"
     },
     "list/x:ArchivedItem/title": {
       "original": "Archived Items",
@@ -25022,6 +25434,10 @@
       "original": "Spam Filter",
       "ru": "Антиспам"
     },
+    "nav/container/Settings/Spam Filter/DNSBL": {
+      "original": "DNSBL",
+      "ru": "Списки блокировки DNSBL"
+    },
     "nav/container/Settings/Spam Filter/Lists": {
       "original": "Lists",
       "ru": "Списки"
@@ -25125,6 +25541,10 @@
     "nav/link/Management/x:Action": {
       "original": "Actions",
       "ru": "Действия"
+    },
+    "nav/link/Management/x:ArfExternalReport": {
+      "original": "ARF",
+      "ru": "Отчёты ARF"
     },
     "nav/link/Management/x:ClusterNode": {
       "original": "Cluster",
@@ -25282,6 +25702,10 @@
       "original": "DNS Providers",
       "ru": "Провайдеры DNS"
     },
+    "nav/link/Settings/x:DsnReportSettings": {
+      "original": "DSN",
+      "ru": "Уведомления DSN"
+    },
     "nav/link/Settings/x:Email/EmailDefaults": {
       "original": "Defaults",
       "ru": "Значения по умолчанию"
@@ -25309,6 +25733,10 @@
     "nav/link/Settings/x:Encryption/EncryptionTrust": {
       "original": "S/MIME Trust",
       "ru": "Доверие S/MIME"
+    },
+    "nav/link/Settings/x:Enterprise": {
+      "original": "Enterprise",
+      "ru": "Корпоративная лицензия"
     },
     "nav/link/Settings/x:EventTracingLevel": {
       "original": "Event Levels",
@@ -25354,6 +25782,10 @@
       "original": "Push",
       "ru": "Push-уведомления"
     },
+    "nav/link/Settings/x:Jmap/JmapWebsocket": {
+      "original": "WebSocket",
+      "ru": "Соединения WebSocket"
+    },
     "nav/link/Settings/x:MemoryLookupKey": {
       "original": "In-Memory Keys",
       "ru": "Ключи в памяти"
@@ -25385,6 +25817,14 @@
     "nav/link/Settings/x:Metrics": {
       "original": "General",
       "ru": "Общие"
+    },
+    "nav/link/Settings/x:Metrics/CollectorOtel": {
+      "original": "OpenTelemetry",
+      "ru": "Сбор метрик OpenTelemetry"
+    },
+    "nav/link/Settings/x:Metrics/CollectorPrometheus": {
+      "original": "Prometheus",
+      "ru": "Сбор метрик Prometheus"
     },
     "nav/link/Settings/x:MetricsStore": {
       "original": "Metrics Store",
@@ -25457,6 +25897,10 @@
     "nav/link/Settings/x:MtaStageRcpt": {
       "original": "RCPT TO Stage",
       "ru": "Этап RCPT TO"
+    },
+    "nav/link/Settings/x:MtaSts": {
+      "original": "MTA-STS",
+      "ru": "Политика MTA-STS"
     },
     "nav/link/Settings/x:MtaTlsStrategy": {
       "original": "TLS Strategies",
@@ -25538,6 +25982,10 @@
       "original": "File Extensions",
       "ru": "Расширения файлов"
     },
+    "nav/link/Settings/x:SpamPyzor": {
+      "original": "Pyzor",
+      "ru": "Проверка спама Pyzor"
+    },
     "nav/link/Settings/x:SpamRule": {
       "original": "Rules",
       "ru": "Правила"
@@ -25598,6 +26046,10 @@
       "original": "Defines a Sieve filter script that processes incoming messages for the account.",
       "ru": "Определяет сценарий фильтрации Sieve для обработки входящих сообщений учётной записи."
     },
+    "object/VacationResponse/description": {
+      "original": "Configures an automatic reply sent when messages are delivered while the user is away.",
+      "ru": "Настройка автоматического ответа на письма, поступающие во время отсутствия пользователя."
+    },
     "object/x:Account/description": {
       "original": "Defines a user or group account for authentication and email access.",
       "ru": "Определяет учётную запись пользователя или группы для аутентификации и доступа к почте."
@@ -25646,6 +26098,10 @@
       "original": "Defines a web application served by the server.",
       "ru": "Определяет веб-приложение, предоставляемое сервером."
     },
+    "object/x:ArchivedItem/description": {
+      "original": "Represents an archived item that can be restored.",
+      "ru": "Архивный элемент, который можно восстановить."
+    },
     "object/x:ArfExternalReport/description": {
       "original": "Stores an ARF feedback report received from an external source.",
       "ru": "Хранит отчёт обратной связи ARF, полученный из внешнего источника."
@@ -25685,6 +26141,10 @@
     "object/x:Certificate/description": {
       "original": "Defines a TLS certificate and its associated private key.",
       "ru": "Определяет сертификат TLS и соответствующий закрытый ключ."
+    },
+    "object/x:ClusterNode/description": {
+      "original": "Represents a node in the cluster.",
+      "ru": "Узел кластера."
     },
     "object/x:ClusterRole/description": {
       "original": "Defines a cluster node role with enabled tasks and listeners.",
@@ -25745,6 +26205,10 @@
     "object/x:Email/description": {
       "original": "Configures email message limits, compression, and default folder settings.",
       "ru": "Настройка ограничений почтовых сообщений, сжатия и папок по умолчанию."
+    },
+    "object/x:Encryption/description": {
+      "original": "Configures encryption at rest and the encryption gateway.",
+      "ru": "Настройка шифрования при хранении и шлюза шифрования."
     },
     "object/x:Enterprise/description": {
       "original": "Configures enterprise licensing and branding settings.",
@@ -25950,6 +26414,14 @@
       "original": "Configures automatic IP banning rules for abuse, authentication failures, and port scanning.",
       "ru": "Настраивает правила автоматической блокировки IP-адресов за злоупотребления, ошибки аутентификации и сканирование портов."
     },
+    "object/x:SenderAuth/description": {
+      "original": "Configures sender authentication verification including DKIM, SPF, DMARC, and ARC.",
+      "ru": "Настройка проверки аутентификации отправителя, включая DKIM, SPF, DMARC и ARC."
+    },
+    "object/x:Sharing/description": {
+      "original": "Configures sharing settings for calendars, address books, and files.",
+      "ru": "Настройка общего доступа к календарям, адресным книгам и файлам."
+    },
     "object/x:SieveSystemInterpreter/description": {
       "original": "Configures the system-level Sieve script interpreter settings and limits.",
       "ru": "Настраивает параметры и ограничения системного интерпретатора сценариев Sieve."
@@ -26029,6 +26501,10 @@
     "object/x:Task/description": {
       "original": "Represents a background task scheduled for execution.",
       "ru": "Фоновое задание, назначенное к выполнению."
+    },
+    "object/x:TaskManager/description": {
+      "original": "Configures how background tasks are retried after transient failures.",
+      "ru": "Настройка повторного выполнения фоновых заданий после временных ошибок."
     },
     "object/x:Tenant/description": {
       "original": "Defines a tenant for multi-tenant environments with isolated resources and quotas.",
@@ -26441,6 +26917,18 @@
     "variant/x:EncryptionAtRest/Enabled/label": {
       "original": "Enabled",
       "ru": "Включено"
+    },
+    "variant/x:HttpAuth/Basic/label": {
+      "original": "Basic Authentication",
+      "ru": "Аутентификация Basic"
+    },
+    "variant/x:HttpAuth/Bearer/label": {
+      "original": "Bearer Token",
+      "ru": "Токен Bearer"
+    },
+    "variant/x:HttpAuth/Unauthenticated/label": {
+      "original": "Anonymous",
+      "ru": "Без аутентификации"
     },
     "variant/x:HttpLookupFormat/Csv/label": {
       "original": "CSV",
@@ -26866,6 +27354,62 @@
       "original": "PostgreSQL",
       "ru": "Хранилище PostgreSQL"
     },
+    "variant/x:SecretKey/EnvironmentVariable/label": {
+      "original": "Secret read from environment variable",
+      "ru": "Секретное значение из переменной окружения"
+    },
+    "variant/x:SecretKey/File/label": {
+      "original": "Secret read from file",
+      "ru": "Секретное значение из файла"
+    },
+    "variant/x:SecretKey/Value/label": {
+      "original": "Secret value",
+      "ru": "Секретное значение"
+    },
+    "variant/x:SecretKeyOptional/EnvironmentVariable/label": {
+      "original": "Secret read from environment variable",
+      "ru": "Секретное значение из переменной окружения"
+    },
+    "variant/x:SecretKeyOptional/File/label": {
+      "original": "Secret read from file",
+      "ru": "Секретное значение из файла"
+    },
+    "variant/x:SecretKeyOptional/None/label": {
+      "original": "No secret",
+      "ru": "Без секретного значения"
+    },
+    "variant/x:SecretKeyOptional/Value/label": {
+      "original": "Secret value",
+      "ru": "Секретное значение"
+    },
+    "variant/x:SecretText/EnvironmentVariable/label": {
+      "original": "Secret read from environment variable",
+      "ru": "Секретное значение из переменной окружения"
+    },
+    "variant/x:SecretText/File/label": {
+      "original": "Secret read from file",
+      "ru": "Секретное значение из файла"
+    },
+    "variant/x:SecretText/Text/label": {
+      "original": "Secret value",
+      "ru": "Секретное значение"
+    },
+    "variant/x:SecretTextOptional/EnvironmentVariable/label": {
+      "original": "Secret read from environment variable",
+      "ru": "Секретное значение из переменной окружения"
+    },
+    "variant/x:SecretTextOptional/File/label": {
+      "original": "Secret read from file",
+      "ru": "Секретное значение из файла"
+    },
+    "variant/x:SecretTextOptional/None/label": {
+      "original": "No secret",
+      "ru": "Без секретного значения"
+    },
+    "variant/x:SecretTextOptional/Text/label": {
+      "original": "Secret value",
+      "ru": "Секретное значение"
+    },
     "variant/x:SpamAi/Disable/label": {
       "original": "Disabled",
       "ru": "Отключено"
@@ -26933,6 +27477,14 @@
     "variant/x:TaskBlobRecodeEncryption/Keep/label": {
       "original": "Leave as is",
       "ru": "Оставить без изменений"
+    },
+    "variant/x:TaskRetryStrategy/ExponentialBackoff/label": {
+      "original": "Exponential backoff",
+      "ru": "Экспоненциальное увеличение задержки"
+    },
+    "variant/x:TaskRetryStrategy/FixedDelay/label": {
+      "original": "Fixed delay",
+      "ru": "Фиксированная задержка"
     },
     "variant/x:TracingStore/Default/label": {
       "original": "Use data store",

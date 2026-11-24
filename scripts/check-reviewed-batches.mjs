@@ -296,6 +296,28 @@ assert.equal(batchTextSafe('Glob Pattern','Шаблон glob',33),true);
 assert.equal(batchTextSafe('Glob Pattern','Шаблон glob',32),false);
 assert.equal(batchTextSafe('Glob Pattern','Шаблон',33),false);
 
+const stage34=packets.find(p=>p.stage===34);
+if(stage34){
+  assert.equal(stage34.entries.length,138);
+  assert.equal(new Set(stage34.entries.map(e=>e.original)).size,125);
+  assert.equal(stage34.baseline,'95babb84c828a119b547e3ab4ad62f2e87fc3da2');
+  assert.equal(stage34.baselineCatalogSha256,'04a0fe6cb4f3b4f0ef57734d4b500060374f1910babdacad11ecd8f644c327ba');
+  assert.deepEqual(stage34.scope,[{"section":"Account","screens":["Mailbox","VacationResponse","x:AccountSettings","x:ArchivedItem","x:PublicKey"]},{"section":"Management","screens":["@navigation","x:Account/User","x:ClusterNode","x:DkimSignature","x:Log"]},{"section":"Settings","screens":["@navigation","x:AiModel","x:Asn","x:BlobStore","x:Cache","x:Certificate","x:Coordinator","x:DataStore","x:Directory","x:DnsServer","x:Email/EmailDefaults","x:Encryption/EncryptionDiscovery","x:Encryption/EncryptionGateway","x:Encryption/EncryptionStorage","x:Encryption/EncryptionTrust","x:Enterprise","x:ExternalPublicKey","x:HttpLookup","x:InMemoryStore","x:Jmap/JmapPush","x:Metrics","x:Metrics/CollectorOtel","x:Metrics/CollectorPrometheus","x:MetricsStore","x:MtaHook","x:MtaRoute","x:OidcProvider","x:SearchStore","x:SenderAuth","x:Sharing","x:StoreLookup","x:SymmetricKey","x:TaskManager","x:Tracer","x:TracingStore","x:WebHook"]}]);
+  assert.equal(digest(stage34.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'1fe8696abba1cd78ab8c75d7d27a106d39d42996fc92156662d6029e27c8b4fe');
+}
+assert.equal(batchTextSafe('HKP keyservers','Серверы ключей HKP',34),true);
+assert.equal(batchTextSafe('HKP keyservers','Серверы ключей',34),false);
+assert.equal(batchTextSafe('Bearer token for HTTP Bearer Authentication','Токен Bearer для аутентификации HTTP Bearer',34),true);
+assert.equal(batchTextSafe('Bearer token for HTTP Bearer Authentication','Токен для аутентификации HTTP Bearer',34),false);
+assert.equal(batchTextSafe('Protected, Subject hidden','Защищены, тема скрыта',34),true);
+assert.equal(batchTextSafe('Protected, Subject hidden','Защищены, тема видима',34),false);
+assert.equal(batchTextSafe('Protected, Subject hidden','Защищены, тема (Subject) скрыта',34),true);
+assert.equal(batchTextSafe('Subject hidden','Тема скрыта',34),false);
+assert.equal(batchTextSafe('SPF MAIL FROM and EHLO','SPF MAIL FROM и EHLO',34),true);
+assert.equal(batchTextSafe('SPF MAIL FROM and EHLO','SPF MAIL FROM и HELO',34),false);
+assert.equal(batchTextSafe('OpenPGP and S/MIME','OpenPGP и S/MIME',34),true);
+assert.equal(batchTextSafe('OpenPGP and S/MIME','OpenPGP',34),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;
