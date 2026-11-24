@@ -253,3 +253,131 @@ for(const pin of manifest19.schemas) {
   }
 }
 console.log('PASS: Stage19 actual EmbeddedObjectEditor/FieldRow and EnumWidget SSR, pinned schemas, synthetic rights values, raw callback IDs and mocked permission filter invariant');
+
+
+// Stage20: populated read-only reports and queue actions; no network or real mutations.
+const badge20=({children})=>h('span',null,children);
+const formats20={formatDuration:String,formatNumber:String,formatSize:String,formatDateTime:String};
+const scalar20=component('src/components/values/ScalarValues.tsx',{
+  'lucide-react':{Check:icon,Loader2:icon,X:icon},
+  '@/components/ui/badge':{Badge:badge20},
+  '@/data/objectOptions':{useDisplayName:()=>({label:null,loading:false})},
+  '@/lib/format':formats20,'@/lib/schemaResolver':resolver19,
+  '@/lib/jmapUtils':{SECRET_MASK:'synthetic-secret-mask'},
+  '@/lib/embeddedSchema':embedded19,
+});
+let descriptions20=[];
+const fieldValue20=component('src/components/values/FieldValue.tsx',{
+  'lucide-react':{ChevronRight:icon},
+  '@/components/ui/badge':{Badge:badge20},
+  '@/components/ui/collapsible':{Collapsible:passthrough,CollapsibleContent:passthrough,CollapsibleTrigger:passthrough},
+  '@/components/common/HelpTooltip':{HelpTooltip:({content})=>{descriptions20.push(content);return null;}},
+  '@/lib/format':formats20,
+  '@/extensions/widgets':{resolveWidget:()=>({})},
+  '@/lib/schemaResolver':resolver19,
+  '@/lib/embeddedSchema':embedded19,
+  '@/components/values/ScalarValues':scalar20,
+});
+const {ListCell}=component('src/components/lists/ListCell.tsx',{
+  '@/components/values/FieldValue':fieldValue20,
+  '@/components/values/ScalarValues':scalar20,
+  './listQuery':{scalarText:()=>{throw Error('Unexpected untyped list fallback');}},
+});
+const listActions20=sourceModule(read('src/components/lists/listActions.ts'),'listActions.ts',{
+  '@/lib/schemaResolver':resolver19,
+  './listUrlState':{filteredListSearch:()=>{throw Error('No navigation requested');}},
+});
+let menu20=[];
+const menuDeps20={
+  '@/components/ui/button':{Button:passthrough},
+  '@/components/ui/dropdown-menu':{
+    DropdownMenu:passthrough,DropdownMenuContent:passthrough,DropdownMenuTrigger:passthrough,DropdownMenuSeparator:()=>null,
+    DropdownMenuItem:props=>{menu20.push(props);return h('span',null,props.children);},
+  },
+};
+const {RowActions}=component('src/components/lists/RowActions.tsx',{
+  ...menuDeps20,'react-router-dom':{Link:passthrough},'lucide-react':{Lock:icon,MoreHorizontal:icon},
+});
+const {MassActionBar}=component('src/components/lists/MassActionBar.tsx',{
+  ...menuDeps20,'lucide-react':{ChevronUp:icon,X:icon},
+  '@/components/common/FloatingActionBar':{FloatingActionBar:passthrough,FloatingActionDivider:()=>null,FloatingActionDot:()=>null},
+});
+for(const pin of manifest19.schemas){
+  const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+  hash=pin.schemaHash;
+  for(const [objectName,value,fieldName,expectedValue] of [
+    ['x:DmarcReportRecord',{count:17,sourceIp:'192.0.2.9',evaluatedDkim:'pass'},'count','17'],
+    ['x:TlsReportPolicy',{totalFailedSessions:3,totalSuccessfulSessions:17,policyType:'sts'},'totalFailedSessions','3'],
+    ['x:ArfFeedbackReport',{sourcePort:2525,sourceIp:'192.0.2.9',feedbackType:'abuse'},'sourcePort','2525'],
+  ]){
+    const resolved=embedded19.resolveEmbedded(schema,objectName,value);
+    assert.ok(resolved&&resolved.schemaName);
+    const target=embedded19.embeddedEntries(resolved).find(e=>e.formField.name===fieldName);
+    assert.ok(target);
+    const slot='form/'+resolved.schemaName+'/field/'+fieldName,desc='field/'+resolved.schemaName+'/'+fieldName+'/description';
+    assert.equal(target.formField.label,original(slot));
+    assert.equal(target.field.description,original(desc));
+    const snapshot=JSON.stringify(value);
+    for(const lang of ['ru','en','ru']){
+      language=lang;descriptions20=[];
+      const html=render(fieldValue20.ObjectValue,{schema,objectName,value,defaultOpen:true});
+      assert.ok(html.includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+      assert.ok(descriptions20.includes(lang==='ru'?ru(desc):original(desc)),desc);
+      assert.ok(html.includes(expectedValue));
+      const cell=render(ListCell,{schema,objectName,column:fieldName,field:target.field,value:value[fieldName]});
+      assert.ok(cell.includes(expectedValue));
+      for(const [name,raw] of Object.entries(value)){
+        const field=resolved.fields.properties[name];
+        if(field?.type.type!=='enum')continue;
+        const enumSlot='enum/'+field.type.enumName+'/'+raw+'/label';
+        if(!catalog.entries[enumSlot])continue;
+        const variant=resolver19.getEnumVariant(schema,field.type.enumName,raw);
+        assert.equal(variant.label,original(enumSlot));
+        const visible=htmlText19(lang==='ru'?ru(enumSlot):original(enumSlot));
+        assert.ok(html.includes(visible),enumSlot);
+        assert.ok(render(ListCell,{schema,objectName,column:name,field,value:raw}).includes(visible),enumSlot);
+      }
+      assert.equal(JSON.stringify(value),snapshot);
+    }
+  }
+  // Real schema list actions and actual permission filter, synthetic permissions only.
+  const list=schema.lists['x:QueuedMessage'];
+  const resolved=resolver19.resolveObject(schema,'x:QueuedMessage');
+  assert.ok(list&&resolved);
+  const info={isObject:true,permissionPrefix:resolved.permissionPrefix};
+  const allowed={isCommunity:false,hasObjectPermission:(_prefix,action)=>['Destroy','Update'].includes(action)};
+  const denied={isCommunity:false,hasObjectPermission:()=>false};
+  const queueItems=listActions20.resolveItemActions(schema,list.itemActions,info.permissionPrefix,allowed).filter(e=>e.kind==='mutation');
+  const queueMass=listActions20.resolveMassActions(list.massActions,info,allowed,'Delete').filter(e=>e.action.type!=='separator');
+  assert.deepEqual(Array.from(queueItems,e=>e.key).sort(),['delete:Cancel Delivery','setProperty:Retry Now']);
+  assert.deepEqual(Array.from(queueMass,e=>e.key).sort(),['delete:Cancel All','setProperty:Retry All']);
+  const raw=JSON.stringify({items:list.itemActions,mass:list.massActions});
+  for(const lang of ['ru','en','ru']){
+    language=lang;
+    let event;
+    menu20=[];
+    const itemHtml=render(RowActions,{actions:queueItems,listKey:'x:QueuedMessage',label:'synthetic-queue-id',hrefFor:()=>null,onMutation:e=>{event=e;},onLocked:()=>{throw Error('Unexpected locked action');}});
+    for(const [i,e] of queueItems.entries()){
+      const slot='list/x:QueuedMessage/itemAction/'+e.key+'/label';
+      assert.equal(e.action.label,original(slot));
+      assert.ok(itemHtml.includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+      menu20[i].onSelect();
+      assert.equal(event,e);
+      assert.equal(event.action,e.action);
+    }
+    menu20=[];
+    const massHtml=render(MassActionBar,{actions:queueMass,listKey:'x:QueuedMessage',count:2,disabled:false,onClear:()=>{},onSelect:(action,key)=>{event={action,key};}});
+    for(const [i,e] of queueMass.entries()){
+      const slot='list/x:QueuedMessage/massAction/'+e.key+'/label';
+      assert.equal(e.action.label,original(slot));
+      assert.ok(massHtml.includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+      menu20[i].onSelect();
+      assert.equal(event.action,e.action);
+      assert.equal(event.key,e.key);
+    }
+    assert.equal(listActions20.resolveItemActions(schema,list.itemActions,info.permissionPrefix,denied).filter(e=>e.kind==='mutation').length,0);
+    assert.equal(listActions20.resolveMassActions(list.massActions,info,denied,'Delete').filter(e=>e.action.type!=='separator').length,0);
+    assert.equal(JSON.stringify({items:list.itemActions,mass:list.massActions}),raw);
+  }
+}
+console.log('PASS: Stage20 actual ObjectValue/FieldValue/ScalarValues/ListCell populated reports and queue RowActions/MassActionBar, exact action identity and synthetic permission filtering; no DOM, JMAP or real mutations');
