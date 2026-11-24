@@ -427,7 +427,7 @@ const stage9Fallback = [
   ['variant/x:Task/AccountMaintenance/label', 'Perform account maintenance operations', 'Обслуживание учётной записи'],
   ['variant/x:Task/TenantMaintenance/label', 'Perform tenant maintenance operations', 'Обслуживание арендатора'],
   ['variant/x:Task/StoreMaintenance/label', 'Perform store maintenance operations', 'Обслуживание хранилища'],
-  ['form/x:TaskCalendarAlarmEmail/section/section-0', 'Account Task', 'Задание для учётной записи'],
+  ['form/x:TaskCalendarAlarmEmail/section/section-1', 'Account Task', 'Задание для учётной записи'],
   ['form/x:TaskCalendarAlarmEmail/field/documentId', 'Document', 'Документ'],
   ['field/x:TaskCalendarAlarmEmail/accountId/description', 'Identifier of the account associated with this task', 'Идентификатор учётной записи, связанной с заданием'],
   ['field/x:TaskCalendarAlarmEmail/documentId/description', 'Identifier of the document associated with this task', 'Идентификатор документа, связанного с заданием'],
@@ -447,6 +447,9 @@ for (const hash of meta.schemaHashes) {
     assert.equal(schemaText(hash, 'en', slot, original), original);
     assert.equal(schemaText(hash, 'ru', slot, original + ' changed'), original + ' changed');
   }
+  // Stage38 gives section-0 its exact pinned Calendar Alarm Email caption.
+  assert.equal(schemaText(hash,'ru','form/x:TaskCalendarAlarmEmail/section/section-0','Calendar Alarm Email'),'Письмо с напоминанием календаря');
+  assert.equal(schemaText(hash,'ru','form/x:TaskCalendarAlarmEmail/section/section-0','Account Task'),'Account Task');
   assert.equal(schemaText(hash, 'ru', 'variant/x:Domain/Other/label', 'Account Task'), 'Account Task');
   assert.equal(schemaText(hash, 'ru', 'list/x:QueuedMessage/column/index', 'Index'), 'Index');
   assert.equal(schemaText(hash, 'ru', 'variant/x:Task/Unknown/label', 'Unseen task label'), 'Unseen task label');
