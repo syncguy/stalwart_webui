@@ -110,10 +110,10 @@ export function ActionPage({ viewName }: ActionPageProps) {
             }}
             title={t('actions.confirmTitle', 'Run this action?')}
             description={pending?.name === 'UpdateApps'
-              ? t('actions.updateAppsScopeWarning',
+              ? t('webuiRu.actions.updateAppsScopeWarning',
                 'Updates all configured web applications, not only this interface. Check every application\'s resource URL and external download policy before continuing.')
               : pending?.name === 'InvalidateNegativeCaches'
-                ? t('actions.negativeCacheExplanation',
+                ? t('webuiRu.actions.negativeCacheExplanation',
                   'Clears cached unsuccessful lookup results so the next requests check again. Stored data is not deleted.')
                 : pending ? actionLabel(pending) : undefined}
             confirmLabel={t('actions.execute', 'Execute')}
