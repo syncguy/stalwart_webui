@@ -1114,6 +1114,34 @@
       "original": "Tasks",
       "ru": "Задачи"
     },
+    "enum/AccountType/Group/label": {
+      "original": "Group account",
+      "ru": "Групповая учётная запись"
+    },
+    "enum/AccountType/User/label": {
+      "original": "User account",
+      "ru": "Учётная запись пользователя"
+    },
+    "enum/ArchivedItemType/CalendarEvent/label": {
+      "original": "Archived Calendar Event",
+      "ru": "Архивное событие календаря"
+    },
+    "enum/ArchivedItemType/ContactCard/label": {
+      "original": "Archived Contact Card",
+      "ru": "Архивная карточка контакта"
+    },
+    "enum/ArchivedItemType/Email/label": {
+      "original": "Archived Email message",
+      "ru": "Архивное письмо"
+    },
+    "enum/ArchivedItemType/FileNode/label": {
+      "original": "Archived File",
+      "ru": "Архивный файл"
+    },
+    "enum/ArchivedItemType/SieveScript/label": {
+      "original": "Archived Sieve Script",
+      "ru": "Архивный скрипт Sieve"
+    },
     "enum/ArfAuthFailureType/adsp/label": {
       "original": "DKIM ADSP policy failure",
       "ru": "Нарушение политики DKIM ADSP"
@@ -1362,6 +1390,22 @@
       "original": "Discovery method not specified",
       "ru": "Метод обнаружения не указан"
     },
+    "enum/DmarcDisposition/none/label": {
+      "original": "No specific action requested",
+      "ru": "Конкретное действие не запрошено"
+    },
+    "enum/DmarcDisposition/quarantine/label": {
+      "original": "Treat failing messages as suspicious",
+      "ru": "Считать подозрительными сообщения, не прошедшие проверку"
+    },
+    "enum/DmarcDisposition/reject/label": {
+      "original": "Reject failing messages",
+      "ru": "Отклонять сообщения, не прошедшие проверку"
+    },
+    "enum/DmarcDisposition/unspecified/label": {
+      "original": "Disposition not specified",
+      "ru": "Действие не указано"
+    },
     "enum/DmarcPolicyOverride/Forwarded/label": {
       "original": "Message was forwarded",
       "ru": "Сообщение перенаправлено"
@@ -1434,9 +1478,17 @@
       "original": "Calendar",
       "ru": "Календарь"
     },
+    "enum/IndexType/contacts/label": {
+      "original": "Contacts",
+      "ru": "Контакты"
+    },
     "enum/IndexType/email/label": {
       "original": "Email",
       "ru": "Почта"
+    },
+    "enum/IndexType/file/label": {
+      "original": "File",
+      "ru": "Файл"
     },
     "enum/IndexType/telemetry/label": {
       "original": "Telemetry",
@@ -1558,9 +1610,45 @@
       "original": "Calendar",
       "ru": "Календарь"
     },
+    "enum/SharedObjectType/fileNode/label": {
+      "original": "File Node",
+      "ru": "Файловый узел"
+    },
     "enum/SharedObjectType/mailbox/label": {
       "original": "Mailbox",
       "ru": "Почтовый ящик"
+    },
+    "enum/SpamClassifyParameters/binaryMime/label": {
+      "original": "Binary MIME message content",
+      "ru": "Двоичное содержимое сообщения MIME"
+    },
+    "enum/SpamClassifyParameters/bit7/label": {
+      "original": "7-bit message content",
+      "ru": "7-битное содержимое сообщения"
+    },
+    "enum/SpamClassifyParameters/bit8Mime/label": {
+      "original": "8-bit MIME message content",
+      "ru": "8-битное содержимое сообщения MIME"
+    },
+    "enum/SpamClassifyParameters/smtpUtf8/label": {
+      "original": "UTF-8 message content",
+      "ru": "Содержимое сообщения в UTF-8"
+    },
+    "enum/SpamClassifyResult/discard/label": {
+      "original": "Discard message",
+      "ru": "Отбросить сообщение"
+    },
+    "enum/SpamClassifyResult/ham/label": {
+      "original": "Classify as non-spam (ham)",
+      "ru": "Отнести к обычной почте (ham)"
+    },
+    "enum/SpamClassifyResult/reject/label": {
+      "original": "Reject message",
+      "ru": "Отклонить сообщение"
+    },
+    "enum/SpamClassifyResult/spam/label": {
+      "original": "Classify as spam",
+      "ru": "Отнести к спаму"
     },
     "enum/SpamDnsblServerType/Domain/label": {
       "original": "Domain",
@@ -1617,6 +1705,218 @@
     "enum/SpfDomainScope/unspecified/label": {
       "original": "Scope not specified",
       "ru": "Область проверки не указана"
+    },
+    "enum/TaskAccountMaintenanceType/purge/label": {
+      "original": "Purge expired data from the account",
+      "ru": "Удалить данные учётной записи с истёкшим сроком хранения"
+    },
+    "enum/TaskAccountMaintenanceType/rebuildShares/label": {
+      "original": "Rebuild the sharing index of the items the account has shared",
+      "ru": "Перестроить индекс объектов, к которым учётная запись предоставила общий доступ"
+    },
+    "enum/TaskAccountMaintenanceType/recalculateImapUid/label": {
+      "original": "Recalculate IMAP UIDs for the account's email messages",
+      "ru": "Пересчитать IMAP UIDs писем учётной записи"
+    },
+    "enum/TaskAccountMaintenanceType/recalculateQuota/label": {
+      "original": "Recalculate storage quota usage for the account",
+      "ru": "Пересчитать использование квоты хранилища учётной записи"
+    },
+    "enum/TaskAccountMaintenanceType/reindex/label": {
+      "original": "Reindex the account's data for search",
+      "ru": "Переиндексировать данные учётной записи для поиска"
+    },
+    "enum/TaskBlobRecodeCompression/disable/label": {
+      "original": "Disable compression",
+      "ru": "Отключить сжатие"
+    },
+    "enum/TaskBlobRecodeCompression/keep/label": {
+      "original": "Leave as is",
+      "ru": "Оставить без изменений"
+    },
+    "enum/TaskBlobRecodeCompression/lz4/label": {
+      "original": "LZ4",
+      "ru": "Сжатие LZ4"
+    },
+    "enum/TaskBlobRecodeCompression/zstd/label": {
+      "original": "Zstandard",
+      "ru": "Сжатие Zstandard"
+    },
+    "enum/TaskSpamFilterMaintenanceType/abort/label": {
+      "original": "Abort the ongoing training process of the spam classifier",
+      "ru": "Прервать выполняющееся обучение классификатора спама"
+    },
+    "enum/TaskSpamFilterMaintenanceType/reset/label": {
+      "original": "Delete the spam classifier's model and reset it to the default state",
+      "ru": "Удалить модель классификатора спама и вернуть его в исходное состояние"
+    },
+    "enum/TaskSpamFilterMaintenanceType/retrain/label": {
+      "original": "Retrain the spam classifier with all available samples",
+      "ru": "Переобучить классификатор спама на всех доступных образцах"
+    },
+    "enum/TaskSpamFilterMaintenanceType/train/label": {
+      "original": "Train the spam classifier with the latest samples",
+      "ru": "Обучить классификатор спама на последних образцах"
+    },
+    "enum/TaskSpamFilterMaintenanceType/updateRules/label": {
+      "original": "Download and update the spam filter rules from the configured source",
+      "ru": "Загрузить и обновить правила спам-фильтра из настроенного источника"
+    },
+    "enum/TaskStatusType/Failed/label": {
+      "original": "Task that failed permanently and needs operator action",
+      "ru": "Задание завершилось окончательной ошибкой и требует вмешательства оператора"
+    },
+    "enum/TaskStatusType/Pending/label": {
+      "original": "Pending task awaiting execution",
+      "ru": "Задание ожидает выполнения"
+    },
+    "enum/TaskStatusType/Retry/label": {
+      "original": "Task scheduled for retry after a transient failure",
+      "ru": "Назначена повторная попытка выполнения после временной ошибки"
+    },
+    "enum/TaskStatusType/Stalled/label": {
+      "original": "Task still retrying after repeated transient failures",
+      "ru": "Повторные попытки выполнения продолжаются после нескольких временных ошибок"
+    },
+    "enum/TaskStoreMaintenanceType/purgeAccounts/label": {
+      "original": "Purge expired data from all accounts",
+      "ru": "Удалить данные с истёкшим сроком хранения из всех учётных записей"
+    },
+    "enum/TaskStoreMaintenanceType/purgeBlob/label": {
+      "original": "Purge blob store",
+      "ru": "Очистить хранилище бинарных объектов"
+    },
+    "enum/TaskStoreMaintenanceType/purgeData/label": {
+      "original": "Purge data store",
+      "ru": "Очистить хранилище данных"
+    },
+    "enum/TaskStoreMaintenanceType/reindexAccounts/label": {
+      "original": "Reindex all accounts' data for search",
+      "ru": "Переиндексировать данные всех учётных записей для поиска"
+    },
+    "enum/TaskStoreMaintenanceType/reindexTelemetry/label": {
+      "original": "Reindex all telemetry data for search",
+      "ru": "Переиндексировать все данные телеметрии для поиска"
+    },
+    "enum/TaskStoreMaintenanceType/removeAuthTokens/label": {
+      "original": "Delete all temporary ACME and OAuth tokens",
+      "ru": "Удалить все временные токены ACME и OAuth"
+    },
+    "enum/TaskStoreMaintenanceType/removeGreylist/label": {
+      "original": "Delete all spam filter grey list entries",
+      "ru": "Удалить все записи серого списка спам-фильтра"
+    },
+    "enum/TaskStoreMaintenanceType/removeLockDav/label": {
+      "original": "Delete all DAV locks",
+      "ru": "Удалить все блокировки DAV"
+    },
+    "enum/TaskStoreMaintenanceType/removeLockQueueMessage/label": {
+      "original": "Delete all MTA queue message locks",
+      "ru": "Удалить все блокировки сообщений очереди MTA"
+    },
+    "enum/TaskStoreMaintenanceType/removeLockTask/label": {
+      "original": "Delete all task manager locks",
+      "ru": "Удалить все блокировки диспетчера заданий"
+    },
+    "enum/TaskStoreMaintenanceType/resetBlobQuotas/label": {
+      "original": "Reset all blob quotas",
+      "ru": "Сбросить все квоты бинарных объектов"
+    },
+    "enum/TaskStoreMaintenanceType/resetRateLimiters/label": {
+      "original": "Reset all rate limiters",
+      "ru": "Сбросить все ограничители частоты операций"
+    },
+    "enum/TaskStoreMaintenanceType/resetTenantQuotas/label": {
+      "original": "Reset all tenant quotas",
+      "ru": "Сбросить все квоты арендаторов"
+    },
+    "enum/TaskStoreMaintenanceType/resetUserQuotas/label": {
+      "original": "Reset all user quotas",
+      "ru": "Сбросить все квоты пользователей"
+    },
+    "enum/TaskTenantMaintenanceType/recalculateQuota/label": {
+      "original": "Recalculate storage quota usage for the tenant",
+      "ru": "Пересчитать использование квоты хранилища арендатора"
+    },
+    "enum/TaskType/AccountMaintenance/label": {
+      "original": "Perform account maintenance operations",
+      "ru": "Выполнить обслуживание учётной записи"
+    },
+    "enum/TaskType/AcmeRenewal/label": {
+      "original": "Perform ACME certificate renewal for a domain",
+      "ru": "Обновить сертификат домена через ACME"
+    },
+    "enum/TaskType/BlobRecode/label": {
+      "original": "Rewrite stored blobs with new compression and encryption settings",
+      "ru": "Перезаписать сохранённые бинарные объекты с новыми параметрами сжатия и шифрования"
+    },
+    "enum/TaskType/CalendarAlarmEmail/label": {
+      "original": "Calendar alarm e-mail",
+      "ru": "Письмо с календарным напоминанием"
+    },
+    "enum/TaskType/CalendarAlarmNotification/label": {
+      "original": "Calendar alarm notification",
+      "ru": "Уведомление с календарным напоминанием"
+    },
+    "enum/TaskType/CalendarItipMessage/label": {
+      "original": "Calendar iTIP message",
+      "ru": "Календарное сообщение iTIP"
+    },
+    "enum/TaskType/DestroyAccount/label": {
+      "original": "Destroy account and all associated data",
+      "ru": "Удалить учётную запись и все связанные с ней данные"
+    },
+    "enum/TaskType/DkimManagement/label": {
+      "original": "Perform DKIM key rotation for a domain",
+      "ru": "Выполнить ротацию ключей DKIM домена"
+    },
+    "enum/TaskType/DmarcReport/label": {
+      "original": "Send DMARC report to remote server",
+      "ru": "Отправить отчёт DMARC удалённому серверу"
+    },
+    "enum/TaskType/DmarcReportWindow/label": {
+      "original": "Create the DMARC aggregate reports of an ended window",
+      "ru": "Сформировать агрегированные отчёты DMARC за завершившийся период"
+    },
+    "enum/TaskType/DnsManagement/label": {
+      "original": "Perform DNS management for a domain",
+      "ru": "Выполнить управление DNS домена"
+    },
+    "enum/TaskType/ExternalPublicKeyMaintenance/label": {
+      "original": "Fetch external public keys and recheck S/MIME certificates",
+      "ru": "Получить внешние открытые ключи и повторно проверить сертификаты S/MIME"
+    },
+    "enum/TaskType/MergeThreads/label": {
+      "original": "Merge email threads",
+      "ru": "Объединить цепочки переписки"
+    },
+    "enum/TaskType/RestoreArchivedItem/label": {
+      "original": "Restore archived item",
+      "ru": "Восстановить архивный объект"
+    },
+    "enum/TaskType/ShareRevokeCleanup/label": {
+      "original": "Remove per-user data left behind by a revoked share",
+      "ru": "Удалить индивидуальные данные пользователей, оставшиеся после отзыва общего доступа"
+    },
+    "enum/TaskType/SpamFilterMaintenance/label": {
+      "original": "Perform spam filter maintenance operations",
+      "ru": "Выполнить обслуживание спам-фильтра"
+    },
+    "enum/TaskType/StoreMaintenance/label": {
+      "original": "Perform store maintenance operations",
+      "ru": "Выполнить обслуживание хранилища"
+    },
+    "enum/TaskType/TenantMaintenance/label": {
+      "original": "Perform tenant maintenance operations",
+      "ru": "Выполнить обслуживание арендатора"
+    },
+    "enum/TaskType/TlsReport/label": {
+      "original": "Send TLS report to remote server",
+      "ru": "Отправить отчёт TLS удалённому серверу"
+    },
+    "enum/TaskType/TlsReportWindow/label": {
+      "original": "Create the TLS aggregate reports of an ended window",
+      "ru": "Сформировать агрегированные отчёты TLS за завершившийся период"
     },
     "enum/TlsPolicyType/noPolicyFound/label": {
       "original": "No TLS policy was found for the domain",
@@ -2494,6 +2794,86 @@
       "original": "Which identity was checked",
       "ru": "Какой идентификатор проверялся"
     },
+    "field/x:DmarcTroubleshoot/arcResult/description": {
+      "original": "Result of the ARC validation check",
+      "ru": "Результат проверки ARC"
+    },
+    "field/x:DmarcTroubleshoot/dkim2Pass/description": {
+      "original": "Whether the DKIM2 checks passed",
+      "ru": "Пройдены ли проверки DKIM2"
+    },
+    "field/x:DmarcTroubleshoot/dkim2Result/description": {
+      "original": "Result of the DKIM2 signature chain verification",
+      "ru": "Результат проверки цепочки подписей DKIM2"
+    },
+    "field/x:DmarcTroubleshoot/dkimPass/description": {
+      "original": "Whether the DKIM checks passed",
+      "ru": "Пройдены ли проверки DKIM"
+    },
+    "field/x:DmarcTroubleshoot/dkimResults/description": {
+      "original": "Results of the DKIM signature verification checks",
+      "ru": "Результаты проверки подписей DKIM"
+    },
+    "field/x:DmarcTroubleshoot/dmarcPass/description": {
+      "original": "Whether the DMARC check passed",
+      "ru": "Пройдена ли проверка DMARC"
+    },
+    "field/x:DmarcTroubleshoot/dmarcPolicy/description": {
+      "original": "DMARC policy applied to the email message",
+      "ru": "Политика DMARC, применённая к письму"
+    },
+    "field/x:DmarcTroubleshoot/dmarcResult/description": {
+      "original": "Result of the DMARC check",
+      "ru": "Результат проверки DMARC"
+    },
+    "field/x:DmarcTroubleshoot/ehloDomain/description": {
+      "original": "EHLO domain provided by the SMTP client",
+      "ru": "Домен EHLO, указанный клиентом SMTP"
+    },
+    "field/x:DmarcTroubleshoot/elapsed/description": {
+      "original": "Time taken to perform the DMARC troubleshooting",
+      "ru": "Время выполнения диагностики DMARC"
+    },
+    "field/x:DmarcTroubleshoot/ipRevPtr/description": {
+      "original": "PTR records returned by the reverse DNS lookup for the remote IP address",
+      "ru": "Записи PTR, полученные при обратном запросе DNS для удалённого IP-адреса"
+    },
+    "field/x:DmarcTroubleshoot/ipRevResult/description": {
+      "original": "Result of the reverse DNS check for the remote IP address",
+      "ru": "Результат обратной проверки DNS для удалённого IP-адреса"
+    },
+    "field/x:DmarcTroubleshoot/mailFrom/description": {
+      "original": "MAIL FROM address provided by the SMTP client, or null for the null reverse-path (MAIL FROM:<>)",
+      "ru": "Адрес MAIL FROM, указанный клиентом SMTP, или null для пустого обратного пути (null reverse-path, MAIL FROM:<>)"
+    },
+    "field/x:DmarcTroubleshoot/message/description": {
+      "original": "Body of the email message used for DMARC troubleshooting, if applicable",
+      "ru": "Тело письма, используемое для диагностики DMARC, если применимо"
+    },
+    "field/x:DmarcTroubleshoot/rcptTo/description": {
+      "original": "RCPT TO addresses provided by the SMTP client, used for DKIM2 envelope verification",
+      "ru": "Адреса RCPT TO, указанные клиентом SMTP, используемые для проверки конверта DKIM2"
+    },
+    "field/x:DmarcTroubleshoot/remoteIp/description": {
+      "original": "Remote IP address of the SMTP client",
+      "ru": "Удалённый IP-адрес клиента SMTP"
+    },
+    "field/x:DmarcTroubleshoot/spfEhloDomain/description": {
+      "original": "Domain used for SPF check based on EHLO domain",
+      "ru": "Домен, используемый для проверки SPF по домену EHLO"
+    },
+    "field/x:DmarcTroubleshoot/spfEhloResult/description": {
+      "original": "Result of the SPF check based on EHLO domain",
+      "ru": "Результат проверки SPF по домену EHLO"
+    },
+    "field/x:DmarcTroubleshoot/spfMailFromDomain/description": {
+      "original": "Domain used for SPF check based on MAIL FROM address",
+      "ru": "Домен, используемый для проверки SPF по адресу MAIL FROM"
+    },
+    "field/x:DmarcTroubleshoot/spfMailFromResult/description": {
+      "original": "Result of the SPF check based on MAIL FROM address",
+      "ru": "Результат проверки SPF по адресу MAIL FROM"
+    },
     "field/x:DnsManagementProperties/dnsServerId/description": {
       "original": "Identifier for the DNS server provider managing DNS records for this domain",
       "ru": "Идентификатор провайдера DNS, управляющего DNS-записями этого домена"
@@ -2649,6 +3029,26 @@
     "field/x:GroupAccount/usedDiskQuota/description": {
       "original": "Amount of disk space currently used by this account (bytes)",
       "ru": "Занятое группой место на диске (байты)"
+    },
+    "field/x:IndexQueueStatus/index/description": {
+      "original": "Search index the queue belongs to",
+      "ru": "Поисковый индекс, к которому относится очередь"
+    },
+    "field/x:IndexQueueStatus/partition/description": {
+      "original": "Account or telemetry bucket the queued documents belong to",
+      "ru": "Учётная запись или сегмент телеметрии, к которым относятся документы в очереди"
+    },
+    "field/x:IndexQueueStatus/queuedDeletions/description": {
+      "original": "Number of documents awaiting deletion from the index",
+      "ru": "Число документов, ожидающих удаления из индекса"
+    },
+    "field/x:IndexQueueStatus/queuedUpdates/description": {
+      "original": "Number of documents awaiting indexing",
+      "ru": "Число документов, ожидающих индексирования"
+    },
+    "field/x:IndexQueueStatus/status/description": {
+      "original": "Current processing state of the queue",
+      "ru": "Текущее состояние обработки очереди"
     },
     "field/x:Log/details/description": {
       "original": "Log message",
@@ -2866,6 +3266,10 @@
       "original": "Current delivery status",
       "ru": "Текущее состояние доставки"
     },
+    "field/x:ReloadSettingsResult/warnings/description": {
+      "original": "Warnings reported while building the new configuration, such as licence problems",
+      "ru": "Предупреждения при формировании новой конфигурации, например о проблемах с лицензией"
+    },
     "field/x:Role/description/description": {
       "original": "Description of the role",
       "ru": "Описание роли"
@@ -2926,9 +3330,89 @@
       "original": "SMTP response message from the remote server",
       "ru": "Текст ответа SMTP удалённого сервера"
     },
+    "field/x:SpamClassify/aiFacts/description": {
+      "original": "Message facts sent to the AI classifier, as JSON",
+      "ru": "Сведения о сообщении, переданные ИИ-классификатору в формате JSON"
+    },
+    "field/x:SpamClassify/aiGate/description": {
+      "original": "Outcome of the AI classifier gate: \"run\" when the classifier was queried, otherwise the reason it was skipped",
+      "ru": "Результат проверки условий запуска ИИ-классификатора: \"run\", если к нему был отправлен запрос, иначе причина пропуска"
+    },
+    "field/x:SpamClassify/aiVerdict/description": {
+      "original": "Verdict of the AI classifier in the format of the X-Spam-AI header",
+      "ru": "Результат ИИ-классификатора в формате заголовка X-Spam-AI"
+    },
+    "field/x:SpamClassify/authenticatedAs/description": {
+      "original": "Authentication identity of the SMTP client, if authenticated",
+      "ru": "Идентификатор аутентификации клиента SMTP, если он прошёл аутентификацию"
+    },
+    "field/x:SpamClassify/ehloDomain/description": {
+      "original": "EHLO domain provided by the SMTP client",
+      "ru": "Домен EHLO, указанный клиентом SMTP"
+    },
+    "field/x:SpamClassify/isTls/description": {
+      "original": "Whether the SMTP connection is secured with TLS",
+      "ru": "Защищено ли соединение SMTP с помощью TLS"
+    },
+    "field/x:SpamClassify/mailFrom/description": {
+      "original": "MAIL FROM address provided by the SMTP client, or null for the null reverse-path (MAIL FROM:<>)",
+      "ru": "Адрес MAIL FROM, указанный клиентом SMTP, или null для пустого обратного пути (null reverse-path, MAIL FROM:<>)"
+    },
+    "field/x:SpamClassify/mailFromParameters/description": {
+      "original": "Parameters related to the MAIL FROM address",
+      "ru": "Параметры адреса MAIL FROM"
+    },
+    "field/x:SpamClassify/message/description": {
+      "original": "Raw email message to classify for spam",
+      "ru": "Исходное почтовое сообщение для проверки на спам"
+    },
+    "field/x:SpamClassify/rcptTo/description": {
+      "original": "List of RCPT TO addresses provided by the SMTP client",
+      "ru": "Список адресов RCPT TO, указанных клиентом SMTP"
+    },
+    "field/x:SpamClassify/remoteIp/description": {
+      "original": "Remote IP address of the SMTP client",
+      "ru": "Удалённый IP-адрес клиента SMTP"
+    },
+    "field/x:SpamClassify/result/description": {
+      "original": "Overall spam classification result for the message",
+      "ru": "Общий результат классификации сообщения на спам"
+    },
+    "field/x:SpamClassify/score/description": {
+      "original": "Spam score for the classified message",
+      "ru": "Оценка спама для проверенного сообщения"
+    },
+    "field/x:SpamClassify/tags/description": {
+      "original": "List of tags contributing to the spam classification of the message",
+      "ru": "Список меток, влияющих на классификацию сообщения на спам"
+    },
     "field/x:SubAddressingCustom/customRule/description": {
       "original": "Expression that defines custom sub-addressing rules for the domain",
       "ru": "Выражение, задающее собственные правила дополнительной адресации для домена"
+    },
+    "field/x:TaskBlobRecodeKey/keyId/description": {
+      "original": "Key used to encrypt each blob",
+      "ru": "Ключ, используемый для шифрования каждого бинарного объекта"
+    },
+    "field/x:TaskCalendarItipContents/from/description": {
+      "original": "Email address of the sender of the iTIP message",
+      "ru": "Адрес электронной почты отправителя сообщения iTIP"
+    },
+    "field/x:TaskCalendarItipContents/iCalendarData/description": {
+      "original": "iCalendar data associated with the iTIP message",
+      "ru": "Данные iCalendar, связанные с сообщением iTIP"
+    },
+    "field/x:TaskCalendarItipContents/isFromOrganizer/description": {
+      "original": "Indicates whether the sender is the organizer of the calendar event",
+      "ru": "Указывает, является ли отправитель организатором события календаря"
+    },
+    "field/x:TaskCalendarItipContents/summary/description": {
+      "original": "Summary of the calendar event associated with the iTIP message",
+      "ru": "Краткое описание события календаря, связанного с сообщением iTIP"
+    },
+    "field/x:TaskCalendarItipContents/to/description": {
+      "original": "Email addresses of the recipients of the iTIP message",
+      "ru": "Адреса электронной почты получателей сообщения iTIP"
     },
     "field/x:Tenant/createdAt/description": {
       "original": "Creation date of the tenant",
@@ -4722,6 +5206,118 @@
       "original": "Scope",
       "ru": "Область проверки"
     },
+    "form/x:DmarcTroubleshoot/field/arcResult": {
+      "original": "ARC Result",
+      "ru": "Результат ARC"
+    },
+    "form/x:DmarcTroubleshoot/field/dkim2Pass": {
+      "original": "DKIM2 Pass",
+      "ru": "Проверка DKIM2 пройдена"
+    },
+    "form/x:DmarcTroubleshoot/field/dkim2Result": {
+      "original": "DKIM2 Result",
+      "ru": "Результат DKIM2"
+    },
+    "form/x:DmarcTroubleshoot/field/dkimPass": {
+      "original": "DKIM Pass",
+      "ru": "Проверка DKIM пройдена"
+    },
+    "form/x:DmarcTroubleshoot/field/dkimResults": {
+      "original": "DKIM Results",
+      "ru": "Результаты DKIM"
+    },
+    "form/x:DmarcTroubleshoot/field/dmarcPass": {
+      "original": "DMARC Pass",
+      "ru": "Проверка DMARC пройдена"
+    },
+    "form/x:DmarcTroubleshoot/field/dmarcPolicy": {
+      "original": "DMARC Policy",
+      "ru": "Политика DMARC"
+    },
+    "form/x:DmarcTroubleshoot/field/dmarcResult": {
+      "original": "DMARC Result",
+      "ru": "Результат DMARC"
+    },
+    "form/x:DmarcTroubleshoot/field/ehloDomain": {
+      "original": "EHLO Domain",
+      "ru": "Домен EHLO"
+    },
+    "form/x:DmarcTroubleshoot/field/elapsed": {
+      "original": "Elapsed Time",
+      "ru": "Затраченное время"
+    },
+    "form/x:DmarcTroubleshoot/field/ipRevPtr": {
+      "original": "PTR Records",
+      "ru": "Записи PTR"
+    },
+    "form/x:DmarcTroubleshoot/field/ipRevResult": {
+      "original": "Reverse DNS Result",
+      "ru": "Результат обратной проверки DNS"
+    },
+    "form/x:DmarcTroubleshoot/field/mailFrom": {
+      "original": "MAIL FROM",
+      "ru": "Отправитель (MAIL FROM)"
+    },
+    "form/x:DmarcTroubleshoot/field/message": {
+      "original": "Message Body",
+      "ru": "Тело сообщения"
+    },
+    "form/x:DmarcTroubleshoot/field/rcptTo": {
+      "original": "RCPT TO",
+      "ru": "Получатели (RCPT TO)"
+    },
+    "form/x:DmarcTroubleshoot/field/remoteIp": {
+      "original": "Remote IP",
+      "ru": "Удалённый IP-адрес"
+    },
+    "form/x:DmarcTroubleshoot/field/spfEhloDomain": {
+      "original": "SPF EHLO Domain",
+      "ru": "Домен EHLO для SPF"
+    },
+    "form/x:DmarcTroubleshoot/field/spfEhloResult": {
+      "original": "SPF EHLO Result",
+      "ru": "Результат SPF по EHLO"
+    },
+    "form/x:DmarcTroubleshoot/field/spfMailFromDomain": {
+      "original": "SPF MAIL FROM Domain",
+      "ru": "Домен MAIL FROM для SPF"
+    },
+    "form/x:DmarcTroubleshoot/field/spfMailFromResult": {
+      "original": "SPF MAIL FROM Result",
+      "ru": "Результат SPF по MAIL FROM"
+    },
+    "form/x:DmarcTroubleshoot/section/section-0": {
+      "original": "Input",
+      "ru": "Входные данные"
+    },
+    "form/x:DmarcTroubleshoot/section/section-1": {
+      "original": "SPF Results",
+      "ru": "Результаты SPF"
+    },
+    "form/x:DmarcTroubleshoot/section/section-2": {
+      "original": "IP Reverse DNS",
+      "ru": "Обратная проверка IP через DNS"
+    },
+    "form/x:DmarcTroubleshoot/section/section-3": {
+      "original": "DKIM Results",
+      "ru": "Результаты DKIM"
+    },
+    "form/x:DmarcTroubleshoot/section/section-4": {
+      "original": "DKIM2 Results",
+      "ru": "Результаты DKIM2"
+    },
+    "form/x:DmarcTroubleshoot/section/section-5": {
+      "original": "ARC Results",
+      "ru": "Результаты ARC"
+    },
+    "form/x:DmarcTroubleshoot/section/section-6": {
+      "original": "DMARC Results",
+      "ru": "Результаты DMARC"
+    },
+    "form/x:DmarcTroubleshoot/section/section-7": {
+      "original": "Performance",
+      "ru": "Производительность"
+    },
     "form/x:DmarcTroubleshootDetails/field/details": {
       "original": "Details",
       "ru": "Сведения"
@@ -5942,6 +6538,22 @@
       "original": "Limits",
       "ru": "Ограничения"
     },
+    "form/x:IndexQueueStatus/field/index": {
+      "original": "Index",
+      "ru": "Индекс"
+    },
+    "form/x:IndexQueueStatus/field/partition": {
+      "original": "Partition",
+      "ru": "Сегмент"
+    },
+    "form/x:IndexQueueStatus/field/queuedDeletions": {
+      "original": "Queued Deletions",
+      "ru": "Ожидают удаления"
+    },
+    "form/x:IndexQueueStatus/field/queuedUpdates": {
+      "original": "Queued Updates",
+      "ru": "Ожидают индексирования"
+    },
     "form/x:IndexQueueStatus/field/status": {
       "original": "Status",
       "ru": "Состояние"
@@ -6822,6 +7434,14 @@
       "original": "Max Connections",
       "ru": "Максимум соединений"
     },
+    "form/x:ReloadSettingsResult/field/warnings": {
+      "original": "Warnings",
+      "ru": "Предупреждения"
+    },
+    "form/x:ReloadSettingsResult/section/section-0": {
+      "original": "Result",
+      "ru": "Результат"
+    },
     "form/x:Role/field/description": {
       "original": "Description",
       "ru": "Описание"
@@ -7030,6 +7650,74 @@
       "original": "Name",
       "ru": "Имя"
     },
+    "form/x:SpamClassify/field/aiFacts": {
+      "original": "Facts",
+      "ru": "Сведения о сообщении"
+    },
+    "form/x:SpamClassify/field/aiGate": {
+      "original": "Gate",
+      "ru": "Условия запуска"
+    },
+    "form/x:SpamClassify/field/aiVerdict": {
+      "original": "Verdict",
+      "ru": "Результат классификации"
+    },
+    "form/x:SpamClassify/field/authenticatedAs": {
+      "original": "Authenticated As",
+      "ru": "Идентификатор аутентификации"
+    },
+    "form/x:SpamClassify/field/ehloDomain": {
+      "original": "EHLO Domain",
+      "ru": "Домен EHLO"
+    },
+    "form/x:SpamClassify/field/isTls": {
+      "original": "TLS Enabled",
+      "ru": "TLS включён"
+    },
+    "form/x:SpamClassify/field/mailFrom": {
+      "original": "MAIL FROM",
+      "ru": "Отправитель (MAIL FROM)"
+    },
+    "form/x:SpamClassify/field/mailFromParameters": {
+      "original": "MAIL FROM Parameters",
+      "ru": "Параметры MAIL FROM"
+    },
+    "form/x:SpamClassify/field/message": {
+      "original": "Message",
+      "ru": "Сообщение"
+    },
+    "form/x:SpamClassify/field/rcptTo": {
+      "original": "RCPT TO",
+      "ru": "Получатели (RCPT TO)"
+    },
+    "form/x:SpamClassify/field/remoteIp": {
+      "original": "Remote IP",
+      "ru": "Удалённый IP-адрес"
+    },
+    "form/x:SpamClassify/field/result": {
+      "original": "Result",
+      "ru": "Результат"
+    },
+    "form/x:SpamClassify/field/score": {
+      "original": "Score",
+      "ru": "Оценка спама"
+    },
+    "form/x:SpamClassify/field/tags": {
+      "original": "Tags",
+      "ru": "Метки"
+    },
+    "form/x:SpamClassify/field/tags/keyLabel": {
+      "original": "Tag",
+      "ru": "Метка"
+    },
+    "form/x:SpamClassify/section/section-0": {
+      "original": "Input",
+      "ru": "Входные данные"
+    },
+    "form/x:SpamClassify/section/section-1": {
+      "original": "Results",
+      "ru": "Результаты"
+    },
     "form/x:SpamClassify/section/section-2": {
       "original": "AI Classifier",
       "ru": "ИИ-классификатор"
@@ -7222,6 +7910,10 @@
       "original": "Encryption",
       "ru": "Шифрование"
     },
+    "form/x:TaskBlobRecodeKey/field/keyId": {
+      "original": "Encryption Key",
+      "ru": "Ключ шифрования"
+    },
     "form/x:TaskCalendarAlarmEmail/field/accountId": {
       "original": "Account",
       "ru": "Учётная запись"
@@ -7253,6 +7945,18 @@
     "form/x:TaskCalendarAlarmNotification/section/section-2": {
       "original": "Status",
       "ru": "Состояние"
+    },
+    "form/x:TaskCalendarItipContents/field/iCalendarData": {
+      "original": "iCalendar Data",
+      "ru": "Данные iCalendar"
+    },
+    "form/x:TaskCalendarItipContents/field/isFromOrganizer": {
+      "original": "From Organizer",
+      "ru": "От организатора"
+    },
+    "form/x:TaskCalendarItipContents/field/summary": {
+      "original": "Summary",
+      "ru": "Краткое описание"
     },
     "form/x:TaskCalendarItipContents/field/to": {
       "original": "To",
@@ -8606,6 +9310,14 @@
       "original": "Status",
       "ru": "Состояние"
     },
+    "list/x:IndexQueueStatus/plural": {
+      "original": "index queues",
+      "ru": "очереди индексации"
+    },
+    "list/x:IndexQueueStatus/singular": {
+      "original": "index queue",
+      "ru": "очередь индексации"
+    },
     "list/x:IndexQueueStatus/subtitle": {
       "original": "Monitor search index processing and reschedule failed indexing operations",
       "ru": "Контроль поисковой индексации и повторный запуск операций с ошибками"
@@ -9113,6 +9825,10 @@
     "list/x:Task/TaskFailed/filter/@type": {
       "original": "Task type",
       "ru": "Тип задания"
+    },
+    "list/x:Task/TaskFailed/plural": {
+      "original": "failed tasks",
+      "ru": "неудачные задания"
     },
     "list/x:Task/TaskFailed/singular": {
       "original": "failed task",
@@ -10086,6 +10802,10 @@
       "original": "Defines an email domain and its DNS, DKIM, and TLS certificate settings.",
       "ru": "Параметры почтового домена, DNS, DKIM и сертификатов TLS."
     },
+    "object/x:IndexQueueStatus/description": {
+      "original": "Represents the processing state of a search index queue.",
+      "ru": "Отображает состояние обработки очереди поискового индекса."
+    },
     "object/x:Log/description": {
       "original": "Represents a server log entry.",
       "ru": "Запись журнала сервера."
@@ -10105,6 +10825,10 @@
     "object/x:Role/description": {
       "original": "Defines a named set of permissions that can be assigned to accounts and groups.",
       "ru": "Набор прав доступа, назначаемых пользователям и группам."
+    },
+    "object/x:Task/description": {
+      "original": "Represents a background task scheduled for execution.",
+      "ru": "Фоновое задание, назначенное к выполнению."
     },
     "object/x:Tenant/description": {
       "original": "Defines a tenant for multi-tenant environments with isolated resources and quotas.",
@@ -10210,6 +10934,34 @@
       "original": "Manual DKIM management",
       "ru": "Ручное управление DKIM"
     },
+    "variant/x:DmarcTroubleshootAuthResult/Fail/label": {
+      "original": "Fail",
+      "ru": "Проверка не пройдена"
+    },
+    "variant/x:DmarcTroubleshootAuthResult/Neutral/label": {
+      "original": "Neutral",
+      "ru": "Нейтральный результат"
+    },
+    "variant/x:DmarcTroubleshootAuthResult/None/label": {
+      "original": "None",
+      "ru": "Нет результата"
+    },
+    "variant/x:DmarcTroubleshootAuthResult/Pass/label": {
+      "original": "Pass",
+      "ru": "Проверка пройдена"
+    },
+    "variant/x:DmarcTroubleshootAuthResult/PermError/label": {
+      "original": "PermError",
+      "ru": "Постоянная ошибка"
+    },
+    "variant/x:DmarcTroubleshootAuthResult/SoftFail/label": {
+      "original": "SoftFail",
+      "ru": "Мягкий отказ"
+    },
+    "variant/x:DmarcTroubleshootAuthResult/TempError/label": {
+      "original": "TempError",
+      "ru": "Временная ошибка"
+    },
     "variant/x:DnsManagement/Automatic/label": {
       "original": "Automatic DNS management",
       "ru": "Автоматическое управление DNS"
@@ -10289,6 +11041,18 @@
     "variant/x:SubAddressing/Enabled/label": {
       "original": "Enable sub-addressing",
       "ru": "Включить дополнительную адресацию"
+    },
+    "variant/x:TaskBlobRecodeEncryption/Disable/label": {
+      "original": "Disable encryption",
+      "ru": "Отключить шифрование"
+    },
+    "variant/x:TaskBlobRecodeEncryption/Encrypt/label": {
+      "original": "Encrypt with a key",
+      "ru": "Зашифровать с помощью ключа"
+    },
+    "variant/x:TaskBlobRecodeEncryption/Keep/label": {
+      "original": "Leave as is",
+      "ru": "Оставить без изменений"
     },
     "variant/x:UserRoles/Admin/label": {
       "original": "Administrator role",
