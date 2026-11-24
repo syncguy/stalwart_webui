@@ -40,7 +40,7 @@
     "src/features/tracing/components/TraceValue.tsx": "86d2f786b8a23a38bedd1ac54da163d10a0e387fed310fa63e11350446d7e203",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
     "src/i18n/schemaPermissionText.ts": "05c0a0fc9e212be7af7d870db4874d686fbec71cc86729b886ba2c9a2983bdf0",
-    "src/i18n/schemaText.ts": "c968c4b74c08742a75048bd413ae70bd84e14e114eb8188f86c63b075fcf9765",
+    "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/lib/embeddedSchema.ts": "6251e48a9085c6e269003a0ede1dab5d708c47ef28f8f92ef56efa50c7bf4334",
     "src/lib/permissions.ts": "4e1f27ebd2a0d06045e0b8fcf0c282b815d18d6c0f82d45172d37b219ab49855",
     "src/lib/schemaResolver.ts": "4de9271d94b0c5ac5cc6b7bbf787028d3e463c437f47154eaf8f6fb63f08e074",
@@ -327,6 +327,16 @@
       "slot": "variant/x:MetricsOtel/Http/label",
       "original": "HTTP",
       "reason": "Точное стандартное обозначение протокола, технологии или криптонаборов; русский текст здесь не требуется."
+    },
+    {
+      "slot": "enum/VCardVersion/v3/label",
+      "original": "vCard 3.0",
+      "reason": "Stage18: стандартное обозначение версии vCard, сохраняется без перевода."
+    },
+    {
+      "slot": "enum/VCardVersion/v4/label",
+      "original": "vCard 4.0",
+      "reason": "Stage18: стандартное обозначение версии vCard, сохраняется без перевода."
     }
   ],
   "technical": [
@@ -444,35 +454,35 @@
       "original": "Read Replicas",
       "schemaHash": "fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs",
       "ru": "Реплики для чтения",
-      "reason": "Разные секции OSS/Enterprise занимают индекс 3; кандидат связан с hash+slot+original и требует редакторского подтверждения."
+      "reason": "Stage18: редакторски проверенная точная привязка schemaHash + slot + original; runtime активирован, React/browser приёмка отдельно."
     },
     {
       "slot": "form/x:MySqlStore/section/section-3",
       "original": "Pools",
       "schemaHash": "Pryc909aTNRr_k6uwZLvZNs74YaPQv-PXQ38t2K7VlY",
       "ru": "Пулы соединений",
-      "reason": "Разные секции OSS/Enterprise занимают индекс 3; кандидат связан с hash+slot+original и требует редакторского подтверждения."
+      "reason": "Stage18: редакторски проверенная точная привязка schemaHash + slot + original; runtime активирован, React/browser приёмка отдельно."
     },
     {
       "slot": "form/x:PostgreSqlStore/section/section-3",
       "original": "Read Replicas",
       "schemaHash": "fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs",
       "ru": "Реплики для чтения",
-      "reason": "Разные секции OSS/Enterprise занимают индекс 3; кандидат связан с hash+slot+original и требует редакторского подтверждения."
+      "reason": "Stage18: редакторски проверенная точная привязка schemaHash + slot + original; runtime активирован, React/browser приёмка отдельно."
     },
     {
       "slot": "form/x:PostgreSqlStore/section/section-3",
       "original": "Pools",
       "schemaHash": "Pryc909aTNRr_k6uwZLvZNs74YaPQv-PXQ38t2K7VlY",
       "ru": "Пулы соединений",
-      "reason": "Разные секции OSS/Enterprise занимают индекс 3; кандидат связан с hash+slot+original и требует редакторского подтверждения."
+      "reason": "Stage18: редакторски проверенная точная привязка schemaHash + slot + original; runtime активирован, React/browser приёмка отдельно."
     }
   ],
-  "baselineSource": "8686af2f4f862f41b937e7ee00a609e00a8c6136",
+  "baselineSource": "cdd315934c5262c23379a177328951cfb8a45399",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "16504147e66a6bf66452522b441f5767eeb8f79f899302a96b52de04941b58db",
+    "src/i18n/schema/ru.json": "17aad7d84bd427d50e27b701a06894d2a2614dfc6e93308535b2803b855f6af1",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
-    "src/i18n/schemaText.ts": "c968c4b74c08742a75048bd413ae70bd84e14e114eb8188f86c63b075fcf9765",
+    "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
     "scripts/schema-glossary.ru.json": "808741e3fd85abb3d302e54488162d6b980dd9ec525b8543771ea1c179040fce",
     "scripts/data/pinned-schema-manifest.json": "eda38876539e8b226ca79a468e0772b97174e8c7482297ba7ae7746f3f5f60b6",
