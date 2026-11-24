@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { loadInputs, readJson, digest, json, ptr } from './lib/locale-source.mjs';
+import { loadInputs, readJson, digest, json, ptr, at, sourceModule } from './lib/locale-source.mjs';
 import { buildUsageGraph } from './lib/locale-graph.mjs';
 import { CATEGORIES, classify, candidates, preview, textSafe, diffRows, translationMemory, semanticGroup } from './lib/locale-planner.mjs';
 import './lib/offline-guard.mjs';
@@ -176,3 +176,101 @@ check('Offline-guard блокирует сеть до запроса', () => {
   assert.throws(() => globalThis.fetch('https://example.invalid/'), /Сетевое обращение запрещено/);
 });
 console.log(`Этап 17: ${cases} групп проверок PASS. Это offline/source tests, не browser PASS.`);
+
+
+/* Stage18: editor-reviewed packet, validated against the regenerated Stage17 report.
+ * Preview only: no runtime catalog mutation or browser/React claim. */
+const packet18 = readJson(fs.readFileSync(path.join(root, 'scripts/data/stage18-address-calendar-review.json'), 'utf8'), 'stage18 packet');
+const scopes18 = new Set(['x:AddressBook', 'x:Calendar']);
+const missing18 = report.rows.filter(r => r.classification === 'missing' &&
+  r.usages.some(u => {
+    const c = report.usageContexts[u.context];
+    return c.section === 'Settings' && scopes18.has(c.screen);
+  }));
+function validatePacket18(packet) {
+  assert.equal(packet.version, 1);
+  assert.equal(packet.stage, 18);
+  assert.equal(packet.baseline, 'a441d9bafd2af9cdc2fa17aadc9ad4f8506e3d91');
+  assert.equal(packet.status, 'editor-reviewed-preview');
+  assert.equal(packet.apply, false);
+  assert.deepEqual(packet.scope, { section: 'Settings', screens: [...scopes18] });
+  const keys = new Set();
+  const overlay = structuredClone(inputs.catalog);
+  for (const e of packet.entries) {
+    assert.ok(typeof e.slot === 'string' && typeof e.original === 'string' && typeof e.ru === 'string');
+    assert.ok(!keys.has(e.slot), 'Duplicate packet slot: ' + e.slot);
+    keys.add(e.slot);
+    const rs = report.rows.filter(r => r.slot === e.slot);
+    assert.equal(rs.length, 1, 'Unknown or conflicting slot: ' + e.slot);
+    const r = rs[0];
+    assert.ok(missing18.includes(r), 'Outside reviewed wired-missing scope: ' + e.slot);
+    assert.equal(r.original, e.original, 'Original changed: ' + e.slot);
+    assert.equal(r.catalogState, 'missing');
+    assert.ok(!Object.hasOwn(inputs.catalog.entries, e.slot), 'Existing catalog entry: ' + e.slot);
+    assert.ok(r.renderer.wired > 0 && r.renderer.unwired === 0 && r.renderer.review === 0);
+    assert.ok(r.usages.every(u => {
+      const c = report.usageContexts[u.context];
+      return c.state === 'wired' && c.section === 'Settings' && scopes18.has(c.screen) &&
+        (u.lookupSlot ?? r.slot) === r.slot;
+    }), 'Unreviewed consumer or lookup: ' + e.slot);
+    const gs = report.candidates.filter(g => g.rowIds.includes(r.id));
+    assert.equal(gs.length, 1);
+    assert.ok(!gs[0].ambiguous && gs[0].reviewStatus === 'pending' && !gs[0].apply);
+    for (const l of r.locations) {
+      const pin = inputs.pins.find(p => p.schemaHash === l.schemaHash);
+      assert.ok(pin && at(pin.data, l.sourcePointer) === e.original, 'Pinned source mismatch: ' + e.slot);
+      assert.ok(gs[0].targets.some(t => t.schemaHash === l.schemaHash && t.slot === e.slot &&
+        t.original === e.original && t.sourcePointer === l.sourcePointer && !t.catalogWrite));
+    }
+    assert.ok(textSafe(e.original, e.ru), 'Protected marker mismatch: ' + e.slot);
+    assert.equal(e.decision, e.ru === e.original ? 'keep-original' : 'translate');
+    if (e.decision === 'keep-original') {
+      assert.ok(['enum/VCardVersion/v3/label', 'enum/VCardVersion/v4/label'].includes(e.slot));
+    } else {
+      assert.ok(/[А-Яа-яЁё]/u.test(e.ru) && e.ru.trim() === e.ru && e.ru.length > 0);
+      overlay.entries[e.slot] = { original: e.original, ru: e.ru };
+    }
+  }
+  assert.deepEqual([...keys].sort(), missing18.map(r => r.slot).sort(), 'Packet must cover exactly both wired missing queues');
+  return overlay;
+}
+check('Stage18: complete explicit address book/calendar packet with exact pinned source and no overwrite', () => {
+  assert.equal(missing18.length, 56);
+  assert.equal(packet18.entries.filter(e => e.decision === 'translate').length, 54);
+  assert.equal(packet18.entries.filter(e => e.decision === 'keep-original').length, 2);
+  const overlay = validatePacket18(packet18);
+  assert.equal(Object.keys(overlay.entries).length, Object.keys(inputs.catalog.entries).length + 54);
+  for (const [slot, e] of Object.entries(inputs.catalog.entries)) assert.deepEqual(overlay.entries[slot], e);
+});
+check('Stage18: actual schemaText preview, RU/EN, unknown hash and changed original', () => {
+  const overlay = validatePacket18(packet18);
+  const raw = fs.readFileSync(path.join(root, 'src/i18n/schemaText.ts'), 'utf8');
+  const lookup = sourceModule(raw, 'schemaText.ts', { './schema/ru.json': overlay }).schemaText;
+  for (const e of packet18.entries) {
+    const r = missing18.find(r => r.slot === e.slot);
+    for (const l of r.locations) {
+      assert.equal(lookup(l.schemaHash, 'ru', e.slot, e.original), e.ru);
+      assert.equal(lookup(l.schemaHash, 'en', e.slot, e.original), e.original);
+      assert.equal(lookup(l.schemaHash, 'ru', e.slot, e.original + ' changed'), e.original + ' changed');
+      assert.equal(inputs.schema.schemaText(l.schemaHash, 'ru', e.slot, e.original), e.original);
+    }
+    assert.equal(lookup('unknown-schema', 'ru', e.slot, e.original), e.original);
+    assert.equal(lookup(null, 'ru', e.slot, e.original), e.original);
+  }
+  assert.equal(digest(fs.readFileSync(path.join(root, 'src/i18n/schema/ru.json'))), inputs.policy.protectedInputs['src/i18n/schema/ru.json']);
+});
+check('Stage18: reject changed original, duplicate, missing entry, scope escape and activation flag', () => {
+  for (const mutate of [
+    p => { p.entries[0].original += ' changed'; },
+    p => { p.entries.push(p.entries[0]); },
+    p => { p.entries.pop(); },
+    p => { p.entries[0].slot = 'form/x:Domain/field/name'; },
+    p => { p.apply = true; },
+    p => { p.entries[2].ru += ' {{unexpected}}'; },
+  ]) {
+    const p = structuredClone(packet18);
+    mutate(p);
+    assert.throws(() => validatePacket18(p));
+  }
+});
+console.log('Stage18: 54 reviewed translation previews, 2 standard labels retained; no catalog writes or React/browser acceptance.');
