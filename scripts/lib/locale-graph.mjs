@@ -1,7 +1,8 @@
 // Static references, NOT proof of access in any user/license profile.
 import { compare, ptr } from './locale-source.mjs';
 
-export function buildUsageGraph({ inventory, pins, resolver, pages, widgets }) {
+// fieldOwners=false replays the historical pre-stage37 renderer contract only.
+export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false }) {
   const byPointer = new Map();
   const usages = new Map(inventory.rows.map(r => [r.slot + '\0' + r.original, new Map()]));
   const screens = new Map();
@@ -168,7 +169,7 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets }) {
               'form/' + lookupKey + '/field/' + ff.name + (p === 'label' ? '' : '/' + p), 'FieldRow/DynamicView', state);
             if (field) {
               emit(pin, ptr('fields', fieldsKey, 'properties', ff.name, 'description'), fc,
-                'field/' + lookupKey + '/' + ff.name + '/description', 'FieldRow/DynamicView', state);
+                'field/' + (fieldOwners ? fieldsKey : lookupKey) + '/' + ff.name + '/description', 'FieldRow/DynamicView', state);
               typeUses(field.type, fc, ff.name);
             }
           }
