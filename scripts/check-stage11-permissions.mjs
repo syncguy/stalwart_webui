@@ -77,14 +77,14 @@ assert.equal(optionExports.quotaOptionLabel('New upstream quota'), 'New upstream
 
 assert.equal(en.field.selectOptions, 'Select options...');
 assert.equal(ru.field.selectOptions, 'Выбрать значения...');
-assert.equal(en.field.selectPermissions, 'Select permissions...');
-assert.equal(ru.field.selectPermissions, 'Выбрать права...');
+assert.equal(en.webuiRu.field.selectPermissions, 'Select permissions...');
+assert.equal(ru.webuiRu.field.selectPermissions, 'Выбрать права...');
 
 const enumSource = fs.readFileSync('src/components/forms/widgets/EnumWidgets.tsx', 'utf8');
 assert.ok(enumSource.includes('useCanTranslateSchema()'));
 assert.ok(enumSource.includes("enumName === 'Permission' && canTranslate ? permissionDisplayLabel(v.name, localized) : localized"));
 assert.ok(enumSource.includes("enumName === 'Permission'"));
-assert.ok(enumSource.includes("t('field.selectPermissions', 'Select permissions...')"));
+assert.ok(enumSource.includes("t('webuiRu.field.selectPermissions', 'Select permissions...')"));
 assert.ok(enumSource.includes("t('field.selectOptions', 'Select options...')"));
 assert.ok(enumSource.includes('filterComboboxOptions('));
 assert.ok(enumSource.includes('keywords: [v.label, v.name]'));
