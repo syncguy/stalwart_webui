@@ -1,6 +1,7 @@
 name: WebUI RU laboratory ZIP (no release)
 
 on:
+  # Stage36: package verified stage35 catalog (7360023d262ede43fba96166204c57f8d5776553).
   # Manual switch: only a commit editing this laboratory workflow on ru starts a run.
   push:
     branches:
