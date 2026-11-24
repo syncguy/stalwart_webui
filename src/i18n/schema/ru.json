@@ -1322,6 +1322,14 @@
       "original": "Stale",
       "ru": "Нет свежих данных"
     },
+    "enum/CompressionAlgo/lz4/label": {
+      "original": "LZ4",
+      "ru": "Сжатие LZ4"
+    },
+    "enum/CompressionAlgo/zstd/label": {
+      "original": "Zstandard",
+      "ru": "Сжатие Zstandard"
+    },
     "enum/CredentialPermissionsType/Disable/label": {
       "original": "Disable some permissions",
       "ru": "Запретить отдельные права"
@@ -1774,13 +1782,29 @@
       "original": "Calendar",
       "ru": "Календарь"
     },
+    "enum/MetadataDataType/CalendarEvent/label": {
+      "original": "Calendar Event",
+      "ru": "Событие календаря"
+    },
+    "enum/MetadataDataType/ContactCard/label": {
+      "original": "Contact Card",
+      "ru": "Карточка контакта"
+    },
     "enum/MetadataDataType/Email/label": {
       "original": "Email",
       "ru": "Почта"
     },
+    "enum/MetadataDataType/FileNode/label": {
+      "original": "File Node",
+      "ru": "Файловый узел"
+    },
     "enum/MetadataDataType/Mailbox/label": {
       "original": "Mailbox",
       "ru": "Почтовый ящик"
+    },
+    "enum/MetadataDataType/SieveScript/label": {
+      "original": "Sieve Script",
+      "ru": "Сценарий Sieve"
     },
     "enum/MetricType/acme.auth-error/label": {
       "original": "ACME authentication error",
@@ -3498,6 +3522,94 @@
       "original": "Default role",
       "ru": "Роль по умолчанию"
     },
+    "enum/SearchCalendarField/attendee/label": {
+      "original": "Event Attendee",
+      "ru": "Участник события"
+    },
+    "enum/SearchCalendarField/description/label": {
+      "original": "Event Description",
+      "ru": "Описание события"
+    },
+    "enum/SearchCalendarField/location/label": {
+      "original": "Event Location",
+      "ru": "Место проведения события"
+    },
+    "enum/SearchCalendarField/owner/label": {
+      "original": "Event Owner",
+      "ru": "Владелец события"
+    },
+    "enum/SearchCalendarField/title/label": {
+      "original": "Event Title",
+      "ru": "Название события"
+    },
+    "enum/SearchContactField/address/label": {
+      "original": "Contact Address",
+      "ru": "Почтовый адрес контакта"
+    },
+    "enum/SearchContactField/email/label": {
+      "original": "Contact Email",
+      "ru": "Контактный адрес почты"
+    },
+    "enum/SearchContactField/kind/label": {
+      "original": "Contact Kind",
+      "ru": "Тип контакта"
+    },
+    "enum/SearchContactField/member/label": {
+      "original": "Group Member",
+      "ru": "Участник группы"
+    },
+    "enum/SearchContactField/name/label": {
+      "original": "Contact Name",
+      "ru": "Имя контакта"
+    },
+    "enum/SearchContactField/nickname/label": {
+      "original": "Contact Nickname",
+      "ru": "Псевдоним контакта"
+    },
+    "enum/SearchContactField/note/label": {
+      "original": "Contact Note",
+      "ru": "Заметка о контакте"
+    },
+    "enum/SearchContactField/onlineService/label": {
+      "original": "Contact Online Service",
+      "ru": "Интернет-служба контакта"
+    },
+    "enum/SearchContactField/organization/label": {
+      "original": "Contact Organization",
+      "ru": "Организация контакта"
+    },
+    "enum/SearchContactField/phone/label": {
+      "original": "Contact Phone",
+      "ru": "Телефон контакта"
+    },
+    "enum/SearchEmailField/attachment/label": {
+      "original": "Attachment Content",
+      "ru": "Содержимое вложений"
+    },
+    "enum/SearchEmailField/bcc/label": {
+      "original": "Bcc Address",
+      "ru": "Адрес скрытой копии (Bcc)"
+    },
+    "enum/SearchEmailField/body/label": {
+      "original": "Body Content",
+      "ru": "Содержимое тела письма"
+    },
+    "enum/SearchEmailField/cc/label": {
+      "original": "Cc Address",
+      "ru": "Адрес копии (Cc)"
+    },
+    "enum/SearchEmailField/from/label": {
+      "original": "From Address",
+      "ru": "Адрес отправителя (From)"
+    },
+    "enum/SearchEmailField/headers/label": {
+      "original": "Email Headers",
+      "ru": "Заголовки писем"
+    },
+    "enum/SearchEmailField/to/label": {
+      "original": "To Address",
+      "ru": "Адрес получателя (To)"
+    },
     "enum/SharedObjectType/addressBook/label": {
       "original": "Address Book",
       "ru": "Адресная книга"
@@ -4486,6 +4598,234 @@
       "original": "Password hashing algorithm to use for storing user passwords in the internal directory.",
       "ru": "Алгоритм хеширования паролей для хранения паролей пользователей во внутреннем каталоге."
     },
+    "field/x:AzureAuthClientSecret/clientId/description": {
+      "original": "Application (client) ID of the service principal",
+      "ru": "Идентификатор приложения (клиента) субъекта-службы"
+    },
+    "field/x:AzureAuthClientSecret/clientSecret/description": {
+      "original": "Application client secret",
+      "ru": "Секрет клиента приложения"
+    },
+    "field/x:AzureAuthClientSecret/tenantId/description": {
+      "original": "Microsoft Entra ID tenant ID",
+      "ru": "Идентификатор арендатора Microsoft Entra ID"
+    },
+    "field/x:AzureAuthManagedIdentity/clientId/description": {
+      "original": "Client ID of a user-assigned managed identity. When empty, the system-assigned identity is used",
+      "ru": "Идентификатор клиента управляемого удостоверения, назначенного пользователем. Если не задан, используется удостоверение, назначенное системой"
+    },
+    "field/x:AzureAuthSasToken/sasToken/description": {
+      "original": "SAS token granting read, write and delete permissions on the container. The leading '?' is optional",
+      "ru": "Токен SAS, предоставляющий права чтения, записи и удаления в контейнере. Начальный символ '?' необязателен"
+    },
+    "field/x:AzureAuthSharedKey/accountKey/description": {
+      "original": "The shared key of the Azure Storage Account",
+      "ru": "Общий ключ учётной записи Azure Storage Account"
+    },
+    "field/x:AzureAuthWorkloadIdentity/clientId/description": {
+      "original": "Application (client) ID. When empty, the AZURE_CLIENT_ID environment variable is used",
+      "ru": "Идентификатор приложения (клиента). Если не задан, используется переменная окружения AZURE_CLIENT_ID"
+    },
+    "field/x:AzureAuthWorkloadIdentity/tenantId/description": {
+      "original": "Microsoft Entra ID tenant ID. When empty, the AZURE_TENANT_ID environment variable is used",
+      "ru": "Идентификатор арендатора Microsoft Entra ID. Если не задан, используется переменная окружения AZURE_TENANT_ID"
+    },
+    "field/x:AzureAuthWorkloadIdentity/tokenFile/description": {
+      "original": "Path to the federated token file. When empty, the AZURE_FEDERATED_TOKEN_FILE environment variable is used",
+      "ru": "Путь к файлу федеративного токена. Если не задан, используется переменная окружения AZURE_FEDERATED_TOKEN_FILE"
+    },
+    "field/x:AzureStore/auth/description": {
+      "original": "Authentication method used to access the Storage Account",
+      "ru": "Метод аутентификации для доступа к учётной записи хранилища"
+    },
+    "field/x:AzureStore/container/description": {
+      "original": "The name of the container in the Storage Account",
+      "ru": "Имя контейнера в учётной записи хранилища"
+    },
+    "field/x:AzureStore/environment/description": {
+      "original": "Azure cloud environment, used to derive the default blob service URL and the Microsoft Entra ID authority",
+      "ru": "Облачная среда Azure, определяющая URL службы BLOB-объектов по умолчанию и центр авторизации Microsoft Entra ID"
+    },
+    "field/x:AzureStore/keyPrefix/description": {
+      "original": "A prefix that will be added to the keys of all objects stored in the blob store",
+      "ru": "Префикс, добавляемый к ключам всех объектов в хранилище BLOB-объектов"
+    },
+    "field/x:AzureStore/maxRetries/description": {
+      "original": "The maximum number of times to retry failed requests. Set to 0 to disable retries",
+      "ru": "Максимальное число повторных попыток выполнения неудачных запросов. Установите 0, чтобы отключить повторные попытки"
+    },
+    "field/x:AzureStore/storageAccount/description": {
+      "original": "The Azure Storage Account where blobs (e-mail messages, Sieve scripts, etc.) will be stored",
+      "ru": "Учётная запись Azure Storage Account, в которой будут храниться BLOB-объекты (почтовые сообщения, сценарии Sieve и т. д.)"
+    },
+    "field/x:AzureStore/timeout/description": {
+      "original": "Request timeout for Azure Blob Storage operations",
+      "ru": "Время ожидания запросов операций Azure Blob Storage"
+    },
+    "field/x:AzureStore/url/description": {
+      "original": "Custom blob service URL, for private endpoints or the Azurite emulator. When empty, it is derived from the storage account and the cloud environment",
+      "ru": "Пользовательский URL службы BLOB-объектов для частных конечных точек или эмулятора Azurite. Если не задан, определяется по учётной записи хранилища и облачной среде"
+    },
+    "field/x:BlobStoreSwap/flushChanges/description": {
+      "original": "Minimum number of changes accumulated against an account cache before its snapshot is rewritten. Large accounts need proportionally more: one sixteenth of the messages or resources in the cache",
+      "ru": "Минимальное число изменений кэша учётной записи до перезаписи снимка. Для крупных учётных записей требуется пропорционально больше: одна шестнадцатая числа сообщений или ресурсов в кэше"
+    },
+    "field/x:BlobStoreSwap/flushInterval/description": {
+      "original": "Shortest interval between two snapshot writes for the same account",
+      "ru": "Минимальный интервал между двумя записями снимка одной учётной записи"
+    },
+    "field/x:BlobStoreSwap/maxAccountSize/description": {
+      "original": "Largest snapshot that will be persisted. Accounts whose snapshot would exceed this are skipped",
+      "ru": "Максимальный размер сохраняемого снимка. Учётные записи со снимком большего размера пропускаются"
+    },
+    "field/x:BlobStoreSwap/minAccountSize/description": {
+      "original": "Smallest snapshot worth persisting. Below this the rebuild costs less than the write, so the account is skipped. This is the uncompressed snapshot size, which is close to the account's in-memory cache size and much smaller than its compressed size in the database",
+      "ru": "Минимальный размер снимка, который целесообразно сохранять. При меньшем размере повторное построение кэша обходится дешевле записи, поэтому учётная запись пропускается. Это размер несжатого снимка, близкий к размеру кэша учётной записи в памяти и значительно меньший, чем его сжатый размер в базе данных"
+    },
+    "field/x:BlobStoreSwap/retention/description": {
+      "original": "Minimum time a snapshot survives in the blob store without being rewritten. Expiry times are rounded up to a multiple of this period, so the cleanup task removes a snapshot between one and two periods after its last write",
+      "ru": "Минимальное время хранения снимка в хранилище BLOB-объектов без повторной записи. Сроки действия округляются вверх до кратного этому периоду, поэтому задача очистки удаляет снимок через один-два периода после последней записи"
+    },
+    "field/x:BlobStoreSwap/store/description": {
+      "original": "Blob store in which cache snapshots are stored",
+      "ru": "Хранилище BLOB-объектов для снимков кэша"
+    },
+    "field/x:Cache/accessTokens/description": {
+      "original": "Maximum size of the access tokens cache",
+      "ru": "Максимальный размер кэша токенов доступа"
+    },
+    "field/x:Cache/accounts/description": {
+      "original": "Maximum size of the accounts cache",
+      "ru": "Максимальный размер кэша учётных записей"
+    },
+    "field/x:Cache/contacts/description": {
+      "original": "Maximum size of the address books and contacts cache",
+      "ru": "Максимальный размер кэша адресных книг и контактов"
+    },
+    "field/x:Cache/directoryRecipients/description": {
+      "original": "Maximum size of the cache that records which recipients were recently resolved against an external directory",
+      "ru": "Максимальный размер кэша сведений о получателях, недавно найденных во внешнем каталоге"
+    },
+    "field/x:Cache/directoryRecipientsTtl/description": {
+      "original": "How long a recipient resolved against an external directory is trusted before the directory is queried again",
+      "ru": "Время, в течение которого результат поиска получателя во внешнем каталоге считается действительным до повторного запроса к каталогу"
+    },
+    "field/x:Cache/dkimSignatures/description": {
+      "original": "Maximum size of the DKIM signatures cache",
+      "ru": "Максимальный размер кэша подписей DKIM"
+    },
+    "field/x:Cache/dnsIpv4/description": {
+      "original": "Maximum size of the IPv4 record cache",
+      "ru": "Максимальный размер кэша записей IPv4"
+    },
+    "field/x:Cache/dnsIpv6/description": {
+      "original": "Maximum size of the IPv6 record cache",
+      "ru": "Максимальный размер кэша записей IPv6"
+    },
+    "field/x:Cache/dnsMtaSts/description": {
+      "original": "Maximum size of the MTA-STS record cache",
+      "ru": "Максимальный размер кэша записей MTA-STS"
+    },
+    "field/x:Cache/dnsMx/description": {
+      "original": "Maximum size of the MX record cache",
+      "ru": "Максимальный размер кэша записей MX"
+    },
+    "field/x:Cache/dnsPtr/description": {
+      "original": "Maximum size of the PTR record cache",
+      "ru": "Максимальный размер кэша записей PTR"
+    },
+    "field/x:Cache/dnsTlsa/description": {
+      "original": "Maximum size of the TLSA record cache",
+      "ru": "Максимальный размер кэша записей TLSA"
+    },
+    "field/x:Cache/dnsTxt/description": {
+      "original": "Maximum size of the TXT record cache",
+      "ru": "Максимальный размер кэша записей TXT"
+    },
+    "field/x:Cache/domainNames/description": {
+      "original": "Maximum size of the domain name lookup cache",
+      "ru": "Максимальный размер кэша результатов поиска доменных имён"
+    },
+    "field/x:Cache/domainNamesNegative/description": {
+      "original": "Maximum size of the domain name lookup negative cache",
+      "ru": "Максимальный размер кэша отрицательных результатов поиска доменных имён"
+    },
+    "field/x:Cache/domains/description": {
+      "original": "Maximum size of the domains cache",
+      "ru": "Максимальный размер кэша доменов"
+    },
+    "field/x:Cache/emailAddresses/description": {
+      "original": "Maximum size of the email addresses lookup cache",
+      "ru": "Максимальный размер кэша результатов поиска адресов электронной почты"
+    },
+    "field/x:Cache/emailAddressesNegative/description": {
+      "original": "Maximum size of the email addresses lookup negative cache",
+      "ru": "Максимальный размер кэша отрицательных результатов поиска адресов электронной почты"
+    },
+    "field/x:Cache/events/description": {
+      "original": "Maximum size of the calendar and events cache",
+      "ru": "Максимальный размер кэша календарей и событий"
+    },
+    "field/x:Cache/externalPublicKeys/description": {
+      "original": "Maximum size of the cache of parsed recipient keys used by the encryption gateway",
+      "ru": "Максимальный размер кэша разобранных ключей получателей, используемых шлюзом шифрования"
+    },
+    "field/x:Cache/files/description": {
+      "original": "Maximum size of the file storage data cache",
+      "ru": "Максимальный размер кэша данных файлового хранилища"
+    },
+    "field/x:Cache/groupwareLarge/description": {
+      "original": "Maximum size of the calendar, contact, file and scheduling caches for accounts too large for their main cache. Set it to zero to disable it, so that these accounts are only shared between the requests using them at the same time",
+      "ru": "Максимальный размер кэшей календаря, контактов, файлов и планирования для учётных записей, не помещающихся в основной кэш. Установите ноль, чтобы отключить их; тогда данные таких учётных записей будут совместно использоваться только одновременно выполняющимися запросами"
+    },
+    "field/x:Cache/groupwareLargeTtl/description": {
+      "original": "Minimum time the calendar, contact, file or scheduling cache of a large account is kept in memory after it was last used. Once it has passed, the cache is released the next time one of these caches is updated. Set it to zero to keep these caches until the space is needed for another large account",
+      "ru": "Минимальное время хранения кэша календаря, контактов, файлов или планирования крупной учётной записи в памяти после последнего использования. По его истечении кэш освобождается при следующем обновлении одного из этих кэшей. Установите ноль, чтобы сохранять кэши до тех пор, пока место не понадобится другой крупной учётной записи"
+    },
+    "field/x:Cache/httpAuth/description": {
+      "original": "Maximum size of the HTTP authorization headers cache",
+      "ru": "Максимальный размер кэша заголовков авторизации HTTP"
+    },
+    "field/x:Cache/mailingLists/description": {
+      "original": "Maximum size of the mailing lists cache",
+      "ru": "Максимальный размер кэша списков рассылки"
+    },
+    "field/x:Cache/messages/description": {
+      "original": "Maximum size of the e-mail data cache",
+      "ru": "Максимальный размер кэша почтовых данных"
+    },
+    "field/x:Cache/messagesLarge/description": {
+      "original": "Maximum size of the e-mail data cache for accounts too large for the main e-mail data cache. Set it to zero to disable it, so that these accounts are only shared between the requests using them at the same time",
+      "ru": "Максимальный размер кэша почтовых данных для учётных записей, не помещающихся в основной кэш почтовых данных. Установите ноль, чтобы отключить его; тогда данные таких учётных записей будут совместно использоваться только одновременно выполняющимися запросами"
+    },
+    "field/x:Cache/messagesLargeTtl/description": {
+      "original": "Minimum time the e-mail data cache of a large account is kept in memory after it was last used. Once it has passed, the cache is released the next time an e-mail data cache is updated. Set it to zero to keep these caches until the space is needed for another large account",
+      "ru": "Минимальное время хранения кэша почтовых данных крупной учётной записи в памяти после последнего использования. По его истечении кэш освобождается при следующем обновлении кэша почтовых данных. Установите ноль, чтобы сохранять кэши до тех пор, пока место не понадобится другой крупной учётной записи"
+    },
+    "field/x:Cache/negativeTtl/description": {
+      "original": "Time-to-live for negative cache entries of domain and account name lookups, and the maximum time a negative DNS answer is cached",
+      "ru": "Время жизни отрицательных записей кэша поиска доменных имён и имён учётных записей, а также максимальное время кэширования отрицательного ответа DNS"
+    },
+    "field/x:Cache/roles/description": {
+      "original": "Maximum size of the roles cache",
+      "ru": "Максимальный размер кэша ролей"
+    },
+    "field/x:Cache/scheduling/description": {
+      "original": "Maximum size of the scheduling cache",
+      "ru": "Максимальный размер кэша планирования"
+    },
+    "field/x:Cache/spamLookup/description": {
+      "original": "Maximum size of the spam filter lookup cache, which holds DNSBL results and resolved URL redirects",
+      "ru": "Максимальный размер кэша запросов фильтра спама, содержащего результаты DNSBL и разрешённые перенаправления URL"
+    },
+    "field/x:Cache/swap/description": {
+      "original": "Where account cache snapshots are persisted, so a cache miss reloads a snapshot and catches it up from the change log instead of rebuilding the whole cache from the data store",
+      "ru": "Место постоянного хранения снимков кэша учётных записей: при промахе кэша снимок загружается и актуализируется по журналу изменений вместо полного повторного построения кэша из хранилища данных"
+    },
+    "field/x:Cache/tenants/description": {
+      "original": "Maximum size of the tenants cache",
+      "ru": "Максимальный размер кэша арендаторов"
+    },
     "field/x:Calendar/availabilityRateLimit/description": {
       "original": "Maximum rate at which an account can query principal availability",
       "ru": "Максимальная частота запросов сведений о занятости пользователя от одной учётной записи."
@@ -5078,6 +5418,38 @@
       "original": "Whether sub-addressing (plus addressing) is enabled for the domain",
       "ru": "Разрешена ли адресация с суффиксом после знака «+»"
     },
+    "field/x:ElasticSearchStore/allowInvalidCerts/description": {
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли использование недействительных сертификатов SSL"
+    },
+    "field/x:ElasticSearchStore/httpAuth/description": {
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP"
+    },
+    "field/x:ElasticSearchStore/httpHeaders/description": {
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки для HTTP-запросов"
+    },
+    "field/x:ElasticSearchStore/includeSource/description": {
+      "original": "Whether to index the full source document",
+      "ru": "Индексировать ли исходный документ целиком"
+    },
+    "field/x:ElasticSearchStore/numReplicas/description": {
+      "original": "Number of replicas for the index",
+      "ru": "Число реплик индекса"
+    },
+    "field/x:ElasticSearchStore/numShards/description": {
+      "original": "Number of shards for the index",
+      "ru": "Число сегментов индекса"
+    },
+    "field/x:ElasticSearchStore/timeout/description": {
+      "original": "Timeout for HTTP requests",
+      "ru": "Время ожидания HTTP-запросов"
+    },
+    "field/x:ElasticSearchStore/url/description": {
+      "original": "URL of the ElasticSearch server",
+      "ru": "URL сервера ElasticSearch"
+    },
     "field/x:EmailAlias/description/description": {
       "original": "Description of the email alias",
       "ru": "Описание почтового псевдонима"
@@ -5169,6 +5541,58 @@
     "field/x:ExternalPublicKey/smimeSignedAt/description": {
       "original": "Signing time of the message the S/MIME capabilities were learned from",
       "ru": "Время подписания сообщения, из которого получены сведения о возможностях S/MIME"
+    },
+    "field/x:FileStorage/blobEncryptionKey/description": {
+      "original": "Key used to encrypt new file blobs; when empty, they are stored unencrypted",
+      "ru": "Ключ шифрования новых BLOB-объектов файлов; если не задан, они сохраняются без шифрования"
+    },
+    "field/x:FileStorage/compressionAlgorithm/description": {
+      "original": "Algorithm to use to compress file data",
+      "ru": "Алгоритм сжатия данных файлов"
+    },
+    "field/x:FileStorage/maxFiles/description": {
+      "original": "The default maximum number of files a user can create",
+      "ru": "Максимальное число файлов, создаваемых пользователем (по умолчанию)"
+    },
+    "field/x:FileStorage/maxFolders/description": {
+      "original": "The default maximum number of file folders a user can create",
+      "ru": "Максимальное число папок, создаваемых пользователем (по умолчанию)"
+    },
+    "field/x:FileStorage/maxSize/description": {
+      "original": "Specifies the maximum size of a file that can be uploaded to the server",
+      "ru": "Определяет максимальный размер файла, который можно загрузить на сервер"
+    },
+    "field/x:FileSystemStore/depth/description": {
+      "original": "Maximum depth of nested directories",
+      "ru": "Максимальная глубина вложенности каталогов"
+    },
+    "field/x:FileSystemStore/path/description": {
+      "original": "Where to store the data in the server's filesystem",
+      "ru": "Место хранения данных в файловой системе сервера"
+    },
+    "field/x:FoundationDbStore/clusterFile/description": {
+      "original": "Path to the cluster file for the FoundationDB cluster",
+      "ru": "Путь к файлу кластера FoundationDB"
+    },
+    "field/x:FoundationDbStore/datacenterId/description": {
+      "original": "Data center ID (optional)",
+      "ru": "Идентификатор центра обработки данных (необязательно)"
+    },
+    "field/x:FoundationDbStore/machineId/description": {
+      "original": "Machine ID in the FoundationDB cluster (optional)",
+      "ru": "Идентификатор машины в кластере FoundationDB (необязательно)"
+    },
+    "field/x:FoundationDbStore/transactionRetryDelay/description": {
+      "original": "Transaction maximum retry delay",
+      "ru": "Максимальная задержка повторной попытки транзакции"
+    },
+    "field/x:FoundationDbStore/transactionRetryLimit/description": {
+      "original": "Transaction retry limit",
+      "ru": "Предел повторных попыток транзакции"
+    },
+    "field/x:FoundationDbStore/transactionTimeout/description": {
+      "original": "Transaction timeout",
+      "ru": "Время ожидания транзакции"
     },
     "field/x:GroupAccount/aliases/description": {
       "original": "List of email aliases for the group",
@@ -5298,6 +5722,34 @@
       "original": "Whether to skip the first line of the list",
       "ru": "Пропускать ли первую строку списка"
     },
+    "field/x:InMemorySwap/chunkSize/description": {
+      "original": "Size of each snapshot chunk, stored as one value. Smaller chunks hold up other requests to the store for less time",
+      "ru": "Размер каждой части снимка, сохраняемой как одно значение. Меньшие части на более короткое время задерживают другие запросы к хранилищу"
+    },
+    "field/x:InMemorySwap/flushChanges/description": {
+      "original": "Minimum number of changes accumulated against an account cache before its snapshot is rewritten. Large accounts need proportionally more: one sixteenth of the messages or resources in the cache",
+      "ru": "Минимальное число изменений кэша учётной записи до перезаписи снимка. Для крупных учётных записей требуется пропорционально больше: одна шестнадцатая числа сообщений или ресурсов в кэше"
+    },
+    "field/x:InMemorySwap/flushInterval/description": {
+      "original": "Shortest interval between two snapshot writes for the same account",
+      "ru": "Минимальный интервал между двумя записями снимка одной учётной записи"
+    },
+    "field/x:InMemorySwap/maxAccountSize/description": {
+      "original": "Largest snapshot that will be persisted. Accounts whose snapshot would exceed this are skipped",
+      "ru": "Максимальный размер сохраняемого снимка. Учётные записи со снимком большего размера пропускаются"
+    },
+    "field/x:InMemorySwap/minAccountSize/description": {
+      "original": "Smallest snapshot worth persisting. Below this the rebuild costs less than the write, so the account is skipped. This is the uncompressed snapshot size, which is close to the account's in-memory cache size and much smaller than its compressed size in the database",
+      "ru": "Минимальный размер снимка, который целесообразно сохранять. При меньшем размере повторное построение кэша обходится дешевле записи, поэтому учётная запись пропускается. Это размер несжатого снимка, близкий к размеру кэша учётной записи в памяти и значительно меньший, чем его сжатый размер в базе данных"
+    },
+    "field/x:InMemorySwap/retention/description": {
+      "original": "How long a snapshot survives in Stalwart Keep or Redis without being rewritten before it expires. Loading a snapshot does not extend it, so the deployment holds the snapshots of every account written within this period, which can need far more memory than the rest of the in-memory data",
+      "ru": "Время хранения снимка в Stalwart Keep или Redis без повторной записи до истечения срока действия. Загрузка снимка не продлевает этот срок, поэтому хранилище содержит снимки всех учётных записей, записанные за этот период; для этого может потребоваться гораздо больше памяти, чем для остальных данных в памяти"
+    },
+    "field/x:InMemorySwap/store/description": {
+      "original": "Stalwart Keep or Redis deployment in which cache snapshots are stored",
+      "ru": "Экземпляр Stalwart Keep или Redis, в котором сохраняются снимки кэша"
+    },
     "field/x:IndexQueueStatus/index/description": {
       "original": "Search index the queue belongs to",
       "ru": "Поисковый индекс, к которому относится очередь"
@@ -5317,6 +5769,26 @@
     "field/x:IndexQueueStatus/status/description": {
       "original": "Current processing state of the queue",
       "ru": "Текущее состояние обработки очереди"
+    },
+    "field/x:LocalFileSwap/flushChanges/description": {
+      "original": "Minimum number of changes accumulated against an account cache before its snapshot is rewritten. Large accounts need proportionally more: one sixteenth of the messages or resources in the cache",
+      "ru": "Минимальное число изменений кэша учётной записи до перезаписи снимка. Для крупных учётных записей требуется пропорционально больше: одна шестнадцатая числа сообщений или ресурсов в кэше"
+    },
+    "field/x:LocalFileSwap/flushInterval/description": {
+      "original": "Shortest interval between two snapshot writes for the same account",
+      "ru": "Минимальный интервал между двумя записями снимка одной учётной записи"
+    },
+    "field/x:LocalFileSwap/maxAccountSize/description": {
+      "original": "Largest snapshot that will be persisted. Accounts whose snapshot would exceed this are skipped",
+      "ru": "Максимальный размер сохраняемого снимка. Учётные записи со снимком большего размера пропускаются"
+    },
+    "field/x:LocalFileSwap/minAccountSize/description": {
+      "original": "Smallest snapshot worth persisting. Below this the rebuild costs less than the write, so the account is skipped. This is the uncompressed snapshot size, which is close to the account's in-memory cache size and much smaller than its compressed size in the database",
+      "ru": "Минимальный размер снимка, который целесообразно сохранять. При меньшем размере повторное построение кэша обходится дешевле записи, поэтому учётная запись пропускается. Это размер несжатого снимка, близкий к размеру кэша учётной записи в памяти и значительно меньший, чем его сжатый размер в базе данных"
+    },
+    "field/x:LocalFileSwap/path/description": {
+      "original": "Directory in which cache snapshots are stored",
+      "ru": "Каталог хранения снимков кэша"
     },
     "field/x:Log/details/description": {
       "original": "Log message",
@@ -5361,6 +5833,82 @@
     "field/x:MailingList/recipients/description": {
       "original": "List of email addresses that are members of the mailing list",
       "ru": "Почтовые адреса участников списка рассылки"
+    },
+    "field/x:MeilisearchStore/allowInvalidCerts/description": {
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли использование недействительных сертификатов SSL"
+    },
+    "field/x:MeilisearchStore/failOnTimeout/description": {
+      "original": "Whether to fail the operation if the task does not complete within the maximum number of polls",
+      "ru": "Завершать ли операцию с ошибкой, если задача не завершилась за максимальное число опросов"
+    },
+    "field/x:MeilisearchStore/httpAuth/description": {
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP"
+    },
+    "field/x:MeilisearchStore/httpHeaders/description": {
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки для HTTP-запросов"
+    },
+    "field/x:MeilisearchStore/maxPolls/description": {
+      "original": "Maximum number of task status polls before giving up",
+      "ru": "Максимальное число опросов состояния задачи до прекращения ожидания"
+    },
+    "field/x:MeilisearchStore/pollInterval/description": {
+      "original": "Interval between polling for task status",
+      "ru": "Интервал между опросами состояния задачи"
+    },
+    "field/x:MeilisearchStore/timeout/description": {
+      "original": "Timeout for HTTP requests",
+      "ru": "Время ожидания HTTP-запросов"
+    },
+    "field/x:MeilisearchStore/url/description": {
+      "original": "URL of the store",
+      "ru": "URL хранилища"
+    },
+    "field/x:Metadata/dataTypes/description": {
+      "original": "JMAP data types that support the metadata and privateMetadata properties",
+      "ru": "Типы данных JMAP, поддерживающие свойства metadata и privateMetadata"
+    },
+    "field/x:Metadata/imapServerAdmin/description": {
+      "original": "URI for contacting the server administrator (for example mailto:postmaster@example.org), returned to IMAP clients as the /shared/admin server annotation",
+      "ru": "URI для связи с администратором сервера (например mailto:postmaster@example.org), возвращаемый клиентам IMAP в аннотации сервера /shared/admin"
+    },
+    "field/x:Metadata/imapServerComment/description": {
+      "original": "Comment returned to IMAP clients as the /shared/comment server annotation",
+      "ru": "Комментарий, возвращаемый клиентам IMAP в аннотации сервера /shared/comment"
+    },
+    "field/x:Metadata/maxDepth/description": {
+      "original": "Maximum nesting depth of a JMAP metadata namespace value. Leave empty for no limit",
+      "ru": "Максимальная глубина вложенности значения в пространстве имён метаданных JMAP. Оставьте пустым для отсутствия ограничения"
+    },
+    "field/x:Metadata/maxEntries/description": {
+      "original": "Maximum number of entries in the metadata of an object",
+      "ru": "Максимальное число записей в метаданных объекта"
+    },
+    "field/x:Metadata/maxEntrySize/description": {
+      "original": "Maximum size of a single entry: a JMAP namespace value, a WebDAV dead property or an IMAP annotation",
+      "ru": "Максимальный размер отдельной записи: значения пространства имён JMAP, статического свойства WebDAV или аннотации IMAP"
+    },
+    "field/x:Metadata/maxPrivateSize/description": {
+      "original": "Maximum size of the private metadata a user stores on an object",
+      "ru": "Максимальный размер личных метаданных, сохраняемых пользователем для объекта"
+    },
+    "field/x:Metadata/maxQueryScan/description": {
+      "original": "Maximum number of annotated objects a JMAP query scans to evaluate a metadata text condition. Queries above this limit reject text conditions",
+      "ru": "Максимальное число объектов с аннотациями, просматриваемых запросом JMAP для проверки текстового условия по метаданным. При превышении этого ограничения текстовые условия запросов отклоняются"
+    },
+    "field/x:Metadata/maxSize/description": {
+      "original": "Maximum size of the shared metadata of an object",
+      "ru": "Максимальный размер общих метаданных объекта"
+    },
+    "field/x:Metadata/privateMetadata/description": {
+      "original": "Whether users may store private metadata that only they can see",
+      "ru": "Разрешать ли пользователям сохранять личные метаданные, видимые только им"
+    },
+    "field/x:Metadata/vendorNamespaces/description": {
+      "original": "Whether JMAP clients may store metadata under vendor (domain name) namespaces",
+      "ru": "Разрешать ли клиентам JMAP сохранять метаданные в пространствах имён поставщиков (доменных имён)"
     },
     "field/x:Metrics/metrics/description": {
       "original": "List of metrics to include or exclude based on filter mode",
@@ -5610,6 +6158,10 @@
       "original": "Issues detected in the key that may affect security or compatibility",
       "ru": "Проблемы ключа, которые могут влиять на безопасность или совместимость"
     },
+    "field/x:PublicStringValue/value/description": {
+      "original": "Value",
+      "ru": "Значение"
+    },
     "field/x:PublicTextValue/value/description": {
       "original": "Text value",
       "ru": "Текстовое значение"
@@ -5706,6 +6258,26 @@
       "original": "Warnings reported while building the new configuration, such as licence problems",
       "ru": "Предупреждения при формировании новой конфигурации, например о проблемах с лицензией"
     },
+    "field/x:RocksDbStore/blobSize/description": {
+      "original": "Minimum size of a blob to write to a separate RocksDB blob file; smaller blobs are stored inline in the LSM tree. Only applies when RocksDB is also the blob store",
+      "ru": "Минимальный размер BLOB-объекта для записи в отдельный файл RocksDB; меньшие объекты хранятся непосредственно в LSM-дереве. Применяется только при использовании RocksDB также в качестве хранилища BLOB-объектов"
+    },
+    "field/x:RocksDbStore/bufferSize/description": {
+      "original": "Total amount of memory shared by the write buffers (memtables) of every column family. Higher values batch more writes in memory before they are flushed to disk",
+      "ru": "Общий объём памяти для буферов записи (memtables) всех семейств столбцов. Большие значения позволяют объединять больше операций записи в памяти перед сбросом на диск"
+    },
+    "field/x:RocksDbStore/cacheSize/description": {
+      "original": "Total amount of memory shared by the block caches of every column family, used to cache data blocks, indexes and bloom filters read from disk. When unset, one eighth of the memory available to the server (the lower of physical memory and the container memory limit), between 256 MiB and 8 GiB; on hosts with less than 1 GiB, a quarter of the memory; 256 MiB when the memory cannot be determined",
+      "ru": "Общий объём памяти, выделенной под блочные кэши всех семейств столбцов, для кэширования блоков данных, индексов и фильтров Блума, читаемых с диска. Если не задан, используется одна восьмая доступной серверу памяти (меньшее из объёма физической памяти и лимита памяти контейнера) в диапазоне от 256 MiB до 8 GiB; на узлах с объёмом памяти менее 1 GiB — четверть памяти; 256 MiB, если определить объём памяти невозможно"
+    },
+    "field/x:RocksDbStore/path/description": {
+      "original": "Path to the RocksDB data directory",
+      "ru": "Путь к каталогу данных RocksDB"
+    },
+    "field/x:RocksDbStore/poolWorkers/description": {
+      "original": "Number of worker threads to use for the store, defaults to the number of cores",
+      "ru": "Число рабочих потоков хранилища; по умолчанию равно числу ядер"
+    },
     "field/x:Role/description/description": {
       "original": "Description of the role",
       "ru": "Описание роли"
@@ -5725,6 +6297,138 @@
     "field/x:Role/roleIds/description": {
       "original": "List of roles this role extends",
       "ru": "Другие роли, права которых наследует эта роль"
+    },
+    "field/x:S3Store/accessKeyId/description": {
+      "original": "Access key ID that identifies the S3 account",
+      "ru": "Идентификатор ключа доступа к учётной записи S3"
+    },
+    "field/x:S3Store/allowInvalidCerts/description": {
+      "original": "Allow invalid TLS certificates when connecting to the S3 service",
+      "ru": "Разрешать недействительные сертификаты TLS при подключении к службе S3"
+    },
+    "field/x:S3Store/bucket/description": {
+      "original": "The S3 bucket where blobs (e-mail messages, Sieve scripts, etc.) will be stored",
+      "ru": "Контейнер S3, в котором будут храниться BLOB-объекты (почтовые сообщения, сценарии Sieve и т. д.)"
+    },
+    "field/x:S3Store/keyPrefix/description": {
+      "original": "A prefix that will be added to the keys of all objects stored in the blob store",
+      "ru": "Префикс, добавляемый к ключам всех объектов в хранилище BLOB-объектов"
+    },
+    "field/x:S3Store/maxRetries/description": {
+      "original": "The maximum number of times to retry failed requests. Set to 0 to disable retries",
+      "ru": "Максимальное число повторных попыток выполнения неудачных запросов. Установите 0, чтобы отключить повторные попытки"
+    },
+    "field/x:S3Store/profile/description": {
+      "original": "Used when retrieving credentials from a shared credentials file. If specified, the server will use the access key ID, secret access key, and session token (if available) associated with the given profile",
+      "ru": "Используется при получении учётных данных из общего файла учётных данных. Если задано, сервер использует идентификатор ключа доступа, секретный ключ доступа и токен сеанса (если имеется), связанные с указанным профилем"
+    },
+    "field/x:S3Store/region/description": {
+      "original": "The S3 region where the bucket resides",
+      "ru": "Регион S3, в котором расположен контейнер"
+    },
+    "field/x:S3Store/secretKey/description": {
+      "original": "The secret access key for the S3 account",
+      "ru": "Секретный ключ доступа к учётной записи S3"
+    },
+    "field/x:S3Store/sessionToken/description": {
+      "original": "Session token for temporary credentials, sent as the x-amz-security-token header",
+      "ru": "Токен сеанса для временных учётных данных, передаваемый в заголовке x-amz-security-token"
+    },
+    "field/x:S3Store/timeout/description": {
+      "original": "Request timeout for S3 operations",
+      "ru": "Время ожидания запросов операций S3"
+    },
+    "field/x:S3Store/verifyAfterWrite/description": {
+      "original": "After each successful write, verify the object is readable on the backend. Defends against the rare case where an S3-compatible backend returns success but does not actually persist the data. Adds one extra request per write.",
+      "ru": "После каждой успешной записи проверять доступность объекта для чтения в хранилище. Это защищает от редкого случая, когда S3-совместимое хранилище сообщает об успехе, но фактически не сохраняет данные. Добавляет один запрос на каждую запись."
+    },
+    "field/x:S3StoreCustomRegion/region/description": {
+      "original": "Region name",
+      "ru": "Название региона"
+    },
+    "field/x:S3StoreCustomRegion/url/description": {
+      "original": "Endpoint URL",
+      "ru": "URL конечной точки"
+    },
+    "field/x:Search/defaultLanguage/description": {
+      "original": "Default language to use when language detection is not possible",
+      "ru": "Язык по умолчанию, если определить язык невозможно"
+    },
+    "field/x:Search/indexBatchSize/description": {
+      "original": "Number of items to process in each batch during indexing operations",
+      "ru": "Число элементов, обрабатываемых в каждом пакете при индексировании"
+    },
+    "field/x:Search/indexCalendar/description": {
+      "original": "Enable full-text search indexing for calendar data",
+      "ru": "Включить полнотекстовое индексирование данных календаря"
+    },
+    "field/x:Search/indexCalendarFields/description": {
+      "original": "List of calendar fields to index",
+      "ru": "Список полей календаря для индексирования"
+    },
+    "field/x:Search/indexContactFields/description": {
+      "original": "List of contact fields to index",
+      "ru": "Список полей контактов для индексирования"
+    },
+    "field/x:Search/indexContacts/description": {
+      "original": "Enable full-text search indexing for contacts data",
+      "ru": "Включить полнотекстовое индексирование данных контактов"
+    },
+    "field/x:Search/indexEmail/description": {
+      "original": "Enable full-text search indexing for email content and metadata",
+      "ru": "Включить полнотекстовое индексирование содержимого и метаданных почты"
+    },
+    "field/x:Search/indexEmailFields/description": {
+      "original": "List of email fields to index",
+      "ru": "Список полей почты для индексирования"
+    },
+    "field/x:Search/indexFiles/description": {
+      "original": "Enable full-text search indexing for file storage content (file names are always searchable)",
+      "ru": "Включить полнотекстовое индексирование содержимого файлов (поиск по именам файлов доступен всегда)"
+    },
+    "field/x:Search/indexTelemetry/description": {
+      "original": "Enable full-text search indexing for tracing data",
+      "ru": "Включить полнотекстовое индексирование данных трассировок"
+    },
+    "field/x:Search/maxConcurrentIndexTasks/description": {
+      "original": "Maximum number of indexing tasks that run at the same time",
+      "ru": "Максимальное число одновременно выполняемых задач индексирования"
+    },
+    "field/x:Search/maxExtractArchiveEntries/description": {
+      "original": "Maximum number of ZIP entries accepted in an Office, OpenDocument or EPUB file",
+      "ru": "Максимальное число записей ZIP, допускаемых в файле Office, OpenDocument или EPUB"
+    },
+    "field/x:Search/maxExtractDecompressedSize/description": {
+      "original": "Maximum number of bytes decompressed while extracting text from a single document",
+      "ru": "Максимальное число байтов, распаковываемых при извлечении текста из одного документа"
+    },
+    "field/x:Search/maxExtractDocumentSize/description": {
+      "original": "Maximum size in bytes of a document (file or email attachment) from which text is extracted for indexing",
+      "ru": "Максимальный размер в байтах документа (файла или почтового вложения), из которого извлекается текст для индексирования"
+    },
+    "field/x:Search/maxExtractPartSize/description": {
+      "original": "Maximum decompressed size in bytes of a single part (XML part, EPUB chapter or PDF stream) inside a document",
+      "ru": "Максимальный размер в байтах после распаковки отдельной части документа (части XML, главы EPUB или потока PDF)"
+    },
+    "field/x:Search/maxExtractParts/description": {
+      "original": "Maximum number of parts (XML parts, slides, sheets or chapters) read from a single document",
+      "ru": "Максимальное число частей (частей XML, слайдов, листов или глав), считываемых из одного документа"
+    },
+    "field/x:Search/maxExtractPdfObjects/description": {
+      "original": "Maximum number of objects in a PDF cross-reference table",
+      "ru": "Максимальное число объектов в таблице перекрёстных ссылок PDF"
+    },
+    "field/x:Search/maxExtractRtfDepth/description": {
+      "original": "Maximum group nesting depth of an RTF document",
+      "ru": "Максимальная глубина вложенности групп в документе RTF"
+    },
+    "field/x:Search/maxExtractTextSize/description": {
+      "original": "Maximum amount of text in bytes extracted from a single document for indexing",
+      "ru": "Максимальный объём текста в байтах, извлекаемого из одного документа для индексирования"
+    },
+    "field/x:Search/supportedLanguages/description": {
+      "original": "List of languages to enable for full-text search",
+      "ru": "Список языков, включённых для полнотекстового поиска"
     },
     "field/x:SecondaryCredential/allowedIps/description": {
       "original": "List of allowed IP addresses or CIDR ranges for this credential",
@@ -5801,6 +6505,14 @@
     "field/x:ServerResponse/responseMessage/description": {
       "original": "SMTP response message from the remote server",
       "ru": "Текст ответа SMTP удалённого сервера"
+    },
+    "field/x:ShardedBlobStore/stores/description": {
+      "original": "Stores to use for sharding",
+      "ru": "Хранилища для распределения по сегментам"
+    },
+    "field/x:ShardedInMemoryStore/stores/description": {
+      "original": "Stores to use for sharding",
+      "ru": "Хранилища для распределения по сегментам"
     },
     "field/x:SmimeTrustAnchor/certificate/description": {
       "original": "CA certificate in PEM format",
@@ -6021,6 +6733,14 @@
     "field/x:SpamClassify/tags/description": {
       "original": "List of tags contributing to the spam classification of the message",
       "ru": "Список меток, влияющих на классификацию сообщения на спам"
+    },
+    "field/x:StoreLookup/namespace/description": {
+      "original": "Unique identifier for this store when used in lookups",
+      "ru": "Уникальный идентификатор этого хранилища при поиске по спискам"
+    },
+    "field/x:StoreLookup/store/description": {
+      "original": "Store to use for lookups",
+      "ru": "Хранилище для поиска по ключам"
     },
     "field/x:SubAddressingCustom/customRule/description": {
       "original": "Expression that defines custom sub-addressing rules for the domain",
@@ -7318,25 +8038,109 @@
       "original": "Client Secret",
       "ru": "Секрет клиента"
     },
+    "form/x:AzureAuthClientSecret/field/tenantId": {
+      "original": "Tenant ID",
+      "ru": "Идентификатор арендатора"
+    },
     "form/x:AzureAuthManagedIdentity/field/clientId": {
       "original": "Client ID",
       "ru": "Идентификатор клиента"
+    },
+    "form/x:AzureAuthSasToken/field/sasToken": {
+      "original": "SAS Token",
+      "ru": "Токен SAS"
+    },
+    "form/x:AzureAuthSharedKey/field/accountKey": {
+      "original": "Account Key",
+      "ru": "Ключ учётной записи"
     },
     "form/x:AzureAuthWorkloadIdentity/field/clientId": {
       "original": "Client ID",
       "ru": "Идентификатор клиента"
     },
+    "form/x:AzureAuthWorkloadIdentity/field/tenantId": {
+      "original": "Tenant ID",
+      "ru": "Идентификатор арендатора"
+    },
+    "form/x:AzureAuthWorkloadIdentity/field/tokenFile": {
+      "original": "Token File",
+      "ru": "Файл токена"
+    },
     "form/x:AzureStore/field/auth": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:AzureStore/field/container": {
+      "original": "Container",
+      "ru": "Контейнер"
+    },
+    "form/x:AzureStore/field/environment": {
+      "original": "Cloud Environment",
+      "ru": "Облачная среда"
+    },
+    "form/x:AzureStore/field/keyPrefix": {
+      "original": "Key Prefix",
+      "ru": "Префикс ключей"
+    },
+    "form/x:AzureStore/field/maxRetries": {
+      "original": "Retries",
+      "ru": "Повторные попытки"
+    },
+    "form/x:AzureStore/field/storageAccount": {
+      "original": "Storage Account Name",
+      "ru": "Имя учётной записи хранилища"
+    },
+    "form/x:AzureStore/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:AzureStore/field/url": {
+      "original": "Blob Service URL",
+      "ru": "URL службы BLOB-объектов"
+    },
+    "form/x:AzureStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
     },
     "form/x:AzureStore/section/section-1": {
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:AzureStore/section/section-2": {
+      "original": "Options",
+      "ru": "Параметры"
+    },
+    "form/x:BlobStore/field/@type": {
+      "original": "Store type",
+      "ru": "Тип хранилища"
+    },
+    "form/x:BlobStore/subtitle": {
+      "original": "Configure the storage backend used to hold large binary objects such as email message bodies, attachments, Sieve scripts, and uploaded files",
+      "ru": "Настройте хранилище крупных двоичных объектов, таких как тела почтовых сообщений, вложения, сценарии Sieve и загруженные файлы"
+    },
     "form/x:BlobStore/title": {
       "original": "Blob Store",
       "ru": "Хранилище объектов"
+    },
+    "form/x:BlobStoreSwap/field/flushChanges": {
+      "original": "Change Threshold",
+      "ru": "Порог изменений"
+    },
+    "form/x:BlobStoreSwap/field/flushInterval": {
+      "original": "Minimum Interval",
+      "ru": "Минимальный интервал"
+    },
+    "form/x:BlobStoreSwap/field/maxAccountSize": {
+      "original": "Max Snapshot Size",
+      "ru": "Макс. размер снимка"
+    },
+    "form/x:BlobStoreSwap/field/minAccountSize": {
+      "original": "Min Snapshot Size",
+      "ru": "Мин. размер снимка"
+    },
+    "form/x:BlobStoreSwap/field/retention": {
+      "original": "Retention",
+      "ru": "Срок хранения"
     },
     "form/x:BlobStoreSwap/field/store": {
       "original": "Blob Store",
@@ -7358,17 +8162,77 @@
       "original": "Storage",
       "ru": "Хранение"
     },
+    "form/x:Cache/field/accessTokens": {
+      "original": "Access Tokens",
+      "ru": "Токены доступа"
+    },
     "form/x:Cache/field/accounts": {
       "original": "Accounts",
       "ru": "Учётные записи"
+    },
+    "form/x:Cache/field/contacts": {
+      "original": "Contacts",
+      "ru": "Контакты"
+    },
+    "form/x:Cache/field/directoryRecipients": {
+      "original": "Directory Recipients",
+      "ru": "Получатели каталога"
+    },
+    "form/x:Cache/field/directoryRecipientsTtl": {
+      "original": "Directory Recipient TTL",
+      "ru": "Время жизни кэша получателей каталога (TTL)"
     },
     "form/x:Cache/field/dkimSignatures": {
       "original": "DKIM Signatures",
       "ru": "Подписи DKIM"
     },
+    "form/x:Cache/field/dnsIpv4": {
+      "original": "IPv4 Records",
+      "ru": "Записи IPv4"
+    },
+    "form/x:Cache/field/dnsIpv6": {
+      "original": "IPv6 Records",
+      "ru": "Записи IPv6"
+    },
+    "form/x:Cache/field/dnsMtaSts": {
+      "original": "MTA-STS Records",
+      "ru": "Записи MTA-STS"
+    },
+    "form/x:Cache/field/dnsMx": {
+      "original": "MX Records",
+      "ru": "Записи MX"
+    },
+    "form/x:Cache/field/dnsPtr": {
+      "original": "PTR Records",
+      "ru": "Записи PTR"
+    },
+    "form/x:Cache/field/dnsTlsa": {
+      "original": "TLSA Records",
+      "ru": "Записи TLSA"
+    },
+    "form/x:Cache/field/dnsTxt": {
+      "original": "TXT Records",
+      "ru": "Записи TXT"
+    },
+    "form/x:Cache/field/domainNames": {
+      "original": "Domain Name Lookups",
+      "ru": "Поиск доменных имён"
+    },
+    "form/x:Cache/field/domainNamesNegative": {
+      "original": "Domain Name Negative Lookups",
+      "ru": "Отрицательные результаты поиска доменных имён"
+    },
     "form/x:Cache/field/domains": {
       "original": "Domains",
       "ru": "Домены"
+    },
+    "form/x:Cache/field/emailAddresses": {
+      "original": "Email Address Lookups",
+      "ru": "Поиск адресов электронной почты"
+    },
+    "form/x:Cache/field/emailAddressesNegative": {
+      "original": "Email Address Negative Lookups",
+      "ru": "Отрицательные результаты поиска адресов электронной почты"
     },
     "form/x:Cache/field/events": {
       "original": "Calendars",
@@ -7378,6 +8242,22 @@
       "original": "External Public Keys",
       "ru": "Внешние открытые ключи"
     },
+    "form/x:Cache/field/files": {
+      "original": "Files",
+      "ru": "Файлы"
+    },
+    "form/x:Cache/field/groupwareLarge": {
+      "original": "Groupware (Large Accounts)",
+      "ru": "Совместная работа (крупные учётные записи)"
+    },
+    "form/x:Cache/field/groupwareLargeTtl": {
+      "original": "Large Account Groupware TTL",
+      "ru": "Время жизни кэша совместной работы крупных учётных записей (TTL)"
+    },
+    "form/x:Cache/field/httpAuth": {
+      "original": "HTTP Authorization",
+      "ru": "Авторизация HTTP"
+    },
     "form/x:Cache/field/mailingLists": {
       "original": "Mailing Lists",
       "ru": "Списки рассылки"
@@ -7386,6 +8266,18 @@
       "original": "Emails",
       "ru": "Почта"
     },
+    "form/x:Cache/field/messagesLarge": {
+      "original": "Emails (Large Accounts)",
+      "ru": "Почта (крупные учётные записи)"
+    },
+    "form/x:Cache/field/messagesLargeTtl": {
+      "original": "Large Account Email TTL",
+      "ru": "Время жизни кэша почты крупных учётных записей (TTL)"
+    },
+    "form/x:Cache/field/negativeTtl": {
+      "original": "Negative Cache TTL",
+      "ru": "Время жизни отрицательного кэша (TTL)"
+    },
     "form/x:Cache/field/roles": {
       "original": "Roles",
       "ru": "Роли"
@@ -7393,6 +8285,58 @@
     "form/x:Cache/field/scheduling": {
       "original": "Scheduling",
       "ru": "Планирование"
+    },
+    "form/x:Cache/field/spamLookup": {
+      "original": "Spam Filter Lookups",
+      "ru": "Запросы фильтра спама"
+    },
+    "form/x:Cache/field/swap": {
+      "original": "Swap Tier",
+      "ru": "Уровень выгрузки"
+    },
+    "form/x:Cache/field/tenants": {
+      "original": "Tenants",
+      "ru": "Арендаторы"
+    },
+    "form/x:Cache/section/section-0": {
+      "original": "Data Cache",
+      "ru": "Кэш данных"
+    },
+    "form/x:Cache/section/section-1": {
+      "original": "Authorization Cache",
+      "ru": "Кэш авторизации"
+    },
+    "form/x:Cache/section/section-2": {
+      "original": "Spam Filter Cache",
+      "ru": "Кэш фильтра спама"
+    },
+    "form/x:Cache/section/section-3": {
+      "original": "DNS Record Cache",
+      "ru": "Кэш записей DNS"
+    },
+    "form/x:Cache/section/section-4": {
+      "original": "Directory Cache",
+      "ru": "Кэш каталога"
+    },
+    "form/x:Cache/section/section-5": {
+      "original": "Encryption Cache",
+      "ru": "Кэш шифрования"
+    },
+    "form/x:Cache/section/section-6": {
+      "original": "Cache TTL",
+      "ru": "Время жизни кэша (TTL)"
+    },
+    "form/x:Cache/section/section-7": {
+      "original": "Cache Swap",
+      "ru": "Выгрузка кэша"
+    },
+    "form/x:Cache/subtitle": {
+      "original": "Configure the size of in-memory caches used to speed up data access, DNS lookups, directory queries, and authorization checks",
+      "ru": "Настройте размеры кэшей в памяти для ускорения доступа к данным, запросов DNS, обращений к каталогам и проверок авторизации"
+    },
+    "form/x:Cache/title": {
+      "original": "In-Memory Caches",
+      "ru": "Кэши в памяти"
     },
     "form/x:Calendar/field/availabilityRateLimit": {
       "original": "Availability Requests",
@@ -7713,6 +8657,14 @@
     "form/x:DataRetention/TelemetryRetention/subtitle": {
       "original": "Configure how long to keep message delivery traces and metrics history before they are permanently deleted, as well as how often to collect metrics history",
       "ru": "Настройте срок хранения трассировок доставки сообщений и истории метрик до их окончательного удаления, а также периодичность сбора истории метрик"
+    },
+    "form/x:DataStore/field/@type": {
+      "original": "Store type",
+      "ru": "Тип хранилища"
+    },
+    "form/x:DataStore/subtitle": {
+      "original": "Configure the primary data store where email metadata, calendars, contacts, settings, and other persistent server data are stored",
+      "ru": "Настройте основное хранилище метаданных почты, календарей, контактов, настроек и других постоянных данных сервера"
     },
     "form/x:DataStore/title": {
       "original": "Data Store",
@@ -9134,13 +10086,49 @@
       "original": "Details",
       "ru": "Сведения"
     },
+    "form/x:ElasticSearchStore/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certificates",
+      "ru": "Разрешить недействительные сертификаты"
+    },
     "form/x:ElasticSearchStore/field/httpAuth": {
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:ElasticSearchStore/field/httpHeaders": {
+      "original": "Headers",
+      "ru": "Заголовки"
+    },
+    "form/x:ElasticSearchStore/field/includeSource": {
+      "original": "Include Source",
+      "ru": "Включить исходный документ"
+    },
+    "form/x:ElasticSearchStore/field/numReplicas": {
+      "original": "Number of Replicas",
+      "ru": "Число реплик"
+    },
+    "form/x:ElasticSearchStore/field/numShards": {
+      "original": "Number of Shards",
+      "ru": "Число сегментов (шардов)"
+    },
+    "form/x:ElasticSearchStore/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:ElasticSearchStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
+    "form/x:ElasticSearchStore/section/section-1": {
+      "original": "Connection",
+      "ru": "Подключение"
+    },
     "form/x:ElasticSearchStore/section/section-2": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:ElasticSearchStore/section/section-3": {
+      "original": "Headers",
+      "ru": "Заголовки"
     },
     "form/x:Email/EmailDefaults/field/defaultFolders/keyLabel": {
       "original": "Special Use",
@@ -9158,9 +10146,21 @@
       "original": "Public Keys",
       "ru": "Открытые ключи"
     },
+    "form/x:Email/EmailStorage/field/blobEncryptionKey": {
+      "original": "Encryption Key",
+      "ru": "Ключ шифрования"
+    },
+    "form/x:Email/EmailStorage/field/compressionAlgorithm": {
+      "original": "Compression",
+      "ru": "Сжатие"
+    },
     "form/x:Email/EmailStorage/section/section-0": {
       "original": "Storage",
       "ru": "Хранение"
+    },
+    "form/x:Email/EmailStorage/subtitle": {
+      "original": "Configure how email messages are stored, including compression settings",
+      "ru": "Настройте хранение почтовых сообщений, включая параметры сжатия"
     },
     "form/x:EmailAlias/field/description": {
       "original": "Description",
@@ -9442,6 +10442,26 @@
       "original": "Compatibility",
       "ru": "Совместимость"
     },
+    "form/x:FileStorage/field/blobEncryptionKey": {
+      "original": "Encryption Key",
+      "ru": "Ключ шифрования"
+    },
+    "form/x:FileStorage/field/compressionAlgorithm": {
+      "original": "Compression",
+      "ru": "Сжатие"
+    },
+    "form/x:FileStorage/field/maxFiles": {
+      "original": "Max Files",
+      "ru": "Макс. число файлов"
+    },
+    "form/x:FileStorage/field/maxFolders": {
+      "original": "Max Folders",
+      "ru": "Макс. число папок"
+    },
+    "form/x:FileStorage/field/maxSize": {
+      "original": "Max File Size",
+      "ru": "Макс. размер файла"
+    },
     "form/x:FileStorage/section/section-0": {
       "original": "File Storage",
       "ru": "Хранилище файлов"
@@ -9450,9 +10470,57 @@
       "original": "Storage",
       "ru": "Хранение"
     },
+    "form/x:FileStorage/subtitle": {
+      "original": "Configure the maximum size of files uploaded via JMAP and WebDAV, the default per-account file count quota, and how file data is compressed and encrypted",
+      "ru": "Настройте максимальный размер файлов, загружаемых через JMAP и WebDAV, квоту числа файлов по умолчанию на учётную запись, а также сжатие и шифрование данных файлов"
+    },
     "form/x:FileStorage/title": {
       "original": "File Storage",
       "ru": "Хранилище файлов"
+    },
+    "form/x:FileSystemStore/field/depth": {
+      "original": "Nested Depth",
+      "ru": "Глубина вложенности"
+    },
+    "form/x:FileSystemStore/field/path": {
+      "original": "Path",
+      "ru": "Путь"
+    },
+    "form/x:FileSystemStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
+    "form/x:FoundationDbStore/field/clusterFile": {
+      "original": "Cluster file",
+      "ru": "Файл кластера"
+    },
+    "form/x:FoundationDbStore/field/datacenterId": {
+      "original": "Data Center Id",
+      "ru": "Идентификатор центра обработки данных"
+    },
+    "form/x:FoundationDbStore/field/machineId": {
+      "original": "Machine Id",
+      "ru": "Идентификатор машины"
+    },
+    "form/x:FoundationDbStore/field/transactionRetryDelay": {
+      "original": "Max Retry Delay",
+      "ru": "Макс. задержка повторной попытки"
+    },
+    "form/x:FoundationDbStore/field/transactionRetryLimit": {
+      "original": "Retry limit",
+      "ru": "Предел повторных попыток"
+    },
+    "form/x:FoundationDbStore/field/transactionTimeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:FoundationDbStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
+    "form/x:FoundationDbStore/section/section-1": {
+      "original": "Transaction Settings",
+      "ru": "Параметры транзакций"
     },
     "form/x:GroupAccount/field/aliases": {
       "original": "Email Aliases",
@@ -9654,9 +10722,45 @@
       "original": "Credential",
       "ru": "Учётные данные"
     },
+    "form/x:InMemoryStore/field/@type": {
+      "original": "Store type",
+      "ru": "Тип хранилища"
+    },
+    "form/x:InMemoryStore/subtitle": {
+      "original": "Configure the in-memory store used for fast key-value lookups, rate limiting, and short-lived state. The local store keeps this state in the memory of the server process and cannot be used in a cluster, which requires Stalwart Keep or Redis",
+      "ru": "Настройте хранилище в памяти для быстрого поиска по ключам, ограничения частоты запросов и кратковременного состояния. Локальное хранилище сохраняет это состояние в памяти процесса сервера и не подходит для кластера, в котором требуется Stalwart Keep или Redis"
+    },
     "form/x:InMemoryStore/title": {
       "original": "In-Memory Store",
       "ru": "Хранилище в памяти"
+    },
+    "form/x:InMemorySwap/field/chunkSize": {
+      "original": "Chunk Size",
+      "ru": "Размер части снимка"
+    },
+    "form/x:InMemorySwap/field/flushChanges": {
+      "original": "Change Threshold",
+      "ru": "Порог изменений"
+    },
+    "form/x:InMemorySwap/field/flushInterval": {
+      "original": "Minimum Interval",
+      "ru": "Минимальный интервал"
+    },
+    "form/x:InMemorySwap/field/maxAccountSize": {
+      "original": "Max Snapshot Size",
+      "ru": "Макс. размер снимка"
+    },
+    "form/x:InMemorySwap/field/minAccountSize": {
+      "original": "Min Snapshot Size",
+      "ru": "Мин. размер снимка"
+    },
+    "form/x:InMemorySwap/field/retention": {
+      "original": "Retention",
+      "ru": "Срок хранения"
+    },
+    "form/x:InMemorySwap/field/store": {
+      "original": "Deployment",
+      "ru": "Экземпляр хранилища"
     },
     "form/x:InMemorySwap/section/section-0": {
       "original": "Storage",
@@ -9762,6 +10866,26 @@
       "original": "Filters",
       "ru": "Фильтры"
     },
+    "form/x:LocalFileSwap/field/flushChanges": {
+      "original": "Change Threshold",
+      "ru": "Порог изменений"
+    },
+    "form/x:LocalFileSwap/field/flushInterval": {
+      "original": "Minimum Interval",
+      "ru": "Минимальный интервал"
+    },
+    "form/x:LocalFileSwap/field/maxAccountSize": {
+      "original": "Max Snapshot Size",
+      "ru": "Макс. размер снимка"
+    },
+    "form/x:LocalFileSwap/field/minAccountSize": {
+      "original": "Min Snapshot Size",
+      "ru": "Мин. размер снимка"
+    },
+    "form/x:LocalFileSwap/field/path": {
+      "original": "Path",
+      "ru": "Путь"
+    },
     "form/x:LocalFileSwap/section/section-0": {
       "original": "File Storage",
       "ru": "Хранилище файлов"
@@ -9858,17 +10982,109 @@
       "original": "Details",
       "ru": "Сведения"
     },
+    "form/x:MeilisearchStore/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certificates",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:MeilisearchStore/field/failOnTimeout": {
+      "original": "Fail on Timeout",
+      "ru": "Прерывать операцию по истечении времени ожидания"
+    },
     "form/x:MeilisearchStore/field/httpAuth": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:MeilisearchStore/field/httpHeaders": {
+      "original": "Headers",
+      "ru": "Заголовки"
+    },
+    "form/x:MeilisearchStore/field/maxPolls": {
+      "original": "Max Polls",
+      "ru": "Макс. число опросов"
+    },
+    "form/x:MeilisearchStore/field/pollInterval": {
+      "original": "Interval",
+      "ru": "Интервал"
+    },
+    "form/x:MeilisearchStore/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:MeilisearchStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
+    "form/x:MeilisearchStore/section/section-1": {
+      "original": "Connection",
+      "ru": "Подключение"
     },
     "form/x:MeilisearchStore/section/section-2": {
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:MeilisearchStore/section/section-3": {
+      "original": "Headers",
+      "ru": "Заголовки"
+    },
+    "form/x:Metadata/field/dataTypes": {
+      "original": "Data Types",
+      "ru": "Типы данных"
+    },
+    "form/x:Metadata/field/imapServerAdmin": {
+      "original": "Administrator Contact",
+      "ru": "Контакт администратора"
+    },
+    "form/x:Metadata/field/imapServerComment": {
+      "original": "Comment",
+      "ru": "Комментарий"
+    },
+    "form/x:Metadata/field/maxDepth": {
+      "original": "Max Depth",
+      "ru": "Макс. глубина"
+    },
+    "form/x:Metadata/field/maxEntries": {
+      "original": "Max Entries",
+      "ru": "Макс. число записей"
+    },
+    "form/x:Metadata/field/maxEntrySize": {
+      "original": "Max Entry Size",
+      "ru": "Макс. размер записи"
+    },
+    "form/x:Metadata/field/maxPrivateSize": {
+      "original": "Max Private Size",
+      "ru": "Макс. размер личных метаданных"
+    },
+    "form/x:Metadata/field/maxQueryScan": {
+      "original": "Max Query Scan",
+      "ru": "Макс. число объектов при поиске"
+    },
+    "form/x:Metadata/field/maxSize": {
+      "original": "Max Shared Size",
+      "ru": "Макс. размер общих метаданных"
+    },
+    "form/x:Metadata/field/privateMetadata": {
+      "original": "Private Metadata",
+      "ru": "Личные метаданные"
+    },
+    "form/x:Metadata/field/vendorNamespaces": {
+      "original": "Vendor Namespaces",
+      "ru": "Пространства имён поставщиков"
+    },
+    "form/x:Metadata/section/section-0": {
+      "original": "JMAP Metadata",
+      "ru": "Метаданные JMAP"
+    },
     "form/x:Metadata/section/section-1": {
       "original": "Limits",
       "ru": "Ограничения"
+    },
+    "form/x:Metadata/section/section-2": {
+      "original": "IMAP Server Annotations",
+      "ru": "Аннотации сервера IMAP"
+    },
+    "form/x:Metadata/subtitle": {
+      "original": "Configure object metadata shared by JMAP, WebDAV and IMAP, including the JMAP data types that support it, namespace rules, size limits and IMAP server annotations",
+      "ru": "Настройте метаданные объектов, общие для JMAP, WebDAV и IMAP, включая поддерживаемые типы данных JMAP, правила пространств имён, ограничения размера и аннотации сервера IMAP"
     },
     "form/x:Metadata/title": {
       "original": "Metadata",
@@ -10190,9 +11406,17 @@
       "original": "Enable TLS",
       "ru": "Включить TLS"
     },
+    "form/x:MySqlStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
     "form/x:MySqlStore/section/section-1": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:MySqlStore/section/section-4": {
+      "original": "Pools",
+      "ru": "Пулы соединений"
     },
     "form/x:NatsCoordinator/field/authSecret": {
       "original": "Password",
@@ -10558,9 +11782,17 @@
       "original": "Enable TLS",
       "ru": "Включить TLS"
     },
+    "form/x:PostgreSqlStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
     "form/x:PostgreSqlStore/section/section-1": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:PostgreSqlStore/section/section-4": {
+      "original": "Pools",
+      "ru": "Пулы соединений"
     },
     "form/x:PublicKey/field/accountId": {
       "original": "Account",
@@ -10625,6 +11857,10 @@
     "form/x:PublicKey/section/section-2": {
       "original": "Compatibility",
       "ru": "Совместимость"
+    },
+    "form/x:PublicStringValue/field/value": {
+      "original": "Value",
+      "ru": "Значение"
     },
     "form/x:PublicTextValue/field/value": {
       "original": "Value",
@@ -10786,6 +12022,30 @@
       "original": "Result",
       "ru": "Результат"
     },
+    "form/x:RocksDbStore/field/blobSize": {
+      "original": "Min blob size",
+      "ru": "Мин. размер BLOB-объекта"
+    },
+    "form/x:RocksDbStore/field/bufferSize": {
+      "original": "Write buffer size",
+      "ru": "Размер буфера записи"
+    },
+    "form/x:RocksDbStore/field/cacheSize": {
+      "original": "Block cache size",
+      "ru": "Размер блочного кэша"
+    },
+    "form/x:RocksDbStore/field/path": {
+      "original": "Path",
+      "ru": "Путь"
+    },
+    "form/x:RocksDbStore/field/poolWorkers": {
+      "original": "Thread Pool Size",
+      "ru": "Размер пула потоков"
+    },
+    "form/x:RocksDbStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
     "form/x:Role/field/description": {
       "original": "Description",
       "ru": "Описание"
@@ -10818,13 +12078,193 @@
       "original": "Permissions",
       "ru": "Права доступа"
     },
+    "form/x:S3Store/field/accessKeyId": {
+      "original": "Access Key ID",
+      "ru": "Идентификатор ключа доступа"
+    },
+    "form/x:S3Store/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
     "form/x:S3Store/field/bucket": {
       "original": "Name",
       "ru": "Имя"
     },
+    "form/x:S3Store/field/keyPrefix": {
+      "original": "Key Prefix",
+      "ru": "Префикс ключей"
+    },
+    "form/x:S3Store/field/maxRetries": {
+      "original": "Retries",
+      "ru": "Повторные попытки"
+    },
+    "form/x:S3Store/field/profile": {
+      "original": "Profile",
+      "ru": "Профиль"
+    },
+    "form/x:S3Store/field/region": {
+      "original": "Region",
+      "ru": "Регион"
+    },
+    "form/x:S3Store/field/secretKey": {
+      "original": "Secret Key",
+      "ru": "Секретный ключ"
+    },
+    "form/x:S3Store/field/sessionToken": {
+      "original": "Session Token",
+      "ru": "Токен сеанса"
+    },
+    "form/x:S3Store/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:S3Store/field/verifyAfterWrite": {
+      "original": "Verify After Write",
+      "ru": "Проверять после записи"
+    },
+    "form/x:S3Store/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
+    "form/x:S3Store/section/section-1": {
+      "original": "Reliability",
+      "ru": "Надёжность"
+    },
     "form/x:S3Store/section/section-2": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:S3StoreCustomRegion/field/region": {
+      "original": "Region",
+      "ru": "Регион"
+    },
+    "form/x:Search/field/defaultLanguage": {
+      "original": "Default Language",
+      "ru": "Язык по умолчанию"
+    },
+    "form/x:Search/field/indexBatchSize": {
+      "original": "Indexing Batch Size",
+      "ru": "Размер пакета индексирования"
+    },
+    "form/x:Search/field/indexCalendar": {
+      "original": "Enable Calendar Searching",
+      "ru": "Включить поиск по календарю"
+    },
+    "form/x:Search/field/indexCalendarFields": {
+      "original": "Calendar Fields to Index",
+      "ru": "Поля календаря для индексирования"
+    },
+    "form/x:Search/field/indexContactFields": {
+      "original": "Contact Fields to Index",
+      "ru": "Поля контактов для индексирования"
+    },
+    "form/x:Search/field/indexContacts": {
+      "original": "Enable Contacts Searching",
+      "ru": "Включить поиск по контактам"
+    },
+    "form/x:Search/field/indexEmail": {
+      "original": "Enable Email Searching",
+      "ru": "Включить поиск по почте"
+    },
+    "form/x:Search/field/indexEmailFields": {
+      "original": "Email Fields to Index",
+      "ru": "Поля почты для индексирования"
+    },
+    "form/x:Search/field/indexFiles": {
+      "original": "Enable File Searching",
+      "ru": "Включить поиск по файлам"
+    },
+    "form/x:Search/field/indexTelemetry": {
+      "original": "Enable Tracing Searching",
+      "ru": "Включить поиск по трассировкам"
+    },
+    "form/x:Search/field/maxConcurrentIndexTasks": {
+      "original": "Concurrent Indexing Tasks",
+      "ru": "Параллельные задачи индексирования"
+    },
+    "form/x:Search/field/maxExtractArchiveEntries": {
+      "original": "Max Archive Entries",
+      "ru": "Макс. число записей архива"
+    },
+    "form/x:Search/field/maxExtractDecompressedSize": {
+      "original": "Max Decompressed Size",
+      "ru": "Макс. размер после распаковки"
+    },
+    "form/x:Search/field/maxExtractDocumentSize": {
+      "original": "Max Document Size",
+      "ru": "Макс. размер документа"
+    },
+    "form/x:Search/field/maxExtractPartSize": {
+      "original": "Max Part Size",
+      "ru": "Макс. размер части документа"
+    },
+    "form/x:Search/field/maxExtractParts": {
+      "original": "Max Parts",
+      "ru": "Макс. число частей документа"
+    },
+    "form/x:Search/field/maxExtractPdfObjects": {
+      "original": "Max PDF Objects",
+      "ru": "Макс. число объектов PDF"
+    },
+    "form/x:Search/field/maxExtractRtfDepth": {
+      "original": "Max RTF Nesting Depth",
+      "ru": "Макс. глубина вложенности RTF"
+    },
+    "form/x:Search/field/maxExtractTextSize": {
+      "original": "Max Extracted Text",
+      "ru": "Макс. объём извлечённого текста"
+    },
+    "form/x:Search/field/supportedLanguages": {
+      "original": "Supported Languages",
+      "ru": "Поддерживаемые языки"
+    },
+    "form/x:Search/section/section-0": {
+      "original": "Languages",
+      "ru": "Языки"
+    },
+    "form/x:Search/section/section-1": {
+      "original": "Batching and Concurrency",
+      "ru": "Пакетная и параллельная обработка"
+    },
+    "form/x:Search/section/section-2": {
+      "original": "Email Indexing",
+      "ru": "Индексирование почты"
+    },
+    "form/x:Search/section/section-3": {
+      "original": "Calendar Indexing",
+      "ru": "Индексирование календаря"
+    },
+    "form/x:Search/section/section-4": {
+      "original": "Contacts Indexing",
+      "ru": "Индексирование контактов"
+    },
+    "form/x:Search/section/section-5": {
+      "original": "File Indexing",
+      "ru": "Индексирование файлов"
+    },
+    "form/x:Search/section/section-6": {
+      "original": "Document Text Extraction",
+      "ru": "Извлечение текста из документов"
+    },
+    "form/x:Search/section/section-7": {
+      "original": "Tracing Indexing",
+      "ru": "Индексирование трассировок"
+    },
+    "form/x:Search/subtitle": {
+      "original": "Configure full-text search indexing for emails, calendars, contacts, files and tracing data, including which fields are indexed, language detection defaults, and batch sizes",
+      "ru": "Настройте полнотекстовое индексирование почты, календарей, контактов, файлов и трассировок, включая индексируемые поля, параметры определения языка и размеры пакетов"
+    },
+    "form/x:Search/title": {
+      "original": "Full-Text Search",
+      "ru": "Полнотекстовый поиск"
+    },
+    "form/x:SearchStore/field/@type": {
+      "original": "Store type",
+      "ru": "Тип хранилища"
+    },
+    "form/x:SearchStore/subtitle": {
+      "original": "Configure the backend used for full-text search indexing of email, calendars, contacts, and other searchable data",
+      "ru": "Настройте хранилище полнотекстового индекса почты, календарей, контактов и других доступных для поиска данных"
     },
     "form/x:SearchStore/title": {
       "original": "Search Store",
@@ -10973,6 +12413,22 @@
     "form/x:ServerResponse/field/responseMessage": {
       "original": "Message",
       "ru": "Текст ответа"
+    },
+    "form/x:ShardedBlobStore/field/stores": {
+      "original": "Stores",
+      "ru": "Хранилища"
+    },
+    "form/x:ShardedBlobStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
+    "form/x:ShardedInMemoryStore/field/stores": {
+      "original": "Stores",
+      "ru": "Хранилища"
+    },
+    "form/x:ShardedInMemoryStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
     },
     "form/x:Sharing/title": {
       "original": "Sharing",
@@ -11409,6 +12865,22 @@
     "form/x:SqliteStore/field/poolMaxConnections": {
       "original": "Max Connections",
       "ru": "Максимум соединений"
+    },
+    "form/x:SqliteStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
+    "form/x:StoreLookup/field/namespace": {
+      "original": "Namespace",
+      "ru": "Пространство имён"
+    },
+    "form/x:StoreLookup/field/store": {
+      "original": "Store",
+      "ru": "Хранилище"
+    },
+    "form/x:StoreLookup/section/section-0": {
+      "original": "Store Lookup",
+      "ru": "Поиск во внешнем хранилище"
     },
     "form/x:SubAddressingCustom/field/customRule": {
       "original": "Custom Rule Expression",
@@ -13618,6 +15090,22 @@
       "original": "Account",
       "ru": "Учётная запись"
     },
+    "list/x:StoreLookup/column/namespace": {
+      "original": "Namespace",
+      "ru": "Пространство имён"
+    },
+    "list/x:StoreLookup/plural": {
+      "original": "lookups",
+      "ru": "запросы"
+    },
+    "list/x:StoreLookup/singular": {
+      "original": "lookup",
+      "ru": "запрос"
+    },
+    "list/x:StoreLookup/subtitle": {
+      "original": "Manage external store lookups",
+      "ru": "Управление внешними хранилищами для поиска по ключам"
+    },
     "list/x:StoreLookup/title": {
       "original": "Store Lookups",
       "ru": "Поиск в хранилище"
@@ -14654,6 +16142,14 @@
       "original": "Configures authentication settings including password policies and default roles.",
       "ru": "Настраивает аутентификацию, в том числе политики паролей и роли по умолчанию."
     },
+    "object/x:BlobStore/description": {
+      "original": "Configures the blob storage backend for messages and files.",
+      "ru": "Настраивает хранилище BLOB-объектов для сообщений и файлов."
+    },
+    "object/x:Cache/description": {
+      "original": "Configures in-memory cache sizes for data, DNS records, and authorization tokens.",
+      "ru": "Настраивает размеры кэшей данных, записей DNS и токенов авторизации в памяти."
+    },
     "object/x:Calendar/description": {
       "original": "Configures calendar settings including iCalendar limits and default names.",
       "ru": "Настройка календарей, включая ограничения iCalendar и имена по умолчанию."
@@ -14669,6 +16165,10 @@
     "object/x:Certificate/description": {
       "original": "Defines a TLS certificate and its associated private key.",
       "ru": "Определяет сертификат TLS и соответствующий закрытый ключ."
+    },
+    "object/x:DataStore/description": {
+      "original": "Configures the primary data store backend.",
+      "ru": "Настраивает основное хранилище данных."
     },
     "object/x:DkimSignature/description": {
       "original": "Defines a DKIM signature used to sign outgoing email messages.",
@@ -14694,9 +16194,17 @@
       "original": "Public key of a remote recipient used by the encryption gateway, entered manually, kept up to date from a discovery method or learned from received mail.",
       "ru": "Открытый ключ удалённого получателя для шлюза шифрования, введённый вручную, обновляемый методом обнаружения или полученный из входящей почты."
     },
+    "object/x:FileStorage/description": {
+      "original": "Configures file storage limits, compression and encryption.",
+      "ru": "Настраивает ограничения хранения файлов, сжатие и шифрование."
+    },
     "object/x:HttpLookup/description": {
       "original": "Defines an HTTP-based lookup list.",
       "ru": "Определяет список для поиска, получаемый по HTTP."
+    },
+    "object/x:InMemoryStore/description": {
+      "original": "Configures the in-memory cache and lookup store.",
+      "ru": "Настраивает кэш в памяти и хранилище для поиска по ключам."
     },
     "object/x:IndexQueueStatus/description": {
       "original": "Represents the processing state of a search index queue.",
@@ -14709,6 +16217,10 @@
     "object/x:MailingList/description": {
       "original": "Defines a mailing list that distributes messages to a group of recipients.",
       "ru": "Список рассылки, распределяющий сообщения между адресами получателей."
+    },
+    "object/x:Metadata/description": {
+      "original": "Configures object metadata: JMAP metadata, WebDAV dead properties and IMAP annotations.",
+      "ru": "Настраивает метаданные объектов: метаданные JMAP, статические свойства WebDAV и аннотации IMAP."
     },
     "object/x:Metrics/description": {
       "original": "Configures metrics collection and export via OpenTelemetry and Prometheus.",
@@ -14738,6 +16250,14 @@
       "original": "Defines a named set of permissions that can be assigned to accounts and groups.",
       "ru": "Набор прав доступа, назначаемых пользователям и группам."
     },
+    "object/x:Search/description": {
+      "original": "Configures full-text search indexing for emails, calendars, contacts, files, and tracing.",
+      "ru": "Настраивает полнотекстовое индексирование почты, календарей, контактов, файлов и трассировок."
+    },
+    "object/x:SearchStore/description": {
+      "original": "Configures the full-text search backend.",
+      "ru": "Настраивает хранилище полнотекстового индекса."
+    },
     "object/x:Security/description": {
       "original": "Configures automatic IP banning rules for abuse, authentication failures, and port scanning.",
       "ru": "Настраивает правила автоматической блокировки IP-адресов за злоупотребления, ошибки аутентификации и сканирование портов."
@@ -14749,6 +16269,10 @@
     "object/x:SpamAi/description": {
       "original": "Configures the AI spam classifier. Spam rules whose condition references an AI_ tag, directly or through a tag emitted by another such rule, run after the classifier; all other rules run before it. Rules that build tag names dynamically are not detected.",
       "ru": "Настраивает ИИ-классификатор спама. Правила спам-фильтра, условия которых ссылаются на метку AI_ прямо или через метку, созданную другим таким правилом, выполняются после классификатора; остальные правила выполняются до него. Правила, формирующие имена меток динамически, не распознаются."
+    },
+    "object/x:StoreLookup/description": {
+      "original": "Defines an external store used for lookups.",
+      "ru": "Определяет внешнее хранилище для поиска по ключам."
     },
     "object/x:SymmetricKey/description": {
       "original": "Defines a symmetric key used to encrypt blobs at rest. Blobs encrypted with a key cannot be read without it, so keys can only be deleted by the recovery administrator.",
@@ -14838,6 +16362,118 @@
       "original": "Application Management: Update applications",
       "ru": "Управление приложениями: Обновить приложение"
     },
+    "variant/x:AzureAuth/ClientSecret/label": {
+      "original": "Service Principal (Client Secret)",
+      "ru": "Субъект-служба (секрет клиента)"
+    },
+    "variant/x:AzureAuth/ManagedIdentity/label": {
+      "original": "Managed Identity",
+      "ru": "Управляемое удостоверение"
+    },
+    "variant/x:AzureAuth/SasToken/label": {
+      "original": "SAS Token",
+      "ru": "Токен SAS"
+    },
+    "variant/x:AzureAuth/SharedKey/label": {
+      "original": "Shared Key",
+      "ru": "Общий ключ"
+    },
+    "variant/x:AzureAuth/WorkloadIdentity/label": {
+      "original": "Workload Identity",
+      "ru": "Удостоверение рабочей нагрузки"
+    },
+    "variant/x:BlobStore/Azure/label": {
+      "original": "Azure blob storage",
+      "ru": "Хранилище BLOB-объектов Azure"
+    },
+    "variant/x:BlobStore/Default/label": {
+      "original": "Use data store",
+      "ru": "Использовать хранилище данных"
+    },
+    "variant/x:BlobStore/FileSystem/label": {
+      "original": "Filesystem",
+      "ru": "Файловая система"
+    },
+    "variant/x:BlobStore/FoundationDb/label": {
+      "original": "FoundationDB",
+      "ru": "Хранилище FoundationDB"
+    },
+    "variant/x:BlobStore/MySql/label": {
+      "original": "mySQL",
+      "ru": "Хранилище mySQL"
+    },
+    "variant/x:BlobStore/PostgreSql/label": {
+      "original": "PostgreSQL",
+      "ru": "Хранилище PostgreSQL"
+    },
+    "variant/x:BlobStore/S3/label": {
+      "original": "S3-compatible",
+      "ru": "S3-совместимое хранилище"
+    },
+    "variant/x:BlobStore/Sharded/label": {
+      "original": "Sharded Blob Store",
+      "ru": "Сегментированное хранилище BLOB-объектов"
+    },
+    "variant/x:BlobStoreBase/Azure/label": {
+      "original": "Azure blob storage",
+      "ru": "Хранилище BLOB-объектов Azure"
+    },
+    "variant/x:BlobStoreBase/FileSystem/label": {
+      "original": "Filesystem",
+      "ru": "Файловая система"
+    },
+    "variant/x:BlobStoreBase/FoundationDb/label": {
+      "original": "FoundationDB",
+      "ru": "Хранилище FoundationDB"
+    },
+    "variant/x:BlobStoreBase/MySql/label": {
+      "original": "mySQL",
+      "ru": "Хранилище mySQL"
+    },
+    "variant/x:BlobStoreBase/PostgreSql/label": {
+      "original": "PostgreSQL",
+      "ru": "Хранилище PostgreSQL"
+    },
+    "variant/x:BlobStoreBase/S3/label": {
+      "original": "S3-compatible",
+      "ru": "S3-совместимое хранилище"
+    },
+    "variant/x:BlobSwapStore/Azure/label": {
+      "original": "Azure blob storage",
+      "ru": "Хранилище BLOB-объектов Azure"
+    },
+    "variant/x:BlobSwapStore/Default/label": {
+      "original": "Use blob store",
+      "ru": "Использовать хранилище BLOB-объектов"
+    },
+    "variant/x:BlobSwapStore/FoundationDb/label": {
+      "original": "FoundationDB",
+      "ru": "Хранилище FoundationDB"
+    },
+    "variant/x:BlobSwapStore/MySql/label": {
+      "original": "mySQL",
+      "ru": "Хранилище mySQL"
+    },
+    "variant/x:BlobSwapStore/PostgreSql/label": {
+      "original": "PostgreSQL",
+      "ru": "Хранилище PostgreSQL"
+    },
+    "variant/x:BlobSwapStore/S3/label": {
+      "original": "S3-compatible",
+      "ru": "S3-совместимое хранилище"
+    },
+    "variant/x:CacheSwap/BlobStore/label": {
+      "original": "Blob store",
+      "ru": "Хранилище BLOB-объектов"
+    },
+    "variant/x:CacheSwap/InMemory/label": {
+      "original": "In-memory store (Stalwart Keep or Redis)",
+      "ru": "Хранилище в памяти (Stalwart Keep или Redis)"
+    },
+    "variant/x:CacheSwap/LocalFile/label": {
+      "original": "Node-local file",
+      "ru": "Локальный файл узла"
+    },
     "variant/x:CertificateManagement/Automatic/label": {
       "original": "ACME TLS certificate management",
       "ru": "Управление сертификатами TLS через ACME"
@@ -14861,6 +16497,26 @@
     "variant/x:Credential/Password/label": {
       "original": "Password for authenticating to the account",
       "ru": "Пароль для входа в учётную запись"
+    },
+    "variant/x:DataStore/FoundationDb/label": {
+      "original": "FoundationDB",
+      "ru": "Хранилище FoundationDB"
+    },
+    "variant/x:DataStore/MySql/label": {
+      "original": "mySQL",
+      "ru": "Хранилище mySQL"
+    },
+    "variant/x:DataStore/PostgreSql/label": {
+      "original": "PostgreSQL",
+      "ru": "Хранилище PostgreSQL"
+    },
+    "variant/x:DataStore/RocksDb/label": {
+      "original": "RocksDB",
+      "ru": "Хранилище RocksDB"
+    },
+    "variant/x:DataStore/Sqlite/label": {
+      "original": "SQLite",
+      "ru": "Хранилище SQLite"
     },
     "variant/x:DkimManagement/Automatic/label": {
       "original": "Automatic DKIM management",
@@ -14922,6 +16578,94 @@
       "original": "List",
       "ru": "Список"
     },
+    "variant/x:InMemoryStore/Default/label": {
+      "original": "Local in-process store (single node only)",
+      "ru": "Локальное хранилище в процессе (только один узел)"
+    },
+    "variant/x:InMemoryStore/Keep/label": {
+      "original": "Stalwart Keep",
+      "ru": "Хранилище Stalwart Keep"
+    },
+    "variant/x:InMemoryStore/Redis/label": {
+      "original": "Redis/Valkey",
+      "ru": "Хранилище Redis/Valkey"
+    },
+    "variant/x:InMemoryStore/RedisCluster/label": {
+      "original": "Redis Cluster",
+      "ru": "Режим Redis Cluster"
+    },
+    "variant/x:InMemoryStore/RedisSentinel/label": {
+      "original": "Redis Sentinel",
+      "ru": "Хранилище Redis Sentinel"
+    },
+    "variant/x:InMemoryStore/Sharded/label": {
+      "original": "Sharded Store",
+      "ru": "Сегментированное хранилище"
+    },
+    "variant/x:InMemoryStoreBase/Redis/label": {
+      "original": "Redis/Valkey",
+      "ru": "Хранилище Redis/Valkey"
+    },
+    "variant/x:InMemoryStoreBase/RedisCluster/label": {
+      "original": "Redis Cluster",
+      "ru": "Режим Redis Cluster"
+    },
+    "variant/x:InMemoryStoreBase/RedisSentinel/label": {
+      "original": "Redis Sentinel",
+      "ru": "Хранилище Redis Sentinel"
+    },
+    "variant/x:InMemorySwapStore/Default/label": {
+      "original": "Use in-memory store (Stalwart Keep or Redis)",
+      "ru": "Использовать хранилище в памяти (Stalwart Keep или Redis)"
+    },
+    "variant/x:InMemorySwapStore/Keep/label": {
+      "original": "Stalwart Keep",
+      "ru": "Хранилище Stalwart Keep"
+    },
+    "variant/x:InMemorySwapStore/Redis/label": {
+      "original": "Redis/Valkey",
+      "ru": "Хранилище Redis/Valkey"
+    },
+    "variant/x:InMemorySwapStore/RedisCluster/label": {
+      "original": "Redis Cluster",
+      "ru": "Режим Redis Cluster"
+    },
+    "variant/x:InMemorySwapStore/RedisSentinel/label": {
+      "original": "Redis Sentinel",
+      "ru": "Хранилище Redis Sentinel"
+    },
+    "variant/x:LookupStore/Keep/label": {
+      "original": "Stalwart Keep",
+      "ru": "Хранилище Stalwart Keep"
+    },
+    "variant/x:LookupStore/MySql/label": {
+      "original": "mySQL",
+      "ru": "Хранилище mySQL"
+    },
+    "variant/x:LookupStore/PostgreSql/label": {
+      "original": "PostgreSQL",
+      "ru": "Хранилище PostgreSQL"
+    },
+    "variant/x:LookupStore/Redis/label": {
+      "original": "Redis/Valkey",
+      "ru": "Хранилище Redis/Valkey"
+    },
+    "variant/x:LookupStore/RedisCluster/label": {
+      "original": "Redis Cluster",
+      "ru": "Режим Redis Cluster"
+    },
+    "variant/x:LookupStore/RedisSentinel/label": {
+      "original": "Redis Sentinel",
+      "ru": "Хранилище Redis Sentinel"
+    },
+    "variant/x:LookupStore/Sharded/label": {
+      "original": "Sharded Lookup Store",
+      "ru": "Сегментированное хранилище для поиска по ключам"
+    },
+    "variant/x:LookupStore/Sqlite/label": {
+      "original": "SQLite",
+      "ru": "Хранилище SQLite"
+    },
     "variant/x:MetricsOtel/Grpc/label": {
       "original": "gRPC",
       "ru": "Протокол gRPC"
@@ -14957,6 +16701,22 @@
     "variant/x:Permissions/Replace/label": {
       "original": "Permissions replace all inherited permissions",
       "ru": "Заменить унаследованные права"
+    },
+    "variant/x:PublicStringOptional/EnvironmentVariable/label": {
+      "original": "Value read from environment variable",
+      "ru": "Значение из переменной окружения"
+    },
+    "variant/x:PublicStringOptional/File/label": {
+      "original": "Value read from file",
+      "ru": "Значение из файла"
+    },
+    "variant/x:PublicStringOptional/None/label": {
+      "original": "No value",
+      "ru": "Нет значения"
+    },
+    "variant/x:PublicStringOptional/Value/label": {
+      "original": "Value",
+      "ru": "Значение"
     },
     "variant/x:PublicText/EnvironmentVariable/label": {
       "original": "Text value read from environment variable",
@@ -15001,6 +16761,202 @@
     "variant/x:Roles/Default/label": {
       "original": "Default role",
       "ru": "Роль по умолчанию"
+    },
+    "variant/x:S3StoreRegion/AfSouth1/label": {
+      "original": "af-south-1",
+      "ru": "Регион af-south-1"
+    },
+    "variant/x:S3StoreRegion/ApEast1/label": {
+      "original": "ap-east-1",
+      "ru": "Регион ap-east-1"
+    },
+    "variant/x:S3StoreRegion/ApNortheast1/label": {
+      "original": "ap-northeast-1",
+      "ru": "Регион ap-northeast-1"
+    },
+    "variant/x:S3StoreRegion/ApNortheast2/label": {
+      "original": "ap-northeast-2",
+      "ru": "Регион ap-northeast-2"
+    },
+    "variant/x:S3StoreRegion/ApNortheast3/label": {
+      "original": "ap-northeast-3",
+      "ru": "Регион ap-northeast-3"
+    },
+    "variant/x:S3StoreRegion/ApSouth1/label": {
+      "original": "ap-south-1",
+      "ru": "Регион ap-south-1"
+    },
+    "variant/x:S3StoreRegion/ApSoutheast1/label": {
+      "original": "ap-southeast-1",
+      "ru": "Регион ap-southeast-1"
+    },
+    "variant/x:S3StoreRegion/ApSoutheast2/label": {
+      "original": "ap-southeast-2",
+      "ru": "Регион ap-southeast-2"
+    },
+    "variant/x:S3StoreRegion/CaCentral1/label": {
+      "original": "ca-central-1",
+      "ru": "Регион ca-central-1"
+    },
+    "variant/x:S3StoreRegion/CnNorth1/label": {
+      "original": "cn-north-1",
+      "ru": "Регион cn-north-1"
+    },
+    "variant/x:S3StoreRegion/CnNorthwest1/label": {
+      "original": "cn-northwest-1",
+      "ru": "Регион cn-northwest-1"
+    },
+    "variant/x:S3StoreRegion/Custom/label": {
+      "original": "Custom",
+      "ru": "Пользовательский регион"
+    },
+    "variant/x:S3StoreRegion/DoAms3/label": {
+      "original": "Digital Ocean ams3",
+      "ru": "Регион Digital Ocean ams3"
+    },
+    "variant/x:S3StoreRegion/DoFra1/label": {
+      "original": "Digital Ocean fra1",
+      "ru": "Регион Digital Ocean fra1"
+    },
+    "variant/x:S3StoreRegion/DoNyc3/label": {
+      "original": "Digital Ocean nyc3",
+      "ru": "Регион Digital Ocean nyc3"
+    },
+    "variant/x:S3StoreRegion/DoSgp1/label": {
+      "original": "Digital Ocean sgp1",
+      "ru": "Регион Digital Ocean sgp1"
+    },
+    "variant/x:S3StoreRegion/EuCentral1/label": {
+      "original": "eu-central-1",
+      "ru": "Регион eu-central-1"
+    },
+    "variant/x:S3StoreRegion/EuCentral2/label": {
+      "original": "eu-central-2",
+      "ru": "Регион eu-central-2"
+    },
+    "variant/x:S3StoreRegion/EuNorth1/label": {
+      "original": "eu-north-1",
+      "ru": "Регион eu-north-1"
+    },
+    "variant/x:S3StoreRegion/EuWest1/label": {
+      "original": "eu-west-1",
+      "ru": "Регион eu-west-1"
+    },
+    "variant/x:S3StoreRegion/EuWest2/label": {
+      "original": "eu-west-2",
+      "ru": "Регион eu-west-2"
+    },
+    "variant/x:S3StoreRegion/EuWest3/label": {
+      "original": "eu-west-3",
+      "ru": "Регион eu-west-3"
+    },
+    "variant/x:S3StoreRegion/IlCentral1/label": {
+      "original": "il-central-1",
+      "ru": "Регион il-central-1"
+    },
+    "variant/x:S3StoreRegion/MeSouth1/label": {
+      "original": "me-south-1",
+      "ru": "Регион me-south-1"
+    },
+    "variant/x:S3StoreRegion/SaEast1/label": {
+      "original": "sa-east-1",
+      "ru": "Регион sa-east-1"
+    },
+    "variant/x:S3StoreRegion/UsEast1/label": {
+      "original": "us-east-1",
+      "ru": "Регион us-east-1"
+    },
+    "variant/x:S3StoreRegion/UsEast2/label": {
+      "original": "us-east-2",
+      "ru": "Регион us-east-2"
+    },
+    "variant/x:S3StoreRegion/UsWest1/label": {
+      "original": "us-west-1",
+      "ru": "Регион us-west-1"
+    },
+    "variant/x:S3StoreRegion/UsWest2/label": {
+      "original": "us-west-2",
+      "ru": "Регион us-west-2"
+    },
+    "variant/x:S3StoreRegion/WaApNortheast1/label": {
+      "original": "Wasabi ap-northeast-1",
+      "ru": "Регион Wasabi ap-northeast-1"
+    },
+    "variant/x:S3StoreRegion/WaApNortheast2/label": {
+      "original": "Wasabi ap-northeast-2",
+      "ru": "Регион Wasabi ap-northeast-2"
+    },
+    "variant/x:S3StoreRegion/WaApSoutheast1/label": {
+      "original": "Wasabi ap-southeast-1",
+      "ru": "Регион Wasabi ap-southeast-1"
+    },
+    "variant/x:S3StoreRegion/WaApSoutheast2/label": {
+      "original": "Wasabi ap-southeast-2",
+      "ru": "Регион Wasabi ap-southeast-2"
+    },
+    "variant/x:S3StoreRegion/WaCaCentral1/label": {
+      "original": "Wasabi ca-central-1",
+      "ru": "Регион Wasabi ca-central-1"
+    },
+    "variant/x:S3StoreRegion/WaEuCentral1/label": {
+      "original": "Wasabi eu-central-1",
+      "ru": "Регион Wasabi eu-central-1"
+    },
+    "variant/x:S3StoreRegion/WaEuCentral2/label": {
+      "original": "Wasabi eu-central-2",
+      "ru": "Регион Wasabi eu-central-2"
+    },
+    "variant/x:S3StoreRegion/WaEuWest1/label": {
+      "original": "Wasabi eu-west-1",
+      "ru": "Регион Wasabi eu-west-1"
+    },
+    "variant/x:S3StoreRegion/WaEuWest2/label": {
+      "original": "Wasabi eu-west-2",
+      "ru": "Регион Wasabi eu-west-2"
+    },
+    "variant/x:S3StoreRegion/WaUsCentral1/label": {
+      "original": "Wasabi us-central-1",
+      "ru": "Регион Wasabi us-central-1"
+    },
+    "variant/x:S3StoreRegion/WaUsEast1/label": {
+      "original": "Wasabi us-east-1",
+      "ru": "Регион Wasabi us-east-1"
+    },
+    "variant/x:S3StoreRegion/WaUsEast2/label": {
+      "original": "Wasabi us-east-2",
+      "ru": "Регион Wasabi us-east-2"
+    },
+    "variant/x:S3StoreRegion/WaUsWest1/label": {
+      "original": "Wasabi us-west-1",
+      "ru": "Регион Wasabi us-west-1"
+    },
+    "variant/x:S3StoreRegion/Yandex/label": {
+      "original": "Yandex Object Storage",
+      "ru": "Хранилище Yandex Object Storage"
+    },
+    "variant/x:SearchStore/Default/label": {
+      "original": "Use data store",
+      "ru": "Использовать хранилище данных"
+    },
+    "variant/x:SearchStore/ElasticSearch/label": {
+      "original": "ElasticSearch",
+      "ru": "Хранилище ElasticSearch"
+    },
+    "variant/x:SearchStore/FoundationDb/label": {
+      "original": "FoundationDB",
+      "ru": "Хранилище FoundationDB"
+    },
+    "variant/x:SearchStore/Meilisearch/label": {
+      "original": "MeiliSearch",
+      "ru": "Хранилище MeiliSearch"
+    },
+    "variant/x:SearchStore/MySql/label": {
+      "original": "mySQL",
+      "ru": "Хранилище mySQL"
+    },
+    "variant/x:SearchStore/PostgreSql/label": {
+      "original": "PostgreSQL",
+      "ru": "Хранилище PostgreSQL"
     },
     "variant/x:SpamAi/Disable/label": {
       "original": "Disabled",
