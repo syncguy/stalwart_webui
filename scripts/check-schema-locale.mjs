@@ -314,11 +314,11 @@ for (const hash of meta.schemaHashes) {
 }
 const enUi = JSON.parse(fs.readFileSync('src/i18n/en.json', 'utf8'));
 const ruUi = JSON.parse(fs.readFileSync('src/i18n/ru.json', 'utf8'));
-assert.match(enUi.actions.updateAppsScopeWarning, /all configured web applications/);
-assert.match(ruUi.actions.updateAppsScopeWarning, /все настроенные веб-приложения/);
+assert.match(enUi.webuiRu.actions.updateAppsScopeWarning, /all configured web applications/);
+assert.match(ruUi.webuiRu.actions.updateAppsScopeWarning, /все настроенные веб-приложения/);
 const actionWithWarning = fs.readFileSync('src/features/actions/ActionPage.tsx', 'utf8');
 assert.ok(actionWithWarning.includes("pending?.name === 'UpdateApps'"));
-assert.ok(actionWithWarning.includes("actions.updateAppsScopeWarning"));
+assert.ok(actionWithWarning.includes("webuiRu.actions.updateAppsScopeWarning"));
 assert.ok(actionWithWarning.includes('buildActionPayload(pending.name, null, {})'));
 
 const sourceNestedRow = fs.readFileSync('src/components/forms/FieldRow.tsx', 'utf8');
@@ -381,12 +381,12 @@ assert.ok(rawDashboard.includes('itemIndex={i}'));
 const rawLogList = fs.readFileSync('src/components/lists/DynamicList.tsx', 'utf8');
 assert.ok(rawLogList.includes("listKey === 'x:Log'"));
 assert.ok(rawLogList.includes("listState.error === 'No log tracers configured on the server'"));
-assert.ok(rawLogList.includes("t('logs.noTracersConfigured'"));
+assert.ok(rawLogList.includes("t('webuiRu.logs.noTracersConfigured'"));
 const logEn = JSON.parse(fs.readFileSync('src/i18n/en.json', 'utf8'));
 const logRu = JSON.parse(fs.readFileSync('src/i18n/ru.json', 'utf8'));
-assert.equal(logEn.logs.noTracersConfigured, 'No log tracers configured on the server');
-assert.equal(logRu.logs.noTracersConfigured, 'На сервере не настроены источники журналирования');
-assert.ok(logRu.actions.negativeCacheExplanation.includes('Сами данные не удаляются'));
+assert.equal(logEn.webuiRu.logs.noTracersConfigured, 'No log tracers configured on the server');
+assert.equal(logRu.webuiRu.logs.noTracersConfigured, 'На сервере не настроены источники журналирования');
+assert.ok(logRu.webuiRu.actions.negativeCacheExplanation.includes('Сами данные не удаляются'));
 const rawActions = fs.readFileSync('src/features/actions/ActionPage.tsx', 'utf8');
 assert.ok(rawActions.includes("pending?.name === 'InvalidateNegativeCaches'"));
 const readOnlyValues = fs.readFileSync('src/components/values/ScalarValues.tsx', 'utf8');
@@ -547,9 +547,9 @@ assert.ok(enumValueSource.includes('getEnumVariant(schema, enumName, name)'));
 // arbitrary domain/cluster/task names with Russian numerals.
 const enLocale = JSON.parse(fs.readFileSync('src/i18n/en.json', 'utf8'));
 const ruLocale = JSON.parse(fs.readFileSync('src/i18n/ru.json', 'utf8'));
-assert.equal(enLocale.list.showingRange, 'Showing {{from}}-{{to}} of {{total}}');
-assert.equal(ruLocale.list.showingRange, 'Показано {{from}}–{{to}} из {{total}}');
-assert.equal(ruLocale.list.showingRange.includes('{{name}}'), false);
+assert.equal(enLocale.webuiRu.list.showingRange, 'Showing {{from}}-{{to}} of {{total}}');
+assert.equal(ruLocale.webuiRu.list.showingRange, 'Показано {{from}}–{{to}} из {{total}}');
+assert.equal(ruLocale.webuiRu.list.showingRange.includes('{{name}}'), false);
 function renderRange(template, from, to, total) {
   return template.replace(/{{(from|to|total)}}/g, (_match, key) => String({ from, to, total }[key]));
 }
@@ -559,14 +559,14 @@ for (const [from, to, total, expected] of [
   [1, 5, 5, 'Показано 1–5 из 5'],
   [26, 50, 125, 'Показано 26–50 из 125'],
 ]) {
-  assert.equal(renderRange(ruLocale.list.showingRange, from, to, total), expected);
+  assert.equal(renderRange(ruLocale.webuiRu.list.showingRange, from, to, total), expected);
 }
 assert.equal(enLocale.list.showing, 'Showing {{from}}-{{to}} of {{total}} {{name}}');
 assert.equal(ruLocale.list.showing, 'Показано {{from}}–{{to}} из {{total}} {{name}}');
 const paginationSource = fs.readFileSync('src/components/lists/Pagination.tsx', 'utf8');
 assert.ok(paginationSource.includes("const { t, i18n } = useTranslation()"));
 assert.ok(paginationSource.includes("toLowerCase() === 'ru'"));
-assert.ok(paginationSource.includes("t('list.showingRange'"));
+assert.ok(paginationSource.includes("t('webuiRu.list.showingRange'"));
 assert.ok(paginationSource.includes("t('list.showing'"));
 assert.ok(paginationSource.includes('name: pluralName'));
 assert.ok(paginationSource.includes("t('list.showingItems'"));
