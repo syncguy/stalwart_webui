@@ -1445,3 +1445,96 @@ if(catalog.entries['variant/x:Coordinator/Kafka/label']){
 }
 
 
+
+
+// Stage31: protocol and proxy display only; no live HTTP, IMAP, JMAP or mail operations.
+if(catalog.entries['enum/ClientIpSource/forwarded/label']){
+  let enumCases31=0,formCases31=0,mapCases31=0;
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;
+    const enumName='ClientIpSource',variants=resolver19.getEnum(schema,enumName);
+    assert.deepEqual(Array.from(variants,v=>v.name).sort(),['forwarded','peer','xForwardedFor']);
+    const raw=JSON.stringify(variants);
+    for(const [selected,next] of [['forwarded','peer'],['peer','xForwardedFor'],['xForwardedFor','forwarded']]){
+      let event;
+      const props={type:{type:'enum',enumName,nullable:false},formField:{name:'clientIpSource'},value:selected,onChange:v=>{event=v;},readOnly:false,control:{}};
+      for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+        language=lang;hash=activeHash;
+        const expected=v=>lang==='ru'&&activeHash===pin.schemaHash?ru('enum/'+enumName+'/'+v.name+'/label'):v.label;
+        const html=render(EnumWidget,props);
+        assert.deepEqual(Array.from(capturedCombo19.options,v=>v.value),Array.from(variants,v=>v.name));
+        for(const [i,v] of variants.entries()){
+          assert.equal(capturedCombo19.options[i].label,expected(v));
+          assert.ok(html.includes(htmlText19(expected(v))));
+          assert.ok(render(scalar20.EnumValue,{schema,enumName,value:v.name}).includes(htmlText19(expected(v))));
+        }
+        assert.equal(capturedCombo19.value,selected);capturedCombo19.onValueChange(next);assert.equal(event,next);
+        assert.equal(props.value,selected);assert.equal(JSON.stringify(variants),raw);
+      }
+      enumCases31++;
+    }
+    // Split forms use the actual form key; their currently unwired description
+    // slots are deliberately NOT credited by this packet.
+    for(const [formKey,objectKey,name,value,changed] of [
+      ['x:Http','x:Http','clientIpSource','forwarded','peer'],
+      ['x:Http','x:Http','forwardedHops',1,2],
+      ['x:Http','x:Http','redirectRoot','https://example.invalid/old','https://example.invalid/new'],
+      ['x:Http','x:Http','responseHeaders',{'X-Synthetic':'old'},{'X-Synthetic':'new'}],
+      ['x:Http/HttpSecurity','x:Http','enableHsts',false,true],
+      ['x:Http/HttpSecurity','x:Http','usePermissiveCors',false,true],
+      ['x:HttpForm','x:HttpForm','fieldHoneyPot','synthetic-old','synthetic-new'],
+      ['x:Imap','x:Imap','allowPlainTextAuth',false,true],
+      ['x:Imap','x:Imap','maxMessagesPerCommand',1000,2000],
+      ['x:Imap','x:Imap','maxMessagesPerSave',2000,3000],
+      ['x:Imap','x:Imap','minUidBatchSize',250,500],
+      ['x:Jmap/JmapLimits','x:Jmap','maxConcurrentUploads',2,4],
+      ['x:Jmap/JmapPush','x:Jmap','maxPushAttempts',3,4],
+      ['x:Jmap/JmapWebsocket','x:Jmap','websocketHeartbeat','30s','60s'],
+      ['x:Email/EmailLimits','x:Email','maxFlagLength',64,128],
+      ['x:EmailFolder','x:EmailFolder','create',false,true],
+    ]){
+      const form=schema.forms[formKey],field=schema.fields[objectKey]?.properties[name];
+      assert.ok(form&&field,formKey+'/'+name);
+      const section=form.sections.find(s=>s.fields.some(f=>f.name===name));
+      assert.ok(section,formKey+'/'+name);
+      const formField=section.fields.find(f=>f.name===name);
+      const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+      assert.equal(formField.label,original(slot));
+      const sections=[{key:'section-'+form.sections.indexOf(section),title:section.title,fields:[{formField,field}]}];
+      const data={[name]:value},snapshot=JSON.stringify({sections,data});
+      let event;
+      const props={sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}};
+      for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+        language=lang;hash=activeHash;
+        const localized=lang==='ru'&&activeHash===pin.schemaHash;
+        const html=render(FormSections,props);
+        assert.ok(html.includes(htmlText19(localized?ru(slot):original(slot))),slot);
+        if(catalog.entries[desc]){
+          assert.equal(field.description,original(desc));
+          assert.ok(html.includes(htmlText19(localized?ru(desc):original(desc))),desc);
+        }else{
+          assert.ok(field.description);
+          assert.ok(html.includes(htmlText19(field.description)),desc+' raw fallback');
+        }
+        assert.equal(capturedField.formField.name,name);
+        assert.equal(capturedField.value,value);
+        if(name==='responseHeaders'){
+          for(const key of ['keyLabel','valueLabel']){
+            const labelSlot=slot+'/'+key;
+            assert.equal(formField[key],original(labelSlot));
+            assert.equal(capturedField.formField[key],localized?ru(labelSlot):original(labelSlot));
+          }
+        }
+        capturedField.onChange(changed);assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({sections,data}),snapshot);
+      }
+      if(name==='responseHeaders')mapCases31++;
+      formCases31++;
+    }
+  }
+  assert.equal(enumCases31,6);
+  assert.equal(formCases31,32);
+  assert.equal(mapCases31,2);
+  console.log('PASS: Stage31 actual EnumWidget/EnumValue/FormSections/FieldRow synthetic SSR, both pinned editions, trusted proxy sources and raw IDs, header map key/value display metadata, IMAP limits and JMAP split-form labels, raw callbacks and unknown-hash fallback; unwired descriptions explicitly left raw; no live connections or configuration writes');
+}

@@ -1334,6 +1334,18 @@
       "original": "Excessive failed RCPT TO commands",
       "ru": "Слишком много неудачных команд RCPT TO"
     },
+    "enum/ClientIpSource/forwarded/label": {
+      "original": "Forwarded header (RFC 7239)",
+      "ru": "Заголовок Forwarded (RFC 7239)"
+    },
+    "enum/ClientIpSource/peer/label": {
+      "original": "TCP peer address",
+      "ru": "Адрес удалённой стороны TCP-соединения"
+    },
+    "enum/ClientIpSource/xForwardedFor/label": {
+      "original": "X-Forwarded-For header",
+      "ru": "Заголовок X-Forwarded-For"
+    },
     "enum/ClusterNodeStatus/active/label": {
       "original": "Active",
       "ru": "Активен"
@@ -9174,6 +9186,22 @@
       "original": "The local part of the email alias (the part before the @ symbol)",
       "ru": "Часть почтового адреса до знака @"
     },
+    "field/x:EmailFolder/aliases/description": {
+      "original": "List of folder aliases",
+      "ru": "Список псевдонимов папки"
+    },
+    "field/x:EmailFolder/create/description": {
+      "original": "Whether to create the folder automatically",
+      "ru": "Создавать ли папку автоматически"
+    },
+    "field/x:EmailFolder/name/description": {
+      "original": "Default name for the folder",
+      "ru": "Имя папки по умолчанию"
+    },
+    "field/x:EmailFolder/subscribe/description": {
+      "original": "Whether to subscribe to the folder automatically",
+      "ru": "Подписываться ли на папку автоматически"
+    },
     "field/x:EncryptionSettings/allowSpamTraining/description": {
       "original": "Whether to allow training the spam classifier with plaintext emails before encryption",
       "ru": "Разрешать ли обучение классификатора спама на открытом тексте писем перед шифрованием"
@@ -9378,6 +9406,70 @@
       "original": "Amount of disk space currently used by this account (bytes)",
       "ru": "Занятое группой место на диске (байты)"
     },
+    "field/x:Http/clientIpSource/description": {
+      "original": "Specifies where the client's IP address is obtained from. When a forwarding header is selected, the listener must only be reachable through the trusted proxies, since any client that connects directly can claim an arbitrary address.",
+      "ru": "Определяет источник IP-адреса клиента. При выборе заголовка переадресации слушатель должен быть доступен только через доверенные прокси-серверы, поскольку любой клиент при прямом подключении может указать произвольный адрес."
+    },
+    "field/x:Http/forwardedHops/description": {
+      "original": "Number of trusted proxy entries appended to the forwarding header; the client address is taken this many entries from the right.",
+      "ru": "Число записей доверенных прокси-серверов, добавляемых в заголовок переадресации; адрес клиента берётся из записи на указанной позиции справа."
+    },
+    "field/x:Http/redirectRoot/description": {
+      "original": "The URL to redirect users to when they access the root path of the HTTP server. If not set, the server will return a 404 Not Found response.",
+      "ru": "URL для перенаправления пользователей при обращении к корневому пути HTTP-сервера. Если не задан, сервер возвращает ответ 404 Not Found."
+    },
+    "field/x:Http/responseHeaders/description": {
+      "original": "Additional headers to include in HTTP responses",
+      "ru": "Дополнительные заголовки ответов HTTP"
+    },
+    "field/x:HttpForm/defaultFromAddress/description": {
+      "original": "The default e-mail address to use when the sender does not provide one.",
+      "ru": "Почтовый адрес по умолчанию, если отправитель его не указал."
+    },
+    "field/x:HttpForm/defaultName/description": {
+      "original": "The default name to use when the sender does not provide one.",
+      "ru": "Имя по умолчанию, если отправитель его не указал."
+    },
+    "field/x:HttpForm/defaultSubject/description": {
+      "original": "The default subject to use when the sender does not provide one.",
+      "ru": "Тема по умолчанию, если отправитель её не указал."
+    },
+    "field/x:HttpForm/deliverTo/description": {
+      "original": "List of local e-mail addresses to deliver the contact form to.",
+      "ru": "Список локальных почтовых адресов, на которые отправляются сообщения из контактной формы."
+    },
+    "field/x:HttpForm/enable/description": {
+      "original": "Whether to enable contact form submissions.",
+      "ru": "Разрешать ли отправку контактной формы."
+    },
+    "field/x:HttpForm/fieldEmail/description": {
+      "original": "The name of the field in the contact form that contains the e-mail address of the sender.",
+      "ru": "Имя поля контактной формы, содержащего почтовый адрес отправителя."
+    },
+    "field/x:HttpForm/fieldHoneyPot/description": {
+      "original": "The name of the field in the contact form that is used as a honey pot to catch spam bots.",
+      "ru": "Имя поля контактной формы, используемого как ловушка для спам-ботов."
+    },
+    "field/x:HttpForm/fieldName/description": {
+      "original": "The name of the field in the contact form that contains the name of the sender.",
+      "ru": "Имя поля контактной формы, содержащего имя отправителя."
+    },
+    "field/x:HttpForm/fieldSubject/description": {
+      "original": "The name of the field in the contact form that contains the subject of the message.",
+      "ru": "Имя поля контактной формы, содержащего тему сообщения."
+    },
+    "field/x:HttpForm/maxSize/description": {
+      "original": "Maximum size of the contact form submission in bytes.",
+      "ru": "Максимальный размер данных отправляемой контактной формы в байтах."
+    },
+    "field/x:HttpForm/rateLimit/description": {
+      "original": "Maximum number of contact form submissions that can be made in a timeframe by a given IP address.",
+      "ru": "Максимальное число отправок контактной формы за заданный период с одного IP-адреса."
+    },
+    "field/x:HttpForm/validateDomain/description": {
+      "original": "Whether to validate the domain of the sender's email address.",
+      "ru": "Проверять ли домен почтового адреса отправителя."
+    },
     "field/x:HttpLookup/allowInvalidCerts/description": {
       "original": "Whether to allow invalid SSL certificates",
       "ru": "Разрешать ли использование недействительных сертификатов SSL"
@@ -9457,6 +9549,54 @@
     "field/x:HurricaneCredential/zone/description": {
       "original": "DNS zone (origin) the credential applies to",
       "ru": "Зона DNS (origin), к которой относятся учётные данные"
+    },
+    "field/x:Imap/allowPlainTextAuth/description": {
+      "original": "Whether to allow plain text authentication on unencrypted connections",
+      "ru": "Разрешать ли аутентификацию открытым текстом в незашифрованных соединениях"
+    },
+    "field/x:Imap/anonymousTimeout/description": {
+      "original": "Time an unauthenticated session can stay inactive before being ended by the server",
+      "ru": "Время бездействия сеанса без аутентификации, по истечении которого сервер завершает сеанс"
+    },
+    "field/x:Imap/authenticatedTimeout/description": {
+      "original": "Time an authenticated session can remain idle before the server terminates it",
+      "ru": "Время бездействия аутентифицированного сеанса, по истечении которого сервер завершает сеанс"
+    },
+    "field/x:Imap/idleTimeout/description": {
+      "original": "Time a connection can stay idle in the IMAP IDLE state before the server breaks the connection",
+      "ru": "Время бездействия соединения в состоянии IMAP IDLE, по истечении которого сервер разрывает соединение"
+    },
+    "field/x:Imap/maxAuthFailures/description": {
+      "original": "Number of authentication attempts a user can make before being disconnected by the server",
+      "ru": "Число попыток аутентификации пользователя, после которого сервер разрывает соединение"
+    },
+    "field/x:Imap/maxConcurrentConnections/description": {
+      "original": "Maximum number of concurrent authenticated IMAP connections per account",
+      "ru": "Максимальное число одновременных аутентифицированных IMAP-соединений на учётную запись"
+    },
+    "field/x:Imap/maxMessagesPerCommand/description": {
+      "original": "Maximum number of messages processed by a single FETCH, SEARCH, STORE, MOVE or UID EXPUNGE command, announced to clients through the MESSAGELIMIT capability. Lowering this truncates results for clients that do not implement RFC 9738",
+      "ru": "Максимальное число сообщений, обрабатываемых одной командой FETCH, SEARCH, STORE, MOVE или UID EXPUNGE; объявляется клиентам через расширение MESSAGELIMIT. Уменьшение значения приводит к усечению результатов у клиентов, не реализующих RFC 9738"
+    },
+    "field/x:Imap/maxMessagesPerSave/description": {
+      "original": "Maximum number of messages accepted by a single COPY or APPEND command, announced to clients through the SAVELIMIT capability. These commands are atomic, so exceeding the limit stores nothing; keep it at or above the MESSAGELIMIT value",
+      "ru": "Максимальное число сообщений, принимаемых одной командой COPY или APPEND; объявляется клиентам через расширение SAVELIMIT. Эти команды атомарны: при превышении лимита ничего не сохраняется. Устанавливайте значение не ниже MESSAGELIMIT"
+    },
+    "field/x:Imap/maxRequestSize/description": {
+      "original": "Maximum size of an IMAP request that the server will accept",
+      "ru": "Максимальный размер запроса IMAP, принимаемого сервером"
+    },
+    "field/x:Imap/maxUidBatches/description": {
+      "original": "Maximum number of UID ranges returned by a single UIDBATCHES command; wider requests are rejected with a TOOMANY response code",
+      "ru": "Максимальное число диапазонов UID, возвращаемых одной командой UIDBATCHES; запросы с большим числом диапазонов отклоняются с кодом ответа TOOMANY"
+    },
+    "field/x:Imap/minUidBatchSize/description": {
+      "original": "Smallest batch size a client may ask for in a UIDBATCHES command; smaller requests are rejected with a TOOFEW response code. Cannot exceed 500, which is the batch size every server is required to support",
+      "ru": "Минимальный размер пакета, который клиент может запросить командой UIDBATCHES; запросы меньшего размера отклоняются с кодом ответа TOOFEW. Значение не может превышать 500 — размер пакета, который обязан поддерживать каждый сервер"
+    },
+    "field/x:Imap/rateLimit/description": {
+      "original": "Maximum number of requests an account may issue within the rate period (applies to IMAP, POP3 and ManageSieve)",
+      "ru": "Максимальное число запросов от учётной записи за заданный период (применяется к IMAP, POP3 и ManageSieve)"
     },
     "field/x:InMemorySwap/chunkSize/description": {
       "original": "Size of each snapshot chunk, stored as one value. Smaller chunks hold up other requests to the store for less time",
@@ -15610,13 +15750,25 @@
       "original": "Headers",
       "ru": "Заголовки"
     },
+    "form/x:Email/EmailDefaults/field/defaultFolders": {
+      "original": "Default Folders",
+      "ru": "Папки по умолчанию"
+    },
     "form/x:Email/EmailDefaults/field/defaultFolders/keyLabel": {
       "original": "Special Use",
       "ru": "Специальное назначение"
     },
+    "form/x:Email/EmailDefaults/field/maxIdentities": {
+      "original": "Identities",
+      "ru": "Почтовые идентификаторы"
+    },
     "form/x:Email/EmailDefaults/field/maxMailboxes": {
       "original": "Mailboxes",
       "ru": "Почтовые ящики"
+    },
+    "form/x:Email/EmailDefaults/field/maxMaskedAddresses": {
+      "original": "Masked Emails",
+      "ru": "Маскированные почтовые адреса"
     },
     "form/x:Email/EmailDefaults/field/maxMessages": {
       "original": "Emails",
@@ -15625,6 +15777,78 @@
     "form/x:Email/EmailDefaults/field/maxPublicKeys": {
       "original": "Public Keys",
       "ru": "Открытые ключи"
+    },
+    "form/x:Email/EmailDefaults/field/maxSubmissions": {
+      "original": "Submissions",
+      "ru": "Отправки писем"
+    },
+    "form/x:Email/EmailDefaults/section/section-0": {
+      "original": "Default Quotas",
+      "ru": "Квоты по умолчанию"
+    },
+    "form/x:Email/EmailDefaults/section/section-1": {
+      "original": "Default Folders",
+      "ru": "Папки по умолчанию"
+    },
+    "form/x:Email/EmailDefaults/subtitle": {
+      "original": "Configure default limits for email-related entities and the default special-use folders to create for new users",
+      "ru": "Настройка ограничений по умолчанию для почтовых объектов и специальных папок, создаваемых для новых пользователей"
+    },
+    "form/x:Email/EmailLimits/field/maxAttachmentSize": {
+      "original": "Attachment Size",
+      "ru": "Размер вложения"
+    },
+    "form/x:Email/EmailLimits/field/maxFlagLength": {
+      "original": "Max Flag Length",
+      "ru": "Макс. длина флага"
+    },
+    "form/x:Email/EmailLimits/field/maxFlagsPerEmail": {
+      "original": "Max Flags per E-mail",
+      "ru": "Макс. число флагов на письмо"
+    },
+    "form/x:Email/EmailLimits/field/maxHeaderCount": {
+      "original": "Max Header Count",
+      "ru": "Макс. число заголовков"
+    },
+    "form/x:Email/EmailLimits/field/maxHeaderSize": {
+      "original": "Max Header Size",
+      "ru": "Макс. размер заголовочной части"
+    },
+    "form/x:Email/EmailLimits/field/maxMailboxDepth": {
+      "original": "Max Depth",
+      "ru": "Макс. глубина вложенности"
+    },
+    "form/x:Email/EmailLimits/field/maxMailboxNameLength": {
+      "original": "Name Length",
+      "ru": "Длина имени"
+    },
+    "form/x:Email/EmailLimits/field/maxMailboxesPerEmail": {
+      "original": "Max Mailboxes per E-mail",
+      "ru": "Макс. число папок на письмо"
+    },
+    "form/x:Email/EmailLimits/field/maxMessageSize": {
+      "original": "E-mail Size",
+      "ru": "Размер письма"
+    },
+    "form/x:Email/EmailLimits/section/section-0": {
+      "original": "Email Limits",
+      "ru": "Ограничения писем"
+    },
+    "form/x:Email/EmailLimits/section/section-1": {
+      "original": "Header Limits",
+      "ru": "Ограничения заголовков"
+    },
+    "form/x:Email/EmailLimits/section/section-2": {
+      "original": "Flag Limits",
+      "ru": "Ограничения флагов"
+    },
+    "form/x:Email/EmailLimits/section/section-3": {
+      "original": "Mailbox Limits",
+      "ru": "Ограничения папок"
+    },
+    "form/x:Email/EmailLimits/subtitle": {
+      "original": "Configure limits related to email and folder sizes, mailbox depth, and name length",
+      "ru": "Настройка ограничений размеров писем и папок, глубины вложенности папок и длины их имён"
     },
     "form/x:Email/EmailStorage/field/blobEncryptionKey": {
       "original": "Encryption Key",
@@ -15666,9 +15890,17 @@
       "original": "Aliases",
       "ru": "Псевдонимы"
     },
+    "form/x:EmailFolder/field/create": {
+      "original": "Create automatically",
+      "ru": "Создавать автоматически"
+    },
     "form/x:EmailFolder/field/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "form/x:EmailFolder/field/subscribe": {
+      "original": "Subscribe automatically",
+      "ru": "Подписываться автоматически"
     },
     "form/x:Encryption/EncryptionDiscovery/section/section-2": {
       "original": "Cache",
@@ -16110,17 +16342,137 @@
       "original": "Details",
       "ru": "Сведения"
     },
+    "form/x:Http/HttpSecurity/field/allowedEndpoints": {
+      "original": "Allowed endpoints",
+      "ru": "Разрешённые конечные точки"
+    },
+    "form/x:Http/HttpSecurity/field/enableHsts": {
+      "original": "Enable HTTP Strict Transport Security",
+      "ru": "Включить строгую транспортную безопасность HTTP"
+    },
+    "form/x:Http/HttpSecurity/field/rateLimitAnonymous": {
+      "original": "Anonymous",
+      "ru": "Без аутентификации"
+    },
+    "form/x:Http/HttpSecurity/field/rateLimitAuthenticated": {
+      "original": "Authenticated",
+      "ru": "С аутентификацией"
+    },
+    "form/x:Http/HttpSecurity/field/usePermissiveCors": {
+      "original": "Permissive CORS policy",
+      "ru": "Разрешающая политика CORS"
+    },
     "form/x:Http/HttpSecurity/section/section-0": {
       "original": "Security",
       "ru": "Безопасность"
+    },
+    "form/x:Http/HttpSecurity/section/section-1": {
+      "original": "Rate Limit",
+      "ru": "Ограничение частоты запросов"
+    },
+    "form/x:Http/HttpSecurity/subtitle": {
+      "original": "Configure HTTP security-related settings including allowed endpoints, HSTS, CORS policy, and the use of Forwarded headers to determine client IP addresses.",
+      "ru": "Настройка безопасности HTTP: разрешённые конечные точки, HSTS, политика CORS и использование заголовков Forwarded для определения IP-адресов клиентов."
+    },
+    "form/x:Http/field/clientIpSource": {
+      "original": "Client IP source",
+      "ru": "Источник IP-адреса клиента"
+    },
+    "form/x:Http/field/forwardedHops": {
+      "original": "Trusted proxy hops",
+      "ru": "Число доверенных прокси"
+    },
+    "form/x:Http/field/redirectRoot": {
+      "original": "Redirect root",
+      "ru": "Перенаправление корневого пути"
+    },
+    "form/x:Http/field/responseHeaders": {
+      "original": "Headers",
+      "ru": "Заголовки"
+    },
+    "form/x:Http/field/responseHeaders/keyLabel": {
+      "original": "Header Name",
+      "ru": "Имя заголовка"
+    },
+    "form/x:Http/field/responseHeaders/valueLabel": {
+      "original": "Header Value",
+      "ru": "Значение заголовка"
+    },
+    "form/x:Http/section/section-0": {
+      "original": "Response",
+      "ru": "Ответ"
+    },
+    "form/x:Http/section/section-1": {
+      "original": "Proxy",
+      "ru": "Прокси-сервер"
+    },
+    "form/x:Http/subtitle": {
+      "original": "Configure HTTP server behaviour including custom response headers and Forwarded header handling",
+      "ru": "Настройка поведения HTTP-сервера, включая дополнительные заголовки ответов и обработку заголовка Forwarded"
+    },
+    "form/x:Http/title": {
+      "original": "HTTP Server",
+      "ru": "HTTP-сервер"
     },
     "form/x:HttpAuthBasic/field/secret": {
       "original": "Password",
       "ru": "Пароль"
     },
+    "form/x:HttpForm/field/defaultFromAddress": {
+      "original": "E-mail default",
+      "ru": "Почтовый адрес по умолчанию"
+    },
+    "form/x:HttpForm/field/defaultName": {
+      "original": "Name default",
+      "ru": "Имя по умолчанию"
+    },
+    "form/x:HttpForm/field/defaultSubject": {
+      "original": "Subject default",
+      "ru": "Тема по умолчанию"
+    },
     "form/x:HttpForm/field/deliverTo": {
       "original": "Recipients",
       "ru": "Получатели"
+    },
+    "form/x:HttpForm/field/enable": {
+      "original": "Enable form submissions",
+      "ru": "Разрешить отправку формы"
+    },
+    "form/x:HttpForm/field/fieldEmail": {
+      "original": "E-mail field",
+      "ru": "Поле почтового адреса"
+    },
+    "form/x:HttpForm/field/fieldHoneyPot": {
+      "original": "Honey Pot field",
+      "ru": "Поле-ловушка для ботов"
+    },
+    "form/x:HttpForm/field/fieldName": {
+      "original": "Name field",
+      "ru": "Поле имени"
+    },
+    "form/x:HttpForm/field/fieldSubject": {
+      "original": "Subject field",
+      "ru": "Поле темы"
+    },
+    "form/x:HttpForm/field/maxSize": {
+      "original": "Max Size",
+      "ru": "Макс. размер"
+    },
+    "form/x:HttpForm/field/rateLimit": {
+      "original": "Rate limit",
+      "ru": "Ограничение частоты запросов"
+    },
+    "form/x:HttpForm/field/validateDomain": {
+      "original": "Validate email domain",
+      "ru": "Проверять почтовый домен"
+    },
+    "form/x:HttpForm/section/section-0": {
+      "original": "Form submission settings",
+      "ru": "Настройки отправки формы"
+    },
+    "form/x:HttpForm/section/section-1": {
+      "original": "Fields",
+      "ru": "Поля"
     },
     "form/x:HttpForm/section/section-2": {
       "original": "Security",
@@ -16129,6 +16481,10 @@
     "form/x:HttpForm/section/section-3": {
       "original": "Defaults",
       "ru": "Значения по умолчанию"
+    },
+    "form/x:HttpForm/subtitle": {
+      "original": "Configure the public contact form endpoint that converts web form submissions into emails delivered to local recipients, including field mappings and anti-spam protections",
+      "ru": "Настройка общедоступной конечной точки контактной формы, преобразующей данные веб-формы в письма для локальных получателей, включая сопоставление полей и защиту от спама"
     },
     "form/x:HttpForm/title": {
       "original": "Contact Form",
@@ -16238,6 +16594,82 @@
       "original": "Credential",
       "ru": "Учётные данные"
     },
+    "form/x:Imap/field/allowPlainTextAuth": {
+      "original": "Allow plain text authentication",
+      "ru": "Разрешить аутентификацию открытым текстом"
+    },
+    "form/x:Imap/field/anonymousTimeout": {
+      "original": "Anonymous",
+      "ru": "Без аутентификации"
+    },
+    "form/x:Imap/field/authenticatedTimeout": {
+      "original": "Authenticated",
+      "ru": "С аутентификацией"
+    },
+    "form/x:Imap/field/idleTimeout": {
+      "original": "Idle",
+      "ru": "Бездействие"
+    },
+    "form/x:Imap/field/maxAuthFailures": {
+      "original": "Max Failures",
+      "ru": "Макс. число неудачных попыток"
+    },
+    "form/x:Imap/field/maxConcurrentConnections": {
+      "original": "Concurrent Connections",
+      "ru": "Одновременные соединения"
+    },
+    "form/x:Imap/field/maxMessagesPerCommand": {
+      "original": "Messages per Command",
+      "ru": "Сообщений на команду"
+    },
+    "form/x:Imap/field/maxMessagesPerSave": {
+      "original": "Messages per Copy or Append",
+      "ru": "Сообщений на команду COPY или APPEND"
+    },
+    "form/x:Imap/field/maxRequestSize": {
+      "original": "Request Size",
+      "ru": "Размер запроса"
+    },
+    "form/x:Imap/field/maxUidBatches": {
+      "original": "Maximum Batches",
+      "ru": "Макс. число пакетов"
+    },
+    "form/x:Imap/field/minUidBatchSize": {
+      "original": "Minimum Batch Size",
+      "ru": "Мин. размер пакета"
+    },
+    "form/x:Imap/field/rateLimit": {
+      "original": "Request Rate",
+      "ru": "Частота запросов"
+    },
+    "form/x:Imap/section/section-0": {
+      "original": "Authentication settings",
+      "ru": "Настройки аутентификации"
+    },
+    "form/x:Imap/section/section-1": {
+      "original": "Request Limits",
+      "ru": "Ограничения запросов"
+    },
+    "form/x:Imap/section/section-2": {
+      "original": "UID Batches",
+      "ru": "Пакеты UID"
+    },
+    "form/x:Imap/section/section-3": {
+      "original": "Timeouts",
+      "ru": "Время ожидания"
+    },
+    "form/x:Imap/section/section-4": {
+      "original": "Rate Limiting",
+      "ru": "Ограничение частоты запросов"
+    },
+    "form/x:Imap/subtitle": {
+      "original": "Configure the IMAP server, including authentication policies, request size limits, idle and session timeouts, and per-connection rate limits",
+      "ru": "Настройка IMAP-сервера: политики аутентификации, ограничения размера запросов, время ожидания при бездействии и время ожидания сеансов, ограничения частоты запросов для соединения"
+    },
+    "form/x:Imap/title": {
+      "original": "IMAP Protocol",
+      "ru": "Протокол IMAP"
+    },
     "form/x:InMemoryStore/field/@type": {
       "original": "Store type",
       "ru": "Тип хранилища"
@@ -16318,9 +16750,53 @@
       "original": "Failed",
       "ru": "С ошибками"
     },
+    "form/x:Jmap/JmapLimits/field/maxChangesResults": {
+      "original": "Changes",
+      "ru": "Изменения (Changes)"
+    },
+    "form/x:Jmap/JmapLimits/field/maxConcurrentRequests": {
+      "original": "Concurrent",
+      "ru": "Одновременные запросы"
+    },
+    "form/x:Jmap/JmapLimits/field/maxConcurrentUploads": {
+      "original": "Max Concurrent",
+      "ru": "Макс. одновременных загрузок"
+    },
+    "form/x:Jmap/JmapLimits/field/maxGetResults": {
+      "original": "Get",
+      "ru": "Получение (Get)"
+    },
+    "form/x:Jmap/JmapLimits/field/maxMethodCalls": {
+      "original": "Method Calls",
+      "ru": "Вызовы методов"
+    },
+    "form/x:Jmap/JmapLimits/field/maxQueryResults": {
+      "original": "Query",
+      "ru": "Поиск (Query)"
+    },
     "form/x:Jmap/JmapLimits/field/maxRequestSize": {
       "original": "Size",
       "ru": "Размер"
+    },
+    "form/x:Jmap/JmapLimits/field/maxSetObjects": {
+      "original": "Set",
+      "ru": "Изменение (Set)"
+    },
+    "form/x:Jmap/JmapLimits/field/maxSnippetResults": {
+      "original": "Snippets",
+      "ru": "Фрагменты результатов поиска"
+    },
+    "form/x:Jmap/JmapLimits/field/maxUploadCount": {
+      "original": "Total Files",
+      "ru": "Всего файлов"
+    },
+    "form/x:Jmap/JmapLimits/field/maxUploadSize": {
+      "original": "Max Size",
+      "ru": "Макс. размер"
+    },
+    "form/x:Jmap/JmapLimits/field/parseLimitContact": {
+      "original": "Contacts",
+      "ru": "Контакты"
     },
     "form/x:Jmap/JmapLimits/field/parseLimitEmail": {
       "original": "Emails",
@@ -16329,6 +16805,126 @@
     "form/x:Jmap/JmapLimits/field/parseLimitEvent": {
       "original": "Calendars",
       "ru": "Календари"
+    },
+    "form/x:Jmap/JmapLimits/field/uploadQuota": {
+      "original": "Total Size",
+      "ru": "Суммарный размер"
+    },
+    "form/x:Jmap/JmapLimits/field/uploadTtl": {
+      "original": "Expire after",
+      "ru": "Удалять по истечении"
+    },
+    "form/x:Jmap/JmapLimits/section/section-0": {
+      "original": "Request Limits",
+      "ru": "Ограничения запросов"
+    },
+    "form/x:Jmap/JmapLimits/section/section-1": {
+      "original": "Max Objects",
+      "ru": "Макс. число объектов"
+    },
+    "form/x:Jmap/JmapLimits/section/section-2": {
+      "original": "Max Results",
+      "ru": "Макс. число результатов"
+    },
+    "form/x:Jmap/JmapLimits/section/section-3": {
+      "original": "Upload Limits",
+      "ru": "Ограничения загрузок"
+    },
+    "form/x:Jmap/JmapLimits/section/section-4": {
+      "original": "Parsing Limits",
+      "ru": "Ограничения разбора"
+    },
+    "form/x:Jmap/JmapLimits/subtitle": {
+      "original": "Configure the request, upload and parsing limits enforced by the JMAP server, including maximum object counts, response sizes, and concurrent uploads",
+      "ru": "Настройка ограничений запросов, загрузок и разбора данных на JMAP-сервере, включая максимальное число объектов, размеры ответов и одновременные загрузки"
+    },
+    "form/x:Jmap/JmapPush/field/eventSourceThrottle": {
+      "original": "Throttle",
+      "ru": "Мин. интервал уведомлений"
+    },
+    "form/x:Jmap/JmapPush/field/maxPushAttempts": {
+      "original": "Max Attempts",
+      "ru": "Макс. число попыток"
+    },
+    "form/x:Jmap/JmapPush/field/maxPushSize": {
+      "original": "Max. Push Size",
+      "ru": "Макс. размер push-уведомления"
+    },
+    "form/x:Jmap/JmapPush/field/maxSubscriptions": {
+      "original": "Max. Subscriptions",
+      "ru": "Макс. число подписок"
+    },
+    "form/x:Jmap/JmapPush/field/pushAttemptWait": {
+      "original": "Attempt Interval",
+      "ru": "Интервал между попытками"
+    },
+    "form/x:Jmap/JmapPush/field/pushRequestTimeout": {
+      "original": "Request",
+      "ru": "Время ожидания запроса"
+    },
+    "form/x:Jmap/JmapPush/field/pushRetryWait": {
+      "original": "Retry Interval",
+      "ru": "Интервал повторных попыток"
+    },
+    "form/x:Jmap/JmapPush/field/pushShardsTotal": {
+      "original": "Shards Total",
+      "ru": "Общее число сегментов (шардов)"
+    },
+    "form/x:Jmap/JmapPush/field/pushThrottle": {
+      "original": "Throttle",
+      "ru": "Мин. интервал уведомлений"
+    },
+    "form/x:Jmap/JmapPush/field/pushVerifyTimeout": {
+      "original": "Verify",
+      "ru": "Время ожидания проверки"
+    },
+    "form/x:Jmap/JmapPush/field/webPushContact": {
+      "original": "Contact",
+      "ru": "Контактные данные"
+    },
+    "form/x:Jmap/JmapPush/field/webPushKey": {
+      "original": "VAPID Key",
+      "ru": "Ключ VAPID"
+    },
+    "form/x:Jmap/JmapPush/section/section-0": {
+      "original": "Push Subscriptions",
+      "ru": "Подписки на push-уведомления"
+    },
+    "form/x:Jmap/JmapPush/section/section-1": {
+      "original": "Push Timeouts",
+      "ru": "Время ожидания push-уведомлений"
+    },
+    "form/x:Jmap/JmapPush/section/section-2": {
+      "original": "Web Push (VAPID)",
+      "ru": "Уведомления Web Push (VAPID)"
+    },
+    "form/x:Jmap/JmapPush/section/section-3": {
+      "original": "Event Source",
+      "ru": "Источник событий"
+    },
+    "form/x:Jmap/JmapPush/subtitle": {
+      "original": "Configure JMAP push subscriptions and Server-Sent Events delivery, including retry behaviour, throttling, and the maximum number of subscriptions per account",
+      "ru": "Настройка подписок JMAP на push-уведомления и доставки событий Server-Sent Events, включая повторные попытки, ограничение частоты уведомлений и максимальное число подписок на учётную запись"
+    },
+    "form/x:Jmap/JmapWebsocket/field/websocketHeartbeat": {
+      "original": "Heartbeat",
+      "ru": "Интервал проверки соединения"
+    },
+    "form/x:Jmap/JmapWebsocket/field/websocketThrottle": {
+      "original": "Throttle",
+      "ru": "Мин. интервал уведомлений"
+    },
+    "form/x:Jmap/JmapWebsocket/field/websocketTimeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:Jmap/JmapWebsocket/section/section-0": {
+      "original": "JMAP over WebSocket",
+      "ru": "JMAP через WebSocket"
+    },
+    "form/x:Jmap/JmapWebsocket/subtitle": {
+      "original": "Configure the JMAP WebSocket transport, including idle timeouts, heartbeat interval, and the throttling of notifications sent to connected clients",
+      "ru": "Настройка транспорта JMAP через WebSocket: время ожидания при бездействии, интервал проверки соединения и ограничение частоты уведомлений, отправляемых подключённым клиентам"
     },
     "form/x:JokerAuthApiKey/field/apiKey": {
       "original": "API Key",
@@ -24066,6 +24662,10 @@
       "original": "Defines an email domain and its DNS, DKIM, and TLS certificate settings.",
       "ru": "Параметры почтового домена, DNS, DKIM и сертификатов TLS."
     },
+    "object/x:Email/description": {
+      "original": "Configures email message limits, compression, and default folder settings.",
+      "ru": "Настройка ограничений почтовых сообщений, сжатия и папок по умолчанию."
+    },
     "object/x:EventTracingLevel/description": {
       "original": "Defines a custom logging level override for a specific event type.",
       "ru": "Переопределяет уровень журналирования для определённого типа событий."
@@ -24078,9 +24678,21 @@
       "original": "Configures file storage limits, compression and encryption.",
       "ru": "Настраивает ограничения хранения файлов, сжатие и шифрование."
     },
+    "object/x:Http/description": {
+      "original": "Configures HTTP server settings including rate limiting, CORS, and security headers.",
+      "ru": "Настройка HTTP-сервера, включая ограничение частоты запросов, CORS и заголовки безопасности."
+    },
+    "object/x:HttpForm/description": {
+      "original": "Configures the contact form submission endpoint.",
+      "ru": "Настройка конечной точки отправки контактной формы."
+    },
     "object/x:HttpLookup/description": {
       "original": "Defines an HTTP-based lookup list.",
       "ru": "Определяет список для поиска, получаемый по HTTP."
+    },
+    "object/x:Imap/description": {
+      "original": "Configures IMAP protocol settings including authentication, timeouts, and rate limits.",
+      "ru": "Настройка протокола IMAP, включая аутентификацию, время ожидания и ограничение частоты запросов."
     },
     "object/x:InMemoryStore/description": {
       "original": "Configures the in-memory cache and lookup store.",
@@ -24089,6 +24701,10 @@
     "object/x:IndexQueueStatus/description": {
       "original": "Represents the processing state of a search index queue.",
       "ru": "Отображает состояние обработки очереди поискового индекса."
+    },
+    "object/x:Jmap/description": {
+      "original": "Configures JMAP protocol limits for requests, uploads, and push notifications.",
+      "ru": "Настройка ограничений протокола JMAP для запросов, загрузок и push-уведомлений."
     },
     "object/x:Log/description": {
       "original": "Represents a server log entry.",

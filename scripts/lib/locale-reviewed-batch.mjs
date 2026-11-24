@@ -64,6 +64,7 @@ export function batchTextSafe(original,ru,stage=19) {
   // Two exact natural-language dates in stage29, not the RFC Date header.
   const smtpOriginal=stage===29&&['Date the authorization was granted','Date the application last renewed its access'].includes(original)?original.replace(/^Date /,'date '):markerOriginal;
   const coordinatorTokens=s=>[...s.matchAll(/\b(?:Kafka|Keep|NATS|Zenoh|Eclipse|RESP2|RESP3|DER|Sentinels?|wait_timeout|stalwart\.db|host:port)\b/g)].map(m=>m[0]==='Sentinels'?'Sentinel':m[0]).sort();
+  const clientProtocolTokens=s=>[...s.matchAll(/\b(?:Forwarded|HSTS|CORS|IDLE|FETCH|SEARCH|STORE|MOVE|UID EXPUNGE|UIDBATCHES|UID|MESSAGELIMIT|SAVELIMIT|COPY|APPEND|Copy|Append|TOOMANY|TOOFEW|VAPID|Web Push|Server-Sent Events|404 Not Found|Changes|Get|Query|Set)\b/g)].map(m=>({Copy:'COPY',Append:'APPEND'})[m[0]]??m[0]).sort();
   return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
     (stage<20||json(mailTokens(original))===json(mailTokens(ru)))&&
     (stage<21||json(maintenanceTokens(original))===json(maintenanceTokens(ru)))&&
@@ -75,7 +76,8 @@ export function batchTextSafe(original,ru,stage=19) {
     (stage<27||(json(sieveTokens(markerOriginal))===json(sieveTokens(ru))&&rawExtensionSafe&&rawFromSafe))&&
     (stage<28||json(networkTokens(original))===json(networkTokens(ru)))&&
     (stage<29||json(accountTokens(original))===json(accountTokens(ru)))&&
-    (stage<30||json(coordinatorTokens(original))===json(coordinatorTokens(ru)));
+    (stage<30||json(coordinatorTokens(original))===json(coordinatorTokens(ru)))&&
+    (stage<31||json(clientProtocolTokens(original))===json(clientProtocolTokens(ru)));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);

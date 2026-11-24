@@ -225,6 +225,30 @@ assert.equal(batchTextSafe('32 hexadecimal digits without TLS','64 шестна�
 assert.equal(batchTextSafe('Stalwart Keep or Redis','Stalwart Keep или Redis',30),true);
 assert.equal(batchTextSafe('Stalwart Keep or Redis','Stalwart или Redis',30),false);
 
+
+const stage31=packets.find(p=>p.stage===31);
+if(stage31){
+  assert.equal(stage31.entries.length,154);
+  assert.equal(new Set(stage31.entries.map(e=>e.original)).size,147);
+  assert.equal(stage31.baseline,'9c5643d7ec28d9b82b3b7a9f8ae18148a1e943f3');
+  assert.deepEqual(stage31.scope,[{"section":"Settings","screens":["x:Email/EmailDefaults","x:Email/EmailLimits","x:Email/EmailStorage","x:Http","x:Http/HttpSecurity","x:HttpForm","x:Imap","x:Jmap/JmapLimits","x:Jmap/JmapPush","x:Jmap/JmapWebsocket"]}]);
+  assert.equal(digest(stage31.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'986f6fe24e37e08dae5ee14fb7e12a7264f0cf4e0efb3579c20e2822f77dc4a7');
+}
+assert.equal(batchTextSafe('Forwarded header (RFC 7239)','Заголовок Forwarded (RFC 7239)',31),true);
+assert.equal(batchTextSafe('Forwarded header (RFC 7239)','Заголовок X-Forwarded-For (RFC 7239)',31),false);
+assert.equal(batchTextSafe('UIDBATCHES and TOOFEW, 500','UIDBATCHES и TOOFEW, 500',31),true);
+assert.equal(batchTextSafe('UIDBATCHES and TOOFEW, 500','UIDBATCHES и TOOMANY, 500',31),false);
+assert.equal(batchTextSafe('UIDBATCHES and TOOFEW, 500','UIDBATCHES и TOOFEW, 501',31),false);
+assert.equal(batchTextSafe('COPY APPEND SAVELIMIT MESSAGELIMIT','COPY APPEND SAVELIMIT MESSAGELIMIT',31),true);
+assert.equal(batchTextSafe('COPY APPEND SAVELIMIT MESSAGELIMIT','COPY APPEND MESSAGELIMIT MESSAGELIMIT',31),false);
+assert.equal(batchTextSafe('Messages per Copy or Append','Сообщений на команду COPY или APPEND',31),true);
+assert.equal(batchTextSafe('FETCH SEARCH STORE MOVE UID EXPUNGE','Команды FETCH SEARCH STORE MOVE UID EXPUNGE',31),true);
+assert.equal(batchTextSafe('FETCH SEARCH STORE MOVE UID EXPUNGE','Команды FETCH SEARCH STORE MOVE EXPUNGE',31),false);
+assert.equal(batchTextSafe('HSTS CORS VAPID Web Push','Настройки HSTS CORS VAPID Web Push',31),true);
+assert.equal(batchTextSafe('HSTS CORS VAPID Web Push','Настройки HSTS VAPID Web Push',31),false);
+assert.equal(batchTextSafe('HTTP 404 Not Found','Ответ HTTP 404 Not Found',31),true);
+assert.equal(batchTextSafe('HTTP 404 Not Found','Ответ HTTP 404',31),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;
