@@ -130,7 +130,7 @@
     {
       "slot": "enum/SpamClassifyResult/discard/label",
       "original": "Discard message",
-      "ru": "Удалить сообщение без уведомления",
+      "ru": "Отбросить сообщение",
       "decision": "translate"
     },
     {
