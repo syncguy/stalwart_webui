@@ -42,18 +42,18 @@ function resolveViewLayout(
   objectName: string,
   viewName: string,
   data: Record<string, unknown>,
-): { fields: Fields | null; form: Form | null } | null {
+): { fields: Fields | null; form: Form | null; fieldOwner?: string } | null {
   const sch = resolveSchema(schema, objectName);
   if (!sch) return null;
   if (sch.type === 'single') {
-    return { fields: sch.fields, form: resolveForm(schema, viewName, objectName, sch.schemaName) };
+    return { fields: sch.fields, form: resolveForm(schema, viewName, objectName, sch.schemaName), fieldOwner: sch.schemaName };
   }
   const variant = sch.variants.find((v) => v.name === data['@type']);
   const fields = variant?.fields ?? null;
   const variantForm = variant?.schemaName ? resolveVariantForm(schema, viewName, objectName, variant.schemaName) : null;
   const parentForm = resolveForm(schema, viewName, objectName, objectName);
   const sections = [...(parentForm?.sections ?? []), ...(variantForm?.sections ?? [])];
-  return { fields, form: sections.length > 0 ? { ...(variantForm ?? parentForm), sections } : null };
+  return { fields, form: sections.length > 0 ? { ...(variantForm ?? parentForm), sections } : null, fieldOwner: variant?.schemaName };
 }
 
 function buildViewSections(
@@ -103,10 +103,9 @@ export function DynamicView({ schema, objectName, viewName, data, visibleFields,
             {section.items.map(({ formField, field }) => {
               const Render = renderers && Object.hasOwn(renderers, formField.name) ? renderers[formField.name] : null;
               const localizedLabel = display(`form/${viewName}/field/${formField.name}`, formField.label);
-              const localizedDescription = display(
-                `field/${viewName}/${formField.name}/description`,
-                field.description,
-              );
+              const localizedDescription = layout.fieldOwner
+                ? display(`field/${layout.fieldOwner}/${formField.name}/description`, field.description)
+                : field.description;
               return Render ? (
                 <Render
                   key={formField.name}
