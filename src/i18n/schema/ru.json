@@ -33416,7 +33416,7 @@
     },
     "form/x:DnsServerPowerDns/field/url": {
       "original": "API URL",
-      "ru": "URL API"
+      "ru": "URL сервера API"
     },
     "form/x:DnsServerPowerDns/section/section-0": {
       "original": "Connection",
@@ -33656,7 +33656,7 @@
     },
     "form/x:DnsServerUltraDns/field/url": {
       "original": "API URL",
-      "ru": "URL API"
+      "ru": "URL сервера API"
     },
     "form/x:DnsServerUltraDns/field/username": {
       "original": "Username",
