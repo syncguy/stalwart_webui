@@ -78,6 +78,20 @@ export function classify(inputs, graph) {
     const mismatch = row.locations.some(l => at(pinByHash.get(l.schemaHash)?.data, l.sourcePointer) !== row.original);
     const entry = catalog.entries[row.slot];
     const changed = entry && entry.original !== row.original;
+    // A source conflict is resolved only by complete reviewed hash+slot+original
+    // bindings. Never treat an arbitrary translated fallback as proof.
+    const scoped = row.locations.map(l => {
+      const matches = (catalog.scopedEntries ?? []).filter(e => e.schemaHash === l.schemaHash &&
+        e.slot === row.slot && e.original === row.original);
+      if (matches.length !== 1) return null;
+      const e = matches[0];
+      const reviewed = policy.contextCandidates.filter(p => p.schemaHash === e.schemaHash &&
+        p.slot === e.slot && p.original === e.original && p.ru === e.ru);
+      return reviewed.length === 1 && e.ru !== e.original && textSafe(e.original, e.ru) &&
+        inputs.schema.schemaText(l.schemaHash, 'ru', row.slot, row.original) === e.ru ? e : null;
+    });
+    const scopedResolved = conflicts && !entry && scoped.length > 0 && scoped.every(Boolean) &&
+      new Set(scoped.map(e => e.ru)).size === 1;
     const keep = matchRule(row, policy.keepOriginal);
     const technical = matchRule(row, policy.technical);
     const syntax = technicalReason(row);
@@ -87,14 +101,14 @@ export function classify(inputs, graph) {
     const uncertain = uses.filter(u => u.state === 'review');
     const translatedUses = wired.filter(u => u.text.ru !== null && u.text.ru !== row.original);
     const intlUses = wired.filter(u => u.text.conditional);
-    const catalogTranslation = entry?.original === row.original && entry.ru !== row.original;
+    const catalogTranslation = scopedResolved || entry?.original === row.original && entry.ru !== row.original;
     let classification;
-    if (unknown || mismatch || changed || conflicts || adapterDrift.length) {
+    if (unknown || mismatch || changed || conflicts && !scopedResolved || adapterDrift.length) {
       classification = 'needs-review';
       if (unknown) reasons.push('unknown-schema-hash');
       if (mismatch) reasons.push('original-source-mismatch');
       if (changed) reasons.push('accepted-original-changed');
-      if (conflicts) reasons.push('cross-schema-slot-conflict: use hash+slot+original binding');
+      if (conflicts && !scopedResolved) reasons.push('cross-schema-slot-conflict: use hash+slot+original binding');
       if (adapterDrift.length) reasons.push('renderer-source-drift');
     } else if (technical.length || syntax) {
       classification = 'technical'; reasons.push(technical[0]?.reason ?? syntax);
@@ -118,7 +132,8 @@ export function classify(inputs, graph) {
     const result = {
       id: digest(key(row)).slice(0, 20), slot: row.slot, original: row.original, category: row.category,
       classification, reasons, catalogState: changed ? 'changed-original' : catalogTranslation ? 'translated' : entry ? 'same-original' : 'missing',
-      acceptedTranslation: entry?.original === row.original ? entry.ru : null,
+      acceptedTranslation: scopedResolved ? scoped[0].ru : entry?.original === row.original ? entry.ru : null,
+      sourceConflict: conflicts, scopedBindingVerified: scopedResolved,
       locations: row.locations, sections: unique(uses.map(u => u.section)),
       reachability: uses.length ? 'static-reference-only' : 'unproven', access: 'unknown',
       renderer: { wired: wired.length, unwired: unwired.length, review: uncertain.length },
@@ -281,19 +296,23 @@ export function plan(inputs, graph, previous = null) {
         return { mode, slots: perMode.length, ...counts(perMode.map(r => scoped(r, r.usages.filter(u => inScreen(u) && u.mode === mode)))) };
       }) };
   });
-  const conflicts = unique(rows.filter(r => r.reasons.some(x => x.startsWith('cross-schema'))).map(r => r.slot)).map(slot => ({ slot,
-    variants: rows.filter(r => r.slot === slot).map(r => ({ original: r.original, locations: r.locations })),
-    resolution: 'Candidate targets use exact schemaHash+slot+original. Runtime catalogue and fallback unchanged; activation needs a later reviewed adapter.' }));
+  const conflicts = unique(rows.filter(r => r.sourceConflict).map(r => r.slot)).map(slot => {
+    const variants = rows.filter(r => r.slot === slot);
+    const resolved = variants.every(r => r.scopedBindingVerified);
+    return { slot, variants: variants.map(r => ({ original: r.original, locations: r.locations, scopedBindingVerified: r.scopedBindingVerified })),
+      resolution: resolved ? 'Exact reviewed hash+slot+original runtime lookup verified statically; browser acceptance pending.'
+        : 'Candidate targets require exact schemaHash+slot+original binding.' };
+  });
   const rawJsx = inputs.inventory.rawJsx.map(r => {
     const rule = inputs.policy.clientLiterals.find(p => p.file === r.file && p.kind === r.kind && p.original === r.original);
     return { ...r, classification: rule?.classification ?? 'renderer-unwired', reason: rule?.reason ?? 'literal-not-passed-to-i18n' };
   });
-  return { version: 1, stage: 17, scope: 'static source planning; no browser or ACL acceptance', source: inputs.inventory.source,
+  return { version: 1, stage: 18, scope: 'static source planning; no browser or ACL acceptance', source: inputs.inventory.source,
     inputs: inputs.provenance, schemaHashes: inputs.pins.map(p => p.schemaHash),
     summary: { slots: rows.length, classification: counts(rows), candidateGroups: proposal.groups.length,
       groupsWithSuggestions: proposal.groups.filter(g => g.suggestions.length).length,
       ambiguousGroups: proposal.groups.filter(g => g.ambiguous).length, unassignedSlots: rows.filter(r => !r.sections.length).length,
-      sections, acceptedCatalogEntries: Object.keys(inputs.catalog.entries).length },
+      sections, acceptedCatalogEntries: Object.keys(inputs.catalog.entries).length, acceptedScopedEntries: (inputs.catalog.scopedEntries ?? []).length },
     diagnostics: { adapterDrift: inputs.adapterDrift, staleRules, unresolvedReferences: graph.unresolved, orphanEntries: inputs.inventory.orphan,
       glossaryConflicts: proposal.glossaryConflicts },
     conflicts, rows, screens, candidates: proposal.groups,
