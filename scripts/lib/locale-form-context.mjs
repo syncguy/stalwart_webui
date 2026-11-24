@@ -25,8 +25,10 @@ export function undoFormContext(catalog,packet) {
     assert.match(e.slot,/^form\/.+\/(?:field\/[^/]+|section\/section-\d+|title)$/);
     assert.ok(textSafe(e.original,e.ru),'Protected marker changed: '+e.slot);
     // Acronyms that are also protocol or credential identifiers, not prose.
-    const markers=s=>[...s.matchAll(/\b(?:API|URL|DNSBL|DNS|DKIM|DMARC|JMAP|TLS|TSIG|TTL|HTTP|gRPC|PEM|Base64|IAM|OCID|STS|WAPI|ANSI|iTIP|Sieve|OVH|IP|MX|OpenTelemetry|Prometheus|WebSocket)\b/g)].map(m=>m[0]).sort();
-    assert.deepEqual(markers(e.original),markers(e.ru),'Protocol marker changed: '+e.slot);
+    const markers=s=>[...s.matchAll(/\b(?:API|URLs?|DNSBL|DNS|DKIM|DMARC|JMAP|TLS|TSIG|TTL|HTTP|gRPC|PEM|Base64|IAM|OCID|STS|WAPI|ANSI|iTIP|Sieve|OVH|IPs?|MX|OpenTelemetry|Prometheus|WebSocket)\b/g)].map(m=>({URLs:'URL',IPs:'IP'})[m[0]]??m[0]).sort();
+    // The DNS task record-types label gains its explicit domain qualifier only here.
+    const expected=e.slot==='form/x:TaskDnsManagement/field/updateRecords'&&e.original==='Record Types'?['DNS']:markers(e.original);
+    assert.deepEqual(expected,markers(e.ru),'Protocol marker changed: '+e.slot);
   }
   const before=undoBatch(catalog,packet);
   assert.equal(Object.keys(before.entries).length,7883);
