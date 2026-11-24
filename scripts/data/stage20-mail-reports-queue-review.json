@@ -1,0 +1,2069 @@
+{
+  "version": 1,
+  "stage": 20,
+  "baseline": "1797163a2db3c6d6bdc34f9c375fbfed6a496ab3",
+  "baselineCatalogSha256": "886877d31d842719a134efc69abc1b741f8ac957a524285e773437f1ef9d30b0",
+  "scope": [
+    {
+      "section": "Management",
+      "screens": [
+        "x:ArfExternalReport",
+        "x:DmarcExternalReport",
+        "x:DmarcInternalReport",
+        "x:QueuedMessage",
+        "x:TlsExternalReport",
+        "x:TlsInternalReport"
+      ]
+    }
+  ],
+  "status": "editor-reviewed",
+  "apply": false,
+  "entries": [
+    {
+      "slot": "enum/ArfAuthFailureType/adsp/label",
+      "original": "DKIM ADSP policy failure",
+      "ru": "Нарушение политики DKIM ADSP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfAuthFailureType/bodyHash/label",
+      "original": "DKIM body hash verification failed",
+      "ru": "Не удалось проверить хеш тела письма DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfAuthFailureType/dmarc/label",
+      "original": "DMARC authentication failed",
+      "ru": "Проверка DMARC не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfAuthFailureType/revoked/label",
+      "original": "DKIM key has been revoked",
+      "ru": "Ключ DKIM отозван",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfAuthFailureType/signature/label",
+      "original": "DKIM signature verification failed",
+      "ru": "Не удалось проверить подпись DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfAuthFailureType/spf/label",
+      "original": "SPF authentication failed",
+      "ru": "Проверка SPF не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfAuthFailureType/unspecified/label",
+      "original": "Authentication failure type not specified",
+      "ru": "Тип ошибки аутентификации не указан",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfDeliveryResult/delivered/label",
+      "original": "Message was delivered to recipient",
+      "ru": "Сообщение доставлено получателю",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfDeliveryResult/other/label",
+      "original": "Other delivery result",
+      "ru": "Другой результат доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfDeliveryResult/policy/label",
+      "original": "Message was handled according to policy",
+      "ru": "Сообщение обработано согласно политике",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfDeliveryResult/reject/label",
+      "original": "Message was rejected",
+      "ru": "Сообщение отклонено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfDeliveryResult/spam/label",
+      "original": "Message was delivered to spam folder",
+      "ru": "Сообщение доставлено в папку спама",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfDeliveryResult/unspecified/label",
+      "original": "Delivery result not specified",
+      "ru": "Результат доставки не указан",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfFeedbackType/abuse/label",
+      "original": "Message was reported as abusive or unwanted",
+      "ru": "Жалоба на злоупотребление или нежелательное письмо",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfFeedbackType/authFailure/label",
+      "original": "Message failed authentication checks",
+      "ru": "Сообщение не прошло проверку подлинности",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfFeedbackType/fraud/label",
+      "original": "Message was reported as fraudulent",
+      "ru": "Жалоба на мошенническое письмо",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfFeedbackType/notSpam/label",
+      "original": "Message was incorrectly classified as spam",
+      "ru": "Сообщение ошибочно отнесено к спаму",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfFeedbackType/other/label",
+      "original": "Other feedback type",
+      "ru": "Другой тип обратной связи",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfFeedbackType/virus/label",
+      "original": "Message contained a virus",
+      "ru": "Сообщение содержало вирус",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfIdentityAlignment/dkim/label",
+      "original": "DKIM identity aligned",
+      "ru": "Согласование идентификатора DKIM выполнено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfIdentityAlignment/dkimSpf/label",
+      "original": "Both DKIM and SPF identities aligned",
+      "ru": "Согласование идентификаторов DKIM и SPF выполнено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfIdentityAlignment/none/label",
+      "original": "No identity alignment",
+      "ru": "Идентификаторы не согласованы",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfIdentityAlignment/spf/label",
+      "original": "SPF identity aligned",
+      "ru": "Согласование идентификатора SPF выполнено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ArfIdentityAlignment/unspecified/label",
+      "original": "Identity alignment not specified",
+      "ru": "Согласование идентификаторов не указано",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DeliveryErrorType/concurrencyLimited/label",
+      "original": "Delivery delayed due to connection limits",
+      "ru": "Доставка отложена из-за ограничения числа соединений",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DeliveryErrorType/connectionError/label",
+      "original": "Failed to establish connection to remote server",
+      "ru": "Не удалось подключиться к удалённому серверу",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DeliveryErrorType/daneError/label",
+      "original": "DANE validation failed",
+      "ru": "Проверка DANE не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DeliveryErrorType/dnsError/label",
+      "original": "DNS resolution failed",
+      "ru": "Не удалось разрешить имя через DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DeliveryErrorType/encryptionError/label",
+      "original": "The encryption gateway rejected the recipient: no usable key where encryption is required, a policy that could not be evaluated, or a message that could not be encrypted",
+      "ru": "Шлюз шифрования отклонил получателя: отсутствует пригодный ключ при обязательном шифровании, не удалось оценить политику или зашифровать сообщение",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DeliveryErrorType/io/label",
+      "original": "Network I/O error occurred",
+      "ru": "Ошибка сетевого ввода-вывода",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DeliveryErrorType/mtaStsError/label",
+      "original": "MTA-STS policy validation failed",
+      "ru": "Проверка политики MTA-STS не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DeliveryErrorType/rateLimited/label",
+      "original": "Delivery delayed due to rate limiting",
+      "ru": "Доставка отложена из-за ограничения частоты",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DeliveryErrorType/tlsError/label",
+      "original": "TLS handshake or encryption failed",
+      "ru": "Ошибка согласования TLS или шифрования",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DeliveryErrorType/unexpectedResponse/label",
+      "original": "Remote server returned an unexpected SMTP response",
+      "ru": "Удалённый сервер вернул неожиданный ответ SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DkimAuthResult/fail/label",
+      "original": "DKIM signature verification failed",
+      "ru": "Не удалось проверить подпись DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DkimAuthResult/neutral/label",
+      "original": "DKIM verification returned neutral",
+      "ru": "Нейтральный результат проверки DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DkimAuthResult/none/label",
+      "original": "No DKIM signature present",
+      "ru": "Подпись DKIM отсутствует",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DkimAuthResult/pass/label",
+      "original": "DKIM signature verified successfully",
+      "ru": "Подпись DKIM успешно проверена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DkimAuthResult/permError/label",
+      "original": "Permanent error in DKIM record or signature",
+      "ru": "Постоянная ошибка в записи или подписи DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DkimAuthResult/policy/label",
+      "original": "DKIM signature not accepted due to policy",
+      "ru": "Подпись DKIM не принята по условиям политики",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DkimAuthResult/tempError/label",
+      "original": "Temporary error during verification",
+      "ru": "Временная ошибка проверки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcActionDisposition/none/label",
+      "original": "No action taken",
+      "ru": "Действие не применено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcActionDisposition/pass/label",
+      "original": "Message passed evaluation",
+      "ru": "Сообщение прошло проверку",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcActionDisposition/quarantine/label",
+      "original": "Message was quarantined",
+      "ru": "Сообщение помещено в карантин",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcActionDisposition/reject/label",
+      "original": "Message was rejected",
+      "ru": "Сообщение отклонено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcActionDisposition/unspecified/label",
+      "original": "Disposition not specified",
+      "ru": "Действие не указано",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcAlignment/relaxed/label",
+      "original": "Organizational domain match is sufficient",
+      "ru": "Достаточно совпадения организационных доменов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcAlignment/strict/label",
+      "original": "Exact domain match is required",
+      "ru": "Требуется точное совпадение доменов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcAlignment/unspecified/label",
+      "original": "Alignment mode not specified",
+      "ru": "Режим согласования не указан",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcDiscovery/psl/label",
+      "original": "Public Suffix List method (RFC 7489)",
+      "ru": "Метод списка публичных суффиксов (RFC 7489)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcDiscovery/treewalk/label",
+      "original": "DNS Tree Walk method (RFC 9989)",
+      "ru": "Метод обхода дерева DNS (RFC 9989)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcDiscovery/unspecified/label",
+      "original": "Discovery method not specified",
+      "ru": "Метод обнаружения не указан",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcPolicyOverride/Forwarded/label",
+      "original": "Message was forwarded",
+      "ru": "Сообщение перенаправлено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcPolicyOverride/LocalPolicy/label",
+      "original": "Local policy override was applied",
+      "ru": "Применено исключение по локальной политике",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcPolicyOverride/MailingList/label",
+      "original": "Message came from a mailing list",
+      "ru": "Сообщение поступило из списка рассылки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcPolicyOverride/Other/label",
+      "original": "Other reason for override",
+      "ru": "Другая причина исключения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcPolicyOverride/PolicyTestMode/label",
+      "original": "Message exempted because the DMARC policy is in test mode",
+      "ru": "Сообщение исключено из применения политики DMARC из-за тестового режима",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcPolicyOverride/SampledOut/label",
+      "original": "Message was excluded by policy sampling (pct)",
+      "ru": "Сообщение исключено процентной выборкой политики (pct)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcPolicyOverride/TrustedForwarder/label",
+      "original": "Message came from a trusted forwarder",
+      "ru": "Сообщение поступило от доверенного пересыльщика",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcResult/fail/label",
+      "original": "Authentication failed",
+      "ru": "Проверка подлинности не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcResult/pass/label",
+      "original": "Authentication passed",
+      "ru": "Проверка подлинности пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/DmarcResult/unspecified/label",
+      "original": "Result not specified",
+      "ru": "Результат не указан",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/FailureReportingOption/all/label",
+      "original": "Generate report if all authentication mechanisms fail",
+      "ru": "Создавать отчёт, если ни один механизм аутентификации не прошёл проверку",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/FailureReportingOption/any/label",
+      "original": "Generate report if any authentication mechanism fails",
+      "ru": "Создавать отчёт при отказе любого механизма аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/FailureReportingOption/dkimFailure/label",
+      "original": "Generate report if DKIM authentication fails",
+      "ru": "Создавать отчёт при неудачной проверке DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/FailureReportingOption/spfFailure/label",
+      "original": "Generate report if SPF authentication fails",
+      "ru": "Создавать отчёт при неудачной проверке SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MessageFlag/authenticated/label",
+      "original": "Message was received from an authenticated session",
+      "ru": "Сообщение получено в аутентифицированном сеансе",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MessageFlag/autogenerated/label",
+      "original": "Message was automatically generated by the server",
+      "ru": "Сообщение автоматически сформировано сервером",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MessageFlag/dsn/label",
+      "original": "Message is a Delivery Status Notification",
+      "ru": "Сообщение является уведомлением о состоянии доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MessageFlag/report/label",
+      "original": "Message is an automated report (DMARC, TLS-RPT, etc.)",
+      "ru": "Сообщение является автоматическим отчётом (DMARC, TLS-RPT и т. д.)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MessageFlag/unauthenticated/label",
+      "original": "Message was received without authentication",
+      "ru": "Сообщение получено без аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MessageFlag/unauthenticatedDmarc/label",
+      "original": "Message was received without authentication but passed DMARC",
+      "ru": "Сообщение получено без аутентификации, но прошло проверку DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/RecipientFlag/dsnSent/label",
+      "original": "A delivery status notification has been sent for this recipient",
+      "ru": "Для этого получателя отправлено уведомление о состоянии доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/RecipientFlag/spamPayload/label",
+      "original": "Message content was classified as spam",
+      "ru": "Содержимое сообщения отнесено к спаму",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpfAuthResult/fail/label",
+      "original": "SPF check failed (hard fail)",
+      "ru": "Проверка SPF не пройдена (hard fail)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpfAuthResult/neutral/label",
+      "original": "SPF record returned neutral",
+      "ru": "Нейтральный результат проверки SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpfAuthResult/none/label",
+      "original": "No SPF record found",
+      "ru": "Запись SPF не найдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpfAuthResult/pass/label",
+      "original": "SPF check passed",
+      "ru": "Проверка SPF пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpfAuthResult/permError/label",
+      "original": "Permanent error in SPF record",
+      "ru": "Постоянная ошибка в записи SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpfAuthResult/softFail/label",
+      "original": "SPF check returned soft fail",
+      "ru": "Проверка SPF завершилась мягким отказом (soft fail)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpfAuthResult/tempError/label",
+      "original": "Temporary error during SPF check",
+      "ru": "Временная ошибка проверки SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpfDomainScope/helo/label",
+      "original": "SPF check performed on HELO/EHLO identity",
+      "ru": "Проверка SPF по идентификатору HELO/EHLO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpfDomainScope/mailFrom/label",
+      "original": "SPF check performed on MAIL FROM identity",
+      "ru": "Проверка SPF по идентификатору MAIL FROM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/SpfDomainScope/unspecified/label",
+      "original": "Scope not specified",
+      "ru": "Область проверки не указана",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsPolicyType/noPolicyFound/label",
+      "original": "No TLS policy was found for the domain",
+      "ru": "Политика TLS для домена не найдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsPolicyType/other/label",
+      "original": "Other or unrecognized policy type",
+      "ru": "Другой или неизвестный тип политики",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsPolicyType/sts/label",
+      "original": "MTA-STS policy",
+      "ru": "Политика MTA-STS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsPolicyType/tlsa/label",
+      "original": "DANE TLSA policy",
+      "ru": "Политика DANE TLSA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/certificateExpired/label",
+      "original": "Certificate has expired",
+      "ru": "Срок действия сертификата истёк",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/certificateHostMismatch/label",
+      "original": "Certificate hostname does not match server",
+      "ru": "Имя узла в сертификате не соответствует серверу",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/certificateNotTrusted/label",
+      "original": "Certificate is not trusted",
+      "ru": "Сертификат не является доверенным",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/daneRequired/label",
+      "original": "DANE is required but not available",
+      "ru": "Требуется DANE, но он недоступен",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/dnssecInvalid/label",
+      "original": "DNSSEC validation failed",
+      "ru": "Проверка DNSSEC не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/other/label",
+      "original": "Other or unrecognized failure type",
+      "ru": "Другой или неизвестный тип ошибки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/startTlsNotSupported/label",
+      "original": "Remote server does not support STARTTLS",
+      "ru": "Удалённый сервер не поддерживает STARTTLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/stsPolicyFetchError/label",
+      "original": "Failed to fetch MTA-STS policy",
+      "ru": "Не удалось получить политику MTA-STS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/stsPolicyInvalid/label",
+      "original": "MTA-STS policy is invalid",
+      "ru": "Некорректная политика MTA-STS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/stsWebpkiInvalid/label",
+      "original": "MTA-STS WebPKI validation failed",
+      "ru": "Проверка WebPKI для MTA-STS не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/tlsaInvalid/label",
+      "original": "DANE TLSA record is invalid",
+      "ru": "Некорректная запись DANE TLSA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TlsResultType/validationFailure/label",
+      "original": "General certificate validation failure",
+      "ru": "Общая ошибка проверки сертификата",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/arrivalDate/description",
+      "original": "When the original message arrived",
+      "ru": "Время получения исходного сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/authenticationResults/description",
+      "original": "Authentication-Results header values from the original message",
+      "ru": "Значения заголовка Authentication-Results исходного сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/authFailure/description",
+      "original": "Type of authentication failure (for auth-failure reports)",
+      "ru": "Тип ошибки аутентификации (для отчётов auth-failure)",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/deliveryResult/description",
+      "original": "What happened to the original message",
+      "ru": "Результат обработки исходного сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/dkimAdspDns/description",
+      "original": "DKIM ADSP DNS record content",
+      "ru": "Содержимое DNS-записи DKIM ADSP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/dkimCanonicalizedBody/description",
+      "original": "Message body after DKIM canonicalization",
+      "ru": "Тело сообщения после каноникализации DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/dkimCanonicalizedHeader/description",
+      "original": "Message headers after DKIM canonicalization",
+      "ru": "Заголовки сообщения после каноникализации DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/dkimDomain/description",
+      "original": "Domain from the DKIM signature",
+      "ru": "Домен из подписи DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/dkimIdentity/description",
+      "original": "Identity from the DKIM signature (i= tag)",
+      "ru": "Идентификатор из подписи DKIM (тег i=)",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/dkimSelector/description",
+      "original": "Selector from the DKIM signature",
+      "ru": "Селектор из подписи DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/dkimSelectorDns/description",
+      "original": "DKIM selector DNS record content",
+      "ru": "Содержимое DNS-записи селектора DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/feedbackType/description",
+      "original": "Type of feedback being reported",
+      "ru": "Тип обратной связи в отчёте",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/headers/description",
+      "original": "Original message headers that triggered the report",
+      "ru": "Заголовки исходного сообщения, вызвавшего формирование отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/identityAlignment/description",
+      "original": "Which identities were aligned",
+      "ru": "Какие идентификаторы согласованы",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/incidents/description",
+      "original": "Number of incidents represented by this report",
+      "ru": "Количество инцидентов в этом отчёте",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/message/description",
+      "original": "Original message content that triggered the report",
+      "ru": "Содержимое исходного сообщения, вызвавшего формирование отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/originalEnvelopeId/description",
+      "original": "Original SMTP envelope ID (ENVID)",
+      "ru": "Идентификатор исходного конверта SMTP (ENVID)",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/originalMailFrom/description",
+      "original": "Original envelope sender address (MAIL FROM)",
+      "ru": "Исходный адрес отправителя конверта (MAIL FROM)",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/originalRcptTo/description",
+      "original": "Original envelope recipient address (RCPT TO)",
+      "ru": "Исходный адрес получателя конверта (RCPT TO)",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/reportedDomains/description",
+      "original": "Domains being reported",
+      "ru": "Домены, указанные в отчёте",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/reportedUris/description",
+      "original": "URIs being reported",
+      "ru": "URI, указанные в отчёте",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/reportingMta/description",
+      "original": "Hostname of the MTA generating this report",
+      "ru": "Имя узла MTA, сформировавшего отчёт",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/sourceIp/description",
+      "original": "IP address of the original message source",
+      "ru": "IP-адрес источника исходного сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/sourcePort/description",
+      "original": "Port of the original message source",
+      "ru": "Порт источника исходного сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/spfDns/description",
+      "original": "SPF DNS record content",
+      "ru": "Содержимое DNS-записи SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/userAgent/description",
+      "original": "Software that generated this report",
+      "ru": "Программное обеспечение, сформировавшее отчёт",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ArfFeedbackReport/version/description",
+      "original": "ARF format version",
+      "ru": "Версия формата ARF",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DeliveryError/errorCommand/description",
+      "original": "SMTP command that triggered an unexpected response",
+      "ru": "Команда SMTP, вызвавшая неожиданный ответ",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DeliveryError/errorMessage/description",
+      "original": "Detailed error message",
+      "ru": "Подробное сообщение об ошибке",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DeliveryError/errorType/description",
+      "original": "Type of delivery error encountered",
+      "ru": "Тип возникшей ошибки доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DeliveryError/responseCode/description",
+      "original": "SMTP response code from the remote server",
+      "ru": "Код ответа SMTP удалённого сервера",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DeliveryError/responseEnhanced/description",
+      "original": "SMTP enhanced status code (e.g., \"4.7.1\")",
+      "ru": "Расширенный код состояния SMTP (например, \"4.7.1\")",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DeliveryError/responseHostname/description",
+      "original": "Hostname of the remote server that responded",
+      "ru": "Имя узла удалённого сервера, вернувшего ответ",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DeliveryError/responseMessage/description",
+      "original": "SMTP response message from the remote server",
+      "ru": "Текст ответа SMTP удалённого сервера",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcDkimResult/domain/description",
+      "original": "Domain that signed the message",
+      "ru": "Домен, подписавший сообщение",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcDkimResult/humanResult/description",
+      "original": "Human-readable explanation of the result",
+      "ru": "Понятное пользователю пояснение результата",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcDkimResult/result/description",
+      "original": "DKIM verification result",
+      "ru": "Результат проверки DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcDkimResult/selector/description",
+      "original": "DKIM selector used for signing",
+      "ru": "Селектор DKIM, использованный для подписания",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcExtension/definition/description",
+      "original": "Extension content or value",
+      "ru": "Содержимое или значение расширения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcExtension/name/description",
+      "original": "Extension identifier",
+      "ru": "Идентификатор расширения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcPolicyOverrideReason/comment/description",
+      "original": "Additional explanation for the override",
+      "ru": "Дополнительное пояснение причины исключения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcPolicyOverrideReason/overrideType/description",
+      "original": "Type of policy override applied",
+      "ru": "Тип применённого исключения из политики",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/dateRangeEnd/description",
+      "original": "End of the reporting period",
+      "ru": "Конец отчётного периода",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/dateRangeStart/description",
+      "original": "Start of the reporting period",
+      "ru": "Начало отчётного периода",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/email/description",
+      "original": "Contact email address of the reporting organization",
+      "ru": "Контактный адрес электронной почты организации, сформировавшей отчёт",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/errors/description",
+      "original": "Errors encountered during report generation",
+      "ru": "Ошибки при формировании отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/extensions/description",
+      "original": "Custom vendor-specific extensions to the report",
+      "ru": "Специальные расширения отчёта, определённые поставщиком",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/extraContactInfo/description",
+      "original": "Additional contact information for the reporting organization",
+      "ru": "Дополнительные контактные данные организации, сформировавшей отчёт",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/generator/description",
+      "original": "Name and version of the software that generated the report",
+      "ru": "Название и версия программы, сформировавшей отчёт",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/orgName/description",
+      "original": "Name of the organization that generated the report",
+      "ru": "Название организации, сформировавшей отчёт",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/policyAdkim/description",
+      "original": "DKIM alignment mode specified in the policy",
+      "ru": "Режим согласования DKIM, заданный политикой",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/policyAspf/description",
+      "original": "SPF alignment mode specified in the policy",
+      "ru": "Режим согласования SPF, заданный политикой",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/policyDiscoveryMethod/description",
+      "original": "Method used to discover the DMARC policy record",
+      "ru": "Метод обнаружения записи политики DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/policyDisposition/description",
+      "original": "Requested handling policy for failing messages",
+      "ru": "Запрошенная политика обработки сообщений, не прошедших проверку",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/policyDomain/description",
+      "original": "Domain for which the DMARC policy is published",
+      "ru": "Домен, для которого опубликована политика DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/policyFailureReportingOptions/description",
+      "original": "Conditions under which failure reports should be generated",
+      "ru": "Условия формирования отчётов об ошибках проверки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/policyNp/description",
+      "original": "Requested handling policy for failing messages from non-existent subdomains",
+      "ru": "Запрошенная политика обработки сообщений из несуществующих поддоменов, не прошедших проверку",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/policySubdomainDisposition/description",
+      "original": "Requested handling policy for failing messages from subdomains",
+      "ru": "Запрошенная политика обработки сообщений из поддоменов, не прошедших проверку",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/policyTestingMode/description",
+      "original": "Whether the policy is in testing mode",
+      "ru": "Включён ли тестовый режим политики",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/policyVersion/description",
+      "original": "Version of the published DMARC policy",
+      "ru": "Версия опубликованной политики DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/records/description",
+      "original": "Aggregated authentication results grouped by source",
+      "ru": "Агрегированные результаты аутентификации, сгруппированные по источникам",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/reportId/description",
+      "original": "Unique identifier for this report",
+      "ru": "Уникальный идентификатор отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReport/version/description",
+      "original": "DMARC report format version",
+      "ru": "Версия формата отчёта DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/count/description",
+      "original": "Number of messages from this source matching this result",
+      "ru": "Количество сообщений из этого источника с данным результатом",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/dkimResults/description",
+      "original": "DKIM authentication results for the messages",
+      "ru": "Результаты аутентификации сообщений по DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/envelopeFrom/description",
+      "original": "Envelope sender domain (MAIL FROM)",
+      "ru": "Домен отправителя конверта (MAIL FROM)",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/envelopeTo/description",
+      "original": "Envelope recipient domain",
+      "ru": "Домен получателя конверта",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/evaluatedDisposition/description",
+      "original": "Action taken on the messages",
+      "ru": "Действие, применённое к сообщениям",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/evaluatedDkim/description",
+      "original": "DMARC result based on DKIM authentication",
+      "ru": "Результат DMARC на основе проверки DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/evaluatedSpf/description",
+      "original": "DMARC result based on SPF authentication",
+      "ru": "Результат DMARC на основе проверки SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/extensions/description",
+      "original": "Custom vendor-specific extensions to this record",
+      "ru": "Специальные расширения этой записи, определённые поставщиком",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/headerFrom/description",
+      "original": "Domain from the message From header",
+      "ru": "Домен из заголовка From сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/policyOverrideReasons/description",
+      "original": "Reasons why the evaluated disposition differs from the published policy",
+      "ru": "Причины расхождения применённого действия с опубликованной политикой",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/sourceIp/description",
+      "original": "IP address of the sending mail server",
+      "ru": "IP-адрес отправляющего почтового сервера",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcReportRecord/spfResults/description",
+      "original": "SPF authentication results for the messages",
+      "ru": "Результаты аутентификации сообщений по SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcSpfResult/domain/description",
+      "original": "Domain checked for SPF",
+      "ru": "Домен, проверенный по SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcSpfResult/humanResult/description",
+      "original": "Human-readable explanation of the result",
+      "ru": "Понятное пользователю пояснение результата",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcSpfResult/result/description",
+      "original": "SPF verification result",
+      "ru": "Результат проверки SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:DmarcSpfResult/scope/description",
+      "original": "Which identity was checked",
+      "ru": "Какой идентификатор проверялся",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedMessage/createdAt/description",
+      "original": "When the message was received and queued",
+      "ru": "Время получения и постановки сообщения в очередь",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedMessage/envId/description",
+      "original": "SMTP ENVID parameter for delivery status notifications",
+      "ru": "Параметр SMTP ENVID для уведомлений о состоянии доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedMessage/flags/description",
+      "original": "Classification flags for the message",
+      "ru": "Флаги классификации сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedMessage/nextNotify/description",
+      "original": "When the next DSN notification is scheduled",
+      "ru": "Время следующего уведомления DSN",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedMessage/nextRetry/description",
+      "original": "When the next delivery attempt is scheduled",
+      "ru": "Время следующей попытки доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedMessage/priority/description",
+      "original": "Message priority from the MT-PRIORITY parameter (RFC 6710); higher values mean higher priority",
+      "ru": "Приоритет сообщения из параметра MT-PRIORITY (RFC 6710); большее значение означает более высокий приоритет",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedMessage/receivedFromIp/description",
+      "original": "IP address of the client that submitted the message",
+      "ru": "IP-адрес клиента, отправившего сообщение",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedMessage/receivedViaPort/description",
+      "original": "Local port on which the message was received",
+      "ru": "Локальный порт, через который получено сообщение",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedMessage/recipients/description",
+      "original": "List of envelope recipients and their delivery status",
+      "ru": "Список получателей конверта и состояние доставки для каждого",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedMessage/returnPath/description",
+      "original": "Envelope sender address (MAIL FROM)",
+      "ru": "Адрес отправителя конверта (MAIL FROM)",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedMessage/size/description",
+      "original": "Size of the message in bytes",
+      "ru": "Размер сообщения в байтах",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedRecipient/expires/description",
+      "original": "Message expiry information for this recipient",
+      "ru": "Сведения об истечении срока доставки сообщения этому получателю",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedRecipient/flags/description",
+      "original": "Status flags for this recipient",
+      "ru": "Флаги состояния этого получателя",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedRecipient/notifyCount/description",
+      "original": "Number of DSN notifications sent",
+      "ru": "Количество отправленных уведомлений DSN",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedRecipient/notifyDue/description",
+      "original": "When the next DSN notification is scheduled",
+      "ru": "Время следующего уведомления DSN",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedRecipient/orcpt/description",
+      "original": "Original recipient address (SMTP ORCPT parameter)",
+      "ru": "Исходный адрес получателя (параметр SMTP ORCPT)",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedRecipient/queueName/description",
+      "original": "Queue name for this recipient",
+      "ru": "Название очереди для этого получателя",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedRecipient/retryCount/description",
+      "original": "Number of delivery attempts made",
+      "ru": "Количество выполненных попыток доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedRecipient/retryDue/description",
+      "original": "When the next delivery attempt is scheduled",
+      "ru": "Время следующей попытки доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueuedRecipient/status/description",
+      "original": "Current delivery status",
+      "ru": "Текущее состояние доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueueExpiryAttempts/expiresAttempts/description",
+      "original": "Maximum number of delivery attempts before the message expires",
+      "ru": "Максимальное число попыток доставки до истечения срока сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:QueueExpiryTtl/expiresAt/description",
+      "original": "Absolute time when the message expires",
+      "ru": "Абсолютное время истечения срока сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ServerResponse/responseCode/description",
+      "original": "SMTP response code from the remote server",
+      "ru": "Код ответа SMTP удалённого сервера",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ServerResponse/responseEnhanced/description",
+      "original": "SMTP enhanced status code (e.g., \"4.7.1\")",
+      "ru": "Расширенный код состояния SMTP (например, \"4.7.1\")",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ServerResponse/responseHostname/description",
+      "original": "Hostname of the remote server that responded",
+      "ru": "Имя узла удалённого сервера, вернувшего ответ",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ServerResponse/responseMessage/description",
+      "original": "SMTP response message from the remote server",
+      "ru": "Текст ответа SMTP удалённого сервера",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsFailureDetails/additionalInformation/description",
+      "original": "Additional context about the failure",
+      "ru": "Дополнительные сведения об ошибке",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsFailureDetails/failedSessionCount/description",
+      "original": "Number of sessions that failed with this error",
+      "ru": "Число сеансов, завершившихся этой ошибкой",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsFailureDetails/failureReasonCode/description",
+      "original": "Error code or reason string for the failure",
+      "ru": "Код ошибки или текст причины отказа",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsFailureDetails/receivingIp/description",
+      "original": "IP address of the receiving mail server",
+      "ru": "IP-адрес принимающего почтового сервера",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsFailureDetails/receivingMxHelo/description",
+      "original": "HELO/EHLO string of the receiving mail server",
+      "ru": "Строка HELO/EHLO принимающего почтового сервера",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsFailureDetails/receivingMxHostname/description",
+      "original": "Hostname of the receiving mail server",
+      "ru": "Имя узла принимающего почтового сервера",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsFailureDetails/resultType/description",
+      "original": "Type of failure encountered",
+      "ru": "Тип возникшей ошибки",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsFailureDetails/sendingMtaIp/description",
+      "original": "IP address of the sending mail server",
+      "ru": "IP-адрес отправляющего почтового сервера",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReport/contactInfo/description",
+      "original": "Contact information for the reporting organization",
+      "ru": "Контактные данные организации, сформировавшей отчёт",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReport/dateRangeEnd/description",
+      "original": "End of the reporting period",
+      "ru": "Конец отчётного периода",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReport/dateRangeStart/description",
+      "original": "Start of the reporting period",
+      "ru": "Начало отчётного периода",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReport/organizationName/description",
+      "original": "Name of the organization that generated the report",
+      "ru": "Название организации, сформировавшей отчёт",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReport/policies/description",
+      "original": "Policy evaluation results for each domain",
+      "ru": "Результаты проверки политики для каждого домена",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReport/reportId/description",
+      "original": "Unique identifier for this report",
+      "ru": "Уникальный идентификатор отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReportPolicy/failureDetails/description",
+      "original": "Details of TLS failures encountered",
+      "ru": "Подробные сведения об ошибках TLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReportPolicy/mxHosts/description",
+      "original": "MX hostnames covered by the policy",
+      "ru": "Имена узлов MX, на которые распространяется политика",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReportPolicy/policyDomain/description",
+      "original": "Domain the policy applies to",
+      "ru": "Домен, к которому применяется политика",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReportPolicy/policyStrings/description",
+      "original": "Raw policy strings as retrieved",
+      "ru": "Исходные строки полученной политики",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReportPolicy/policyType/description",
+      "original": "Type of TLS policy that was evaluated",
+      "ru": "Тип проверенной политики TLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReportPolicy/totalFailedSessions/description",
+      "original": "Number of sessions that failed TLS establishment",
+      "ru": "Число сеансов, в которых не удалось установить TLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:TlsReportPolicy/totalSuccessfulSessions/description",
+      "original": "Number of sessions that successfully established TLS",
+      "ru": "Число сеансов, в которых успешно установлен TLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/arrivalDate",
+      "original": "Arrival Date",
+      "ru": "Дата получения",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/authenticationResults",
+      "original": "Authentication Results",
+      "ru": "Результаты аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/authFailure",
+      "original": "Auth Failure Type",
+      "ru": "Тип ошибки аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/deliveryResult",
+      "original": "Delivery Result",
+      "ru": "Результат доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/dkimAdspDns",
+      "original": "ADSP DNS Record",
+      "ru": "DNS-запись ADSP",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/dkimCanonicalizedBody",
+      "original": "Canonicalized Body",
+      "ru": "Канонизированное тело",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/dkimCanonicalizedHeader",
+      "original": "Canonicalized Headers",
+      "ru": "Канонизированные заголовки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/dkimDomain",
+      "original": "DKIM Domain",
+      "ru": "Домен DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/dkimIdentity",
+      "original": "DKIM Identity",
+      "ru": "Идентификатор DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/dkimSelector",
+      "original": "DKIM Selector",
+      "ru": "Селектор DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/dkimSelectorDns",
+      "original": "Selector DNS Record",
+      "ru": "DNS-запись селектора",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/feedbackType",
+      "original": "Feedback Type",
+      "ru": "Тип обратной связи",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/headers",
+      "original": "Original Headers",
+      "ru": "Исходные заголовки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/identityAlignment",
+      "original": "Identity Alignment",
+      "ru": "Согласование идентификаторов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/incidents",
+      "original": "Incidents",
+      "ru": "Инциденты",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/message",
+      "original": "Original Message",
+      "ru": "Исходное сообщение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/originalMailFrom",
+      "original": "MAIL FROM",
+      "ru": "Отправитель (MAIL FROM)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/originalRcptTo",
+      "original": "RCPT TO",
+      "ru": "Получатель (RCPT TO)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/reportedDomains",
+      "original": "Reported Domains",
+      "ru": "Домены в отчёте",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/reportedUris",
+      "original": "Reported URIs",
+      "ru": "URI в отчёте",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/reportingMta",
+      "original": "Reporting MTA",
+      "ru": "MTA, сформировавший отчёт",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/sourceIp",
+      "original": "Source IP",
+      "ru": "IP-адрес источника",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/sourcePort",
+      "original": "Source Port",
+      "ru": "Порт источника",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/spfDns",
+      "original": "SPF DNS Record",
+      "ru": "DNS-запись SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/userAgent",
+      "original": "User Agent",
+      "ru": "Программа-отправитель отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ArfFeedbackReport/field/version",
+      "original": "Version",
+      "ru": "Версия",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DeliveryError/field/errorCommand",
+      "original": "SMTP Command",
+      "ru": "Команда SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DeliveryError/field/errorMessage",
+      "original": "Error Message",
+      "ru": "Сообщение об ошибке",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DeliveryError/field/errorType",
+      "original": "Error Type",
+      "ru": "Тип ошибки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DeliveryError/field/responseCode",
+      "original": "Response Code",
+      "ru": "Код ответа",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DeliveryError/field/responseEnhanced",
+      "original": "Enhanced Code",
+      "ru": "Расширенный код",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DeliveryError/field/responseHostname",
+      "original": "Hostname",
+      "ru": "Имя узла",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DeliveryError/field/responseMessage",
+      "original": "Message",
+      "ru": "Текст ответа",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcDkimResult/field/result",
+      "original": "Result",
+      "ru": "Результат",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcExtension/field/definition",
+      "original": "Definition",
+      "ru": "Определение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcPolicyOverrideReason/field/comment",
+      "original": "Comment",
+      "ru": "Комментарий",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/dateRangeEnd",
+      "original": "Period End",
+      "ru": "Конец периода",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/dateRangeStart",
+      "original": "Period Start",
+      "ru": "Начало периода",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/email",
+      "original": "Contact Email",
+      "ru": "Контактный адрес почты",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/errors",
+      "original": "Errors",
+      "ru": "Ошибки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/extraContactInfo",
+      "original": "Additional Contact Info",
+      "ru": "Дополнительные контактные данные",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/generator",
+      "original": "Generator",
+      "ru": "Программа формирования отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/orgName",
+      "original": "Organization Name",
+      "ru": "Название организации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/policyAdkim",
+      "original": "DKIM Alignment",
+      "ru": "Согласование DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/policyAspf",
+      "original": "SPF Alignment",
+      "ru": "Согласование SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/policyDiscoveryMethod",
+      "original": "Discovery Method",
+      "ru": "Метод обнаружения",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/policyDisposition",
+      "original": "Disposition",
+      "ru": "Запрошенное действие",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/policyDomain",
+      "original": "Policy Domain",
+      "ru": "Домен политики",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/policyFailureReportingOptions",
+      "original": "Failure Reporting Options",
+      "ru": "Условия отчётов об ошибках",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/policyNp",
+      "original": "Non-existent Subdomain Disposition",
+      "ru": "Действие для несуществующих поддоменов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/policySubdomainDisposition",
+      "original": "Subdomain Disposition",
+      "ru": "Действие для поддоменов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/policyTestingMode",
+      "original": "Testing Mode",
+      "ru": "Тестовый режим",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/policyVersion",
+      "original": "Policy Version",
+      "ru": "Версия политики",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/records",
+      "original": "Records",
+      "ru": "Записи",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/reportId",
+      "original": "Report ID",
+      "ru": "Идентификатор отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReport/field/version",
+      "original": "Version",
+      "ru": "Версия",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReportRecord/field/count",
+      "original": "Message Count",
+      "ru": "Количество сообщений",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReportRecord/field/dkimResults",
+      "original": "DKIM Results",
+      "ru": "Результаты DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReportRecord/field/envelopeFrom",
+      "original": "Envelope From",
+      "ru": "Отправитель конверта",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReportRecord/field/envelopeTo",
+      "original": "Envelope To",
+      "ru": "Получатель конверта",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReportRecord/field/evaluatedDisposition",
+      "original": "Disposition",
+      "ru": "Применённое действие",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReportRecord/field/evaluatedDkim",
+      "original": "DKIM Result",
+      "ru": "Результат DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReportRecord/field/evaluatedSpf",
+      "original": "SPF Result",
+      "ru": "Результат SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReportRecord/field/headerFrom",
+      "original": "Header From",
+      "ru": "Заголовок From",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReportRecord/field/policyOverrideReasons",
+      "original": "Policy Override Reasons",
+      "ru": "Причины исключений из политики",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReportRecord/field/sourceIp",
+      "original": "Source IP",
+      "ru": "IP-адрес источника",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcReportRecord/field/spfResults",
+      "original": "SPF Results",
+      "ru": "Результаты SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcSpfResult/field/result",
+      "original": "Result",
+      "ru": "Результат",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DmarcSpfResult/field/scope",
+      "original": "Scope",
+      "ru": "Область проверки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:QueuedMessage/field/recipients/keyLabel",
+      "original": "Address",
+      "ru": "Адрес",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:QueuedRecipient/field/expires",
+      "original": "Expiry",
+      "ru": "Истечение срока доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:QueuedRecipient/field/notifyCount",
+      "original": "Notify Count",
+      "ru": "Количество уведомлений",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:QueuedRecipient/field/orcpt",
+      "original": "Original Recipient",
+      "ru": "Исходный получатель",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:QueuedRecipient/field/retryCount",
+      "original": "Retry Count",
+      "ru": "Количество попыток",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:QueueExpiryAttempts/field/expiresAttempts",
+      "original": "Max Attempts",
+      "ru": "Макс. число попыток",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ServerResponse/field/responseCode",
+      "original": "Response Code",
+      "ru": "Код ответа",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ServerResponse/field/responseEnhanced",
+      "original": "Enhanced Code",
+      "ru": "Расширенный код",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ServerResponse/field/responseHostname",
+      "original": "Hostname",
+      "ru": "Имя узла",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ServerResponse/field/responseMessage",
+      "original": "Message",
+      "ru": "Текст ответа",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsFailureDetails/field/additionalInformation",
+      "original": "Additional Info",
+      "ru": "Дополнительные сведения",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsFailureDetails/field/failedSessionCount",
+      "original": "Failed Sessions",
+      "ru": "Неуспешные сеансы",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsFailureDetails/field/failureReasonCode",
+      "original": "Reason Code",
+      "ru": "Код причины",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsFailureDetails/field/receivingIp",
+      "original": "Receiving IP",
+      "ru": "IP-адрес принимающего сервера",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsFailureDetails/field/receivingMxHelo",
+      "original": "Receiving MX HELO",
+      "ru": "HELO принимающего MX",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsFailureDetails/field/receivingMxHostname",
+      "original": "Receiving MX Hostname",
+      "ru": "Имя принимающего узла MX",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsFailureDetails/field/resultType",
+      "original": "Failure Type",
+      "ru": "Тип ошибки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsFailureDetails/field/sendingMtaIp",
+      "original": "Sending MTA IP",
+      "ru": "IP-адрес отправляющего MTA",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReport/field/contactInfo",
+      "original": "Contact Info",
+      "ru": "Контактные данные",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReport/field/dateRangeEnd",
+      "original": "Period End",
+      "ru": "Конец периода",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReport/field/dateRangeStart",
+      "original": "Period Start",
+      "ru": "Начало периода",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReport/field/organizationName",
+      "original": "Organization Name",
+      "ru": "Название организации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReport/field/policies",
+      "original": "Policies",
+      "ru": "Политики",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReport/field/reportId",
+      "original": "Report ID",
+      "ru": "Идентификатор отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReportPolicy/field/failureDetails",
+      "original": "Failure Details",
+      "ru": "Сведения об ошибках",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReportPolicy/field/mxHosts",
+      "original": "MX Hosts",
+      "ru": "Узлы MX",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReportPolicy/field/policyStrings",
+      "original": "Policy Strings",
+      "ru": "Строки политики",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReportPolicy/field/policyType",
+      "original": "Policy Type",
+      "ru": "Тип политики",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReportPolicy/field/totalFailedSessions",
+      "original": "Failed Sessions",
+      "ru": "Неуспешные сеансы",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TlsReportPolicy/field/totalSuccessfulSessions",
+      "original": "Successful Sessions",
+      "ru": "Успешные сеансы",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:QueuedMessage/itemAction/delete:Cancel Delivery/label",
+      "original": "Cancel Delivery",
+      "ru": "Отменить доставку",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:QueuedMessage/itemAction/setProperty:Retry Now/label",
+      "original": "Retry Now",
+      "ru": "Повторить сейчас",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:QueuedMessage/massAction/delete:Cancel All/label",
+      "original": "Cancel All",
+      "ru": "Отменить всю доставку",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:QueuedMessage/massAction/setProperty:Retry All/label",
+      "original": "Retry All",
+      "ru": "Повторить доставку всех",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:ArfExternalReport/description",
+      "original": "Stores an ARF feedback report received from an external source.",
+      "ru": "Хранит отчёт обратной связи ARF, полученный из внешнего источника.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:DmarcExternalReport/description",
+      "original": "Stores a DMARC aggregate report received from an external source.",
+      "ru": "Хранит агрегированный отчёт DMARC, полученный из внешнего источника.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:DmarcInternalReport/description",
+      "original": "Stores an outbound DMARC aggregate report pending delivery.",
+      "ru": "Хранит исходящий агрегированный отчёт DMARC, ожидающий доставки.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:QueuedMessage/description",
+      "original": "Represents a queued email message pending delivery.",
+      "ru": "Почтовое сообщение, ожидающее доставки в очереди.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:TlsExternalReport/description",
+      "original": "Stores a TLS aggregate report received from an external source.",
+      "ru": "Хранит агрегированный отчёт TLS, полученный из внешнего источника.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:TlsInternalReport/description",
+      "original": "Stores an outbound TLS aggregate report pending delivery.",
+      "ru": "Хранит исходящий агрегированный отчёт TLS, ожидающий доставки.",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:QueueExpiry/Attempts/label",
+      "original": "Attempt-based expiry",
+      "ru": "Истечение срока по числу попыток",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:QueueExpiry/Ttl/label",
+      "original": "TTL-based expiry",
+      "ru": "Истечение срока по TTL",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:RecipientStatus/Completed/label",
+      "original": "Message was successfully delivered",
+      "ru": "Сообщение успешно доставлено",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:RecipientStatus/PermanentFailure/label",
+      "original": "Delivery failed permanently, will not retry",
+      "ru": "Окончательный отказ доставки, повторов не будет",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:RecipientStatus/Scheduled/label",
+      "original": "Delivery is pending",
+      "ru": "Ожидает доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:RecipientStatus/TemporaryFailure/label",
+      "original": "Delivery failed temporarily, will retry",
+      "ru": "Временный отказ доставки, будет повторная попытка",
+      "decision": "translate"
+    }
+  ]
+}
