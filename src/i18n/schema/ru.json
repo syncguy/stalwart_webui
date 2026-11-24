@@ -1358,6 +1358,46 @@
       "original": "Stale",
       "ru": "Нет свежих данных"
     },
+    "enum/ClusterTaskType/accountMaintenance/label": {
+      "original": "Account Maintenance",
+      "ru": "Обслуживание учётных записей"
+    },
+    "enum/ClusterTaskType/metricsCalculate/label": {
+      "original": "Calculate Metrics",
+      "ru": "Расчёт метрик"
+    },
+    "enum/ClusterTaskType/metricsPush/label": {
+      "original": "Push Metrics",
+      "ru": "Отправка метрик"
+    },
+    "enum/ClusterTaskType/outboundMta/label": {
+      "original": "Outbound Email MTA",
+      "ru": "Исходящая почта (MTA)"
+    },
+    "enum/ClusterTaskType/pushNotifications/label": {
+      "original": "Push Notifications",
+      "ru": "Push-уведомления"
+    },
+    "enum/ClusterTaskType/searchIndexing/label": {
+      "original": "Search Indexing",
+      "ru": "Индексация для поиска"
+    },
+    "enum/ClusterTaskType/spamClassifierTraining/label": {
+      "original": "Spam Classifier Training",
+      "ru": "Обучение классификатора спама"
+    },
+    "enum/ClusterTaskType/storeMaintenance/label": {
+      "original": "Store Maintenance",
+      "ru": "Обслуживание хранилища"
+    },
+    "enum/ClusterTaskType/taskQueueProcessing/label": {
+      "original": "Task Queue Processing",
+      "ru": "Обработка очереди заданий"
+    },
+    "enum/ClusterTaskType/taskScheduler/label": {
+      "original": "Task Scheduling",
+      "ru": "Планирование заданий"
+    },
     "enum/CompressionAlgo/lz4/label": {
       "original": "LZ4",
       "ru": "Сжатие LZ4"
@@ -8014,6 +8054,38 @@
       "original": "Secret value of the credential",
       "ru": "Секретное значение учётных данных"
     },
+    "field/x:Application/autoUpdateInterval/description": {
+      "original": "How long a downloaded application bundle is kept in the blob store. Once it expires, the bundle is downloaded again the next time the application is loaded",
+      "ru": "Срок хранения загруженного пакета приложения в хранилище BLOB. По истечении срока пакет скачивается повторно при следующей загрузке приложения"
+    },
+    "field/x:Application/description/description": {
+      "original": "A short description of the web application",
+      "ru": "Краткое описание веб-приложения"
+    },
+    "field/x:Application/enable/description": {
+      "original": "Whether the application is enabled and should be served by the server",
+      "ru": "Включено ли приложение и должен ли сервер предоставлять к нему доступ"
+    },
+    "field/x:Application/oauthClientId/description": {
+      "original": "Client identifier used when the domain is served by an external identity provider that does not support OAuth Client ID Metadata Documents. It must match a client registered with that provider. When the provider supports them, the application's metadata document URL is used instead.",
+      "ru": "Идентификатор клиента для домена, обслуживаемого внешним поставщиком удостоверений без поддержки документов метаданных клиента OAuth Client ID Metadata Documents. Он должен совпадать с идентификатором клиента, зарегистрированного у этого поставщика. Если документы поддерживаются, вместо идентификатора используется URL документа метаданных приложения."
+    },
+    "field/x:Application/oauthScopes/description": {
+      "original": "Additional OAuth scopes the application requests when signing in, appended to the ones it requests by default. Used with an external identity provider that releases a claim, such as the one named in the OIDC directory's username claim, only with a scope of its own.",
+      "ru": "Дополнительные области доступа OAuth, запрашиваемые приложением при входе наряду с областями по умолчанию. Используются с внешним поставщиком удостоверений, который выдаёт утверждение, например указанное в настройке имени пользователя каталога OIDC, только при запросе отдельной области доступа."
+    },
+    "field/x:Application/resourceUrl/description": {
+      "original": "Override the URL to download application updates from.",
+      "ru": "Переопределяет URL, с которого скачиваются обновления приложения."
+    },
+    "field/x:Application/unpackDirectory/description": {
+      "original": "The local path to unpack the application bundle to. If left empty, the application will be unpacked to /tmp.",
+      "ru": "Локальный путь для распаковки пакета приложения. Если поле пустое, приложение распаковывается в /tmp."
+    },
+    "field/x:Application/urlPrefix/description": {
+      "original": "The URL prefixes to serve the application on. For example, if set to \"/admin\", the application will be accessible at http://server/admin.",
+      "ru": "Префиксы URL, по которым сервер предоставляет приложение. Например, при значении \"/admin\" приложение будет доступно по адресу http://server/admin."
+    },
     "field/x:ArfExternalReport/expiresAt/description": {
       "original": "When the report is scheduled to be deleted",
       "ru": "Время запланированного удаления отчёта"
@@ -8149,6 +8221,58 @@
     "field/x:ArfFeedbackReport/version/description": {
       "original": "ARF format version",
       "ru": "Версия формата ARF"
+    },
+    "field/x:AsnDns/indexAsn/description": {
+      "original": "The position of the ASN in the DNS TXT record.",
+      "ru": "Позиция ASN в записи DNS типа TXT."
+    },
+    "field/x:AsnDns/indexAsnName/description": {
+      "original": "The position of the ASN Name in the DNS TXT record.",
+      "ru": "Позиция имени ASN в записи DNS типа TXT."
+    },
+    "field/x:AsnDns/indexCountry/description": {
+      "original": "The position of the country code in the DNS TXT record.",
+      "ru": "Позиция кода страны в записи DNS типа TXT."
+    },
+    "field/x:AsnDns/separator/description": {
+      "original": "The separator character used in the DNS TXT record.",
+      "ru": "Символ-разделитель в записи DNS типа TXT."
+    },
+    "field/x:AsnDns/zoneIpV4/description": {
+      "original": "The DNS zone to query for IPv4 ASN and geolocation data.",
+      "ru": "Зона DNS для запросов ASN и данных геолокации адресов IPv4."
+    },
+    "field/x:AsnDns/zoneIpV6/description": {
+      "original": "The DNS zone to query for IPv6 ASN and geolocation data.",
+      "ru": "Зона DNS для запросов ASN и данных геолокации адресов IPv6."
+    },
+    "field/x:AsnResource/asnUrls/description": {
+      "original": "URLs to fetch CSV file containing the IP to ASN mappings.",
+      "ru": "URL для получения файла CSV с соответствиями адресов IP и ASN."
+    },
+    "field/x:AsnResource/geoUrls/description": {
+      "original": "URLs to fetch CSV file containing the IP to country code mappings.",
+      "ru": "URL для получения файла CSV с соответствиями адресов IP и кодов стран."
+    },
+    "field/x:AsnResource/httpAuth/description": {
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP"
+    },
+    "field/x:AsnResource/httpHeaders/description": {
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки, включаемые в запросы HTTP"
+    },
+    "field/x:AsnResource/maxSize/description": {
+      "original": "Maximum size of the ASN/Geo data file.",
+      "ru": "Максимальный размер файла данных ASN/Geo."
+    },
+    "field/x:AsnResource/refreshInterval/description": {
+      "original": "How often to refresh the ASN/Geo data.",
+      "ru": "Периодичность обновления данных ASN/Geo."
+    },
+    "field/x:AsnResource/timeout/description": {
+      "original": "Time after which the ASN/Geo resource fetch is considered failed.",
+      "ru": "Время, по истечении которого попытка получения ресурса ASN/Geo считается неудачной."
     },
     "field/x:Authentication/defaultAdminRoleIds/description": {
       "original": "Default roles to assign for administrators.",
@@ -8590,6 +8714,10 @@
       "original": "Identifier for the ACME provider managing certificates for this domain",
       "ru": "Идентификатор провайдера ACME, управляющего сертификатами домена"
     },
+    "field/x:ClusterListenerGroupProperties/listenerIds/description": {
+      "original": "List of network listeners to enable or disable for this group",
+      "ru": "Список сетевых слушателей, включаемых или отключаемых для этой группы"
+    },
     "field/x:ClusterNode/hostname/description": {
       "original": "Hostname of the node",
       "ru": "Сетевое имя узла"
@@ -8605,6 +8733,26 @@
     "field/x:ClusterNode/status/description": {
       "original": "Current status of the node in the cluster",
       "ru": "Текущее состояние узла в кластере"
+    },
+    "field/x:ClusterRole/description/description": {
+      "original": "Description of the role",
+      "ru": "Описание роли"
+    },
+    "field/x:ClusterRole/listeners/description": {
+      "original": "Which network listeners are enabled for this cluster role",
+      "ru": "Какие сетевые слушатели включены для этой роли кластера"
+    },
+    "field/x:ClusterRole/name/description": {
+      "original": "Unique identifier for the role",
+      "ru": "Уникальный идентификатор роли"
+    },
+    "field/x:ClusterRole/tasks/description": {
+      "original": "Which tasks are enabled for this cluster role",
+      "ru": "Какие задания включены для этой роли кластера"
+    },
+    "field/x:ClusterTaskGroupProperties/taskTypes/description": {
+      "original": "Tasks to enable or disable for this group",
+      "ru": "Задания, включаемые или отключаемые для этой группы"
     },
     "field/x:CredentialPermissionsList/permissions/description": {
       "original": "List of permissions to assign.",
@@ -9322,6 +9470,18 @@
       "original": "Public key used for encrypting emails",
       "ru": "Открытый ключ для шифрования сообщений"
     },
+    "field/x:Enterprise/apiKey/description": {
+      "original": "API key for license retrieval and automatic renewals. Obtain your API key at https://license.stalw.art.",
+      "ru": "Ключ API для получения и автоматического продления лицензии. Получите ключ API по адресу https://license.stalw.art."
+    },
+    "field/x:Enterprise/licenseKey/description": {
+      "original": "Upgrade to the enterprise version of Stalwart by entering your license key here. Obtain your license at https://license.stalw.art/buy",
+      "ru": "Для перехода на корпоративную версию Stalwart введите ключ лицензии. Получить лицензию можно по адресу https://license.stalw.art/buy"
+    },
+    "field/x:Enterprise/logo/description": {
+      "original": "URL or base64-encoded image used as the default logo in the Webadmin interface",
+      "ru": "URL или изображение в кодировке base64, используемое как логотип по умолчанию в интерфейсе Webadmin"
+    },
     "field/x:EventTracingLevel/event/description": {
       "original": "Unique identifier of the event",
       "ru": "Уникальный идентификатор события"
@@ -9997,6 +10157,30 @@
     "field/x:MeilisearchStore/url/description": {
       "original": "URL of the store",
       "ru": "URL хранилища"
+    },
+    "field/x:MemoryLookupKey/isGlobPattern/description": {
+      "original": "Whether the key is a glob pattern",
+      "ru": "Является ли ключ шаблоном glob"
+    },
+    "field/x:MemoryLookupKey/namespace/description": {
+      "original": "The namespace of the key",
+      "ru": "Пространство имён ключа"
+    },
+    "field/x:MemoryLookupKeyValue/isGlobPattern/description": {
+      "original": "Whether the key is a glob pattern",
+      "ru": "Является ли ключ шаблоном glob"
+    },
+    "field/x:MemoryLookupKeyValue/key/description": {
+      "original": "The key name",
+      "ru": "Имя ключа"
+    },
+    "field/x:MemoryLookupKeyValue/namespace/description": {
+      "original": "The namespace of the key",
+      "ru": "Пространство имён ключа"
+    },
+    "field/x:MemoryLookupKeyValue/value/description": {
+      "original": "The key value",
+      "ru": "Значение ключа"
     },
     "field/x:Metadata/dataTypes/description": {
       "original": "JMAP data types that support the metadata and privateMetadata properties",
@@ -12642,6 +12826,54 @@
       "original": "Specifies the maximum number of results that a WebDAV query can return",
       "ru": "Задаёт максимальное число результатов, возвращаемых запросом WebDAV."
     },
+    "field/x:WebHook/discardAfter/description": {
+      "original": "The duration after which the webhook will be discarded if it cannot be delivered",
+      "ru": "Время, по истечении которого недоставленное уведомление веб-хука будет отброшено"
+    },
+    "field/x:WebHook/enable/description": {
+      "original": "Enable or disable the webhook",
+      "ru": "Включить или отключить веб-хук"
+    },
+    "field/x:WebHook/events/description": {
+      "original": "List of events to include or exclude based on filter mode",
+      "ru": "Список событий, включаемых или исключаемых в зависимости от режима фильтрации"
+    },
+    "field/x:WebHook/eventsPolicy/description": {
+      "original": "How to interpret the events list",
+      "ru": "Как интерпретировать список событий"
+    },
+    "field/x:WebHook/httpAuth/description": {
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP"
+    },
+    "field/x:WebHook/httpHeaders/description": {
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки, включаемые в запросы HTTP"
+    },
+    "field/x:WebHook/level/description": {
+      "original": "The minimum level of the events sent to the webhook",
+      "ru": "Минимальный уровень событий, отправляемых через веб-хук"
+    },
+    "field/x:WebHook/lossy/description": {
+      "original": "Whether to drop events if there is backlog",
+      "ru": "Отбрасывать ли события при накоплении очереди"
+    },
+    "field/x:WebHook/signatureKey/description": {
+      "original": "The HMAC key used to sign the webhook request body to prevent tampering",
+      "ru": "Ключ HMAC для подписания тела запроса веб-хука с целью защиты от подмены"
+    },
+    "field/x:WebHook/throttle/description": {
+      "original": "The minimum amount of time that must pass between each request to the webhook endpoint",
+      "ru": "Минимальный интервал между запросами к конечной точке веб-хука"
+    },
+    "field/x:WebHook/timeout/description": {
+      "original": "Timeout for HTTP requests",
+      "ru": "Время ожидания запросов HTTP"
+    },
+    "field/x:WebHook/url/description": {
+      "original": "URL of the webhook endpoint",
+      "ru": "URL конечной точки веб-хука"
+    },
     "field/x:ZenohCoordinator/config/description": {
       "original": "Zenoh configuration string",
       "ru": "Строка конфигурации Zenoh"
@@ -13378,9 +13610,45 @@
       "original": "Restrictions",
       "ru": "Ограничения"
     },
+    "form/x:Application/field/autoUpdateInterval": {
+      "original": "Update Interval",
+      "ru": "Интервал обновления"
+    },
     "form/x:Application/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:Application/field/oauthClientId": {
+      "original": "OAuth Client ID",
+      "ru": "Идентификатор клиента OAuth (Client ID)"
+    },
+    "form/x:Application/field/oauthScopes": {
+      "original": "OAuth Scopes",
+      "ru": "Области доступа OAuth"
+    },
+    "form/x:Application/field/resourceUrl": {
+      "original": "Resource URL",
+      "ru": "URL ресурса"
+    },
+    "form/x:Application/field/unpackDirectory": {
+      "original": "Unpack Directory",
+      "ru": "Каталог распаковки"
+    },
+    "form/x:Application/field/urlPrefix": {
+      "original": "URL Prefix",
+      "ru": "Префикс URL"
+    },
+    "form/x:Application/field/urlPrefix/placeholder": {
+      "original": "/admin",
+      "ru": "Например, /admin"
+    },
+    "form/x:Application/section/section-0": {
+      "original": "Application",
+      "ru": "Приложение"
+    },
+    "form/x:Application/section/section-1": {
+      "original": "Updates",
+      "ru": "Обновления"
     },
     "form/x:ArchivedCalendarEvent/field/accountId": {
       "original": "Account",
@@ -13598,13 +13866,97 @@
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:Asn/field/@type": {
+      "original": "Resource type",
+      "ru": "Тип ресурса"
+    },
+    "form/x:Asn/subtitle": {
+      "original": "Configure the data source used to look up the Autonomous System Number and country code of remote IP addresses",
+      "ru": "Настройка источника данных для определения номера автономной системы и кода страны по удалённым IP-адресам"
+    },
+    "form/x:Asn/title": {
+      "original": "ASN and Geolocation",
+      "ru": "ASN и геолокация"
+    },
+    "form/x:AsnDns/field/indexAsn": {
+      "original": "ASN Index",
+      "ru": "Индекс ASN"
+    },
+    "form/x:AsnDns/field/indexAsnName": {
+      "original": "ASN Name Index",
+      "ru": "Индекс имени ASN"
+    },
+    "form/x:AsnDns/field/indexCountry": {
+      "original": "Country Index",
+      "ru": "Индекс кода страны"
+    },
+    "form/x:AsnDns/field/separator": {
+      "original": "Separator",
+      "ru": "Разделитель"
+    },
+    "form/x:AsnDns/field/zoneIpV4": {
+      "original": "IPv4 Zone",
+      "ru": "Зона IPv4"
+    },
+    "form/x:AsnDns/field/zoneIpV6": {
+      "original": "IPv6 Zone",
+      "ru": "Зона IPv6"
+    },
+    "form/x:AsnDns/section/section-0": {
+      "original": "DNS Zones",
+      "ru": "Зоны DNS"
+    },
+    "form/x:AsnDns/section/section-1": {
+      "original": "TXT Record Format",
+      "ru": "Формат записи TXT"
+    },
+    "form/x:AsnResource/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:AsnResource/field/asnUrls": {
+      "original": "ASN URLs",
+      "ru": "URL данных ASN"
+    },
+    "form/x:AsnResource/field/geoUrls": {
+      "original": "Geolocation URLs",
+      "ru": "URL данных геолокации"
+    },
     "form/x:AsnResource/field/httpAuth": {
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:AsnResource/field/httpHeaders": {
+      "original": "Headers",
+      "ru": "Заголовки"
+    },
+    "form/x:AsnResource/field/maxSize": {
+      "original": "Max Size",
+      "ru": "Макс. размер"
+    },
+    "form/x:AsnResource/field/refreshInterval": {
+      "original": "Refresh Interval",
+      "ru": "Интервал обновления"
+    },
+    "form/x:AsnResource/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:AsnResource/section/section-0": {
+      "original": "URL Resources",
+      "ru": "Ресурсы по URL"
+    },
+    "form/x:AsnResource/section/section-1": {
+      "original": "Retrieval",
+      "ru": "Получение данных"
+    },
     "form/x:AsnResource/section/section-2": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:AsnResource/section/section-3": {
+      "original": "Headers",
+      "ru": "Заголовки"
     },
     "form/x:Authentication/field/defaultAdminRoleIds": {
       "original": "Admin Roles",
@@ -14270,9 +14622,21 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "form/x:ClusterRole/field/listeners": {
+      "original": "Enabled Listeners",
+      "ru": "Включённые слушатели"
+    },
     "form/x:ClusterRole/field/name": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "form/x:ClusterRole/field/tasks": {
+      "original": "Enabled Tasks",
+      "ru": "Включённые задания"
+    },
+    "form/x:ClusterRole/section/section-0": {
+      "original": "Cluster Role",
+      "ru": "Роль кластера"
     },
     "form/x:ClusterRole/section/section-1": {
       "original": "Tasks",
@@ -14281,6 +14645,10 @@
     "form/x:ClusterRole/section/section-2": {
       "original": "Listeners",
       "ru": "Слушатели"
+    },
+    "form/x:ClusterTaskGroupProperties/field/taskTypes": {
+      "original": "Task Types",
+      "ru": "Типы заданий"
     },
     "form/x:Coordinator/field/@type": {
       "original": "Coordinator type",
@@ -16310,6 +16678,34 @@
       "original": "Encryption Settings",
       "ru": "Настройки шифрования"
     },
+    "form/x:Enterprise/field/apiKey": {
+      "original": "API Key",
+      "ru": "Ключ API"
+    },
+    "form/x:Enterprise/field/licenseKey": {
+      "original": "License Key",
+      "ru": "Ключ лицензии"
+    },
+    "form/x:Enterprise/field/logo": {
+      "original": "Default Logo",
+      "ru": "Логотип по умолчанию"
+    },
+    "form/x:Enterprise/section/section-0": {
+      "original": "Licensing",
+      "ru": "Лицензирование"
+    },
+    "form/x:Enterprise/section/section-1": {
+      "original": "Branding",
+      "ru": "Оформление"
+    },
+    "form/x:Enterprise/subtitle": {
+      "original": "Manage your Stalwart Enterprise license key, API key for automatic license renewals, and the default logo shown in the web administration interface",
+      "ru": "Управление ключом лицензии Stalwart Enterprise, ключом API для автоматического продления лицензии и логотипом по умолчанию в веб-интерфейсе администрирования"
+    },
+    "form/x:Enterprise/title": {
+      "original": "Enterprise License",
+      "ru": "Корпоративная лицензия"
+    },
     "form/x:EventTracingLevel/field/event": {
       "original": "Event Id",
       "ru": "Идентификатор события"
@@ -17669,6 +18065,42 @@
     "form/x:MemoryLookupKey/SpamUrlRedirector/section/section-0": {
       "original": "URL Redirector",
       "ru": "Служба перенаправления URL"
+    },
+    "form/x:MemoryLookupKey/field/isGlobPattern": {
+      "original": "Glob Pattern",
+      "ru": "Шаблон glob"
+    },
+    "form/x:MemoryLookupKey/field/key": {
+      "original": "Key",
+      "ru": "Ключ"
+    },
+    "form/x:MemoryLookupKey/field/namespace": {
+      "original": "Namespace",
+      "ru": "Пространство имён"
+    },
+    "form/x:MemoryLookupKey/section/section-0": {
+      "original": "Lookup Key",
+      "ru": "Ключ поиска"
+    },
+    "form/x:MemoryLookupKeyValue/field/isGlobPattern": {
+      "original": "Glob Pattern",
+      "ru": "Шаблон glob"
+    },
+    "form/x:MemoryLookupKeyValue/field/key": {
+      "original": "Key",
+      "ru": "Ключ"
+    },
+    "form/x:MemoryLookupKeyValue/field/namespace": {
+      "original": "Namespace",
+      "ru": "Пространство имён"
+    },
+    "form/x:MemoryLookupKeyValue/field/value": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "form/x:MemoryLookupKeyValue/section/section-0": {
+      "original": "Lookup Key-Value",
+      "ru": "Пара «ключ — значение»"
     },
     "form/x:Metadata/field/dataTypes": {
       "original": "Data Types",
@@ -21990,17 +22422,73 @@
       "original": "WebDAV Protocol",
       "ru": "Протокол WebDAV"
     },
+    "form/x:WebHook/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:WebHook/field/discardAfter": {
+      "original": "Discard After",
+      "ru": "Отбрасывать через"
+    },
+    "form/x:WebHook/field/enable": {
+      "original": "Enable this webhook",
+      "ru": "Включить веб-хук"
+    },
     "form/x:WebHook/field/events": {
       "original": "Events",
       "ru": "События"
+    },
+    "form/x:WebHook/field/eventsPolicy": {
+      "original": "Filtering mode",
+      "ru": "Режим фильтрации"
     },
     "form/x:WebHook/field/httpAuth": {
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:WebHook/field/httpHeaders": {
+      "original": "HTTP Headers",
+      "ru": "Заголовки HTTP"
+    },
+    "form/x:WebHook/field/level": {
+      "original": "Logging level",
+      "ru": "Уровень журналирования"
+    },
+    "form/x:WebHook/field/lossy": {
+      "original": "Lossy mode",
+      "ru": "Режим с потерей событий"
+    },
+    "form/x:WebHook/field/signatureKey": {
+      "original": "Signature Key",
+      "ru": "Ключ подписи"
+    },
+    "form/x:WebHook/field/throttle": {
+      "original": "Throttle",
+      "ru": "Мин. интервал запросов"
+    },
+    "form/x:WebHook/field/timeout": {
+      "original": "Timeout",
+      "ru": "Время ожидания"
+    },
+    "form/x:WebHook/field/url": {
+      "original": "Endpoint URL",
+      "ru": "URL конечной точки"
+    },
+    "form/x:WebHook/section/section-0": {
+      "original": "Webhook settings",
+      "ru": "Настройки веб-хука"
+    },
     "form/x:WebHook/section/section-1": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:WebHook/section/section-2": {
+      "original": "Options",
+      "ru": "Параметры"
+    },
+    "form/x:WebHook/section/section-3": {
+      "original": "Event filtering",
+      "ru": "Фильтрация событий"
     },
     "form/x:ZenohCoordinator/field/config": {
       "original": "Configuration",
@@ -22482,9 +22970,29 @@
       "original": "App Passwords",
       "ru": "Пароли приложений"
     },
+    "list/x:Application/column/autoUpdateInterval": {
+      "original": "Update Interval",
+      "ru": "Интервал обновления"
+    },
     "list/x:Application/column/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "list/x:Application/column/urlPrefix": {
+      "original": "URL Prefix",
+      "ru": "Префикс URL"
+    },
+    "list/x:Application/plural": {
+      "original": "applications",
+      "ru": "приложения"
+    },
+    "list/x:Application/singular": {
+      "original": "application",
+      "ru": "приложение"
+    },
+    "list/x:Application/subtitle": {
+      "original": "Manage web applications",
+      "ru": "Управление веб-приложениями"
     },
     "list/x:Application/title": {
       "original": "Web Applications",
@@ -22645,6 +23153,14 @@
     "list/x:ClusterRole/singular": {
       "original": "role",
       "ru": "роль"
+    },
+    "list/x:ClusterRole/subtitle": {
+      "original": "Manage cluster node roles",
+      "ru": "Управление ролями узлов кластера"
+    },
+    "list/x:ClusterRole/title": {
+      "original": "Cluster Roles",
+      "ru": "Роли кластера"
     },
     "list/x:Directory/column/@type": {
       "original": "Type",
@@ -23197,6 +23713,66 @@
     "list/x:MemoryLookupKey/SpamUrlRedirector/title": {
       "original": "URL redirector domains",
       "ru": "Домены служб перенаправления URL"
+    },
+    "list/x:MemoryLookupKey/column/key": {
+      "original": "Key",
+      "ru": "Ключ"
+    },
+    "list/x:MemoryLookupKey/column/namespace": {
+      "original": "Namespace",
+      "ru": "Пространство имён"
+    },
+    "list/x:MemoryLookupKey/filter/namespace": {
+      "original": "Namespace",
+      "ru": "Пространство имён"
+    },
+    "list/x:MemoryLookupKey/plural": {
+      "original": "keys",
+      "ru": "ключи"
+    },
+    "list/x:MemoryLookupKey/singular": {
+      "original": "key",
+      "ru": "ключ"
+    },
+    "list/x:MemoryLookupKey/subtitle": {
+      "original": "Manage local lookup keys",
+      "ru": "Управление локальными ключами поиска"
+    },
+    "list/x:MemoryLookupKey/title": {
+      "original": "Lookup Keys",
+      "ru": "Ключи поиска"
+    },
+    "list/x:MemoryLookupKeyValue/column/key": {
+      "original": "Key",
+      "ru": "Ключ"
+    },
+    "list/x:MemoryLookupKeyValue/column/namespace": {
+      "original": "Namespace",
+      "ru": "Пространство имён"
+    },
+    "list/x:MemoryLookupKeyValue/column/value": {
+      "original": "Value",
+      "ru": "Значение"
+    },
+    "list/x:MemoryLookupKeyValue/filter/namespace": {
+      "original": "Namespace",
+      "ru": "Пространство имён"
+    },
+    "list/x:MemoryLookupKeyValue/plural": {
+      "original": "keys",
+      "ru": "ключи"
+    },
+    "list/x:MemoryLookupKeyValue/singular": {
+      "original": "key",
+      "ru": "ключ"
+    },
+    "list/x:MemoryLookupKeyValue/subtitle": {
+      "original": "Manage in-memory lookup key-value pairs",
+      "ru": "Управление парами «ключ — значение» для поиска в памяти"
+    },
+    "list/x:MemoryLookupKeyValue/title": {
+      "original": "Lookup Key-Values",
+      "ru": "Пары «ключ — значение»"
     },
     "list/x:Metric/title": {
       "original": "Metrics",
@@ -24318,6 +24894,22 @@
       "original": "Logging & tracing methods",
       "ru": "Методы журналирования и трассировки"
     },
+    "list/x:WebHook/column/url": {
+      "original": "Endpoint URL",
+      "ru": "URL конечной точки"
+    },
+    "list/x:WebHook/plural": {
+      "original": "webhooks",
+      "ru": "веб-хуки"
+    },
+    "list/x:WebHook/singular": {
+      "original": "webhook",
+      "ru": "веб-хук"
+    },
+    "list/x:WebHook/subtitle": {
+      "original": "Manage Webhooks",
+      "ru": "Управление веб-хуками"
+    },
     "list/x:WebHook/title": {
       "original": "Webhooks",
       "ru": "Веб-хуки"
@@ -25050,9 +25642,17 @@
       "original": "App password credential for programmatic access.",
       "ru": "Пароль приложения для программного доступа."
     },
+    "object/x:Application/description": {
+      "original": "Defines a web application served by the server.",
+      "ru": "Определяет веб-приложение, предоставляемое сервером."
+    },
     "object/x:ArfExternalReport/description": {
       "original": "Stores an ARF feedback report received from an external source.",
       "ru": "Хранит отчёт обратной связи ARF, полученный из внешнего источника."
+    },
+    "object/x:Asn/description": {
+      "original": "Configures ASN and geolocation data sources for IP address lookups.",
+      "ru": "Настройка источников данных ASN и геолокации для поиска по адресам IP."
     },
     "object/x:Authentication/description": {
       "original": "Configures authentication settings including password policies and default roles.",
@@ -25085,6 +25685,10 @@
     "object/x:Certificate/description": {
       "original": "Defines a TLS certificate and its associated private key.",
       "ru": "Определяет сертификат TLS и соответствующий закрытый ключ."
+    },
+    "object/x:ClusterRole/description": {
+      "original": "Defines a cluster node role with enabled tasks and listeners.",
+      "ru": "Определяет роль узла кластера с включёнными заданиями и слушателями."
     },
     "object/x:Coordinator/description": {
       "original": "Configures the cluster coordinator for inter-node communication.",
@@ -25142,6 +25746,10 @@
       "original": "Configures email message limits, compression, and default folder settings.",
       "ru": "Настройка ограничений почтовых сообщений, сжатия и папок по умолчанию."
     },
+    "object/x:Enterprise/description": {
+      "original": "Configures enterprise licensing and branding settings.",
+      "ru": "Настройка корпоративной лицензии и оформления."
+    },
     "object/x:EventTracingLevel/description": {
       "original": "Defines a custom logging level override for a specific event type.",
       "ru": "Переопределяет уровень журналирования для определённого типа событий."
@@ -25193,6 +25801,14 @@
     "object/x:MaskedEmail/description": {
       "original": "Defines a masked email address for privacy protection.",
       "ru": "Определяет маскированный почтовый адрес для защиты конфиденциальности."
+    },
+    "object/x:MemoryLookupKey/description": {
+      "original": "Defines an in-memory lookup key for fast data access.",
+      "ru": "Определяет ключ поиска в памяти для быстрого доступа к данным."
+    },
+    "object/x:MemoryLookupKeyValue/description": {
+      "original": "Defines an in-memory lookup key-value pair.",
+      "ru": "Определяет пару «ключ — значение» для поиска в памяти."
     },
     "object/x:Metadata/description": {
       "original": "Configures object metadata: JMAP metadata, WebDAV dead properties and IMAP annotations.",
@@ -25446,6 +26062,10 @@
       "original": "Configures WebDAV protocol settings including property limits and locking.",
       "ru": "Настройка протокола WebDAV, включая ограничения свойств и блокировки."
     },
+    "object/x:WebHook/description": {
+      "original": "Defines a webhook endpoint for event notifications.",
+      "ru": "Определяет конечную точку веб-хука для уведомлений о событиях."
+    },
     "variant/x:Account/Group/label": {
       "original": "Group account",
       "ru": "Групповая учётная запись"
@@ -25497,6 +26117,14 @@
     "variant/x:Action/UpdateApps/label": {
       "original": "Application Management: Update applications",
       "ru": "Управление приложениями: Обновить приложение"
+    },
+    "variant/x:Asn/Dns/label": {
+      "original": "DNS Lookup",
+      "ru": "Поиск через DNS"
+    },
+    "variant/x:Asn/Resource/label": {
+      "original": "URL Resource",
+      "ru": "Ресурс по URL"
     },
     "variant/x:AzureAuth/ClientSecret/label": {
       "original": "Service Principal (Client Secret)",
@@ -25617,6 +26245,38 @@
     "variant/x:CertificateManagement/Manual/label": {
       "original": "Manual TLS certificate management",
       "ru": "Ручное управление сертификатами TLS"
+    },
+    "variant/x:ClusterListenerGroup/DisableAll/label": {
+      "original": "Disable all network listeners",
+      "ru": "Отключить все сетевые слушатели"
+    },
+    "variant/x:ClusterListenerGroup/DisableSome/label": {
+      "original": "Disable some network listeners",
+      "ru": "Отключить выбранные сетевые слушатели"
+    },
+    "variant/x:ClusterListenerGroup/EnableAll/label": {
+      "original": "Enable all network listeners",
+      "ru": "Включить все сетевые слушатели"
+    },
+    "variant/x:ClusterListenerGroup/EnableSome/label": {
+      "original": "Enable some network listeners",
+      "ru": "Включить выбранные сетевые слушатели"
+    },
+    "variant/x:ClusterTaskGroup/DisableAll/label": {
+      "original": "Disable all tasks",
+      "ru": "Отключить все задания"
+    },
+    "variant/x:ClusterTaskGroup/DisableSome/label": {
+      "original": "Disable some tasks",
+      "ru": "Отключить выбранные задания"
+    },
+    "variant/x:ClusterTaskGroup/EnableAll/label": {
+      "original": "Enable all tasks",
+      "ru": "Включить все задания"
+    },
+    "variant/x:ClusterTaskGroup/EnableSome/label": {
+      "original": "Enable some tasks",
+      "ru": "Включить выбранные задания"
     },
     "variant/x:Coordinator/Default/label": {
       "original": "Use in-memory store (Stalwart Keep or Redis only)",

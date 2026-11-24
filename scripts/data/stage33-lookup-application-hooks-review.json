@@ -1,0 +1,1021 @@
+{
+  "version": 1,
+  "stage": 33,
+  "baseline": "1b08d357de8402bba99ad3a2e782e914607ce0a8",
+  "baselineCatalogSha256": "e7c139ffad9250fa69e4c1048db0f06451e8c826459b3f1a61fd50a8494ba793",
+  "scope": [
+    {
+      "section": "Settings",
+      "screens": [
+        "x:Application",
+        "x:Asn",
+        "x:ClusterRole",
+        "x:Enterprise",
+        "x:HttpLookup",
+        "x:MemoryLookupKey",
+        "x:MemoryLookupKey/SpamBlockedDomain",
+        "x:MemoryLookupKey/SpamTrap",
+        "x:MemoryLookupKey/SpamTrustedDomain",
+        "x:MemoryLookupKey/SpamUrlRedirector",
+        "x:MemoryLookupKeyValue",
+        "x:MtaHook",
+        "x:StoreLookup",
+        "x:WebHook"
+      ]
+    }
+  ],
+  "status": "editor-reviewed",
+  "apply": false,
+  "entries": [
+    {
+      "slot": "enum/ClusterTaskType/accountMaintenance/label",
+      "original": "Account Maintenance",
+      "ru": "Обслуживание учётных записей",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ClusterTaskType/metricsCalculate/label",
+      "original": "Calculate Metrics",
+      "ru": "Расчёт метрик",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ClusterTaskType/metricsPush/label",
+      "original": "Push Metrics",
+      "ru": "Отправка метрик",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ClusterTaskType/outboundMta/label",
+      "original": "Outbound Email MTA",
+      "ru": "Исходящая почта (MTA)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ClusterTaskType/pushNotifications/label",
+      "original": "Push Notifications",
+      "ru": "Push-уведомления",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ClusterTaskType/searchIndexing/label",
+      "original": "Search Indexing",
+      "ru": "Индексация для поиска",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ClusterTaskType/spamClassifierTraining/label",
+      "original": "Spam Classifier Training",
+      "ru": "Обучение классификатора спама",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ClusterTaskType/storeMaintenance/label",
+      "original": "Store Maintenance",
+      "ru": "Обслуживание хранилища",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ClusterTaskType/taskQueueProcessing/label",
+      "original": "Task Queue Processing",
+      "ru": "Обработка очереди заданий",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/ClusterTaskType/taskScheduler/label",
+      "original": "Task Scheduling",
+      "ru": "Планирование заданий",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Application/autoUpdateInterval/description",
+      "original": "How long a downloaded application bundle is kept in the blob store. Once it expires, the bundle is downloaded again the next time the application is loaded",
+      "ru": "Срок хранения загруженного пакета приложения в хранилище BLOB. По истечении срока пакет скачивается повторно при следующей загрузке приложения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Application/description/description",
+      "original": "A short description of the web application",
+      "ru": "Краткое описание веб-приложения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Application/enable/description",
+      "original": "Whether the application is enabled and should be served by the server",
+      "ru": "Включено ли приложение и должен ли сервер предоставлять к нему доступ",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Application/oauthClientId/description",
+      "original": "Client identifier used when the domain is served by an external identity provider that does not support OAuth Client ID Metadata Documents. It must match a client registered with that provider. When the provider supports them, the application's metadata document URL is used instead.",
+      "ru": "Идентификатор клиента для домена, обслуживаемого внешним поставщиком удостоверений без поддержки документов метаданных клиента OAuth Client ID Metadata Documents. Он должен совпадать с идентификатором клиента, зарегистрированного у этого поставщика. Если документы поддерживаются, вместо идентификатора используется URL документа метаданных приложения.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Application/oauthScopes/description",
+      "original": "Additional OAuth scopes the application requests when signing in, appended to the ones it requests by default. Used with an external identity provider that releases a claim, such as the one named in the OIDC directory's username claim, only with a scope of its own.",
+      "ru": "Дополнительные области доступа OAuth, запрашиваемые приложением при входе наряду с областями по умолчанию. Используются с внешним поставщиком удостоверений, который выдаёт утверждение, например указанное в настройке имени пользователя каталога OIDC, только при запросе отдельной области доступа.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Application/resourceUrl/description",
+      "original": "Override the URL to download application updates from.",
+      "ru": "Переопределяет URL, с которого скачиваются обновления приложения.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Application/unpackDirectory/description",
+      "original": "The local path to unpack the application bundle to. If left empty, the application will be unpacked to /tmp.",
+      "ru": "Локальный путь для распаковки пакета приложения. Если поле пустое, приложение распаковывается в /tmp.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Application/urlPrefix/description",
+      "original": "The URL prefixes to serve the application on. For example, if set to \"/admin\", the application will be accessible at http://server/admin.",
+      "ru": "Префиксы URL, по которым сервер предоставляет приложение. Например, при значении \"/admin\" приложение будет доступно по адресу http://server/admin.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnDns/indexAsn/description",
+      "original": "The position of the ASN in the DNS TXT record.",
+      "ru": "Позиция ASN в записи DNS типа TXT.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnDns/indexAsnName/description",
+      "original": "The position of the ASN Name in the DNS TXT record.",
+      "ru": "Позиция имени ASN в записи DNS типа TXT.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnDns/indexCountry/description",
+      "original": "The position of the country code in the DNS TXT record.",
+      "ru": "Позиция кода страны в записи DNS типа TXT.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnDns/separator/description",
+      "original": "The separator character used in the DNS TXT record.",
+      "ru": "Символ-разделитель в записи DNS типа TXT.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnDns/zoneIpV4/description",
+      "original": "The DNS zone to query for IPv4 ASN and geolocation data.",
+      "ru": "Зона DNS для запросов ASN и данных геолокации адресов IPv4.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnDns/zoneIpV6/description",
+      "original": "The DNS zone to query for IPv6 ASN and geolocation data.",
+      "ru": "Зона DNS для запросов ASN и данных геолокации адресов IPv6.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnResource/asnUrls/description",
+      "original": "URLs to fetch CSV file containing the IP to ASN mappings.",
+      "ru": "URL для получения файла CSV с соответствиями адресов IP и ASN.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnResource/geoUrls/description",
+      "original": "URLs to fetch CSV file containing the IP to country code mappings.",
+      "ru": "URL для получения файла CSV с соответствиями адресов IP и кодов стран.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnResource/httpAuth/description",
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnResource/httpHeaders/description",
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки, включаемые в запросы HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnResource/maxSize/description",
+      "original": "Maximum size of the ASN/Geo data file.",
+      "ru": "Максимальный размер файла данных ASN/Geo.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnResource/refreshInterval/description",
+      "original": "How often to refresh the ASN/Geo data.",
+      "ru": "Периодичность обновления данных ASN/Geo.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AsnResource/timeout/description",
+      "original": "Time after which the ASN/Geo resource fetch is considered failed.",
+      "ru": "Время, по истечении которого попытка получения ресурса ASN/Geo считается неудачной.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ClusterListenerGroupProperties/listenerIds/description",
+      "original": "List of network listeners to enable or disable for this group",
+      "ru": "Список сетевых слушателей, включаемых или отключаемых для этой группы",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ClusterRole/description/description",
+      "original": "Description of the role",
+      "ru": "Описание роли",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ClusterRole/listeners/description",
+      "original": "Which network listeners are enabled for this cluster role",
+      "ru": "Какие сетевые слушатели включены для этой роли кластера",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ClusterRole/name/description",
+      "original": "Unique identifier for the role",
+      "ru": "Уникальный идентификатор роли",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ClusterRole/tasks/description",
+      "original": "Which tasks are enabled for this cluster role",
+      "ru": "Какие задания включены для этой роли кластера",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:ClusterTaskGroupProperties/taskTypes/description",
+      "original": "Tasks to enable or disable for this group",
+      "ru": "Задания, включаемые или отключаемые для этой группы",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Enterprise/apiKey/description",
+      "original": "API key for license retrieval and automatic renewals. Obtain your API key at https://license.stalw.art.",
+      "ru": "Ключ API для получения и автоматического продления лицензии. Получите ключ API по адресу https://license.stalw.art.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Enterprise/licenseKey/description",
+      "original": "Upgrade to the enterprise version of Stalwart by entering your license key here. Obtain your license at https://license.stalw.art/buy",
+      "ru": "Для перехода на корпоративную версию Stalwart введите ключ лицензии. Получить лицензию можно по адресу https://license.stalw.art/buy",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Enterprise/logo/description",
+      "original": "URL or base64-encoded image used as the default logo in the Webadmin interface",
+      "ru": "URL или изображение в кодировке base64, используемое как логотип по умолчанию в интерфейсе Webadmin",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MemoryLookupKey/isGlobPattern/description",
+      "original": "Whether the key is a glob pattern",
+      "ru": "Является ли ключ шаблоном glob",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MemoryLookupKey/namespace/description",
+      "original": "The namespace of the key",
+      "ru": "Пространство имён ключа",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MemoryLookupKeyValue/isGlobPattern/description",
+      "original": "Whether the key is a glob pattern",
+      "ru": "Является ли ключ шаблоном glob",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MemoryLookupKeyValue/key/description",
+      "original": "The key name",
+      "ru": "Имя ключа",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MemoryLookupKeyValue/namespace/description",
+      "original": "The namespace of the key",
+      "ru": "Пространство имён ключа",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MemoryLookupKeyValue/value/description",
+      "original": "The key value",
+      "ru": "Значение ключа",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/discardAfter/description",
+      "original": "The duration after which the webhook will be discarded if it cannot be delivered",
+      "ru": "Время, по истечении которого недоставленное уведомление веб-хука будет отброшено",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/enable/description",
+      "original": "Enable or disable the webhook",
+      "ru": "Включить или отключить веб-хук",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/events/description",
+      "original": "List of events to include or exclude based on filter mode",
+      "ru": "Список событий, включаемых или исключаемых в зависимости от режима фильтрации",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/eventsPolicy/description",
+      "original": "How to interpret the events list",
+      "ru": "Как интерпретировать список событий",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/httpAuth/description",
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/httpHeaders/description",
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки, включаемые в запросы HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/level/description",
+      "original": "The minimum level of the events sent to the webhook",
+      "ru": "Минимальный уровень событий, отправляемых через веб-хук",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/lossy/description",
+      "original": "Whether to drop events if there is backlog",
+      "ru": "Отбрасывать ли события при накоплении очереди",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/signatureKey/description",
+      "original": "The HMAC key used to sign the webhook request body to prevent tampering",
+      "ru": "Ключ HMAC для подписания тела запроса веб-хука с целью защиты от подмены",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/throttle/description",
+      "original": "The minimum amount of time that must pass between each request to the webhook endpoint",
+      "ru": "Минимальный интервал между запросами к конечной точке веб-хука",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/timeout/description",
+      "original": "Timeout for HTTP requests",
+      "ru": "Время ожидания запросов HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:WebHook/url/description",
+      "original": "URL of the webhook endpoint",
+      "ru": "URL конечной точки веб-хука",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Application/field/autoUpdateInterval",
+      "original": "Update Interval",
+      "ru": "Интервал обновления",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Application/field/oauthClientId",
+      "original": "OAuth Client ID",
+      "ru": "Идентификатор клиента OAuth (Client ID)",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Application/field/oauthScopes",
+      "original": "OAuth Scopes",
+      "ru": "Области доступа OAuth",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Application/field/resourceUrl",
+      "original": "Resource URL",
+      "ru": "URL ресурса",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Application/field/unpackDirectory",
+      "original": "Unpack Directory",
+      "ru": "Каталог распаковки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Application/field/urlPrefix",
+      "original": "URL Prefix",
+      "ru": "Префикс URL",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Application/field/urlPrefix/placeholder",
+      "original": "/admin",
+      "ru": "Например, /admin",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Application/section/section-0",
+      "original": "Application",
+      "ru": "Приложение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Application/section/section-1",
+      "original": "Updates",
+      "ru": "Обновления",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Asn/field/@type",
+      "original": "Resource type",
+      "ru": "Тип ресурса",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Asn/subtitle",
+      "original": "Configure the data source used to look up the Autonomous System Number and country code of remote IP addresses",
+      "ru": "Настройка источника данных для определения номера автономной системы и кода страны по удалённым IP-адресам",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Asn/title",
+      "original": "ASN and Geolocation",
+      "ru": "ASN и геолокация",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnDns/field/indexAsn",
+      "original": "ASN Index",
+      "ru": "Индекс ASN",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnDns/field/indexAsnName",
+      "original": "ASN Name Index",
+      "ru": "Индекс имени ASN",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnDns/field/indexCountry",
+      "original": "Country Index",
+      "ru": "Индекс кода страны",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnDns/field/separator",
+      "original": "Separator",
+      "ru": "Разделитель",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnDns/field/zoneIpV4",
+      "original": "IPv4 Zone",
+      "ru": "Зона IPv4",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnDns/field/zoneIpV6",
+      "original": "IPv6 Zone",
+      "ru": "Зона IPv6",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnDns/section/section-0",
+      "original": "DNS Zones",
+      "ru": "Зоны DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnDns/section/section-1",
+      "original": "TXT Record Format",
+      "ru": "Формат записи TXT",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnResource/field/allowInvalidCerts",
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnResource/field/asnUrls",
+      "original": "ASN URLs",
+      "ru": "URL данных ASN",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnResource/field/geoUrls",
+      "original": "Geolocation URLs",
+      "ru": "URL данных геолокации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnResource/field/httpHeaders",
+      "original": "Headers",
+      "ru": "Заголовки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnResource/field/maxSize",
+      "original": "Max Size",
+      "ru": "Макс. размер",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnResource/field/refreshInterval",
+      "original": "Refresh Interval",
+      "ru": "Интервал обновления",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnResource/field/timeout",
+      "original": "Timeout",
+      "ru": "Время ожидания",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnResource/section/section-0",
+      "original": "URL Resources",
+      "ru": "Ресурсы по URL",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnResource/section/section-1",
+      "original": "Retrieval",
+      "ru": "Получение данных",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AsnResource/section/section-3",
+      "original": "Headers",
+      "ru": "Заголовки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ClusterRole/field/listeners",
+      "original": "Enabled Listeners",
+      "ru": "Включённые слушатели",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ClusterRole/field/tasks",
+      "original": "Enabled Tasks",
+      "ru": "Включённые задания",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ClusterRole/section/section-0",
+      "original": "Cluster Role",
+      "ru": "Роль кластера",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:ClusterTaskGroupProperties/field/taskTypes",
+      "original": "Task Types",
+      "ru": "Типы заданий",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Enterprise/field/apiKey",
+      "original": "API Key",
+      "ru": "Ключ API",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Enterprise/field/licenseKey",
+      "original": "License Key",
+      "ru": "Ключ лицензии",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Enterprise/field/logo",
+      "original": "Default Logo",
+      "ru": "Логотип по умолчанию",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Enterprise/section/section-0",
+      "original": "Licensing",
+      "ru": "Лицензирование",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Enterprise/section/section-1",
+      "original": "Branding",
+      "ru": "Оформление",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Enterprise/subtitle",
+      "original": "Manage your Stalwart Enterprise license key, API key for automatic license renewals, and the default logo shown in the web administration interface",
+      "ru": "Управление ключом лицензии Stalwart Enterprise, ключом API для автоматического продления лицензии и логотипом по умолчанию в веб-интерфейсе администрирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Enterprise/title",
+      "original": "Enterprise License",
+      "ru": "Корпоративная лицензия",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MemoryLookupKey/field/isGlobPattern",
+      "original": "Glob Pattern",
+      "ru": "Шаблон glob",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MemoryLookupKey/field/key",
+      "original": "Key",
+      "ru": "Ключ",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MemoryLookupKey/field/namespace",
+      "original": "Namespace",
+      "ru": "Пространство имён",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MemoryLookupKey/section/section-0",
+      "original": "Lookup Key",
+      "ru": "Ключ поиска",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MemoryLookupKeyValue/field/isGlobPattern",
+      "original": "Glob Pattern",
+      "ru": "Шаблон glob",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MemoryLookupKeyValue/field/key",
+      "original": "Key",
+      "ru": "Ключ",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MemoryLookupKeyValue/field/namespace",
+      "original": "Namespace",
+      "ru": "Пространство имён",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MemoryLookupKeyValue/field/value",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MemoryLookupKeyValue/section/section-0",
+      "original": "Lookup Key-Value",
+      "ru": "Пара «ключ — значение»",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/field/allowInvalidCerts",
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/field/discardAfter",
+      "original": "Discard After",
+      "ru": "Отбрасывать через",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/field/enable",
+      "original": "Enable this webhook",
+      "ru": "Включить веб-хук",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/field/eventsPolicy",
+      "original": "Filtering mode",
+      "ru": "Режим фильтрации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/field/httpHeaders",
+      "original": "HTTP Headers",
+      "ru": "Заголовки HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/field/level",
+      "original": "Logging level",
+      "ru": "Уровень журналирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/field/lossy",
+      "original": "Lossy mode",
+      "ru": "Режим с потерей событий",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/field/signatureKey",
+      "original": "Signature Key",
+      "ru": "Ключ подписи",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/field/throttle",
+      "original": "Throttle",
+      "ru": "Мин. интервал запросов",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/field/timeout",
+      "original": "Timeout",
+      "ru": "Время ожидания",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/field/url",
+      "original": "Endpoint URL",
+      "ru": "URL конечной точки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/section/section-0",
+      "original": "Webhook settings",
+      "ru": "Настройки веб-хука",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/section/section-2",
+      "original": "Options",
+      "ru": "Параметры",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:WebHook/section/section-3",
+      "original": "Event filtering",
+      "ru": "Фильтрация событий",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Application/column/autoUpdateInterval",
+      "original": "Update Interval",
+      "ru": "Интервал обновления",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Application/column/urlPrefix",
+      "original": "URL Prefix",
+      "ru": "Префикс URL",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Application/plural",
+      "original": "applications",
+      "ru": "приложения",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Application/singular",
+      "original": "application",
+      "ru": "приложение",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Application/subtitle",
+      "original": "Manage web applications",
+      "ru": "Управление веб-приложениями",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:ClusterRole/subtitle",
+      "original": "Manage cluster node roles",
+      "ru": "Управление ролями узлов кластера",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:ClusterRole/title",
+      "original": "Cluster Roles",
+      "ru": "Роли кластера",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKey/column/key",
+      "original": "Key",
+      "ru": "Ключ",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKey/column/namespace",
+      "original": "Namespace",
+      "ru": "Пространство имён",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKey/filter/namespace",
+      "original": "Namespace",
+      "ru": "Пространство имён",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKey/plural",
+      "original": "keys",
+      "ru": "ключи",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKey/singular",
+      "original": "key",
+      "ru": "ключ",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKey/subtitle",
+      "original": "Manage local lookup keys",
+      "ru": "Управление локальными ключами поиска",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKey/title",
+      "original": "Lookup Keys",
+      "ru": "Ключи поиска",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKeyValue/column/key",
+      "original": "Key",
+      "ru": "Ключ",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKeyValue/column/namespace",
+      "original": "Namespace",
+      "ru": "Пространство имён",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKeyValue/column/value",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKeyValue/filter/namespace",
+      "original": "Namespace",
+      "ru": "Пространство имён",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKeyValue/plural",
+      "original": "keys",
+      "ru": "ключи",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKeyValue/singular",
+      "original": "key",
+      "ru": "ключ",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKeyValue/subtitle",
+      "original": "Manage in-memory lookup key-value pairs",
+      "ru": "Управление парами «ключ — значение» для поиска в памяти",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:MemoryLookupKeyValue/title",
+      "original": "Lookup Key-Values",
+      "ru": "Пары «ключ — значение»",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:WebHook/column/url",
+      "original": "Endpoint URL",
+      "ru": "URL конечной точки",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:WebHook/plural",
+      "original": "webhooks",
+      "ru": "веб-хуки",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:WebHook/singular",
+      "original": "webhook",
+      "ru": "веб-хук",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:WebHook/subtitle",
+      "original": "Manage Webhooks",
+      "ru": "Управление веб-хуками",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:Application/description",
+      "original": "Defines a web application served by the server.",
+      "ru": "Определяет веб-приложение, предоставляемое сервером.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:Asn/description",
+      "original": "Configures ASN and geolocation data sources for IP address lookups.",
+      "ru": "Настройка источников данных ASN и геолокации для поиска по адресам IP.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:ClusterRole/description",
+      "original": "Defines a cluster node role with enabled tasks and listeners.",
+      "ru": "Определяет роль узла кластера с включёнными заданиями и слушателями.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:Enterprise/description",
+      "original": "Configures enterprise licensing and branding settings.",
+      "ru": "Настройка корпоративной лицензии и оформления.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:MemoryLookupKey/description",
+      "original": "Defines an in-memory lookup key for fast data access.",
+      "ru": "Определяет ключ поиска в памяти для быстрого доступа к данным.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:MemoryLookupKeyValue/description",
+      "original": "Defines an in-memory lookup key-value pair.",
+      "ru": "Определяет пару «ключ — значение» для поиска в памяти.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:WebHook/description",
+      "original": "Defines a webhook endpoint for event notifications.",
+      "ru": "Определяет конечную точку веб-хука для уведомлений о событиях.",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:Asn/Dns/label",
+      "original": "DNS Lookup",
+      "ru": "Поиск через DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:Asn/Resource/label",
+      "original": "URL Resource",
+      "ru": "Ресурс по URL",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:ClusterListenerGroup/DisableAll/label",
+      "original": "Disable all network listeners",
+      "ru": "Отключить все сетевые слушатели",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:ClusterListenerGroup/DisableSome/label",
+      "original": "Disable some network listeners",
+      "ru": "Отключить выбранные сетевые слушатели",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:ClusterListenerGroup/EnableAll/label",
+      "original": "Enable all network listeners",
+      "ru": "Включить все сетевые слушатели",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:ClusterListenerGroup/EnableSome/label",
+      "original": "Enable some network listeners",
+      "ru": "Включить выбранные сетевые слушатели",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:ClusterTaskGroup/DisableAll/label",
+      "original": "Disable all tasks",
+      "ru": "Отключить все задания",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:ClusterTaskGroup/DisableSome/label",
+      "original": "Disable some tasks",
+      "ru": "Отключить выбранные задания",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:ClusterTaskGroup/EnableAll/label",
+      "original": "Enable all tasks",
+      "ru": "Включить все задания",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:ClusterTaskGroup/EnableSome/label",
+      "original": "Enable some tasks",
+      "ru": "Включить выбранные задания",
+      "decision": "translate"
+    }
+  ]
+}

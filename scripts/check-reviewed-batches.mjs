@@ -271,6 +271,31 @@ assert.equal(batchTextSafe('DSN reports','Отчёты',32),false);
 assert.equal(batchTextSafe('Changes','История изменений (Changes)',32),true);
 assert.equal(batchTextSafe('Changes','История изменений',32),false);
 
+const stage33=packets.find(p=>p.stage===33);
+if(stage33){
+  assert.equal(stage33.entries.length,165);
+  assert.equal(new Set(stage33.entries.map(e=>e.original)).size,143);
+  assert.equal(stage33.baseline,'1b08d357de8402bba99ad3a2e782e914607ce0a8');
+  assert.equal(stage33.baselineCatalogSha256,'e7c139ffad9250fa69e4c1048db0f06451e8c826459b3f1a61fd50a8494ba793');
+  assert.deepEqual(stage33.scope,[{"section":"Settings","screens":["x:Application","x:Asn","x:ClusterRole","x:Enterprise","x:HttpLookup","x:MemoryLookupKey","x:MemoryLookupKey/SpamBlockedDomain","x:MemoryLookupKey/SpamTrap","x:MemoryLookupKey/SpamTrustedDomain","x:MemoryLookupKey/SpamUrlRedirector","x:MemoryLookupKeyValue","x:MtaHook","x:StoreLookup","x:WebHook"]}]);
+  assert.equal(digest(stage33.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'2949a4cb583ac4138b029de8b0c293e6c8a8c492e1a770c065a19cef35f459da');
+}
+assert.equal(batchTextSafe('ASN and Geo data','Данные ASN и Geo',33),true);
+assert.equal(batchTextSafe('ASN and Geo data','Данные ASN',33),false);
+assert.equal(batchTextSafe('OIDC and OAuth Client ID Metadata Documents','OIDC и документы OAuth Client ID Metadata Documents',33),true);
+assert.equal(batchTextSafe('OIDC and OAuth Client ID Metadata Documents','Документы OAuth Client ID Metadata Documents',33),false);
+assert.equal(batchTextSafe('Unpack to /tmp','Распаковать в /tmp',33),true);
+assert.equal(batchTextSafe('Unpack to /tmp','Распаковать в /temp',33),false);
+assert.equal(batchTextSafe('/admin','Например, /admin',33),true);
+assert.equal(batchTextSafe('/admin','Например, /administrator',33),false);
+assert.equal(batchTextSafe('API key at https://license.stalw.art.','Ключ API: https://license.stalw.art.',33),true);
+assert.equal(batchTextSafe('API key at https://license.stalw.art.','Ключ API: https://license.example.invalid.',33),false);
+assert.equal(batchTextSafe('HMAC key','Ключ HMAC',33),true);
+assert.equal(batchTextSafe('HMAC key','Ключ',33),false);
+assert.equal(batchTextSafe('Glob Pattern','Шаблон glob',33),true);
+assert.equal(batchTextSafe('Glob Pattern','Шаблон glob',32),false);
+assert.equal(batchTextSafe('Glob Pattern','Шаблон',33),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;

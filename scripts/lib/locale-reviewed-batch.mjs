@@ -68,11 +68,14 @@ export function batchTextSafe(original,ru,stage=19) {
   const reportTokens=s=>[...s.matchAll(/\b(?:From|TLSRPT)\b/g)].map(m=>m[0]).sort();
   // Stage32 exact natural-language plural DSNs, normalized only for this pinned source.
   const reportOriginal=stage===32&&original==="Domain name used by default in the sender address and organization name of DSNs and outbound reports, available in expressions as `system('report_domain')`. If left empty, the default domain is used."?original.replace('DSNs','DSN'):original;
+  const lookupTokens=s=>[...s.matchAll(/\b(?:ASN|Geo|OIDC|Client ID|Webadmin)\b|\/(?:admin|tmp)\b/g)].map(m=>m[0]).sort();
+  // Only the exact stage33 display label has initial-capital Glob, unlike the glob marker in its description.
+  const securityOriginal=stage===33&&original==='Glob Pattern'?'glob Pattern':original;
   return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
     (stage<20||json(mailTokens(reportOriginal))===json(mailTokens(ru)))&&
     (stage<21||json(maintenanceTokens(original))===json(maintenanceTokens(ru)))&&
     (stage<22||json(externalTokens(markerOriginal))===json(externalTokens(ru)))&&
-    (stage<23||json(securityTokens(original))===json(securityTokens(ru)))&&
+    (stage<23||json(securityTokens(securityOriginal))===json(securityTokens(ru)))&&
     (stage<24||json(telemetryTokens(markerOriginal))===json(telemetryTokens(ru)))&&
     (stage<25||(json(storageTokens(markerOriginal))===json(storageTokens(ru))&&json(metadataTokens(original))===json(metadataTokens(ru))&&json(fractionTokens(original))===json(fractionTokens(ru))))&&
     (stage<26||json(smtpTokens(smtpOriginal))===json(smtpTokens(ru)))&&
@@ -81,7 +84,8 @@ export function batchTextSafe(original,ru,stage=19) {
     (stage<29||json(accountTokens(original))===json(accountTokens(ru)))&&
     (stage<30||json(coordinatorTokens(original))===json(coordinatorTokens(ru)))&&
     (stage<31||json(clientProtocolTokens(original))===json(clientProtocolTokens(ru)))&&
-    (stage<32||json(reportTokens(original))===json(reportTokens(ru)));
+    (stage<32||json(reportTokens(original))===json(reportTokens(ru)))&&
+    (stage<33||json(lookupTokens(original))===json(lookupTokens(ru)));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);

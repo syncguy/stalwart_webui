@@ -1645,3 +1645,193 @@ if(catalog.entries['variant/x:Cron/Daily/label']){
   assert.equal(archiveCases32,1);
   console.log('PASS: Stage32 actual segmented VariantSelect/VariantValue/FormSections/FieldRow synthetic SSR; both pinned editions; Cron raw IDs and numeric callbacks, report settings, retention split forms and Enterprise-only archive, unknown hash fallback; no report delivery or scheduled cleanup execution');
 }
+
+
+// Stage33: application resources, ASN, cluster roles, licensing, lookup keys and webhooks.
+// All inputs are synthetic, no actual fetch, activation, task execution or licensing.
+if(catalog.entries['enum/ClusterTaskType/accountMaintenance/label']){
+  let checks33=[],labels33=new Map(),pills33=[],select33,options33=[];
+  const {EnumMultiSelect}=component('src/components/forms/widgets/EnumWidgets.tsx',{
+    'lucide-react':{Search:icon},
+    '@/components/ui/button':{Button:passthrough},
+    '@/components/ui/checkbox':{Checkbox:props=>{checks33.push(props);return null;}},
+    '@/components/ui/input':{Input:()=>null},
+    '@/components/ui/label':{Label:props=>{labels33.set(props.htmlFor,React.Children.toArray(props.children).filter(c=>typeof c==='string').join(''));return h('label',{htmlFor:props.htmlFor},props.children);}},
+    '@/components/ui/combobox':{Combobox:()=>null},
+    '@/components/ui/popover':{Popover:passthrough,PopoverContent:passthrough,PopoverTrigger:passthrough},
+    '@/components/common/HelpTooltip':{HelpTooltip:()=>null},
+    '@/hooks/usePermissions':{usePermissionCheckers:()=>({hasPermission:()=>true})},
+    '@/lib/schemaResolver':resolver19,
+    '@/components/forms/formContext':{useFormContext:()=>({schema:fixtureSchema19})},
+    '@/hooks/useSchemaText':{useSchemaText,useCanTranslateSchema:()=>language==='ru'&&catalog.meta.schemaHashes.includes(hash)},
+    '@/i18n/schemaPermissionText':{permissionDisplayLabel:(_id,label)=>label},
+    '@/components/ui/comboboxSearch':{filterComboboxOptions:options=>options},
+    '@/i18n/schemaOptionLabels':{headerProtectionOptionLabel:x=>x,localeOptionLabel:(_id,label)=>label},
+    '@/components/forms/widgets/RemovablePill':{RemovablePill:props=>{pills33.push(props);return h('span',null,props.children);}},
+  });
+  const selectDeps33={Select:props=>{select33=props;return h('div',null,props.children);},SelectContent:passthrough,SelectTrigger:passthrough,SelectValue:()=>null,SelectItem:props=>{options33.push(props);return h('span',null,props.children);}};
+  const {VariantSelect}=component('src/components/forms/VariantSelect.tsx',{
+    '@/components/ui/select':selectDeps33,
+    '@/components/forms/FieldRow':{FieldLabel:props=>h('span',null,props.label)},
+    '@/components/forms/formContext':{fieldIds:()=>({inputId:'lookup-type',labelId:'lookup-label'}),useFieldScope:()=>({path:[]}),useFormContext:()=>({idPrefix:'synthetic'}),useInPanel:()=>false},
+    '@/components/forms/formLogic':{VARIANT_FIELD:'@type'},
+  });
+  function find33(node,predicate){
+    if(!React.isValidElement(node))return [];
+    return [...(predicate(node)?[node]:[]),...React.Children.toArray(node.props.children).flatMap(child=>find33(child,predicate))];
+  }
+  let multi33=0,variant33=0,forms33=0,enterprise33=0,columns33=0,placeholder33=0;
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;
+    const caps=resolver19.getEnum(schema,'ClusterTaskType');
+    const items=['accountMaintenance','searchIndexing'],next='metricsPush';
+    assert.equal(caps.length,10);
+    assert.ok(items.every(id=>caps.some(v=>v.name===id))&&caps.some(v=>v.name===next));
+    const capRaw=JSON.stringify({caps,items});let event;
+    const props={enumName:'ClusterTaskType',items,onChange:v=>{event=v;},readOnly:false,control:{id:'cluster-tasks'}};
+    for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+      language=lang;hash=activeHash;checks33=[];labels33=new Map();pills33=[];
+      const localized=lang==='ru'&&activeHash===pin.schemaHash;
+      const html=render(EnumMultiSelect,props);
+      assert.equal(checks33.length,caps.length);
+      for(const [i,v] of caps.entries()){
+        const slot='enum/ClusterTaskType/'+v.name+'/label';
+        assert.equal(v.label,original(slot));
+        const id='cluster-tasks-dd-'+v.name.replace(/[^A-Za-z0-9_-]/g,'_');
+        assert.equal(checks33[i].id,id);assert.equal(checks33[i].checked,items.includes(v.name));
+        assert.equal(labels33.get(id),localized?ru(slot):v.label,slot);
+        assert.ok(render(scalar20.EnumValue,{schema,enumName:'ClusterTaskType',value:v.name}).includes(htmlText19(localized?ru(slot):v.label)),slot);
+      }
+      for(const [i,id] of items.entries()){
+        const slot='enum/ClusterTaskType/'+id+'/label';
+        assert.equal(pills33[i].label,localized?ru(slot):original(slot));
+        assert.ok(html.includes(htmlText19(pills33[i].label)),slot);
+      }
+      checks33[caps.findIndex(v=>v.name===next)].onCheckedChange();
+      assert.deepEqual(Array.from(event),[...items,next]);
+      pills33[0].onRemove();assert.deepEqual(Array.from(event),[items[1]]);
+      assert.equal(JSON.stringify({caps,items}),capRaw);
+    }
+    multi33++;
+    for(const variantScope of ['x:Asn','x:ClusterListenerGroup','x:ClusterTaskGroup']){
+      const variants=schema.schemas[variantScope].variants,raw=JSON.stringify(variants);
+      const expectedIds=variantScope==='x:Asn'?['Dns','Resource']:['DisableAll','DisableSome','EnableAll','EnableSome'];
+      assert.deepEqual(Array.from(variants,v=>v.name).sort(),expectedIds);
+      const selected=variants[0].name,nextVariant=variants[1].name;
+      const variantProps={variantScope,variants,value:selected,onChange:v=>{event=v;},readOnly:false,ariaLabel:'Synthetic variant'};
+      const segmented=variants.length>1&&variants.length<=4&&variants.reduce((sum,v)=>sum+v.label.length,0)<=44;
+      for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+        language=lang;hash=activeHash;select33=undefined;options33=[];
+        const localized=lang==='ru'&&activeHash===pin.schemaHash;
+        const html=render(VariantSelect,variantProps);
+        const label=v=>localized?ru('variant/'+variantScope+'/'+v.name+'/label'):v.label;
+        for(const v of variants){
+          const slot='variant/'+variantScope+'/'+v.name+'/label';
+          assert.equal(v.label,original(slot));
+          assert.ok(html.includes(htmlText19(label(v))),slot);
+          assert.ok(render(fieldValue20.VariantValue,{schema,objectName:variantScope,value:v.name}).includes(htmlText19(label(v))),slot);
+        }
+        if(segmented){
+          assert.ok(html.includes('role="radiogroup"'));
+          const controls=find33(VariantSelect(variantProps),n=>typeof n.type==='function'&&n.type.name==='SegmentedVariants');
+          assert.equal(controls.length,1);
+          const control=controls[0];assert.equal(control.props.value,selected);
+          assert.deepEqual(Array.from(control.props.variants,v=>v.name),Array.from(variants,v=>v.name));
+          const radios=find33(control.type(control.props),n=>n.type==='button'&&n.props.role==='radio');
+          assert.equal(radios.length,variants.length);
+          for(const [i,v] of variants.entries()){
+            assert.equal(radios[i].props.children,label(v));
+            assert.equal(radios[i].props['aria-checked'],v.name===selected);
+          }
+          radios[1].props.onClick();
+        }else{
+          assert.equal(select33.value,selected);
+          assert.deepEqual(Array.from(options33,v=>v.value),Array.from(variants,v=>v.name));
+          select33.onValueChange(nextVariant);
+        }
+        assert.equal(event,nextVariant);assert.equal(variantProps.value,selected);assert.equal(JSON.stringify(variants),raw);
+      }
+      variant33++;
+    }
+    for(const [formKey,name,value,changed] of [
+      ['x:Application','autoUpdateInterval','7d','14d'],
+      ['x:Application','oauthClientId','synthetic-client','edited-client'],
+      ['x:Application','oauthScopes',['synthetic-scope'],['edited-scope']],
+      ['x:Application','resourceUrl','https://example.invalid/app','https://example.invalid/other'],
+      ['x:Application','unpackDirectory','/synthetic','/edited'],
+      ['x:Application','urlPrefix','/synthetic','/edited'],
+      ['x:AsnDns','indexAsn',1,2],
+      ['x:AsnDns','separator',',',';'],
+      ['x:AsnDns','zoneIpV4','example.invalid','other.invalid'],
+      ['x:AsnResource','asnUrls',['https://example.invalid/asn'],['https://example.invalid/other']],
+      ['x:AsnResource','maxSize',1024,2048],
+      ['x:AsnResource','refreshInterval','7d','14d'],
+      ['x:AsnResource','timeout','10s','20s'],
+      ['x:MemoryLookupKey','isGlobPattern',false,true],
+      ['x:MemoryLookupKey','namespace','synthetic','edited'],
+      ['x:MemoryLookupKeyValue','key','synthetic-key','edited-key'],
+      ['x:MemoryLookupKeyValue','value','synthetic-value','edited-value'],
+      ['x:WebHook','enable',false,true],
+      ['x:WebHook','url','https://example.invalid/hook','https://example.invalid/other'],
+      ['x:WebHook','signatureKey','synthetic-key','edited-key'],
+      ['x:WebHook','lossy',false,true],
+      ['x:WebHook','httpHeaders',{'X-Synthetic':'old'},{'X-Synthetic':'new'}],
+      ['x:WebHook','discardAfter','10s','20s'],
+      ['x:WebHook','throttle','10s','20s'],
+      ['x:Enterprise','apiKey','synthetic-not-a-real-key','edited-not-a-real-key'],
+      ['x:Enterprise','licenseKey','synthetic-not-a-license','edited-not-a-license'],
+      ['x:Enterprise','logo','https://example.invalid/logo','https://example.invalid/other'],
+    ]){
+      const form=schema.forms[formKey],field=schema.fields[formKey]?.properties[name];
+      if(formKey==='x:Enterprise'&&pin.edition==='oss'){assert.ok(!form);continue;}
+      assert.ok(form&&field,formKey+'/'+name);
+      const section=form.sections.find(s=>s.fields.some(f=>f.name===name));assert.ok(section,formKey+'/'+name);
+      const formField=section.fields.find(f=>f.name===name);
+      const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+      assert.equal(formField.label,original(slot));assert.equal(field.description,original(desc));
+      const sectionKey='section-'+form.sections.indexOf(section),sectionSlot='form/'+formKey+'/section/'+sectionKey;
+      const sections=[{key:sectionKey,title:section.title,fields:[{formField,field}]}];
+      const data={[name]:value},snapshot=JSON.stringify({sections,data});
+      const formProps={sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}};
+      for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+        language=lang;hash=activeHash;
+        const localized=lang==='ru'&&activeHash===pin.schemaHash;
+        const html=render(FormSections,formProps);
+        for(const key of [slot,desc])assert.ok(html.includes(htmlText19(localized?ru(key):original(key))),key);
+        if(catalog.entries[sectionSlot]){
+          assert.equal(section.title,original(sectionSlot));
+          assert.ok(html.includes(htmlText19(localized?ru(sectionSlot):original(sectionSlot))),sectionSlot);
+        }
+        assert.equal(capturedField.formField.name,name);assert.equal(capturedField.value,value);
+        if(name==='urlPrefix'){
+          const ph=slot+'/placeholder';assert.equal(formField.placeholder,'/admin');
+          assert.equal(capturedField.formField.placeholder,localized?ru(ph):original(ph));
+          assert.equal(original(ph),'/admin');
+        }
+        capturedField.onChange(changed);assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({sections,data}),snapshot);
+      }
+      if(name==='urlPrefix')placeholder33++;
+      if(formKey==='x:Enterprise')enterprise33++;
+      forms33++;
+    }
+    for(const [listKey,name] of [['x:Application','autoUpdateInterval'],['x:Application','urlPrefix'],['x:MemoryLookupKey','key'],['x:MemoryLookupKey','namespace'],['x:MemoryLookupKeyValue','value'],['x:WebHook','url']]){
+      const column=schema.lists[listKey].columns.find(v=>v.name===name),slot='list/'+listKey+'/column/'+name;
+      assert.equal(column.label,original(slot));
+      let sorted;const raw=JSON.stringify(column),props={column,listKey,sortable:true,sort:null,onSort:v=>{sorted=v;}};
+      for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+        language=lang;hash=activeHash;
+        const label=lang==='ru'&&activeHash===pin.schemaHash?ru(slot):original(slot);
+        assert.ok(render(ColumnHeader,props).includes(htmlText19(label)),slot);
+        assert.ok(render(ColumnHeader,{...props,sortable:false}).includes(htmlText19(label)),slot);
+        ColumnHeader(props).props.children.props.onClick();assert.equal(sorted,name);
+        assert.equal(JSON.stringify(column),raw);
+      }
+      columns33++;
+    }
+  }
+  assert.equal(multi33,2);assert.equal(variant33,6);
+  assert.equal(forms33,51);assert.equal(enterprise33,3);assert.equal(placeholder33,2);assert.equal(columns33,12);
+  console.log('PASS: Stage33 actual EnumMultiSelect/EnumValue, VariantSelect/VariantValue, FormSections/FieldRow and ColumnHeader synthetic SSR; both pinned editions, raw IDs, callback payloads, immutable placeholder source, unknown-hash fallback and Enterprise-only settings; no network, application or hook activation, licensing or task execution');
+}
