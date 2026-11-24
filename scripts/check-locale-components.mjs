@@ -1325,3 +1325,123 @@ if(catalog.entries['enum/Permission/sysAccountGet/label']){
   assert.equal(cases,2);
   console.log('PASS: Stage29 Permission catalog parity, actual EnumMultiSelect/EnumWidget/EnumValue, real legacy adapter, raw IDs, mocked ACL filter, callbacks and unknown hash fallback on both pinned editions');
 }
+
+// Stage30: coordinator and store variants and settings remain display-only. No storage connections.
+if(catalog.entries['variant/x:Coordinator/Kafka/label']){
+  let select30,items30=[];
+  const {VariantSelect}=component('src/components/forms/VariantSelect.tsx',{
+    '@/components/ui/select':{
+      Select:props=>{select30=props;return h('div',null,props.children);},
+      SelectContent:passthrough,SelectTrigger:passthrough,SelectValue:()=>null,
+      SelectItem:props=>{items30.push(props);return h('span',null,props.children);},
+    },
+    '@/components/forms/FieldRow':{FieldLabel:props=>h('span',null,props.label)},
+    '@/components/forms/formContext':{fieldIds:()=>({inputId:'storage-type',labelId:'storage-label'}),useFieldScope:()=>({path:[]}),useFormContext:()=>({idPrefix:'synthetic'}),useInPanel:()=>false},
+    '@/components/forms/formLogic':{VARIANT_FIELD:'@type'},
+  });
+  let variantCases30=0,formCases30=0,enumCases30=0;
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;
+    for(const [objectName,selected,next] of [
+      ['x:Coordinator','Kafka','Nats'],
+      ['x:KeepTls','Authority','Disabled'],
+    ]){
+      const variants=schema.schemas[objectName]?.variants;
+      assert.ok(variants,objectName);
+      assert.ok(variants.some(v=>v.name===selected)&&variants.some(v=>v.name===next),objectName);
+      const raw=JSON.stringify(variants);
+      let event;
+      const props={variantScope:objectName,variants,value:selected,onChange:v=>{event=v;},readOnly:false,ariaLabel:'Storage type'};
+      for(const lang of ['ru','en','ru']){
+        language=lang;select30=undefined;items30=[];
+        const html=render(VariantSelect,props);
+        assert.ok(select30,objectName+' dropdown expected');
+        assert.equal(select30.value,selected);
+        assert.deepEqual(Array.from(items30,v=>v.value),Array.from(variants,v=>v.name));
+        for(const [i,v] of variants.entries()){
+          const slot='variant/'+objectName+'/'+v.name+'/label';
+          const entry=catalog.entries[slot];
+          const expected=lang==='ru'&&entry?.original===v.label?entry.ru:v.label;
+          assert.equal(items30[i].children,expected,slot);
+          assert.ok(html.includes(htmlText19(expected)),slot);
+        }
+        select30.onValueChange(next);
+        assert.equal(event,next);
+        assert.equal(props.value,selected);
+        assert.equal(JSON.stringify(variants),raw);
+      }
+      hash='unknown';language='ru';items30=[];
+      render(VariantSelect,props);
+      assert.deepEqual(Array.from(items30,v=>v.children),Array.from(variants,v=>v.label));
+      hash=pin.schemaHash;variantCases30++;
+    }
+    for(const [enumName,selected,next] of [
+      ['KeepStreamMode','everywhere','owner'],
+      ['PostgreSqlRecyclingMethod','clean','verified'],
+      ['RedisProtocol','resp2','resp3'],
+    ]){
+      const variants=resolver19.getEnum(schema,enumName);
+      assert.ok(variants.length,enumName);
+      const slot='enum/'+enumName+'/'+selected+'/label';
+      assert.ok(variants.some(v=>v.name===selected)&&variants.some(v=>v.name===next),enumName);
+      const raw=JSON.stringify(variants);
+      let event;
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const html=render(EnumWidget,{type:{type:'enum',enumName,nullable:false},formField:{name:'mode'},value:selected,onChange:v=>{event=v;},readOnly:false,control:{}});
+        assert.ok(html.includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+        assert.deepEqual(Array.from(capturedCombo19.options,v=>v.value),Array.from(variants,v=>v.name));
+        capturedCombo19.onValueChange(next);
+        assert.equal(event,next);
+        assert.ok(render(scalar20.EnumValue,{schema,enumName,value:selected}).includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+        assert.equal(JSON.stringify(variants),raw);
+      }
+      hash='unknown';language='ru';
+      assert.ok(render(EnumWidget,{type:{type:'enum',enumName,nullable:false},formField:{name:'mode'},value:selected,onChange:()=>{},readOnly:false,control:{}}).includes(htmlText19(original(slot))),slot);
+      hash=pin.schemaHash;enumCases30++;
+    }
+    for(const [formKey,name,value,changed] of [
+      ['x:KeepStore','clusterDiscovery',false,true],
+      ['x:KeepStore','deadline','5s','10s'],
+      ['x:MySqlStore','maxAllowedPacket',1048576,2097152],
+      ['x:MySqlStore','allowInvalidCerts',false,true],
+      ['x:PostgreSqlStore','responseTimeout','5s','10s'],
+      ['x:NatsCoordinator','noEcho',false,true],
+      ['x:KafkaCoordinator','allowInvalidCerts',false,true],
+      ['x:RedisClusterStore','readFromReplicas',false,true],
+      ['x:SqliteStore','poolWorkers',4,8],
+    ]){
+      const form=schema.forms[formKey],field=schema.fields[formKey]?.properties[name];
+      assert.ok(form&&field,formKey+'/'+name);
+      const section=form.sections.find(s=>s.fields.some(f=>f.name===name));
+      assert.ok(section,formKey+'/'+name);
+      const formField=section.fields.find(f=>f.name===name);
+      const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+      assert.equal(formField.label,original(slot));
+      assert.equal(field.description,original(desc));
+      const sections=[{key:'section-'+form.sections.indexOf(section),title:section.title,fields:[{formField,field}]}];
+      const data={[name]:value},snapshot=JSON.stringify({sections,data});
+      let event;
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const html=render(FormSections,{sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}});
+        for(const key of [slot,desc])assert.ok(html.includes(htmlText19(lang==='ru'?ru(key):original(key))),key);
+        assert.equal(capturedField.formField.name,name);
+        assert.equal(capturedField.value,value);
+        capturedField.onChange(changed);
+        assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({sections,data}),snapshot);
+      }
+      hash='unknown';language='ru';
+      assert.ok(render(FormSections,{sections,formKey,data,errors:{},readOnly:false,onFieldChange:()=>{}}).includes(htmlText19(original(slot))),slot);
+      hash=pin.schemaHash;formCases30++;
+    }
+  }
+  assert.equal(variantCases30,4);
+  assert.equal(enumCases30,6);
+  assert.equal(formCases30,18);
+  console.log('PASS: Stage30 actual VariantSelect, EnumWidget/EnumValue, FormSections/FieldRow synthetic SSR; edition-pinned coordinator/TLS variants, raw protocol IDs and callbacks, deadline, invalid-cert flags, replica and worker settings; no storage connections or configuration writes');
+}
+
+

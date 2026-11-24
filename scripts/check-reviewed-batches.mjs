@@ -201,6 +201,30 @@ assert.equal(batchTextSafe('Date the authorization was granted','Дата пре
 assert.equal(batchTextSafe('Date the authorization was granted','Дата предоставления авторизации',28),false);
 assert.equal(batchTextSafe('Date header','Заголовок',29),false);
 
+
+const stage30=packets.find(p=>p.stage===30);
+if(stage30){
+  assert.equal(stage30.entries.length,240);
+  assert.equal(new Set(stage30.entries.map(e=>e.original)).size,159);
+  assert.equal(stage30.baseline,'deb4fe202d44155939401657dbe6061f39d4e7e8');
+  assert.deepEqual(stage30.scope,[{"section":"Settings","screens":["x:BlobStore","x:Cache","x:Coordinator","x:DataStore","x:Directory","x:InMemoryStore","x:MetricsStore","x:SearchStore","x:StoreLookup","x:TracingStore"]}]);
+  assert.equal(digest(stage30.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'230040c04638ddb9d9e940529fabda448932b061b3409300ddd120fd3a1d13c7');
+}
+assert.equal(batchTextSafe('RESP2','Протокол RESP2',30),true);
+assert.equal(batchTextSafe('RESP2','Протокол RESP3',30),false);
+assert.equal(batchTextSafe('host:port Kafka','Адрес host:port Kafka',30),true);
+assert.equal(batchTextSafe('host:port Kafka','Адрес host Kafka',30),false);
+assert.equal(batchTextSafe('MySQL wait_timeout','Параметр MySQL wait_timeout',30),true);
+assert.equal(batchTextSafe('MySQL wait_timeout','Параметр MySQL connect_timeout',30),false);
+assert.equal(batchTextSafe('PEM or DER','PEM или DER',30),true);
+assert.equal(batchTextSafe('PEM or DER','PEM или PEM',30),false);
+assert.equal(batchTextSafe('SQLite stalwart.db','Файл SQLite stalwart.db',30),true);
+assert.equal(batchTextSafe('SQLite stalwart.db','Файл SQLite data.db',30),false);
+assert.equal(batchTextSafe('32 hexadecimal digits without TLS','32 шестнадцатеричные цифры без TLS',30),true);
+assert.equal(batchTextSafe('32 hexadecimal digits without TLS','64 шестнадцатеричные цифры без TLS',30),false);
+assert.equal(batchTextSafe('Stalwart Keep or Redis','Stalwart Keep или Redis',30),true);
+assert.equal(batchTextSafe('Stalwart Keep or Redis','Stalwart или Redis',30),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;

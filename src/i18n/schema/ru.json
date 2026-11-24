@@ -1750,6 +1750,14 @@
       "original": "RSASSA-PKCS1-v1_5 using SHA-512",
       "ru": "RSASSA-PKCS1-v1_5 с SHA-512"
     },
+    "enum/KeepStreamMode/everywhere/label": {
+      "original": "Subscribe on every server and publish on one",
+      "ru": "Подписываться на каждом сервере, публиковать на одном"
+    },
+    "enum/KeepStreamMode/owner/label": {
+      "original": "Subscribe and publish on one server chosen per cluster",
+      "ru": "Подписываться и публиковать на одном сервере, выбранном для каждого кластера"
+    },
     "enum/Key/details/label": {
       "original": "Details",
       "ru": "Сведения"
@@ -6522,6 +6530,18 @@
       "original": "Testing",
       "ru": "Тестирование"
     },
+    "enum/PostgreSqlRecyclingMethod/clean/label": {
+      "original": "Clean recycling method",
+      "ru": "С очисткой соединения"
+    },
+    "enum/PostgreSqlRecyclingMethod/fast/label": {
+      "original": "Fast recycling method",
+      "ru": "Быстрое повторное использование"
+    },
+    "enum/PostgreSqlRecyclingMethod/verified/label": {
+      "original": "Verified recycling method",
+      "ru": "С проверкой соединения"
+    },
     "enum/ProviderInfo/contactUri/label": {
       "original": "Contact information URI",
       "ru": "URI контактной информации"
@@ -6593,6 +6613,14 @@
     "enum/RecipientFlag/spamPayload/label": {
       "original": "Message content was classified as spam",
       "ru": "Содержимое сообщения отнесено к спаму"
+    },
+    "enum/RedisProtocol/resp2/label": {
+      "original": "RESP2",
+      "ru": "Протокол RESP2"
+    },
+    "enum/RedisProtocol/resp3/label": {
+      "original": "RESP3",
+      "ru": "Протокол RESP3"
     },
     "enum/RolesType/Custom/label": {
       "original": "Custom role",
@@ -9490,6 +9518,94 @@
       "original": "Joker DMAPI account username",
       "ru": "Имя пользователя учётной записи Joker DMAPI"
     },
+    "field/x:KafkaCoordinator/allowInvalidCerts/description": {
+      "original": "Allow invalid TLS certificates when connecting to the Kafka brokers",
+      "ru": "Разрешать недействительные сертификаты TLS при подключении к брокерам Kafka"
+    },
+    "field/x:KafkaCoordinator/groupId/description": {
+      "original": "Consumer group ID prefix. Each node joins its own consumer group, named after this prefix followed by a dash and the node ID, so that every node receives every notification",
+      "ru": "Префикс идентификатора группы потребителей. Каждый узел входит в собственную группу, имя которой состоит из этого префикса, дефиса и идентификатора узла, чтобы каждый узел получал все уведомления"
+    },
+    "field/x:KafkaCoordinator/hosts/description": {
+      "original": "Kafka bootstrap brokers, as host:port pairs",
+      "ru": "Начальные брокеры Kafka в виде пар host:port"
+    },
+    "field/x:KafkaCoordinator/messageTimeout/description": {
+      "original": "Timeout for message processing",
+      "ru": "Время ожидания обработки сообщения"
+    },
+    "field/x:KafkaCoordinator/sessionTimeout/description": {
+      "original": "Timeout for session",
+      "ru": "Время ожидания сеанса"
+    },
+    "field/x:KafkaCoordinator/useTls/description": {
+      "original": "Use TLS to connect to the Kafka brokers",
+      "ru": "Использовать TLS для подключения к брокерам Kafka"
+    },
+    "field/x:KeepStore/attemptTimeout/description": {
+      "original": "Maximum time to wait for the reply to one attempt of a request",
+      "ru": "Максимальное время ожидания ответа на одну попытку запроса"
+    },
+    "field/x:KeepStore/clusterDiscovery/description": {
+      "original": "Learn the members of a Stalwart Keep cluster from the servers listed and place each key on the member that owns it. Requires the cluster secret",
+      "ru": "Обнаруживать участников кластера Stalwart Keep по указанным серверам и размещать каждый ключ на владеющем им участнике. Требуется секрет кластера"
+    },
+    "field/x:KeepStore/connectTimeout/description": {
+      "original": "Maximum time to wait for the servers when the store is opened, and for a connection to be established",
+      "ru": "Максимальное время ожидания серверов при открытии хранилища и установления соединения"
+    },
+    "field/x:KeepStore/connections/description": {
+      "original": "Number of connections per server when no cluster secret is set",
+      "ru": "Число соединений на сервер, если секрет кластера не задан"
+    },
+    "field/x:KeepStore/deadline/description": {
+      "original": "Maximum time a request may take over all its attempts. Must not be shorter than the attempt timeout",
+      "ru": "Максимальная длительность запроса с учётом всех попыток. Не должна быть меньше времени ожидания одной попытки"
+    },
+    "field/x:KeepStore/hosts/description": {
+      "original": "Stalwart Keep servers to connect to, as host:port pairs. With cluster discovery these are the seeds from which the members are learned; without it only the first one is used",
+      "ru": "Серверы Stalwart Keep для подключения в виде пар host:port. При обнаружении кластера это начальные узлы для поиска участников; без обнаружения используется только первый сервер"
+    },
+    "field/x:KeepStore/secret/description": {
+      "original": "Cluster secret, as 32 hexadecimal digits. Required for cluster discovery and for connections without TLS. When set, each request is sent directly to the shard that owns its key",
+      "ru": "Секрет кластера в виде 32 шестнадцатеричных цифр. Необходим для обнаружения кластера и соединений без TLS. Если задан, каждый запрос направляется непосредственно в сегмент (шард), которому принадлежит его ключ"
+    },
+    "field/x:KeepStore/shardConnections/description": {
+      "original": "Number of connections per server shard when the cluster secret is set",
+      "ru": "Число соединений на сегмент (шард) сервера, если задан секрет кластера"
+    },
+    "field/x:KeepStore/streamMode/description": {
+      "original": "Which servers carry cluster events when this store is the cluster coordinator",
+      "ru": "Какие серверы передают события кластера, когда это хранилище служит координатором кластера"
+    },
+    "field/x:KeepStore/tls/description": {
+      "original": "How connections to Stalwart Keep are protected and authenticated",
+      "ru": "Способ защиты и аутентификации соединений со Stalwart Keep"
+    },
+    "field/x:KeepTlsAuthority/caPath/description": {
+      "original": "Path of the cluster CA certificate file",
+      "ru": "Путь к файлу сертификата центра сертификации (CA) кластера"
+    },
+    "field/x:KeepTlsAuthority/certPath/description": {
+      "original": "Path of this node's certificate chain file",
+      "ru": "Путь к файлу цепочки сертификатов этого узла"
+    },
+    "field/x:KeepTlsAuthority/keyPath/description": {
+      "original": "Path of this node's private key file",
+      "ru": "Путь к файлу закрытого ключа этого узла"
+    },
+    "field/x:KeepTlsAuthority/serverName/description": {
+      "original": "Name the server certificates must carry. Leave empty to use the host of each server",
+      "ru": "Имя, которое должно содержаться в сертификатах серверов. Оставьте пустым, чтобы использовать имя каждого сервера"
+    },
+    "field/x:KeepTlsRawPublicKeys/keyPath/description": {
+      "original": "Path of this node's private key file, in PEM or DER format",
+      "ru": "Путь к файлу закрытого ключа этого узла в формате PEM или DER"
+    },
+    "field/x:KeepTlsRawPublicKeys/serverKeysPath/description": {
+      "original": "Path of the PEM file listing the public keys of the Stalwart Keep servers to accept",
+      "ru": "Путь к файлу PEM со списком доверенных открытых ключей серверов Stalwart Keep"
+    },
     "field/x:LocalFileSwap/flushChanges/description": {
       "original": "Minimum number of changes accumulated against an account cache before its snapshot is rewritten. Large accounts need proportionally more: one sixteenth of the messages or resources in the cache",
       "ru": "Минимальное число изменений кэша учётной записи до перезаписи снимка. Для крупных учётных записей требуется пропорционально больше: одна шестнадцатая числа сообщений или ресурсов в кэше"
@@ -10258,6 +10374,130 @@
       "original": "Maximum number of threads to use for delivery on each node in the cluster",
       "ru": "Максимальное число потоков доставки на каждом узле кластера"
     },
+    "field/x:MySqlSettings/authSecret/description": {
+      "original": "Password to connect to the store",
+      "ru": "Пароль для подключения к хранилищу"
+    },
+    "field/x:MySqlSettings/authUsername/description": {
+      "original": "Username to connect to the store",
+      "ru": "Имя пользователя для подключения к хранилищу"
+    },
+    "field/x:MySqlSettings/database/description": {
+      "original": "Name of the database",
+      "ru": "Имя базы данных"
+    },
+    "field/x:MySqlSettings/host/description": {
+      "original": "Hostname of the database server",
+      "ru": "Имя узла сервера базы данных"
+    },
+    "field/x:MySqlSettings/port/description": {
+      "original": "Port of the database server",
+      "ru": "Порт сервера базы данных"
+    },
+    "field/x:MySqlStore/allowInvalidCerts/description": {
+      "original": "Allow invalid TLS certificates when connecting to the store",
+      "ru": "Разрешать недействительные сертификаты TLS при подключении к хранилищу"
+    },
+    "field/x:MySqlStore/authSecret/description": {
+      "original": "Password to connect to the store",
+      "ru": "Пароль для подключения к хранилищу"
+    },
+    "field/x:MySqlStore/authUsername/description": {
+      "original": "Username to connect to the store",
+      "ru": "Имя пользователя для подключения к хранилищу"
+    },
+    "field/x:MySqlStore/database/description": {
+      "original": "Name of the database",
+      "ru": "Имя базы данных"
+    },
+    "field/x:MySqlStore/host/description": {
+      "original": "Hostname of the database server",
+      "ru": "Имя узла сервера базы данных"
+    },
+    "field/x:MySqlStore/idleTimeout/description": {
+      "original": "Time an idle connection may stay open before the server closes it (sets the MySQL wait_timeout session variable)",
+      "ru": "Время, в течение которого неактивное соединение может оставаться открытым до закрытия сервером (задаёт переменную сеанса MySQL wait_timeout)"
+    },
+    "field/x:MySqlStore/maxAllowedPacket/description": {
+      "original": "Maximum size of a packet in bytes",
+      "ru": "Максимальный размер пакета в байтах"
+    },
+    "field/x:MySqlStore/poolMaxConnections/description": {
+      "original": "Maximum number of connections to the store. When unset, 4 per CPU core, between 16 and 32.",
+      "ru": "Максимальное число соединений с хранилищем. Если не задано, 4 на ядро CPU, от 16 до 32."
+    },
+    "field/x:MySqlStore/poolMinConnections/description": {
+      "original": "Minimum number of connections to the store",
+      "ru": "Минимальное число соединений с хранилищем"
+    },
+    "field/x:MySqlStore/port/description": {
+      "original": "Port of the database server",
+      "ru": "Порт сервера базы данных"
+    },
+    "field/x:MySqlStore/readReplicas/description": {
+      "original": "List of read replicas for the store",
+      "ru": "Список реплик хранилища для чтения"
+    },
+    "field/x:MySqlStore/useTls/description": {
+      "original": "Use TLS to connect to the store",
+      "ru": "Использовать TLS для подключения к хранилищу"
+    },
+    "field/x:NatsCoordinator/allowInvalidCerts/description": {
+      "original": "Allow invalid TLS certificates when connecting to the NATS server",
+      "ru": "Разрешать недействительные сертификаты TLS при подключении к серверу NATS"
+    },
+    "field/x:NatsCoordinator/authSecret/description": {
+      "original": "Password to connect to the store",
+      "ru": "Пароль для подключения к хранилищу"
+    },
+    "field/x:NatsCoordinator/authUsername/description": {
+      "original": "Username to connect to the store",
+      "ru": "Имя пользователя для подключения к хранилищу"
+    },
+    "field/x:NatsCoordinator/clientCapacity/description": {
+      "original": "By default, Client dispatches op's to the Client onto the channel with capacity of 2048. This option enables overriding it",
+      "ru": "По умолчанию клиент передаёт операции в клиентский канал ёмкостью 2048. Этот параметр позволяет изменить ёмкость канала"
+    },
+    "field/x:NatsCoordinator/connectTimeout/description": {
+      "original": "Timeout for establishing a connection to the server",
+      "ru": "Время ожидания установления соединения с сервером"
+    },
+    "field/x:NatsCoordinator/credentials/description": {
+      "original": "String containing the JWT credentials",
+      "ru": "Строка с учётными данными JWT"
+    },
+    "field/x:NatsCoordinator/hosts/description": {
+      "original": "NATS servers to connect to, as host:port pairs",
+      "ru": "Серверы NATS для подключения в виде пар host:port"
+    },
+    "field/x:NatsCoordinator/maxReconnects/description": {
+      "original": "Maximum number of times to attempt to reconnect to the server",
+      "ru": "Максимальное число попыток повторного подключения к серверу"
+    },
+    "field/x:NatsCoordinator/noEcho/description": {
+      "original": "Disables delivering messages that were published from the same connection.",
+      "ru": "Отключает доставку сообщений, опубликованных через то же соединение."
+    },
+    "field/x:NatsCoordinator/pingInterval/description": {
+      "original": "Interval between pings to the server",
+      "ru": "Интервал между проверочными запросами ping к серверу"
+    },
+    "field/x:NatsCoordinator/readBufferCapacity/description": {
+      "original": "Sets the initial capacity of the read buffer. Which is a buffer used to gather partial protocol messages.",
+      "ru": "Задаёт начальную ёмкость буфера чтения, в котором собираются фрагменты сообщений протокола."
+    },
+    "field/x:NatsCoordinator/requestTimeout/description": {
+      "original": "Timeout for requests to the server",
+      "ru": "Время ожидания запросов к серверу"
+    },
+    "field/x:NatsCoordinator/subscriptionCapacity/description": {
+      "original": "Sets the capacity for Subscribers. Exceeding it will trigger slow consumer error callback and drop messages.",
+      "ru": "Задаёт ёмкость очереди подписчиков. При превышении вызывается обработчик ошибки медленного потребителя, а сообщения отбрасываются."
+    },
+    "field/x:NatsCoordinator/useTls/description": {
+      "original": "Use TLS to connect to the NATS server",
+      "ru": "Использовать TLS для подключения к серверу NATS"
+    },
     "field/x:NetworkListener/bind/description": {
       "original": "The addresses the listener will bind to",
       "ru": "Адреса, к которым привязывается слушатель"
@@ -10498,6 +10738,82 @@
       "original": "List of permissions that are explicitly enabled.",
       "ru": "Список явно разрешённых прав доступа."
     },
+    "field/x:PostgreSqlSettings/authSecret/description": {
+      "original": "Password to connect to the store",
+      "ru": "Пароль для подключения к хранилищу"
+    },
+    "field/x:PostgreSqlSettings/authUsername/description": {
+      "original": "Username to connect to the store",
+      "ru": "Имя пользователя для подключения к хранилищу"
+    },
+    "field/x:PostgreSqlSettings/database/description": {
+      "original": "Name of the database",
+      "ru": "Имя базы данных"
+    },
+    "field/x:PostgreSqlSettings/host/description": {
+      "original": "Hostname of the database server",
+      "ru": "Имя узла сервера базы данных"
+    },
+    "field/x:PostgreSqlSettings/options/description": {
+      "original": "Additional connection options",
+      "ru": "Дополнительные параметры подключения"
+    },
+    "field/x:PostgreSqlSettings/port/description": {
+      "original": "Port of the database server",
+      "ru": "Порт сервера базы данных"
+    },
+    "field/x:PostgreSqlStore/allowInvalidCerts/description": {
+      "original": "Allow invalid TLS certificates when connecting to the store",
+      "ru": "Разрешать недействительные сертификаты TLS при подключении к хранилищу"
+    },
+    "field/x:PostgreSqlStore/authSecret/description": {
+      "original": "Password to connect to the store",
+      "ru": "Пароль для подключения к хранилищу"
+    },
+    "field/x:PostgreSqlStore/authUsername/description": {
+      "original": "Username to connect to the store",
+      "ru": "Имя пользователя для подключения к хранилищу"
+    },
+    "field/x:PostgreSqlStore/connectTimeout/description": {
+      "original": "Maximum time to wait for a connection to the database server to be established",
+      "ru": "Максимальное время ожидания установления соединения с сервером базы данных"
+    },
+    "field/x:PostgreSqlStore/database/description": {
+      "original": "Name of the database",
+      "ru": "Имя базы данных"
+    },
+    "field/x:PostgreSqlStore/host/description": {
+      "original": "Hostname of the database server",
+      "ru": "Имя узла сервера базы данных"
+    },
+    "field/x:PostgreSqlStore/options/description": {
+      "original": "Additional connection options",
+      "ru": "Дополнительные параметры подключения"
+    },
+    "field/x:PostgreSqlStore/poolMaxConnections/description": {
+      "original": "Maximum number of connections to the store. When unset, 4 per CPU core, between 16 and 32.",
+      "ru": "Максимальное число соединений с хранилищем. Если не задано, 4 на ядро CPU, от 16 до 32."
+    },
+    "field/x:PostgreSqlStore/poolRecyclingMethod/description": {
+      "original": "Method to use when recycling connections in the pool",
+      "ru": "Способ подготовки соединений в пуле к повторному использованию"
+    },
+    "field/x:PostgreSqlStore/port/description": {
+      "original": "Port of the database server",
+      "ru": "Порт сервера базы данных"
+    },
+    "field/x:PostgreSqlStore/readReplicas/description": {
+      "original": "List of read replicas for the store",
+      "ru": "Список реплик хранилища для чтения"
+    },
+    "field/x:PostgreSqlStore/responseTimeout/description": {
+      "original": "Maximum time to wait for the database server to start answering a request before the connection is closed and the request fails. When unset, requests wait indefinitely.",
+      "ru": "Максимальное время ожидания начала ответа сервера базы данных на запрос, после которого соединение закрывается и запрос завершается ошибкой. Если не задано, запросы ожидают неограниченно долго."
+    },
+    "field/x:PostgreSqlStore/useTls/description": {
+      "original": "Use TLS to connect to the store",
+      "ru": "Использовать TLS для подключения к хранилищу"
+    },
     "field/x:PublicKey/accountId/description": {
       "original": "Identifier for the account this public key belongs to",
       "ru": "Идентификатор учётной записи, которой принадлежит открытый ключ"
@@ -10645,6 +10961,142 @@
     "field/x:QueuedRecipient/status/description": {
       "original": "Current delivery status",
       "ru": "Текущее состояние доставки"
+    },
+    "field/x:RedisClusterStore/allowInvalidCerts/description": {
+      "original": "Allow invalid TLS certificates when connecting to the Redis server",
+      "ru": "Разрешать недействительные сертификаты TLS при подключении к серверу Redis"
+    },
+    "field/x:RedisClusterStore/authSecret/description": {
+      "original": "Password to connect to the store",
+      "ru": "Пароль для подключения к хранилищу"
+    },
+    "field/x:RedisClusterStore/authUsername/description": {
+      "original": "Username to connect to the store",
+      "ru": "Имя пользователя для подключения к хранилищу"
+    },
+    "field/x:RedisClusterStore/connectTimeout/description": {
+      "original": "Maximum time to wait for a new connection to the Redis server to be established",
+      "ru": "Максимальное время ожидания установления нового соединения с сервером Redis"
+    },
+    "field/x:RedisClusterStore/maxRetries/description": {
+      "original": "Number of retries to connect to the Redis cluster",
+      "ru": "Число повторных попыток подключения к кластеру Redis"
+    },
+    "field/x:RedisClusterStore/maxRetryWait/description": {
+      "original": "Maximum time to wait between retries",
+      "ru": "Максимальное время ожидания между повторными попытками"
+    },
+    "field/x:RedisClusterStore/minRetryWait/description": {
+      "original": "Minimum time to wait between retries",
+      "ru": "Минимальное время ожидания между повторными попытками"
+    },
+    "field/x:RedisClusterStore/poolMaxConnections/description": {
+      "original": "Maximum number of connections to the store",
+      "ru": "Максимальное число соединений с хранилищем"
+    },
+    "field/x:RedisClusterStore/poolTimeoutCreate/description": {
+      "original": "Timeout for creating a new connection",
+      "ru": "Время ожидания создания нового соединения"
+    },
+    "field/x:RedisClusterStore/poolTimeoutRecycle/description": {
+      "original": "Timeout for recycling a connection",
+      "ru": "Время ожидания подготовки соединения к повторному использованию"
+    },
+    "field/x:RedisClusterStore/poolTimeoutWait/description": {
+      "original": "Timeout for waiting for a connection from the pool",
+      "ru": "Время ожидания получения соединения из пула"
+    },
+    "field/x:RedisClusterStore/protocolVersion/description": {
+      "original": "Protocol Version",
+      "ru": "Версия протокола"
+    },
+    "field/x:RedisClusterStore/readFromReplicas/description": {
+      "original": "Whether to read from replicas",
+      "ru": "Выполнять ли чтение с реплик"
+    },
+    "field/x:RedisClusterStore/urls/description": {
+      "original": "URL(s) of the Redis server(s)",
+      "ru": "URL серверов Redis"
+    },
+    "field/x:RedisSentinelStore/allowInvalidCerts/description": {
+      "original": "Allow invalid TLS certificates when connecting to the Redis server",
+      "ru": "Разрешать недействительные сертификаты TLS при подключении к серверу Redis"
+    },
+    "field/x:RedisSentinelStore/authSecret/description": {
+      "original": "Password to connect to the data nodes",
+      "ru": "Пароль для подключения к узлам данных"
+    },
+    "field/x:RedisSentinelStore/authUsername/description": {
+      "original": "Username to connect to the data nodes",
+      "ru": "Имя пользователя для подключения к узлам данных"
+    },
+    "field/x:RedisSentinelStore/connectTimeout/description": {
+      "original": "Maximum time to wait for a new connection to the Redis server to be established",
+      "ru": "Максимальное время ожидания установления нового соединения с сервером Redis"
+    },
+    "field/x:RedisSentinelStore/poolMaxConnections/description": {
+      "original": "Maximum number of connections to the store",
+      "ru": "Максимальное число соединений с хранилищем"
+    },
+    "field/x:RedisSentinelStore/poolTimeoutCreate/description": {
+      "original": "Timeout for creating a new connection",
+      "ru": "Время ожидания создания нового соединения"
+    },
+    "field/x:RedisSentinelStore/poolTimeoutRecycle/description": {
+      "original": "Timeout for recycling a connection",
+      "ru": "Время ожидания подготовки соединения к повторному использованию"
+    },
+    "field/x:RedisSentinelStore/poolTimeoutWait/description": {
+      "original": "Timeout for waiting for a connection from the pool",
+      "ru": "Время ожидания получения соединения из пула"
+    },
+    "field/x:RedisSentinelStore/protocolVersion/description": {
+      "original": "Protocol Version",
+      "ru": "Версия протокола"
+    },
+    "field/x:RedisSentinelStore/sentinelSecret/description": {
+      "original": "Password to connect to the Sentinel nodes",
+      "ru": "Пароль для подключения к узлам Sentinel"
+    },
+    "field/x:RedisSentinelStore/sentinelUsername/description": {
+      "original": "Username to connect to the Sentinel nodes",
+      "ru": "Имя пользователя для подключения к узлам Sentinel"
+    },
+    "field/x:RedisSentinelStore/serviceName/description": {
+      "original": "Name of the monitored master (service) to query via the Sentinels",
+      "ru": "Имя отслеживаемого ведущего узла (службы), запрашиваемое через узлы Sentinel"
+    },
+    "field/x:RedisSentinelStore/urls/description": {
+      "original": "Address(es) of the Sentinel node(s)",
+      "ru": "Адреса узлов Sentinel"
+    },
+    "field/x:RedisStore/allowInvalidCerts/description": {
+      "original": "Allow invalid TLS certificates when connecting to the Redis server",
+      "ru": "Разрешать недействительные сертификаты TLS при подключении к серверу Redis"
+    },
+    "field/x:RedisStore/connectTimeout/description": {
+      "original": "Maximum time to wait for a new connection to the Redis server to be established",
+      "ru": "Максимальное время ожидания установления нового соединения с сервером Redis"
+    },
+    "field/x:RedisStore/poolMaxConnections/description": {
+      "original": "Maximum number of connections to the store",
+      "ru": "Максимальное число соединений с хранилищем"
+    },
+    "field/x:RedisStore/poolTimeoutCreate/description": {
+      "original": "Timeout for creating a new connection",
+      "ru": "Время ожидания создания нового соединения"
+    },
+    "field/x:RedisStore/poolTimeoutRecycle/description": {
+      "original": "Timeout for recycling a connection",
+      "ru": "Время ожидания подготовки соединения к повторному использованию"
+    },
+    "field/x:RedisStore/poolTimeoutWait/description": {
+      "original": "Timeout for waiting for a connection from the pool",
+      "ru": "Время ожидания получения соединения из пула"
+    },
+    "field/x:RedisStore/url/description": {
+      "original": "URL of the Redis server",
+      "ru": "URL сервера Redis"
     },
     "field/x:ReloadSettingsResult/warnings/description": {
       "original": "Warnings reported while building the new configuration, such as licence problems",
@@ -11534,6 +11986,18 @@
       "original": "Subject of the message associated with this training sample",
       "ru": "Тема сообщения, связанного с этим обучающим образцом"
     },
+    "field/x:SqliteStore/path/description": {
+      "original": "Path to the SQLite database file, created if missing. When a directory is given, the database is stored in it as stalwart.db",
+      "ru": "Путь к файлу базы данных SQLite, который создаётся при отсутствии. Если указан каталог, база данных хранится в нём под именем stalwart.db"
+    },
+    "field/x:SqliteStore/poolMaxConnections/description": {
+      "original": "Maximum number of connections to the store. When unset, the number of worker threads, between 4 and 16.",
+      "ru": "Максимальное число соединений с хранилищем. Если не задано, используется число рабочих потоков, от 4 до 16."
+    },
+    "field/x:SqliteStore/poolWorkers/description": {
+      "original": "Number of worker threads to use for the store, defaults to the number of cores",
+      "ru": "Число рабочих потоков хранилища, по умолчанию равно числу ядер"
+    },
     "field/x:StoreLookup/namespace/description": {
       "original": "Unique identifier for this store when used in lookups",
       "ru": "Уникальный идентификатор этого хранилища при поиске по спискам"
@@ -11865,6 +12329,10 @@
     "field/x:WebDav/maxResults/description": {
       "original": "Specifies the maximum number of results that a WebDAV query can return",
       "ru": "Задаёт максимальное число результатов, возвращаемых запросом WebDAV."
+    },
+    "field/x:ZenohCoordinator/config/description": {
+      "original": "Zenoh configuration string",
+      "ru": "Строка конфигурации Zenoh"
     },
     "form/AddressBook/field/description": {
       "original": "Description",
@@ -13501,6 +13969,18 @@
     "form/x:ClusterRole/section/section-2": {
       "original": "Listeners",
       "ru": "Слушатели"
+    },
+    "form/x:Coordinator/field/@type": {
+      "original": "Coordinator type",
+      "ru": "Тип координатора"
+    },
+    "form/x:Coordinator/subtitle": {
+      "original": "Configure the messaging backend used by Stalwart nodes to coordinate distributed state, share events, and synchronize caches when running as a cluster. The in-memory store option can only be used when the in-memory store is Stalwart Keep or Redis",
+      "ru": "Настройка подсистемы обмена сообщениями, которую узлы Stalwart используют для согласования распределённого состояния, обмена событиями и синхронизации кэшей в кластере. Вариант с хранилищем в памяти доступен только при использовании Stalwart Keep или Redis"
+    },
+    "form/x:Coordinator/title": {
+      "original": "Cluster Coordinator",
+      "ru": "Координатор кластера"
     },
     "form/x:CredentialPermissionsList/field/permissions": {
       "original": "Permissions",
@@ -15866,13 +16346,77 @@
       "original": "Credentials",
       "ru": "Учётные данные"
     },
+    "form/x:KafkaCoordinator/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:KafkaCoordinator/field/groupId": {
+      "original": "Group ID",
+      "ru": "Идентификатор группы"
+    },
+    "form/x:KafkaCoordinator/field/hosts": {
+      "original": "Brokers",
+      "ru": "Брокеры"
+    },
+    "form/x:KafkaCoordinator/field/messageTimeout": {
+      "original": "Message Timeout",
+      "ru": "Время ожидания сообщения"
+    },
+    "form/x:KafkaCoordinator/field/sessionTimeout": {
+      "original": "Session Timeout",
+      "ru": "Время ожидания сеанса"
+    },
     "form/x:KafkaCoordinator/field/useTls": {
       "original": "Enable TLS",
       "ru": "Включить TLS"
     },
+    "form/x:KafkaCoordinator/section/section-0": {
+      "original": "Kafka Settings",
+      "ru": "Настройки Kafka"
+    },
+    "form/x:KafkaCoordinator/section/section-1": {
+      "original": "Timeouts",
+      "ru": "Время ожидания"
+    },
+    "form/x:KafkaCoordinator/section/section-2": {
+      "original": "Options",
+      "ru": "Параметры"
+    },
+    "form/x:KeepStore/field/attemptTimeout": {
+      "original": "Attempt Timeout",
+      "ru": "Время ожидания попытки"
+    },
+    "form/x:KeepStore/field/clusterDiscovery": {
+      "original": "Cluster Discovery",
+      "ru": "Обнаружение кластера"
+    },
+    "form/x:KeepStore/field/connectTimeout": {
+      "original": "Connect Timeout",
+      "ru": "Время ожидания подключения"
+    },
+    "form/x:KeepStore/field/connections": {
+      "original": "Connections per Server",
+      "ru": "Соединений на сервер"
+    },
+    "form/x:KeepStore/field/deadline": {
+      "original": "Request Deadline",
+      "ru": "Предельное время запроса"
+    },
     "form/x:KeepStore/field/hosts": {
       "original": "Servers",
       "ru": "Серверы"
+    },
+    "form/x:KeepStore/field/secret": {
+      "original": "Cluster Secret",
+      "ru": "Секрет кластера"
+    },
+    "form/x:KeepStore/field/shardConnections": {
+      "original": "Connections per Shard",
+      "ru": "Соединений на сегмент (шард)"
+    },
+    "form/x:KeepStore/field/streamMode": {
+      "original": "Event Stream Mode",
+      "ru": "Режим потока событий"
     },
     "form/x:KeepStore/section/section-0": {
       "original": "Servers",
@@ -15882,9 +16426,41 @@
       "original": "Security",
       "ru": "Безопасность"
     },
+    "form/x:KeepStore/section/section-2": {
+      "original": "Connections",
+      "ru": "Соединения"
+    },
+    "form/x:KeepStore/section/section-3": {
+      "original": "Timeouts",
+      "ru": "Время ожидания"
+    },
+    "form/x:KeepTlsAuthority/field/caPath": {
+      "original": "CA Certificate Path",
+      "ru": "Путь к сертификату CA"
+    },
+    "form/x:KeepTlsAuthority/field/certPath": {
+      "original": "Certificate Chain Path",
+      "ru": "Путь к цепочке сертификатов"
+    },
+    "form/x:KeepTlsAuthority/field/keyPath": {
+      "original": "Private Key Path",
+      "ru": "Путь к закрытому ключу"
+    },
+    "form/x:KeepTlsAuthority/field/serverName": {
+      "original": "Server Name",
+      "ru": "Имя сервера"
+    },
     "form/x:KeepTlsAuthority/section/section-0": {
       "original": "Certificates",
       "ru": "Сертификаты"
+    },
+    "form/x:KeepTlsRawPublicKeys/field/keyPath": {
+      "original": "Private Key Path",
+      "ru": "Путь к закрытому ключу"
+    },
+    "form/x:KeepTlsRawPublicKeys/field/serverKeysPath": {
+      "original": "Server Public Keys Path",
+      "ru": "Путь к открытым ключам серверов"
     },
     "form/x:LdapDirectory/field/description": {
       "original": "Description",
@@ -17122,17 +17698,69 @@
       "original": "Password",
       "ru": "Пароль"
     },
+    "form/x:MySqlSettings/field/authUsername": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:MySqlSettings/field/database": {
+      "original": "Database",
+      "ru": "База данных"
+    },
+    "form/x:MySqlSettings/field/host": {
+      "original": "Hostname",
+      "ru": "Имя узла"
+    },
+    "form/x:MySqlSettings/field/port": {
+      "original": "Port",
+      "ru": "Порт"
+    },
     "form/x:MySqlSettings/section/section-1": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:MySqlStore/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
     },
     "form/x:MySqlStore/field/authSecret": {
       "original": "Password",
       "ru": "Пароль"
     },
+    "form/x:MySqlStore/field/authUsername": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:MySqlStore/field/database": {
+      "original": "Database",
+      "ru": "База данных"
+    },
+    "form/x:MySqlStore/field/host": {
+      "original": "Hostname",
+      "ru": "Имя узла"
+    },
+    "form/x:MySqlStore/field/idleTimeout": {
+      "original": "Idle Timeout",
+      "ru": "Время ожидания при бездействии"
+    },
+    "form/x:MySqlStore/field/maxAllowedPacket": {
+      "original": "Max Allowed Packet",
+      "ru": "Макс. размер пакета"
+    },
     "form/x:MySqlStore/field/poolMaxConnections": {
       "original": "Max Connections",
       "ru": "Максимум соединений"
+    },
+    "form/x:MySqlStore/field/poolMinConnections": {
+      "original": "Min Connections",
+      "ru": "Мин. число соединений"
+    },
+    "form/x:MySqlStore/field/port": {
+      "original": "Port",
+      "ru": "Порт"
+    },
+    "form/x:MySqlStore/field/readReplicas": {
+      "original": "Read replicas",
+      "ru": "Реплики для чтения"
     },
     "form/x:MySqlStore/field/useTls": {
       "original": "Enable TLS",
@@ -17150,17 +17778,81 @@
       "original": "Pools",
       "ru": "Пулы соединений"
     },
+    "form/x:NatsCoordinator/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
     "form/x:NatsCoordinator/field/authSecret": {
       "original": "Password",
       "ru": "Пароль"
+    },
+    "form/x:NatsCoordinator/field/authUsername": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:NatsCoordinator/field/clientCapacity": {
+      "original": "Client",
+      "ru": "Клиентский канал"
+    },
+    "form/x:NatsCoordinator/field/connectTimeout": {
+      "original": "Connection Timeout",
+      "ru": "Время ожидания подключения"
+    },
+    "form/x:NatsCoordinator/field/credentials": {
+      "original": "JWT Credentials",
+      "ru": "Учётные данные JWT"
     },
     "form/x:NatsCoordinator/field/hosts": {
       "original": "Servers",
       "ru": "Серверы"
     },
+    "form/x:NatsCoordinator/field/maxReconnects": {
+      "original": "Max Reconnects",
+      "ru": "Макс. число переподключений"
+    },
+    "form/x:NatsCoordinator/field/noEcho": {
+      "original": "No Echo",
+      "ru": "Без доставки собственных сообщений"
+    },
+    "form/x:NatsCoordinator/field/pingInterval": {
+      "original": "Ping Interval",
+      "ru": "Интервал проверок ping"
+    },
+    "form/x:NatsCoordinator/field/readBufferCapacity": {
+      "original": "Read Buffer",
+      "ru": "Буфер чтения"
+    },
+    "form/x:NatsCoordinator/field/requestTimeout": {
+      "original": "Request Timeout",
+      "ru": "Время ожидания запроса"
+    },
+    "form/x:NatsCoordinator/field/subscriptionCapacity": {
+      "original": "Subscription",
+      "ru": "Очередь подписок"
+    },
     "form/x:NatsCoordinator/field/useTls": {
       "original": "Enable TLS",
       "ru": "Включить TLS"
+    },
+    "form/x:NatsCoordinator/section/section-0": {
+      "original": "NATS Settings",
+      "ru": "Настройки NATS"
+    },
+    "form/x:NatsCoordinator/section/section-1": {
+      "original": "Timeouts",
+      "ru": "Время ожидания"
+    },
+    "form/x:NatsCoordinator/section/section-2": {
+      "original": "Ping",
+      "ru": "Проверка соединения (ping)"
+    },
+    "form/x:NatsCoordinator/section/section-3": {
+      "original": "Capacity",
+      "ru": "Ёмкость"
+    },
+    "form/x:NatsCoordinator/section/section-4": {
+      "original": "Options",
+      "ru": "Параметры"
     },
     "form/x:NatsCoordinator/section/section-5": {
       "original": "Authentication",
@@ -17530,17 +18222,77 @@
       "original": "Password",
       "ru": "Пароль"
     },
+    "form/x:PostgreSqlSettings/field/authUsername": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:PostgreSqlSettings/field/database": {
+      "original": "Database",
+      "ru": "База данных"
+    },
+    "form/x:PostgreSqlSettings/field/host": {
+      "original": "Hostname",
+      "ru": "Имя узла"
+    },
+    "form/x:PostgreSqlSettings/field/options": {
+      "original": "Connection Options",
+      "ru": "Параметры подключения"
+    },
+    "form/x:PostgreSqlSettings/field/port": {
+      "original": "Port",
+      "ru": "Порт"
+    },
     "form/x:PostgreSqlSettings/section/section-1": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:PostgreSqlStore/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
     },
     "form/x:PostgreSqlStore/field/authSecret": {
       "original": "Password",
       "ru": "Пароль"
     },
+    "form/x:PostgreSqlStore/field/authUsername": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:PostgreSqlStore/field/connectTimeout": {
+      "original": "Connect Timeout",
+      "ru": "Время ожидания подключения"
+    },
+    "form/x:PostgreSqlStore/field/database": {
+      "original": "Database",
+      "ru": "База данных"
+    },
+    "form/x:PostgreSqlStore/field/host": {
+      "original": "Hostname",
+      "ru": "Имя узла"
+    },
+    "form/x:PostgreSqlStore/field/options": {
+      "original": "Connection Options",
+      "ru": "Параметры подключения"
+    },
     "form/x:PostgreSqlStore/field/poolMaxConnections": {
       "original": "Max Connections",
       "ru": "Максимум соединений"
+    },
+    "form/x:PostgreSqlStore/field/poolRecyclingMethod": {
+      "original": "Recycling Method",
+      "ru": "Способ повторного использования"
+    },
+    "form/x:PostgreSqlStore/field/port": {
+      "original": "Port",
+      "ru": "Порт"
+    },
+    "form/x:PostgreSqlStore/field/readReplicas": {
+      "original": "Read replicas",
+      "ru": "Реплики для чтения"
+    },
+    "form/x:PostgreSqlStore/field/responseTimeout": {
+      "original": "Response Timeout",
+      "ru": "Время ожидания ответа"
     },
     "form/x:PostgreSqlStore/field/useTls": {
       "original": "Enable TLS",
@@ -17746,37 +18498,181 @@
       "original": "Details",
       "ru": "Сведения"
     },
+    "form/x:RedisClusterStore/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
     "form/x:RedisClusterStore/field/authSecret": {
       "original": "Password",
       "ru": "Пароль"
+    },
+    "form/x:RedisClusterStore/field/authUsername": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:RedisClusterStore/field/connectTimeout": {
+      "original": "Connect Timeout",
+      "ru": "Время ожидания подключения"
+    },
+    "form/x:RedisClusterStore/field/maxRetries": {
+      "original": "Retries",
+      "ru": "Повторные попытки"
+    },
+    "form/x:RedisClusterStore/field/maxRetryWait": {
+      "original": "Max Wait",
+      "ru": "Макс. время ожидания"
+    },
+    "form/x:RedisClusterStore/field/minRetryWait": {
+      "original": "Min Wait",
+      "ru": "Мин. время ожидания"
     },
     "form/x:RedisClusterStore/field/poolMaxConnections": {
       "original": "Max Connections",
       "ru": "Максимум соединений"
     },
+    "form/x:RedisClusterStore/field/poolTimeoutCreate": {
+      "original": "Create Timeout",
+      "ru": "Время ожидания создания соединения"
+    },
+    "form/x:RedisClusterStore/field/poolTimeoutRecycle": {
+      "original": "Recycle Timeout",
+      "ru": "Время ожидания подготовки соединения"
+    },
+    "form/x:RedisClusterStore/field/poolTimeoutWait": {
+      "original": "Wait Timeout",
+      "ru": "Время ожидания соединения из пула"
+    },
+    "form/x:RedisClusterStore/field/protocolVersion": {
+      "original": "Protocol version",
+      "ru": "Версия протокола"
+    },
+    "form/x:RedisClusterStore/field/readFromReplicas": {
+      "original": "Read from replicas",
+      "ru": "Чтение с реплик"
+    },
+    "form/x:RedisClusterStore/field/urls": {
+      "original": "URL(s)",
+      "ru": "URL-адреса"
+    },
+    "form/x:RedisClusterStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
     "form/x:RedisClusterStore/section/section-1": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:RedisClusterStore/section/section-2": {
+      "original": "Retry Settings",
+      "ru": "Настройки повторных попыток"
+    },
+    "form/x:RedisClusterStore/section/section-3": {
+      "original": "Cluster Settings",
+      "ru": "Настройки кластера"
+    },
+    "form/x:RedisClusterStore/section/section-4": {
+      "original": "Pools",
+      "ru": "Пулы соединений"
+    },
+    "form/x:RedisSentinelStore/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
     },
     "form/x:RedisSentinelStore/field/authSecret": {
       "original": "Password",
       "ru": "Пароль"
     },
+    "form/x:RedisSentinelStore/field/authUsername": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:RedisSentinelStore/field/connectTimeout": {
+      "original": "Connect Timeout",
+      "ru": "Время ожидания подключения"
+    },
     "form/x:RedisSentinelStore/field/poolMaxConnections": {
       "original": "Max Connections",
       "ru": "Максимум соединений"
+    },
+    "form/x:RedisSentinelStore/field/poolTimeoutCreate": {
+      "original": "Create Timeout",
+      "ru": "Время ожидания создания соединения"
+    },
+    "form/x:RedisSentinelStore/field/poolTimeoutRecycle": {
+      "original": "Recycle Timeout",
+      "ru": "Время ожидания подготовки соединения"
+    },
+    "form/x:RedisSentinelStore/field/poolTimeoutWait": {
+      "original": "Wait Timeout",
+      "ru": "Время ожидания соединения из пула"
+    },
+    "form/x:RedisSentinelStore/field/protocolVersion": {
+      "original": "Protocol version",
+      "ru": "Версия протокола"
     },
     "form/x:RedisSentinelStore/field/sentinelSecret": {
       "original": "Password",
       "ru": "Пароль"
     },
+    "form/x:RedisSentinelStore/field/sentinelUsername": {
+      "original": "Username",
+      "ru": "Имя пользователя"
+    },
+    "form/x:RedisSentinelStore/field/serviceName": {
+      "original": "Service name",
+      "ru": "Имя службы"
+    },
+    "form/x:RedisSentinelStore/field/urls": {
+      "original": "Sentinel URL(s)",
+      "ru": "URL узлов Sentinel"
+    },
+    "form/x:RedisSentinelStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
     "form/x:RedisSentinelStore/section/section-1": {
       "original": "Authentication",
       "ru": "Аутентификация"
     },
+    "form/x:RedisSentinelStore/section/section-2": {
+      "original": "Sentinel Authentication",
+      "ru": "Аутентификация Sentinel"
+    },
+    "form/x:RedisSentinelStore/section/section-3": {
+      "original": "Pools",
+      "ru": "Пулы соединений"
+    },
+    "form/x:RedisStore/field/allowInvalidCerts": {
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты"
+    },
+    "form/x:RedisStore/field/connectTimeout": {
+      "original": "Connect Timeout",
+      "ru": "Время ожидания подключения"
+    },
     "form/x:RedisStore/field/poolMaxConnections": {
       "original": "Max Connections",
       "ru": "Максимум соединений"
+    },
+    "form/x:RedisStore/field/poolTimeoutCreate": {
+      "original": "Create Timeout",
+      "ru": "Время ожидания создания соединения"
+    },
+    "form/x:RedisStore/field/poolTimeoutRecycle": {
+      "original": "Recycle Timeout",
+      "ru": "Время ожидания подготовки соединения"
+    },
+    "form/x:RedisStore/field/poolTimeoutWait": {
+      "original": "Wait Timeout",
+      "ru": "Время ожидания соединения из пула"
+    },
+    "form/x:RedisStore/section/section-0": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
+    "form/x:RedisStore/section/section-1": {
+      "original": "Pools",
+      "ru": "Пулы соединений"
     },
     "form/x:ReloadSettingsResult/field/warnings": {
       "original": "Warnings",
@@ -19126,9 +20022,17 @@
       "original": "Directory",
       "ru": "Каталог"
     },
+    "form/x:SqliteStore/field/path": {
+      "original": "Path",
+      "ru": "Путь"
+    },
     "form/x:SqliteStore/field/poolMaxConnections": {
       "original": "Max Connections",
       "ru": "Максимум соединений"
+    },
+    "form/x:SqliteStore/field/poolWorkers": {
+      "original": "Thread Pool Size",
+      "ru": "Размер пула потоков"
     },
     "form/x:SqliteStore/section/section-0": {
       "original": "Configuration",
@@ -20041,6 +20945,14 @@
     "form/x:WebHook/section/section-1": {
       "original": "Authentication",
       "ru": "Аутентификация"
+    },
+    "form/x:ZenohCoordinator/field/config": {
+      "original": "Configuration",
+      "ru": "Конфигурация"
+    },
+    "form/x:ZenohCoordinator/section/section-0": {
+      "original": "Zenoh Settings",
+      "ru": "Настройки Zenoh"
     },
     "layout/Account": {
       "original": "Account",
@@ -23118,6 +24030,10 @@
       "original": "Defines a TLS certificate and its associated private key.",
       "ru": "Определяет сертификат TLS и соответствующий закрытый ключ."
     },
+    "object/x:Coordinator/description": {
+      "original": "Configures the cluster coordinator for inter-node communication.",
+      "ru": "Настройка координатора кластера для связи между узлами."
+    },
     "object/x:DataStore/description": {
       "original": "Configures the primary data store backend.",
       "ru": "Настраивает основное хранилище данных."
@@ -23598,6 +24514,38 @@
       "original": "Manual TLS certificate management",
       "ru": "Ручное управление сертификатами TLS"
     },
+    "variant/x:Coordinator/Default/label": {
+      "original": "Use in-memory store (Stalwart Keep or Redis only)",
+      "ru": "Использовать хранилище в памяти (только Stalwart Keep или Redis)"
+    },
+    "variant/x:Coordinator/Kafka/label": {
+      "original": "Kafka",
+      "ru": "Брокер Kafka"
+    },
+    "variant/x:Coordinator/Keep/label": {
+      "original": "Stalwart Keep",
+      "ru": "Хранилище Stalwart Keep"
+    },
+    "variant/x:Coordinator/Nats/label": {
+      "original": "NATS",
+      "ru": "Брокер NATS"
+    },
+    "variant/x:Coordinator/Redis/label": {
+      "original": "Redis",
+      "ru": "Хранилище Redis"
+    },
+    "variant/x:Coordinator/RedisCluster/label": {
+      "original": "Redis Cluster",
+      "ru": "Кластер Redis"
+    },
+    "variant/x:Coordinator/RedisSentinel/label": {
+      "original": "Redis Sentinel",
+      "ru": "Хранилище Redis с Sentinel"
+    },
+    "variant/x:Coordinator/Zenoh/label": {
+      "original": "Eclipse Zenoh",
+      "ru": "Подсистема Eclipse Zenoh"
+    },
     "variant/x:Credential/ApiKey/label": {
       "original": "API key for programmatic access",
       "ru": "API-ключ для программного доступа"
@@ -23789,6 +24737,18 @@
     "variant/x:JokerAuth/UsernamePassword/label": {
       "original": "Username and Password",
       "ru": "Имя пользователя и пароль"
+    },
+    "variant/x:KeepTls/Authority/label": {
+      "original": "Mutual TLS with certificates from a cluster CA",
+      "ru": "Взаимная аутентификация TLS с сертификатами центра сертификации (CA) кластера"
+    },
+    "variant/x:KeepTls/Disabled/label": {
+      "original": "Plaintext, authenticated with the cluster secret",
+      "ru": "Без шифрования, с аутентификацией по секрету кластера"
+    },
+    "variant/x:KeepTls/RawPublicKeys/label": {
+      "original": "Mutual TLS with raw public keys",
+      "ru": "Взаимная аутентификация TLS по открытым ключам без сертификатов"
     },
     "variant/x:LookupStore/Keep/label": {
       "original": "Stalwart Keep",
