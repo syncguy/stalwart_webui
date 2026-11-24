@@ -34,7 +34,21 @@ export interface DynamicViewProps {
 interface ViewSection {
   key: string;
   title?: string;
+  formKey?: string;
+  displaySectionKey?: string;
   items: { formField: FormField; field: Field }[];
+}
+
+interface ViewLayout {
+  fields: Fields | null;
+  form: Form | null;
+  fieldOwner?: string;
+  contexts: { formKey?: string; displaySectionKey: string }[];
+}
+
+function formContexts(schema: Schema, form: Form | null): ViewLayout['contexts'] {
+  const formKey = form ? Object.keys(schema.forms).find((key) => schema.forms[key] === form) : undefined;
+  return (form?.sections ?? []).map((_, index) => ({ formKey, displaySectionKey: `section-${index}` }));
 }
 
 function resolveViewLayout(
@@ -42,22 +56,24 @@ function resolveViewLayout(
   objectName: string,
   viewName: string,
   data: Record<string, unknown>,
-): { fields: Fields | null; form: Form | null; fieldOwner?: string } | null {
+): ViewLayout | null {
   const sch = resolveSchema(schema, objectName);
   if (!sch) return null;
   if (sch.type === 'single') {
-    return { fields: sch.fields, form: resolveForm(schema, viewName, objectName, sch.schemaName), fieldOwner: sch.schemaName };
+    const form = resolveForm(schema, viewName, objectName, sch.schemaName);
+    return { fields: sch.fields, form, fieldOwner: sch.schemaName, contexts: formContexts(schema, form) };
   }
   const variant = sch.variants.find((v) => v.name === data['@type']);
   const fields = variant?.fields ?? null;
   const variantForm = variant?.schemaName ? resolveVariantForm(schema, viewName, objectName, variant.schemaName) : null;
   const parentForm = resolveForm(schema, viewName, objectName, objectName);
   const sections = [...(parentForm?.sections ?? []), ...(variantForm?.sections ?? [])];
-  return { fields, form: sections.length > 0 ? { ...(variantForm ?? parentForm), sections } : null, fieldOwner: variant?.schemaName };
+  return { fields, form: sections.length > 0 ? { ...(variantForm ?? parentForm), sections } : null, fieldOwner: variant?.schemaName,
+    contexts: [...formContexts(schema, parentForm), ...formContexts(schema, variantForm)] };
 }
 
 function buildViewSections(
-  layout: { fields: Fields | null; form: Form | null },
+  layout: ViewLayout,
   data: Record<string, unknown>,
   visibleFields?: Set<string>,
 ): ViewSection[] {
@@ -68,6 +84,7 @@ function buildViewSections(
     return form.sections
       .map((section, index) => ({
         key: `section-${index}`,
+        ...layout.contexts[index],
         title: section.title,
         items: section.fields.flatMap((formField) => {
           const field = fields?.properties[formField.name];
@@ -96,13 +113,17 @@ export function DynamicView({ schema, objectName, viewName, data, visibleFields,
         <section key={section.key} className="tile @container px-5 pb-1.5 sm:px-6">
           {section.title && (
             <h2 className="section-title pb-1 pt-5">
-              {display(`form/${viewName}/section/${section.key}`, section.title)}
+              {section.formKey && section.displaySectionKey
+                ? display(`form/${section.formKey}/section/${section.displaySectionKey}`, section.title)
+                : section.title}
             </h2>
           )}
           <dl className={cn('divide-y divide-border', !section.title && 'pt-1')}>
             {section.items.map(({ formField, field }) => {
               const Render = renderers && Object.hasOwn(renderers, formField.name) ? renderers[formField.name] : null;
-              const localizedLabel = display(`form/${viewName}/field/${formField.name}`, formField.label);
+              const localizedLabel = section.formKey
+                ? display(`form/${section.formKey}/field/${formField.name}`, formField.label)
+                : formField.label;
               const localizedDescription = layout.fieldOwner
                 ? display(`field/${layout.fieldOwner}/${formField.name}/description`, field.description)
                 : field.description;
