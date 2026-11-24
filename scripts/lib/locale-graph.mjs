@@ -2,7 +2,7 @@
 import { compare, ptr } from './locale-source.mjs';
 
 // fieldOwners=false replays the historical pre-stage37 renderer contract only.
-export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false }) {
+export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false, formOwners = false }) {
   const byPointer = new Map();
   const usages = new Map(inventory.rows.map(r => [r.slot + '\0' + r.original, new Map()]));
   const screens = new Map();
@@ -149,13 +149,13 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
         const state = ctx.state === 'review' ? 'review' : 'wired';
         if (!embedded && !readonly) {
           emit(pin, ptr('forms', formKey, 'subtitle'), ctx, 'form/' + formKey + '/subtitle', 'DynamicForm', state);
-          if (object.objectType.type === 'singleton') emit(pin, ptr('forms', formKey, 'title'), ctx, 'form/' + object.objectName + '/title', 'DynamicForm', state);
+          if (object.objectType.type === 'singleton') emit(pin, ptr('forms', formKey, 'title'), ctx, 'form/' + (formOwners ? formKey : object.objectName) + '/title', 'DynamicForm', state);
         }
         form.sections.forEach((section, i) => {
           const eligible = section.fields.filter(ff => ff.name === '@type' || fields?.properties[ff.name]);
           if (!eligible.length) return;
           if (!embedded) emit(pin, ptr('forms', formKey, 'sections', i, 'title'), ctx,
-            'form/' + lookupKey + '/section/section-' + (readonly ? i + offset : i), 'FormSections/DynamicView', state);
+            'form/' + (formOwners && readonly ? formKey : lookupKey) + '/section/section-' + (readonly && !formOwners ? i + offset : i), 'FormSections/DynamicView', state);
           for (const [j, ff] of section.fields.entries()) {
             const field = fields?.properties[ff.name];
             if (ff.name !== '@type' && !field) continue;
@@ -166,7 +166,7 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
                 ...(field ? ['field-update:' + field.update] : []), ...(readonly ? ['nonempty-value-required'] : [])] };
             const props = readonly ? ['label'] : ['label', 'placeholder', 'keyLabel', 'valueLabel'];
             for (const p of props) emit(pin, ptr('forms', formKey, 'sections', i, 'fields', j, p), fc,
-              'form/' + lookupKey + '/field/' + ff.name + (p === 'label' ? '' : '/' + p), 'FieldRow/DynamicView', state);
+              'form/' + (formOwners && readonly ? formKey : lookupKey) + '/field/' + ff.name + (p === 'label' ? '' : '/' + p), 'FieldRow/DynamicView', state);
             if (field) {
               emit(pin, ptr('fields', fieldsKey, 'properties', ff.name, 'description'), fc,
                 'field/' + (fieldOwners ? fieldsKey : lookupKey) + '/' + ff.name + '/description', 'FieldRow/DynamicView', state);
