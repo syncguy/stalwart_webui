@@ -38,9 +38,11 @@ export function undoBatch(catalog,packet) {
 export function baselineCatalog(catalog,batches) {
   return [...batches].reverse().reduce((current,packet)=>undoBatch(current,packet),catalog);
 }
-export function batchTextSafe(original,ru) {
+export function batchTextSafe(original,ru,stage=19) {
   const tokens=s=>[...s.matchAll(/\$(?:seen|draft)\b|\/api\/calendar\/rsvp\b|IMAP ACLs? "[a-z]+"|\b(?:shareWith|isSubscribed|mayWriteOwn|mayUpdatePrivate|mayRSVP|PROPFIND|iTIP|iMIP|HTTP RSVP|WebDAV|iCalendar|IANA|CSS|RGB|XML|HTML|null|false)\b/g)].map(m=>m[0]).sort();
-  return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru));
+  const mailTokens=s=>[...s.matchAll(/\b(?:Authentication-Results|auth-failure|MTA-STS|TLS-RPT|MT-PRIORITY|MAIL FROM|RCPT TO|RFC \d+|hard fail|soft fail|DKIM|ADSP|DMARC|SPF|DANE|DNSSEC|DNS|TLSA|TLS|SMTP|HELO|EHLO|STARTTLS|WebPKI|ENVID|ORCPT|DSN|ARF|MX|MTA|TTL|IP|pct)\b|\bi=|"[0-9]+\.[0-9]+\.[0-9]+"/g)].map(m=>m[0]).sort();
+  return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
+    (stage<20||json(mailTokens(original))===json(mailTokens(ru)));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);
@@ -75,7 +77,7 @@ export function verifyReviewedBatch({packet,before,after,inputs,graph,makeSchema
   for(const e of packet.entries) {
     const r=selected.get(e.slot);
     assert.equal(r.original,e.original,'Original changed: '+e.slot);
-    assert.ok(batchTextSafe(e.original,e.ru),'Protected marker mismatch: '+e.slot);
+    assert.ok(batchTextSafe(e.original,e.ru,packet.stage),'Protected marker mismatch: '+e.slot);
     assert.equal(active.get(r.id).classification,'translated','Display path not fully translated: '+e.slot);
     const g=groupById.get(r.id);
     for(const l of r.locations){
