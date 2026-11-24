@@ -60,6 +60,9 @@ export function batchTextSafe(original,ru,stage=19) {
   const rawExtensionSafe=!extension||new RegExp('\\b'+extension+'\\b').test(ru);
   const rawFromSafe=!original.includes('from field')||/\bfrom\b/.test(ru);
   const networkTokens=s=>[...s.matchAll(/\b(?:HMAC-(?:MD5|SHA1|SHA224|SHA256(?:-128)?|SHA384(?:-192)?|SHA512(?:-256)?)|DDNS|EDNS|TCP|UDP|IMAP4|CalDAV|CardDAV|GSS|TOS|DMAPI|Joker|Cloudflare|Google|Quad9|OVH|Kimsufi|Soyoustart|EU|Nagle|origin)\b/g)].map(m=>m[0]).sort();
+  const accountTokens=s=>[...s.matchAll(/\b(?:OTP|CIDR|WebAuthn|Ed25519|DKIM1|ML-DSA-44|SQL|IMAP|client_secret_basic|client_secret_post|UserInfo|custom-uri|mail\.example\.com|example\.com|a-z|0-9)\b|<= 64|(?<![\w])_(?![\w])/g)].map(m=>m[0]).sort();
+  // Two exact natural-language dates in stage29, not the RFC Date header.
+  const smtpOriginal=stage===29&&['Date the authorization was granted','Date the application last renewed its access'].includes(original)?original.replace(/^Date /,'date '):markerOriginal;
   return textSafe(original,ru)&&json(tokens(original))===json(tokens(ru))&&
     (stage<20||json(mailTokens(original))===json(mailTokens(ru)))&&
     (stage<21||json(maintenanceTokens(original))===json(maintenanceTokens(ru)))&&
@@ -67,9 +70,10 @@ export function batchTextSafe(original,ru,stage=19) {
     (stage<23||json(securityTokens(original))===json(securityTokens(ru)))&&
     (stage<24||json(telemetryTokens(markerOriginal))===json(telemetryTokens(ru)))&&
     (stage<25||(json(storageTokens(markerOriginal))===json(storageTokens(ru))&&json(metadataTokens(original))===json(metadataTokens(ru))&&json(fractionTokens(original))===json(fractionTokens(ru))))&&
-    (stage<26||json(smtpTokens(markerOriginal))===json(smtpTokens(ru)))&&
+    (stage<26||json(smtpTokens(smtpOriginal))===json(smtpTokens(ru)))&&
     (stage<27||(json(sieveTokens(markerOriginal))===json(sieveTokens(ru))&&rawExtensionSafe&&rawFromSafe))&&
-    (stage<28||json(networkTokens(original))===json(networkTokens(ru)));
+    (stage<28||json(networkTokens(original))===json(networkTokens(ru)))&&
+    (stage<29||json(accountTokens(original))===json(accountTokens(ru)));
 }
 export function eligibleRows(report,scope) {
   assert.ok(Array.isArray(scope)&&scope.length);
@@ -104,7 +108,15 @@ export function verifyReviewedBatch({packet,before,after,inputs,graph,makeSchema
   for(const e of packet.entries) {
     const r=selected.get(e.slot);
     assert.equal(r.original,e.original,'Original changed: '+e.slot);
-    assert.ok(batchTextSafe(e.original,e.ru,packet.stage),'Protected marker mismatch: '+e.slot);
+    // Stage29 consolidates already-accepted Permission labels into the ordinary catalog.
+    // Existing display wording can abbreviate protocol prefixes; do not silently rewrite it.
+    // Only this exact stage and exact pinned permission id/original/RU may use this path.
+    const permissionId=packet.stage===29?e.slot.match(/^enum\\/Permission\\/([^/]+)\\/label$/)?.[1]:undefined;
+    if(permissionId){
+      assert.deepEqual(inputs.permissionCatalog.entries[permissionId],{original:e.original,ru:e.ru},'Pinned Permission label mismatch: '+e.slot);
+      assert.equal(inputs.permission.permissionDisplayLabel(permissionId,e.original),e.ru);
+      assert.ok(textSafe(e.original,e.ru),'Protected placeholder mismatch: '+e.slot);
+    }else assert.ok(batchTextSafe(e.original,e.ru,packet.stage),'Protected marker mismatch: '+e.slot);
     assert.equal(active.get(r.id).classification,'translated','Display path not fully translated: '+e.slot);
     const g=groupById.get(r.id);
     for(const l of r.locations){

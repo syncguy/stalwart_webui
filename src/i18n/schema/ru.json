@@ -1502,6 +1502,26 @@
       "original": "DKIM key has been superseded by a new key but still published in DNS",
       "ru": "Ключ DKIM заменён новым ключом, но ещё опубликован в DNS"
     },
+    "enum/DkimSignatureType/Dkim1Ed25519Sha256/label": {
+      "original": "DKIM1 (Ed25519 SHA-256)",
+      "ru": "Подпись DKIM1 (Ed25519 SHA-256)"
+    },
+    "enum/DkimSignatureType/Dkim1RsaSha256/label": {
+      "original": "DKIM1 (RSA SHA-256)",
+      "ru": "Подпись DKIM1 (RSA SHA-256)"
+    },
+    "enum/DkimSignatureType/Dkim2Ed25519Sha256/label": {
+      "original": "DKIM2 (Ed25519 SHA-256)",
+      "ru": "Подпись DKIM2 (Ed25519 SHA-256)"
+    },
+    "enum/DkimSignatureType/Dkim2MlDsa44/label": {
+      "original": "DKIM2 (ML-DSA-44)",
+      "ru": "Подпись DKIM2 (ML-DSA-44)"
+    },
+    "enum/DkimSignatureType/Dkim2RsaSha256/label": {
+      "original": "DKIM2 (RSA SHA-256)",
+      "ru": "Подпись DKIM2 (RSA SHA-256)"
+    },
     "enum/DmarcActionDisposition/none/label": {
       "original": "No action taken",
       "ru": "Действие не применено"
@@ -3642,6 +3662,22 @@
       "original": "ManageSieve",
       "ru": "Протокол ManageSieve"
     },
+    "enum/OAuthClientKind/dynamic/label": {
+      "original": "Registered dynamically (unverified)",
+      "ru": "Зарегистрировано динамически (не проверено)"
+    },
+    "enum/OAuthClientKind/firstParty/label": {
+      "original": "Web application of this server",
+      "ru": "Веб-приложение этого сервера"
+    },
+    "enum/OAuthClientKind/metadataDocument/label": {
+      "original": "Client ID Metadata Document (unverified)",
+      "ru": "Документ метаданных Client ID Metadata Document (не проверен)"
+    },
+    "enum/OAuthClientKind/registered/label": {
+      "original": "Registered by an administrator",
+      "ru": "Зарегистрировано администратором"
+    },
     "enum/OAuthClientMetadataPolicy/any/label": {
       "original": "Any HTTPS URL",
       "ru": "Любой URL HTTPS"
@@ -3653,6 +3689,78 @@
     "enum/OAuthClientMetadataPolicy/sameDomain/label": {
       "original": "Same domain only",
       "ru": "Только тот же домен"
+    },
+    "enum/OAuthGrantType/authorizationCode/label": {
+      "original": "Authorization code",
+      "ru": "Код авторизации"
+    },
+    "enum/OAuthGrantType/deviceCode/label": {
+      "original": "Device authorization",
+      "ru": "Авторизация устройства"
+    },
+    "enum/OAuthGrantType/refreshToken/label": {
+      "original": "Refresh token",
+      "ru": "Токен обновления"
+    },
+    "enum/OAuthScope/calendars/label": {
+      "original": "Calendars (CalDAV, JMAP Calendars)",
+      "ru": "Календари (CalDAV, JMAP Calendars)"
+    },
+    "enum/OAuthScope/contacts/label": {
+      "original": "Contacts (CardDAV, JMAP Contacts)",
+      "ru": "Контакты (CardDAV, JMAP Contacts)"
+    },
+    "enum/OAuthScope/files/label": {
+      "original": "Files (WebDAV, JMAP File Storage)",
+      "ru": "Файлы (WebDAV, JMAP File Storage)"
+    },
+    "enum/OAuthScope/full/label": {
+      "original": "Full access (everything the account is allowed to do, including administration)",
+      "ru": "Полный доступ (все действия, разрешённые учётной записи, включая администрирование)"
+    },
+    "enum/OAuthScope/mail/label": {
+      "original": "Mail (IMAP, POP3, SMTP submission, ManageSieve, JMAP Mail)",
+      "ru": "Почта (IMAP, POP3, отправка по SMTP, ManageSieve, JMAP Mail)"
+    },
+    "enum/OAuthScope/security/label": {
+      "original": "Security (password, two-factor authentication, app passwords, API keys, connected applications)",
+      "ru": "Безопасность (пароль, двухфакторная аутентификация, пароли приложений, ключи API, подключённые приложения)"
+    },
+    "enum/OAuthScope/settings/label": {
+      "original": "Settings (account settings, encryption, public keys, masked addresses)",
+      "ru": "Настройки (учётная запись, шифрование, открытые ключи, маскированные адреса)"
+    },
+    "enum/OidcIntrospectionAuth/clientSecretBasic/label": {
+      "original": "HTTP Basic (client_secret_basic)",
+      "ru": "Аутентификация HTTP Basic (client_secret_basic)"
+    },
+    "enum/OidcIntrospectionAuth/clientSecretPost/label": {
+      "original": "Form parameters (client_secret_post)",
+      "ru": "Параметры формы (client_secret_post)"
+    },
+    "enum/OidcIntrospectionAuth/none/label": {
+      "original": "No authentication",
+      "ru": "Без аутентификации"
+    },
+    "enum/OidcOpaqueTokenValidation/introspection/label": {
+      "original": "Token introspection (RFC 7662)",
+      "ru": "Интроспекция токена (RFC 7662)"
+    },
+    "enum/OidcOpaqueTokenValidation/userInfo/label": {
+      "original": "UserInfo endpoint (no audience or scope checks)",
+      "ru": "Конечная точка UserInfo (без проверки аудитории или областей доступа)"
+    },
+    "enum/OidcUnscopedTokenPolicy/full/label": {
+      "original": "Full access (unsafe)",
+      "ru": "Полный доступ (небезопасно)"
+    },
+    "enum/OidcUnscopedTokenPolicy/interoperable/label": {
+      "original": "Interoperable services only",
+      "ru": "Только совместимые службы"
+    },
+    "enum/OidcUnscopedTokenPolicy/reject/label": {
+      "original": "Reject",
+      "ru": "Отклонять"
     },
     "enum/OvhEndpoint/kimsufi-ca/label": {
       "original": "Kimsufi CA",
@@ -3677,6 +3785,18 @@
     "enum/OvhEndpoint/soyoustart-eu/label": {
       "original": "Soyoustart EU",
       "ru": "Сервис Soyoustart EU"
+    },
+    "enum/PasskeyAlgorithm/ed25519/label": {
+      "original": "Ed25519",
+      "ru": "Алгоритм Ed25519"
+    },
+    "enum/PasskeyAlgorithm/es256/label": {
+      "original": "ECDSA P-256 with SHA-256",
+      "ru": "Алгоритм ECDSA P-256 с SHA-256"
+    },
+    "enum/PasskeyAlgorithm/rs256/label": {
+      "original": "RSASSA-PKCS1-v1_5 with SHA-256",
+      "ru": "Алгоритм RSASSA-PKCS1-v1_5 с SHA-256"
     },
     "enum/PasswordHashAlgorithm/argon2id/label": {
       "original": "Argon2id",
@@ -3713,6 +3833,2674 @@
     "enum/PasswordStrength/zero/label": {
       "original": "Too guessable: risky password. (guesses < 10^3)",
       "ru": "Слишком легко подобрать: небезопасный пароль. (число попыток < 10^3)"
+    },
+    "enum/Permission/actionClassifySpam/label": {
+      "original": "Action: Spam Filter: Classify a message",
+      "ru": "Классификация сообщения антиспамом"
+    },
+    "enum/Permission/actionInvalidateCaches/label": {
+      "original": "Action: Cache: Invalidate all caches",
+      "ru": "Очистка всех кэшей"
+    },
+    "enum/Permission/actionInvalidateNegativeCaches/label": {
+      "original": "Action: Cache: Invalidate negative caches",
+      "ru": "Очистка кэша отрицательных результатов"
+    },
+    "enum/Permission/actionPauseMtaQueue/label": {
+      "original": "Action: MTA: Pause queue processing",
+      "ru": "Приостановка обработки очереди MTA"
+    },
+    "enum/Permission/actionReloadBlockedIps/label": {
+      "original": "Action: Reload: Blocked IPs list",
+      "ru": "Перезагрузка списка заблокированных IP"
+    },
+    "enum/Permission/actionReloadLookupStores/label": {
+      "original": "Action: Reload: Lookup stores",
+      "ru": "Перезагрузка справочников"
+    },
+    "enum/Permission/actionReloadSettings/label": {
+      "original": "Action: Reload: Server settings",
+      "ru": "Перезагрузка настроек сервера"
+    },
+    "enum/Permission/actionReloadTlsCertificates/label": {
+      "original": "Action: Reload: TLS certificates",
+      "ru": "Перезагрузка сертификатов TLS"
+    },
+    "enum/Permission/actionResumeMtaQueue/label": {
+      "original": "Action: MTA: Resume queue processing",
+      "ru": "Возобновление обработки очереди MTA"
+    },
+    "enum/Permission/actionTroubleshootDmarc/label": {
+      "original": "Action: DMARC: Troubleshooting",
+      "ru": "Диагностика DMARC"
+    },
+    "enum/Permission/actionUpdateApps/label": {
+      "original": "Action: Application Management: Update applications",
+      "ru": "Обновление приложений"
+    },
+    "enum/Permission/authenticate/label": {
+      "original": "Sign in to the server",
+      "ru": "Вход на сервер"
+    },
+    "enum/Permission/authenticateWithAlias/label": {
+      "original": "Sign in using email alias addresses",
+      "ru": "Вход с использованием почтовых псевдонимов"
+    },
+    "enum/Permission/calendarAlarmsSend/label": {
+      "original": "Calendar: Send calendar alarm notifications via email",
+      "ru": "Отправка почтовых напоминаний календаря"
+    },
+    "enum/Permission/calendarSchedulingReceive/label": {
+      "original": "Calendar: Process incoming calendar invitations and replies",
+      "ru": "Обработка входящих приглашений и ответов календаря"
+    },
+    "enum/Permission/calendarSchedulingSend/label": {
+      "original": "Calendar: Send calendar invitations and updates via email",
+      "ru": "Отправка приглашений календаря и обновлений"
+    },
+    "enum/Permission/davCalAcl/label": {
+      "original": "WebDAV: Manage access control lists for calendar entries",
+      "ru": "Управление ACL записей календаря"
+    },
+    "enum/Permission/davCalCopy/label": {
+      "original": "WebDAV: Copy calendar entries to new locations",
+      "ru": "Копирование записей календаря"
+    },
+    "enum/Permission/davCalDelete/label": {
+      "original": "WebDAV: Remove calendar entries or collections",
+      "ru": "Удаление записей или коллекций календаря"
+    },
+    "enum/Permission/davCalFreeBusyQuery/label": {
+      "original": "WebDAV: Query free/busy time information for scheduling",
+      "ru": "Запрос занятости участников для планирования"
+    },
+    "enum/Permission/davCalGet/label": {
+      "original": "WebDAV: Download calendar entries",
+      "ru": "Получение записей календаря"
+    },
+    "enum/Permission/davCalLock/label": {
+      "original": "WebDAV: Lock calendar entries to prevent concurrent modifications",
+      "ru": "Блокировка записей календаря от одновременного изменения"
+    },
+    "enum/Permission/davCalMkCol/label": {
+      "original": "WebDAV: Create new calendar collections",
+      "ru": "Создание коллекций календаря"
+    },
+    "enum/Permission/davCalMove/label": {
+      "original": "WebDAV: Move calendar entries to new locations",
+      "ru": "Перемещение записей календаря"
+    },
+    "enum/Permission/davCalMultiGet/label": {
+      "original": "WebDAV: Retrieve multiple calendar entries in a single request",
+      "ru": "Получение нескольких записей календаря за запрос"
+    },
+    "enum/Permission/davCalPropFind/label": {
+      "original": "WebDAV: Retrieve properties of calendar entries",
+      "ru": "Получение свойств записей календаря"
+    },
+    "enum/Permission/davCalPropPatch/label": {
+      "original": "WebDAV: Modify properties of calendar entries",
+      "ru": "Изменение свойств записей календаря"
+    },
+    "enum/Permission/davCalPut/label": {
+      "original": "WebDAV: Upload or modify calendar entries",
+      "ru": "Загрузка или изменение записей календаря"
+    },
+    "enum/Permission/davCalQuery/label": {
+      "original": "WebDAV: Search for calendar entries matching criteria",
+      "ru": "Поиск записей календаря по условиям"
+    },
+    "enum/Permission/davCardAcl/label": {
+      "original": "WebDAV: Manage access control lists for address book entries",
+      "ru": "Управление ACL записей адресных книг"
+    },
+    "enum/Permission/davCardCopy/label": {
+      "original": "WebDAV: Copy address book entries to new locations",
+      "ru": "Копирование записей адресных книг"
+    },
+    "enum/Permission/davCardDelete/label": {
+      "original": "WebDAV: Remove address book entries or collections",
+      "ru": "Удаление записей или коллекций адресных книг"
+    },
+    "enum/Permission/davCardGet/label": {
+      "original": "WebDAV: Download address book entries",
+      "ru": "Получение записей адресных книг"
+    },
+    "enum/Permission/davCardLock/label": {
+      "original": "WebDAV: Lock address book entries to prevent concurrent modifications",
+      "ru": "Блокировка записей адресных книг от одновременного изменения"
+    },
+    "enum/Permission/davCardMkCol/label": {
+      "original": "WebDAV: Create new address book collections",
+      "ru": "Создание коллекций адресных книг"
+    },
+    "enum/Permission/davCardMove/label": {
+      "original": "WebDAV: Move address book entries to new locations",
+      "ru": "Перемещение записей адресных книг"
+    },
+    "enum/Permission/davCardMultiGet/label": {
+      "original": "WebDAV: Retrieve multiple address book entries in a single request",
+      "ru": "Получение нескольких записей адресных книг за запрос"
+    },
+    "enum/Permission/davCardPropFind/label": {
+      "original": "WebDAV: Retrieve properties of address book entries",
+      "ru": "Получение свойств записей адресных книг"
+    },
+    "enum/Permission/davCardPropPatch/label": {
+      "original": "WebDAV: Modify properties of address book entries",
+      "ru": "Изменение свойств записей адресных книг"
+    },
+    "enum/Permission/davCardPut/label": {
+      "original": "WebDAV: Upload or modify address book entries",
+      "ru": "Загрузка или изменение записей адресных книг"
+    },
+    "enum/Permission/davCardQuery/label": {
+      "original": "WebDAV: Search for address book entries matching criteria",
+      "ru": "Поиск записей адресных книг по условиям"
+    },
+    "enum/Permission/davExpandProperty/label": {
+      "original": "WebDAV: Expand properties that reference other resources",
+      "ru": "Развёртывание свойств со ссылками на другие ресурсы"
+    },
+    "enum/Permission/davFileAcl/label": {
+      "original": "WebDAV: Manage access control lists for file resources",
+      "ru": "Управление ACL файловых ресурсов"
+    },
+    "enum/Permission/davFileCopy/label": {
+      "original": "WebDAV: Copy file resources to new locations",
+      "ru": "Копирование файловых ресурсов"
+    },
+    "enum/Permission/davFileDelete/label": {
+      "original": "WebDAV: Remove file resources",
+      "ru": "Удаление файловых ресурсов"
+    },
+    "enum/Permission/davFileGet/label": {
+      "original": "WebDAV: Download file resources",
+      "ru": "Скачивание файловых ресурсов"
+    },
+    "enum/Permission/davFileLock/label": {
+      "original": "WebDAV: Lock file resources to prevent concurrent modifications",
+      "ru": "Блокировка файловых ресурсов от одновременного изменения"
+    },
+    "enum/Permission/davFileMkCol/label": {
+      "original": "WebDAV: Create new file collections or directories",
+      "ru": "Создание файловых коллекций или каталогов"
+    },
+    "enum/Permission/davFileMove/label": {
+      "original": "WebDAV: Move file resources to new locations",
+      "ru": "Перемещение файловых ресурсов"
+    },
+    "enum/Permission/davFilePropFind/label": {
+      "original": "WebDAV: Retrieve properties of file resources",
+      "ru": "Получение свойств файловых ресурсов"
+    },
+    "enum/Permission/davFilePropPatch/label": {
+      "original": "WebDAV: Modify properties of file resources",
+      "ru": "Изменение свойств файловых ресурсов"
+    },
+    "enum/Permission/davFilePut/label": {
+      "original": "WebDAV: Upload or modify file resources",
+      "ru": "Загрузка или изменение файловых ресурсов"
+    },
+    "enum/Permission/davPrincipalAcl/label": {
+      "original": "WebDAV: Manage access control properties on principals",
+      "ru": "Управление свойствами доступа учётных записей"
+    },
+    "enum/Permission/davPrincipalList/label": {
+      "original": "WebDAV: List available principals in the system",
+      "ru": "Список доступных учётных записей"
+    },
+    "enum/Permission/davPrincipalMatch/label": {
+      "original": "WebDAV: Match principals based on specified criteria",
+      "ru": "Сопоставление учётных записей по условиям"
+    },
+    "enum/Permission/davPrincipalSearch/label": {
+      "original": "WebDAV: Search for principals by property values",
+      "ru": "Поиск учётных записей по свойствам"
+    },
+    "enum/Permission/davPrincipalSearchPropSet/label": {
+      "original": "WebDAV: Query which properties can be searched on principals",
+      "ru": "Запрос доступных для поиска свойств учётных записей"
+    },
+    "enum/Permission/davSyncCollection/label": {
+      "original": "WebDAV: Synchronize collection changes with client",
+      "ru": "Синхронизация изменений коллекции с клиентом"
+    },
+    "enum/Permission/emailReceive/label": {
+      "original": "Email: Receive emails",
+      "ru": "Получение писем"
+    },
+    "enum/Permission/emailSend/label": {
+      "original": "Email: Send emails",
+      "ru": "Отправка писем"
+    },
+    "enum/Permission/fetchAnyBlob/label": {
+      "original": "Retrieve arbitrary blobs, even those not owned by the account",
+      "ru": "Чтение любых объектов хранилища, включая чужие"
+    },
+    "enum/Permission/imapAclGet/label": {
+      "original": "IMAP: View mailbox access control lists",
+      "ru": "Просмотр списков управления доступом (ACL) почтовых ящиков"
+    },
+    "enum/Permission/imapAclSet/label": {
+      "original": "IMAP: Modify mailbox access control lists",
+      "ru": "Изменение ACL почтовых ящиков"
+    },
+    "enum/Permission/imapAppend/label": {
+      "original": "IMAP: Upload messages to a mailbox",
+      "ru": "Добавление писем в почтовый ящик"
+    },
+    "enum/Permission/imapAuthenticate/label": {
+      "original": "IMAP: Sign in to the IMAP server",
+      "ru": "Вход на IMAP-сервер"
+    },
+    "enum/Permission/imapCapability/label": {
+      "original": "IMAP: Query supported IMAP extensions",
+      "ru": "Запрос поддерживаемых расширений IMAP"
+    },
+    "enum/Permission/imapCopy/label": {
+      "original": "IMAP: Copy messages between mailboxes",
+      "ru": "Копирование писем между ящиками"
+    },
+    "enum/Permission/imapCreate/label": {
+      "original": "IMAP: Create new mailboxes",
+      "ru": "Создание почтовых ящиков"
+    },
+    "enum/Permission/imapDelete/label": {
+      "original": "IMAP: Delete mailboxes or mark messages for deletion",
+      "ru": "Удаление ящиков или пометка писем на удаление"
+    },
+    "enum/Permission/imapEnable/label": {
+      "original": "IMAP: Activate optional IMAP extensions",
+      "ru": "Активация необязательных расширений IMAP"
+    },
+    "enum/Permission/imapExamine/label": {
+      "original": "IMAP: Open a mailbox for read-only access",
+      "ru": "Открытие ящика только для чтения"
+    },
+    "enum/Permission/imapExpunge/label": {
+      "original": "IMAP: Permanently remove messages marked for deletion",
+      "ru": "Окончательное удаление помеченных писем"
+    },
+    "enum/Permission/imapFetch/label": {
+      "original": "IMAP: Download message content and metadata",
+      "ru": "Получение содержимого и метаданных писем"
+    },
+    "enum/Permission/imapId/label": {
+      "original": "IMAP: Query server identification and version",
+      "ru": "Запрос сведений и версии сервера"
+    },
+    "enum/Permission/imapIdle/label": {
+      "original": "IMAP: Receive real-time notifications for mailbox changes",
+      "ru": "Получение уведомлений об изменениях ящиков"
+    },
+    "enum/Permission/imapList/label": {
+      "original": "IMAP: List available mailboxes and their attributes",
+      "ru": "Просмотр ящиков и их атрибутов"
+    },
+    "enum/Permission/imapListRights/label": {
+      "original": "IMAP: List available permission flags for a mailbox",
+      "ru": "Просмотр доступных флагов прав ящика"
+    },
+    "enum/Permission/imapLsub/label": {
+      "original": "IMAP: List mailboxes the user is subscribed to",
+      "ru": "Просмотр подписанных ящиков"
+    },
+    "enum/Permission/imapMetadataGet/label": {
+      "original": "IMAP: Read shared mailbox and server annotations",
+      "ru": "Чтение общих аннотаций ящиков и сервера"
+    },
+    "enum/Permission/imapMetadataPrivate/label": {
+      "original": "IMAP: Read and modify private mailbox and server annotations",
+      "ru": "Чтение и изменение личных аннотаций ящиков и сервера"
+    },
+    "enum/Permission/imapMetadataSet/label": {
+      "original": "IMAP: Modify shared mailbox and server annotations",
+      "ru": "Изменение общих аннотаций ящиков и сервера"
+    },
+    "enum/Permission/imapMove/label": {
+      "original": "IMAP: Move messages between mailboxes",
+      "ru": "Перемещение писем между ящиками"
+    },
+    "enum/Permission/imapMyRights/label": {
+      "original": "IMAP: View own permissions on a mailbox",
+      "ru": "Просмотр собственных прав на почтовый ящик"
+    },
+    "enum/Permission/imapNamespace/label": {
+      "original": "IMAP: Query available mailbox namespace prefixes",
+      "ru": "Запрос пространств имён почтовых ящиков"
+    },
+    "enum/Permission/imapRename/label": {
+      "original": "IMAP: Rename or move mailboxes",
+      "ru": "Переименование или перемещение ящиков"
+    },
+    "enum/Permission/imapSearch/label": {
+      "original": "IMAP: Search messages by criteria",
+      "ru": "Поиск писем по условиям"
+    },
+    "enum/Permission/imapSelect/label": {
+      "original": "IMAP: Open a mailbox for read-write access",
+      "ru": "Открытие ящика для чтения и записи"
+    },
+    "enum/Permission/imapSort/label": {
+      "original": "IMAP: Retrieve messages in a specified sort order",
+      "ru": "Получение писем в заданном порядке сортировки"
+    },
+    "enum/Permission/imapStatus/label": {
+      "original": "IMAP: Query mailbox message counts and state",
+      "ru": "Запрос числа писем и состояния ящика"
+    },
+    "enum/Permission/imapStore/label": {
+      "original": "IMAP: Set or clear message flags (read, flagged, deleted, etc.)",
+      "ru": "Изменение флагов писем (прочитано, помечено, удалено и др.)"
+    },
+    "enum/Permission/imapSubscribe/label": {
+      "original": "IMAP: Subscribe or unsubscribe to mailboxes",
+      "ru": "Подписка и отмена подписки на ящики"
+    },
+    "enum/Permission/imapThread/label": {
+      "original": "IMAP: Group messages into conversation threads",
+      "ru": "Группировка писем по цепочкам"
+    },
+    "enum/Permission/impersonate/label": {
+      "original": "Act on behalf of another user",
+      "ru": "Действия от имени другого пользователя"
+    },
+    "enum/Permission/interactAi/label": {
+      "original": "Interact with AI models",
+      "ru": "Взаимодействие с моделями ИИ"
+    },
+    "enum/Permission/jmapAddressBookChanges/label": {
+      "original": "JMAP: Track changes to address books since a given state",
+      "ru": "JMAP: отслеживание изменений — адресные книги"
+    },
+    "enum/Permission/jmapAddressBookCreate/label": {
+      "original": "JMAP: Create new address books",
+      "ru": "JMAP: создание — адресные книги"
+    },
+    "enum/Permission/jmapAddressBookDestroy/label": {
+      "original": "JMAP: Remove address books",
+      "ru": "JMAP: удаление — адресные книги"
+    },
+    "enum/Permission/jmapAddressBookGet/label": {
+      "original": "JMAP: Retrieve address book details and properties",
+      "ru": "JMAP: просмотр — адресные книги"
+    },
+    "enum/Permission/jmapAddressBookUpdate/label": {
+      "original": "JMAP: Modify existing address books",
+      "ru": "JMAP: изменение — адресные книги"
+    },
+    "enum/Permission/jmapBlobCopy/label": {
+      "original": "JMAP: Copy blobs to another account",
+      "ru": "JMAP: копирование — объекты хранилища"
+    },
+    "enum/Permission/jmapBlobGet/label": {
+      "original": "JMAP: Download blob data",
+      "ru": "JMAP: просмотр — объекты хранилища"
+    },
+    "enum/Permission/jmapBlobLookup/label": {
+      "original": "JMAP: Look up blob usage across data types",
+      "ru": "JMAP: поиск использования — объекты хранилища"
+    },
+    "enum/Permission/jmapBlobUpload/label": {
+      "original": "JMAP: Upload new blob data",
+      "ru": "JMAP: загрузка — объекты хранилища"
+    },
+    "enum/Permission/jmapCalendarChanges/label": {
+      "original": "JMAP: Track changes to calendars since a given state",
+      "ru": "JMAP: отслеживание изменений — календари"
+    },
+    "enum/Permission/jmapCalendarCreate/label": {
+      "original": "JMAP: Create new calendars",
+      "ru": "JMAP: создание — календари"
+    },
+    "enum/Permission/jmapCalendarDestroy/label": {
+      "original": "JMAP: Remove calendars",
+      "ru": "JMAP: удаление — календари"
+    },
+    "enum/Permission/jmapCalendarEventChanges/label": {
+      "original": "JMAP: Track changes to calendar events since a given state",
+      "ru": "JMAP: отслеживание изменений — события календаря"
+    },
+    "enum/Permission/jmapCalendarEventCopy/label": {
+      "original": "JMAP: Copy calendar events to another account",
+      "ru": "JMAP: копирование — события календаря"
+    },
+    "enum/Permission/jmapCalendarEventCreate/label": {
+      "original": "JMAP: Create new calendar events",
+      "ru": "JMAP: создание — события календаря"
+    },
+    "enum/Permission/jmapCalendarEventDestroy/label": {
+      "original": "JMAP: Remove calendar events",
+      "ru": "JMAP: удаление — события календаря"
+    },
+    "enum/Permission/jmapCalendarEventGet/label": {
+      "original": "JMAP: Retrieve calendar event details",
+      "ru": "JMAP: просмотр — события календаря"
+    },
+    "enum/Permission/jmapCalendarEventNotificationChanges/label": {
+      "original": "JMAP: Track changes to calendar event notifications since a given state",
+      "ru": "JMAP: отслеживание изменений — уведомления о событиях календаря"
+    },
+    "enum/Permission/jmapCalendarEventNotificationCreate/label": {
+      "original": "JMAP: Create new calendar event notifications",
+      "ru": "JMAP: создание — уведомления о событиях календаря"
+    },
+    "enum/Permission/jmapCalendarEventNotificationDestroy/label": {
+      "original": "JMAP: Remove calendar event notifications",
+      "ru": "JMAP: удаление — уведомления о событиях календаря"
+    },
+    "enum/Permission/jmapCalendarEventNotificationGet/label": {
+      "original": "JMAP: Retrieve calendar event notification details",
+      "ru": "JMAP: просмотр — уведомления о событиях календаря"
+    },
+    "enum/Permission/jmapCalendarEventNotificationQuery/label": {
+      "original": "JMAP: Search for calendar event notifications matching criteria",
+      "ru": "JMAP: поиск — уведомления о событиях календаря"
+    },
+    "enum/Permission/jmapCalendarEventNotificationQueryChanges/label": {
+      "original": "JMAP: Track changes to calendar event notification query results",
+      "ru": "JMAP: отслеживание изменений результатов поиска — уведомления о событиях календаря"
+    },
+    "enum/Permission/jmapCalendarEventNotificationUpdate/label": {
+      "original": "JMAP: Modify existing calendar event notifications",
+      "ru": "JMAP: изменение — уведомления о событиях календаря"
+    },
+    "enum/Permission/jmapCalendarEventParse/label": {
+      "original": "JMAP: Parse raw calendar event data without storing",
+      "ru": "JMAP: разбор данных без сохранения — события календаря"
+    },
+    "enum/Permission/jmapCalendarEventQuery/label": {
+      "original": "JMAP: Search for calendar events matching criteria",
+      "ru": "JMAP: поиск — события календаря"
+    },
+    "enum/Permission/jmapCalendarEventQueryChanges/label": {
+      "original": "JMAP: Track changes to calendar event query results",
+      "ru": "JMAP: отслеживание изменений результатов поиска — события календаря"
+    },
+    "enum/Permission/jmapCalendarEventUpdate/label": {
+      "original": "JMAP: Modify existing calendar events",
+      "ru": "JMAP: изменение — события календаря"
+    },
+    "enum/Permission/jmapCalendarGet/label": {
+      "original": "JMAP: Retrieve calendar details and properties",
+      "ru": "JMAP: просмотр — календари"
+    },
+    "enum/Permission/jmapCalendarUpdate/label": {
+      "original": "JMAP: Modify existing calendars",
+      "ru": "JMAP: изменение — календари"
+    },
+    "enum/Permission/jmapContactCardChanges/label": {
+      "original": "JMAP: Track changes to contact cards since a given state",
+      "ru": "JMAP: отслеживание изменений — карточки контактов"
+    },
+    "enum/Permission/jmapContactCardCopy/label": {
+      "original": "JMAP: Copy contact cards to another account",
+      "ru": "JMAP: копирование — карточки контактов"
+    },
+    "enum/Permission/jmapContactCardCreate/label": {
+      "original": "JMAP: Create new contact cards",
+      "ru": "JMAP: создание — карточки контактов"
+    },
+    "enum/Permission/jmapContactCardDestroy/label": {
+      "original": "JMAP: Remove contact cards",
+      "ru": "JMAP: удаление — карточки контактов"
+    },
+    "enum/Permission/jmapContactCardGet/label": {
+      "original": "JMAP: Retrieve contact card details",
+      "ru": "JMAP: просмотр — карточки контактов"
+    },
+    "enum/Permission/jmapContactCardParse/label": {
+      "original": "JMAP: Parse raw contact card data without storing",
+      "ru": "JMAP: разбор данных без сохранения — карточки контактов"
+    },
+    "enum/Permission/jmapContactCardQuery/label": {
+      "original": "JMAP: Search for contact cards matching criteria",
+      "ru": "JMAP: поиск — карточки контактов"
+    },
+    "enum/Permission/jmapContactCardQueryChanges/label": {
+      "original": "JMAP: Track changes to contact card query results",
+      "ru": "JMAP: отслеживание изменений результатов поиска — карточки контактов"
+    },
+    "enum/Permission/jmapContactCardUpdate/label": {
+      "original": "JMAP: Modify existing contact cards",
+      "ru": "JMAP: изменение — карточки контактов"
+    },
+    "enum/Permission/jmapCoreEcho/label": {
+      "original": "JMAP: Echo back input data for testing",
+      "ru": "JMAP: Проверка соединения (возврат переданных данных)"
+    },
+    "enum/Permission/jmapEmailChanges/label": {
+      "original": "JMAP: Track changes to emails since a given state",
+      "ru": "JMAP: отслеживание изменений — письма"
+    },
+    "enum/Permission/jmapEmailCopy/label": {
+      "original": "JMAP: Copy emails to another account",
+      "ru": "JMAP: копирование — письма"
+    },
+    "enum/Permission/jmapEmailCreate/label": {
+      "original": "JMAP: Create new emails",
+      "ru": "JMAP: создание — письма"
+    },
+    "enum/Permission/jmapEmailDestroy/label": {
+      "original": "JMAP: Remove emails",
+      "ru": "JMAP: удаление — письма"
+    },
+    "enum/Permission/jmapEmailGet/label": {
+      "original": "JMAP: Retrieve email details and properties",
+      "ru": "JMAP: просмотр — письма"
+    },
+    "enum/Permission/jmapEmailImport/label": {
+      "original": "JMAP: Import emails from blob data",
+      "ru": "JMAP: импорт — письма"
+    },
+    "enum/Permission/jmapEmailParse/label": {
+      "original": "JMAP: Parse raw email data without storing",
+      "ru": "JMAP: разбор данных без сохранения — письма"
+    },
+    "enum/Permission/jmapEmailQuery/label": {
+      "original": "JMAP: Search for emails matching criteria",
+      "ru": "JMAP: поиск — письма"
+    },
+    "enum/Permission/jmapEmailQueryChanges/label": {
+      "original": "JMAP: Track changes to email query results",
+      "ru": "JMAP: отслеживание изменений результатов поиска — письма"
+    },
+    "enum/Permission/jmapEmailSubmissionChanges/label": {
+      "original": "JMAP: Track changes to email submissions since a given state",
+      "ru": "JMAP: отслеживание изменений — отправки писем"
+    },
+    "enum/Permission/jmapEmailSubmissionCreate/label": {
+      "original": "JMAP: Create new email submissions for sending",
+      "ru": "JMAP: создание — отправки писем"
+    },
+    "enum/Permission/jmapEmailSubmissionDestroy/label": {
+      "original": "JMAP: Remove email submissions",
+      "ru": "JMAP: удаление — отправки писем"
+    },
+    "enum/Permission/jmapEmailSubmissionGet/label": {
+      "original": "JMAP: Retrieve email submission details",
+      "ru": "JMAP: просмотр — отправки писем"
+    },
+    "enum/Permission/jmapEmailSubmissionQuery/label": {
+      "original": "JMAP: Search for email submissions matching criteria",
+      "ru": "JMAP: поиск — отправки писем"
+    },
+    "enum/Permission/jmapEmailSubmissionQueryChanges/label": {
+      "original": "JMAP: Track changes to email submission query results",
+      "ru": "JMAP: отслеживание изменений результатов поиска — отправки писем"
+    },
+    "enum/Permission/jmapEmailSubmissionUpdate/label": {
+      "original": "JMAP: Modify existing email submissions",
+      "ru": "JMAP: изменение — отправки писем"
+    },
+    "enum/Permission/jmapEmailUpdate/label": {
+      "original": "JMAP: Modify existing emails",
+      "ru": "JMAP: изменение — письма"
+    },
+    "enum/Permission/jmapFileNodeChanges/label": {
+      "original": "JMAP: Track changes to file nodes since a given state",
+      "ru": "JMAP: отслеживание изменений — файлы и папки"
+    },
+    "enum/Permission/jmapFileNodeCopy/label": {
+      "original": "JMAP: Copy file nodes to another account",
+      "ru": "JMAP: копирование — файлы и папки"
+    },
+    "enum/Permission/jmapFileNodeCreate/label": {
+      "original": "JMAP: Create new file nodes",
+      "ru": "JMAP: создание — файлы и папки"
+    },
+    "enum/Permission/jmapFileNodeDestroy/label": {
+      "original": "JMAP: Remove file nodes",
+      "ru": "JMAP: удаление — файлы и папки"
+    },
+    "enum/Permission/jmapFileNodeGet/label": {
+      "original": "JMAP: Retrieve file node details and properties",
+      "ru": "JMAP: просмотр — файлы и папки"
+    },
+    "enum/Permission/jmapFileNodeQuery/label": {
+      "original": "JMAP: Search for file nodes matching criteria",
+      "ru": "JMAP: поиск — файлы и папки"
+    },
+    "enum/Permission/jmapFileNodeQueryChanges/label": {
+      "original": "JMAP: Track changes to file node query results",
+      "ru": "JMAP: отслеживание изменений результатов поиска — файлы и папки"
+    },
+    "enum/Permission/jmapFileNodeUpdate/label": {
+      "original": "JMAP: Modify existing file nodes",
+      "ru": "JMAP: изменение — файлы и папки"
+    },
+    "enum/Permission/jmapIdentityChanges/label": {
+      "original": "JMAP: Track changes to identities since a given state",
+      "ru": "JMAP: отслеживание изменений — идентификаторы отправителей"
+    },
+    "enum/Permission/jmapIdentityCreate/label": {
+      "original": "JMAP: Create new sender identities",
+      "ru": "JMAP: создание — идентификаторы отправителей"
+    },
+    "enum/Permission/jmapIdentityDestroy/label": {
+      "original": "JMAP: Remove sender identities",
+      "ru": "JMAP: удаление — идентификаторы отправителей"
+    },
+    "enum/Permission/jmapIdentityGet/label": {
+      "original": "JMAP: Retrieve sender identity details",
+      "ru": "JMAP: просмотр — идентификаторы отправителей"
+    },
+    "enum/Permission/jmapIdentityUpdate/label": {
+      "original": "JMAP: Modify existing sender identities",
+      "ru": "JMAP: изменение — идентификаторы отправителей"
+    },
+    "enum/Permission/jmapMailboxChanges/label": {
+      "original": "JMAP: Track changes to mailboxes since a given state",
+      "ru": "JMAP: отслеживание изменений — почтовые ящики"
+    },
+    "enum/Permission/jmapMailboxCreate/label": {
+      "original": "JMAP: Create new mailboxes",
+      "ru": "JMAP: создание — почтовые ящики"
+    },
+    "enum/Permission/jmapMailboxDestroy/label": {
+      "original": "JMAP: Remove mailboxes",
+      "ru": "JMAP: удаление — почтовые ящики"
+    },
+    "enum/Permission/jmapMailboxGet/label": {
+      "original": "JMAP: Retrieve mailbox details and properties",
+      "ru": "JMAP: просмотр — почтовые ящики"
+    },
+    "enum/Permission/jmapMailboxQuery/label": {
+      "original": "JMAP: Search for mailboxes matching criteria",
+      "ru": "JMAP: поиск — почтовые ящики"
+    },
+    "enum/Permission/jmapMailboxQueryChanges/label": {
+      "original": "JMAP: Track changes to mailbox query results",
+      "ru": "JMAP: отслеживание изменений результатов поиска — почтовые ящики"
+    },
+    "enum/Permission/jmapMailboxUpdate/label": {
+      "original": "JMAP: Modify existing mailboxes",
+      "ru": "JMAP: изменение — почтовые ящики"
+    },
+    "enum/Permission/jmapMetadataGet/label": {
+      "original": "JMAP: Read shared object metadata",
+      "ru": "JMAP: Чтение общих метаданных объектов"
+    },
+    "enum/Permission/jmapMetadataPrivate/label": {
+      "original": "JMAP: Read and modify private object metadata",
+      "ru": "JMAP: Чтение и изменение личных метаданных объектов"
+    },
+    "enum/Permission/jmapMetadataSet/label": {
+      "original": "JMAP: Modify shared object metadata",
+      "ru": "JMAP: Изменение общих метаданных объектов"
+    },
+    "enum/Permission/jmapParticipantIdentityChanges/label": {
+      "original": "JMAP: Track changes to participant identities since a given state",
+      "ru": "JMAP: отслеживание изменений — идентификаторы участников"
+    },
+    "enum/Permission/jmapParticipantIdentityCreate/label": {
+      "original": "JMAP: Create new participant identities",
+      "ru": "JMAP: создание — идентификаторы участников"
+    },
+    "enum/Permission/jmapParticipantIdentityDestroy/label": {
+      "original": "JMAP: Remove participant identities",
+      "ru": "JMAP: удаление — идентификаторы участников"
+    },
+    "enum/Permission/jmapParticipantIdentityGet/label": {
+      "original": "JMAP: Retrieve participant identity details",
+      "ru": "JMAP: просмотр — идентификаторы участников"
+    },
+    "enum/Permission/jmapParticipantIdentityUpdate/label": {
+      "original": "JMAP: Modify existing participant identities",
+      "ru": "JMAP: изменение — идентификаторы участников"
+    },
+    "enum/Permission/jmapPrincipalChanges/label": {
+      "original": "JMAP: Track changes to principals since a given state",
+      "ru": "JMAP: отслеживание изменений — учётные записи"
+    },
+    "enum/Permission/jmapPrincipalGet/label": {
+      "original": "JMAP: Retrieve principal details and properties",
+      "ru": "JMAP: просмотр — учётные записи"
+    },
+    "enum/Permission/jmapPrincipalGetAvailability/label": {
+      "original": "JMAP: Query availability information for principals",
+      "ru": "JMAP: просмотр сведений о доступности — учётные записи"
+    },
+    "enum/Permission/jmapPrincipalQuery/label": {
+      "original": "JMAP: Search for principals matching criteria",
+      "ru": "JMAP: поиск — учётные записи"
+    },
+    "enum/Permission/jmapPrincipalQueryChanges/label": {
+      "original": "JMAP: Track changes to principal query results",
+      "ru": "JMAP: отслеживание изменений результатов поиска — учётные записи"
+    },
+    "enum/Permission/jmapPushSubscriptionCreate/label": {
+      "original": "JMAP: Create new push subscriptions",
+      "ru": "JMAP: создание — push-подписки"
+    },
+    "enum/Permission/jmapPushSubscriptionDestroy/label": {
+      "original": "JMAP: Remove push subscriptions",
+      "ru": "JMAP: удаление — push-подписки"
+    },
+    "enum/Permission/jmapPushSubscriptionGet/label": {
+      "original": "JMAP: Retrieve push subscription details",
+      "ru": "JMAP: просмотр — push-подписки"
+    },
+    "enum/Permission/jmapPushSubscriptionUpdate/label": {
+      "original": "JMAP: Modify existing push subscriptions",
+      "ru": "JMAP: изменение — push-подписки"
+    },
+    "enum/Permission/jmapQuotaChanges/label": {
+      "original": "JMAP: Track changes to quotas since a given state",
+      "ru": "JMAP: отслеживание изменений — квоты"
+    },
+    "enum/Permission/jmapQuotaGet/label": {
+      "original": "JMAP: Retrieve quota usage and limits",
+      "ru": "JMAP: просмотр — квоты"
+    },
+    "enum/Permission/jmapQuotaQuery/label": {
+      "original": "JMAP: Search for quotas matching criteria",
+      "ru": "JMAP: поиск — квоты"
+    },
+    "enum/Permission/jmapQuotaQueryChanges/label": {
+      "original": "JMAP: Track changes to quota query results",
+      "ru": "JMAP: отслеживание изменений результатов поиска — квоты"
+    },
+    "enum/Permission/jmapSearchSnippetGet/label": {
+      "original": "JMAP: Retrieve search result snippets for emails",
+      "ru": "JMAP: просмотр — фрагменты результатов поиска"
+    },
+    "enum/Permission/jmapShareNotificationChanges/label": {
+      "original": "JMAP: Track changes to share notifications since a given state",
+      "ru": "JMAP: отслеживание изменений — уведомления о совместном доступе"
+    },
+    "enum/Permission/jmapShareNotificationCreate/label": {
+      "original": "JMAP: Create new share notifications",
+      "ru": "JMAP: создание — уведомления о совместном доступе"
+    },
+    "enum/Permission/jmapShareNotificationDestroy/label": {
+      "original": "JMAP: Remove share notifications",
+      "ru": "JMAP: удаление — уведомления о совместном доступе"
+    },
+    "enum/Permission/jmapShareNotificationGet/label": {
+      "original": "JMAP: Retrieve share notification details",
+      "ru": "JMAP: просмотр — уведомления о совместном доступе"
+    },
+    "enum/Permission/jmapShareNotificationQuery/label": {
+      "original": "JMAP: Search for share notifications matching criteria",
+      "ru": "JMAP: поиск — уведомления о совместном доступе"
+    },
+    "enum/Permission/jmapShareNotificationQueryChanges/label": {
+      "original": "JMAP: Track changes to share notification query results",
+      "ru": "JMAP: отслеживание изменений результатов поиска — уведомления о совместном доступе"
+    },
+    "enum/Permission/jmapShareNotificationUpdate/label": {
+      "original": "JMAP: Modify existing share notifications",
+      "ru": "JMAP: изменение — уведомления о совместном доступе"
+    },
+    "enum/Permission/jmapSieveScriptCreate/label": {
+      "original": "JMAP: Create new Sieve filter scripts",
+      "ru": "JMAP: создание — скрипты Sieve"
+    },
+    "enum/Permission/jmapSieveScriptDestroy/label": {
+      "original": "JMAP: Remove Sieve filter scripts",
+      "ru": "JMAP: удаление — скрипты Sieve"
+    },
+    "enum/Permission/jmapSieveScriptGet/label": {
+      "original": "JMAP: Retrieve Sieve filter script details",
+      "ru": "JMAP: просмотр — скрипты Sieve"
+    },
+    "enum/Permission/jmapSieveScriptQuery/label": {
+      "original": "JMAP: Search for Sieve scripts matching criteria",
+      "ru": "JMAP: поиск — скрипты Sieve"
+    },
+    "enum/Permission/jmapSieveScriptUpdate/label": {
+      "original": "JMAP: Modify existing Sieve filter scripts",
+      "ru": "JMAP: изменение — скрипты Sieve"
+    },
+    "enum/Permission/jmapSieveScriptValidate/label": {
+      "original": "JMAP: Validate a Sieve script without storing",
+      "ru": "JMAP: проверка синтаксиса — скрипты Sieve"
+    },
+    "enum/Permission/jmapThreadChanges/label": {
+      "original": "JMAP: Track changes to threads since a given state",
+      "ru": "JMAP: отслеживание изменений — цепочки писем"
+    },
+    "enum/Permission/jmapThreadGet/label": {
+      "original": "JMAP: Retrieve email thread details",
+      "ru": "JMAP: просмотр — цепочки писем"
+    },
+    "enum/Permission/jmapVacationResponseCreate/label": {
+      "original": "JMAP: Create vacation response settings",
+      "ru": "JMAP: создание — автоответчик"
+    },
+    "enum/Permission/jmapVacationResponseDestroy/label": {
+      "original": "JMAP: Remove vacation response settings",
+      "ru": "JMAP: удаление — автоответчик"
+    },
+    "enum/Permission/jmapVacationResponseGet/label": {
+      "original": "JMAP: Retrieve vacation response configuration",
+      "ru": "JMAP: просмотр — автоответчик"
+    },
+    "enum/Permission/jmapVacationResponseUpdate/label": {
+      "original": "JMAP: Modify vacation response settings",
+      "ru": "JMAP: изменение — автоответчик"
+    },
+    "enum/Permission/liveDeliveryTest/label": {
+      "original": "Send test emails to verify delivery configuration",
+      "ru": "Отправка тестовых писем для проверки доставки"
+    },
+    "enum/Permission/liveMetrics/label": {
+      "original": "View real-time server performance metrics",
+      "ru": "Просмотр метрик сервера в реальном времени"
+    },
+    "enum/Permission/liveTracing/label": {
+      "original": "View real-time server event traces",
+      "ru": "Просмотр событий сервера в реальном времени"
+    },
+    "enum/Permission/pop3Authenticate/label": {
+      "original": "POP3: Sign in to the POP3 server",
+      "ru": "Вход на POP3-сервер"
+    },
+    "enum/Permission/pop3Dele/label": {
+      "original": "POP3: Mark messages for deletion on disconnect",
+      "ru": "Пометка писем на удаление при отключении"
+    },
+    "enum/Permission/pop3List/label": {
+      "original": "POP3: List messages and their sizes",
+      "ru": "Список писем и их размеров"
+    },
+    "enum/Permission/pop3Retr/label": {
+      "original": "POP3: Download message content",
+      "ru": "Получение содержимого писем"
+    },
+    "enum/Permission/pop3Stat/label": {
+      "original": "POP3: Query mailbox message count and total size",
+      "ru": "Запрос числа и суммарного размера писем"
+    },
+    "enum/Permission/pop3Uidl/label": {
+      "original": "POP3: Retrieve unique message identifiers",
+      "ru": "Получение уникальных идентификаторов писем"
+    },
+    "enum/Permission/scimAccess/label": {
+      "original": "Provision users and groups through the SCIM endpoint",
+      "ru": "Управление пользователями и группами через SCIM"
+    },
+    "enum/Permission/sieveAuthenticate/label": {
+      "original": "ManageSieve: Sign in to the ManageSieve server",
+      "ru": "Вход на сервер ManageSieve"
+    },
+    "enum/Permission/sieveCheckScript/label": {
+      "original": "ManageSieve: Validate Sieve script syntax without saving",
+      "ru": "Проверка синтаксиса Sieve без сохранения"
+    },
+    "enum/Permission/sieveDeleteScript/label": {
+      "original": "ManageSieve: Remove a Sieve script",
+      "ru": "Удаление скрипта Sieve"
+    },
+    "enum/Permission/sieveGetScript/label": {
+      "original": "ManageSieve: Download Sieve script content",
+      "ru": "Получение содержимого скрипта Sieve"
+    },
+    "enum/Permission/sieveHaveSpace/label": {
+      "original": "ManageSieve: Check if quota allows uploading a script of a given size",
+      "ru": "Проверка квоты на загрузку скрипта заданного размера"
+    },
+    "enum/Permission/sieveListScripts/label": {
+      "original": "ManageSieve: List uploaded Sieve scripts",
+      "ru": "Просмотр загруженных скриптов Sieve"
+    },
+    "enum/Permission/sievePutScript/label": {
+      "original": "ManageSieve: Upload or replace a Sieve script",
+      "ru": "Загрузка или замена скрипта Sieve"
+    },
+    "enum/Permission/sieveRenameScript/label": {
+      "original": "ManageSieve: Rename a Sieve script",
+      "ru": "Переименование скрипта Sieve"
+    },
+    "enum/Permission/sieveSetActive/label": {
+      "original": "ManageSieve: Designate which Sieve script is active",
+      "ru": "Выбор активного скрипта Sieve"
+    },
+    "enum/Permission/sysAccountCreate/label": {
+      "original": "Accounts Management: Create accounts",
+      "ru": "Учётные записи: Создание"
+    },
+    "enum/Permission/sysAccountDestroy/label": {
+      "original": "Accounts Management: Destroy accounts",
+      "ru": "Учётные записи: Удаление"
+    },
+    "enum/Permission/sysAccountGet/label": {
+      "original": "Accounts Management: Get accounts",
+      "ru": "Учётные записи: Просмотр"
+    },
+    "enum/Permission/sysAccountPasswordGet/label": {
+      "original": "Settings: Get account password settings",
+      "ru": "Настройки — Пароли учётных записей: просмотр"
+    },
+    "enum/Permission/sysAccountPasswordUpdate/label": {
+      "original": "Settings: Update account password settings",
+      "ru": "Настройки — Пароли учётных записей: изменение"
+    },
+    "enum/Permission/sysAccountQuery/label": {
+      "original": "Accounts Management: Query accounts",
+      "ru": "Учётные записи: Поиск"
+    },
+    "enum/Permission/sysAccountSettingsGet/label": {
+      "original": "Settings: Get account settings settings",
+      "ru": "Настройки — Параметры учётных записей: просмотр"
+    },
+    "enum/Permission/sysAccountSettingsUpdate/label": {
+      "original": "Settings: Update account settings settings",
+      "ru": "Настройки — Параметры учётных записей: изменение"
+    },
+    "enum/Permission/sysAccountUpdate/label": {
+      "original": "Accounts Management: Update accounts",
+      "ru": "Учётные записи: Изменение"
+    },
+    "enum/Permission/sysAcmeProviderCreate/label": {
+      "original": "Providers Management: Create providers",
+      "ru": "Провайдеры: Создание"
+    },
+    "enum/Permission/sysAcmeProviderDestroy/label": {
+      "original": "Providers Management: Destroy providers",
+      "ru": "Провайдеры: Удаление"
+    },
+    "enum/Permission/sysAcmeProviderGet/label": {
+      "original": "Providers Management: Get providers",
+      "ru": "Провайдеры: Просмотр"
+    },
+    "enum/Permission/sysAcmeProviderQuery/label": {
+      "original": "Providers Management: Query providers",
+      "ru": "Провайдеры: Поиск"
+    },
+    "enum/Permission/sysAcmeProviderUpdate/label": {
+      "original": "Providers Management: Update providers",
+      "ru": "Провайдеры: Изменение"
+    },
+    "enum/Permission/sysActionCreate/label": {
+      "original": "Actions Management: Create actions",
+      "ru": "Действия: создание"
+    },
+    "enum/Permission/sysAddressBookGet/label": {
+      "original": "Settings: Get address book settings",
+      "ru": "Настройки — Адресные книги: просмотр"
+    },
+    "enum/Permission/sysAddressBookUpdate/label": {
+      "original": "Settings: Update address book settings",
+      "ru": "Настройки — Адресные книги: изменение"
+    },
+    "enum/Permission/sysAiModelCreate/label": {
+      "original": "AI models Management: Create AI models",
+      "ru": "Модели ИИ: Создание"
+    },
+    "enum/Permission/sysAiModelDestroy/label": {
+      "original": "AI models Management: Destroy AI models",
+      "ru": "Модели ИИ: Удаление"
+    },
+    "enum/Permission/sysAiModelGet/label": {
+      "original": "AI models Management: Get AI models",
+      "ru": "Модели ИИ: Просмотр"
+    },
+    "enum/Permission/sysAiModelQuery/label": {
+      "original": "AI models Management: Query AI models",
+      "ru": "Модели ИИ: Поиск"
+    },
+    "enum/Permission/sysAiModelUpdate/label": {
+      "original": "AI models Management: Update AI models",
+      "ru": "Модели ИИ: Изменение"
+    },
+    "enum/Permission/sysAlertCreate/label": {
+      "original": "Alerts Management: Create alerts",
+      "ru": "Оповещения: Создание"
+    },
+    "enum/Permission/sysAlertDestroy/label": {
+      "original": "Alerts Management: Destroy alerts",
+      "ru": "Оповещения: Удаление"
+    },
+    "enum/Permission/sysAlertGet/label": {
+      "original": "Alerts Management: Get alerts",
+      "ru": "Оповещения: Просмотр"
+    },
+    "enum/Permission/sysAlertQuery/label": {
+      "original": "Alerts Management: Query alerts",
+      "ru": "Оповещения: Поиск"
+    },
+    "enum/Permission/sysAlertUpdate/label": {
+      "original": "Alerts Management: Update alerts",
+      "ru": "Оповещения: Изменение"
+    },
+    "enum/Permission/sysAllowedIpCreate/label": {
+      "original": "Addresses Management: Create addresses",
+      "ru": "Адреса: Создание"
+    },
+    "enum/Permission/sysAllowedIpDestroy/label": {
+      "original": "Addresses Management: Destroy addresses",
+      "ru": "Адреса: Удаление"
+    },
+    "enum/Permission/sysAllowedIpGet/label": {
+      "original": "Addresses Management: Get addresses",
+      "ru": "Адреса: Просмотр"
+    },
+    "enum/Permission/sysAllowedIpQuery/label": {
+      "original": "Addresses Management: Query addresses",
+      "ru": "Адреса: Поиск"
+    },
+    "enum/Permission/sysAllowedIpUpdate/label": {
+      "original": "Addresses Management: Update addresses",
+      "ru": "Адреса: Изменение"
+    },
+    "enum/Permission/sysApiKeyCreate/label": {
+      "original": "API keys Management: Create API keys",
+      "ru": "API-ключи: Создание"
+    },
+    "enum/Permission/sysApiKeyDestroy/label": {
+      "original": "API keys Management: Destroy API keys",
+      "ru": "API-ключи: Удаление"
+    },
+    "enum/Permission/sysApiKeyGet/label": {
+      "original": "API keys Management: Get API keys",
+      "ru": "API-ключи: Просмотр"
+    },
+    "enum/Permission/sysApiKeyQuery/label": {
+      "original": "API keys Management: Query API keys",
+      "ru": "API-ключи: Поиск"
+    },
+    "enum/Permission/sysApiKeyUpdate/label": {
+      "original": "API keys Management: Update API keys",
+      "ru": "API-ключи: Изменение"
+    },
+    "enum/Permission/sysAppPasswordCreate/label": {
+      "original": "App passwords Management: Create App passwords",
+      "ru": "Пароли приложений: Создание"
+    },
+    "enum/Permission/sysAppPasswordDestroy/label": {
+      "original": "App passwords Management: Destroy App passwords",
+      "ru": "Пароли приложений: Удаление"
+    },
+    "enum/Permission/sysAppPasswordGet/label": {
+      "original": "App passwords Management: Get App passwords",
+      "ru": "Пароли приложений: Просмотр"
+    },
+    "enum/Permission/sysAppPasswordQuery/label": {
+      "original": "App passwords Management: Query App passwords",
+      "ru": "Пароли приложений: Поиск"
+    },
+    "enum/Permission/sysAppPasswordUpdate/label": {
+      "original": "App passwords Management: Update App passwords",
+      "ru": "Пароли приложений: Изменение"
+    },
+    "enum/Permission/sysApplicationCreate/label": {
+      "original": "Applications Management: Create applications",
+      "ru": "Приложения: Создание"
+    },
+    "enum/Permission/sysApplicationDestroy/label": {
+      "original": "Applications Management: Destroy applications",
+      "ru": "Приложения: Удаление"
+    },
+    "enum/Permission/sysApplicationGet/label": {
+      "original": "Applications Management: Get applications",
+      "ru": "Приложения: Просмотр"
+    },
+    "enum/Permission/sysApplicationQuery/label": {
+      "original": "Applications Management: Query applications",
+      "ru": "Приложения: Поиск"
+    },
+    "enum/Permission/sysApplicationUpdate/label": {
+      "original": "Applications Management: Update applications",
+      "ru": "Приложения: Изменение"
+    },
+    "enum/Permission/sysArchivedItemDestroy/label": {
+      "original": "Archived items Management: Destroy archived items",
+      "ru": "Архивные элементы: Удаление"
+    },
+    "enum/Permission/sysArchivedItemGet/label": {
+      "original": "Archived items Management: Get archived items",
+      "ru": "Архивные элементы: Просмотр"
+    },
+    "enum/Permission/sysArchivedItemQuery/label": {
+      "original": "Archived items Management: Query archived items",
+      "ru": "Архивные элементы: Поиск"
+    },
+    "enum/Permission/sysArchivedItemUpdate/label": {
+      "original": "Archived items Management: Update archived items",
+      "ru": "Архивные элементы: Изменение"
+    },
+    "enum/Permission/sysArfExternalReportDestroy/label": {
+      "original": "Reports Management: Destroy reports",
+      "ru": "Отчёты: Удаление"
+    },
+    "enum/Permission/sysArfExternalReportGet/label": {
+      "original": "Reports Management: Get reports",
+      "ru": "Отчёты: Просмотр"
+    },
+    "enum/Permission/sysArfExternalReportQuery/label": {
+      "original": "Reports Management: Query reports",
+      "ru": "Отчёты: Поиск"
+    },
+    "enum/Permission/sysAsnGet/label": {
+      "original": "Settings: Get asn settings",
+      "ru": "Настройки — ASN: просмотр"
+    },
+    "enum/Permission/sysAsnUpdate/label": {
+      "original": "Settings: Update asn settings",
+      "ru": "Настройки — ASN: изменение"
+    },
+    "enum/Permission/sysAuthenticationGet/label": {
+      "original": "Settings: Get authentication settings",
+      "ru": "Настройки — Аутентификация: просмотр"
+    },
+    "enum/Permission/sysAuthenticationUpdate/label": {
+      "original": "Settings: Update authentication settings",
+      "ru": "Настройки — Аутентификация: изменение"
+    },
+    "enum/Permission/sysBlobStoreGet/label": {
+      "original": "Settings: Get blob store settings",
+      "ru": "Настройки — Хранилище объектов: просмотр"
+    },
+    "enum/Permission/sysBlobStoreUpdate/label": {
+      "original": "Settings: Update blob store settings",
+      "ru": "Настройки — Хранилище объектов: изменение"
+    },
+    "enum/Permission/sysBlockedIpCreate/label": {
+      "original": "Addresses Management: Create addresses",
+      "ru": "Адреса: Создание"
+    },
+    "enum/Permission/sysBlockedIpDestroy/label": {
+      "original": "Addresses Management: Destroy addresses",
+      "ru": "Адреса: Удаление"
+    },
+    "enum/Permission/sysBlockedIpGet/label": {
+      "original": "Addresses Management: Get addresses",
+      "ru": "Адреса: Просмотр"
+    },
+    "enum/Permission/sysBlockedIpQuery/label": {
+      "original": "Addresses Management: Query addresses",
+      "ru": "Адреса: Поиск"
+    },
+    "enum/Permission/sysBlockedIpUpdate/label": {
+      "original": "Addresses Management: Update addresses",
+      "ru": "Адреса: Изменение"
+    },
+    "enum/Permission/sysBootstrapGet/label": {
+      "original": "Settings: Get bootstrap settings",
+      "ru": "Настройки — Первичная настройка: просмотр"
+    },
+    "enum/Permission/sysBootstrapUpdate/label": {
+      "original": "Settings: Update bootstrap settings",
+      "ru": "Настройки — Первичная настройка: изменение"
+    },
+    "enum/Permission/sysCacheGet/label": {
+      "original": "Settings: Get cache settings",
+      "ru": "Настройки — Кэш: просмотр"
+    },
+    "enum/Permission/sysCacheUpdate/label": {
+      "original": "Settings: Update cache settings",
+      "ru": "Настройки — Кэш: изменение"
+    },
+    "enum/Permission/sysCalendarAlarmGet/label": {
+      "original": "Settings: Get calendar alarm settings",
+      "ru": "Настройки — Напоминания календаря: просмотр"
+    },
+    "enum/Permission/sysCalendarAlarmUpdate/label": {
+      "original": "Settings: Update calendar alarm settings",
+      "ru": "Настройки — Напоминания календаря: изменение"
+    },
+    "enum/Permission/sysCalendarGet/label": {
+      "original": "Settings: Get calendar settings",
+      "ru": "Настройки — Календарь: просмотр"
+    },
+    "enum/Permission/sysCalendarSchedulingGet/label": {
+      "original": "Settings: Get calendar scheduling settings",
+      "ru": "Настройки — Планирование календаря: просмотр"
+    },
+    "enum/Permission/sysCalendarSchedulingUpdate/label": {
+      "original": "Settings: Update calendar scheduling settings",
+      "ru": "Настройки — Планирование календаря: изменение"
+    },
+    "enum/Permission/sysCalendarUpdate/label": {
+      "original": "Settings: Update calendar settings",
+      "ru": "Настройки — Календарь: изменение"
+    },
+    "enum/Permission/sysCertificateCreate/label": {
+      "original": "Certificates Management: Create certificates",
+      "ru": "Сертификаты: Создание"
+    },
+    "enum/Permission/sysCertificateDestroy/label": {
+      "original": "Certificates Management: Destroy certificates",
+      "ru": "Сертификаты: Удаление"
+    },
+    "enum/Permission/sysCertificateGet/label": {
+      "original": "Certificates Management: Get certificates",
+      "ru": "Сертификаты: Просмотр"
+    },
+    "enum/Permission/sysCertificateQuery/label": {
+      "original": "Certificates Management: Query certificates",
+      "ru": "Сертификаты: Поиск"
+    },
+    "enum/Permission/sysCertificateUpdate/label": {
+      "original": "Certificates Management: Update certificates",
+      "ru": "Сертификаты: Изменение"
+    },
+    "enum/Permission/sysClusterNodeGet/label": {
+      "original": "Cluster nodes Management: Get cluster nodes",
+      "ru": "Узлы кластера: Просмотр"
+    },
+    "enum/Permission/sysClusterNodeQuery/label": {
+      "original": "Cluster nodes Management: Query cluster nodes",
+      "ru": "Узлы кластера: Поиск"
+    },
+    "enum/Permission/sysClusterRoleCreate/label": {
+      "original": "Roles Management: Create roles",
+      "ru": "Роли: Создание"
+    },
+    "enum/Permission/sysClusterRoleDestroy/label": {
+      "original": "Roles Management: Destroy roles",
+      "ru": "Роли: Удаление"
+    },
+    "enum/Permission/sysClusterRoleGet/label": {
+      "original": "Roles Management: Get roles",
+      "ru": "Роли: Просмотр"
+    },
+    "enum/Permission/sysClusterRoleQuery/label": {
+      "original": "Roles Management: Query roles",
+      "ru": "Роли: Поиск"
+    },
+    "enum/Permission/sysClusterRoleUpdate/label": {
+      "original": "Roles Management: Update roles",
+      "ru": "Роли: Изменение"
+    },
+    "enum/Permission/sysCoordinatorGet/label": {
+      "original": "Settings: Get coordinator settings",
+      "ru": "Настройки — Координатор: просмотр"
+    },
+    "enum/Permission/sysCoordinatorUpdate/label": {
+      "original": "Settings: Update coordinator settings",
+      "ru": "Настройки — Координатор: изменение"
+    },
+    "enum/Permission/sysDataRetentionGet/label": {
+      "original": "Settings: Get data retention settings",
+      "ru": "Настройки — Сроки хранения данных: просмотр"
+    },
+    "enum/Permission/sysDataRetentionUpdate/label": {
+      "original": "Settings: Update data retention settings",
+      "ru": "Настройки — Сроки хранения данных: изменение"
+    },
+    "enum/Permission/sysDataStoreGet/label": {
+      "original": "Settings: Get data store settings",
+      "ru": "Настройки — Хранилище данных: просмотр"
+    },
+    "enum/Permission/sysDataStoreUpdate/label": {
+      "original": "Settings: Update data store settings",
+      "ru": "Настройки — Хранилище данных: изменение"
+    },
+    "enum/Permission/sysDirectoryCreate/label": {
+      "original": "Directories Management: Create directories",
+      "ru": "Каталоги: Создание"
+    },
+    "enum/Permission/sysDirectoryDestroy/label": {
+      "original": "Directories Management: Destroy directories",
+      "ru": "Каталоги: Удаление"
+    },
+    "enum/Permission/sysDirectoryGet/label": {
+      "original": "Directories Management: Get directories",
+      "ru": "Каталоги: Просмотр"
+    },
+    "enum/Permission/sysDirectoryQuery/label": {
+      "original": "Directories Management: Query directories",
+      "ru": "Каталоги: Поиск"
+    },
+    "enum/Permission/sysDirectoryUpdate/label": {
+      "original": "Directories Management: Update directories",
+      "ru": "Каталоги: Изменение"
+    },
+    "enum/Permission/sysDkimReportSettingsGet/label": {
+      "original": "Settings: Get dkim report settings settings",
+      "ru": "Настройки — Отчёты DKIM: просмотр"
+    },
+    "enum/Permission/sysDkimReportSettingsUpdate/label": {
+      "original": "Settings: Update dkim report settings settings",
+      "ru": "Настройки — Отчёты DKIM: изменение"
+    },
+    "enum/Permission/sysDkimSignatureCreate/label": {
+      "original": "Signatures Management: Create signatures",
+      "ru": "Подписи: Создание"
+    },
+    "enum/Permission/sysDkimSignatureDestroy/label": {
+      "original": "Signatures Management: Destroy signatures",
+      "ru": "Подписи: Удаление"
+    },
+    "enum/Permission/sysDkimSignatureGet/label": {
+      "original": "Signatures Management: Get signatures",
+      "ru": "Подписи: Просмотр"
+    },
+    "enum/Permission/sysDkimSignatureQuery/label": {
+      "original": "Signatures Management: Query signatures",
+      "ru": "Подписи: Поиск"
+    },
+    "enum/Permission/sysDkimSignatureUpdate/label": {
+      "original": "Signatures Management: Update signatures",
+      "ru": "Подписи: Изменение"
+    },
+    "enum/Permission/sysDmarcExternalReportDestroy/label": {
+      "original": "Reports Management: Destroy reports",
+      "ru": "Отчёты: Удаление"
+    },
+    "enum/Permission/sysDmarcExternalReportGet/label": {
+      "original": "Reports Management: Get reports",
+      "ru": "Отчёты: Просмотр"
+    },
+    "enum/Permission/sysDmarcExternalReportQuery/label": {
+      "original": "Reports Management: Query reports",
+      "ru": "Отчёты: Поиск"
+    },
+    "enum/Permission/sysDmarcInternalReportDestroy/label": {
+      "original": "Reports Management: Destroy reports",
+      "ru": "Отчёты: Удаление"
+    },
+    "enum/Permission/sysDmarcInternalReportGet/label": {
+      "original": "Reports Management: Get reports",
+      "ru": "Отчёты: Просмотр"
+    },
+    "enum/Permission/sysDmarcInternalReportQuery/label": {
+      "original": "Reports Management: Query reports",
+      "ru": "Отчёты: Поиск"
+    },
+    "enum/Permission/sysDmarcInternalReportUpdate/label": {
+      "original": "Reports Management: Update reports",
+      "ru": "Отчёты: Изменение"
+    },
+    "enum/Permission/sysDmarcReportSettingsGet/label": {
+      "original": "Settings: Get dmarc report settings settings",
+      "ru": "Настройки — Отчёты DMARC: просмотр"
+    },
+    "enum/Permission/sysDmarcReportSettingsUpdate/label": {
+      "original": "Settings: Update dmarc report settings settings",
+      "ru": "Настройки — Отчёты DMARC: изменение"
+    },
+    "enum/Permission/sysDnsResolverGet/label": {
+      "original": "Settings: Get dns resolver settings",
+      "ru": "Настройки — DNS-резолвер: просмотр"
+    },
+    "enum/Permission/sysDnsResolverUpdate/label": {
+      "original": "Settings: Update dns resolver settings",
+      "ru": "Настройки — DNS-резолвер: изменение"
+    },
+    "enum/Permission/sysDnsServerCreate/label": {
+      "original": "DNS servers Management: Create DNS servers",
+      "ru": "DNS-серверы: Создание"
+    },
+    "enum/Permission/sysDnsServerDestroy/label": {
+      "original": "DNS servers Management: Destroy DNS servers",
+      "ru": "DNS-серверы: Удаление"
+    },
+    "enum/Permission/sysDnsServerGet/label": {
+      "original": "DNS servers Management: Get DNS servers",
+      "ru": "DNS-серверы: Просмотр"
+    },
+    "enum/Permission/sysDnsServerQuery/label": {
+      "original": "DNS servers Management: Query DNS servers",
+      "ru": "DNS-серверы: Поиск"
+    },
+    "enum/Permission/sysDnsServerUpdate/label": {
+      "original": "DNS servers Management: Update DNS servers",
+      "ru": "DNS-серверы: Изменение"
+    },
+    "enum/Permission/sysDomainCreate/label": {
+      "original": "Domains Management: Create domains",
+      "ru": "Домены: Создание"
+    },
+    "enum/Permission/sysDomainDestroy/label": {
+      "original": "Domains Management: Destroy domains",
+      "ru": "Домены: Удаление"
+    },
+    "enum/Permission/sysDomainGet/label": {
+      "original": "Domains Management: Get domains",
+      "ru": "Домены: Просмотр"
+    },
+    "enum/Permission/sysDomainQuery/label": {
+      "original": "Domains Management: Query domains",
+      "ru": "Домены: Поиск"
+    },
+    "enum/Permission/sysDomainUpdate/label": {
+      "original": "Domains Management: Update domains",
+      "ru": "Домены: Изменение"
+    },
+    "enum/Permission/sysDsnReportSettingsGet/label": {
+      "original": "Settings: Get dsn report settings settings",
+      "ru": "Настройки — Отчёты DSN: просмотр"
+    },
+    "enum/Permission/sysDsnReportSettingsUpdate/label": {
+      "original": "Settings: Update dsn report settings settings",
+      "ru": "Настройки — Отчёты DSN: изменение"
+    },
+    "enum/Permission/sysEmailGet/label": {
+      "original": "Settings: Get email settings",
+      "ru": "Настройки — Почта: просмотр"
+    },
+    "enum/Permission/sysEmailUpdate/label": {
+      "original": "Settings: Update email settings",
+      "ru": "Настройки — Почта: изменение"
+    },
+    "enum/Permission/sysEncryptionGet/label": {
+      "original": "Settings: Get encryption settings",
+      "ru": "Настройки — Шифрование: просмотр"
+    },
+    "enum/Permission/sysEncryptionUpdate/label": {
+      "original": "Settings: Update encryption settings",
+      "ru": "Настройки — Шифрование: изменение"
+    },
+    "enum/Permission/sysEnterpriseGet/label": {
+      "original": "Settings: Get enterprise settings",
+      "ru": "Настройки — Корпоративные функции: просмотр"
+    },
+    "enum/Permission/sysEnterpriseUpdate/label": {
+      "original": "Settings: Update enterprise settings",
+      "ru": "Настройки — Корпоративные функции: изменение"
+    },
+    "enum/Permission/sysEventTracingLevelCreate/label": {
+      "original": "Events Management: Create events",
+      "ru": "События: Создание"
+    },
+    "enum/Permission/sysEventTracingLevelDestroy/label": {
+      "original": "Events Management: Destroy events",
+      "ru": "События: Удаление"
+    },
+    "enum/Permission/sysEventTracingLevelGet/label": {
+      "original": "Events Management: Get events",
+      "ru": "События: Просмотр"
+    },
+    "enum/Permission/sysEventTracingLevelQuery/label": {
+      "original": "Events Management: Query events",
+      "ru": "События: Поиск"
+    },
+    "enum/Permission/sysEventTracingLevelUpdate/label": {
+      "original": "Events Management: Update events",
+      "ru": "События: Изменение"
+    },
+    "enum/Permission/sysExternalPublicKeyCreate/label": {
+      "original": "External public keys Management: Create external public keys",
+      "ru": "Внешние открытые ключи: Создание"
+    },
+    "enum/Permission/sysExternalPublicKeyDestroy/label": {
+      "original": "External public keys Management: Destroy external public keys",
+      "ru": "Внешние открытые ключи: Удаление"
+    },
+    "enum/Permission/sysExternalPublicKeyGet/label": {
+      "original": "External public keys Management: Get external public keys",
+      "ru": "Внешние открытые ключи: Просмотр"
+    },
+    "enum/Permission/sysExternalPublicKeyQuery/label": {
+      "original": "External public keys Management: Query external public keys",
+      "ru": "Внешние открытые ключи: Поиск"
+    },
+    "enum/Permission/sysExternalPublicKeyUpdate/label": {
+      "original": "External public keys Management: Update external public keys",
+      "ru": "Внешние открытые ключи: Изменение"
+    },
+    "enum/Permission/sysFileStorageGet/label": {
+      "original": "Settings: Get file storage settings",
+      "ru": "Настройки — Файловое хранилище: просмотр"
+    },
+    "enum/Permission/sysFileStorageUpdate/label": {
+      "original": "Settings: Update file storage settings",
+      "ru": "Настройки — Файловое хранилище: изменение"
+    },
+    "enum/Permission/sysHttpFormGet/label": {
+      "original": "Settings: Get http form settings",
+      "ru": "Настройки — HTTP-формы: просмотр"
+    },
+    "enum/Permission/sysHttpFormUpdate/label": {
+      "original": "Settings: Update http form settings",
+      "ru": "Настройки — HTTP-формы: изменение"
+    },
+    "enum/Permission/sysHttpGet/label": {
+      "original": "Settings: Get http settings",
+      "ru": "Настройки — HTTP: просмотр"
+    },
+    "enum/Permission/sysHttpLookupCreate/label": {
+      "original": "Lists Management: Create lists",
+      "ru": "Списки: Создание"
+    },
+    "enum/Permission/sysHttpLookupDestroy/label": {
+      "original": "Lists Management: Destroy lists",
+      "ru": "Списки: Удаление"
+    },
+    "enum/Permission/sysHttpLookupGet/label": {
+      "original": "Lists Management: Get lists",
+      "ru": "Списки: Просмотр"
+    },
+    "enum/Permission/sysHttpLookupQuery/label": {
+      "original": "Lists Management: Query lists",
+      "ru": "Списки: Поиск"
+    },
+    "enum/Permission/sysHttpLookupUpdate/label": {
+      "original": "Lists Management: Update lists",
+      "ru": "Списки: Изменение"
+    },
+    "enum/Permission/sysHttpUpdate/label": {
+      "original": "Settings: Update http settings",
+      "ru": "Настройки — HTTP: изменение"
+    },
+    "enum/Permission/sysImapGet/label": {
+      "original": "Settings: Get imap settings",
+      "ru": "Настройки — IMAP: просмотр"
+    },
+    "enum/Permission/sysImapUpdate/label": {
+      "original": "Settings: Update imap settings",
+      "ru": "Настройки — IMAP: изменение"
+    },
+    "enum/Permission/sysInMemoryStoreGet/label": {
+      "original": "Settings: Get in memory store settings",
+      "ru": "Настройки — Хранилище в памяти: просмотр"
+    },
+    "enum/Permission/sysInMemoryStoreUpdate/label": {
+      "original": "Settings: Update in memory store settings",
+      "ru": "Настройки — Хранилище в памяти: изменение"
+    },
+    "enum/Permission/sysIndexQueueStatusGet/label": {
+      "original": "Index queues Management: Get index queues",
+      "ru": "Очереди индексации: Просмотр"
+    },
+    "enum/Permission/sysIndexQueueStatusQuery/label": {
+      "original": "Index queues Management: Query index queues",
+      "ru": "Очереди индексации: Поиск"
+    },
+    "enum/Permission/sysIndexQueueStatusUpdate/label": {
+      "original": "Index queues Management: Update index queues",
+      "ru": "Очереди индексации: Изменение"
+    },
+    "enum/Permission/sysJmapGet/label": {
+      "original": "Settings: Get jmap settings",
+      "ru": "Настройки — JMAP: просмотр"
+    },
+    "enum/Permission/sysJmapUpdate/label": {
+      "original": "Settings: Update jmap settings",
+      "ru": "Настройки — JMAP: изменение"
+    },
+    "enum/Permission/sysLogGet/label": {
+      "original": "Log entries Management: Get log entries",
+      "ru": "Записи журнала: Просмотр"
+    },
+    "enum/Permission/sysLogQuery/label": {
+      "original": "Log entries Management: Query log entries",
+      "ru": "Записи журнала: Поиск"
+    },
+    "enum/Permission/sysMailingListCreate/label": {
+      "original": "Mailing lists Management: Create mailing lists",
+      "ru": "Списки рассылки: Создание"
+    },
+    "enum/Permission/sysMailingListDestroy/label": {
+      "original": "Mailing lists Management: Destroy mailing lists",
+      "ru": "Списки рассылки: Удаление"
+    },
+    "enum/Permission/sysMailingListGet/label": {
+      "original": "Mailing lists Management: Get mailing lists",
+      "ru": "Списки рассылки: Просмотр"
+    },
+    "enum/Permission/sysMailingListQuery/label": {
+      "original": "Mailing lists Management: Query mailing lists",
+      "ru": "Списки рассылки: Поиск"
+    },
+    "enum/Permission/sysMailingListUpdate/label": {
+      "original": "Mailing lists Management: Update mailing lists",
+      "ru": "Списки рассылки: Изменение"
+    },
+    "enum/Permission/sysMaskedEmailCreate/label": {
+      "original": "Masked emails Management: Create masked emails",
+      "ru": "Маскированные адреса: Создание"
+    },
+    "enum/Permission/sysMaskedEmailDestroy/label": {
+      "original": "Masked emails Management: Destroy masked emails",
+      "ru": "Маскированные адреса: Удаление"
+    },
+    "enum/Permission/sysMaskedEmailGet/label": {
+      "original": "Masked emails Management: Get masked emails",
+      "ru": "Маскированные адреса: Просмотр"
+    },
+    "enum/Permission/sysMaskedEmailQuery/label": {
+      "original": "Masked emails Management: Query masked emails",
+      "ru": "Маскированные адреса: Поиск"
+    },
+    "enum/Permission/sysMaskedEmailUpdate/label": {
+      "original": "Masked emails Management: Update masked emails",
+      "ru": "Маскированные адреса: Изменение"
+    },
+    "enum/Permission/sysMemoryLookupKeyCreate/label": {
+      "original": "Keys Management: Create keys",
+      "ru": "Ключи: Создание"
+    },
+    "enum/Permission/sysMemoryLookupKeyDestroy/label": {
+      "original": "Keys Management: Destroy keys",
+      "ru": "Ключи: Удаление"
+    },
+    "enum/Permission/sysMemoryLookupKeyGet/label": {
+      "original": "Keys Management: Get keys",
+      "ru": "Ключи: Просмотр"
+    },
+    "enum/Permission/sysMemoryLookupKeyQuery/label": {
+      "original": "Keys Management: Query keys",
+      "ru": "Ключи: Поиск"
+    },
+    "enum/Permission/sysMemoryLookupKeyUpdate/label": {
+      "original": "Keys Management: Update keys",
+      "ru": "Ключи: Изменение"
+    },
+    "enum/Permission/sysMemoryLookupKeyValueCreate/label": {
+      "original": "Keys Management: Create keys",
+      "ru": "Ключи: Создание"
+    },
+    "enum/Permission/sysMemoryLookupKeyValueDestroy/label": {
+      "original": "Keys Management: Destroy keys",
+      "ru": "Ключи: Удаление"
+    },
+    "enum/Permission/sysMemoryLookupKeyValueGet/label": {
+      "original": "Keys Management: Get keys",
+      "ru": "Ключи: Просмотр"
+    },
+    "enum/Permission/sysMemoryLookupKeyValueQuery/label": {
+      "original": "Keys Management: Query keys",
+      "ru": "Ключи: Поиск"
+    },
+    "enum/Permission/sysMemoryLookupKeyValueUpdate/label": {
+      "original": "Keys Management: Update keys",
+      "ru": "Ключи: Изменение"
+    },
+    "enum/Permission/sysMetadataGet/label": {
+      "original": "Settings: Get metadata settings",
+      "ru": "Настройки — Метаданные: просмотр"
+    },
+    "enum/Permission/sysMetadataUpdate/label": {
+      "original": "Settings: Update metadata settings",
+      "ru": "Настройки — Метаданные: изменение"
+    },
+    "enum/Permission/sysMetricGet/label": {
+      "original": "Metrics Management: Get metrics",
+      "ru": "Метрики: Просмотр"
+    },
+    "enum/Permission/sysMetricQuery/label": {
+      "original": "Metrics Management: Query metrics",
+      "ru": "Метрики: Поиск"
+    },
+    "enum/Permission/sysMetricsGet/label": {
+      "original": "Settings: Get metrics settings",
+      "ru": "Настройки — Метрики: просмотр"
+    },
+    "enum/Permission/sysMetricsStoreGet/label": {
+      "original": "Settings: Get metrics store settings",
+      "ru": "Настройки — Хранилище метрик: просмотр"
+    },
+    "enum/Permission/sysMetricsStoreUpdate/label": {
+      "original": "Settings: Update metrics store settings",
+      "ru": "Настройки — Хранилище метрик: изменение"
+    },
+    "enum/Permission/sysMetricsUpdate/label": {
+      "original": "Settings: Update metrics settings",
+      "ru": "Настройки — Метрики: изменение"
+    },
+    "enum/Permission/sysMtaConnectionStrategyCreate/label": {
+      "original": "Strategies Management: Create strategies",
+      "ru": "Стратегии: Создание"
+    },
+    "enum/Permission/sysMtaConnectionStrategyDestroy/label": {
+      "original": "Strategies Management: Destroy strategies",
+      "ru": "Стратегии: Удаление"
+    },
+    "enum/Permission/sysMtaConnectionStrategyGet/label": {
+      "original": "Strategies Management: Get strategies",
+      "ru": "Стратегии: Просмотр"
+    },
+    "enum/Permission/sysMtaConnectionStrategyQuery/label": {
+      "original": "Strategies Management: Query strategies",
+      "ru": "Стратегии: Поиск"
+    },
+    "enum/Permission/sysMtaConnectionStrategyUpdate/label": {
+      "original": "Strategies Management: Update strategies",
+      "ru": "Стратегии: Изменение"
+    },
+    "enum/Permission/sysMtaDeliveryScheduleCreate/label": {
+      "original": "Schedules Management: Create schedules",
+      "ru": "Расписания: Создание"
+    },
+    "enum/Permission/sysMtaDeliveryScheduleDestroy/label": {
+      "original": "Schedules Management: Destroy schedules",
+      "ru": "Расписания: Удаление"
+    },
+    "enum/Permission/sysMtaDeliveryScheduleGet/label": {
+      "original": "Schedules Management: Get schedules",
+      "ru": "Расписания: Просмотр"
+    },
+    "enum/Permission/sysMtaDeliveryScheduleQuery/label": {
+      "original": "Schedules Management: Query schedules",
+      "ru": "Расписания: Поиск"
+    },
+    "enum/Permission/sysMtaDeliveryScheduleUpdate/label": {
+      "original": "Schedules Management: Update schedules",
+      "ru": "Расписания: Изменение"
+    },
+    "enum/Permission/sysMtaExtensionsGet/label": {
+      "original": "Settings: Get mta extensions settings",
+      "ru": "Настройки — Расширения MTA: просмотр"
+    },
+    "enum/Permission/sysMtaExtensionsUpdate/label": {
+      "original": "Settings: Update mta extensions settings",
+      "ru": "Настройки — Расширения MTA: изменение"
+    },
+    "enum/Permission/sysMtaHookCreate/label": {
+      "original": "Hooks Management: Create hooks",
+      "ru": "Веб-хуки: Создание"
+    },
+    "enum/Permission/sysMtaHookDestroy/label": {
+      "original": "Hooks Management: Destroy hooks",
+      "ru": "Веб-хуки: Удаление"
+    },
+    "enum/Permission/sysMtaHookGet/label": {
+      "original": "Hooks Management: Get hooks",
+      "ru": "Веб-хуки: Просмотр"
+    },
+    "enum/Permission/sysMtaHookQuery/label": {
+      "original": "Hooks Management: Query hooks",
+      "ru": "Веб-хуки: Поиск"
+    },
+    "enum/Permission/sysMtaHookUpdate/label": {
+      "original": "Hooks Management: Update hooks",
+      "ru": "Веб-хуки: Изменение"
+    },
+    "enum/Permission/sysMtaInboundSessionGet/label": {
+      "original": "Settings: Get mta inbound session settings",
+      "ru": "Настройки — Входящие сеансы MTA: просмотр"
+    },
+    "enum/Permission/sysMtaInboundSessionUpdate/label": {
+      "original": "Settings: Update mta inbound session settings",
+      "ru": "Настройки — Входящие сеансы MTA: изменение"
+    },
+    "enum/Permission/sysMtaInboundThrottleCreate/label": {
+      "original": "Throttles Management: Create throttles",
+      "ru": "Ограничения скорости: Создание"
+    },
+    "enum/Permission/sysMtaInboundThrottleDestroy/label": {
+      "original": "Throttles Management: Destroy throttles",
+      "ru": "Ограничения скорости: Удаление"
+    },
+    "enum/Permission/sysMtaInboundThrottleGet/label": {
+      "original": "Throttles Management: Get throttles",
+      "ru": "Ограничения скорости: Просмотр"
+    },
+    "enum/Permission/sysMtaInboundThrottleQuery/label": {
+      "original": "Throttles Management: Query throttles",
+      "ru": "Ограничения скорости: Поиск"
+    },
+    "enum/Permission/sysMtaInboundThrottleUpdate/label": {
+      "original": "Throttles Management: Update throttles",
+      "ru": "Ограничения скорости: Изменение"
+    },
+    "enum/Permission/sysMtaMilterCreate/label": {
+      "original": "Milters Management: Create milters",
+      "ru": "Milter-фильтры: Создание"
+    },
+    "enum/Permission/sysMtaMilterDestroy/label": {
+      "original": "Milters Management: Destroy milters",
+      "ru": "Milter-фильтры: Удаление"
+    },
+    "enum/Permission/sysMtaMilterGet/label": {
+      "original": "Milters Management: Get milters",
+      "ru": "Milter-фильтры: Просмотр"
+    },
+    "enum/Permission/sysMtaMilterQuery/label": {
+      "original": "Milters Management: Query milters",
+      "ru": "Milter-фильтры: Поиск"
+    },
+    "enum/Permission/sysMtaMilterUpdate/label": {
+      "original": "Milters Management: Update milters",
+      "ru": "Milter-фильтры: Изменение"
+    },
+    "enum/Permission/sysMtaOutboundStrategyGet/label": {
+      "original": "Settings: Get mta outbound strategy settings",
+      "ru": "Настройки — Исходящие стратегии MTA: просмотр"
+    },
+    "enum/Permission/sysMtaOutboundStrategyUpdate/label": {
+      "original": "Settings: Update mta outbound strategy settings",
+      "ru": "Настройки — Исходящие стратегии MTA: изменение"
+    },
+    "enum/Permission/sysMtaOutboundThrottleCreate/label": {
+      "original": "Throttles Management: Create throttles",
+      "ru": "Ограничения скорости: Создание"
+    },
+    "enum/Permission/sysMtaOutboundThrottleDestroy/label": {
+      "original": "Throttles Management: Destroy throttles",
+      "ru": "Ограничения скорости: Удаление"
+    },
+    "enum/Permission/sysMtaOutboundThrottleGet/label": {
+      "original": "Throttles Management: Get throttles",
+      "ru": "Ограничения скорости: Просмотр"
+    },
+    "enum/Permission/sysMtaOutboundThrottleQuery/label": {
+      "original": "Throttles Management: Query throttles",
+      "ru": "Ограничения скорости: Поиск"
+    },
+    "enum/Permission/sysMtaOutboundThrottleUpdate/label": {
+      "original": "Throttles Management: Update throttles",
+      "ru": "Ограничения скорости: Изменение"
+    },
+    "enum/Permission/sysMtaQueueQuotaCreate/label": {
+      "original": "Quotas Management: Create quotas",
+      "ru": "Квоты: Создание"
+    },
+    "enum/Permission/sysMtaQueueQuotaDestroy/label": {
+      "original": "Quotas Management: Destroy quotas",
+      "ru": "Квоты: Удаление"
+    },
+    "enum/Permission/sysMtaQueueQuotaGet/label": {
+      "original": "Quotas Management: Get quotas",
+      "ru": "Квоты: Просмотр"
+    },
+    "enum/Permission/sysMtaQueueQuotaQuery/label": {
+      "original": "Quotas Management: Query quotas",
+      "ru": "Квоты: Поиск"
+    },
+    "enum/Permission/sysMtaQueueQuotaUpdate/label": {
+      "original": "Quotas Management: Update quotas",
+      "ru": "Квоты: Изменение"
+    },
+    "enum/Permission/sysMtaRouteCreate/label": {
+      "original": "Routes Management: Create routes",
+      "ru": "Маршруты: Создание"
+    },
+    "enum/Permission/sysMtaRouteDestroy/label": {
+      "original": "Routes Management: Destroy routes",
+      "ru": "Маршруты: Удаление"
+    },
+    "enum/Permission/sysMtaRouteGet/label": {
+      "original": "Routes Management: Get routes",
+      "ru": "Маршруты: Просмотр"
+    },
+    "enum/Permission/sysMtaRouteQuery/label": {
+      "original": "Routes Management: Query routes",
+      "ru": "Маршруты: Поиск"
+    },
+    "enum/Permission/sysMtaRouteUpdate/label": {
+      "original": "Routes Management: Update routes",
+      "ru": "Маршруты: Изменение"
+    },
+    "enum/Permission/sysMtaStageAuthGet/label": {
+      "original": "Settings: Get mta stage auth settings",
+      "ru": "Настройки — Этап AUTH MTA: просмотр"
+    },
+    "enum/Permission/sysMtaStageAuthUpdate/label": {
+      "original": "Settings: Update mta stage auth settings",
+      "ru": "Настройки — Этап AUTH MTA: изменение"
+    },
+    "enum/Permission/sysMtaStageConnectGet/label": {
+      "original": "Settings: Get mta stage connect settings",
+      "ru": "Настройки — Этап CONNECT MTA: просмотр"
+    },
+    "enum/Permission/sysMtaStageConnectUpdate/label": {
+      "original": "Settings: Update mta stage connect settings",
+      "ru": "Настройки — Этап CONNECT MTA: изменение"
+    },
+    "enum/Permission/sysMtaStageDataGet/label": {
+      "original": "Settings: Get mta stage data settings",
+      "ru": "Настройки — Этап DATA MTA: просмотр"
+    },
+    "enum/Permission/sysMtaStageDataUpdate/label": {
+      "original": "Settings: Update mta stage data settings",
+      "ru": "Настройки — Этап DATA MTA: изменение"
+    },
+    "enum/Permission/sysMtaStageEhloGet/label": {
+      "original": "Settings: Get mta stage ehlo settings",
+      "ru": "Настройки — Этап EHLO MTA: просмотр"
+    },
+    "enum/Permission/sysMtaStageEhloUpdate/label": {
+      "original": "Settings: Update mta stage ehlo settings",
+      "ru": "Настройки — Этап EHLO MTA: изменение"
+    },
+    "enum/Permission/sysMtaStageMailGet/label": {
+      "original": "Settings: Get mta stage mail settings",
+      "ru": "Настройки — Этап MAIL MTA: просмотр"
+    },
+    "enum/Permission/sysMtaStageMailUpdate/label": {
+      "original": "Settings: Update mta stage mail settings",
+      "ru": "Настройки — Этап MAIL MTA: изменение"
+    },
+    "enum/Permission/sysMtaStageRcptGet/label": {
+      "original": "Settings: Get mta stage rcpt settings",
+      "ru": "Настройки — Этап RCPT MTA: просмотр"
+    },
+    "enum/Permission/sysMtaStageRcptUpdate/label": {
+      "original": "Settings: Update mta stage rcpt settings",
+      "ru": "Настройки — Этап RCPT MTA: изменение"
+    },
+    "enum/Permission/sysMtaStsGet/label": {
+      "original": "Settings: Get mta sts settings",
+      "ru": "Настройки — MTA-STS: просмотр"
+    },
+    "enum/Permission/sysMtaStsUpdate/label": {
+      "original": "Settings: Update mta sts settings",
+      "ru": "Настройки — MTA-STS: изменение"
+    },
+    "enum/Permission/sysMtaTlsStrategyCreate/label": {
+      "original": "Strategies Management: Create strategies",
+      "ru": "Стратегии: Создание"
+    },
+    "enum/Permission/sysMtaTlsStrategyDestroy/label": {
+      "original": "Strategies Management: Destroy strategies",
+      "ru": "Стратегии: Удаление"
+    },
+    "enum/Permission/sysMtaTlsStrategyGet/label": {
+      "original": "Strategies Management: Get strategies",
+      "ru": "Стратегии: Просмотр"
+    },
+    "enum/Permission/sysMtaTlsStrategyQuery/label": {
+      "original": "Strategies Management: Query strategies",
+      "ru": "Стратегии: Поиск"
+    },
+    "enum/Permission/sysMtaTlsStrategyUpdate/label": {
+      "original": "Strategies Management: Update strategies",
+      "ru": "Стратегии: Изменение"
+    },
+    "enum/Permission/sysMtaVirtualQueueCreate/label": {
+      "original": "Queues Management: Create queues",
+      "ru": "Очереди: Создание"
+    },
+    "enum/Permission/sysMtaVirtualQueueDestroy/label": {
+      "original": "Queues Management: Destroy queues",
+      "ru": "Очереди: Удаление"
+    },
+    "enum/Permission/sysMtaVirtualQueueGet/label": {
+      "original": "Queues Management: Get queues",
+      "ru": "Очереди: Просмотр"
+    },
+    "enum/Permission/sysMtaVirtualQueueQuery/label": {
+      "original": "Queues Management: Query queues",
+      "ru": "Очереди: Поиск"
+    },
+    "enum/Permission/sysMtaVirtualQueueUpdate/label": {
+      "original": "Queues Management: Update queues",
+      "ru": "Очереди: Изменение"
+    },
+    "enum/Permission/sysNetworkListenerCreate/label": {
+      "original": "Listeners Management: Create listeners",
+      "ru": "Слушатели: Создание"
+    },
+    "enum/Permission/sysNetworkListenerDestroy/label": {
+      "original": "Listeners Management: Destroy listeners",
+      "ru": "Слушатели: Удаление"
+    },
+    "enum/Permission/sysNetworkListenerGet/label": {
+      "original": "Listeners Management: Get listeners",
+      "ru": "Слушатели: Просмотр"
+    },
+    "enum/Permission/sysNetworkListenerQuery/label": {
+      "original": "Listeners Management: Query listeners",
+      "ru": "Слушатели: Поиск"
+    },
+    "enum/Permission/sysNetworkListenerUpdate/label": {
+      "original": "Listeners Management: Update listeners",
+      "ru": "Слушатели: Изменение"
+    },
+    "enum/Permission/sysOAuthClientCreate/label": {
+      "original": "OAuth clients Management: Create OAuth clients",
+      "ru": "Клиенты OAuth: Создание"
+    },
+    "enum/Permission/sysOAuthClientDestroy/label": {
+      "original": "OAuth clients Management: Destroy OAuth clients",
+      "ru": "Клиенты OAuth: Удаление"
+    },
+    "enum/Permission/sysOAuthClientGet/label": {
+      "original": "OAuth clients Management: Get OAuth clients",
+      "ru": "Клиенты OAuth: Просмотр"
+    },
+    "enum/Permission/sysOAuthClientQuery/label": {
+      "original": "OAuth clients Management: Query OAuth clients",
+      "ru": "Клиенты OAuth: Поиск"
+    },
+    "enum/Permission/sysOAuthClientUpdate/label": {
+      "original": "OAuth clients Management: Update OAuth clients",
+      "ru": "Клиенты OAuth: Изменение"
+    },
+    "enum/Permission/sysOAuthGrantDestroy/label": {
+      "original": "Connected applications Management: Destroy connected applications",
+      "ru": "Подключённые приложения: Удаление"
+    },
+    "enum/Permission/sysOAuthGrantGet/label": {
+      "original": "Connected applications Management: Get connected applications",
+      "ru": "Подключённые приложения: Просмотр"
+    },
+    "enum/Permission/sysOAuthGrantQuery/label": {
+      "original": "Connected applications Management: Query connected applications",
+      "ru": "Подключённые приложения: Поиск"
+    },
+    "enum/Permission/sysOidcProviderGet/label": {
+      "original": "Settings: Get oidc provider settings",
+      "ru": "Настройки — Провайдер OIDC: просмотр"
+    },
+    "enum/Permission/sysOidcProviderUpdate/label": {
+      "original": "Settings: Update oidc provider settings",
+      "ru": "Настройки — Провайдер OIDC: изменение"
+    },
+    "enum/Permission/sysPasskeyCreate/label": {
+      "original": "Passkeys Management: Create passkeys",
+      "ru": "Ключи доступа: Создание"
+    },
+    "enum/Permission/sysPasskeyDestroy/label": {
+      "original": "Passkeys Management: Destroy passkeys",
+      "ru": "Ключи доступа: Удаление"
+    },
+    "enum/Permission/sysPasskeyGet/label": {
+      "original": "Passkeys Management: Get passkeys",
+      "ru": "Ключи доступа: Просмотр"
+    },
+    "enum/Permission/sysPasskeyQuery/label": {
+      "original": "Passkeys Management: Query passkeys",
+      "ru": "Ключи доступа: Поиск"
+    },
+    "enum/Permission/sysPasskeyUpdate/label": {
+      "original": "Passkeys Management: Update passkeys",
+      "ru": "Ключи доступа: Изменение"
+    },
+    "enum/Permission/sysPublicKeyCreate/label": {
+      "original": "Public keys Management: Create public keys",
+      "ru": "Открытые ключи: Создание"
+    },
+    "enum/Permission/sysPublicKeyDestroy/label": {
+      "original": "Public keys Management: Destroy public keys",
+      "ru": "Открытые ключи: Удаление"
+    },
+    "enum/Permission/sysPublicKeyGet/label": {
+      "original": "Public keys Management: Get public keys",
+      "ru": "Открытые ключи: Просмотр"
+    },
+    "enum/Permission/sysPublicKeyQuery/label": {
+      "original": "Public keys Management: Query public keys",
+      "ru": "Открытые ключи: Поиск"
+    },
+    "enum/Permission/sysPublicKeyUpdate/label": {
+      "original": "Public keys Management: Update public keys",
+      "ru": "Открытые ключи: Изменение"
+    },
+    "enum/Permission/sysQueuedMessageDestroy/label": {
+      "original": "Messages Management: Destroy messages",
+      "ru": "Сообщения: Удаление"
+    },
+    "enum/Permission/sysQueuedMessageGet/label": {
+      "original": "Messages Management: Get messages",
+      "ru": "Сообщения: Просмотр"
+    },
+    "enum/Permission/sysQueuedMessageQuery/label": {
+      "original": "Messages Management: Query messages",
+      "ru": "Сообщения: Поиск"
+    },
+    "enum/Permission/sysQueuedMessageUpdate/label": {
+      "original": "Messages Management: Update messages",
+      "ru": "Сообщения: Изменение"
+    },
+    "enum/Permission/sysReportSettingsGet/label": {
+      "original": "Settings: Get report settings settings",
+      "ru": "Настройки — Формирование отчётов: просмотр"
+    },
+    "enum/Permission/sysReportSettingsUpdate/label": {
+      "original": "Settings: Update report settings settings",
+      "ru": "Настройки — Формирование отчётов: изменение"
+    },
+    "enum/Permission/sysRoleCreate/label": {
+      "original": "Roles Management: Create roles",
+      "ru": "Роли: Создание"
+    },
+    "enum/Permission/sysRoleDestroy/label": {
+      "original": "Roles Management: Destroy roles",
+      "ru": "Роли: Удаление"
+    },
+    "enum/Permission/sysRoleGet/label": {
+      "original": "Roles Management: Get roles",
+      "ru": "Роли: Просмотр"
+    },
+    "enum/Permission/sysRoleQuery/label": {
+      "original": "Roles Management: Query roles",
+      "ru": "Роли: Поиск"
+    },
+    "enum/Permission/sysRoleUpdate/label": {
+      "original": "Roles Management: Update roles",
+      "ru": "Роли: Изменение"
+    },
+    "enum/Permission/sysSearchGet/label": {
+      "original": "Settings: Get search settings",
+      "ru": "Настройки — Поиск: просмотр"
+    },
+    "enum/Permission/sysSearchStoreGet/label": {
+      "original": "Settings: Get search store settings",
+      "ru": "Настройки — Хранилище поиска: просмотр"
+    },
+    "enum/Permission/sysSearchStoreUpdate/label": {
+      "original": "Settings: Update search store settings",
+      "ru": "Настройки — Хранилище поиска: изменение"
+    },
+    "enum/Permission/sysSearchUpdate/label": {
+      "original": "Settings: Update search settings",
+      "ru": "Настройки — Поиск: изменение"
+    },
+    "enum/Permission/sysSecurityGet/label": {
+      "original": "Settings: Get security settings",
+      "ru": "Настройки — Безопасность: просмотр"
+    },
+    "enum/Permission/sysSecurityUpdate/label": {
+      "original": "Settings: Update security settings",
+      "ru": "Настройки — Безопасность: изменение"
+    },
+    "enum/Permission/sysSenderAuthGet/label": {
+      "original": "Settings: Get sender auth settings",
+      "ru": "Настройки — Проверка отправителя: просмотр"
+    },
+    "enum/Permission/sysSenderAuthUpdate/label": {
+      "original": "Settings: Update sender auth settings",
+      "ru": "Настройки — Проверка отправителя: изменение"
+    },
+    "enum/Permission/sysSharingGet/label": {
+      "original": "Settings: Get sharing settings",
+      "ru": "Настройки — Совместный доступ: просмотр"
+    },
+    "enum/Permission/sysSharingUpdate/label": {
+      "original": "Settings: Update sharing settings",
+      "ru": "Настройки — Совместный доступ: изменение"
+    },
+    "enum/Permission/sysSieveSystemInterpreterGet/label": {
+      "original": "Settings: Get sieve system interpreter settings",
+      "ru": "Настройки — Системный интерпретатор Sieve: просмотр"
+    },
+    "enum/Permission/sysSieveSystemInterpreterUpdate/label": {
+      "original": "Settings: Update sieve system interpreter settings",
+      "ru": "Настройки — Системный интерпретатор Sieve: изменение"
+    },
+    "enum/Permission/sysSieveSystemScriptCreate/label": {
+      "original": "Scripts Management: Create scripts",
+      "ru": "Сценарии: Создание"
+    },
+    "enum/Permission/sysSieveSystemScriptDestroy/label": {
+      "original": "Scripts Management: Destroy scripts",
+      "ru": "Сценарии: Удаление"
+    },
+    "enum/Permission/sysSieveSystemScriptGet/label": {
+      "original": "Scripts Management: Get scripts",
+      "ru": "Сценарии: Просмотр"
+    },
+    "enum/Permission/sysSieveSystemScriptQuery/label": {
+      "original": "Scripts Management: Query scripts",
+      "ru": "Сценарии: Поиск"
+    },
+    "enum/Permission/sysSieveSystemScriptUpdate/label": {
+      "original": "Scripts Management: Update scripts",
+      "ru": "Сценарии: Изменение"
+    },
+    "enum/Permission/sysSieveUserInterpreterGet/label": {
+      "original": "Settings: Get sieve user interpreter settings",
+      "ru": "Настройки — Пользовательский интерпретатор Sieve: просмотр"
+    },
+    "enum/Permission/sysSieveUserInterpreterUpdate/label": {
+      "original": "Settings: Update sieve user interpreter settings",
+      "ru": "Настройки — Пользовательский интерпретатор Sieve: изменение"
+    },
+    "enum/Permission/sysSieveUserScriptCreate/label": {
+      "original": "Scripts Management: Create scripts",
+      "ru": "Сценарии: Создание"
+    },
+    "enum/Permission/sysSieveUserScriptDestroy/label": {
+      "original": "Scripts Management: Destroy scripts",
+      "ru": "Сценарии: Удаление"
+    },
+    "enum/Permission/sysSieveUserScriptGet/label": {
+      "original": "Scripts Management: Get scripts",
+      "ru": "Сценарии: Просмотр"
+    },
+    "enum/Permission/sysSieveUserScriptQuery/label": {
+      "original": "Scripts Management: Query scripts",
+      "ru": "Сценарии: Поиск"
+    },
+    "enum/Permission/sysSieveUserScriptUpdate/label": {
+      "original": "Scripts Management: Update scripts",
+      "ru": "Сценарии: Изменение"
+    },
+    "enum/Permission/sysSmimeTrustAnchorCreate/label": {
+      "original": "Trust anchors Management: Create trust anchors",
+      "ru": "Доверенные сертификаты УЦ: Создание"
+    },
+    "enum/Permission/sysSmimeTrustAnchorDestroy/label": {
+      "original": "Trust anchors Management: Destroy trust anchors",
+      "ru": "Доверенные сертификаты УЦ: Удаление"
+    },
+    "enum/Permission/sysSmimeTrustAnchorGet/label": {
+      "original": "Trust anchors Management: Get trust anchors",
+      "ru": "Доверенные сертификаты УЦ: Просмотр"
+    },
+    "enum/Permission/sysSmimeTrustAnchorQuery/label": {
+      "original": "Trust anchors Management: Query trust anchors",
+      "ru": "Доверенные сертификаты УЦ: Поиск"
+    },
+    "enum/Permission/sysSmimeTrustAnchorUpdate/label": {
+      "original": "Trust anchors Management: Update trust anchors",
+      "ru": "Доверенные сертификаты УЦ: Изменение"
+    },
+    "enum/Permission/sysSpamAiGet/label": {
+      "original": "Settings: Get spam ai settings",
+      "ru": "Настройки — ИИ-антиспам: просмотр"
+    },
+    "enum/Permission/sysSpamAiUpdate/label": {
+      "original": "Settings: Update spam ai settings",
+      "ru": "Настройки — ИИ-антиспам: изменение"
+    },
+    "enum/Permission/sysSpamClassifierGet/label": {
+      "original": "Settings: Get spam classifier settings",
+      "ru": "Настройки — Классификатор спама: просмотр"
+    },
+    "enum/Permission/sysSpamClassifierUpdate/label": {
+      "original": "Settings: Update spam classifier settings",
+      "ru": "Настройки — Классификатор спама: изменение"
+    },
+    "enum/Permission/sysSpamDnsblServerCreate/label": {
+      "original": "Servers Management: Create servers",
+      "ru": "Серверы: Создание"
+    },
+    "enum/Permission/sysSpamDnsblServerDestroy/label": {
+      "original": "Servers Management: Destroy servers",
+      "ru": "Серверы: Удаление"
+    },
+    "enum/Permission/sysSpamDnsblServerGet/label": {
+      "original": "Servers Management: Get servers",
+      "ru": "Серверы: Просмотр"
+    },
+    "enum/Permission/sysSpamDnsblServerQuery/label": {
+      "original": "Servers Management: Query servers",
+      "ru": "Серверы: Поиск"
+    },
+    "enum/Permission/sysSpamDnsblServerUpdate/label": {
+      "original": "Servers Management: Update servers",
+      "ru": "Серверы: Изменение"
+    },
+    "enum/Permission/sysSpamDnsblSettingsGet/label": {
+      "original": "Settings: Get spam dnsbl settings settings",
+      "ru": "Настройки — Проверки DNSBL: просмотр"
+    },
+    "enum/Permission/sysSpamDnsblSettingsUpdate/label": {
+      "original": "Settings: Update spam dnsbl settings settings",
+      "ru": "Настройки — Проверки DNSBL: изменение"
+    },
+    "enum/Permission/sysSpamFileExtensionCreate/label": {
+      "original": "Extensions Management: Create extensions",
+      "ru": "Расширения: Создание"
+    },
+    "enum/Permission/sysSpamFileExtensionDestroy/label": {
+      "original": "Extensions Management: Destroy extensions",
+      "ru": "Расширения: Удаление"
+    },
+    "enum/Permission/sysSpamFileExtensionGet/label": {
+      "original": "Extensions Management: Get extensions",
+      "ru": "Расширения: Просмотр"
+    },
+    "enum/Permission/sysSpamFileExtensionQuery/label": {
+      "original": "Extensions Management: Query extensions",
+      "ru": "Расширения: Поиск"
+    },
+    "enum/Permission/sysSpamFileExtensionUpdate/label": {
+      "original": "Extensions Management: Update extensions",
+      "ru": "Расширения: Изменение"
+    },
+    "enum/Permission/sysSpamPyzorGet/label": {
+      "original": "Settings: Get spam pyzor settings",
+      "ru": "Настройки — Pyzor: просмотр"
+    },
+    "enum/Permission/sysSpamPyzorUpdate/label": {
+      "original": "Settings: Update spam pyzor settings",
+      "ru": "Настройки — Pyzor: изменение"
+    },
+    "enum/Permission/sysSpamRuleCreate/label": {
+      "original": "Rules Management: Create rules",
+      "ru": "Правила: Создание"
+    },
+    "enum/Permission/sysSpamRuleDestroy/label": {
+      "original": "Rules Management: Destroy rules",
+      "ru": "Правила: Удаление"
+    },
+    "enum/Permission/sysSpamRuleGet/label": {
+      "original": "Rules Management: Get rules",
+      "ru": "Правила: Просмотр"
+    },
+    "enum/Permission/sysSpamRuleQuery/label": {
+      "original": "Rules Management: Query rules",
+      "ru": "Правила: Поиск"
+    },
+    "enum/Permission/sysSpamRuleUpdate/label": {
+      "original": "Rules Management: Update rules",
+      "ru": "Правила: Изменение"
+    },
+    "enum/Permission/sysSpamSettingsGet/label": {
+      "original": "Settings: Get spam settings settings",
+      "ru": "Настройки — Антиспам: просмотр"
+    },
+    "enum/Permission/sysSpamSettingsUpdate/label": {
+      "original": "Settings: Update spam settings settings",
+      "ru": "Настройки — Антиспам: изменение"
+    },
+    "enum/Permission/sysSpamTagCreate/label": {
+      "original": "Tags Management: Create tags",
+      "ru": "Метки: Создание"
+    },
+    "enum/Permission/sysSpamTagDestroy/label": {
+      "original": "Tags Management: Destroy tags",
+      "ru": "Метки: Удаление"
+    },
+    "enum/Permission/sysSpamTagGet/label": {
+      "original": "Tags Management: Get tags",
+      "ru": "Метки: Просмотр"
+    },
+    "enum/Permission/sysSpamTagQuery/label": {
+      "original": "Tags Management: Query tags",
+      "ru": "Метки: Поиск"
+    },
+    "enum/Permission/sysSpamTagUpdate/label": {
+      "original": "Tags Management: Update tags",
+      "ru": "Метки: Изменение"
+    },
+    "enum/Permission/sysSpamTrainingSampleCreate/label": {
+      "original": "Samples Management: Create samples",
+      "ru": "Образцы: Создание"
+    },
+    "enum/Permission/sysSpamTrainingSampleDestroy/label": {
+      "original": "Samples Management: Destroy samples",
+      "ru": "Образцы: Удаление"
+    },
+    "enum/Permission/sysSpamTrainingSampleGet/label": {
+      "original": "Samples Management: Get samples",
+      "ru": "Образцы: Просмотр"
+    },
+    "enum/Permission/sysSpamTrainingSampleQuery/label": {
+      "original": "Samples Management: Query samples",
+      "ru": "Образцы: Поиск"
+    },
+    "enum/Permission/sysSpfReportSettingsGet/label": {
+      "original": "Settings: Get spf report settings settings",
+      "ru": "Настройки — Отчёты SPF: просмотр"
+    },
+    "enum/Permission/sysSpfReportSettingsUpdate/label": {
+      "original": "Settings: Update spf report settings settings",
+      "ru": "Настройки — Отчёты SPF: изменение"
+    },
+    "enum/Permission/sysStoreLookupCreate/label": {
+      "original": "Lookups Management: Create lookups",
+      "ru": "Справочники: Создание"
+    },
+    "enum/Permission/sysStoreLookupDestroy/label": {
+      "original": "Lookups Management: Destroy lookups",
+      "ru": "Справочники: Удаление"
+    },
+    "enum/Permission/sysStoreLookupGet/label": {
+      "original": "Lookups Management: Get lookups",
+      "ru": "Справочники: Просмотр"
+    },
+    "enum/Permission/sysStoreLookupQuery/label": {
+      "original": "Lookups Management: Query lookups",
+      "ru": "Справочники: Поиск"
+    },
+    "enum/Permission/sysStoreLookupUpdate/label": {
+      "original": "Lookups Management: Update lookups",
+      "ru": "Справочники: Изменение"
+    },
+    "enum/Permission/sysSymmetricKeyCreate/label": {
+      "original": "Keys Management: Create keys",
+      "ru": "Ключи: Создание"
+    },
+    "enum/Permission/sysSymmetricKeyDestroy/label": {
+      "original": "Keys Management: Destroy keys",
+      "ru": "Ключи: Удаление"
+    },
+    "enum/Permission/sysSymmetricKeyGet/label": {
+      "original": "Keys Management: Get keys",
+      "ru": "Ключи: Просмотр"
+    },
+    "enum/Permission/sysSymmetricKeyQuery/label": {
+      "original": "Keys Management: Query keys",
+      "ru": "Ключи: Поиск"
+    },
+    "enum/Permission/sysSymmetricKeyUpdate/label": {
+      "original": "Keys Management: Update keys",
+      "ru": "Ключи: Изменение"
+    },
+    "enum/Permission/sysSystemSettingsGet/label": {
+      "original": "Settings: Get system settings settings",
+      "ru": "Настройки — Системные параметры: просмотр"
+    },
+    "enum/Permission/sysSystemSettingsUpdate/label": {
+      "original": "Settings: Update system settings settings",
+      "ru": "Настройки — Системные параметры: изменение"
+    },
+    "enum/Permission/sysTaskCreate/label": {
+      "original": "Tasks Management: Create tasks",
+      "ru": "Задания: Создание"
+    },
+    "enum/Permission/sysTaskDestroy/label": {
+      "original": "Tasks Management: Destroy tasks",
+      "ru": "Задания: Удаление"
+    },
+    "enum/Permission/sysTaskGet/label": {
+      "original": "Tasks Management: Get tasks",
+      "ru": "Задания: Просмотр"
+    },
+    "enum/Permission/sysTaskManagerGet/label": {
+      "original": "Settings: Get task manager settings",
+      "ru": "Настройки — Диспетчер заданий: просмотр"
+    },
+    "enum/Permission/sysTaskManagerUpdate/label": {
+      "original": "Settings: Update task manager settings",
+      "ru": "Настройки — Диспетчер заданий: изменение"
+    },
+    "enum/Permission/sysTaskQuery/label": {
+      "original": "Tasks Management: Query tasks",
+      "ru": "Задания: Поиск"
+    },
+    "enum/Permission/sysTaskUpdate/label": {
+      "original": "Tasks Management: Update tasks",
+      "ru": "Задания: Изменение"
+    },
+    "enum/Permission/sysTenantCreate/label": {
+      "original": "Tenants Management: Create tenants",
+      "ru": "Арендаторы: Создание"
+    },
+    "enum/Permission/sysTenantDestroy/label": {
+      "original": "Tenants Management: Destroy tenants",
+      "ru": "Арендаторы: Удаление"
+    },
+    "enum/Permission/sysTenantGet/label": {
+      "original": "Tenants Management: Get tenants",
+      "ru": "Арендаторы: Просмотр"
+    },
+    "enum/Permission/sysTenantQuery/label": {
+      "original": "Tenants Management: Query tenants",
+      "ru": "Арендаторы: Поиск"
+    },
+    "enum/Permission/sysTenantUpdate/label": {
+      "original": "Tenants Management: Update tenants",
+      "ru": "Арендаторы: Изменение"
+    },
+    "enum/Permission/sysTlsExternalReportDestroy/label": {
+      "original": "Reports Management: Destroy reports",
+      "ru": "Отчёты: Удаление"
+    },
+    "enum/Permission/sysTlsExternalReportGet/label": {
+      "original": "Reports Management: Get reports",
+      "ru": "Отчёты: Просмотр"
+    },
+    "enum/Permission/sysTlsExternalReportQuery/label": {
+      "original": "Reports Management: Query reports",
+      "ru": "Отчёты: Поиск"
+    },
+    "enum/Permission/sysTlsInternalReportDestroy/label": {
+      "original": "Reports Management: Destroy reports",
+      "ru": "Отчёты: Удаление"
+    },
+    "enum/Permission/sysTlsInternalReportGet/label": {
+      "original": "Reports Management: Get reports",
+      "ru": "Отчёты: Просмотр"
+    },
+    "enum/Permission/sysTlsInternalReportQuery/label": {
+      "original": "Reports Management: Query reports",
+      "ru": "Отчёты: Поиск"
+    },
+    "enum/Permission/sysTlsInternalReportUpdate/label": {
+      "original": "Reports Management: Update reports",
+      "ru": "Отчёты: Изменение"
+    },
+    "enum/Permission/sysTlsReportSettingsGet/label": {
+      "original": "Settings: Get tls report settings settings",
+      "ru": "Настройки — Отчёты TLS: просмотр"
+    },
+    "enum/Permission/sysTlsReportSettingsUpdate/label": {
+      "original": "Settings: Update tls report settings settings",
+      "ru": "Настройки — Отчёты TLS: изменение"
+    },
+    "enum/Permission/sysTraceGet/label": {
+      "original": "Traces Management: Get traces",
+      "ru": "Трассировки: Просмотр"
+    },
+    "enum/Permission/sysTraceQuery/label": {
+      "original": "Traces Management: Query traces",
+      "ru": "Трассировки: Поиск"
+    },
+    "enum/Permission/sysTracerCreate/label": {
+      "original": "Tracers Management: Create tracers",
+      "ru": "Источники трассировки: Создание"
+    },
+    "enum/Permission/sysTracerDestroy/label": {
+      "original": "Tracers Management: Destroy tracers",
+      "ru": "Источники трассировки: Удаление"
+    },
+    "enum/Permission/sysTracerGet/label": {
+      "original": "Tracers Management: Get tracers",
+      "ru": "Источники трассировки: Просмотр"
+    },
+    "enum/Permission/sysTracerQuery/label": {
+      "original": "Tracers Management: Query tracers",
+      "ru": "Источники трассировки: Поиск"
+    },
+    "enum/Permission/sysTracerUpdate/label": {
+      "original": "Tracers Management: Update tracers",
+      "ru": "Источники трассировки: Изменение"
+    },
+    "enum/Permission/sysTracingStoreGet/label": {
+      "original": "Settings: Get tracing store settings",
+      "ru": "Настройки — Хранилище трассировок: просмотр"
+    },
+    "enum/Permission/sysTracingStoreUpdate/label": {
+      "original": "Settings: Update tracing store settings",
+      "ru": "Настройки — Хранилище трассировок: изменение"
+    },
+    "enum/Permission/sysWebDavGet/label": {
+      "original": "Settings: Get web dav settings",
+      "ru": "Настройки — WebDAV: просмотр"
+    },
+    "enum/Permission/sysWebDavUpdate/label": {
+      "original": "Settings: Update web dav settings",
+      "ru": "Настройки — WebDAV: изменение"
+    },
+    "enum/Permission/sysWebHookCreate/label": {
+      "original": "Webhooks Management: Create webhooks",
+      "ru": "Веб-хуки: Создание"
+    },
+    "enum/Permission/sysWebHookDestroy/label": {
+      "original": "Webhooks Management: Destroy webhooks",
+      "ru": "Веб-хуки: Удаление"
+    },
+    "enum/Permission/sysWebHookGet/label": {
+      "original": "Webhooks Management: Get webhooks",
+      "ru": "Веб-хуки: Просмотр"
+    },
+    "enum/Permission/sysWebHookQuery/label": {
+      "original": "Webhooks Management: Query webhooks",
+      "ru": "Веб-хуки: Поиск"
+    },
+    "enum/Permission/sysWebHookUpdate/label": {
+      "original": "Webhooks Management: Update webhooks",
+      "ru": "Веб-хуки: Изменение"
+    },
+    "enum/Permission/taskAccountMaintenance/label": {
+      "original": "Task: Perform account maintenance operations",
+      "ru": "Обслуживание учётной записи"
+    },
+    "enum/Permission/taskAcmeRenewal/label": {
+      "original": "Task: Perform ACME certificate renewal for a domain",
+      "ru": "Продление сертификата ACME для домена"
+    },
+    "enum/Permission/taskBlobRecode/label": {
+      "original": "Task: Rewrite stored blobs with new compression and encryption settings",
+      "ru": "Перезапись объектов с новыми настройками сжатия и шифрования"
+    },
+    "enum/Permission/taskCalendarAlarmEmail/label": {
+      "original": "Task: Calendar alarm e-mail",
+      "ru": "Почтовое напоминание календаря"
+    },
+    "enum/Permission/taskCalendarAlarmNotification/label": {
+      "original": "Task: Calendar alarm notification",
+      "ru": "Уведомление календаря"
+    },
+    "enum/Permission/taskCalendarItipMessage/label": {
+      "original": "Task: Calendar iTIP message",
+      "ru": "Календарное сообщение iTIP"
+    },
+    "enum/Permission/taskDestroyAccount/label": {
+      "original": "Task: Destroy account and all associated data",
+      "ru": "Удаление учётной записи со всеми данными"
+    },
+    "enum/Permission/taskDkimManagement/label": {
+      "original": "Task: Perform DKIM key rotation for a domain",
+      "ru": "Ротация ключа DKIM домена"
+    },
+    "enum/Permission/taskDmarcReport/label": {
+      "original": "Task: Send DMARC report to remote server",
+      "ru": "Отправка отчёта DMARC на удалённый сервер"
+    },
+    "enum/Permission/taskDmarcReportWindow/label": {
+      "original": "Task: Create the DMARC aggregate reports of an ended window",
+      "ru": "Формирование агрегированных отчётов DMARC за завершённый период"
+    },
+    "enum/Permission/taskDnsManagement/label": {
+      "original": "Task: Perform DNS management for a domain",
+      "ru": "Управление DNS домена"
+    },
+    "enum/Permission/taskExternalPublicKeyMaintenance/label": {
+      "original": "Task: Fetch external public keys and recheck S/MIME certificates",
+      "ru": "Загрузка внешних открытых ключей и повторная проверка S/MIME"
+    },
+    "enum/Permission/taskMergeThreads/label": {
+      "original": "Task: Merge email threads",
+      "ru": "Объединение цепочек писем"
+    },
+    "enum/Permission/taskRestoreArchivedItem/label": {
+      "original": "Task: Restore archived item",
+      "ru": "Восстановление архивного элемента"
+    },
+    "enum/Permission/taskShareRevokeCleanup/label": {
+      "original": "Task: Remove per-user data left behind by a revoked share",
+      "ru": "Удаление данных пользователя после отзыва совместного доступа"
+    },
+    "enum/Permission/taskSpamFilterMaintenance/label": {
+      "original": "Task: Perform spam filter maintenance operations",
+      "ru": "Обслуживание антиспама"
+    },
+    "enum/Permission/taskStoreMaintenance/label": {
+      "original": "Task: Perform store maintenance operations",
+      "ru": "Обслуживание хранилища"
+    },
+    "enum/Permission/taskTenantMaintenance/label": {
+      "original": "Task: Perform tenant maintenance operations",
+      "ru": "Обслуживание арендатора"
+    },
+    "enum/Permission/taskTlsReport/label": {
+      "original": "Task: Send TLS report to remote server",
+      "ru": "Отправка отчёта TLS на удалённый сервер"
+    },
+    "enum/Permission/taskTlsReportWindow/label": {
+      "original": "Task: Create the TLS aggregate reports of an ended window",
+      "ru": "Формирование агрегированных отчётов TLS за завершённый период"
+    },
+    "enum/Permission/unlimitedRequests/label": {
+      "original": "Bypass request rate limits",
+      "ru": "Обход ограничений частоты запросов"
+    },
+    "enum/Permission/unlimitedUploads/label": {
+      "original": "Bypass upload size and rate limits",
+      "ru": "Обход ограничений размера и скорости загрузки"
     },
     "enum/PermissionsType/Inherit/label": {
       "original": "Inherited permissions",
@@ -4254,6 +7042,86 @@
       "original": "Scope not specified",
       "ru": "Область проверки не указана"
     },
+    "enum/StorageQuota/maxAddressBooks/label": {
+      "original": "Maximum number of address books",
+      "ru": "Максимум адресных книг"
+    },
+    "enum/StorageQuota/maxApiKeys/label": {
+      "original": "Maximum number of API keys",
+      "ru": "Максимум API-ключей"
+    },
+    "enum/StorageQuota/maxAppPasswords/label": {
+      "original": "Maximum number of app passwords",
+      "ru": "Максимум паролей приложений"
+    },
+    "enum/StorageQuota/maxCalendarEventNotifications/label": {
+      "original": "Maximum number of calendar event notifications",
+      "ru": "Максимум уведомлений о событиях календаря"
+    },
+    "enum/StorageQuota/maxCalendarEvents/label": {
+      "original": "Maximum number of calendar events",
+      "ru": "Максимум событий календаря"
+    },
+    "enum/StorageQuota/maxCalendars/label": {
+      "original": "Maximum number of calendars",
+      "ru": "Максимум календарей"
+    },
+    "enum/StorageQuota/maxContactCards/label": {
+      "original": "Maximum number of contact cards",
+      "ru": "Максимум карточек контактов"
+    },
+    "enum/StorageQuota/maxDiskQuota/label": {
+      "original": "Maximum disk space allocated (bytes)",
+      "ru": "Максимальное выделенное место на диске (байты)"
+    },
+    "enum/StorageQuota/maxEmailIdentities/label": {
+      "original": "Maximum number of email identities",
+      "ru": "Максимум почтовых идентификаторов"
+    },
+    "enum/StorageQuota/maxEmailSubmissions/label": {
+      "original": "Maximum number of email submissions",
+      "ru": "Максимум отправок писем"
+    },
+    "enum/StorageQuota/maxEmails/label": {
+      "original": "Maximum number of emails",
+      "ru": "Максимум писем"
+    },
+    "enum/StorageQuota/maxFiles/label": {
+      "original": "Maximum number of files",
+      "ru": "Максимум файлов"
+    },
+    "enum/StorageQuota/maxFolders/label": {
+      "original": "Maximum number of folders",
+      "ru": "Максимум папок"
+    },
+    "enum/StorageQuota/maxMailboxes/label": {
+      "original": "Maximum number of mailboxes",
+      "ru": "Максимум почтовых ящиков"
+    },
+    "enum/StorageQuota/maxMaskedAddresses/label": {
+      "original": "Maximum number of masked email addresses",
+      "ru": "Максимум маскированных почтовых адресов"
+    },
+    "enum/StorageQuota/maxParticipantIdentities/label": {
+      "original": "Maximum number of participant identities",
+      "ru": "Максимум идентификаторов участников"
+    },
+    "enum/StorageQuota/maxPasskeys/label": {
+      "original": "Maximum number of passkeys",
+      "ru": "Максимум ключей доступа"
+    },
+    "enum/StorageQuota/maxPublicKeys/label": {
+      "original": "Maximum number of public keys",
+      "ru": "Максимум открытых ключей"
+    },
+    "enum/StorageQuota/maxPushSubscriptions/label": {
+      "original": "Maximum number of push subscriptions",
+      "ru": "Максимум подписок на уведомления"
+    },
+    "enum/StorageQuota/maxSieveScripts/label": {
+      "original": "Maximum number of Sieve scripts",
+      "ru": "Максимум сценариев Sieve"
+    },
     "enum/SymmetricCipher/aes256Gcm/label": {
       "original": "AES-256-GCM",
       "ru": "Шифр AES-256-GCM"
@@ -4473,6 +7341,50 @@
     "enum/TaskType/TlsReportWindow/label": {
       "original": "Create the TLS aggregate reports of an ended window",
       "ru": "Сформировать агрегированные отчёты TLS за завершившийся период"
+    },
+    "enum/TenantStorageQuota/maxAccounts/label": {
+      "original": "Maximum number of accounts",
+      "ru": "Максимум учётных записей"
+    },
+    "enum/TenantStorageQuota/maxAcmeProviders/label": {
+      "original": "Maximum number of ACME providers",
+      "ru": "Максимум провайдеров ACME"
+    },
+    "enum/TenantStorageQuota/maxDirectories/label": {
+      "original": "Maximum number of external directories",
+      "ru": "Максимум внешних каталогов"
+    },
+    "enum/TenantStorageQuota/maxDiskQuota/label": {
+      "original": "Maximum disk space allocated (bytes)",
+      "ru": "Максимальное выделенное место на диске (байты)"
+    },
+    "enum/TenantStorageQuota/maxDkimKeys/label": {
+      "original": "Maximum number of DKIM keys",
+      "ru": "Максимум ключей DKIM"
+    },
+    "enum/TenantStorageQuota/maxDnsServers/label": {
+      "original": "Maximum number of DNS servers",
+      "ru": "Максимум DNS-серверов"
+    },
+    "enum/TenantStorageQuota/maxDomains/label": {
+      "original": "Maximum number of domains",
+      "ru": "Максимум доменов"
+    },
+    "enum/TenantStorageQuota/maxGroups/label": {
+      "original": "Maximum number of groups",
+      "ru": "Максимум групп"
+    },
+    "enum/TenantStorageQuota/maxMailingLists/label": {
+      "original": "Maximum number of mailing lists",
+      "ru": "Максимум списков рассылки"
+    },
+    "enum/TenantStorageQuota/maxOauthClients/label": {
+      "original": "Maximum number of OAuth clients",
+      "ru": "Максимум клиентов OAuth"
+    },
+    "enum/TenantStorageQuota/maxRoles/label": {
+      "original": "Maximum number of roles",
+      "ru": "Максимум ролей"
     },
     "enum/TlsPolicyType/noPolicyFound/label": {
       "original": "No TLS policy was found for the domain",
@@ -4842,6 +7754,30 @@
       "original": "User-visible name for the script, unique within the account",
       "ru": "Отображаемое пользователю имя сценария, уникальное в пределах учётной записи"
     },
+    "field/x:AccountPassword/currentSecret/description": {
+      "original": "The current secret value of the account, used for password verification.",
+      "ru": "Текущее секретное значение учётной записи, используемое для проверки пароля."
+    },
+    "field/x:AccountPassword/otpAuth/description": {
+      "original": "OTP authentication settings for the account",
+      "ru": "Настройки аутентификации учётной записи с помощью OTP"
+    },
+    "field/x:AccountPassword/secret/description": {
+      "original": "Secret value of the account",
+      "ru": "Секретное значение учётной записи"
+    },
+    "field/x:AccountSettings/description/description": {
+      "original": "Description of the account",
+      "ru": "Описание учётной записи"
+    },
+    "field/x:AccountSettings/encryptionAtRest/description": {
+      "original": "Encryption-at-rest settings for the account",
+      "ru": "Настройки шифрования хранимых данных учётной записи"
+    },
+    "field/x:AccountSettings/locale/description": {
+      "original": "Preferred locale for the account",
+      "ru": "Предпочтительная локаль учётной записи"
+    },
     "field/x:AcmeProvider/accountHashPrefix/description": {
       "original": "The prefix for hashed account URIs advertised by the ACME server in its directory, used to build DNS-PERSIST-01 validation records.",
       "ru": "Префикс хешированных URI учётных записей, объявленный сервером ACME в своём каталоге и используемый для формирования проверочных записей DNS-PERSIST-01."
@@ -4989,6 +7925,54 @@
     "field/x:AllowedIp/reason/description": {
       "original": "The reason for allowing this IP address",
       "ru": "Причина разрешения этого IP-адреса"
+    },
+    "field/x:ApiKey/allowedIps/description": {
+      "original": "List of allowed IP addresses or CIDR ranges for this credential",
+      "ru": "Список разрешённых IP-адресов или диапазонов CIDR для этих учётных данных"
+    },
+    "field/x:ApiKey/createdAt/description": {
+      "original": "Creation date of the credential",
+      "ru": "Дата создания учётных данных"
+    },
+    "field/x:ApiKey/description/description": {
+      "original": "Description of the credential",
+      "ru": "Описание учётных данных"
+    },
+    "field/x:ApiKey/expiresAt/description": {
+      "original": "Expiration date of the credential",
+      "ru": "Дата окончания действия учётных данных"
+    },
+    "field/x:ApiKey/permissions/description": {
+      "original": "List of permissions assigned to this credential",
+      "ru": "Список прав, назначенных этим учётным данным"
+    },
+    "field/x:ApiKey/secret/description": {
+      "original": "Secret value of the credential",
+      "ru": "Секретное значение учётных данных"
+    },
+    "field/x:AppPassword/allowedIps/description": {
+      "original": "List of allowed IP addresses or CIDR ranges for this credential",
+      "ru": "Список разрешённых IP-адресов или диапазонов CIDR для этих учётных данных"
+    },
+    "field/x:AppPassword/createdAt/description": {
+      "original": "Creation date of the credential",
+      "ru": "Дата создания учётных данных"
+    },
+    "field/x:AppPassword/description/description": {
+      "original": "Description of the credential",
+      "ru": "Описание учётных данных"
+    },
+    "field/x:AppPassword/expiresAt/description": {
+      "original": "Expiration date of the credential",
+      "ru": "Дата окончания действия учётных данных"
+    },
+    "field/x:AppPassword/permissions/description": {
+      "original": "List of permissions assigned to this credential",
+      "ru": "Список прав, назначенных этим учётным данным"
+    },
+    "field/x:AppPassword/secret/description": {
+      "original": "Secret value of the credential",
+      "ru": "Секретное значение учётных данных"
     },
     "field/x:ArfExternalReport/expiresAt/description": {
       "original": "When the report is scheduled to be deleted",
@@ -5582,6 +8566,10 @@
       "original": "Current status of the node in the cluster",
       "ru": "Текущее состояние узла в кластере"
     },
+    "field/x:CredentialPermissionsList/permissions/description": {
+      "original": "List of permissions to assign.",
+      "ru": "Список назначаемых прав."
+    },
     "field/x:CustomRoles/roleIds/description": {
       "original": "List of roles assigned to this principal.",
       "ru": "Список ролей, назначенных этому субъекту доступа."
@@ -6090,6 +9078,10 @@
       "original": "Whether this domain is enabled",
       "ru": "Включён ли этот домен"
     },
+    "field/x:Domain/logo/description": {
+      "original": "URL or base64-encoded image representing the domain",
+      "ru": "URL или изображение домена в кодировке base64"
+    },
     "field/x:Domain/memberTenantId/description": {
       "original": "Identifier for the tenant this domain belongs to",
       "ru": "Идентификатор арендатора, которому принадлежит домен"
@@ -6569,6 +9561,50 @@
     "field/x:MailingList/recipients/description": {
       "original": "List of email addresses that are members of the mailing list",
       "ru": "Почтовые адреса участников списка рассылки"
+    },
+    "field/x:MaskedEmail/accountId/description": {
+      "original": "Identifier for the account this masked email address belongs to",
+      "ru": "Идентификатор учётной записи, которой принадлежит этот маскированный почтовый адрес"
+    },
+    "field/x:MaskedEmail/createdAt/description": {
+      "original": "The date-time the email address was created.",
+      "ru": "Дата и время создания почтового адреса."
+    },
+    "field/x:MaskedEmail/createdBy/description": {
+      "original": "The name of the client that created this email address. This will be set by the server automatically based on the credentials used to authenticate the request, e.g. \"ACME Password Manager\".",
+      "ru": "Имя клиента, создавшего этот почтовый адрес. Сервер задаёт его автоматически по учётным данным, использованным для аутентификации запроса, например \"ACME Password Manager\"."
+    },
+    "field/x:MaskedEmail/description/description": {
+      "original": "Description of the masked email address",
+      "ru": "Описание маскированного почтового адреса"
+    },
+    "field/x:MaskedEmail/email/description": {
+      "original": "The masked email address",
+      "ru": "Маскированный почтовый адрес"
+    },
+    "field/x:MaskedEmail/emailDomain/description": {
+      "original": "This is only used on create and otherwise ignored; if supplied, the server-assigned email will end with the given domain.",
+      "ru": "Используется только при создании, в остальных случаях игнорируется; если задано, назначенный сервером почтовый адрес будет оканчиваться указанным доменом."
+    },
+    "field/x:MaskedEmail/emailPrefix/description": {
+      "original": "This is only used on create and otherwise ignored; if supplied, the server-assigned email will start with the given prefix. The string MUST be <= 64 characters in length and MUST only contain characters a-z, 0-9 and _ (underscore).",
+      "ru": "Используется только при создании, в остальных случаях игнорируется; если задано, назначенный сервером почтовый адрес будет начинаться с указанного префикса. Длина строки должна быть <= 64 символов; допустимы только a-z, 0-9 и _ (подчёркивание)."
+    },
+    "field/x:MaskedEmail/enable/description": {
+      "original": "Whether this masked email address is enabled",
+      "ru": "Включён ли этот маскированный почтовый адрес"
+    },
+    "field/x:MaskedEmail/expiresAt/description": {
+      "original": "Expiration date of the email address",
+      "ru": "Дата окончания действия почтового адреса"
+    },
+    "field/x:MaskedEmail/forDomain/description": {
+      "original": "The domain name of the site this address was created for, e.g. \"https://example.com\". This is intended to be added automatically by password managers.",
+      "ru": "Доменное имя сайта, для которого создан адрес, например \"https://example.com\". Предназначено для автоматического заполнения менеджерами паролей."
+    },
+    "field/x:MaskedEmail/url/description": {
+      "original": "A URL pointing back to the integrator's use of this email address, e.g. a custom-uri to open \"ACME Password Manager\" at the appropriate entry.",
+      "ru": "URL, позволяющий вернуться к месту использования этого почтового адреса в интегрированном приложении, например custom-uri для открытия соответствующей записи в \"ACME Password Manager\"."
     },
     "field/x:MeilisearchStore/allowInvalidCerts/description": {
       "original": "Whether to allow invalid SSL certificates",
@@ -7346,6 +10382,38 @@
       "original": "Secret value of the OAuth client",
       "ru": "Секретное значение клиента OAuth"
     },
+    "field/x:OAuthGrant/accountId/description": {
+      "original": "Identifier for the account that granted the authorization",
+      "ru": "Идентификатор учётной записи, предоставившей авторизацию"
+    },
+    "field/x:OAuthGrant/clientId/description": {
+      "original": "Identifier of the OAuth client that received the authorization",
+      "ru": "Идентификатор клиента OAuth, получившего авторизацию"
+    },
+    "field/x:OAuthGrant/clientKind/description": {
+      "original": "How the application was registered. Dynamically registered applications and Client ID Metadata Documents are not verified by an administrator.",
+      "ru": "Способ регистрации приложения. Динамически зарегистрированные приложения и документы Client ID Metadata Documents не проверяются администратором."
+    },
+    "field/x:OAuthGrant/clientName/description": {
+      "original": "Name of the application, as provided by the client or its administrator",
+      "ru": "Название приложения, указанное клиентом или его администратором"
+    },
+    "field/x:OAuthGrant/createdAt/description": {
+      "original": "Date the authorization was granted",
+      "ru": "Дата предоставления авторизации"
+    },
+    "field/x:OAuthGrant/lastUsedAt/description": {
+      "original": "Date the application last renewed its access",
+      "ru": "Дата последнего продления доступа приложением"
+    },
+    "field/x:OAuthGrant/remoteIp/description": {
+      "original": "IP address from which the authorization was granted",
+      "ru": "IP-адрес, с которого была предоставлена авторизация"
+    },
+    "field/x:OAuthGrant/scopes/description": {
+      "original": "Services the application was given access to. First-party applications have full access to the account.",
+      "ru": "Службы, к которым приложению предоставлен доступ. Собственные приложения сервера имеют полный доступ к учётной записи."
+    },
     "field/x:OidcProvider/accessTokenExpiry/description": {
       "original": "Expiration time of an OAuth access token. OAuth clients require at least 10 minutes and expect at least 1 hour.",
       "ru": "Срок действия токена доступа OAuth. Клиентам OAuth требуется не менее 10 минут, ожидаемый срок составляет не менее 1 часа."
@@ -7381,6 +10449,18 @@
     "field/x:OidcProvider/userCodeExpiry/description": {
       "original": "Expiration time of a user code issued by the device authentication flow",
       "ru": "Срок действия пользовательского кода, выдаваемого при аутентификации устройства"
+    },
+    "field/x:Passkey/createdAt/description": {
+      "original": "Creation date of the passkey",
+      "ru": "Дата создания ключа доступа"
+    },
+    "field/x:Passkey/description/description": {
+      "original": "Name of the passkey",
+      "ru": "Название ключа доступа"
+    },
+    "field/x:Passkey/registration/description": {
+      "original": "WebAuthn registration response produced by the authenticator, only accepted on creation",
+      "ru": "Ответ регистрации WebAuthn, сформированный аутентификатором; принимается только при создании"
     },
     "field/x:PasskeyCredential/algorithm/description": {
       "original": "Signature algorithm of the credential public key",
@@ -9098,9 +12178,33 @@
       "original": "Account type",
       "ru": "Тип учётной записи"
     },
+    "form/x:AccountPassword/field/currentSecret": {
+      "original": "Current Password",
+      "ru": "Текущий пароль"
+    },
+    "form/x:AccountPassword/field/otpAuth": {
+      "original": "OTP Authentication Settings",
+      "ru": "Настройки аутентификации OTP"
+    },
+    "form/x:AccountPassword/field/secret": {
+      "original": "New Password",
+      "ru": "Новый пароль"
+    },
     "form/x:AccountPassword/section/section-0": {
       "original": "Password",
       "ru": "Пароль"
+    },
+    "form/x:AccountPassword/section/section-1": {
+      "original": "Two-Factor Authentication",
+      "ru": "Двухфакторная аутентификация"
+    },
+    "form/x:AccountPassword/subtitle": {
+      "original": "Change your account password and configure OTP-based two-factor authentication settings",
+      "ru": "Изменение пароля учётной записи и настройка двухфакторной аутентификации на основе OTP"
+    },
+    "form/x:AccountPassword/title": {
+      "original": "Account Password",
+      "ru": "Пароль учётной записи"
     },
     "form/x:AccountSettings/field/description": {
       "original": "Description",
@@ -9110,13 +12214,25 @@
       "original": "Encryption at Rest",
       "ru": "Шифрование при хранении"
     },
+    "form/x:AccountSettings/field/locale": {
+      "original": "Locale",
+      "ru": "Локаль"
+    },
     "form/x:AccountSettings/field/timeZone": {
       "original": "Time Zone",
       "ru": "Часовой пояс"
     },
+    "form/x:AccountSettings/section/section-0": {
+      "original": "Account Settings",
+      "ru": "Настройки учётной записи"
+    },
     "form/x:AccountSettings/section/section-1": {
       "original": "Security",
       "ru": "Безопасность"
+    },
+    "form/x:AccountSettings/subtitle": {
+      "original": "Configure your account preferences, including locale, time zone, encryption-at-rest settings, and a personal description",
+      "ru": "Настройка предпочтений учётной записи: локаль, часовой пояс, шифрование хранимых данных и личное описание"
     },
     "form/x:AccountSettings/title": {
       "original": "Account",
@@ -9414,6 +12530,10 @@
       "original": "Description",
       "ru": "Описание"
     },
+    "form/x:ApiKey/field/description/placeholder": {
+      "original": "e.g. My App Password",
+      "ru": "например, Мой пароль приложения"
+    },
     "form/x:ApiKey/field/expiresAt": {
       "original": "Expiration Date",
       "ru": "Дата окончания срока"
@@ -9449,6 +12569,10 @@
     "form/x:AppPassword/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:AppPassword/field/description/placeholder": {
+      "original": "e.g. My App Password",
+      "ru": "например, Мой пароль приложения"
     },
     "form/x:AppPassword/field/expiresAt": {
       "original": "Expiration Date",
@@ -10314,6 +13438,10 @@
       "original": "Additional Hostnames",
       "ru": "Дополнительные имена узлов"
     },
+    "form/x:CertificateManagementProperties/field/subjectAlternativeNames/placeholder": {
+      "original": "e.g. mail.example.com",
+      "ru": "например, mail.example.com"
+    },
     "form/x:CertificateManagementProperties/section/section-0": {
       "original": "Certificate",
       "ru": "Сертификат"
@@ -10541,6 +13669,10 @@
     "form/x:DkimManagementProperties/field/selectorTemplate": {
       "original": "Selector Template",
       "ru": "Шаблон селектора"
+    },
+    "form/x:DkimManagementProperties/field/selectorTemplate/placeholder": {
+      "original": "e.g. v{version}-{algorithm}-{date-%Y%m%d}",
+      "ru": "например, v{version}-{algorithm}-{date-%Y%m%d}"
     },
     "form/x:DkimManagementProperties/section/section-0": {
       "original": "Key Generation",
@@ -10949,6 +14081,10 @@
     "form/x:DnsManagementProperties/field/origin": {
       "original": "Zone Origin",
       "ru": "Исходный домен зоны"
+    },
+    "form/x:DnsManagementProperties/field/origin/placeholder": {
+      "original": "e.g. example.com",
+      "ru": "например, example.com"
     },
     "form/x:DnsManagementProperties/field/publishRecords": {
       "original": "Record Types",
@@ -12450,6 +15586,14 @@
       "original": "Quotas",
       "ru": "Квоты"
     },
+    "form/x:GroupAccount/field/quotas/keyLabel": {
+      "original": "Quota Type",
+      "ru": "Тип квоты"
+    },
+    "form/x:GroupAccount/field/quotas/valueLabel": {
+      "original": "Maximum",
+      "ru": "Максимум"
+    },
     "form/x:GroupAccount/field/roles": {
       "original": "Roles",
       "ru": "Роли"
@@ -12866,6 +16010,10 @@
       "original": "Created At",
       "ru": "Дата создания"
     },
+    "form/x:MaskedEmail/field/createdBy": {
+      "original": "Created By",
+      "ru": "Кем создан"
+    },
     "form/x:MaskedEmail/field/description": {
       "original": "Description",
       "ru": "Описание"
@@ -12874,9 +16022,29 @@
       "original": "Email Address",
       "ru": "Адрес электронной почты"
     },
+    "form/x:MaskedEmail/field/emailDomain": {
+      "original": "Email Domain",
+      "ru": "Почтовый домен"
+    },
+    "form/x:MaskedEmail/field/emailPrefix": {
+      "original": "Email Prefix",
+      "ru": "Префикс почтового адреса"
+    },
     "form/x:MaskedEmail/field/expiresAt": {
       "original": "Expiration Date",
       "ru": "Дата окончания срока"
+    },
+    "form/x:MaskedEmail/field/forDomain": {
+      "original": "Associated Domain",
+      "ru": "Связанный домен"
+    },
+    "form/x:MaskedEmail/field/url": {
+      "original": "Associated URL",
+      "ru": "Связанный URL"
+    },
+    "form/x:MaskedEmail/section/section-0": {
+      "original": "Masked Email",
+      "ru": "Маскированный почтовый адрес"
     },
     "form/x:MaskedEmail/section/section-1": {
       "original": "Expiration",
@@ -12885,6 +16053,10 @@
     "form/x:MaskedEmail/section/section-2": {
       "original": "Details",
       "ru": "Сведения"
+    },
+    "form/x:MaskedEmail/section/section-3": {
+      "original": "Creation Options",
+      "ru": "Параметры создания"
     },
     "form/x:MeilisearchStore/field/allowInvalidCerts": {
       "original": "Allow Invalid Certificates",
@@ -14162,9 +17334,29 @@
       "original": "Name",
       "ru": "Имя"
     },
+    "form/x:OAuthGrant/field/createdAt": {
+      "original": "Authorized At",
+      "ru": "Дата авторизации"
+    },
+    "form/x:OAuthGrant/field/lastUsedAt": {
+      "original": "Last Used At",
+      "ru": "Последнее использование"
+    },
+    "form/x:OAuthGrant/field/remoteIp": {
+      "original": "Authorized From",
+      "ru": "Авторизовано с адреса"
+    },
     "form/x:OAuthGrant/field/scopes": {
       "original": "Access",
       "ru": "Доступ"
+    },
+    "form/x:OAuthGrant/section/section-0": {
+      "original": "Application",
+      "ru": "Приложение"
+    },
+    "form/x:OAuthGrant/section/section-1": {
+      "original": "Activity",
+      "ru": "Активность"
     },
     "form/x:OidcDirectory/field/description": {
       "original": "Description",
@@ -14254,6 +17446,10 @@
       "original": "Name",
       "ru": "Имя"
     },
+    "form/x:Passkey/field/description/placeholder": {
+      "original": "e.g. My laptop",
+      "ru": "например, Мой ноутбук"
+    },
     "form/x:Passkey/field/registration": {
       "original": "Passkey",
       "ru": "Ключ доступа"
@@ -14277,6 +17473,10 @@
     "form/x:PasskeyCredential/field/description": {
       "original": "Name",
       "ru": "Имя"
+    },
+    "form/x:PasskeyCredential/field/description/placeholder": {
+      "original": "e.g. My laptop",
+      "ru": "например, Мой ноутбук"
     },
     "form/x:PasskeyCredential/section/section-0": {
       "original": "Details",
@@ -14845,6 +18045,10 @@
     "form/x:SecondaryCredential/field/description": {
       "original": "Description",
       "ru": "Описание"
+    },
+    "form/x:SecondaryCredential/field/description/placeholder": {
+      "original": "e.g. My App Password",
+      "ru": "например, Мой пароль приложения"
     },
     "form/x:SecondaryCredential/field/expiresAt": {
       "original": "Expiration Date",
@@ -16402,6 +19606,14 @@
       "original": "Quotas",
       "ru": "Квоты"
     },
+    "form/x:Tenant/field/quotas/keyLabel": {
+      "original": "Quota Type",
+      "ru": "Тип квоты"
+    },
+    "form/x:Tenant/field/quotas/valueLabel": {
+      "original": "Maximum",
+      "ru": "Максимум"
+    },
     "form/x:Tenant/field/roles": {
       "original": "Roles",
       "ru": "Роли"
@@ -16722,6 +19934,14 @@
       "original": "Quotas",
       "ru": "Квоты"
     },
+    "form/x:UserAccount/field/quotas/keyLabel": {
+      "original": "Quota Type",
+      "ru": "Тип квоты"
+    },
+    "form/x:UserAccount/field/quotas/valueLabel": {
+      "original": "Maximum",
+      "ru": "Максимум"
+    },
     "form/x:UserAccount/field/roles": {
       "original": "Roles",
       "ru": "Роли"
@@ -17010,6 +20230,10 @@
       "original": "Text",
       "ru": "Текст"
     },
+    "list/x:Account/Group/itemAction/delete:Delete Group/label": {
+      "original": "Delete Group",
+      "ru": "Удалить группу"
+    },
     "list/x:Account/Group/plural": {
       "original": "groups",
       "ru": "группы"
@@ -17069,6 +20293,10 @@
     "list/x:Account/User/filter/text": {
       "original": "Text",
       "ru": "Текст"
+    },
+    "list/x:Account/User/itemAction/delete:Delete Account/label": {
+      "original": "Delete Account",
+      "ru": "Удалить учётную запись"
     },
     "list/x:Account/User/plural": {
       "original": "users",
@@ -17241,6 +20469,18 @@
     "list/x:ApiKey/filter/expiresAt": {
       "original": "Expiration Date",
       "ru": "Дата окончания срока"
+    },
+    "list/x:ApiKey/plural": {
+      "original": "API keys",
+      "ru": "Ключи API"
+    },
+    "list/x:ApiKey/singular": {
+      "original": "API key",
+      "ru": "Ключ API"
+    },
+    "list/x:ApiKey/subtitle": {
+      "original": "Manage API keys for programmatic access",
+      "ru": "Управление ключами API для программного доступа"
     },
     "list/x:ApiKey/title": {
       "original": "API Keys",
@@ -17646,6 +20886,10 @@
       "original": "Text",
       "ru": "Текст"
     },
+    "list/x:Domain/plural": {
+      "original": "domains",
+      "ru": "домены"
+    },
     "list/x:Domain/singular": {
       "original": "domain",
       "ru": "домен"
@@ -17882,9 +21126,29 @@
       "original": "Email Address",
       "ru": "Адрес электронной почты"
     },
+    "list/x:MaskedEmail/column/forDomain": {
+      "original": "Associated Domain",
+      "ru": "Связанный домен"
+    },
     "list/x:MaskedEmail/filter/accountId": {
       "original": "Account",
       "ru": "Учётная запись"
+    },
+    "list/x:MaskedEmail/plural": {
+      "original": "masked emails",
+      "ru": "маскированные почтовые адреса"
+    },
+    "list/x:MaskedEmail/singular": {
+      "original": "masked email",
+      "ru": "маскированный почтовый адрес"
+    },
+    "list/x:MaskedEmail/subtitle": {
+      "original": "Manage masked email addresses for privacy protection",
+      "ru": "Управление маскированными почтовыми адресами для защиты конфиденциальности"
+    },
+    "list/x:MaskedEmail/title": {
+      "original": "Masked Emails",
+      "ru": "Маскированные почтовые адреса"
     },
     "list/x:MemoryLookupKey/SpamBlockedDomain/column/key": {
       "original": "Domain Name",
@@ -18314,6 +21578,14 @@
       "original": "Name",
       "ru": "Имя"
     },
+    "list/x:OAuthGrant/column/createdAt": {
+      "original": "Authorized At",
+      "ru": "Дата авторизации"
+    },
+    "list/x:OAuthGrant/column/lastUsedAt": {
+      "original": "Last Used At",
+      "ru": "Последнее использование"
+    },
     "list/x:OAuthGrant/column/scopes": {
       "original": "Access",
       "ru": "Доступ"
@@ -18321,6 +21593,18 @@
     "list/x:OAuthGrant/filter/accountId": {
       "original": "Account",
       "ru": "Учётная запись"
+    },
+    "list/x:OAuthGrant/plural": {
+      "original": "connected applications",
+      "ru": "подключённые приложения"
+    },
+    "list/x:OAuthGrant/singular": {
+      "original": "connected application",
+      "ru": "подключённое приложение"
+    },
+    "list/x:OAuthGrant/subtitle": {
+      "original": "Applications signed in to the account through OAuth. Delete an entry to sign the application out.",
+      "ru": "Приложения, вошедшие в учётную запись через OAuth. Удалите запись, чтобы завершить сеанс приложения."
     },
     "list/x:OAuthGrant/title": {
       "original": "Connected Applications",
@@ -19754,6 +23038,18 @@
       "original": "Defines a Sieve filter script that processes incoming messages for the account.",
       "ru": "Определяет сценарий фильтрации Sieve для обработки входящих сообщений учётной записи."
     },
+    "object/x:Account/description": {
+      "original": "Defines a user or group account for authentication and email access.",
+      "ru": "Определяет учётную запись пользователя или группы для аутентификации и доступа к почте."
+    },
+    "object/x:AccountPassword/description": {
+      "original": "Password-based authentication credential.",
+      "ru": "Учётные данные для аутентификации по паролю."
+    },
+    "object/x:AccountSettings/description": {
+      "original": "Configures default account settings for locale and encryption.",
+      "ru": "Настраивает локаль и шифрование учётной записи по умолчанию."
+    },
     "object/x:AcmeProvider/description": {
       "original": "Defines an ACME provider for automatic TLS certificate management.",
       "ru": "Определяет поставщика ACME для автоматического управления сертификатами TLS."
@@ -19777,6 +23073,14 @@
     "object/x:AllowedIp/description": {
       "original": "Defines an allowed IP address or network range.",
       "ru": "Определяет разрешённый IP-адрес или диапазон сети."
+    },
+    "object/x:ApiKey/description": {
+      "original": "API key credential for programmatic access.",
+      "ru": "Ключ API для программного доступа."
+    },
+    "object/x:AppPassword/description": {
+      "original": "App password credential for programmatic access.",
+      "ru": "Пароль приложения для программного доступа."
     },
     "object/x:ArfExternalReport/description": {
       "original": "Stores an ARF feedback report received from an external source.",
@@ -19817,6 +23121,10 @@
     "object/x:DataStore/description": {
       "original": "Configures the primary data store backend.",
       "ru": "Настраивает основное хранилище данных."
+    },
+    "object/x:Directory/description": {
+      "original": "Defines an external directory for account authentication and lookups.",
+      "ru": "Определяет внешний каталог для аутентификации и поиска учётных записей."
     },
     "object/x:DkimSignature/description": {
       "original": "Defines a DKIM signature used to sign outgoing email messages.",
@@ -19873,6 +23181,10 @@
     "object/x:MailingList/description": {
       "original": "Defines a mailing list that distributes messages to a group of recipients.",
       "ru": "Список рассылки, распределяющий сообщения между адресами получателей."
+    },
+    "object/x:MaskedEmail/description": {
+      "original": "Defines a masked email address for privacy protection.",
+      "ru": "Определяет маскированный почтовый адрес для защиты конфиденциальности."
     },
     "object/x:Metadata/description": {
       "original": "Configures object metadata: JMAP metadata, WebDAV dead properties and IMAP annotations.",
@@ -19974,9 +23286,17 @@
       "original": "Defines a registered OAuth client application.",
       "ru": "Зарегистрированное клиентское приложение OAuth."
     },
+    "object/x:OAuthGrant/description": {
+      "original": "Authorization granted by an account to an OAuth application. Deleting it signs the application out.",
+      "ru": "Авторизация, предоставленная учётной записью приложению OAuth. Удаление завершает сеанс приложения."
+    },
     "object/x:OidcProvider/description": {
       "original": "Configures the OAuth and OpenID Connect provider settings.",
       "ru": "Настраивает поставщика OAuth и OpenID Connect."
+    },
+    "object/x:Passkey/description": {
+      "original": "Passkey for passwordless sign-in to the account.",
+      "ru": "Ключ доступа для входа в учётную запись без пароля."
     },
     "object/x:PublicKey/description": {
       "original": "Defines a public key for email encryption (OpenPGP or S/MIME).",
@@ -20293,6 +23613,18 @@
     "variant/x:Credential/Password/label": {
       "original": "Password for authenticating to the account",
       "ru": "Пароль для входа в учётную запись"
+    },
+    "variant/x:CredentialPermissions/Disable/label": {
+      "original": "Disable some permissions",
+      "ru": "Отключить некоторые права"
+    },
+    "variant/x:CredentialPermissions/Inherit/label": {
+      "original": "Same permissions as account",
+      "ru": "Те же права, что у учётной записи"
+    },
+    "variant/x:CredentialPermissions/Replace/label": {
+      "original": "Replace all permissions",
+      "ru": "Заменить все права"
     },
     "variant/x:DataStore/FoundationDb/label": {
       "original": "FoundationDB",
@@ -20825,6 +24157,22 @@
     "variant/x:SpamRule/Domain/label": {
       "original": "Domain",
       "ru": "Домен"
+    },
+    "variant/x:SqlAuthStore/Default/label": {
+      "original": "Use data store (SQL only)",
+      "ru": "Использовать хранилище данных (только SQL)"
+    },
+    "variant/x:SqlAuthStore/MySql/label": {
+      "original": "mySQL",
+      "ru": "СУБД mySQL"
+    },
+    "variant/x:SqlAuthStore/PostgreSql/label": {
+      "original": "PostgreSQL",
+      "ru": "СУБД PostgreSQL"
+    },
+    "variant/x:SqlAuthStore/Sqlite/label": {
+      "original": "SQLite",
+      "ru": "СУБД SQLite"
     },
     "variant/x:SubAddressing/Custom/label": {
       "original": "Enable custom sub-addressing",

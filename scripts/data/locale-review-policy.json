@@ -478,9 +478,9 @@
       "reason": "Stage18: редакторски проверенная точная привязка schemaHash + slot + original; runtime активирован, React/browser приёмка отдельно."
     }
   ],
-  "baselineSource": "caade105c28386f2e15493cf2e5bdc47ec86f256",
+  "baselineSource": "6c1add8bf09005a6a8114ca85a45b4178f37f78b",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "5e8654afab36e0aa333d74681b18e2eaeba4e564f4c2a4e662792be480f71531",
+    "src/i18n/schema/ru.json": "f93e786853d2733b3c707b0dab6be49980590bc4099a8968ba419e6b73542743",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
     "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
@@ -497,7 +497,8 @@
     "scripts/data/stage25-storage-cache-review.json": "4ef40e24f535070cc310cc460d0220e372be2764d8897862f15aec11f56b9171",
     "scripts/data/stage26-smtp-transport-review.json": "cfe55bbaa9d8e07074579b3ef14312519c7c181003250635ee2d548aab8d22c4",
     "scripts/data/stage27-sieve-antispam-review.json": "da852df8542323f8084c6e8d6869b9118b693b8bfcabbf013635369adecd2a09",
-    "scripts/data/stage28-dns-network-review.json": "afa147768c3883a4fa824dd56bbcb0b24d4366c6f3046ede8743766a678676dc"
+    "scripts/data/stage28-dns-network-review.json": "afa147768c3883a4fa824dd56bbcb0b24d4366c6f3046ede8743766a678676dc",
+    "scripts/data/stage29-directory-accounts-review.json": "539adb544caec4286e0b20d2c44093c843547c740d3429138cfdb37ebcf2742c"
   },
   "clientLiterals": [
     {
@@ -539,6 +540,7 @@
     "scripts/data/stage25-storage-cache-review.json",
     "scripts/data/stage26-smtp-transport-review.json",
     "scripts/data/stage27-sieve-antispam-review.json",
-    "scripts/data/stage28-dns-network-review.json"
+    "scripts/data/stage28-dns-network-review.json",
+    "scripts/data/stage29-directory-accounts-review.json"
   ]
 }

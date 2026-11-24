@@ -1161,3 +1161,167 @@ if(catalog.entries['enum/DnsResolverProtocol/tcp/label']){
 }
 
 
+
+// Stage29: Directory and accounts display only; no actual connections, policy evaluation or delivery.
+if(catalog.entries['enum/OAuthGrantType/authorizationCode/label']){
+  let formCases29=0,enumCases29=0,columns29=0;
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;
+    for(const [enumName,selected,next] of [
+      ['OAuthGrantType','authorizationCode','refreshToken'],
+      ['OAuthScope','mail','full'],
+      ['OAuthClientKind','dynamic','registered'],
+      ['PasskeyAlgorithm','ed25519','es256'],
+      ['OidcIntrospectionAuth','clientSecretBasic','clientSecretPost'],
+      ['StorageQuota','maxApiKeys','maxAppPasswords'],
+    ]){
+      const variants=resolver19.getEnum(schema,enumName);
+      assert.ok(variants.some(v=>v.name===selected)&&variants.some(v=>v.name===next),enumName);
+      const slot='enum/'+enumName+'/'+selected+'/label',raw=JSON.stringify(variants);
+      let event;
+      const props={type:{type:'enum',enumName,nullable:false},formField:{name:'mode'},value:selected,onChange:v=>{event=v;},readOnly:false,control:{}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const label=lang==='ru'?ru(slot):original(slot);
+        assert.ok(render(EnumWidget,props).includes(htmlText19(label)),slot);
+        assert.equal(capturedCombo19.value,selected);
+        assert.deepEqual(Array.from(capturedCombo19.options,v=>v.value),Array.from(variants,v=>v.name));
+        capturedCombo19.onValueChange(next);
+        assert.equal(event,next);
+        assert.ok(render(scalar20.EnumValue,{schema,enumName,value:selected}).includes(htmlText19(label)),slot);
+        assert.equal(JSON.stringify(variants),raw);
+        assert.equal(props.value,selected);
+      }
+      hash='unknown';language='ru';
+      assert.ok(render(EnumWidget,props).includes(htmlText19(original(slot))),slot);
+      hash=pin.schemaHash;enumCases29++;
+    }
+    for(const [formKey,name,value,changed] of [
+      ['x:AccountPassword','currentSecret','synthetic-old','synthetic-new'],
+      ['x:AccountPassword','secret','synthetic-new','synthetic-other'],
+      ['x:MaskedEmail','emailDomain','example.invalid','example.org'],
+      ['x:MaskedEmail','emailPrefix','test_1','test_2'],
+      ['x:MaskedEmail','forDomain','example.invalid','example.org'],
+      ['x:OAuthGrant','remoteIp','192.0.2.1','192.0.2.2'],
+      ['x:OAuthGrant','createdAt','2026-01-01T00:00:00Z','2026-01-02T00:00:00Z'],
+      ['x:OAuthGrant','lastUsedAt','2026-01-01T00:00:00Z','2026-01-02T00:00:00Z'],
+      ['x:AccountSettings','locale','en','ru'],
+    ]){
+      const form=schema.forms[formKey],field=schema.fields[formKey]?.properties[name];
+      assert.ok(form&&field,formKey+'/'+name);
+      const section=form.sections.find(s=>s.fields.some(f=>f.name===name));
+      assert.ok(section,formKey+'/'+name);
+      const formField=section.fields.find(f=>f.name===name);
+      const slot='form/'+formKey+'/field/'+name,desc='field/'+formKey+'/'+name+'/description';
+      assert.equal(formField.label,original(slot));
+      assert.equal(field.description,original(desc));
+      const sections=[{key:'section-'+form.sections.indexOf(section),title:section.title,fields:[{formField,field}]}];
+      const data={[name]:value},snapshot=JSON.stringify({sections,data});
+      let event;
+      const props={sections,formKey,data,errors:{},readOnly:false,onFieldChange:(key,v)=>{event=[key,v];}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const html=render(FormSections,props);
+        for(const key of [slot,desc])assert.ok(html.includes(htmlText19(lang==='ru'?ru(key):original(key))),key);
+        assert.equal(capturedField.formField.name,name);
+        assert.equal(capturedField.value,value);
+        capturedField.onChange(changed);
+        assert.deepEqual(event,[name,changed]);
+        assert.equal(JSON.stringify({sections,data}),snapshot);
+      }
+      hash='unknown';language='ru';
+      assert.ok(render(FormSections,props).includes(htmlText19(original(slot))),slot);
+      hash=pin.schemaHash;formCases29++;
+    }
+    for(const [listKey,name] of [['x:MaskedEmail','forDomain'],['x:OAuthGrant','createdAt'],['x:OAuthGrant','lastUsedAt']]){
+      const column=schema.lists[listKey].columns.find(v=>v.name===name);
+      const slot='list/'+listKey+'/column/'+name;
+      assert.equal(column.label,original(slot));
+      const snapshot=JSON.stringify(column);
+      let sorted;
+      const props={column,listKey,sortable:true,sort:null,onSort:v=>{sorted=v;}};
+      for(const lang of ['ru','en','ru']){
+        language=lang;
+        const label=lang==='ru'?ru(slot):original(slot);
+        assert.ok(render(ColumnHeader,props).includes(htmlText19(label)),slot);
+        assert.ok(render(ColumnHeader,{...props,sortable:false}).includes(htmlText19(label)),slot);
+        ColumnHeader(props).props.children.props.onClick();
+        assert.equal(sorted,name);
+        assert.equal(JSON.stringify(column),snapshot);
+      }
+      columns29++;
+    }
+  }
+  assert.equal(enumCases29,12);
+  assert.equal(formCases29,18);
+  assert.equal(columns29,6);
+  console.log('PASS: Stage29 actual EnumWidget/EnumValue, FormSections/FieldRow and ColumnHeader synthetic SSR; both pinned editions, OAuth, passkeys, quotas and account labels, raw callbacks and sort keys, unknown hash fallback; no credential changes, OAuth requests, permissions or policy changes');
+}
+
+
+
+
+ // Stage29: use the real previously accepted permission adapter with synthetic ACL filtering.
+if(catalog.entries['enum/Permission/sysAccountGet/label']){
+  const oldPermission=JSON.parse(read('src/i18n/schema/permission_ru.json'));
+  const {permissionDisplayLabel}=sourceModule(read('src/i18n/schemaPermissionText.ts'),'schemaPermissionText.ts',{'./schema/permission_ru.json':oldPermission});
+  let checks=[],labels=new Map(),combo;
+  const permitted=new Set(['sysAccountGet','sysAccountQuery','sysAccountUpdate','impersonate','unlimitedRequests']);
+  const {EnumMultiSelect,EnumWidget:PermissionWidget}=component('src/components/forms/widgets/EnumWidgets.tsx',{
+    'lucide-react':{Search:icon},
+    '@/components/ui/button':{Button:passthrough},
+    '@/components/ui/checkbox':{Checkbox:props=>{checks.push(props);return null;}},
+    '@/components/ui/input':{Input:()=>null},
+    '@/components/ui/label':{Label:props=>{labels.set(props.htmlFor,React.Children.toArray(props.children).filter(c=>typeof c==='string').join(''));return h('label',{htmlFor:props.htmlFor},props.children);}},
+    '@/components/ui/combobox':{Combobox:props=>{combo=props;return h('div',null,props.options.map(o=>h('span',{key:o.value},o.label)));}},
+    '@/components/ui/popover':{Popover:passthrough,PopoverContent:passthrough,PopoverTrigger:passthrough},
+    '@/components/common/HelpTooltip':{HelpTooltip:()=>null},
+    '@/hooks/usePermissions':{usePermissionCheckers:()=>({hasPermission:id=>permitted.has(id)})},
+    '@/lib/schemaResolver':resolver19,
+    '@/components/forms/formContext':{useFormContext:()=>({schema:fixtureSchema19})},
+    '@/hooks/useSchemaText':{useSchemaText,useCanTranslateSchema:()=>language==='ru'&&catalog.meta.schemaHashes.includes(hash)},
+    '@/i18n/schemaPermissionText':{permissionDisplayLabel},
+    '@/components/ui/comboboxSearch':{filterComboboxOptions:options=>options},
+    '@/i18n/schemaOptionLabels':{headerProtectionOptionLabel:x=>x,localeOptionLabel:(_id,label)=>label},
+    '@/components/forms/widgets/RemovablePill':{RemovablePill:()=>null},
+  });
+  let cases=0;
+  for(const pin of manifest19.schemas){
+    const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+    fixtureSchema19=schema;hash=pin.schemaHash;
+    const all=resolver19.getEnum(schema,'Permission');
+    const selected=all.filter(v=>permitted.has(v.name));
+    assert.equal(selected.length,permitted.size);
+    for(const v of all){
+      const entry=oldPermission.entries[v.name];
+      assert.equal(entry.original,v.label);
+      assert.deepEqual(catalog.entries['enum/Permission/'+v.name+'/label'],entry);
+    }
+    const items=['sysAccountGet'],snapshot=JSON.stringify({all,items});
+    let event;
+    const multiProps={enumName:'Permission',items,onChange:v=>{event=v;},readOnly:false,control:{id:'permissions'}};
+    const singleProps={type:{type:'enum',enumName:'Permission',nullable:false},formField:{name:'permissions'},value:items[0],onChange:v=>{event=v;},readOnly:false,control:{}};
+    for(const [lang,activeHash] of [['ru',pin.schemaHash],['en',pin.schemaHash],['ru','unknown'],['ru',pin.schemaHash]]){
+      language=lang;hash=activeHash;checks=[];labels=new Map();
+      render(EnumMultiSelect,multiProps);render(PermissionWidget,singleProps);
+      assert.equal(checks.length,selected.length);
+      assert.deepEqual(Array.from(combo.options,o=>o.value),Array.from(selected,v=>v.name));
+      for(const [i,v] of selected.entries()){
+        const slot='enum/Permission/'+v.name+'/label',id='permissions-'+v.name;
+        const label=lang==='ru'&&activeHash===pin.schemaHash?ru(slot):v.label;
+        assert.equal(checks[i].id,id);assert.equal(labels.get(id),label);
+        assert.equal(checks[i].checked,items.includes(v.name));
+        assert.equal(combo.options[i].label,label);
+        assert.ok(render(scalar20.EnumValue,{schema,enumName:'Permission',value:v.name}).includes(htmlText19(label)));
+      }
+      checks[selected.findIndex(v=>v.name==='sysAccountQuery')].onCheckedChange();
+      assert.deepEqual(Array.from(event),['sysAccountGet','sysAccountQuery']);
+      combo.onValueChange('sysAccountUpdate');assert.equal(event,'sysAccountUpdate');
+      assert.equal(JSON.stringify({all,items}),snapshot);
+    }
+    cases++;
+  }
+  assert.equal(cases,2);
+  console.log('PASS: Stage29 Permission catalog parity, actual EnumMultiSelect/EnumWidget/EnumValue, real legacy adapter, raw IDs, mocked ACL filter, callbacks and unknown hash fallback on both pinned editions');
+}

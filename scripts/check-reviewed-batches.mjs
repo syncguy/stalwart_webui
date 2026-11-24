@@ -174,6 +174,33 @@ assert.equal(batchTextSafe('TOS and TTL','Значение TTL',28),false);
 assert.equal(batchTextSafe('0 or 1','0 или 1',28),true);
 assert.equal(batchTextSafe('0 or 1','1 или 2',28),false);
 
+
+const stage29=packets.find(p=>p.stage===29);
+if(stage29){
+  assert.equal(stage29.entries.length,837);
+  assert.equal(new Set(stage29.entries.map(e=>e.original)).size,772);
+  assert.equal(stage29.baseline,'6c1add8bf09005a6a8114ca85a45b4178f37f78b');
+  assert.deepEqual(stage29.scope,[{"section":"Account","screens":["x:AccountPassword","x:AccountSettings","x:ApiKey","x:AppPassword","x:MaskedEmail","x:OAuthGrant","x:Passkey"]},{"section":"Management","screens":["x:Account/Group","x:Account/User","x:Domain","x:OAuthClient","x:Role","x:Tenant"]},{"section":"Settings","screens":["x:Directory"]}]);
+  assert.equal(digest(stage29.entries.map(e=>e.slot+'\0'+e.original+'\n').sort().join('')),'866e418be490b65de1279609c492ee5f4c85231e381e755e18f6793867d5ce56');
+  const permissionRows=stage29.entries.filter(e=>e.slot.startsWith('enum/Permission/'));
+  assert.equal(permissionRows.length,667);
+  assert.deepEqual(Object.fromEntries(permissionRows.map(e=>[e.slot.split('/')[2],{original:e.original,ru:e.ru}])),inputs.permissionCatalog.entries);
+  assert.equal(stage29.entries.filter(e=>/^enum\/(?:Tenant)?StorageQuota\//.test(e.slot)).length,31);
+}
+assert.equal(batchTextSafe('OTP authentication','Аутентификация OTP',29),true);
+assert.equal(batchTextSafe('OTP authentication','Аутентификация',29),false);
+assert.equal(batchTextSafe('IP or CIDR','IP или CIDR',29),true);
+assert.equal(batchTextSafe('IP or CIDR','IP',29),false);
+assert.equal(batchTextSafe('HTTP Basic (client_secret_basic)','Аутентификация HTTP Basic (client_secret_basic)',29),true);
+assert.equal(batchTextSafe('HTTP Basic (client_secret_basic)','Аутентификация HTTP Basic (client_secret_post)',29),false);
+assert.equal(batchTextSafe('DKIM2 (ML-DSA-44)','Подпись DKIM2 (ML-DSA-44)',29),true);
+assert.equal(batchTextSafe('DKIM2 (ML-DSA-44)','Подпись DKIM2 (ML-DSA-65)',29),false);
+assert.equal(batchTextSafe('MUST be <= 64 characters a-z, 0-9 and _','Допустимо <= 64 символов a-z, 0-9 и _',29),true);
+assert.equal(batchTextSafe('MUST be <= 64 characters a-z, 0-9 and _','Допустимо <= 64 символов A-Z, 0-9 и _',29),false);
+assert.equal(batchTextSafe('Date the authorization was granted','Дата предоставления авторизации',29),true);
+assert.equal(batchTextSafe('Date the authorization was granted','Дата предоставления авторизации',28),false);
+assert.equal(batchTextSafe('Date header','Заголовок',29),false);
+
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;
