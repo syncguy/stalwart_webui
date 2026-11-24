@@ -39,6 +39,18 @@ assert.equal(batchTextSafe('MAIL FROM:<>','Пустой MAIL FROM:<>',21),true);
 assert.equal(batchTextSafe('MAIL FROM:<>','Пустой MAIL FROM',21),false);
 assert.equal(batchTextSafe('X-Spam-AI header "run"','Заголовок X-Spam-AI "run"',21),true);
 assert.equal(batchTextSafe('X-Spam-AI header "run"','Заголовок X-Spam-AI "start"',21),false);
+const stage22=packets.find(p=>p.stage===22);
+if(stage22){
+  assert.equal(stage22.entries.length,194);
+  assert.equal(stage22.baseline,'0329795476291873dafd373178b982b8ba974cd4');
+  assert.deepEqual(stage22.scope,[{section:'Settings',screens:['x:AiModel','x:SpamAi','x:HttpLookup','x:OidcProvider']}]);
+}
+assert.equal(batchTextSafe('AI_<CATEGORY>_HIGH','Метка AI_<CATEGORY>_HIGH',22),true);
+assert.equal(batchTextSafe('AI_<CATEGORY>_HIGH','Метка AI_<CATEGORY>_LOW',22),false);
+assert.equal(batchTextSafe('RSASSA-PSS using SHA-256 and MGF1 with SHA-256','RSASSA-PSS с SHA-256 и MGF1 с SHA-384',22),false);
+assert.equal(batchTextSafe('OAuth clients require at least 10 minutes','Клиентам OAuth требуется не менее 10 минут',22),true);
+assert.equal(batchTextSafe('OAuth clients require at least 10 minutes','Клиентам OAuth требуется не менее 1 минуты',22),false);
+assert.equal(batchTextSafe('HTTPS URL','HTTP URL',22),false);
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
 let after=inputs.catalog;
