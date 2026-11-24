@@ -4,6 +4,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
+import {gunzipSync} from 'node:zlib';
 import ts from 'typescript';
 import React from 'react';
 import * as jsxRuntime from 'react/jsx-runtime';
@@ -44,6 +45,7 @@ const render = (C,props) => renderToStaticMarkup(h(C,props));
 const original = slot => catalog.entries[slot].original;
 const ru = slot => catalog.entries[slot].ru;
 let capturedField;
+const capturedFields = new Map();
 const {FieldRow} = component('src/components/forms/FieldRow.tsx',{
   '@/components/ui/label':{Label:({children,...props})=>h('label',props,children)},
   '@/components/common/Markdown':{Markdown:({source})=>h('span',null,source)},
@@ -52,6 +54,7 @@ const {FieldRow} = component('src/components/forms/FieldRow.tsx',{
   '@/components/forms/FormProvider':{FieldScopeProvider:passthrough},
   '@/components/forms/widgets/FieldControl':{FieldControl:props=>{
     capturedField=props;
+    capturedFields.set(props.formField.name,props);
     return h('input',{id:props.control.id,defaultValue:props.value,readOnly:props.readOnly});
   }},
   '@/extensions/widgets':{resolveWidget:()=>({traits:{labelMode:'control',layout:'side',readOnlyAsValue:false}})},
@@ -157,3 +160,96 @@ for(const kind of ['line','area','bar']) {
 }
 console.log('PASS: actual DashboardChart SSR, populated synthetic series and unchanged dataKey/data, mocked Recharts');
 console.log('Stage18 synthetic React SSR/callback PASS; no DOM interactions, live authorization, network or server requests tested.');
+
+
+// Stage19: actual embedded editor and enum widget, pinned schemas and artificial values.
+const manifest19=JSON.parse(read('scripts/data/pinned-schema-manifest.json'));
+const resolver19=sourceModule(read('src/lib/schemaResolver.ts'),'schemaResolver.ts');
+const embedded19=sourceModule(read('src/lib/embeddedSchema.ts'),'embeddedSchema.ts',{'@/lib/jmapUtils':{SECRET_MASK:'synthetic-secret-mask'}});
+let fixtureSchema19;
+const baseline19={};
+const htmlText19=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#x27;');
+const {EmbeddedObjectEditor}=component('src/components/forms/widgets/EmbeddedObjectWidget.tsx',{
+  '@/components/forms/FieldRow':{FieldRow},
+  '@/components/forms/VariantSelect':{VariantSelect:()=>null},
+  '@/components/forms/formContext':{
+    EnclosingSchemaContext:passthrough,PanelContext:passthrough,
+    useFormContext:()=>({schema:fixtureSchema19,mode:'edit',baseline:baseline19}),
+    useInPanel:()=>true,
+  },
+  '@/lib/schemaResolver':resolver19,
+  '@/lib/embeddedSchema':embedded19,
+});
+let capturedCombo19;
+const {EnumWidget}=component('src/components/forms/widgets/EnumWidgets.tsx',{
+  'lucide-react':{Search:icon},
+  '@/components/ui/button':{Button:passthrough},
+  '@/components/ui/checkbox':{Checkbox:()=>null},
+  '@/components/ui/input':{Input:()=>null},
+  '@/components/ui/label':{Label:passthrough},
+  '@/components/ui/combobox':{Combobox:props=>{capturedCombo19=props;return h('div',null,props.options.map(o=>h('span',{key:o.value},o.label)));}},
+  '@/components/ui/popover':{Popover:passthrough,PopoverContent:passthrough,PopoverTrigger:passthrough},
+  '@/components/common/HelpTooltip':{HelpTooltip:()=>null},
+  '@/hooks/usePermissions':{usePermissionCheckers:()=>({hasPermission:id=>id==='sysAccountGet'})},
+  '@/lib/schemaResolver':resolver19,
+  '@/components/forms/formContext':{useFormContext:()=>({schema:fixtureSchema19})},
+  '@/hooks/useSchemaText':{useSchemaText,useCanTranslateSchema:()=>language==='ru'&&catalog.meta.schemaHashes.includes(hash)},
+  '@/i18n/schemaPermissionText':{permissionDisplayLabel:(_id,label)=>label},
+  '@/components/ui/comboboxSearch':{filterComboboxOptions:options=>options},
+  '@/i18n/schemaOptionLabels':{headerProtectionOptionLabel:x=>x,localeOptionLabel:(_id,label)=>label},
+  '@/components/forms/widgets/RemovablePill':{RemovablePill:()=>null},
+});
+for(const pin of manifest19.schemas) {
+  fixtureSchema19=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
+  hash=pin.schemaHash;
+  for(const [objectName,name] of [['AddressBookRights','mayWrite'],['CalendarRights','mayWriteAll'],['MailboxRights','maySetSeen']]){
+    const resolved=embedded19.resolveEmbedded(fixtureSchema19,objectName,{});
+    assert.ok(resolved);
+    const fields=embedded19.embeddedEntries(resolved).filter(({field})=>field.update!=='serverSet');
+    const target=fields.find(({formField})=>formField.name===name);
+    assert.ok(target);
+    const slot='form/'+resolved.schemaName+'/field/'+name,desc='field/'+resolved.schemaName+'/'+name+'/description';
+    assert.equal(target.formField.label,original(slot));
+    assert.equal(target.field.description,original(desc));
+    const value=Object.fromEntries(fields.map(({formField})=>[formField.name,false]));
+    const snapshot=JSON.stringify(value);
+    let event;
+    for(const lang of ['ru','en','ru']){
+      language=lang;capturedFields.clear();
+      const html=render(EmbeddedObjectEditor,{objectName,value,onChange:v=>{event=v;},readOnly:false,bare:true});
+      assert.ok(html.includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+      assert.ok(html.includes(htmlText19(lang==='ru'?ru(desc):original(desc))),desc);
+      const control=capturedFields.get(name);
+      assert.ok(control);
+      assert.equal(control.formField.name,name);
+      assert.equal(control.value,false);
+      control.onChange(true);
+      assert.deepEqual(JSON.parse(JSON.stringify(event)),{...value,[name]:true});
+      assert.equal(JSON.stringify(value),snapshot);
+    }
+  }
+  const variants=resolver19.getEnum(fixtureSchema19,'IncludeInAvailability');
+  assert.equal(variants.length,3);
+  let selected;
+  const props={type:{type:'enum',enumName:'IncludeInAvailability',nullable:false},formField:{name:'includeInAvailability'},value:'attending',onChange:v=>{selected=v;},readOnly:false,control:{}};
+  for(const lang of ['ru','en','ru']){
+    language=lang;
+    const html=render(EnumWidget,props);
+    assert.equal(capturedCombo19.value,'attending');
+    assert.deepEqual(Array.from(capturedCombo19.options,o=>o.value),Array.from(variants,v=>v.name));
+    for(const v of variants){
+      const slot='enum/IncludeInAvailability/'+v.name+'/label';
+      assert.ok(html.includes(htmlText19(lang==='ru'?ru(slot):original(slot))),slot);
+    }
+    capturedCombo19.onValueChange('none');
+    assert.equal(selected,'none');
+    assert.equal(props.value,'attending');
+  }
+  const permissionProps={...props,type:{type:'enum',enumName:'Permission',nullable:false},formField:{name:'permissions'},value:'sysAccountGet'};
+  for(const lang of ['ru','en']){
+    language=lang;
+    render(EnumWidget,permissionProps);
+    assert.deepEqual(Array.from(capturedCombo19.options,o=>o.value),['sysAccountGet']);
+  }
+}
+console.log('PASS: Stage19 actual EmbeddedObjectEditor/FieldRow and EnumWidget SSR, pinned schemas, synthetic rights values, raw callback IDs and mocked permission filter invariant');
