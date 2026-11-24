@@ -9,7 +9,10 @@ import ts from 'typescript';
 import React from 'react';
 import * as jsxRuntime from 'react/jsx-runtime';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { sourceModule } from './lib/locale-source.mjs';
+import { sourceModule, loadInputs } from './lib/locale-source.mjs';
+import { buildUsageGraph } from './lib/locale-graph.mjs';
+import { classify } from './lib/locale-planner.mjs';
+import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
 import './lib/offline-guard.mjs';
 
 const read = p => fs.readFileSync(p,'utf8');
@@ -2149,4 +2152,93 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
     console.log('PASS: Stage35 all 61 residual slots, 113 edition instances '+JSON.stringify(counts)+'; exact raw IDs and callbacks, HeaderProtection parity, SpamTrainingSample DynamicView 4 cases, unknown hash and EN fallback; no server or browser');
   }
 
+}
+
+// Stage37: exercise every historical mismatched description usage using actual
+// pinned fields and resolved schema owner, not a synthetic view key equal to owner.
+// Leaf widgets and ValueRow are mocked as in earlier SSR tests.
+{
+  const inputs37=loadInputs(process.cwd());
+  const packet37=loadFieldDescriptionPacket(process.cwd(),inputs37.policy);
+  const oldCatalog=undoFieldDescriptions(catalog,packet37);
+  const oldInputs={...inputs37,catalog:oldCatalog,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':oldCatalog})};
+  const oldRows=classify(oldInputs,buildUsageGraph(oldInputs)).rows.filter(r=>
+    r.classification==='renderer-unwired'&&r.slot.startsWith('field/')&&r.slot.endsWith('/description'));
+  assert.equal(oldRows.length,978);
+  const pinMap=new Map(inputs37.pins.map(p=>[p.schemaHash,p.data]));
+  let seen;
+  const {DynamicView:DynamicView37}=component('src/components/views/DynamicView.tsx',{
+    '@/components/ui/badge':{Badge:passthrough},
+    '@/components/values/FieldValue':{ValueRow:props=>{seen=props;return h('div',null,props.label,props.description,String(props.value));}},
+    '@/lib/schemaResolver':resolver19,'@/lib/embeddedSchema':embedded19,
+  });
+  const modes37={detail:0,singleton:0,edit:0,create:0};
+  const screenSet37=new Set();
+  const covered=new Set();
+  let networkSettings=0;
+  for(const row of oldRows){
+    const [,owner,name]=row.slot.split('/');
+    const expectedEntry=catalog.entries[row.slot];
+    assert.equal(expectedEntry.original,row.original,row.slot);
+    for(const u of row.usages.filter(u=>u.state==='slot-mismatch')){
+      const schema=pinMap.get(u.schemaHash);
+      const object=resolver19.resolveObject(schema,u.screen);
+      assert.ok(object,u.screen);
+      const sch=resolver19.resolveSchema(schema,object.objectName);
+      assert.ok(sch,u.screen);
+      const variantName=u.conditions.find(x=>x.startsWith('variant:'))?.slice(8);
+      const resolved=sch.type==='single'?sch:sch.variants.find(v=>v.name===variantName);
+      assert.equal(resolved?.schemaName,owner,row.slot+' '+u.screen+' '+u.mode);
+      const field=resolved.fields.properties[name];
+      assert.equal(field.description,row.original,row.slot);
+      const data={...(variantName?{'@type':variantName}:{}),[name]:'synthetic-value'};
+      const before=JSON.stringify({field,data});
+      const modes=[['ru',u.schemaHash],['en',u.schemaHash],['ru','unknown'],['ru',u.schemaHash]];
+      if(u.mode==='detail'){
+        for(const [lang,activeHash] of modes){
+          language=lang;hash=activeHash;seen=undefined;
+          const expected=lang==='ru'&&activeHash===u.schemaHash?expectedEntry.ru:row.original;
+          const html=render(DynamicView37,{schema,objectName:object.objectName,viewName:u.screen,data,visibleFields:new Set([name])});
+          assert.ok(seen,row.slot+' detail not rendered on '+u.screen);
+          assert.equal(seen.description,expected,row.slot);
+          assert.equal(seen.value,data[name],row.slot);
+          assert.equal(seen.type,field.type,row.slot);
+          assert.ok(html.includes(htmlText19(expected)),row.slot);
+        }
+      }else{
+        const formKey=u.via.slice(0,-name.length-1);
+        const form=schema.forms[formKey];
+        assert.ok(form,row.slot+' missing form '+formKey);
+        const section=form.sections.find(s=>s.fields.some(f=>f.name===name));
+        assert.ok(section,row.slot);
+        const ff=section.fields.find(f=>f.name===name);
+        const sections=[{key:'section-'+form.sections.indexOf(section),title:section.title,fields:[{formField:ff,field}]}];
+        let event;
+        const props={sections,formKey,fieldOwner:resolved.schemaName,data,errors:{},readOnly:false,onFieldChange:(key,value)=>{event=[key,value];}};
+        for(const [lang,activeHash] of modes){
+          language=lang;hash=activeHash;
+          const expected=lang==='ru'&&activeHash===u.schemaHash?expectedEntry.ru:row.original;
+          const html=render(FormSections,props);
+          assert.ok(html.includes(htmlText19(expected)),row.slot+' '+u.screen);
+          assert.equal(capturedField.formField.name,name,row.slot);
+          assert.equal(capturedField.field,field,row.slot);
+          assert.equal(capturedField.value,data[name],row.slot);
+          if(field.update!=='serverSet'){
+            capturedField.onChange('edited-value');
+            assert.deepEqual(event,[name,'edited-value']);
+          }
+        }
+      }
+      assert.equal(JSON.stringify({field,data}),before,row.slot);
+      modes37[u.mode]++;
+      covered.add(row.slot);
+      screenSet37.add(u.section+'\0'+u.screen);
+      if(u.screen==='x:SystemSettings/NetworkSettings')networkSettings++;
+    }
+  }
+  assert.deepEqual(modes37,{detail:2103,singleton:185,edit:34,create:14});
+  assert.equal(screenSet37.size,38);
+  assert.equal(covered.size,978);
+  assert.equal(networkSettings,14);
+  console.log('PASS: Stage37 actual DynamicView/FormSections/FieldRow; '+JSON.stringify(modes37)+'; 978 descriptions, 38 affected screens, NetworkSettings 14 edition usages, RU/EN/RU and unknown hash, unchanged raw fields and callbacks; no browser or network');
 }
