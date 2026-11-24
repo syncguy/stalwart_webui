@@ -650,7 +650,17 @@ check('Stage43: exact remaining 159 scope, mode-specific compact and custom cons
     const noConsumer=e.decision==='no-proven-consumer';
     assert.equal(prior.classification,'needs-review',prior.slot);
     assert.equal(now.classification,noConsumer?'unreachable/conditional':'translated',prior.slot);
-    assert.equal(mid.classification,noConsumer?'unreachable/conditional':e.decision==='retain'?'translated':'missing',prior.slot);
+    // Stage9 already supplied two bounded task fallbacks before exact entries.
+    const fallback = {
+      'field/x:TaskStatusPending/due/description':'Дата и время выполнения задания',
+      'variant/x:TaskStatus/Pending/label':'Задание ожидает выполнения',
+    }[prior.slot];
+    assert.equal(mid.classification,noConsumer?'unreachable/conditional':e.decision==='retain'||fallback?'translated':'missing',prior.slot);
+    if(fallback){
+      assert.equal(mid.catalogState,'missing',prior.slot);
+      assert.ok(mid.usages.length>0&&mid.usages.every(u=>u.text.ru===fallback),prior.slot);
+      assert.equal(e.decision,'translate',prior.slot);
+    }
     assert.equal(now.acceptedTranslation,e.ru??e.priorRu??null,prior.slot);
     if(prior.acceptedTranslation!==null)assert.equal(now.acceptedTranslation,prior.acceptedTranslation,prior.slot);
     if(noConsumer){
