@@ -582,7 +582,8 @@ if(catalog.entries['enum/MetricType/acme.auth-error/label']){
     const schema=JSON.parse(gunzipSync(Buffer.from(read(pin.fixture).trim(),'base64')).toString('utf8'));
     fixtureSchema19=schema;hash=pin.schemaHash;editions24++;
     const variants=resolver19.getEnum(schema,'MetricType');
-    assert.equal(variants.length,399);
+    const metricCount=pin.edition==='enterprise'?399:387;
+    assert.equal(variants.length,metricCount);
     const items=['delivery.total-time','server.memory'],next='queue.count';
     const raw=JSON.stringify({variants,items});
     let event;
@@ -590,8 +591,8 @@ if(catalog.entries['enum/MetricType/acme.auth-error/label']){
     for(const lang of ['ru','en','ru']){
       language=lang;checks24=[];labels24=new Map();pills24=[];
       const html=render(EnumMultiSelect,props);
-      assert.equal(checks24.length,399);
-      assert.equal(labels24.size,399);
+      assert.equal(checks24.length,metricCount);
+      assert.equal(labels24.size,metricCount);
       for(const [i,v] of variants.entries()){
         const slot='enum/MetricType/'+v.name+'/label';
         assert.equal(v.label,original(slot));
@@ -669,5 +670,5 @@ if(catalog.entries['enum/MetricType/acme.auth-error/label']){
     assert.ok(render(numeric24.NumberValue,{value:17,format:'integer'}).includes('17'));
     assert.deepEqual(numericCalls24,[['duration',1500],['size',4096],['number',17]]);
   }
-  console.log('PASS: Stage24 actual EnumMultiSelect (all 399 options), EnumValue, FormSections/FieldRow and NumberValue SSR; both pinned schemas, RU/EN/RU and unknown hash, raw IDs, callbacks and numeric/unit dispatch unchanged; leaf formatters mocked, no live metrics or network');
+  console.log('PASS: Stage24 actual EnumMultiSelect (399 Enterprise / 387 OSS options), EnumValue, FormSections/FieldRow and NumberValue SSR; both pinned schemas, RU/EN/RU and unknown hash, raw IDs, callbacks and numeric/unit dispatch unchanged; leaf formatters mocked, no live metrics or network');
 }
