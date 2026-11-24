@@ -8,6 +8,7 @@ import {buildUsageGraph} from './lib/locale-graph.mjs';
 import {loadReviewedBatches,undoBatch,verifyReviewedBatch,batchTextSafe} from './lib/locale-reviewed-batch.mjs';
 import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
 import {loadFormContextPacket,undoFormContext} from './lib/locale-form-context.mjs';
+import {loadVariantPacket,undoVariants} from './lib/locale-variant-labels.mjs';
 import './lib/offline-guard.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const inputs=loadInputs(root),graph=buildUsageGraph(inputs);
@@ -341,7 +342,7 @@ assert.equal(batchTextSafe('RCPT TO','Команда MAIL FROM',35),false);
 
 const raw=fs.readFileSync(path.join(root,'src/i18n/schemaText.ts'),'utf8');
 const makeSchema=catalog=>sourceModule(raw,'schemaText.ts',{'./schema/ru.json':catalog});
-let after=undoFieldDescriptions(undoFormContext(inputs.catalog,loadFormContextPacket(root,inputs.policy)),loadFieldDescriptionPacket(root,inputs.policy));
+let after=undoFieldDescriptions(undoFormContext(undoVariants(inputs.catalog,loadVariantPacket(root,inputs.policy)),loadFormContextPacket(root,inputs.policy)),loadFieldDescriptionPacket(root,inputs.policy));
 for(const packet of [...packets].reverse()){
   const before=undoBatch(after,packet);
   const result=verifyReviewedBatch({packet,before,after,inputs,graph,makeSchema});
