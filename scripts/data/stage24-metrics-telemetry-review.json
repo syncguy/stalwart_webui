@@ -1,0 +1,3194 @@
+{
+  "version": 1,
+  "stage": 24,
+  "baseline": "1729dd9b9852d0bcd12658f78ea714310e7f3834",
+  "baselineCatalogSha256": "7e76c2395bab34aa4a2b87a7681c741eddcf61f5d0d290f420366381ef495161",
+  "scope": [
+    {
+      "section": "Settings",
+      "screens": [
+        "x:Alert",
+        "x:DataRetention/TelemetryRetention",
+        "x:EventTracingLevel",
+        "x:Metrics",
+        "x:Metrics/CollectorOtel",
+        "x:Metrics/CollectorPrometheus",
+        "x:MetricsStore",
+        "x:Tracer",
+        "x:TracingStore"
+      ]
+    },
+    {
+      "section": "Management",
+      "screens": [
+        "x:Log"
+      ]
+    }
+  ],
+  "status": "editor-reviewed",
+  "apply": false,
+  "entries": [
+    {
+      "slot": "enum/LogRotateFrequency/daily/label",
+      "original": "Daily",
+      "ru": "Ежедневно",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/LogRotateFrequency/hourly/label",
+      "original": "Hourly",
+      "ru": "Ежечасно",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/LogRotateFrequency/minutely/label",
+      "original": "Minutely",
+      "ru": "Ежеминутно",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/LogRotateFrequency/never/label",
+      "original": "Never",
+      "ru": "Никогда",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/acme.auth-error/label",
+      "original": "ACME authentication error",
+      "ru": "Ошибка аутентификации ACME",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/acme.auth-too-many-attempts/label",
+      "original": "Too many ACME authentication attempts",
+      "ru": "Слишком много попыток аутентификации ACME",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/acme.client-missing-sni/label",
+      "original": "ACME client missing SNI",
+      "ru": "Клиент ACME не передал SNI",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/acme.error/label",
+      "original": "ACME error",
+      "ru": "Ошибка ACME",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/acme.order-completed/label",
+      "original": "ACME order completed",
+      "ru": "Заказ ACME выполнен",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/acme.order-invalid/label",
+      "original": "ACME order invalid",
+      "ru": "Недействительный заказ ACME",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/acme.tls-alpn-error/label",
+      "original": "ACME TLS ALPN error",
+      "ru": "Ошибка ACME TLS ALPN",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/acme.token-not-found/label",
+      "original": "ACME token not found",
+      "ru": "Токен ACME не найден",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/ai.api-error/label",
+      "original": "AI API error",
+      "ru": "Ошибка API ИИ (AI)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/ai.breaker-open/label",
+      "original": "AI model circuit breaker open",
+      "ru": "Защитный выключатель модели ИИ (AI) разомкнут",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/ai.input-tokens/label",
+      "original": "AI input tokens per request",
+      "ru": "Входные токены ИИ (AI) на запрос",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/ai.output-tokens/label",
+      "original": "AI output tokens per request",
+      "ru": "Выходные токены ИИ (AI) на запрос",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/ai.request-time/label",
+      "original": "AI request duration",
+      "ru": "Длительность запроса к ИИ (AI)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/ai.request/label",
+      "original": "AI request completed",
+      "ru": "Запрос к ИИ (AI) выполнен",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/ai.spam-skipped/label",
+      "original": "AI spam classifier skipped",
+      "ru": "Проверка спама классификатором ИИ (AI) пропущена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/ai.spam-verdict/label",
+      "original": "AI spam verdict",
+      "ru": "Вердикт ИИ (AI) о спаме",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/arc.chain-invalid/label",
+      "original": "ARC chain invalid",
+      "ru": "Недействительная цепочка ARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/arc.hash-mismatch/label",
+      "original": "ARC body hash mismatch",
+      "ru": "Несовпадение хеша тела сообщения ARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/arc.signature-invalid/label",
+      "original": "ARC signature invalid",
+      "ru": "Недействительная подпись ARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/auth.error/label",
+      "original": "Authentication error",
+      "ru": "Ошибка аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/auth.failed/label",
+      "original": "Authentication failed",
+      "ru": "Проверка подлинности не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/auth.success/label",
+      "original": "Authentication successful",
+      "ru": "Аутентификация успешна",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/auth.too-many-attempts/label",
+      "original": "Too many authentication attempts",
+      "ru": "Слишком много попыток аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.entry-too-large/label",
+      "original": "Cache entry too large",
+      "ru": "Слишком большая запись кэша",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.hit/label",
+      "original": "Cache hit",
+      "ru": "Попадание в кэш",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.messages-large-size/label",
+      "original": "Total size of the large-account e-mail data caches held in memory, both those retained by the large tier and those still referenced by in-flight requests",
+      "ru": "Общий объём кэшей почтовых данных крупных учётных записей в памяти, включая удерживаемые большим уровнем кэша и ещё используемые выполняющимися запросами",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.messages-size/label",
+      "original": "Memory used by the e-mail data cache",
+      "ru": "Память, используемая кэшем почтовых данных",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.miss/label",
+      "original": "Cache miss",
+      "ru": "Промах кэша",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.size/label",
+      "original": "Memory used by all other caches",
+      "ru": "Память, используемая всеми прочими кэшами",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.stale/label",
+      "original": "Cache is stale",
+      "ru": "Данные кэша устарели",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.swap-error/label",
+      "original": "Cache swap tier error",
+      "ru": "Ошибка уровня выгрузки кэша",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.swap-hit/label",
+      "original": "Cache snapshot loaded",
+      "ru": "Снимок кэша загружен",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.swap-miss/label",
+      "original": "Cache snapshot unavailable",
+      "ru": "Снимок кэша недоступен",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.swap-pending/label",
+      "original": "Cache snapshots with changes not yet written to the swap tier",
+      "ru": "Снимки кэша с изменениями, ещё не записанными на уровень выгрузки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cache.swap-write/label",
+      "original": "Cache snapshot written",
+      "ru": "Снимок кэша записан",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/calendar.alarm-failed/label",
+      "original": "Calendar alarm could not be sent",
+      "ru": "Не удалось отправить напоминание календаря",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/calendar.alarm-sent/label",
+      "original": "Calendar alarm sent",
+      "ru": "Напоминание календаря отправлено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/calendar.itip-message-error/label",
+      "original": "iTIP message error",
+      "ru": "Ошибка сообщения iTIP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/calendar.itip-message-received/label",
+      "original": "Calendar iTIP message received",
+      "ru": "Получено сообщение календаря iTIP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/calendar.itip-message-sent/label",
+      "original": "Calendar iTIP message sent",
+      "ru": "Отправлено сообщение календаря iTIP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cluster.publisher-error/label",
+      "original": "PubSub publisher error",
+      "ru": "Ошибка издателя PubSub",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cluster.subscriber-disconnected/label",
+      "original": "PubSub subscriber disconnected",
+      "ru": "Подписчик PubSub отключён",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/cluster.subscriber-error/label",
+      "original": "PubSub subscriber error",
+      "ru": "Ошибка подписчика PubSub",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dane.authentication-failure/label",
+      "original": "DANE authentication failed",
+      "ru": "Аутентификация DANE не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dane.authentication-success/label",
+      "original": "DANE authentication successful",
+      "ru": "Аутентификация DANE успешна",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dane.bogus-dnssec-record/label",
+      "original": "Bogus DNSSEC record",
+      "ru": "Недостоверная запись DNSSEC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dane.certificate-parse-error/label",
+      "original": "Error parsing certificate for DANE",
+      "ru": "Ошибка разбора сертификата для DANE",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dane.no-certificates-found/label",
+      "original": "No certificates found for DANE",
+      "ru": "Сертификаты для DANE не найдены",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dane.tlsa-record-fetch-error/label",
+      "original": "Error fetching TLSA record",
+      "ru": "Ошибка получения записи TLSA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dane.tlsa-record-invalid/label",
+      "original": "Invalid TLSA record",
+      "ru": "Недействительная запись TLSA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dane.tlsa-record-not-dnssec-signed/label",
+      "original": "TLSA record not DNSSEC signed",
+      "ru": "Запись TLSA не подписана DNSSEC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dane.tlsa-record-not-found/label",
+      "original": "TLSA record not found",
+      "ru": "Запись TLSA не найдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.active-connections/label",
+      "original": "Active delivery connections",
+      "ru": "Активные соединения доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.attempt-end/label",
+      "original": "Delivery attempt ended",
+      "ru": "Попытка доставки завершена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.attempt-start/label",
+      "original": "Delivery attempt started",
+      "ru": "Попытка доставки начата",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.attempt-time/label",
+      "original": "Message delivery time",
+      "ru": "Время доставки сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.auth-failed/label",
+      "original": "SMTP authentication failed",
+      "ru": "Аутентификация SMTP не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.completed/label",
+      "original": "Delivery completed",
+      "ru": "Доставка завершена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.concurrency-limit-exceeded/label",
+      "original": "Concurrency limit exceeded",
+      "ru": "Превышен предел одновременных операций",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.delivered/label",
+      "original": "Message delivered",
+      "ru": "Сообщение доставлено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.double-bounce/label",
+      "original": "Discarding message after double bounce",
+      "ru": "Сообщение отброшено после повторного отказа доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.dsn-perm-fail/label",
+      "original": "DSN permanent failure notification",
+      "ru": "Уведомление DSN о постоянной ошибке",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.dsn-success/label",
+      "original": "DSN success notification",
+      "ru": "Уведомление DSN об успешной доставке",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.dsn-temp-fail/label",
+      "original": "DSN temporary failure notification",
+      "ru": "Уведомление DSN о временной ошибке",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.ehlo-rejected/label",
+      "original": "SMTP EHLO rejected",
+      "ru": "Команда SMTP EHLO отклонена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.greeting-failed/label",
+      "original": "SMTP greeting failed",
+      "ru": "Ошибка приветствия SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.implicit-tls-error/label",
+      "original": "Implicit TLS error",
+      "ru": "Ошибка неявного TLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.ip-lookup-failed/label",
+      "original": "IP address lookup failed",
+      "ru": "Не удалось найти IP-адрес",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.mail-from-rejected/label",
+      "original": "SMTP MAIL FROM rejected",
+      "ru": "Команда SMTP MAIL FROM отклонена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.message-rejected/label",
+      "original": "Message rejected by remote server",
+      "ru": "Сообщение отклонено удалённым сервером",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.mx-lookup-failed/label",
+      "original": "MX record lookup failed",
+      "ru": "Не удалось найти запись MX",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.null-mx/label",
+      "original": "Null MX record found",
+      "ru": "Обнаружена нулевая запись MX",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.rate-limit-exceeded/label",
+      "original": "Rate limit exceeded",
+      "ru": "Превышено ограничение частоты",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.rcpt-to-failed/label",
+      "original": "SMTP RCPT TO failed",
+      "ru": "Ошибка команды SMTP RCPT TO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.rcpt-to-rejected/label",
+      "original": "SMTP RCPT TO rejected",
+      "ru": "Команда SMTP RCPT TO отклонена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.start-tls-disabled/label",
+      "original": "STARTTLS disabled",
+      "ru": "STARTTLS отключён",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.start-tls-error/label",
+      "original": "STARTTLS error",
+      "ru": "Ошибка STARTTLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.start-tls-unavailable/label",
+      "original": "STARTTLS unavailable",
+      "ru": "STARTTLS недоступен",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/delivery.total-time/label",
+      "original": "Total message delivery time from submission to delivery",
+      "ru": "Полное время доставки сообщения с момента отправки до получения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim.fail/label",
+      "original": "DKIM verification failed",
+      "ru": "Проверка DKIM не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim.hash-mismatch/label",
+      "original": "DKIM body hash mismatch",
+      "ru": "Несовпадение хеша тела сообщения DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim.neutral/label",
+      "original": "DKIM verification neutral",
+      "ru": "Нейтральный результат проверки DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim.none/label",
+      "original": "No DKIM signature",
+      "ru": "Подпись DKIM отсутствует",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim.pass/label",
+      "original": "DKIM verification passed",
+      "ru": "Проверка DKIM пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim.perm-error/label",
+      "original": "DKIM permanent error",
+      "ru": "Постоянная ошибка DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim.public-key-error/label",
+      "original": "DKIM public key error",
+      "ru": "Ошибка открытого ключа DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim.signature-invalid/label",
+      "original": "DKIM signature invalid",
+      "ru": "Недействительная подпись DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim.signer-not-found/label",
+      "original": "DKIM signer not found",
+      "ru": "Подписант DKIM не найден",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim.temp-error/label",
+      "original": "DKIM temporary error",
+      "ru": "Временная ошибка DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim.verification-failed/label",
+      "original": "DKIM signature verification failed",
+      "ru": "Не удалось проверить подпись DKIM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.chain-invalid/label",
+      "original": "DKIM2 chain invalid",
+      "ru": "Недействительная цепочка DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.custody-broken/label",
+      "original": "DKIM2 chain of custody broken",
+      "ru": "Нарушена цепочка передачи DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.dsn-not-aligned/label",
+      "original": "DKIM2 DSN signer not aligned",
+      "ru": "Подписант DSN не согласован с DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.dsn-propagated/label",
+      "original": "DKIM2 DSN propagated",
+      "ru": "Уведомление DKIM2 DSN передано далее",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.envelope-mismatch/label",
+      "original": "DKIM2 envelope mismatch",
+      "ru": "Несовпадение конверта DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.hash-mismatch/label",
+      "original": "DKIM2 hash mismatch",
+      "ru": "Несовпадение хеша DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.instance-invalid/label",
+      "original": "DKIM2 Message-Instance invalid",
+      "ru": "Недействительный Message-Instance DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.public-key-error/label",
+      "original": "DKIM2 public key error",
+      "ru": "Ошибка открытого ключа DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.recipe-error/label",
+      "original": "DKIM2 recipe error",
+      "ru": "Ошибка инструкции DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.signature-invalid/label",
+      "original": "DKIM2 signature invalid",
+      "ru": "Недействительная подпись DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.signing-failed/label",
+      "original": "DKIM2 signing failed",
+      "ru": "Не удалось создать подпись DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.timestamp-invalid/label",
+      "original": "DKIM2 timestamp invalid",
+      "ru": "Недействительная метка времени DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dkim2.verification-failed/label",
+      "original": "DKIM2 signature verification failed",
+      "ru": "Не удалось проверить подпись DKIM2",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dmarc.fail/label",
+      "original": "DMARC check failed",
+      "ru": "Проверка DMARC не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dmarc.none/label",
+      "original": "No DMARC record",
+      "ru": "Запись DMARC отсутствует",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dmarc.pass/label",
+      "original": "DMARC check passed",
+      "ru": "Проверка DMARC пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dmarc.perm-error/label",
+      "original": "DMARC permanent error",
+      "ru": "Постоянная ошибка DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dmarc.temp-error/label",
+      "original": "DMARC temporary error",
+      "ru": "Временная ошибка DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dns.lookup-time/label",
+      "original": "DNS lookup time",
+      "ru": "Время поиска DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dns.record-creation-failed/label",
+      "original": "DNS record creation failed",
+      "ru": "Не удалось создать запись DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dns.record-deletion-failed/label",
+      "original": "DNS record deletion failed",
+      "ru": "Не удалось удалить запись DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dns.record-lookup-failed/label",
+      "original": "DNS record lookup failed",
+      "ru": "Не удалось найти запись DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/dns.record-propagation-timeout/label",
+      "original": "DNS record propagation timeout",
+      "ru": "Истекло время ожидания распространения записи DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/domain.count/label",
+      "original": "Total number of domains",
+      "ru": "Общее число доменов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/encryption.at-rest-encrypted/label",
+      "original": "Message encrypted at rest",
+      "ru": "Сообщение зашифровано при хранении",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/encryption.crl-fetch-failed/label",
+      "original": "CRL download failed",
+      "ru": "Не удалось загрузить CRL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/encryption.dnssec-bogus/label",
+      "original": "DNSSEC validation failed",
+      "ru": "Проверка DNSSEC не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/encryption.encryption-skipped/label",
+      "original": "Encryption skipped",
+      "ru": "Шифрование пропущено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/encryption.gateway-bounced/label",
+      "original": "Gateway bounced message",
+      "ru": "Шлюз вернул сообщение из-за ошибки доставки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/encryption.gateway-encrypted/label",
+      "original": "Gateway encrypted message",
+      "ru": "Шлюз зашифровал сообщение",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/encryption.gateway-plaintext/label",
+      "original": "Gateway sent plaintext",
+      "ru": "Шлюз отправил незашифрованное сообщение",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/encryption.key-change/label",
+      "original": "Key change pending approval",
+      "ru": "Изменение ключа ожидает подтверждения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/encryption.key-harvested/label",
+      "original": "Key harvested",
+      "ru": "Ключ получен при сборе ключей",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/encryption.key-lookup-time/label",
+      "original": "Recipient key discovery lookup time",
+      "ru": "Время поиска ключа получателя",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/encryption.key-lookup/label",
+      "original": "Key lookup",
+      "ru": "Поиск ключа",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/eval.directory-not-found/label",
+      "original": "Directory not found while evaluating expression",
+      "ru": "Каталог не найден при вычислении выражения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/eval.error/label",
+      "original": "Expression evaluation error",
+      "ru": "Ошибка вычисления выражения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/eval.store-not-found/label",
+      "original": "Store not found while evaluating expression",
+      "ru": "Хранилище не найдено при вычислении выражения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/http.active-connections/label",
+      "original": "Active HTTP connections",
+      "ru": "Активные соединения HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/http.connection-start/label",
+      "original": "HTTP connection started",
+      "ru": "Соединение HTTP установлено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/http.error/label",
+      "original": "HTTP error occurred",
+      "ru": "Ошибка HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/http.request-body/label",
+      "original": "HTTP request body",
+      "ru": "Тело запроса HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/http.request-time/label",
+      "original": "HTTP connection duration",
+      "ru": "Длительность соединения HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/http.response-body/label",
+      "original": "HTTP response body",
+      "ru": "Тело ответа HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/http.x-forwarded-invalid/label",
+      "original": "Invalid forwarding header",
+      "ru": "Недействительный заголовок перенаправления",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/http.x-forwarded-missing/label",
+      "original": "X-Forwarded-For header is missing",
+      "ru": "Заголовок X-Forwarded-For отсутствует",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/imap.active-connections/label",
+      "original": "Active IMAP connections",
+      "ru": "Активные соединения IMAP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/imap.connection-end/label",
+      "original": "IMAP connection ended",
+      "ru": "Соединение IMAP завершено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/imap.connection-start/label",
+      "original": "IMAP connection started",
+      "ru": "Соединение IMAP установлено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/imap.request-time/label",
+      "original": "IMAP connection duration",
+      "ru": "Длительность соединения IMAP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.abuse-report/label",
+      "original": "Abuse report received",
+      "ru": "Получен отчёт о злоупотреблении",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.arf-parse-failed/label",
+      "original": "Failed to parse ARF report",
+      "ru": "Не удалось разобрать отчёт ARF",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.auth-failure-report/label",
+      "original": "Authentication failure report received",
+      "ru": "Получен отчёт об ошибке аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.decompress-error/label",
+      "original": "Error decompressing report",
+      "ru": "Ошибка распаковки отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.dmarc-parse-failed/label",
+      "original": "Failed to parse DMARC report",
+      "ru": "Не удалось разобрать отчёт DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.dmarc-report-with-warnings/label",
+      "original": "DMARC report received with warnings",
+      "ru": "Получен отчёт DMARC с предупреждениями",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.dmarc-report/label",
+      "original": "DMARC report received",
+      "ru": "Получен отчёт DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.fraud-report/label",
+      "original": "Fraud report received",
+      "ru": "Получен отчёт о мошенничестве",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.message-parse-failed/label",
+      "original": "Failed to parse incoming report message",
+      "ru": "Не удалось разобрать сообщение с входящим отчётом",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.not-spam-report/label",
+      "original": "Not spam report received",
+      "ru": "Получен отчёт об ошибочной классификации как спам",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.other-report/label",
+      "original": "Other type of report received",
+      "ru": "Получен отчёт другого типа",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.tls-report-with-warnings/label",
+      "original": "TLS report received with warnings",
+      "ru": "Получен отчёт TLS с предупреждениями",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.tls-report/label",
+      "original": "TLS report received",
+      "ru": "Получен отчёт TLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.tls-rpc-parse-failed/label",
+      "original": "Failed to parse TLS RPC report",
+      "ru": "Не удалось разобрать отчёт TLS RPC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/incoming-report.virus-report/label",
+      "original": "Virus report received",
+      "ru": "Получен отчёт о вирусе",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/iprev.fail/label",
+      "original": "IPREV check failed",
+      "ru": "Проверка IPREV не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/iprev.none/label",
+      "original": "No IPREV record",
+      "ru": "Запись IPREV отсутствует",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/iprev.pass/label",
+      "original": "IPREV check passed",
+      "ru": "Проверка IPREV пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/iprev.perm-error/label",
+      "original": "IPREV permanent error",
+      "ru": "Постоянная ошибка IPREV",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/iprev.temp-error/label",
+      "original": "IPREV temporary error",
+      "ru": "Временная ошибка IPREV",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/jmap.forbidden/label",
+      "original": "JMAP operation forbidden",
+      "ru": "Операция JMAP запрещена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/jmap.invalid-arguments/label",
+      "original": "Invalid JMAP arguments",
+      "ru": "Недопустимые аргументы JMAP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/jmap.method-call/label",
+      "original": "JMAP method call",
+      "ru": "Вызов метода JMAP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/jmap.not-json/label",
+      "original": "JMAP request is not JSON",
+      "ru": "Запрос JMAP не является JSON",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/jmap.not-request/label",
+      "original": "JMAP input is not a request",
+      "ru": "Входные данные JMAP не являются запросом",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/jmap.request-too-large/label",
+      "original": "JMAP request too large",
+      "ru": "Слишком большой запрос JMAP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/jmap.unknown-method/label",
+      "original": "Unknown JMAP method",
+      "ru": "Неизвестный метод JMAP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/jmap.unsupported-filter/label",
+      "original": "Unsupported JMAP filter",
+      "ru": "Неподдерживаемый фильтр JMAP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/jmap.unsupported-sort/label",
+      "original": "Unsupported JMAP sort",
+      "ru": "Неподдерживаемая сортировка JMAP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/jmap.websocket-error/label",
+      "original": "JMAP WebSocket error",
+      "ru": "Ошибка JMAP WebSocket",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/jmap.websocket-start/label",
+      "original": "JMAP WebSocket connection started",
+      "ru": "Соединение JMAP WebSocket установлено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/limit.blob-quota/label",
+      "original": "Blob quota limit reached",
+      "ru": "Достигнут предел квоты BLOB-объектов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/limit.calls-in/label",
+      "original": "Incoming calls limit reached",
+      "ru": "Достигнут предел числа входящих вызовов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/limit.concurrent-connection/label",
+      "original": "Concurrent connection limit reached",
+      "ru": "Достигнут предел одновременных соединений",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/limit.concurrent-request/label",
+      "original": "Concurrent request limit reached",
+      "ru": "Достигнут предел одновременных запросов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/limit.concurrent-upload/label",
+      "original": "Concurrent upload limit reached",
+      "ru": "Достигнут предел одновременных загрузок",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/limit.memory-budget/label",
+      "original": "Memory budget exceeded",
+      "ru": "Превышен допустимый объём памяти",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/limit.quota/label",
+      "original": "Quota limit reached",
+      "ru": "Достигнут предел квоты",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/limit.size-request/label",
+      "original": "Request size limit reached",
+      "ru": "Достигнут предел размера запроса",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/limit.size-upload/label",
+      "original": "Upload size limit reached",
+      "ru": "Достигнут предел размера загрузки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/limit.tenant-quota/label",
+      "original": "Tenant quota limit reached",
+      "ru": "Достигнут предел квоты арендатора",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/limit.too-many-requests/label",
+      "original": "Too many requests",
+      "ru": "Слишком много запросов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mail-auth.base64/label",
+      "original": "Base64 error during mail authentication",
+      "ru": "Ошибка Base64 при аутентификации почты",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mail-auth.crypto/label",
+      "original": "Crypto error during mail authentication",
+      "ru": "Криптографическая ошибка при аутентификации почты",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mail-auth.dns-error/label",
+      "original": "DNS error",
+      "ru": "Ошибка DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mail-auth.dns-invalid-record-type/label",
+      "original": "Invalid DNS record type",
+      "ru": "Недопустимый тип записи DNS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mail-auth.dns-record-not-found/label",
+      "original": "DNS record not found",
+      "ru": "Запись DNS не найдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mail-auth.io/label",
+      "original": "I/O error during mail authentication",
+      "ru": "Ошибка ввода-вывода (I/O) при аутентификации почты",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mail-auth.missing-parameters/label",
+      "original": "Missing mail authentication parameters",
+      "ru": "Отсутствуют параметры аутентификации почты",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mail-auth.no-headers-found/label",
+      "original": "No headers found in message",
+      "ru": "В сообщении не найдены заголовки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mail-auth.parse-error/label",
+      "original": "Mail authentication parse error",
+      "ru": "Ошибка разбора данных аутентификации почты",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mail-auth.policy-not-aligned/label",
+      "original": "Policy not aligned",
+      "ru": "Несогласованность с политикой",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/manage-sieve.connection-end/label",
+      "original": "ManageSieve connection ended",
+      "ru": "Соединение ManageSieve завершено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/manage-sieve.connection-start/label",
+      "original": "ManageSieve connection started",
+      "ru": "Соединение ManageSieve установлено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/message-ingest.duplicate/label",
+      "original": "Skipping duplicate message",
+      "ru": "Дубликат сообщения пропущен",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/message-ingest.error/label",
+      "original": "Message ingestion error",
+      "ru": "Ошибка приёма сообщения в хранилище",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/message-ingest.ham/label",
+      "original": "Message ingested",
+      "ru": "Сообщение принято в хранилище",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/message-ingest.imap-append/label",
+      "original": "Message appended via IMAP",
+      "ru": "Сообщение добавлено через IMAP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/message-ingest.jmap-append/label",
+      "original": "Message appended via JMAP",
+      "ru": "Сообщение добавлено через JMAP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/message-ingest.spam/label",
+      "original": "Possible spam message ingested",
+      "ru": "Принято сообщение, подозрительное на спам",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/message-ingest.time/label",
+      "original": "Message ingestion time",
+      "ru": "Время приёма сообщения в хранилище",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/message.authenticated-size/label",
+      "original": "Received message size from authenticated users",
+      "ru": "Размер полученного сообщения от аутентифицированных пользователей",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/message.size/label",
+      "original": "Received message size",
+      "ru": "Размер полученного сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/milter.action-accept/label",
+      "original": "Milter action: Accept",
+      "ru": "Действие Milter: принять",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/milter.action-connection-failure/label",
+      "original": "Milter action: Connection failure",
+      "ru": "Действие Milter: ошибка соединения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/milter.action-discard/label",
+      "original": "Milter action: Discard",
+      "ru": "Действие Milter: отбросить",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/milter.action-reject/label",
+      "original": "Milter action: Reject",
+      "ru": "Действие Milter: отклонить",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/milter.action-reply-code/label",
+      "original": "Milter action: Reply code",
+      "ru": "Действие Milter: код ответа",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/milter.action-shutdown/label",
+      "original": "Milter action: Shutdown",
+      "ru": "Действие Milter: завершить работу",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/milter.action-temp-fail/label",
+      "original": "Milter action: Temporary failure",
+      "ru": "Действие Milter: временная ошибка",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mta-hook.action-accept/label",
+      "original": "MTA hook action: Accept",
+      "ru": "Действие обработчика MTA: принять",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mta-hook.action-discard/label",
+      "original": "MTA hook action: Discard",
+      "ru": "Действие обработчика MTA: отбросить",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mta-hook.action-quarantine/label",
+      "original": "MTA hook action: Quarantine",
+      "ru": "Действие обработчика MTA: поместить в карантин",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mta-hook.action-reject/label",
+      "original": "MTA hook action: Reject",
+      "ru": "Действие обработчика MTA: отклонить",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mta-hook.error/label",
+      "original": "MTA hook error",
+      "ru": "Ошибка обработчика MTA",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mta-sts.authorized/label",
+      "original": "Host authorized by MTA-STS policy",
+      "ru": "Узел разрешён политикой MTA-STS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mta-sts.invalid-policy/label",
+      "original": "Invalid MTA-STS policy",
+      "ru": "Недействительная политика MTA-STS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/mta-sts.not-authorized/label",
+      "original": "Host not authorized by MTA-STS policy",
+      "ru": "Узел не разрешён политикой MTA-STS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/network.timeout/label",
+      "original": "Network timeout",
+      "ru": "Истекло время ожидания сетевой операции",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.dkim-rate-limited/label",
+      "original": "DKIM report rate limited",
+      "ru": "Отправка отчёта DKIM ограничена по частоте",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.dkim-report/label",
+      "original": "DKIM report sent",
+      "ru": "Отчёт DKIM отправлен",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.dmarc-aggregate-report/label",
+      "original": "DMARC aggregate is being prepared",
+      "ru": "Подготавливается сводный отчёт DMARC",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.dmarc-rate-limited/label",
+      "original": "DMARC report rate limited",
+      "ru": "Отправка отчёта DMARC ограничена по частоте",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.dmarc-report/label",
+      "original": "DMARC report sent",
+      "ru": "Отчёт DMARC отправлен",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.http-submission/label",
+      "original": "Report submitted via HTTP",
+      "ru": "Отчёт отправлен через HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.no-recipients-found/label",
+      "original": "No recipients found for report",
+      "ru": "Получатели отчёта не найдены",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.not-found/label",
+      "original": "Report not found",
+      "ru": "Отчёт не найден",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.reporting-address-validation-error/label",
+      "original": "Error validating reporting address",
+      "ru": "Ошибка проверки адреса для отчётов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.size/label",
+      "original": "Outgoing report size",
+      "ru": "Размер исходящего отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.spf-rate-limited/label",
+      "original": "SPF report rate limited",
+      "ru": "Отправка отчёта SPF ограничена по частоте",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.spf-report/label",
+      "original": "SPF report sent",
+      "ru": "Отчёт SPF отправлен",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.submission-error/label",
+      "original": "Error submitting report",
+      "ru": "Ошибка отправки отчёта",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.tls-aggregate/label",
+      "original": "TLS aggregate report is being prepared",
+      "ru": "Подготавливается сводный отчёт TLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/outgoing-report.unauthorized-reporting-address/label",
+      "original": "Unauthorized reporting address",
+      "ru": "Адрес для отчётов не разрешён",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/pop3.active-connections/label",
+      "original": "Active POP3 connections",
+      "ru": "Активные соединения POP3",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/pop3.connection-end/label",
+      "original": "POP3 connection ended",
+      "ru": "Соединение POP3 завершено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/pop3.connection-start/label",
+      "original": "POP3 connection started",
+      "ru": "Соединение POP3 установлено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/pop3.request-time/label",
+      "original": "POP3 connection duration",
+      "ru": "Длительность соединения POP3",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/push-subscription.error/label",
+      "original": "Push subscription error",
+      "ru": "Ошибка подписки на push-уведомления",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/push-subscription.not-found/label",
+      "original": "Push subscription not found",
+      "ru": "Подписка на push-уведомления не найдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/push-subscription.success/label",
+      "original": "Push subscription successful",
+      "ru": "Подписка на push-уведомления успешно оформлена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.authenticated-message-queued/label",
+      "original": "Queued message submission for delivery",
+      "ru": "Сообщение поставлено в очередь на доставку",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.autogenerated-queued/label",
+      "original": "Queued autogenerated message for delivery",
+      "ru": "Автоматически созданное сообщение поставлено в очередь на доставку",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.back-pressure/label",
+      "original": "Queue backpressure detected",
+      "ru": "Обнаружена перегрузка очереди, требующая ограничения приёма",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.blob-not-found/label",
+      "original": "Message blob not found",
+      "ru": "BLOB-объект сообщения не найден",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.concurrency-limit-exceeded/label",
+      "original": "Concurrency limit exceeded",
+      "ru": "Превышен предел одновременных операций",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.count/label",
+      "original": "Total number of messages in the queue",
+      "ru": "Общее число сообщений в очереди",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.dsn-queued/label",
+      "original": "Queued DSN for delivery",
+      "ru": "Уведомление DSN поставлено в очередь на доставку",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.message-queued/label",
+      "original": "Queued message for delivery",
+      "ru": "Сообщение поставлено в очередь на доставку",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.quota-exceeded/label",
+      "original": "Quota exceeded",
+      "ru": "Квота превышена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.rate-limit-exceeded/label",
+      "original": "Rate limit exceeded",
+      "ru": "Превышено ограничение частоты",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.report-queued/label",
+      "original": "Queued report for delivery",
+      "ru": "Отчёт поставлен в очередь на доставку",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/queue.rescheduled/label",
+      "original": "Message rescheduled for delivery",
+      "ru": "Доставка сообщения перенесена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/resource.bad-parameters/label",
+      "original": "Bad resource parameters",
+      "ru": "Недопустимые параметры ресурса",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/resource.error/label",
+      "original": "Resource error",
+      "ru": "Ошибка ресурса",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/resource.not-found/label",
+      "original": "Resource not found",
+      "ru": "Ресурс не найден",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/search-index.batch-indexed/label",
+      "original": "Search index batch written",
+      "ru": "Пакет записан в поисковый индекс",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/search-index.document-truncated/label",
+      "original": "Search document truncated",
+      "ru": "Документ для поиска усечён",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/search-index.index-time/label",
+      "original": "Time to build and write one batch of documents to the full-text index",
+      "ru": "Время формирования и записи одного пакета документов в полнотекстовый индекс",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/search-index.partition-retry/label",
+      "original": "Index partition will be retried",
+      "ru": "Индексирование раздела будет повторено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/search-index.pending-calendar/label",
+      "original": "Calendar events waiting to be indexed",
+      "ru": "События календаря, ожидающие индексирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/search-index.pending-contacts/label",
+      "original": "Contacts waiting to be indexed",
+      "ru": "Контакты, ожидающие индексирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/search-index.pending-email/label",
+      "original": "E-mail messages waiting to be indexed",
+      "ru": "Почтовые сообщения, ожидающие индексирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/search-index.pending-file/label",
+      "original": "Files waiting to be indexed",
+      "ru": "Файлы, ожидающие индексирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/search-index.pending-tracing/label",
+      "original": "Traces waiting to be indexed",
+      "ru": "Трассировки, ожидающие индексирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/security.abuse-ban/label",
+      "original": "Banned due to abuse",
+      "ru": "Блокировка из-за злоупотреблений",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/security.authentication-ban/label",
+      "original": "Banned due to authentication errors",
+      "ru": "Блокировка из-за ошибок аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/security.ip-blocked/label",
+      "original": "Blocked IP address",
+      "ru": "Заблокирован IP-адрес",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/security.loiter-ban/label",
+      "original": "Banned due to loitering",
+      "ru": "Блокировка из-за длительных неактивных соединений",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/security.scan-ban/label",
+      "original": "Banned due to scan",
+      "ru": "Блокировка из-за сканирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/security.unauthorized/label",
+      "original": "Unauthorized access",
+      "ru": "Несанкционированный доступ",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/server.buffered-memory-read/label",
+      "original": "Memory reserved for blobs read from the blob store",
+      "ru": "Память, зарезервированная для BLOB-объектов, прочитанных из хранилища",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/server.buffered-memory-smtp/label",
+      "original": "Memory reserved for buffering inbound SMTP messages",
+      "ru": "Память, зарезервированная для буферизации входящих сообщений SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/server.memory/label",
+      "original": "Server memory usage",
+      "ru": "Использование памяти сервером",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/server.thread-error/label",
+      "original": "Server thread error",
+      "ru": "Ошибка потока сервера",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.action-accept-replace/label",
+      "original": "Sieve action: Accept and replace",
+      "ru": "Действие Sieve: принять и заменить",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.action-accept/label",
+      "original": "Sieve action: Accept",
+      "ru": "Действие Sieve: принять",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.action-discard/label",
+      "original": "Sieve action: Discard",
+      "ru": "Действие Sieve: отбросить",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.action-reject/label",
+      "original": "Sieve action: Reject",
+      "ru": "Действие Sieve: отклонить",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.active-connections/label",
+      "original": "Active ManageSieve connections",
+      "ru": "Активные соединения ManageSieve",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.message-too-large/label",
+      "original": "Sieve message too large",
+      "ru": "Слишком большое сообщение Sieve",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.not-supported/label",
+      "original": "Sieve action not supported",
+      "ru": "Действие Sieve не поддерживается",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.quota-exceeded/label",
+      "original": "Sieve quota exceeded",
+      "ru": "Квота Sieve превышена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.request-time/label",
+      "original": "ManageSieve connection duration",
+      "ru": "Длительность соединения ManageSieve",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.runtime-error/label",
+      "original": "Sieve runtime error",
+      "ru": "Ошибка выполнения Sieve",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.send-message/label",
+      "original": "Sieve sending message",
+      "ru": "Отправка сообщения через Sieve",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/sieve.unexpected-error/label",
+      "original": "Unexpected Sieve error",
+      "ru": "Неожиданная ошибка Sieve",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.active-connections/label",
+      "original": "Active SMTP connections",
+      "ru": "Активные соединения SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.arc-fail/label",
+      "original": "ARC verification failed",
+      "ru": "Проверка ARC не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.arc-pass/label",
+      "original": "ARC verification passed",
+      "ru": "Проверка ARC пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.auth-exchange-too-long/label",
+      "original": "Auth exchange too long",
+      "ru": "Слишком длительный обмен данными аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.auth-mechanism-not-supported/label",
+      "original": "Auth mechanism not supported",
+      "ru": "Механизм аутентификации не поддерживается",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.command-not-implemented/label",
+      "original": "Command not implemented",
+      "ru": "Команда не реализована",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.concurrency-limit-exceeded/label",
+      "original": "Concurrency limit exceeded",
+      "ru": "Превышен предел одновременных операций",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.connection-end/label",
+      "original": "SMTP connection ended",
+      "ru": "Соединение SMTP завершено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.connection-start/label",
+      "original": "SMTP connection started",
+      "ru": "Соединение SMTP установлено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.did-not-say-ehlo/label",
+      "original": "Client did not say EHLO",
+      "ru": "Клиент не отправил EHLO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.dkim-fail/label",
+      "original": "DKIM verification failed",
+      "ru": "Проверка DKIM не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.dkim-pass/label",
+      "original": "DKIM verification passed",
+      "ru": "Проверка DKIM пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.dkim2-dsn-rejected/label",
+      "original": "DKIM2 DSN rejected",
+      "ru": "Уведомление DKIM2 DSN отклонено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.dkim2-fail/label",
+      "original": "DKIM2 verification failed",
+      "ru": "Проверка DKIM2 не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.dkim2-pass/label",
+      "original": "DKIM2 verification passed",
+      "ru": "Проверка DKIM2 пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.dmarc-fail/label",
+      "original": "DMARC check failed",
+      "ru": "Проверка DMARC не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.dmarc-pass/label",
+      "original": "DMARC check passed",
+      "ru": "Проверка DMARC пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.error/label",
+      "original": "SMTP error occurred",
+      "ru": "Ошибка SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.invalid-command/label",
+      "original": "Invalid command",
+      "ru": "Недопустимая команда",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.invalid-ehlo/label",
+      "original": "Invalid EHLO command",
+      "ru": "Недопустимая команда EHLO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.iprev-fail/label",
+      "original": "IPREV check failed",
+      "ru": "Проверка IPREV не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.iprev-pass/label",
+      "original": "IPREV check passed",
+      "ru": "Проверка IPREV пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.loop-detected/label",
+      "original": "Mail loop detected",
+      "ru": "Обнаружена почтовая петля",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.mail-from-missing/label",
+      "original": "MAIL FROM address missing",
+      "ru": "Адрес MAIL FROM отсутствует",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.mail-from-unauthenticated/label",
+      "original": "MAIL FROM without authentication",
+      "ru": "MAIL FROM без аутентификации",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.mail-from-unauthorized/label",
+      "original": "MAIL FROM unauthorized",
+      "ru": "MAIL FROM не разрешён",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.mailbox-does-not-exist/label",
+      "original": "Mailbox does not exist",
+      "ru": "Почтовый ящик не существует",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.message-parse-failed/label",
+      "original": "Message parsing failed",
+      "ru": "Не удалось разобрать сообщение",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.message-too-large/label",
+      "original": "Message too large",
+      "ru": "Слишком большое сообщение",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.multiple-from-domains/label",
+      "original": "Multiple From domains",
+      "ru": "Несколько доменов в заголовке From",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.multiple-mail-from/label",
+      "original": "Multiple MAIL FROM commands",
+      "ru": "Несколько команд MAIL FROM",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.rate-limit-exceeded/label",
+      "original": "Rate limit exceeded",
+      "ru": "Превышено ограничение частоты",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.rcpt-to-duplicate/label",
+      "original": "Duplicate RCPT TO",
+      "ru": "Повторяющийся RCPT TO",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.rcpt-to-missing/label",
+      "original": "RCPT TO address missing",
+      "ru": "Адрес RCPT TO отсутствует",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.relay-not-allowed/label",
+      "original": "Relay not allowed",
+      "ru": "Ретрансляция почты не разрешена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.request-time/label",
+      "original": "SMTP connection duration",
+      "ru": "Длительность соединения SMTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.request-too-large/label",
+      "original": "Request too large",
+      "ru": "Слишком большой запрос",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.spf-ehlo-fail/label",
+      "original": "SPF EHLO check failed",
+      "ru": "Проверка SPF EHLO не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.spf-ehlo-pass/label",
+      "original": "SPF EHLO check passed",
+      "ru": "Проверка SPF EHLO пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.spf-from-fail/label",
+      "original": "SPF From check failed",
+      "ru": "Проверка SPF для From не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.spf-from-pass/label",
+      "original": "SPF From check passed",
+      "ru": "Проверка SPF для From пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.syntax-error/label",
+      "original": "Syntax error",
+      "ru": "Синтаксическая ошибка",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.time-limit-exceeded/label",
+      "original": "Time limit exceeded",
+      "ru": "Превышен предел времени",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.too-many-invalid-rcpt/label",
+      "original": "Too many invalid recipients",
+      "ru": "Слишком много недопустимых получателей",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.too-many-messages/label",
+      "original": "Too many messages",
+      "ru": "Слишком много сообщений",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.too-many-recipients/label",
+      "original": "Too many recipients",
+      "ru": "Слишком много получателей",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/smtp.transfer-limit-exceeded/label",
+      "original": "Transfer limit exceeded",
+      "ru": "Превышен предел объёма передачи",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spam.classify/label",
+      "original": "Classifying message for spam",
+      "ru": "Проверка сообщения на спам",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spam.dnsbl-error/label",
+      "original": "Error querying DNSBL",
+      "ru": "Ошибка запроса DNSBL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spam.model-not-ready/label",
+      "original": "Spam classifier model not ready",
+      "ru": "Модель классификатора спама не готова",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spam.pyzor-error/label",
+      "original": "Pyzor error",
+      "ru": "Ошибка Pyzor",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spam.train-completed/label",
+      "original": "Spam classifier training completed",
+      "ru": "Обучение классификатора спама завершено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spam.train-sample-added/label",
+      "original": "New training sample added",
+      "ru": "Добавлен новый образец для обучения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spf.fail/label",
+      "original": "SPF check failed",
+      "ru": "Проверка SPF не пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spf.neutral/label",
+      "original": "SPF neutral result",
+      "ru": "Нейтральный результат SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spf.none/label",
+      "original": "No SPF record",
+      "ru": "Запись SPF отсутствует",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spf.pass/label",
+      "original": "SPF check passed",
+      "ru": "Проверка SPF пройдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spf.perm-error/label",
+      "original": "SPF permanent error",
+      "ru": "Постоянная ошибка SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spf.soft-fail/label",
+      "original": "SPF soft fail",
+      "ru": "Мягкий отказ SPF (soft fail)",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/spf.temp-error/label",
+      "original": "SPF temporary error",
+      "ru": "Временная ошибка SPF",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.assert-value-failed/label",
+      "original": "Another process modified the record",
+      "ru": "Другой процесс изменил запись",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.azure-error/label",
+      "original": "Azure error",
+      "ru": "Ошибка Azure",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.blob-delete/label",
+      "original": "Blob delete operation",
+      "ru": "Операция удаления BLOB-объекта",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.blob-missing-marker/label",
+      "original": "Blob missing marker",
+      "ru": "Отсутствует маркер BLOB-объекта",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.blob-read-time/label",
+      "original": "Blob store read time",
+      "ru": "Время чтения из хранилища BLOB-объектов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.blob-read/label",
+      "original": "Blob read operation",
+      "ru": "Операция чтения BLOB-объекта",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.blob-write-time/label",
+      "original": "Blob store write time",
+      "ru": "Время записи в хранилище BLOB-объектов",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.blob-write/label",
+      "original": "Blob write operation",
+      "ru": "Операция записи BLOB-объекта",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.crypto-error/label",
+      "original": "Store crypto error",
+      "ru": "Криптографическая ошибка хранилища",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.data-corruption/label",
+      "original": "Data corruption detected",
+      "ru": "Обнаружено повреждение данных",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.data-iterate/label",
+      "original": "Data store iteration operation",
+      "ru": "Операция перебора записей хранилища данных",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.data-read-time/label",
+      "original": "Data store read time",
+      "ru": "Время чтения из хранилища данных",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.data-write-time/label",
+      "original": "Data store write time",
+      "ru": "Время записи в хранилище данных",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.data-write/label",
+      "original": "Write batch operation",
+      "ru": "Операция пакетной записи",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.decompress-error/label",
+      "original": "Decompression error",
+      "ru": "Ошибка распаковки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.decrypt-error/label",
+      "original": "Decryption error",
+      "ru": "Ошибка расшифрования",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.deserialize-error/label",
+      "original": "Deserialization error",
+      "ru": "Ошибка десериализации",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.elasticsearch-error/label",
+      "original": "ElasticSearch error",
+      "ru": "Ошибка ElasticSearch",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.filesystem-error/label",
+      "original": "Filesystem error",
+      "ru": "Ошибка файловой системы",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.foundationdb-error/label",
+      "original": "FoundationDB error",
+      "ru": "Ошибка FoundationDB",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.http-store-error/label",
+      "original": "Error updating HTTP store",
+      "ru": "Ошибка обновления хранилища HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.ldap-error/label",
+      "original": "LDAP error",
+      "ru": "Ошибка LDAP",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.mysql-error/label",
+      "original": "MySQL error",
+      "ru": "Ошибка MySQL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.not-configured/label",
+      "original": "Store not configured",
+      "ru": "Хранилище не настроено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.not-found/label",
+      "original": "Record not found in database",
+      "ru": "Запись в базе данных не найдена",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.not-supported/label",
+      "original": "Operation not supported by store",
+      "ru": "Операция не поддерживается хранилищем",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.pool-error/label",
+      "original": "Connection pool error",
+      "ru": "Ошибка пула соединений",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.postgresql-error/label",
+      "original": "PostgreSQL error",
+      "ru": "Ошибка PostgreSQL",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.redis-error/label",
+      "original": "Redis error",
+      "ru": "Ошибка Redis",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.rocksdb-error/label",
+      "original": "RocksDB error",
+      "ru": "Ошибка RocksDB",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.s3-error/label",
+      "original": "S3 error",
+      "ru": "Ошибка S3",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.sqlite-error/label",
+      "original": "SQLite error",
+      "ru": "Ошибка SQLite",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/store.unexpected-error/label",
+      "original": "Unexpected store error",
+      "ru": "Неожиданная ошибка хранилища",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/task-manager.blob-not-found/label",
+      "original": "Blob not found for task",
+      "ru": "BLOB-объект для задачи не найден",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/task-manager.due/label",
+      "original": "Tasks due for execution that have not run yet",
+      "ru": "Задачи, срок выполнения которых наступил, но они ещё не выполнены",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/task-manager.metadata-not-found/label",
+      "original": "Metadata not found for task",
+      "ru": "Метаданные задачи не найдены",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/task-manager.pending/label",
+      "original": "Tasks queued in the task manager",
+      "ru": "Задачи в очереди диспетчера задач",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/task-manager.task-expired/label",
+      "original": "Task expired",
+      "ru": "Срок действия задачи истёк",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/task-manager.task-failed/label",
+      "original": "Task failed permanently",
+      "ru": "Неустранимая ошибка выполнения задачи",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/task-manager.task-retry/label",
+      "original": "Task will be retried",
+      "ru": "Выполнение задачи будет повторено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/task-manager.task-stalled/label",
+      "original": "Task stalled",
+      "ru": "Выполнение задачи застопорилось",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/telemetry.alert-event/label",
+      "original": "Alert event triggered",
+      "ru": "Сработало событие оповещения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/telemetry.alert-message/label",
+      "original": "Alert message sent",
+      "ru": "Сообщение оповещения отправлено",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/telemetry.events-dropped/label",
+      "original": "Telemetry events dropped",
+      "ru": "События телеметрии отброшены",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/telemetry.journal-error/label",
+      "original": "Journal collector error",
+      "ru": "Ошибка сборщика системного журнала",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/telemetry.log-error/label",
+      "original": "Log collector error",
+      "ru": "Ошибка сборщика журнала",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/telemetry.otel-exporter-error/label",
+      "original": "OpenTelemetry exporter error",
+      "ru": "Ошибка экспортёра OpenTelemetry",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/telemetry.otel-metrics-exporter-error/label",
+      "original": "OpenTelemetry metrics exporter error",
+      "ru": "Ошибка экспортёра метрик OpenTelemetry",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/telemetry.prometheus-exporter-error/label",
+      "original": "Prometheus exporter error",
+      "ru": "Ошибка экспортёра Prometheus",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/telemetry.webhook-error/label",
+      "original": "Webhook collector error",
+      "ru": "Ошибка сборщика через вебхук",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/tls.handshake-error/label",
+      "original": "TLS handshake error",
+      "ru": "Ошибка согласования TLS",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/MetricType/user.count/label",
+      "original": "Total number of users",
+      "ru": "Общее число пользователей",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TracingLevelOpt/debug/label",
+      "original": "Debug - Errors, warnings, info and debug are logged",
+      "ru": "Debug — ошибки, предупреждения, информационные и отладочные сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TracingLevelOpt/error/label",
+      "original": "Error - Only errors are logged",
+      "ru": "Error — только ошибки",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TracingLevelOpt/info/label",
+      "original": "Info - Errors, warnings and info are logged",
+      "ru": "Info — ошибки, предупреждения и информационные сообщения",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TracingLevelOpt/trace/label",
+      "original": "Trace - Errors, warnings, info, debug and trace are logged",
+      "ru": "Trace — ошибки, предупреждения, информационные, отладочные сообщения и трассировка",
+      "decision": "translate"
+    },
+    {
+      "slot": "enum/TracingLevelOpt/warn/label",
+      "original": "Warning - Errors and warnings are logged",
+      "ru": "Warning — ошибки и предупреждения",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Alert/condition/description",
+      "original": "The condition that triggers the alert.",
+      "ru": "Условие срабатывания оповещения.",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Alert/emailAlert/description",
+      "original": "Email notification settings",
+      "ru": "Настройки уведомления по электронной почте",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Alert/enable/description",
+      "original": "Enable or disable the alert",
+      "ru": "Включить или отключить оповещение",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Alert/eventAlert/description",
+      "original": "Event notification settings",
+      "ru": "Настройки уведомления посредством события",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AlertEmailProperties/body/description",
+      "original": "The body of the email",
+      "ru": "Текст письма",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AlertEmailProperties/fromAddress/description",
+      "original": "The email address of the sender",
+      "ru": "Адрес электронной почты отправителя",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AlertEmailProperties/fromName/description",
+      "original": "The name of the sender",
+      "ru": "Имя отправителя",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AlertEmailProperties/subject/description",
+      "original": "The subject of the email",
+      "ru": "Тема письма",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AlertEmailProperties/to/description",
+      "original": "The email address of the recipient(s)",
+      "ru": "Адреса электронной почты получателей",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:AlertEventProperties/eventMessage/description",
+      "original": "The message of the event to trigger",
+      "ru": "Сообщение создаваемого события",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:EventTracingLevel/event/description",
+      "original": "Unique identifier of the event",
+      "ru": "Уникальный идентификатор события",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:EventTracingLevel/level/description",
+      "original": "The logging level for this event",
+      "ru": "Уровень журналирования этого события",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Metrics/metrics/description",
+      "original": "List of metrics to include or exclude based on filter mode",
+      "ru": "Список метрик, включаемых или исключаемых в зависимости от режима фильтрации",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Metrics/metricsPolicy/description",
+      "original": "How to interpret the metrics list",
+      "ru": "Способ применения списка метрик",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Metrics/resourceAttributes/description",
+      "original": "Additional resource attributes reported to OpenTelemetry collectors by the metrics exporter and the OpenTelemetry tracers",
+      "ru": "Дополнительные атрибуты ресурса, передаваемые экспортёром метрик и средствами трассировки OpenTelemetry сборщикам OpenTelemetry",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Metrics/serviceName/description",
+      "original": "Service name reported to OpenTelemetry collectors by the metrics exporter and the OpenTelemetry tracers",
+      "ru": "Имя службы, передаваемое экспортёром метрик и средствами трассировки OpenTelemetry сборщикам OpenTelemetry",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:Metrics/serviceNamespace/description",
+      "original": "Optional service namespace reported to OpenTelemetry collectors by the metrics exporter and the OpenTelemetry tracers",
+      "ru": "Необязательное пространство имён службы, передаваемое экспортёром метрик и средствами трассировки OpenTelemetry сборщикам OpenTelemetry",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelGrpc/allowInvalidCerts/description",
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли использование недействительных сертификатов SSL",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelGrpc/httpAuth/description",
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelGrpc/httpHeaders/description",
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки для HTTP-запросов",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelGrpc/interval/description",
+      "original": "How often metrics are exported to the OpenTelemetry collector",
+      "ru": "Периодичность экспорта метрик в сборщик OpenTelemetry",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelGrpc/timeout/description",
+      "original": "Maximum amount of time that Stalwart will wait for a response from the OpenTelemetry collector",
+      "ru": "Максимальное время ожидания ответа от сборщика OpenTelemetry сервером Stalwart",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelGrpc/url/description",
+      "original": "URL of the OpenTelemetry collector; when unset, the collector on localhost port 4317 is used",
+      "ru": "URL сборщика OpenTelemetry; если не задан, используется сборщик на localhost, порт 4317",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelHttp/allowInvalidCerts/description",
+      "original": "Whether to allow invalid SSL certificates",
+      "ru": "Разрешать ли использование недействительных сертификатов SSL",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelHttp/httpAuth/description",
+      "original": "The type of HTTP authentication to use",
+      "ru": "Тип аутентификации HTTP",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelHttp/httpHeaders/description",
+      "original": "Additional headers to include in HTTP requests",
+      "ru": "Дополнительные заголовки для HTTP-запросов",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelHttp/interval/description",
+      "original": "How often metrics are exported to the OpenTelemetry collector",
+      "ru": "Периодичность экспорта метрик в сборщик OpenTelemetry",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelHttp/timeout/description",
+      "original": "Maximum amount of time that Stalwart will wait for a response from the OpenTelemetry collector",
+      "ru": "Максимальное время ожидания ответа от сборщика OpenTelemetry сервером Stalwart",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsOtelHttp/url/description",
+      "original": "Base URL of the OpenTelemetry collector; /v1/metrics is appended",
+      "ru": "Базовый URL сборщика OpenTelemetry; добавляется путь /v1/metrics",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsPrometheusProperties/authSecret/description",
+      "original": "The Prometheus endpoint's secret for Basic authentication",
+      "ru": "Секрет конечной точки Prometheus для аутентификации Basic",
+      "decision": "translate"
+    },
+    {
+      "slot": "field/x:MetricsPrometheusProperties/authUsername/description",
+      "original": "The Prometheus endpoint's username for Basic authentication",
+      "ru": "Имя пользователя конечной точки Prometheus для аутентификации Basic",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Alert/field/condition",
+      "original": "Alert condition",
+      "ru": "Условие оповещения",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Alert/field/emailAlert",
+      "original": "Email Notification",
+      "ru": "Уведомление по электронной почте",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Alert/field/enable",
+      "original": "Enable",
+      "ru": "Включено",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Alert/field/eventAlert",
+      "original": "Event Notification",
+      "ru": "Уведомление посредством события",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Alert/section/section-0",
+      "original": "Alert configuration",
+      "ru": "Настройка оповещения",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AlertEmailProperties/field/body",
+      "original": "Body",
+      "ru": "Текст письма",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AlertEmailProperties/field/body/placeholder",
+      "original": "The value of 'metric_name' is %{metric_name}%",
+      "ru": "Значение 'metric_name': %{metric_name}%",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AlertEmailProperties/field/fromName",
+      "original": "From Name",
+      "ru": "Имя отправителя",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AlertEmailProperties/field/fromName/placeholder",
+      "original": "Alert subsystem",
+      "ru": "Подсистема оповещений",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AlertEmailProperties/field/subject/placeholder",
+      "original": "Warning: metric has a value of %{metric_name}%",
+      "ru": "Предупреждение: значение метрики %{metric_name}%",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:AlertEventProperties/field/eventMessage/placeholder",
+      "original": "The value of 'metric_name' is %{metric_name}%",
+      "ru": "Значение 'metric_name': %{metric_name}%",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DataRetention/TelemetryRetention/field/holdMetricsFor",
+      "original": "Metrics History",
+      "ru": "История метрик",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DataRetention/TelemetryRetention/field/holdTracesFor",
+      "original": "Tracing History",
+      "ru": "История трассировки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DataRetention/TelemetryRetention/field/metricsCollectionInterval",
+      "original": "Metrics Collection",
+      "ru": "Сбор метрик",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DataRetention/TelemetryRetention/section/section-0",
+      "original": "Retention Policy",
+      "ru": "Политика хранения",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:DataRetention/TelemetryRetention/subtitle",
+      "original": "Configure how long to keep message delivery traces and metrics history before they are permanently deleted, as well as how often to collect metrics history",
+      "ru": "Настройте срок хранения трассировок доставки сообщений и истории метрик до их окончательного удаления, а также периодичность сбора истории метрик",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:EventTracingLevel/field/event",
+      "original": "Event Id",
+      "ru": "Идентификатор события",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:EventTracingLevel/field/level",
+      "original": "Level",
+      "ru": "Уровень",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:EventTracingLevel/section/section-0",
+      "original": "Tracing event level",
+      "ru": "Уровень трассировки события",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/CollectorOtel/field/openTelemetry",
+      "original": "Collector",
+      "ru": "Сборщик",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/CollectorOtel/field/openTelemetry/placeholder",
+      "original": "OpenTelemetry metrics configuration",
+      "ru": "Настройка метрик OpenTelemetry",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/CollectorOtel/subtitle",
+      "original": "Configure OpenTelemetry metrics collection and export settings, including the endpoint and authentication",
+      "ru": "Настройте сбор и экспорт метрик OpenTelemetry, включая конечную точку и аутентификацию",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/CollectorPrometheus/field/prometheus",
+      "original": "Collector",
+      "ru": "Сборщик",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/CollectorPrometheus/field/prometheus/placeholder",
+      "original": "Prometheus metrics endpoint authentication",
+      "ru": "Аутентификация конечной точки метрик Prometheus",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/CollectorPrometheus/subtitle",
+      "original": "Configure Prometheus metrics collection settings including authentication",
+      "ru": "Настройте сбор метрик Prometheus, включая аутентификацию",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/field/metricsPolicy",
+      "original": "Filter Mode",
+      "ru": "Режим фильтрации",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/field/resourceAttributes",
+      "original": "Resource attributes",
+      "ru": "Атрибуты ресурса",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/field/resourceAttributes/keyLabel",
+      "original": "Attribute",
+      "ru": "Атрибут",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/field/resourceAttributes/valueLabel",
+      "original": "Value",
+      "ru": "Значение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/field/serviceName",
+      "original": "Service name",
+      "ru": "Имя службы",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/field/serviceNamespace",
+      "original": "Service namespace",
+      "ru": "Пространство имён службы",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/section/section-1",
+      "original": "OpenTelemetry resource",
+      "ru": "Ресурс OpenTelemetry",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Metrics/subtitle",
+      "original": "Configure metric collection and export, including the OpenTelemetry push exporter, the Prometheus pull endpoint, and which metric types are included or excluded",
+      "ru": "Настройте сбор и экспорт метрик, включая отправку экспортёром OpenTelemetry (push), опрос конечной точки Prometheus (pull), а также включаемые и исключаемые типы метрик",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsOtelGrpc/field/allowInvalidCerts",
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsOtelGrpc/field/httpHeaders",
+      "original": "Headers",
+      "ru": "Заголовки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsOtelGrpc/field/interval",
+      "original": "Export interval",
+      "ru": "Интервал экспорта",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsOtelGrpc/field/timeout",
+      "original": "Timeout",
+      "ru": "Время ожидания",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsOtelGrpc/field/url",
+      "original": "URL",
+      "ru": "URL сборщика",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsOtelHttp/field/allowInvalidCerts",
+      "original": "Allow Invalid Certs",
+      "ru": "Разрешить недействительные сертификаты",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsOtelHttp/field/httpHeaders",
+      "original": "Headers",
+      "ru": "Заголовки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsOtelHttp/field/interval",
+      "original": "Export interval",
+      "ru": "Интервал экспорта",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsOtelHttp/field/timeout",
+      "original": "Timeout",
+      "ru": "Время ожидания",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsOtelHttp/field/url",
+      "original": "URL",
+      "ru": "URL сборщика",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsPrometheusProperties/field/authUsername",
+      "original": "Username",
+      "ru": "Имя пользователя",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsStore/field/@type",
+      "original": "Store type",
+      "ru": "Тип хранилища",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:MetricsStore/subtitle",
+      "original": "Configure where collected server metrics are persisted for historical reporting, or disable metrics storage entirely",
+      "ru": "Настройте хранилище собранных метрик сервера для отчётов по истории или полностью отключите их хранение",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:Tracer/field/@type",
+      "original": "Tracer type",
+      "ru": "Тип средства трассировки",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TracerOtelGrpc/field/httpHeaders/keyLabel",
+      "original": "Header Name",
+      "ru": "Имя заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TracerOtelGrpc/field/httpHeaders/valueLabel",
+      "original": "Header Value",
+      "ru": "Значение заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TracerOtelHttp/field/httpHeaders/keyLabel",
+      "original": "Header Name",
+      "ru": "Имя заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TracerOtelHttp/field/httpHeaders/valueLabel",
+      "original": "Header Value",
+      "ru": "Значение заголовка",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TracingStore/field/@type",
+      "original": "Store type",
+      "ru": "Тип хранилища",
+      "decision": "translate"
+    },
+    {
+      "slot": "form/x:TracingStore/subtitle",
+      "original": "Configure where message delivery traces and event history are persisted, or disable trace storage entirely",
+      "ru": "Настройте хранилище трассировок доставки сообщений и истории событий или полностью отключите хранение трассировок",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Alert/column/condition",
+      "original": "Alert condition",
+      "ru": "Условие оповещения",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Alert/column/enable",
+      "original": "Enable",
+      "ru": "Включено",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Alert/plural",
+      "original": "alerts",
+      "ru": "оповещения",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Alert/singular",
+      "original": "alert",
+      "ru": "оповещение",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Alert/subtitle",
+      "original": "Manage alerts",
+      "ru": "Управление оповещениями",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:EventTracingLevel/column/event",
+      "original": "Event Id",
+      "ru": "Идентификатор события",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:EventTracingLevel/column/level",
+      "original": "Level",
+      "ru": "Уровень",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:EventTracingLevel/plural",
+      "original": "events",
+      "ru": "события",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:EventTracingLevel/singular",
+      "original": "event",
+      "ru": "событие",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:EventTracingLevel/subtitle",
+      "original": "Manage custom event logging levels",
+      "ru": "Управление индивидуальными уровнями журналирования событий",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:EventTracingLevel/title",
+      "original": "Custom event levels",
+      "ru": "Индивидуальные уровни событий",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Tracer/column/@type",
+      "original": "Method",
+      "ru": "Метод",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Tracer/column/enable",
+      "original": "Enable this tracer",
+      "ru": "Средство трассировки включено",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Tracer/column/level",
+      "original": "Logging level",
+      "ru": "Уровень журналирования",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Tracer/plural",
+      "original": "tracers",
+      "ru": "средства трассировки",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Tracer/singular",
+      "original": "tracer",
+      "ru": "средство трассировки",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Tracer/subtitle",
+      "original": "Manage logging and tracing methods",
+      "ru": "Управление методами журналирования и трассировки",
+      "decision": "translate"
+    },
+    {
+      "slot": "list/x:Tracer/title",
+      "original": "Logging & tracing methods",
+      "ru": "Методы журналирования и трассировки",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:Alert/description",
+      "original": "Defines an alert rule triggered by metric conditions.",
+      "ru": "Определяет правило оповещения, срабатывающее по условиям метрик.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:EventTracingLevel/description",
+      "original": "Defines a custom logging level override for a specific event type.",
+      "ru": "Переопределяет уровень журналирования для определённого типа событий.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:Metrics/description",
+      "original": "Configures metrics collection and export via OpenTelemetry and Prometheus.",
+      "ru": "Настраивает сбор и экспорт метрик через OpenTelemetry и Prometheus.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:MetricsStore/description",
+      "original": "Configures the storage backend for metrics data.",
+      "ru": "Настраивает серверное хранилище данных метрик.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:Tracer/description",
+      "original": "Defines a logging and tracing output method.",
+      "ru": "Определяет способ вывода журналов и трассировок.",
+      "decision": "translate"
+    },
+    {
+      "slot": "object/x:TracingStore/description",
+      "original": "Configures the storage backend for tracing data.",
+      "ru": "Настраивает серверное хранилище данных трассировки.",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:MetricsOtel/Grpc/label",
+      "original": "gRPC",
+      "ru": "Протокол gRPC",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:MetricsStore/Default/label",
+      "original": "Use data store",
+      "ru": "Использовать хранилище данных",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:MetricsStore/Disabled/label",
+      "original": "Do not store metrics data",
+      "ru": "Не хранить данные метрик",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:MetricsStore/FoundationDb/label",
+      "original": "FoundationDB",
+      "ru": "Хранилище FoundationDB",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:MetricsStore/MySql/label",
+      "original": "mySQL",
+      "ru": "Хранилище mySQL",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:MetricsStore/PostgreSql/label",
+      "original": "PostgreSQL",
+      "ru": "Хранилище PostgreSQL",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TracingStore/Default/label",
+      "original": "Use data store",
+      "ru": "Использовать хранилище данных",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TracingStore/Disabled/label",
+      "original": "Do not store tracing data",
+      "ru": "Не хранить данные трассировки",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TracingStore/FoundationDb/label",
+      "original": "FoundationDB",
+      "ru": "Хранилище FoundationDB",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TracingStore/MySql/label",
+      "original": "mySQL",
+      "ru": "Хранилище mySQL",
+      "decision": "translate"
+    },
+    {
+      "slot": "variant/x:TracingStore/PostgreSql/label",
+      "original": "PostgreSQL",
+      "ru": "Хранилище PostgreSQL",
+      "decision": "translate"
+    }
+  ]
+}
