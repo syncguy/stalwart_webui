@@ -29,7 +29,7 @@
     "src/components/ui/toast.tsx": "69820e9d7e5f097f33b451f6148d765f0f68300e1ac3ece118882fc04a628b48",
     "src/components/values/FieldValue.tsx": "89e9bd5a231fa659061a2edc5649fcf2c6eae6cfd22b5472031800652e5464ae",
     "src/components/values/ScalarValues.tsx": "1ef0e83604911cac3c54edd182402d0a3424865785e95d05145316b0e0781cc7",
-    "src/components/views/DynamicView.tsx": "77d70eb246136e7bd78914b070529733382be4b25954b82656661ea5e0b585d5",
+    "src/components/views/DynamicView.tsx": "25d24b295ef591240e664cd774a6dff3fc65f71b6aa65e4e42f46ca73c437310",
     "src/components/views/DynamicViewPage.tsx": "aff418ff78352d61fa77575959e28c5da9dc695a7d10de493cfcbcd49e43708d",
     "src/extensions/pages.sel.ts": "3e95696f2d5f60e8ad94d1bd9f8e8ac9a4d80c3715058765853e05b3e99ab7f7",
     "src/extensions/pages.ts": "971e81f91f9697df33a14ef933366da75605a710e874830ac9c912c1bf5e1edc",
@@ -45,7 +45,8 @@
     "src/lib/permissions.ts": "4e1f27ebd2a0d06045e0b8fcf0c282b815d18d6c0f82d45172d37b219ab49855",
     "src/lib/schemaResolver.ts": "4de9271d94b0c5ac5cc6b7bbf787028d3e463c437f47154eaf8f6fb63f08e074",
     "src/stores/schemaStore.ts": "a30b7bb471e013e18bb21ae909ca35c43e2cf4f70a3d1810b3af27c9dfe30e9b",
-    "src/types/schema.ts": "8f8e3515875272f54204f389d65ddf5a1622ada857b0759172d0adeb1e13d4b4"
+    "src/types/schema.ts": "8f8e3515875272f54204f389d65ddf5a1622ada857b0759172d0adeb1e13d4b4",
+    "src/components/forms/VariantSelect.tsx": "e1eed1acac6623f77cef1be048646f30487e0270fcb4c26340c695055e6d3474"
   },
   "keepOriginal": [
     {
@@ -480,7 +481,7 @@
   ],
   "baselineSource": "6491192ec301bb32f7ed500d18f3dd94f358945b",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "320bbaa5c36d7f637aa0cd90a8c31456e7b4d9d801c5542e808c5edbfac7aad3",
+    "src/i18n/schema/ru.json": "374084099351ec9ebae1bcd98ba72730a34ce18ab99aa1e508299f5c8bf9022e",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
     "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
@@ -507,9 +508,11 @@
     "scripts/data/stage35-ambiguous-missing-review.json": "8e933f83969d6e4d9d7be44bb5b8aa258265bbcb5f04a1dac166c2284d51b4e8",
     "scripts/data/stage37-field-descriptions-review.json": "6a8236cdc6f3521788e3a2c5b1cf4698293fe5f6f5b5f2966c81ba752080e8b6",
     "scripts/lib/locale-field-descriptions.mjs": "2177dbbddfd188621f8491ae8571418f1d69540a059a03f201376ef9a3d52038",
-    "scripts/lib/locale-graph.mjs": "e47670ce89e2e3a27f05ecd788c1a64cdf98c00e405cf7a15eb8593676a514a3",
+    "scripts/lib/locale-graph.mjs": "1721f8a74032abad5a1f382bbd5ed2c0feb3373eaa4252dc00de00a3d6434f78",
     "scripts/lib/locale-form-context.mjs": "ef2fe2295fbc84c35636650c361328b27711fc1ed8c20bc460b612b6ca61e557",
-    "scripts/data/stage38-form-context-review.json": "376c86eb95423f7da3a76b24fa33834a4f1df2cd05de1c7c6b9684e311de913e"
+    "scripts/data/stage38-form-context-review.json": "376c86eb95423f7da3a76b24fa33834a4f1df2cd05de1c7c6b9684e311de913e",
+    "scripts/lib/locale-variant-labels.mjs": "51a3896b38046c886d07af6ab36319931d07c5f169f3626876de29e8117ff717",
+    "scripts/data/stage39-variants-review.json": "00a7c95a01068a84293374e33b339e7ecb557206c75891ffb7579c6469b9bbad"
   },
   "clientLiterals": [
     {
