@@ -4,6 +4,7 @@ on:
   # Stage36: package verified stage35 catalog (7360023d262ede43fba96166204c57f8d5776553).
   # Stage40: laboratory package of accepted stage39 (f58cc0f6df6b48665765427c32bf1bb864588ed5).
   # Stage45: control package of accepted stage44 (d488fb8fee2131548ff43d899ba10c4f338d97b7).
+  # Stage47 interim: operator feedback on dashboard labels, grammatical cases and clipping.
   # Manual switch: only a commit editing this laboratory workflow on ru starts a run.
   push:
     branches:

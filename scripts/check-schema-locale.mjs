@@ -733,3 +733,14 @@ for (const [slot, original, expected] of [
 assert.ok(listSource.includes('name: actionName'));
 assert.ok(dynamicFormStage5.includes('actionNameFor(resolved.list'));
 console.log('Stage47 grammatical checks PASS:', actionCount, 'list slots');
+
+// Stage47: static component wiring checks. Browser hover, focus and clipping need operator verification.
+const overflowSource = fs.readFileSync('src/components/common/OverflowText.tsx', 'utf8');
+assert.ok(overflowSource.includes('element.scrollWidth > element.clientWidth'));
+assert.ok(overflowSource.includes('tabIndex={overflow ? 0 : undefined}'));
+assert.ok(overflowSource.includes('{overflow && <TooltipContent'));
+for (const component of ['TileHeader', 'StatCard', 'RankingTile', 'DashboardChart']) {
+  const source = fs.readFileSync('src/features/dashboard/components/' + component + '.tsx', 'utf8');
+  assert.ok(source.includes('<OverflowText text='), component);
+}
+console.log('Stage47 overflow source wiring PASS; browser interaction NOT TESTED');

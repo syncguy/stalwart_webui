@@ -11,6 +11,7 @@ import type { Ranking, Placement } from '../types/schema';
 import type { Metric } from '../types/metrics';
 import { formatValue, rankingEntries } from '../helpers';
 import { toneClasses } from './tone';
+import { OverflowText } from '@/components/common/OverflowText';
 import { TileHeader } from './TileHeader';
 import { useSchemaText } from '@/hooks/useSchemaText';
 
@@ -55,7 +56,7 @@ export function RankingTile({ dashboardId, itemIndex, ranking, className, histor
             key={entry.label}
             className="grid grid-cols-[minmax(0,7.5rem)_minmax(0,1fr)_minmax(3.5rem,auto)] items-center gap-3 text-[13px]"
           >
-            <span className="truncate">{seriesName(entry.label)}</span>
+            <OverflowText text={seriesName(entry.label)} />
             <span className={cn('h-2 overflow-hidden rounded-full', toneClass.track)} aria-hidden="true">
               <span
                 className="block h-full rounded-full"

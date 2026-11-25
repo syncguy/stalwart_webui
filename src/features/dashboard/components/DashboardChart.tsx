@@ -9,6 +9,7 @@ import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, Cartesia
 
 import { Info } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { OverflowText } from '@/components/common/OverflowText';
 import { HelpTooltip } from '@/components/common/HelpTooltip';
 import { ChartTooltipContent, getChartColor } from '@/components/ui/chart';
 import type { Chart as ChartSchema, Placement } from '../types/schema';
@@ -207,7 +208,7 @@ export function DashboardChart({ dashboardId, itemIndex, chart, historySamples, 
     >
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
         <div className="flex min-w-0 items-center gap-2">
-          <h2 className="section-title truncate">{title}</h2>
+          <h2 className="section-title min-w-0"><OverflowText text={title} /></h2>
           {description && <HelpTooltip content={description} label={title} icon={Info} />}
         </div>
         {chart.series.length > 0 && (

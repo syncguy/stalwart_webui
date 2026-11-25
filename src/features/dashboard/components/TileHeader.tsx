@@ -6,6 +6,7 @@
 
 import { HelpCircle, Info } from 'lucide-react';
 import { DynamicIcon } from '@/components/common/DynamicIcon';
+import { OverflowText } from '@/components/common/OverflowText';
 import { HelpTooltip } from '@/components/common/HelpTooltip';
 import { cn } from '@/lib/utils';
 
@@ -27,7 +28,7 @@ export function TileHeader({
           <DynamicIcon name={icon} fallback={HelpCircle} className="size-[17px]" />
         </span>
       )}
-      <h2 className="section-title truncate">{title}</h2>
+      <h2 className="section-title min-w-0"><OverflowText text={title} /></h2>
       {description && <HelpTooltip content={description} label={title} icon={Info} />}
     </div>
   );

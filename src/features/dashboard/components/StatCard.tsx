@@ -10,6 +10,7 @@ import { ArrowDownRight, ArrowUpRight, HelpCircle, Info, Minus } from 'lucide-re
 import { DynamicIcon } from '@/components/common/DynamicIcon';
 import { LineChart, Line } from 'recharts';
 import { Card } from '@/components/ui/card';
+import { OverflowText } from '@/components/common/OverflowText';
 import { HelpTooltip } from '@/components/common/HelpTooltip';
 import type { Card as CardSchema, Placement } from '../types/schema';
 import type { Metric } from '../types/metrics';
@@ -106,7 +107,7 @@ export function StatCard({ dashboardId, itemIndex, card, className, historySampl
         <span className={cn('grid size-9 shrink-0 place-items-center rounded-[11px]', toneClass.badge)}>
           <DynamicIcon name={card.icon} fallback={HelpCircle} className="size-[17px]" />
         </span>
-        <span className="min-w-0 truncate">{title}</span>
+        <OverflowText text={title} />
         {description && <HelpTooltip content={description} label={title} icon={Info} />}
       </div>
 
