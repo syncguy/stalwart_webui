@@ -18,7 +18,7 @@ import { layoutViewFor } from '@/lib/layout';
 import { canAccessView } from '@/lib/permissions';
 import { getDisplayProperty } from '@/lib/schemaResolver';
 import { useSchemaStore } from '@/stores/schemaStore';
-import { useSchemaText } from '@/hooks/useSchemaText';
+import { useSchemaText, useSchemaActionName } from '@/hooks/useSchemaText';
 import type { List, Schema } from '@/types/schema';
 import type { ResolvedView } from '@/lib/schemaResolver';
 
@@ -70,6 +70,7 @@ interface DynamicListViewProps {
 function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewProps) {
   const { t } = useTranslation();
   const display = useSchemaText();
+  const actionNameFor = useSchemaActionName();
   const navigate = useNavigate();
   const viewToSection = useSchemaStore((s) => s.viewToSection);
   const checkers = usePermissionCheckers();
@@ -85,6 +86,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
   const title = display(`list/${listKey}/title`, list.title);
   const subtitle = display(`list/${listKey}/subtitle`, list.subtitle);
   const singularName = display(`list/${listKey}/singular`, list.singularName);
+  const actionName = actionNameFor(`list/${listKey}/singular`, list.singularName);
   const fields = getListFields(resolved.resolvedSchema);
   const labelProperty = getDisplayProperty(schema, viewName);
   const listState = useDynamicList(objectName, list, labelProperty in fields ? labelProperty : undefined);
@@ -186,7 +188,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
     };
     if (action.type === 'delete') {
       setConfirm({
-        title: t('list.deleteItemTitle', 'Delete {{name}}?', { name: singularName }),
+        title: actionName === null ? t('common.delete', 'Delete') : t('list.deleteItemTitle', 'Delete {{name}}?', { name: actionName }),
         description: t(
           'list.deleteItemDescription',
           'Are you sure you want to delete {{label}}? This action cannot be undone.',
@@ -223,7 +225,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
         {canCreate && section && (
           <Button onClick={() => navigate(`/${section}/${viewName}/new`)}>
             <Plus aria-hidden />
-            {t('list.create', 'Create {{name}}', { name: singularName })}
+            {actionName === null ? t('common.create', 'Create') : t('list.create', 'Create {{name}}', { name: actionName })}
           </Button>
         )}
       </div>

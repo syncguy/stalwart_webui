@@ -706,3 +706,30 @@ for (const [slot, entry] of Object.entries(exports.dashboardEditorial)) {
   assert.equal(schemaText('unknown-hash', 'ru', slot, entry.original), entry.original, slot);
 }
 console.log('Stage47 editorial checks PASS:', Object.keys(exports.dashboardEditorial).length);
+
+// Stage47: grammatical action names for every ordinary list singular label.
+let actionCount = 0;
+for (const [slot, entry] of Object.entries(entries)) {
+  if (!/^list\\/.+\\/singular$/.test(slot)) continue;
+  for (const hash of meta.schemaHashes) {
+    if (schemaText(hash, 'ru', slot, entry.original) === entry.ru) {
+      assert.ok(exports.schemaActionName(hash, 'ru', slot, entry.original), slot + ': missing action form');
+    }
+    assert.equal(exports.schemaActionName(hash, 'en', slot, entry.original), entry.original);
+    assert.equal(exports.schemaActionName(hash, 'ru', slot, entry.original + ' changed'), null);
+  }
+  assert.equal(exports.schemaActionName('unknown-hash', 'ru', slot, entry.original), null);
+  actionCount++;
+}
+for (const [slot, original, expected] of [
+  ['list/x:Account/User/singular', 'user', 'пользователя'],
+  ['list/x:Account/Group/singular', 'group', 'группу'],
+  ['list/x:Tenant/singular', 'tenant', 'арендатора'],
+  ['list/AddressBook/singular', 'address book', 'адресную книгу'],
+  ['list/x:Domain/singular', 'domain', 'домен'],
+]) {
+  for (const hash of meta.schemaHashes) assert.equal(exports.schemaActionName(hash, 'ru', slot, original), expected);
+}
+assert.ok(listSource.includes('name: actionName'));
+assert.ok(dynamicFormStage5.includes('actionNameFor(resolved.list'));
+console.log('Stage47 grammatical checks PASS:', actionCount, 'list slots');

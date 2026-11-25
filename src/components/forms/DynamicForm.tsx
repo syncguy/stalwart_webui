@@ -20,7 +20,7 @@ import { FormSections } from '@/components/forms/FormSections';
 import { sectionDisplayContext } from '@/i18n/schemaFormContext';
 import { UnsavedChangesDialog } from '@/components/forms/UnsavedChangesDialog';
 import { useDynamicForm, type DynamicFormModel, type DynamicFormOptions } from '@/components/forms/useDynamicForm';
-import { useSchemaText } from '@/hooks/useSchemaText';
+import { useSchemaText, useSchemaActionName } from '@/hooks/useSchemaText';
 import type { FieldValues, RenderableSection } from '@/components/forms/formLogic';
 import { cn } from '@/lib/utils';
 
@@ -44,7 +44,7 @@ function capitalize(text: string): string {
 function useFormTitle(model: DynamicFormModel): string {
   const { t } = useTranslation();
   const display = useSchemaText();
-  const { resolved, mode, isSingleton, state, parentForm, variantForm } = model;
+  const actionNameFor = useSchemaActionName();, isSingleton, state, parentForm, variantForm } = model;
   if (!resolved) return '';
   const titleForm = parentForm ?? variantForm;
   const objectKey = resolved.object.objectName;
@@ -59,12 +59,14 @@ function useFormTitle(model: DynamicFormModel): string {
       : display(`object/${objectKey}/description`, resolved.object.objectType.description);
   }
   const rawName = resolved.list?.singularName ?? resolved.object.objectType.description;
-  const name = resolved.list
-    ? display(`list/${listKey}/singular`, rawName)
-    : display(`object/${objectKey}/description`, rawName);
-  if (mode === 'create') return t('form.createTitle', 'Create {{name}}', { name });
+  const name = actionNameFor(resolved.list ? `list/${listKey}/singular` : `object/${objectKey}/description`, rawName);
+  if (mode === 'create') return name === null ? t('common.create', 'Create') : t('form.createTitle', 'Create {{name}}', { name });
   const labelProperty = resolved.list?.labelProperty;
   const value = labelProperty ? coerceLabel(state.data[labelProperty], '') : '';
+  if (name === null) {
+    const edit = t('form.editTitle', 'Edit {{name}}', { name: '' }).trim();
+    return value ? `${edit}: ${value}` : edit;
+  }
   return value
     ? t('form.editTitleWithValue', 'Edit {{name}}: {{value}}', { name, value })
     : t('form.editTitle', 'Edit {{name}}', { name });
