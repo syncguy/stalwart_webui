@@ -2488,3 +2488,5 @@ await import('./lib/locale-trace-components.mjs');
 await import('./lib/locale-regional-components.mjs');
 
 await import('./lib/locale-specialized-components.mjs');
+
+await import('./lib/locale-stage44-components.mjs');

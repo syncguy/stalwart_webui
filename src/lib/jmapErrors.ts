@@ -28,8 +28,16 @@ export function validationErrorMessage(ve: ValidationError): string {
   }
 }
 
-export function friendlySetError(err: JmapSetError): string {
-  if (err.description) return err.description;
+// Preserve raw diagnostic text. For known error types, RU gets a localized summary first;
+// EN and unknown types retain the original diagnostic precedence.
+function withDiagnostic(summary: string | null, detail: string | null | undefined, fallback: string): string {
+  if (!summary) return detail || fallback;
+  if (!detail || detail === summary) return summary;
+  const language = (i18n.resolvedLanguage ?? i18n.language ?? 'en').split(/[-_]/)[0].toLowerCase();
+  return language === 'ru' ? summary + '\n' + detail : detail;
+}
+
+function setErrorSummary(err: JmapSetError): string | null {
   switch (err.type) {
     case 'forbidden':
       return i18n.t('jmapErrors.forbidden', 'You do not have permission to perform this action.');
@@ -64,12 +72,15 @@ export function friendlySetError(err: JmapSetError): string {
     case 'validationFailed':
       return i18n.t('jmapErrors.validationFailed', 'The data did not pass validation.');
     default:
-      return i18n.t('jmapErrors.unexpected', 'Unexpected error ({{type}}).', { type: err.type });
+      return null;
   }
 }
 
-export function friendlyMethodError(err: JmapMethodError): string {
-  if (err.description) return err.description;
+export function friendlySetError(err: JmapSetError): string {
+  return withDiagnostic(setErrorSummary(err), err.description, i18n.t('jmapErrors.unexpected', 'Unexpected error ({{type}}).', { type: err.type }));
+}
+
+function methodErrorSummary(err: JmapMethodError): string | null {
   switch (err.type) {
     case 'forbidden':
       return i18n.t('jmapErrors.forbidden', 'You do not have permission to perform this action.');
@@ -100,21 +111,22 @@ export function friendlyMethodError(err: JmapMethodError): string {
     case 'stateMismatch':
       return i18n.t('jmapErrors.stateMismatch', 'The data changed on the server. Please reload and try again.');
     default:
-      return i18n.t('jmapErrors.unexpected', 'Unexpected error ({{type}}).', { type: err.type });
+      return null;
   }
+}
+
+export function friendlyMethodError(err: JmapMethodError): string {
+  return withDiagnostic(methodErrorSummary(err), err.description, i18n.t('jmapErrors.unexpected', 'Unexpected error ({{type}}).', { type: err.type }));
 }
 
 export function errorMessage(err: unknown, fallback?: string): string {
   const fallbackMessage = fallback ?? i18n.t('errors.unexpectedError', 'An unexpected error occurred.');
   if (err instanceof JmapMethodError) return friendlyMethodError(err);
   if (err instanceof ApiError) {
-    if (err.detail) return err.detail;
-    if (err.status === 401) return i18n.t('errors.sessionExpired', 'Your session has expired. Please sign in again.');
-    if (err.status === 403) {
-      return i18n.t('jmapErrors.forbidden', 'You do not have permission to perform this action.');
-    }
-    if (err.status === 404) return i18n.t('errors.notFound', 'The requested resource was not found.');
-    return err.message;
+    const summary = err.status === 401 ? i18n.t('errors.sessionExpired', 'Your session has expired. Please sign in again.')
+      : err.status === 403 ? i18n.t('jmapErrors.forbidden', 'You do not have permission to perform this action.')
+      : err.status === 404 ? i18n.t('errors.notFound', 'The requested resource was not found.') : null;
+    return withDiagnostic(summary, err.detail, err.message);
   }
   if (err instanceof JmapProtocolError) return err.message;
   if (isAbortError(err)) return i18n.t('errors.requestAborted', 'The request was cancelled.');

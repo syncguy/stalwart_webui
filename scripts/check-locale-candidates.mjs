@@ -735,6 +735,8 @@ const byId44=new Map(active44.rows.map(r=>[r.id,r]));
 for(const e of evidence44.rows.filter(r=>r.recommendedClassification!=='unreachable/conditional')) {
   const actual=byId44.get(e.id);
   assert.ok(actual.usages.length,e.slot);
-  assert.notEqual(actual.classification,'unreachable/conditional',e.slot);
+  assert.equal(actual.classification,'translated',e.slot);
 }
-console.log('Stage44 evidence and active inventory verified; independent sink acceptance remains open.');
+assert.deepEqual(active44.summary.classification,{'translated':11474,'missing':0,'keep-original':58,'technical':74,'renderer-unwired':0,'unreachable/conditional':640,'needs-review':0});
+assert.equal(active44.rows.find(r=>r.slot==='field/x:AccountPassword/otpAuth/description').classification,'unreachable/conditional');
+console.log('Stage44 evidence and active inventory verified; browser/ACL acceptance remains open.');

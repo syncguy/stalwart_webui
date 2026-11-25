@@ -10,7 +10,7 @@ const digest = v => createHash('sha256').update(v).digest('hex');
 const json = v => JSON.stringify(v, null, 2) + '\n';
 const key = r => r.slot + '\0' + r.original;
 const packetPath = 'scripts/data/stage44-final-review.json';
-const hash = '43716f691f50d836655e4e03258e1f6027fe8c2b1cc44f044e9deae1b3821945';
+const hash = '0fe29d63d70e0fba023b39f231611b94d76c1ae39ca160eb051266edaa73e536';
 const id = r => digest(key(r)).slice(0,20);
 
 export function loadStage44Packet(root) {
@@ -51,6 +51,7 @@ export function validateStage44(root, inputs, packet) {
   }
   walk('src');
   assert.deepEqual(source, packet.sourceBlobs, 'Renderer source inventory changed: reopen stage44 paths and exclusions');
+  for(const [p,h] of Object.entries(packet.clientCatalogSha256)) assert.equal(digest(fs.readFileSync(path.join(root,p))),h,'Client catalogue changed: reopen stage44 review');
   const rows = new Map(inputs.inventory.rows.map(r=>[key(r),r]));
   assert.equal(rows.size,12246);
   assert.equal(packet.rows.length,828);
@@ -106,10 +107,10 @@ export function stage44Graph(inputs, packet) {
     assert.ok(rootNames[r.group],r.group);
     const screen=r.group==='D2'?(r.slot.includes('Domain')?'x:Domain/DomainZone':'x:QueuedMessage/MessageContents'):rootNames[r.group];
     const section=sections[r.group], mode=modes[r.group];
-    // Keep separately evidenced non-menu paths visible. Independent runtime/SSR
-    // verification of these exact sinks is still required, not inferred from a catalogue entry.
+    // Exact source-reviewed non-menu paths. The CI separately exercises the
+    // actual sink components and route/search contracts (not browser access).
     for(const b of r.bindings) {
-      uses.push({section,area:section,screen,mode,via:b.referencePath,conditions:[b.rendererModeGate,'independent sink reproduction pending'],schemaHash:b.schemaHash,edition:b.edition,sourcePointer:b.sourcePointer,lookupSlot:r.slot,renderer:r.sourceFiles.join(' -> '),state:'review'});
+      uses.push({section,area:section,screen,mode,via:b.referencePath,conditions:[b.rendererModeGate,'source-pinned review; synthetic/source checks required; browser/ACL unknown'],schemaHash:b.schemaHash,edition:b.edition,sourcePointer:b.sourcePointer,lookupSlot:r.slot,renderer:r.sourceFiles.join(' -> '),state:'wired'});
     }
     review++;
     let s=graph.screens.find(s=>s.section===section&&s.view===screen);
@@ -118,5 +119,28 @@ export function stage44Graph(inputs, packet) {
   }
   assert.equal(bootstrap,104);
   assert.equal(review,85);
+  // Previously translated slots: do not count non-rendered editor metadata.
+  const addSink=(slot,section,screen,mode,renderer,condition,replace=false)=>{
+    const rows=inputs.inventory.rows.filter(r=>r.slot===slot); assert.equal(rows.length,1,slot);
+    const row=rows[0],k=key(row);
+    if(replace)graph.usages.set(k,[]);
+    const uses=graph.usages.get(k);
+    for(const b of row.locations)uses.push({section,area:section,screen,mode,via:renderer,conditions:[condition,'availability-unknown'],schemaHash:b.schemaHash,edition:b.edition,sourcePointer:b.sourcePointer,lookupSlot:slot,renderer,state:'wired'});
+    let s=graph.screens.find(s=>s.section===section&&s.view===screen);
+    if(!s){s={section,area:section,view:screen,name:screen,editions:[],gates:[],modes:[]};graph.screens.push(s);}
+    s.modes=[...new Set([...s.modes,mode])].sort();
+    s.editions=[...new Set([...s.editions,...row.locations.map(b=>b.edition)])].sort();
+  };
+  const otp=inputs.inventory.rows.find(r=>r.slot==='field/x:AccountPassword/otpAuth/description');
+  assert.ok(otp);
+  graph.usages.set(key(otp),[]);
+  graph.reviewedExclusions.set(key(otp),'UNLABELLED OTP widget replaces outer description; singleton has no generic detail; search indexes labels only');
+  addSink('form/x:AccountPassword/field/otpAuth','@search','global-search','search','schemaStore.buildSearchIndex','Search label with permitted layout/view',true);
+  addSink('form/x:Passkey/field/registration','@search','global-search','search','schemaStore.buildSearchIndex','Search label with permitted layout/view',true);
+  addSink('form/x:Passkey/field/registration','@direct','x:Passkey','detail','DynamicView/FieldValue','Nonempty registration in full detail; not editor');
+  addSink('field/x:Passkey/registration/description','@direct','x:Passkey','detail','DynamicView/FieldValue','Nonempty registration in full detail; createOnly suppresses editor',true);
+  for(const name of ['x:AppPassword','x:ApiKey']) addSink('form/'+name+'/field/secret','@returned-values',name,'create-result','DynamicForm/CreatedValuesDialog','Nonempty returned server secret; caption only, value and copy remain raw');
+  addSink('list/x:AppPassword/singular','@actions','x:AppPassword','delete','DynamicList.confirmItemAction / DynamicForm / useDynamicForm.remove','Conditional item confirmation or confirmed destroy; raw ID unchanged');
+  addSink('list/x:AppPassword/plural','@actions','x:AppPassword','mass-action','DynamicList.confirmMassAction','Selected items/allMatching, action permitted; payload untouched');
   return graph;
 }
