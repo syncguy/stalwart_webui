@@ -105,7 +105,7 @@ export function loadInputs(root, { historicalStage43 = false } = {}) {
   return {
     inventory, pins, catalog, policy, resolver, schema, options, permission, permissionCatalog, pages, widgets,
     glossary: load('scripts/schema-glossary.ru.json'), adapterDrift,
-    provenance: { sourceHashes, catalogSha256: digest(read('src/i18n/schema/ru.json')),
+    provenance: { sourceHashes, catalogSha256: historicalStage43 ? digest(json(catalog)) : digest(read('src/i18n/schema/ru.json')),
       glossarySha256: digest(read('scripts/schema-glossary.ru.json')),
       policySha256: digest(read('scripts/data/locale-review-policy.json')),
       permissionSha256: digest(read('src/i18n/schema/permission_ru.json')) },

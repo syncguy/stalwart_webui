@@ -740,3 +740,11 @@ for(const e of evidence44.rows.filter(r=>r.recommendedClassification!=='unreacha
 assert.deepEqual(active44.summary.classification,{'translated':11474,'missing':0,'keep-original':58,'technical':74,'renderer-unwired':0,'unreachable/conditional':640,'needs-review':0});
 assert.equal(active44.rows.find(r=>r.slot==='field/x:AccountPassword/otpAuth/description').classification,'unreachable/conditional');
 console.log('Stage44 evidence and active inventory verified; browser/ACL acceptance remains open.');
+
+assert.equal(active44.client.messages.length,597);
+assert.equal(active44.client.messages.filter(c=>c.classification==='translated').length,587);
+assert.equal(active44.client.messages.filter(c=>c.classification==='technical').length,8);
+assert.equal(active44.client.messages.filter(c=>c.classification==='keep-original').length,2);
+assert.ok(active44.client.dynamicCalls.every(c=>c.classification==='reviewed-schema-lookup'));
+assert.equal(active44.client.dynamicCalls.length,2);
+console.log('Stage44: 10 exact same-text client decisions and 2 source-pinned Sidebar lookups; no change to schema denominator.');

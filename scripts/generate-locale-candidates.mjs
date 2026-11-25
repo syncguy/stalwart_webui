@@ -8,7 +8,7 @@ import { execFileSync } from 'node:child_process';
 import { loadInputs, json, digest } from './lib/locale-source.mjs';
 import { buildUsageGraph } from './lib/locale-graph.mjs';
 import { plan, compactReport, CATEGORIES } from './lib/locale-planner.mjs';
-import { loadStage44Packet, validateStage44, stage44Graph } from './lib/locale-stage44.mjs';
+import { loadStage44Packet, validateStage44, stage44Graph, reviewStage44Client } from './lib/locale-stage44.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -37,6 +37,7 @@ const old=plan(historical,buildUsageGraph({...historical,fieldOwners:true,formOw
 old.stage=43;
 const report=plan(inputs,stage44Graph(inputs,packet),previous??old);
 report.stage=44;
+reviewStage44Client(inputs,report);
 fs.mkdirSync(out, { recursive: true });
 fs.writeFileSync(path.join(out,'stage43-classification.json'),json(compactReport(old)));
 fs.writeFileSync(path.join(out,'stage44-evidence.json'),json({...evidence,rows:packet.rows,entries:packet.entries}));
@@ -45,7 +46,7 @@ fs.writeFileSync(path.join(out, 'candidates.json'), json({ version: 1, candidate
 fs.writeFileSync(path.join(out, 'diff.json'), json(report.diff));
 const cell = text => String(text).replaceAll('|', '\\|').replaceAll('\n', ' ').replaceAll('\r', '');
 const lines = [
-  '# Этап 44: независимый аудит; приёмка потребителей продолжается', '',
+  '# Этап 44: независимый аудит и проверенные source-потребители; browser отдельно', '',
   'Источник схем: ' + report.source, '',
   '**Только анализ исходников. Доступность по лицензии/ACL неизвестна; browser PASS не заявлен.**', '',
   `Слотов: ${report.summary.slots}; каталог: ${report.summary.acceptedCatalogEntries} обычных записей, ${report.summary.acceptedScopedEntries} точных привязок по hash.`,

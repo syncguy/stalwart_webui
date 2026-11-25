@@ -144,3 +144,41 @@ export function stage44Graph(inputs, packet) {
   addSink('list/x:AppPassword/plural','@actions','x:AppPassword','mass-action','DynamicList.confirmMassAction','Selected items/allMatching, action permitted; payload untouched');
   return graph;
 }
+
+// Exact same-text and dynamic client decisions, separate from the schema denominator.
+// validateStage44 must already have verified the full source and locale snapshot.
+export function reviewStage44Client(inputs, report) {
+  const entries=[
+    ['dashboard.nodeWithHost','{{hostname}} ({{id}})','src/features/dashboard/components/NodeSelector.tsx','technical','raw hostname and node ID, punctuation only'],
+    ['field.itemN','{{label}} {{n}}','src/components/forms/widgets/ObjectListWidget.tsx','technical','FieldRow passes localized formFieldDisplay label; position is numeric'],
+    ['field.segmentOf','{{field}}, {{segment}}','src/components/forms/widgets/LocalTimeInput.tsx','technical','ARIA label and translated segment name, punctuation only'],
+    ['mailRules.summary.detail','{{label}}: {{detail}}','src/features/mailRules/summary.ts','technical','format only; MailRule metadata absent in both pinned schemas; re-review on schema change'],
+    ['mailRules.summary.sentence','{{when}}, {{then}}.','src/features/mailRules/summary.ts','technical','format only; conditional MailRule feature outside both pins'],
+    ['mailRules.summary.slot','{{days}} {{start}}–{{end}}','src/features/mailRules/summary.ts','technical','format only; conditional MailRule enum inputs outside both pins'],
+    ['mailRules.summary.test','{{operator}} {{values}}','src/features/mailRules/summary.ts','technical','format only; conditional MailRule enum inputs outside both pins'],
+    ['schedule.dayRange','{{first}}–{{last}}','src/lib/scheduleFormat.ts','technical','localized formatWeekday endpoints; punctuation only'],
+    ['login.usernamePlaceholder','user@example.com','src/pages/LoginPage.tsx','keep-original','literal example address'],
+    ['vacation.htmlTab','HTML','src/features/vacation/components/VacationPreview.tsx','keep-original','standard format name'],
+  ];
+  const seen=new Set();
+  for(const [messageId,original,file,classification,reason] of entries) {
+    const m=report.client.messages.find(c=>c.messageId===messageId);
+    assert.ok(m&&m.original===original&&m.ru===original&&m.status==='same-text-needs-review',messageId);
+    const refs=inputs.inventory.astReferences.filter(r=>r.messageId===messageId);
+    assert.equal(refs.length,1,messageId);
+    assert.equal(refs[0].file,file,messageId);
+    m.classification=classification; m.reviewReason=reason;
+    seen.add(messageId);
+  }
+  assert.equal(seen.size,10);
+  assert.equal(report.client.messages.filter(c=>c.classification==='needs-review').length,0,'new client review case');
+  assert.equal(report.client.messages.filter(c=>c.classification==='missing').length,0,'new missing client key');
+  const calls=report.client.dynamicCalls;
+  assert.equal(calls.length,2,'new dynamic client call');
+  assert.deepEqual(calls.map(c=>[c.file,c.kind,c.expression,c.line,c.column]),[
+    ['src/components/layout/Sidebar.tsx','schema-display-dynamic','node.displaySlot',44,29],
+    ['src/components/layout/Sidebar.tsx','schema-display-dynamic','node.displaySlot',96,39],
+  ]);
+  for(const c of calls){c.classification='reviewed-schema-lookup';c.reviewReason='navTree.layoutNavNodes exact schema slots tested against both pins; protected captions retain original; ACL/browser unknown';}
+  report.client.note+=' Stage44 exact same-text and dynamic lookup decisions require source, locale and schema snapshot validation; not exhaustive JS-string analysis.';
+}
