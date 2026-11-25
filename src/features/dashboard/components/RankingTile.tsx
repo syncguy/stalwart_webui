@@ -33,6 +33,11 @@ export function RankingTile({ dashboardId, itemIndex, ranking, className, histor
     const index = ranking.series.findIndex((series) => series.label === original);
     return index < 0 ? original : display(`dashboard/${dashboardId}/item/${itemIndex}/series/${index}/label`, original);
   };
+  // Only the translated Overview rejection ranking receives a wider label budget.
+  // Grid allocates the numeric column and a useful bar minimum before expanding
+  // the label track; the single-line layout and all other tiles stay unchanged.
+  const wideRussianLabels = dashboardId === 'overview' && itemIndex === 6
+    && ranking.title === 'Rejections' && title === 'Отклонено';
   const toneClass = toneClasses(ranking.tone);
   const entries = rankingEntries(ranking, historySamples);
   const max = entries.reduce((m, e) => Math.max(m, e.value), 0);
@@ -55,6 +60,7 @@ export function RankingTile({ dashboardId, itemIndex, ranking, className, histor
           <li
             key={entry.label}
             className="grid grid-cols-[minmax(0,7.5rem)_minmax(0,1fr)_minmax(3.5rem,auto)] items-center gap-3 text-[13px]"
+            style={wideRussianLabels ? { gridTemplateColumns: 'minmax(0, 11rem) minmax(min(4.5rem, 20%), 1fr) minmax(3.5rem, auto)' } : undefined}
           >
             <OverflowText text={seriesName(entry.label)} />
             <span className={cn('h-2 overflow-hidden rounded-full', toneClass.track)} aria-hidden="true">

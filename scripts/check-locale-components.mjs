@@ -175,6 +175,42 @@ console.log('PASS: actual DashboardChart SSR, populated synthetic series and unc
 console.log('Stage18 synthetic React SSR/callback PASS; no DOM interactions, live authorization, network or server requests tested.');
 
 
+
+// Stage47-11: real RankingTile SSR with synthetic nonzero values and original IDs.
+{
+  const {RankingTile}=component('src/features/dashboard/components/RankingTile.tsx',{
+    '@/components/ui/card':{Card:({children,...props})=>h('div',props,children)},
+    '@/components/ui/chart':{getChartColor:()=> '#888'},
+    '@/components/common/OverflowText':{OverflowText},
+    './TileHeader':{TileHeader:({title})=>h('h2',null,title)},
+    './tone':{toneClasses:()=>({surface:'',track:'',muted:'',badge:''})},
+    '../helpers':{formatValue:String,rankingEntries:r=>r.series.map((s,i)=>({label:s.label,value:i===0?120:60}))},
+  });
+  const labelSlots=Object.keys(catalog.entries).filter(k=>k.startsWith('dashboard/overview/item/6/series/')&&k.endsWith('/label')).slice(0,2);
+  assert.equal(labelSlots.length,2);
+  const ranking={title:'Rejections',series:labelSlots.map(k=>({label:original(k)}))};
+  const raw=JSON.stringify(ranking),savedHash=hash,savedLanguage=language;
+  for(const activeHash of catalog.meta.schemaHashes){
+    for(const lang of ['ru','en','ru']){
+      hash=activeHash;language=lang;
+      const html=render(RankingTile,{dashboardId:'overview',itemIndex:6,ranking,historySamples:[]});
+      assert.equal(html.includes('grid-template-columns:minmax(0, 11rem) minmax(min(4.5rem, 20%), 1fr) minmax(3.5rem, auto)'),lang==='ru');
+      assert.ok(html.includes('width:100%')&&html.includes('width:50%'));
+      assert.ok(html.includes('>120</span>')&&html.includes('>60</span>'));
+      for(const k of labelSlots) assert.ok(html.includes(schemaText(hash,lang,k,original(k))));
+      assert.equal(JSON.stringify(ranking),raw);
+    }
+    language='ru';hash=activeHash;
+    for(const props of [{dashboardId:'network',itemIndex:6,ranking},{dashboardId:'overview',itemIndex:5,ranking},{dashboardId:'overview',itemIndex:6,ranking:{...ranking,title:'Rejections changed'}}]){
+      assert.ok(!render(RankingTile,{...props,historySamples:[]}).includes('grid-template-columns:'));
+    }
+  }
+  hash='unknown';language='ru';
+  assert.ok(!render(RankingTile,{dashboardId:'overview',itemIndex:6,ranking,historySamples:[]}).includes('grid-template-columns:'));
+  hash=savedHash;language=savedLanguage;
+  console.log('PASS: Stage47-11 real RankingTile SSR scope, RU/EN/unknown, raw series and 100/50% bar ratios; no browser layout');
+}
+
 // Stage19: actual embedded editor and enum widget, pinned schemas and artificial values.
 const manifest19=JSON.parse(read('scripts/data/pinned-schema-manifest.json'));
 const resolver19=sourceModule(read('src/lib/schemaResolver.ts'),'schemaResolver.ts');

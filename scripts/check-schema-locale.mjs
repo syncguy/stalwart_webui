@@ -744,3 +744,12 @@ for (const component of ['TileHeader', 'StatCard', 'RankingTile', 'DashboardChar
   assert.ok(source.includes('<OverflowText text='), component);
 }
 console.log('Stage47 overflow source wiring PASS; browser interaction NOT TESTED');
+
+// Stage47-11: layout-only scope and fixed raw metric/percentage contract.
+assert.ok(rawRanking.includes("dashboardId === 'overview' && itemIndex === 6"));
+assert.ok(rawRanking.includes("ranking.title === 'Rejections' && title === 'Отклонено'"));
+assert.ok(rawRanking.includes("gridTemplateColumns: 'minmax(0, 11rem) minmax(min(4.5rem, 20%), 1fr) minmax(3.5rem, auto)'"));
+assert.ok(rawRanking.includes("minmax(0,7.5rem)_minmax(0,1fr)_minmax(3.5rem,auto)"));
+assert.ok(rawRanking.includes('(entry.value / max) * 100'));
+assert.ok(rawRanking.includes('<OverflowText text={seriesName(entry.label)} />'));
+console.log('Stage47-11 scoped ranking grid source checks PASS; actual layout requires browser');

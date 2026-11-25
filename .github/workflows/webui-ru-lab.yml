@@ -7,6 +7,7 @@ on:
   # Stage47 interim: operator feedback on dashboard labels, grammatical cases and clipping.
   # Stage47: correct grammar test syntax and refresh exact reviewed source hashes.
   # Stage47 retry: restore complete useFormTitle model destructuring.
+  # Stage47-11: isolated adaptive RU Overview rejection ranking grid.
   # Manual switch: only a commit editing this laboratory workflow on ru starts a run.
   push:
     branches:
