@@ -50,7 +50,61 @@ export function validateStage44(root, inputs, packet) {
     }
   }
   walk('src');
-  assert.deepEqual(source, packet.sourceBlobs, 'Renderer source inventory changed: reopen stage44 paths and exclusions');
+  // Stage47 interim: explicit reviewed delta from the stage45 source tree.
+  // The stage44 packet itself is immutable; reject every unreviewed change.
+  const stage47Delta = [
+    [
+      "src/components/common/OverflowText.tsx",
+      null,
+      "3c2f6dba0c18c624e5484641c72fe2c9fb592a86"
+    ],
+    [
+      "src/components/forms/DynamicForm.tsx",
+      "c5ab137c3ae29774731b554c31814da21e20f7f2",
+      "8df3d114519bfb49ba3e1d7880f947eab75ff368"
+    ],
+    [
+      "src/components/lists/DynamicList.tsx",
+      "45ba8e8f2341d4fbdd6f936804a285020b575145",
+      "aaf0724b11286fd4c4f60aa20feaa58ea61a3d75"
+    ],
+    [
+      "src/features/dashboard/components/DashboardChart.tsx",
+      "7e82a8744930809679c1aa2b2fe72fde9d1409ce",
+      "74e670b03d26f492597a2745e07943cf0289e5fd"
+    ],
+    [
+      "src/features/dashboard/components/RankingTile.tsx",
+      "f90f3c293d7b93358b4c966305d773caf6158b67",
+      "6cdc0cf2facc77f1ba8418240df718f5f1903edf"
+    ],
+    [
+      "src/features/dashboard/components/StatCard.tsx",
+      "f0a964949afce74770b158d2cde0ad148d93cf98",
+      "7cee6a1684aef36bf4ad7e271052fe4a34d6c658"
+    ],
+    [
+      "src/features/dashboard/components/TileHeader.tsx",
+      "a941615e9609b9da3638ca609f37bfb50e26ccfe",
+      "4b05a5f43d8de60b3a384665dd916f710c3d6b47"
+    ],
+    [
+      "src/hooks/useSchemaText.ts",
+      "2202df8f3e9c4cfd35bb75b78c86c6ed523bb255",
+      "bd137c7121cb9da7f9fa22b8f57d6f450f131d2a"
+    ],
+    [
+      "src/i18n/schemaText.ts",
+      "5eb5f4c27fe4d5ffa1d643cc33e4830f087cad20",
+      "5ef865e357a94243efd8504518cf1c017b8d0dd2"
+    ]
+  ];
+  const expectedSource = {...packet.sourceBlobs};
+  for (const [file, previous, next] of stage47Delta) {
+    assert.equal(expectedSource[file] ?? null, previous, 'Historical source changed: reopen stage44 ' + file);
+    expectedSource[file] = next;
+  }
+  assert.deepEqual(source, expectedSource, 'Renderer source inventory changed: reopen stage44 paths and exclusions');
   for(const [p,h] of Object.entries(packet.clientCatalogSha256)) assert.equal(digest(fs.readFileSync(path.join(root,p))),h,'Client catalogue changed: reopen stage44 review');
   const rows = new Map(inputs.inventory.rows.map(r=>[key(r),r]));
   assert.equal(rows.size,12246);

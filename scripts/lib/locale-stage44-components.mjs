@@ -24,7 +24,7 @@ const fatal=()=>{throw Error('Forbidden operation in synthetic test');};
 let language='ru',hash=inputs.pins[0].schemaHash,ctx={schema:inputs.pins[0].data,mode:'create',hideEnterprise:false,idPrefix:'test'};
 const catalog=structuredClone(inputs.catalog);
 for(const r of ledger.rows) catalog.entries[r.slot]={original:r.original,ru:'ПРОВЕРКА_'+r.id};
-const {schemaText}=sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':catalog});
+const {schemaText,schemaActionName}=sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':catalog});
 const display=(slot,original)=>schemaText(hash,language,slot,original);
 const useSchemaText=()=>display;
 const en=JSON.parse(read('src/i18n/en.json')),ru=JSON.parse(read('src/i18n/ru.json'));
@@ -36,7 +36,7 @@ const formContext={useFormContext:()=>ctx,useFieldScope:()=>({path:[],readOnly:f
 const widgets=registry(read('src/extensions/widgets.ts'),'widgets.ts','WIDGETS');
 const resolveWidget=type=>widgets.find(w=>w.match.objectName===type.objectName&&type.type==='object')??widgets.find(w=>w.match.type===type.type)??{traits:{labelMode:'control'}};
 const common={'react':React,'react/jsx-runtime':jsx,'react-i18next':{useTranslation:()=>({t,i18n:{language,resolvedLanguage:language}})},
- 'lucide-react':new Proxy({},{get:()=>icon}),'@/hooks/useSchemaText':{useSchemaText},'@/lib/utils':{cn:(...a)=>a.filter(x=>typeof x==='string').join(' ')},
+ 'lucide-react':new Proxy({},{get:()=>icon}),'@/hooks/useSchemaText':{useSchemaText,useSchemaActionName:()=> (slot,original)=>schemaActionName(hash,language,slot,original)},'@/lib/utils':{cn:(...a)=>a.filter(x=>typeof x==='string').join(' ')},
  '@/stores/schemaStore':{useSchemaStore:f=>f({schema:ctx.schema,schemaHash:hash})},
  '@/components/forms/formContext':formContext,'@/extensions/widgets':{resolveWidget},
  '@/components/ui/button':{Button:pass},'@/components/common/CopyButton':{CopyButton:()=>null},

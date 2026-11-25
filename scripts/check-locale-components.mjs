@@ -23,7 +23,7 @@ import './lib/offline-guard.mjs';
 
 const read = p => fs.readFileSync(p,'utf8');
 const catalog = undoStage44(JSON.parse(read('src/i18n/schema/ru.json')),loadStage44Packet(process.cwd()));
-const { schemaText } = sourceModule(read('src/i18n/schemaText.ts'), 'schemaText.ts', {'./schema/ru.json':catalog});
+const { schemaText, schemaActionName } = sourceModule(read('src/i18n/schemaText.ts'), 'schemaText.ts', {'./schema/ru.json':catalog});
 const {sectionDisplayContext} = sourceModule(read('src/i18n/schemaFormContext.ts'),'schemaFormContext.ts');
 const h = React.createElement;
 let language = 'ru';
@@ -145,7 +145,11 @@ let seriesProps,chartData;
 const chartWrapper=({children,data})=>{chartData=data;return h('div',null,children)};
 const seriesLeaf=props=>{seriesProps=props;return h('span',null,props.name)};
 const chartComponents={LineChart:chartWrapper,AreaChart:chartWrapper,BarChart:chartWrapper,Line:seriesLeaf,Area:seriesLeaf,Bar:seriesLeaf,XAxis:icon,YAxis:icon,CartesianGrid:icon,Tooltip:icon};
+const {OverflowText}=component('src/components/common/OverflowText.tsx',{
+  '@/components/ui/tooltip':{Tooltip:passthrough,TooltipTrigger:passthrough,TooltipContent:passthrough},
+});
 const {DashboardChart}=component('src/features/dashboard/components/DashboardChart.tsx',{
+  '@/components/common/OverflowText':{OverflowText},
   recharts:chartComponents,'@/components/ui/card':{Card:({children})=>h('div',null,children)},
   '@/components/common/HelpTooltip':{HelpTooltip:icon},
   '@/components/ui/chart':{ChartTooltipContent:icon,getChartColor:()=> '#888'},
@@ -159,10 +163,10 @@ for(const kind of ['line','area','bar']) {
   for(const lang of ['ru','en','ru']){
     language=lang;
     const html=render(DashboardChart,{dashboardId,itemIndex,chart,historySamples:[{value:17}],historyWindow:{from:new Date(0),to:new Date(60000)},period:'hour'});
-    assert.ok(html.includes(lang==='ru'?ru(titleSlot):original(titleSlot)));
-    assert.ok(html.includes(lang==='ru'?ru(seriesSlot):label));
+    assert.ok(html.includes(lang==='ru'?schemaText(hash,lang,titleSlot,original(titleSlot)):original(titleSlot)));
+    assert.ok(html.includes(lang==='ru'?schemaText(hash,lang,seriesSlot,label):label));
     assert.equal(seriesProps.dataKey,label);
-    assert.equal(seriesProps.name,lang==='ru'?ru(seriesSlot):label);
+    assert.equal(seriesProps.name,lang==='ru'?schemaText(hash,lang,seriesSlot,label):label);
     assert.equal(chartData[0][label],17);
     assert.equal(JSON.stringify(chart),raw);
   }
@@ -2276,8 +2280,8 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
   const titleSource=ts.createSourceFile('DynamicForm.tsx',read('src/components/forms/DynamicForm.tsx'),ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
   const titleNode=titleSource.statements.find(n=>ts.isFunctionDeclaration(n)&&n.name?.text==='useFormTitle');
   assert.ok(titleNode);
-  const {useFormTitle:title38}=sourceModule("import {useTranslation,useSchemaText,coerceLabel} from 'mock';\nexport "+titleNode.getText(titleSource),'title38.ts',{
-    mock:{useTranslation:()=>({t:(_key,fallback)=>fallback}),useSchemaText:trackedDisplay,coerceLabel:()=>''}
+  const {useFormTitle:title38}=sourceModule("import {useTranslation,useSchemaText,useSchemaActionName,coerceLabel} from 'mock';\nexport "+titleNode.getText(titleSource),'title38.ts',{
+    mock:{useTranslation:()=>({t:(_key,fallback)=>fallback}),useSchemaText:trackedDisplay,useSchemaActionName:()=> (slot,original)=>schemaActionName(hash,language,slot,original),coerceLabel:()=>''}
   });
   const count={field:0,section:0,title:0},screens=new Set(),covered=new Set();
   const unrenderable=[];

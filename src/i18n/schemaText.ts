@@ -146,7 +146,7 @@ const actionForms: Readonly<Record<string, string>> = {
 export function schemaActionName(schemaHash: string | null, language: string, slot: string, original: string): string | null {
   if (language.split(/[-_]/)[0].toLowerCase() !== 'ru') return original;
   if (!canTranslateSchema(schemaHash, language)) return null;
-  if (!/^list\\/.+\\/singular$|^object\\/.+\\/description$/.test(slot)) return null;
+  if (!(slot.startsWith('list/') && slot.endsWith('/singular')) && !(slot.startsWith('object/') && slot.endsWith('/description'))) return null;
   const name = schemaText(schemaHash, language, slot, original);
   if (name === original) return null;
   return Object.hasOwn(actionForms, name) ? actionForms[name] : null;

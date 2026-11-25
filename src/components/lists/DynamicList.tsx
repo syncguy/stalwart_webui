@@ -188,7 +188,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
     };
     if (action.type === 'delete') {
       setConfirm({
-        title: actionName === null ? t('common.delete', 'Delete') : t('list.deleteItemTitle', 'Delete {{name}}?', { name: actionName }),
+        title: t('list.deleteItemTitle', 'Delete {{name}}?', { name: singularName }),
         description: t(
           'list.deleteItemDescription',
           'Are you sure you want to delete {{label}}? This action cannot be undone.',

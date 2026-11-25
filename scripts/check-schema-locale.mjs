@@ -710,7 +710,7 @@ console.log('Stage47 editorial checks PASS:', Object.keys(exports.dashboardEdito
 // Stage47: grammatical action names for every ordinary list singular label.
 let actionCount = 0;
 for (const [slot, entry] of Object.entries(entries)) {
-  if (!/^list\\/.+\\/singular$/.test(slot)) continue;
+  if (!slot.startsWith('list/') || !slot.endsWith('/singular')) continue;
   for (const hash of meta.schemaHashes) {
     if (schemaText(hash, 'ru', slot, entry.original) === entry.ru) {
       assert.ok(exports.schemaActionName(hash, 'ru', slot, entry.original), slot + ': missing action form');
