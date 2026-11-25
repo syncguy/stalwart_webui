@@ -510,7 +510,7 @@
   ],
   "baselineSource": "6491192ec301bb32f7ed500d18f3dd94f358945b",
   "protectedInputs": {
-    "src/i18n/schema/ru.json": "3a1a7e55dff57a73595b55e3567bc1a5657bc04be46eafb210f434186cedfb34",
+    "src/i18n/schema/ru.json": "2e854c73f7146577b895738097709a9f22cf03b0d276d070890d94e4167342b6",
     "src/i18n/schema/permission_ru.json": "2169037a92e937d31588a5584ce8d0d411885285d5d22b755f33b7a59a9a5870",
     "src/i18n/schemaText.ts": "d64fd396bdf2b838fb5d7172ec8740ffa3817c0ae3c887a6a949483cc60b3a28",
     "src/i18n/schemaOptionLabels.ts": "706cfcb257a255815dba182834a12b9d1fa9da16dac9b046dd708f87c010d838",
@@ -551,7 +551,8 @@
     "scripts/check-option-labels.mjs": "347d0b7635ba80e726954c525ef369ba1448a0a3f5a18acdcd8a40c185e57b99",
     "scripts/data/stage43-specialized-review.json": "5834d8515d8551ae6c4f4f09fc23f4136b67ce4081363c3f060c3ffc92ec1a82",
     "scripts/lib/locale-specialized-labels.mjs": "0bce386a4266533e262ef2e8e239df5fea054141aa7bcf862f2cc24906865d0a",
-    "scripts/lib/locale-specialized-components.mjs": "b83812e7ef4468eeef66b8bd42c226d6a0fd52b0a924588c1e95087193a4ef68"
+    "scripts/lib/locale-specialized-components.mjs": "b83812e7ef4468eeef66b8bd42c226d6a0fd52b0a924588c1e95087193a4ef68",
+    "scripts/data/stage44-final-review.json": "43716f691f50d836655e4e03258e1f6027fe8c2b1cc44f044e9deae1b3821945"
   },
   "clientLiterals": [
     {

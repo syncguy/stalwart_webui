@@ -117,7 +117,7 @@ export function classify(inputs, graph) {
     } else if (unwired.length) {
       classification = 'renderer-unwired'; reasons.push('observed-lookup-slot-mismatch-or-raw-path');
     } else if (!uses.length) {
-      classification = 'unreachable/conditional'; reasons.push('no-proven-navigation-consumer: direct routes/search/custom paths may exist');
+      classification = 'unreachable/conditional'; reasons.push(graph.reviewedExclusions?.get(key(row)) ?? 'no-proven-navigation-consumer: direct routes/search/custom paths may exist');
     } else if (uncertain.length || intlUses.length) {
       classification = 'needs-review';
       if (uncertain.length) reasons.push('custom-or-compact-renderer-needs-adapter');

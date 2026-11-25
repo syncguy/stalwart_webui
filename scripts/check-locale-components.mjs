@@ -15,13 +15,14 @@ import {loadVariantPacket,undoVariants} from './lib/locale-variant-labels.mjs';
 import {loadTracePacket,undoTrace} from './lib/locale-trace-labels.mjs';
 import {loadRegionalPacket,undoRegional} from './lib/locale-regional-labels.mjs';
 import {loadSpecializedPacket,undoSpecialized} from './lib/locale-specialized-labels.mjs';
+import {loadStage44Packet,undoStage44} from './lib/locale-stage44.mjs';
 import { buildUsageGraph } from './lib/locale-graph.mjs';
 import { classify } from './lib/locale-planner.mjs';
 import {loadFieldDescriptionPacket,undoFieldDescriptions} from './lib/locale-field-descriptions.mjs';
 import './lib/offline-guard.mjs';
 
 const read = p => fs.readFileSync(p,'utf8');
-const catalog = JSON.parse(read('src/i18n/schema/ru.json'));
+const catalog = undoStage44(JSON.parse(read('src/i18n/schema/ru.json')),loadStage44Packet(process.cwd()));
 const { schemaText } = sourceModule(read('src/i18n/schemaText.ts'), 'schemaText.ts', {'./schema/ru.json':catalog});
 const {sectionDisplayContext} = sourceModule(read('src/i18n/schemaFormContext.ts'),'schemaFormContext.ts');
 const h = React.createElement;
@@ -2163,7 +2164,7 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 // pinned fields and resolved schema owner, not a synthetic view key equal to owner.
 // Leaf widgets and ValueRow are mocked as in earlier SSR tests.
 {
-  const inputs37=loadInputs(process.cwd());
+  const inputs37=loadInputs(process.cwd(),{historicalStage43:true});
   const packet37=loadFieldDescriptionPacket(process.cwd(),inputs37.policy);
   const stage37Catalog=undoFormContext(undoVariants(undoTrace(undoRegional(undoSpecialized(catalog,loadSpecializedPacket(process.cwd(),inputs37.policy)),loadRegionalPacket(process.cwd(),inputs37.policy)),loadTracePacket(process.cwd(),inputs37.policy)),loadVariantPacket(process.cwd(),inputs37.policy)),loadFormContextPacket(process.cwd(),inputs37.policy));
   const oldCatalog=undoFieldDescriptions(stage37Catalog,packet37);
@@ -2253,7 +2254,7 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 // historical form-caption mismatches. Assert lookup identity, not only text
 // presence (several sections and fields can have the same English label).
 {
-  const inputs38=loadInputs(process.cwd());
+  const inputs38=loadInputs(process.cwd(),{historicalStage43:true});
   const oldCatalog=undoFormContext(undoVariants(undoTrace(undoRegional(undoSpecialized(catalog,loadSpecializedPacket(process.cwd(),inputs38.policy)),loadRegionalPacket(process.cwd(),inputs38.policy)),loadTracePacket(process.cwd(),inputs38.policy)),loadVariantPacket(process.cwd(),inputs38.policy)),loadFormContextPacket(process.cwd(),inputs38.policy));
   const oldInputs={...inputs38,catalog:oldCatalog,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':oldCatalog})};
   const rows38=classify(oldInputs,buildUsageGraph({...oldInputs,fieldOwners:true})).rows.filter(r=>
@@ -2337,7 +2338,7 @@ if(catalog.entries['variant/x:TaskRetryStrategy/FixedDelay/label']){
 // plus the real selector, list-cell and nested display paths on pinned data.
 // All mutations are synthetic callbacks; no server, browser or external IO.
 {
-  const inputs39=loadInputs(process.cwd());
+  const inputs39=loadInputs(process.cwd(),{historicalStage43:true});
   const packet39=loadVariantPacket(process.cwd(),inputs39.policy);
   const previous39=undoVariants(undoTrace(undoRegional(undoSpecialized(catalog,loadSpecializedPacket(process.cwd(),inputs39.policy)),loadRegionalPacket(process.cwd(),inputs39.policy)),loadTracePacket(process.cwd(),inputs39.policy)),packet39);
   const old39={...inputs39,catalog:previous39,schema:sourceModule(read('src/i18n/schemaText.ts'),'schemaText.ts',{'./schema/ru.json':previous39})};

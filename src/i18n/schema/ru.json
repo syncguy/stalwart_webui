@@ -45341,6 +45341,674 @@
     "variant/x:TraceValue/UnsignedInt/label": {
       "original": "Unsigned integer value",
       "ru": "Беззнаковое целочисленное значение"
+    },
+    "enum/SpamClassifyTagDisposition/discard/label": {
+      "original": "Discard the message",
+      "ru": "Отбросить сообщение"
+    },
+    "enum/SpamClassifyTagDisposition/reject/label": {
+      "original": "Reject the message",
+      "ru": "Отклонить сообщение"
+    },
+    "enum/SpamClassifyTagDisposition/score/label": {
+      "original": "Assign the tag's score to the overall spam score",
+      "ru": "Добавить оценку тега к общей оценке спама"
+    },
+    "field/Principal/description/description": {
+      "original": "Longer description of the principal, such as details about a resource's facilities",
+      "ru": "Подробное описание субъекта доступа, например сведения об оснащении ресурса"
+    },
+    "field/Principal/email/description": {
+      "original": "Email address of the principal in addr-spec syntax, or null if not available",
+      "ru": "Адрес электронной почты субъекта доступа в формате addr-spec или null, если адрес недоступен"
+    },
+    "field/Principal/name/description": {
+      "original": "Display name of the principal (e.g. \"Jane Doe\" or \"Room 4B\")",
+      "ru": "Отображаемое имя субъекта доступа (например, «Jane Doe» или «Room 4B»)"
+    },
+    "field/Principal/timeZone/description": {
+      "original": "IANA time zone identifier for the principal, or null if unknown",
+      "ru": "Идентификатор часового пояса IANA для субъекта доступа или null, если он неизвестен"
+    },
+    "field/Principal/type/description": {
+      "original": "The kind of entity this principal represents",
+      "ru": "Тип сущности, которую представляет этот субъект доступа"
+    },
+    "field/x:Bootstrap/blobStore/description": {
+      "original": "Where the raw content of email messages, attachments, and other large files is stored.\nLeave as default to reuse the data store, or point to an object storage service such as S3 for larger deployments.",
+      "ru": "Место хранения исходного содержимого электронных писем, вложений и других крупных файлов.\nОставьте значение по умолчанию, чтобы использовать основное хранилище данных, или укажите службу объектного хранения, например S3, для крупных установок."
+    },
+    "field/x:Bootstrap/dataStore/description": {
+      "original": "Where structured data is kept: email metadata, calendars, contacts, mailbox state, and server settings.\nRocksDB is recommended for single-node installations; PostgreSQL, MySQL, SQLite, and FoundationDB are also supported.",
+      "ru": "Место хранения структурированных данных: метаданных писем, календарей, контактов, состояния почтовых ящиков и настроек сервера.\nДля установок на одном узле рекомендуется RocksDB; также поддерживаются PostgreSQL, MySQL, SQLite и FoundationDB."
+    },
+    "field/x:Bootstrap/defaultDomain/description": {
+      "original": "The primary email domain this installation will serve, for example example.com.\nAdditional domains can be added at any time after setup.",
+      "ru": "Основной почтовый домен, обслуживаемый этой установкой, например example.com.\nПосле настройки можно в любое время добавить другие домены."
+    },
+    "field/x:Bootstrap/defaultHostname/description": {
+      "original": "The public hostname this server answers to, for example mail.example.com.\nUsed in SMTP greetings, outgoing message headers, and TLS certificate requests.",
+      "ru": "Общедоступное имя узла, на которое отвечает сервер, например mail.example.com.\nИспользуется в приветствиях SMTP, заголовках исходящих сообщений и запросах сертификатов TLS."
+    },
+    "field/x:Bootstrap/directory/description": {
+      "original": "Where user accounts and credentials come from.\nThe internal directory is recommended for ease of setup and management through the WebUI, but external OIDC or LDAP directories can be used for single sign-on and user provisioning in larger organizations.",
+      "ru": "Источник учётных записей пользователей и их учётных данных.\nДля простоты настройки и управления через WebUI рекомендуется внутренний каталог. В крупных организациях для единого входа и подготовки учётных записей можно использовать внешние каталоги OIDC или LDAP."
+    },
+    "field/x:Bootstrap/dnsServer/description": {
+      "original": "Optionally automate the DNS records your mail server needs (SPF, DKIM, DMARC, and more) by connecting to your DNS provider's API.\nLeave as manual unless your DNS is hosted by a supported provider; this can always be enabled later.",
+      "ru": "При необходимости автоматизируйте создание записей DNS, необходимых почтовому серверу (SPF, DKIM, DMARC и других), подключившись к API провайдера DNS.\nОставьте ручное управление, если ваш DNS не обслуживается поддерживаемым провайдером; автоматизацию можно включить позже."
+    },
+    "field/x:Bootstrap/generateDkimKeys/description": {
+      "original": "Generate DKIM signing keys for the default domain. DKIM cryptographically signs outgoing mail and significantly improves the chances that messages reach the recipient's inbox instead of spam.\nTurn this off only if you plan to manage DKIM keys yourself.",
+      "ru": "Сформировать ключи подписи DKIM для домена по умолчанию. DKIM обеспечивает криптографическую подпись исходящей почты и значительно повышает вероятность доставки сообщений во входящие, а не в спам.\nОтключайте только в том случае, если планируете самостоятельно управлять ключами DKIM."
+    },
+    "field/x:Bootstrap/inMemoryStore/description": {
+      "original": "Where short-lived data lives: session caches, rate-limit counters, and temporary tokens.\nLeave as default to keep this data in the memory of the server process, or point to Stalwart Keep or Redis for multi-node deployments.",
+      "ru": "Место хранения краткоживущих данных: кэшей сеансов, счётчиков ограничений частоты и временных токенов.\nОставьте значение по умолчанию, чтобы хранить данные в памяти процесса сервера, или укажите Stalwart Keep либо Redis для многоузловых установок."
+    },
+    "field/x:Bootstrap/requestTlsCertificate/description": {
+      "original": "Automatically obtain a free TLS certificate for the server hostname from Let's Encrypt using the ACME protocol, so clients can connect securely out of the box.\nTurn this off if you plan to install a certificate manually.",
+      "ru": "Автоматически получить бесплатный сертификат TLS для имени узла сервера от Let's Encrypt по протоколу ACME, чтобы клиенты могли сразу подключаться безопасно.\nОтключите, если планируете установить сертификат вручную."
+    },
+    "field/x:Bootstrap/searchStore/description": {
+      "original": "Where the full-text search index is kept, so users can search across message bodies and attachments.\nLeave as default to reuse the data store, or point to a dedicated search backend for larger deployments.",
+      "ru": "Место хранения индекса полнотекстового поиска, позволяющего пользователям искать по содержимому писем и вложений.\nОставьте значение по умолчанию, чтобы использовать основное хранилище данных, или укажите отдельную поисковую систему для крупной установки."
+    },
+    "field/x:Bootstrap/secret/description": {
+      "original": "The password for the administrator account, generated by the server",
+      "ru": "Пароль учётной записи администратора, сформированный сервером"
+    },
+    "field/x:Bootstrap/tracer/description": {
+      "original": "Where the server writes log messages, traces, and diagnostic events.\nDefaults to log files on disk; remote destinations such as OpenTelemetry or webhooks can be added after setup.",
+      "ru": "Место записи сообщений журнала, трассировок и диагностических событий сервера.\nПо умолчанию журнал записывается в файлы на диске; после настройки можно добавить удалённые получатели, например OpenTelemetry или вебхуки."
+    },
+    "field/x:Bootstrap/username/description": {
+      "original": "The email address of administrator, generated by the server",
+      "ru": "Адрес электронной почты администратора, сформированный сервером"
+    },
+    "field/x:DmarcTroubleshootDetails/details/description": {
+      "original": "Authentication result details",
+      "ru": "Сведения о результате аутентификации"
+    },
+    "field/x:Domain/dnsZoneFile/description": {
+      "original": "Current DNS zone data for the domain",
+      "ru": "Текущие данные зоны DNS для домена"
+    },
+    "field/x:MetricCount/count/description": {
+      "original": "Count associated with the metric",
+      "ru": "Значение счётчика, связанного с метрикой"
+    },
+    "field/x:MetricCount/metric/description": {
+      "original": "Metric event type",
+      "ru": "Тип события метрики"
+    },
+    "field/x:MetricCount/nodeId/description": {
+      "original": "Id of the cluster node that recorded the data point",
+      "ru": "Идентификатор узла кластера, записавшего точку данных"
+    },
+    "field/x:MetricCount/timestamp/description": {
+      "original": "Timestamp of the metric entry",
+      "ru": "Метка времени записи метрики"
+    },
+    "field/x:MetricSum/count/description": {
+      "original": "Number of observations recorded since the previous data point from the same node",
+      "ru": "Количество наблюдений, записанных с момента предыдущей точки данных того же узла"
+    },
+    "field/x:MetricSum/metric/description": {
+      "original": "Metric event type",
+      "ru": "Тип события метрики"
+    },
+    "field/x:MetricSum/nodeId/description": {
+      "original": "Id of the cluster node that recorded the data point",
+      "ru": "Идентификатор узла кластера, записавшего точку данных"
+    },
+    "field/x:MetricSum/sum/description": {
+      "original": "Sum of the observations recorded since the previous data point from the same node",
+      "ru": "Сумма наблюдений, записанных с момента предыдущей точки данных того же узла"
+    },
+    "field/x:MetricSum/timestamp/description": {
+      "original": "Timestamp of the metric entry",
+      "ru": "Метка времени записи метрики"
+    },
+    "field/x:PasskeyCredential/credentialId/description": {
+      "original": "Unique identifier for the credential",
+      "ru": "Уникальный идентификатор учётных данных"
+    },
+    "field/x:PasskeyCredential/keyId/description": {
+      "original": "WebAuthn credential identifier, base64url encoded",
+      "ru": "Идентификатор учётных данных WebAuthn в кодировке base64url"
+    },
+    "field/x:PasskeyCredential/publicKey/description": {
+      "original": "Credential public key, base64url encoded: an uncompressed P-256 point, an Ed25519 key, or an RSA exponent length byte followed by the exponent and modulus",
+      "ru": "Открытый ключ учётных данных в кодировке base64url: несжатая точка P-256, ключ Ed25519 или байт длины экспоненты RSA, за которым следуют экспонента и модуль"
+    },
+    "field/x:PasswordCredential/credentialId/description": {
+      "original": "Unique identifier for the credential",
+      "ru": "Уникальный идентификатор учётных данных"
+    },
+    "field/x:QueuedMessage/blobId/description": {
+      "original": "Reference to the stored message content",
+      "ru": "Ссылка на сохранённое содержимое сообщения"
+    },
+    "field/x:SecondaryCredential/credentialId/description": {
+      "original": "Unique identifier for the credential",
+      "ru": "Уникальный идентификатор учётных данных"
+    },
+    "field/x:SpamClassifyTag/disposition/description": {
+      "original": "Disposition associated with the tag",
+      "ru": "Действие, связанное с тегом"
+    },
+    "field/x:SpamClassifyTag/score/description": {
+      "original": "Score associated with the tag",
+      "ru": "Оценка спама, связанная с тегом"
+    },
+    "form/Principal/section/section-0": {
+      "original": "Principal",
+      "ru": "Субъект доступа"
+    },
+    "form/VacationResponse/field/fromDate": {
+      "original": "From",
+      "ru": "Начало периода"
+    },
+    "form/x:Bootstrap/field/blobStore": {
+      "original": "Attachment & File Storage",
+      "ru": "Хранилище вложений и файлов"
+    },
+    "form/x:Bootstrap/field/dataStore": {
+      "original": "Main Data Storage",
+      "ru": "Основное хранилище данных"
+    },
+    "form/x:Bootstrap/field/defaultDomain": {
+      "original": "Default Email Domain",
+      "ru": "Почтовый домен по умолчанию"
+    },
+    "form/x:Bootstrap/field/defaultHostname": {
+      "original": "Server Hostname",
+      "ru": "Имя узла сервера"
+    },
+    "form/x:Bootstrap/field/directory": {
+      "original": "Directory Type",
+      "ru": "Тип каталога"
+    },
+    "form/x:Bootstrap/field/dnsServer": {
+      "original": "DNS Server Type",
+      "ru": "Тип DNS-сервера"
+    },
+    "form/x:Bootstrap/field/generateDkimKeys": {
+      "original": "Generate Email Signing Keys",
+      "ru": "Сформировать ключи подписи почты"
+    },
+    "form/x:Bootstrap/field/inMemoryStore": {
+      "original": "Cache & Temporary Data",
+      "ru": "Кэш и временные данные"
+    },
+    "form/x:Bootstrap/field/requestTlsCertificate": {
+      "original": "Automatically Obtain TLS Certificate",
+      "ru": "Автоматически получить сертификат TLS"
+    },
+    "form/x:Bootstrap/field/searchStore": {
+      "original": "Full-Text Search Index",
+      "ru": "Индекс полнотекстового поиска"
+    },
+    "form/x:Bootstrap/field/tracer": {
+      "original": "Log Destination",
+      "ru": "Место назначения журнала"
+    },
+    "form/x:Bootstrap/section/section-0": {
+      "original": "Server Identity",
+      "ru": "Идентификация сервера"
+    },
+    "form/x:Bootstrap/section/section-2": {
+      "original": "Account Directory",
+      "ru": "Каталог учётных записей"
+    },
+    "form/x:Bootstrap/section/section-3": {
+      "original": "Logging",
+      "ru": "Журналирование"
+    },
+    "form/x:Bootstrap/section/section-4": {
+      "original": "Automatic DNS Management",
+      "ru": "Автоматическое управление DNS"
+    },
+    "form/x:Domain/DomainZone/field/dnsZoneFile": {
+      "original": "DNS Zone File",
+      "ru": "Файл зоны DNS"
+    },
+    "form/x:Domain/DomainZone/section/section-0": {
+      "original": "Zone File",
+      "ru": "Файл зоны"
+    },
+    "form/x:Metric/field/@type": {
+      "original": "Metric type",
+      "ru": "Тип метрики"
+    },
+    "form/x:MetricCount/field/count": {
+      "original": "Count",
+      "ru": "Количество"
+    },
+    "form/x:MetricCount/field/metric": {
+      "original": "Metric",
+      "ru": "Метрика"
+    },
+    "form/x:MetricCount/field/nodeId": {
+      "original": "Node ID",
+      "ru": "ID узла"
+    },
+    "form/x:MetricCount/field/timestamp": {
+      "original": "Timestamp",
+      "ru": "Метка времени"
+    },
+    "form/x:MetricCount/section/section-0": {
+      "original": "Count",
+      "ru": "Количество"
+    },
+    "form/x:MetricCount/section/section-1": {
+      "original": "Metric",
+      "ru": "Метрика"
+    },
+    "form/x:MetricSum/field/count": {
+      "original": "Count",
+      "ru": "Количество"
+    },
+    "form/x:MetricSum/field/metric": {
+      "original": "Metric",
+      "ru": "Метрика"
+    },
+    "form/x:MetricSum/field/nodeId": {
+      "original": "Node ID",
+      "ru": "ID узла"
+    },
+    "form/x:MetricSum/field/sum": {
+      "original": "Sum",
+      "ru": "Сумма"
+    },
+    "form/x:MetricSum/field/timestamp": {
+      "original": "Timestamp",
+      "ru": "Метка времени"
+    },
+    "form/x:MetricSum/section/section-0": {
+      "original": "Histogram",
+      "ru": "Гистограмма"
+    },
+    "form/x:MetricSum/section/section-1": {
+      "original": "Metric",
+      "ru": "Метрика"
+    },
+    "form/x:QueuedMessage/MessageContents/field/blobId": {
+      "original": "Contents",
+      "ru": "Содержимое"
+    },
+    "form/x:QueuedMessage/MessageContents/section/section-0": {
+      "original": "Message Content",
+      "ru": "Содержимое сообщения"
+    },
+    "form/x:SpamClassifyTag/field/disposition": {
+      "original": "Disposition",
+      "ru": "Действие"
+    },
+    "form/x:SpamClassifyTag/field/score": {
+      "original": "Score",
+      "ru": "Оценка спама"
+    },
+    "form/x:Trace/field/from": {
+      "original": "From",
+      "ru": "Отправитель (From)"
+    },
+    "list/Principal/plural": {
+      "original": "principals",
+      "ru": "субъекты доступа"
+    },
+    "list/Principal/singular": {
+      "original": "principal",
+      "ru": "субъект доступа"
+    },
+    "list/Principal/subtitle": {
+      "original": "View principals that can own or share resources",
+      "ru": "Просмотр субъектов доступа, которые могут владеть ресурсами или предоставлять к ним общий доступ"
+    },
+    "list/Principal/title": {
+      "original": "Principals",
+      "ru": "Субъекты доступа"
+    },
+    "list/x:Metric/column/metric": {
+      "original": "Metric",
+      "ru": "Метрика"
+    },
+    "list/x:Metric/column/nodeId": {
+      "original": "Node ID",
+      "ru": "ID узла"
+    },
+    "list/x:Metric/column/timestamp": {
+      "original": "Timestamp",
+      "ru": "Метка времени"
+    },
+    "list/x:Metric/filter/nodeId": {
+      "original": "Node ID",
+      "ru": "ID узла"
+    },
+    "list/x:Metric/singular": {
+      "original": "metric",
+      "ru": "метрика"
+    },
+    "list/x:Metric/subtitle": {
+      "original": "View server metrics",
+      "ru": "Просмотр метрик сервера"
+    },
+    "object/x:Bootstrap/description": {
+      "original": "Initial setup shown the first time Stalwart starts. Configures the server's identity, storage, user accounts, logging, and DNS management.",
+      "ru": "Первоначальная настройка при первом запуске Stalwart. Настраивает идентификацию сервера, хранилища, учётные записи пользователей, журналирование и управление DNS."
+    },
+    "variant/x:DirectoryBootstrap/Internal/label": {
+      "original": "Use the internal directory",
+      "ru": "Использовать внутренний каталог"
+    },
+    "variant/x:DirectoryBootstrap/Ldap/label": {
+      "original": "LDAP Directory",
+      "ru": "Каталог LDAP"
+    },
+    "variant/x:DirectoryBootstrap/Oidc/label": {
+      "original": "OpenID Connect",
+      "ru": "Провайдер OpenID Connect"
+    },
+    "variant/x:DirectoryBootstrap/Sql/label": {
+      "original": "SQL Database",
+      "ru": "База данных SQL"
+    },
+    "variant/x:DnsServerBootstrap/Alidns/label": {
+      "original": "Alibaba Cloud DNS",
+      "ru": "Провайдер: Alibaba Cloud DNS"
+    },
+    "variant/x:DnsServerBootstrap/ArvanCloud/label": {
+      "original": "ArvanCloud",
+      "ru": "Провайдер: ArvanCloud"
+    },
+    "variant/x:DnsServerBootstrap/Autodns/label": {
+      "original": "InterNetX AutoDNS",
+      "ru": "Провайдер: InterNetX AutoDNS"
+    },
+    "variant/x:DnsServerBootstrap/AzureDns/label": {
+      "original": "Microsoft Azure DNS",
+      "ru": "Провайдер: Microsoft Azure DNS"
+    },
+    "variant/x:DnsServerBootstrap/BaiduCloud/label": {
+      "original": "Baidu Cloud DNS",
+      "ru": "Провайдер: Baidu Cloud DNS"
+    },
+    "variant/x:DnsServerBootstrap/BluecatV2/label": {
+      "original": "BlueCat Address Manager",
+      "ru": "Провайдер: BlueCat Address Manager"
+    },
+    "variant/x:DnsServerBootstrap/Bunny/label": {
+      "original": "BunnyDNS",
+      "ru": "Провайдер: BunnyDNS"
+    },
+    "variant/x:DnsServerBootstrap/Cloudflare/label": {
+      "original": "Cloudflare",
+      "ru": "Провайдер: Cloudflare"
+    },
+    "variant/x:DnsServerBootstrap/ClouDns/label": {
+      "original": "ClouDNS",
+      "ru": "Провайдер: ClouDNS"
+    },
+    "variant/x:DnsServerBootstrap/Constellix/label": {
+      "original": "Constellix",
+      "ru": "Провайдер: Constellix"
+    },
+    "variant/x:DnsServerBootstrap/Cpanel/label": {
+      "original": "cPanel",
+      "ru": "Провайдер: cPanel"
+    },
+    "variant/x:DnsServerBootstrap/Ddnss/label": {
+      "original": "DDNSS.de",
+      "ru": "Провайдер: DDNSS.de"
+    },
+    "variant/x:DnsServerBootstrap/DeSEC/label": {
+      "original": "DeSEC",
+      "ru": "Провайдер: DeSEC"
+    },
+    "variant/x:DnsServerBootstrap/DigitalOcean/label": {
+      "original": "DigitalOcean",
+      "ru": "Провайдер: DigitalOcean"
+    },
+    "variant/x:DnsServerBootstrap/Dnsimple/label": {
+      "original": "DNSimple",
+      "ru": "Провайдер: DNSimple"
+    },
+    "variant/x:DnsServerBootstrap/DnsMadeEasy/label": {
+      "original": "DNS Made Easy",
+      "ru": "Провайдер: DNS Made Easy"
+    },
+    "variant/x:DnsServerBootstrap/Domeneshop/label": {
+      "original": "Domeneshop",
+      "ru": "Провайдер: Domeneshop"
+    },
+    "variant/x:DnsServerBootstrap/Dreamhost/label": {
+      "original": "Dreamhost",
+      "ru": "Провайдер: Dreamhost"
+    },
+    "variant/x:DnsServerBootstrap/DuckDns/label": {
+      "original": "DuckDNS",
+      "ru": "Провайдер: DuckDNS"
+    },
+    "variant/x:DnsServerBootstrap/Dynu/label": {
+      "original": "Dynu",
+      "ru": "Провайдер: Dynu"
+    },
+    "variant/x:DnsServerBootstrap/EasyDns/label": {
+      "original": "EasyDNS",
+      "ru": "Провайдер: EasyDNS"
+    },
+    "variant/x:DnsServerBootstrap/EdgeDns/label": {
+      "original": "Akamai EdgeDNS",
+      "ru": "Провайдер: Akamai EdgeDNS"
+    },
+    "variant/x:DnsServerBootstrap/Exoscale/label": {
+      "original": "Exoscale",
+      "ru": "Провайдер: Exoscale"
+    },
+    "variant/x:DnsServerBootstrap/FreeMyIp/label": {
+      "original": "freemyip.com",
+      "ru": "Провайдер: freemyip.com"
+    },
+    "variant/x:DnsServerBootstrap/GandiV5/label": {
+      "original": "Gandi LiveDNS v5",
+      "ru": "Провайдер: Gandi LiveDNS v5"
+    },
+    "variant/x:DnsServerBootstrap/Gcore/label": {
+      "original": "Gcore",
+      "ru": "Провайдер: Gcore"
+    },
+    "variant/x:DnsServerBootstrap/Glesys/label": {
+      "original": "GleSYS",
+      "ru": "Провайдер: GleSYS"
+    },
+    "variant/x:DnsServerBootstrap/Godaddy/label": {
+      "original": "GoDaddy",
+      "ru": "Провайдер: GoDaddy"
+    },
+    "variant/x:DnsServerBootstrap/GoogleCloudDns/label": {
+      "original": "Google Cloud DNS",
+      "ru": "Провайдер: Google Cloud DNS"
+    },
+    "variant/x:DnsServerBootstrap/Hetzner/label": {
+      "original": "Hetzner",
+      "ru": "Провайдер: Hetzner"
+    },
+    "variant/x:DnsServerBootstrap/HostingDe/label": {
+      "original": "hosting.de",
+      "ru": "Провайдер: hosting.de"
+    },
+    "variant/x:DnsServerBootstrap/Hostinger/label": {
+      "original": "Hostinger",
+      "ru": "Провайдер: Hostinger"
+    },
+    "variant/x:DnsServerBootstrap/HuaweiCloud/label": {
+      "original": "Huawei Cloud DNS",
+      "ru": "Провайдер: Huawei Cloud DNS"
+    },
+    "variant/x:DnsServerBootstrap/Hurricane/label": {
+      "original": "Hurricane Electric",
+      "ru": "Провайдер: Hurricane Electric"
+    },
+    "variant/x:DnsServerBootstrap/IbmCloud/label": {
+      "original": "IBM Cloud",
+      "ru": "Провайдер: IBM Cloud"
+    },
+    "variant/x:DnsServerBootstrap/Infoblox/label": {
+      "original": "Infoblox NIOS WAPI",
+      "ru": "Провайдер: Infoblox NIOS WAPI"
+    },
+    "variant/x:DnsServerBootstrap/Infomaniak/label": {
+      "original": "Infomaniak",
+      "ru": "Провайдер: Infomaniak"
+    },
+    "variant/x:DnsServerBootstrap/Inwx/label": {
+      "original": "INWX",
+      "ru": "Провайдер: INWX"
+    },
+    "variant/x:DnsServerBootstrap/Ionos/label": {
+      "original": "IONOS",
+      "ru": "Провайдер: IONOS"
+    },
+    "variant/x:DnsServerBootstrap/Ipv64/label": {
+      "original": "IPv64",
+      "ru": "Провайдер: IPv64"
+    },
+    "variant/x:DnsServerBootstrap/Joker/label": {
+      "original": "Joker",
+      "ru": "Провайдер: Joker"
+    },
+    "variant/x:DnsServerBootstrap/Lightsail/label": {
+      "original": "AWS Lightsail",
+      "ru": "Провайдер: AWS Lightsail"
+    },
+    "variant/x:DnsServerBootstrap/Linode/label": {
+      "original": "Linode",
+      "ru": "Провайдер: Linode"
+    },
+    "variant/x:DnsServerBootstrap/LuaDns/label": {
+      "original": "LuaDNS",
+      "ru": "Провайдер: LuaDNS"
+    },
+    "variant/x:DnsServerBootstrap/Manual/label": {
+      "original": "Manual DNS server management",
+      "ru": "Ручное управление DNS-сервером"
+    },
+    "variant/x:DnsServerBootstrap/MythicBeasts/label": {
+      "original": "Mythic Beasts",
+      "ru": "Провайдер: Mythic Beasts"
+    },
+    "variant/x:DnsServerBootstrap/Namecheap/label": {
+      "original": "Namecheap",
+      "ru": "Провайдер: Namecheap"
+    },
+    "variant/x:DnsServerBootstrap/NameDotCom/label": {
+      "original": "Name.com",
+      "ru": "Провайдер: Name.com"
+    },
+    "variant/x:DnsServerBootstrap/NameSilo/label": {
+      "original": "NameSilo",
+      "ru": "Провайдер: NameSilo"
+    },
+    "variant/x:DnsServerBootstrap/Netcup/label": {
+      "original": "Netcup",
+      "ru": "Провайдер: Netcup"
+    },
+    "variant/x:DnsServerBootstrap/Netlify/label": {
+      "original": "Netlify",
+      "ru": "Провайдер: Netlify"
+    },
+    "variant/x:DnsServerBootstrap/Nifcloud/label": {
+      "original": "Nifcloud",
+      "ru": "Провайдер: Nifcloud"
+    },
+    "variant/x:DnsServerBootstrap/Ns1/label": {
+      "original": "NS1",
+      "ru": "Провайдер: NS1"
+    },
+    "variant/x:DnsServerBootstrap/OracleCloud/label": {
+      "original": "Oracle Cloud",
+      "ru": "Провайдер: Oracle Cloud"
+    },
+    "variant/x:DnsServerBootstrap/Ovh/label": {
+      "original": "OVH",
+      "ru": "Провайдер: OVH"
+    },
+    "variant/x:DnsServerBootstrap/Plesk/label": {
+      "original": "Plesk",
+      "ru": "Провайдер: Plesk"
+    },
+    "variant/x:DnsServerBootstrap/Porkbun/label": {
+      "original": "Porkbun",
+      "ru": "Провайдер: Porkbun"
+    },
+    "variant/x:DnsServerBootstrap/PowerDns/label": {
+      "original": "PowerDNS Authoritative",
+      "ru": "Авторитетный сервер PowerDNS"
+    },
+    "variant/x:DnsServerBootstrap/Route53/label": {
+      "original": "AWS Route53",
+      "ru": "Провайдер: AWS Route53"
+    },
+    "variant/x:DnsServerBootstrap/Safedns/label": {
+      "original": "ANS SafeDNS",
+      "ru": "Провайдер: ANS SafeDNS"
+    },
+    "variant/x:DnsServerBootstrap/Scaleway/label": {
+      "original": "Scaleway",
+      "ru": "Провайдер: Scaleway"
+    },
+    "variant/x:DnsServerBootstrap/Spaceship/label": {
+      "original": "Spaceship",
+      "ru": "Провайдер: Spaceship"
+    },
+    "variant/x:DnsServerBootstrap/TencentCloud/label": {
+      "original": "Tencent Cloud DNSPod",
+      "ru": "Провайдер: Tencent Cloud DNSPod"
+    },
+    "variant/x:DnsServerBootstrap/Transip/label": {
+      "original": "TransIP",
+      "ru": "Провайдер: TransIP"
+    },
+    "variant/x:DnsServerBootstrap/Tsig/label": {
+      "original": "RFC2136 (TSIG)",
+      "ru": "Динамическое обновление RFC2136 (TSIG)"
+    },
+    "variant/x:DnsServerBootstrap/UltraDns/label": {
+      "original": "UltraDNS",
+      "ru": "Провайдер: UltraDNS"
+    },
+    "variant/x:DnsServerBootstrap/Vercel/label": {
+      "original": "Vercel",
+      "ru": "Провайдер: Vercel"
+    },
+    "variant/x:DnsServerBootstrap/Volcengine/label": {
+      "original": "Volcano Engine",
+      "ru": "Провайдер: Volcano Engine"
+    },
+    "variant/x:DnsServerBootstrap/Vultr/label": {
+      "original": "Vultr",
+      "ru": "Провайдер: Vultr"
+    },
+    "variant/x:DnsServerBootstrap/WebSupport/label": {
+      "original": "WebSupport",
+      "ru": "Провайдер: WebSupport"
+    },
+    "variant/x:DnsServerBootstrap/YandexCloud/label": {
+      "original": "Yandex Cloud",
+      "ru": "Провайдер: Yandex Cloud"
+    },
+    "variant/x:Metric/Counter/label": {
+      "original": "Counter metric",
+      "ru": "Метрика-счётчик"
+    },
+    "variant/x:Metric/Gauge/label": {
+      "original": "Gauge metric",
+      "ru": "Метрика текущего значения (Gauge)"
+    },
+    "variant/x:Metric/Histogram/label": {
+      "original": "Histogram metric",
+      "ru": "Метрика-гистограмма"
     }
   },
   "scopedEntries": [

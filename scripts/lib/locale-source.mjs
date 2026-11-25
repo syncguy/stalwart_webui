@@ -6,6 +6,7 @@ import vm from 'node:vm';
 import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
 import ts from 'typescript';
+import { loadStage44Packet, undoStage44 } from './locale-stage44.mjs';
 
 export const digest = value => createHash('sha256').update(value).digest('hex');
 export const json = value => JSON.stringify(value, null, 2) + '\n';
@@ -75,12 +76,13 @@ export function registry(raw, filename, variable) {
   return literal(variables.get(variable));
 }
 
-export function loadInputs(root) {
+export function loadInputs(root, { historicalStage43 = false } = {}) {
   const read = p => fs.readFileSync(path.join(root, p), 'utf8');
   const load = p => readJson(read(p), p);
   const policy = load('scripts/data/locale-review-policy.json');
   const manifest = load('scripts/data/pinned-schema-manifest.json');
-  const catalog = load('src/i18n/schema/ru.json');
+  const currentCatalog = load('src/i18n/schema/ru.json');
+  const catalog = historicalStage43 ? undoStage44(currentCatalog,loadStage44Packet(root)) : currentCatalog;
   const inventory = load('.artifacts/locale-coverage/inventory.json');
   assert.equal(inventory.input.catalogSha256, digest(read('src/i18n/schema/ru.json')), 'Устарел исходный реестр');
   assert.equal(inventory.input.manifestSha256, digest(read('scripts/data/pinned-schema-manifest.json')), 'Изменился manifest');

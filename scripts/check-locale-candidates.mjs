@@ -18,7 +18,7 @@ import {loadSpecializedPacket,undoSpecialized} from './lib/locale-specialized-la
 import './lib/offline-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const inputs = loadInputs(root);
+const inputs = loadInputs(root,{historicalStage43:true});
 const legacyGraph = buildUsageGraph(inputs);
 const stage37Graph = buildUsageGraph({ ...inputs, fieldOwners: true });
 const stage38Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true });
@@ -26,7 +26,7 @@ const stage39Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners:
 const stage41Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true });
 const stage42Graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true, regionalLabels: true });
 const graph = buildUsageGraph({ ...inputs, fieldOwners: true, formOwners: true, variantBadges: true, traceLabels: true, regionalLabels: true, specializedPaths: true });
-const report = readJson(fs.readFileSync(path.join(root, '.artifacts/locale-candidates/classification.json'), 'utf8'), 'classification');
+const report = readJson(fs.readFileSync(path.join(root, '.artifacts/locale-candidates/stage43-classification.json'), 'utf8'), 'classification');
 const row = slot => report.rows.find(r => r.slot === slot);
 const uses = r => r.usages.map(u => ({ ...report.usageContexts[u.context], text: report.displayTexts[u.text],
   lookupSlot: Object.hasOwn(u, 'lookupSlot') ? u.lookupSlot : r.slot }));
@@ -720,3 +720,21 @@ check('Stage43: exact remaining 159 scope, mode-specific compact and custom cons
   assert.throws(()=>undoSpecialized(tampered,packet43));
   console.log('Stage43: 159 pairs; 143 translated, 16 no proven consumer. Exact usage counts '+JSON.stringify({beforeCounts,afterCounts,screens:screens.size})+'; no unrelated changes.');
 });
+
+const active44=JSON.parse(fs.readFileSync(path.join(root,'.artifacts/locale-candidates/classification.json'),'utf8'));
+const evidence44=JSON.parse(fs.readFileSync(path.join(root,'.artifacts/locale-candidates/stage44-evidence.json'),'utf8'));
+assert.equal(active44.stage,44);
+assert.equal(active44.rows.length,12246);
+assert.equal(active44.summary.acceptedCatalogEntries,11498);
+assert.equal(active44.summary.acceptedScopedEntries,4);
+assert.equal(evidence44.rows.length,828);
+assert.equal(evidence44.bindings,1539);
+const residual43=report.rows.filter(r=>r.classification==='unreachable/conditional').map(r=>r.id).sort();
+assert.deepEqual(evidence44.rows.map(r=>r.id).sort(),residual43);
+const byId44=new Map(active44.rows.map(r=>[r.id,r]));
+for(const e of evidence44.rows.filter(r=>r.recommendedClassification!=='unreachable/conditional')) {
+  const actual=byId44.get(e.id);
+  assert.ok(actual.usages.length,e.slot);
+  assert.notEqual(actual.classification,'unreachable/conditional',e.slot);
+}
+console.log('Stage44 evidence and active inventory verified; independent sink acceptance remains open.');

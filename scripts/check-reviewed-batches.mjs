@@ -14,7 +14,7 @@ import {loadRegionalPacket,undoRegional} from './lib/locale-regional-labels.mjs'
 import {loadSpecializedPacket,undoSpecialized} from './lib/locale-specialized-labels.mjs';
 import './lib/offline-guard.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const inputs=loadInputs(root),graph=buildUsageGraph(inputs);
+const inputs=loadInputs(root,{historicalStage43:true}),graph=buildUsageGraph(inputs);
 const packets=loadReviewedBatches(root,inputs.policy);
 assert.ok(packets.length);
 assert.equal(packets[0].stage,19);
