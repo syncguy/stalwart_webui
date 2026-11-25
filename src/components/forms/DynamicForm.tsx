@@ -44,7 +44,8 @@ function capitalize(text: string): string {
 function useFormTitle(model: DynamicFormModel): string {
   const { t } = useTranslation();
   const display = useSchemaText();
-  const actionNameFor = useSchemaActionName();, isSingleton, state, parentForm, variantForm } = model;
+  const actionNameFor = useSchemaActionName();
+  const { resolved, mode, isSingleton, state, parentForm, variantForm } = model;
   if (!resolved) return '';
   const titleForm = parentForm ?? variantForm;
   const objectKey = resolved.object.objectName;
