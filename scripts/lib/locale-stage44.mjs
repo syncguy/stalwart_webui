@@ -43,7 +43,7 @@ export function validateStage44(root, inputs, packet) {
     for (const item of fs.readdirSync(path.join(root,dir), {withFileTypes:true})) {
       const rel = dir + '/' + item.name;
       if (item.isDirectory()) walk(rel);
-      else if (/\.(?:ts|tsx)$/.test(rel)) {
+      else if (/\.[cm]?[jt]sx?$/.test(rel)) {
         const b = fs.readFileSync(path.join(root,rel));
         source[rel] = createHash('sha1').update('blob ' + b.length + '\0').update(b).digest('hex');
       }

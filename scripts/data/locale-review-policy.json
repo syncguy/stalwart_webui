@@ -70,7 +70,7 @@
     "src/components/forms/widgets/PasskeyRegistrationField.tsx": "6a19be0facbff5c2d8a289cce5d6cf67dccdd12dee9129bf7e2057edb05c486c",
     "src/lib/durationFormat.ts": "d70ace5b5fc42b83ac4f60024c37169eb362b37def477bf441db18857a1efe49",
     "src/components/forms/widgets/useDurationUnitLabel.ts": "bfaf3abd009ad9c739b9676de70313efe61502bc0ec15902e8240a7d3aff73cb",
-    "src/i18n/ru.json": "f4e6005f3debb21086f3589ffa4792434af186c4ef6f18c582bffe70486e0710",
+    "src/i18n/ru.json": "4d7f0de928a4aff46b131f051ffb36271da00f37fadc6eabdea57d3cdc1683e8",
     "src/components/forms/widgets/LazyWidgets.tsx": "6e6eb241ae8785e0160a16deb208b1d38f577a625cd537944dc73330593a2053",
     "src/i18n/en.json": "8ce59582c062b84d54c38b08a55b9123ee705e951d8d08dc8d60ef341934bf10",
     "src/components/bootstrap/BootstrapWizard.tsx": "1f54de3c0445c5f5498fae43c64072f81bf23eaad54bbb8192f55a2507cbb870",
@@ -554,7 +554,7 @@
     "scripts/lib/locale-specialized-components.mjs": "b83812e7ef4468eeef66b8bd42c226d6a0fd52b0a924588c1e95087193a4ef68",
     "scripts/data/stage44-final-review.json": "0fe29d63d70e0fba023b39f231611b94d76c1ae39ca160eb051266edaa73e536",
     "scripts/data/stage44-before-review.json": "b4a07ba5ed9988d88b49febdd05912b3928b69e6fe4f29e32a6ae2c52823e9e0",
-    "scripts/lib/locale-stage44.mjs": "1f59b6bde3db05820568909f69f24df63c672a2bb849c7eab3fae1ac0ae92628",
+    "scripts/lib/locale-stage44.mjs": "cd5fd00f78a277743102fae085038e393c7caea3a230639420970c43950a95b6",
     "scripts/lib/locale-stage44-components.mjs": "4308e8988b4f99ffb73c75e3da8e4f1b84597ae7eca1d1e7c0248d688ef07d57",
     "src/lib/jmapErrors.ts": "f63324107661aa82092014d6d506cd7a34adb3a8073dfffab561c96fc0cb4de4"
   },
