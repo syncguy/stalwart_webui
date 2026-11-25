@@ -13,6 +13,69 @@ const schemaHashes = new Set<string>(ruCatalog.meta.schemaHashes);
 const scopedEntries: readonly (Entry & { schemaHash: string; slot: string })[] = ruCatalog.scopedEntries;
 const scopedSlots = new Set(scopedEntries.map(entry => entry.slot));
 
+// Stage47 interim: exact original-locked editorial display overrides.
+// The historical catalog remains unchanged for digest replay.
+export const dashboardEditorial: Readonly<Record<string, Entry>> = {
+  "dashboard/overview/item/0/title": { original: "Received Messages", ru: "Принято" },
+  "dashboard/overview/item/1/title": { original: "Sent Messages", ru: "Отправлено" },
+  "dashboard/overview/item/2/title": { original: "Pending Messages", ru: "Очередь" },
+  "dashboard/overview/item/3/title": { original: "Server Memory", ru: "Память Stalwart" },
+  "dashboard/overview/item/6/title": { original: "Rejections", ru: "Отклонено" },
+  "dashboard/overview/item/8/title": { original: "Memory usage", ru: "Использовано памяти" },
+  "dashboard/overview/item/4/series/0/label": { original: "received", ru: "принято" },
+  "dashboard/overview/item/6/series/2/label": { original: "Failed logins", ru: "Ошибки входа" },
+  "dashboard/overview/item/6/series/4/label": { original: "Relay denied", ru: "Запрет ретрансляции" },
+  "dashboard/overview/item/6/series/5/label": { original: "Rate limited", ru: "Лимит запросов" },
+  "dashboard/network/item/0/title": { original: "SMTP active", ru: "Активные SMTP" },
+  "dashboard/network/item/1/title": { original: "IMAP active", ru: "Активные IMAP" },
+  "dashboard/network/item/2/title": { original: "POP3 active", ru: "Активные POP3" },
+  "dashboard/network/item/3/title": { original: "HTTP active", ru: "Активные HTTP" },
+  "dashboard/network/item/4/title": { original: "Sieve active", ru: "Активные Sieve" },
+  "dashboard/network/item/5/title": { original: "SMTP total", ru: "Всего SMTP" },
+  "dashboard/network/item/6/title": { original: "IMAP total", ru: "Всего IMAP" },
+  "dashboard/network/item/7/title": { original: "POP3 total", ru: "Всего POP3" },
+  "dashboard/network/item/8/title": { original: "HTTP total", ru: "Всего HTTP" },
+  "dashboard/network/item/10/title": { original: "Mailbox Protocol Connections", ru: "Почтовые соединения" },
+  "dashboard/security/item/1/title": { original: "IPs banned", ru: "Заблокированные IP" },
+  "dashboard/encryption/item/0/title": { original: "Encrypted Outbound", ru: "Исходящие: зашифровано" },
+  "dashboard/encryption/item/1/title": { original: "Plaintext Outbound", ru: "Исходящие: без шифра" },
+  "dashboard/encryption/item/2/title": { original: "Bounced Recipients", ru: "Отказ получателям" },
+  "dashboard/encryption/item/3/title": { original: "Encrypted at Rest", ru: "Хранение: зашифровано" },
+  "dashboard/encryption/item/4/title": { original: "At Rest Skipped", ru: "Хранение: без шифра" },
+  "dashboard/encryption/item/6/title": { original: "Keys Harvested", ru: "Найдено ключей" },
+  "dashboard/encryption/item/8/title": { original: "Revocation List Failures", ru: "Ошибки CRL" },
+  "dashboard/encryption/item/11/title": { original: "Outbound encryption", ru: "Исходящие письма" },
+  "dashboard/encryption/item/12/title": { original: "Encryption at rest", ru: "Хранение" },
+  "dashboard/search-index/item/0/title": { original: "Indexing Time", ru: "Время обработки пакета" },
+  "dashboard/search-index/item/1/title": { original: "Batches Indexed", ru: "Обработано пакетов" },
+  "dashboard/search-index/item/3/title": { original: "Partition Retries", ru: "Повторы разделов" },
+  "dashboard/search-index/item/4/title": { original: "E-mail Index Queue", ru: "Очередь писем" },
+  "dashboard/search-index/item/5/title": { original: "Calendar Index Queue", ru: "Очередь календарей" },
+  "dashboard/search-index/item/6/title": { original: "Contacts Index Queue", ru: "Очередь контактов" },
+  "dashboard/search-index/item/7/title": { original: "Files Index Queue", ru: "Очередь файлов" },
+  "dashboard/search-index/item/8/title": { original: "Tracing Index Queue", ru: "Очередь трассировок" },
+  "dashboard/search-index/item/9/title": { original: "Index queue", ru: "Очередь" },
+  "dashboard/search-index/item/10/title": { original: "Indexing", ru: "Обработка" },
+  "dashboard/tasks/item/0/title": { original: "Pending Tasks", ru: "В очереди" },
+  "dashboard/tasks/item/1/title": { original: "Due Tasks", ru: "К выполнению" },
+  "dashboard/tasks/item/2/title": { original: "Task Failures", ru: "Ошибки" },
+  "dashboard/tasks/item/3/title": { original: "Task Retries", ru: "Повторные попытки" },
+  "dashboard/tasks/item/4/title": { original: "Stalled Tasks", ru: "Застряли" },
+  "dashboard/tasks/item/5/title": { original: "Expired Tasks", ru: "Просрочено" },
+  "dashboard/tasks/item/6/title": { original: "Task queue", ru: "Очередь" },
+  "dashboard/tasks/item/7/title": { original: "Task outcomes", ru: "Результаты" },
+  "dashboard/cache/item/0/title": { original: "E-mail Cache", ru: "Почта" },
+  "dashboard/cache/item/1/title": { original: "Large Account Cache", ru: "Крупные учётные записи" },
+  "dashboard/cache/item/2/title": { original: "Other Caches", ru: "Прочие" },
+  "dashboard/cache/item/3/title": { original: "Cache Hits", ru: "Попадания" },
+  "dashboard/cache/item/4/title": { original: "Cache Misses", ru: "Промахи" },
+  "dashboard/cache/item/6/title": { original: "Swap Pending", ru: "Ожидают записи" },
+  "dashboard/cache/item/8/title": { original: "Cache memory", ru: "Память" },
+  "dashboard/cache/item/9/title": { original: "Cache lookups", ru: "Обращения" },
+  "dashboard/performance/item/2/title": { original: "Server Memory", ru: "Память Stalwart" },
+  "dashboard/performance/item/7/title": { original: "Memory usage", ru: "Использовано памяти" },
+};
+
 // Stage9: bounded original-text fallback for task variants and indexing
 // columns that are supplied by the pinned server schemas. No raw enum names,
 // routes, field names or persisted values are ever rewritten.
@@ -79,7 +142,11 @@ export function schemaText(
       && entry.slot === slot && entry.original === original)?.ru ?? original;
   }
   const entry = entries[slot];
-  if (entry) return entry.original === original ? entry.ru : original;
+  if (entry) {
+    if (entry.original !== original) return original;
+    const editorial = dashboardEditorial[slot];
+    return editorial?.original === original ? editorial.ru : entry.ru;
+  }
   return taskAndIndexDisplayFallback(slot, original);
 }
 

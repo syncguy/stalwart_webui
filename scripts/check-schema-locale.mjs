@@ -353,8 +353,8 @@ const stage7Labels = [
   ['list/x:Log/column/timestamp', 'Timestamp', 'Время'],
   ['variant/x:Action/InvalidateNegativeCaches/label', 'Cache: Invalidate negative caches', 'Кэш: Очистить кэш отрицательных результатов'],
   ['dashboard/overview/label', 'Overview', 'Обзор'],
-  ['dashboard/overview/item/0/title', 'Received Messages', 'Принятые сообщения'],
-  ['dashboard/overview/item/4/series/0/label', 'received', 'получено'],
+  ['dashboard/overview/item/0/title', 'Received Messages', 'Принято'],
+  ['dashboard/overview/item/4/series/0/label', 'received', 'принято'],
   ['dashboard/network/item/9/series/0/label', 'inbound', 'входящие'],
   ['dashboard/delivery/item/10/series/1/label', 'DSNs', 'уведомления DSN'],
   ['dashboard/cache/item/9/series/0/label', 'hit', 'попадания'],
@@ -694,3 +694,15 @@ assert.ok(viewPageSource.includes('<DynamicView'));
 assert.ok(viewSource.includes('value={data[formField.name]}'));
 
 console.log(`Schema locale check passed: ${Object.keys(entries).length} contextual slots, two pinned variants, safe fallbacks, preserved identifiers.`);
+
+// Stage47: validate all editorial slots against the immutable catalog and real resolver.
+for (const [slot, entry] of Object.entries(exports.dashboardEditorial)) {
+  assert.equal(entries[slot]?.original, entry.original, slot);
+  for (const hash of meta.schemaHashes) {
+    assert.equal(schemaText(hash, 'ru', slot, entry.original), entry.ru, slot);
+    assert.equal(schemaText(hash, 'en', slot, entry.original), entry.original, slot);
+    assert.equal(schemaText(hash, 'ru', slot, entry.original + ' changed'), entry.original + ' changed', slot);
+  }
+  assert.equal(schemaText('unknown-hash', 'ru', slot, entry.original), entry.original, slot);
+}
+console.log('Stage47 editorial checks PASS:', Object.keys(exports.dashboardEditorial).length);
