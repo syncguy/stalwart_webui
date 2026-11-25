@@ -5,6 +5,7 @@
  */
 
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { X } from 'lucide-react';
 
@@ -66,10 +67,11 @@ function Toast({
 }
 
 function ToastClose({ className, ...props }: React.ComponentProps<'button'>) {
+  const { t } = useTranslation();
   return (
     <button
       data-slot="toast-close"
-      aria-label="Close"
+      aria-label={t('common.close', 'Close')}
       className={cn(
         'absolute right-1.5 top-1.5 rounded-full p-1 text-foreground/60 transition-colors hover:bg-muted hover:text-foreground focus:outline-none focus:ring-1 focus:ring-ring',
         className,

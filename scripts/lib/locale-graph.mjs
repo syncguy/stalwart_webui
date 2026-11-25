@@ -2,7 +2,7 @@
 import { compare, ptr } from './locale-source.mjs';
 
 // fieldOwners=false replays the historical pre-stage37 renderer contract only.
-export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false, formOwners = false, variantBadges = false, traceLabels = false, regionalLabels = false, specializedPaths = false }) {
+export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fieldOwners = false, formOwners = false, variantBadges = false, traceLabels = false, regionalLabels = false, specializedPaths = false, webuiRuBootstrapPaths = false }) {
   const byPointer = new Map();
   const usages = new Map(inventory.rows.map(r => [r.slot + '\0' + r.original, new Map()]));
   const screens = new Map();
@@ -76,6 +76,12 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
       emit(pin, ptr('layouts', i, 'name'), { section: layout.name, area: layout.name, screen: '@navigation', mode: 'navigation', via: '/layouts', conditions: ['availability-unknown'] }, undefined, 'schemaStore.walkLayouts');
       walk(layout.items, layout.name, layout.name, ptr('layouts', i, 'items'));
     });
+    // Opt-in proposal: keep the complete stage18-43 replay unchanged by default.
+    // BootstrapWizard is a separate application root, not a menu link.
+    if (webuiRuBootstrapPaths && s.objects['x:Bootstrap']) nav.push({
+      section: '@bootstrap', area: '@bootstrap', view: 'x:Bootstrap', name: 'Bootstrap',
+      pointer: 'AdminPanel.isBootstrapMode', bootstrap: true,
+    });
 
     for (const link of nav) {
       const object = resolver.resolveObject(s, link.view);
@@ -88,6 +94,7 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
       screens.set(screenKey, screen);
       const base = { section: link.section, area: link.area, screen: link.view, via: link.pointer,
         conditions: ['availability-unknown: runtime ACL, account and edition are not evaluated',
+          ...(link.bootstrap ? ['bootstrap-access-and-no-visible-layouts'] : []),
           ...(object ? ['permission-prefix:' + object.permissionPrefix, 'object-enterprise-flag:' + object.enterprise] : []),
           ...(route?.gate ? ['custom-gate:' + JSON.stringify(route.gate)] : [])] };
       if (route) {
@@ -104,7 +111,7 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
         continue;
       }
       if (!object) { unresolved.push({ ...link, edition: pin.edition, reason: 'No object or registered custom route' }); continue; }
-      emit(pin, ptr('objects', object.objectName, 'description'), { ...base, mode: 'search' }, undefined, 'schemaStore.searchIndex');
+      if (!link.bootstrap) emit(pin, ptr('objects', object.objectName, 'description'), { ...base, mode: 'search' }, undefined, 'schemaStore.searchIndex');
       const sch = resolver.resolveSchema(s, object.objectName);
       if (!sch) { unresolved.push({ ...link, edition: pin.edition, reason: 'No resolved schema' }); continue; }
       const list = resolver.resolveList(s, link.view, object.objectName);
@@ -221,13 +228,17 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
           if (object.objectType.type === 'singleton') emit(pin, ptr('forms', formKey, 'title'), ctx, 'form/' + (formOwners ? formKey : object.objectName) + '/title', 'DynamicForm', state);
         }
         form.sections.forEach((section, i) => {
-          const eligible = section.fields.filter(ff => ff.name === '@type' || fields?.properties[ff.name]);
+          const eligible = section.fields.filter(ff => {
+            const field = fields?.properties[ff.name];
+            return (ff.name === '@type' || field) && (!link.bootstrap || !field?.enterprise && field?.update !== 'serverSet');
+          });
           if (!eligible.length) return;
           if (!embedded) emit(pin, ptr('forms', formKey, 'sections', i, 'title'), ctx,
             'form/' + (formOwners && readonly ? formKey : lookupKey) + '/section/section-' + (readonly && !formOwners ? i + offset : i), 'FormSections/DynamicView', state);
           for (const [j, ff] of section.fields.entries()) {
             const field = fields?.properties[ff.name];
             if (ff.name !== '@type' && !field) continue;
+            if (link.bootstrap && field?.enterprise) continue;
             // VacationResponsePage hides toDate and replaces fromDate with
             // PeriodRow (client t() caption/help, raw dates still submitted).
             if (specializedPaths && formKey === 'VacationResponse' && ctx.mode === 'singleton'
@@ -263,7 +274,13 @@ export function buildUsageGraph({ inventory, pins, resolver, pages, widgets, fie
           if (field) typeUses(field.type, { ...base, mode: 'list-cell', via: listKey + '/' + column.name }, column.name);
         }
       }
-      const modes = object.objectName === 'x:Action' ? ['action'] : object.objectType.type === 'singleton' ? ['singleton'] : ['create', 'edit', 'detail'];
+      if (link.bootstrap) {
+        const success = { ...base, mode: 'bootstrap-success', conditions: [...base.conditions,
+          'bootstrap-access-and-no-visible-layouts', 'returned-nonempty-string-extra'] };
+        for (const name of ['username', 'secret']) emit(pin,
+          ptr('fields', 'x:Bootstrap', 'properties', name, 'description'), success, undefined, 'SuccessScreen');
+      }
+      const modes = link.bootstrap ? ['create'] : object.objectName === 'x:Action' ? ['action'] : object.objectType.type === 'singleton' ? ['singleton'] : ['create', 'edit', 'detail'];
       for (const mode of modes) {
         screen.modes.push(mode);
         const special = objectPage(link.view, object.objectName, mode);

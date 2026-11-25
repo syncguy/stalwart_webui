@@ -10,6 +10,7 @@ import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { CopyButton } from '@/components/common/CopyButton';
 import { DefaultLogo } from '@/components/common/Logo';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import type { Fields } from '@/types/schema';
 
 export function WizardShell({ children }: { children: ReactNode }) {
@@ -48,13 +49,16 @@ export function ProgressIndicator({ total, current }: { total: number; current: 
 export function SuccessScreen({
   extras,
   fields,
+  fieldOwner,
   labelsByName,
 }: {
   extras: Record<string, unknown>;
   fields: Fields;
+  fieldOwner: string;
   labelsByName: Map<string, string>;
 }) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const entries = Object.entries(extras).filter(([k, v]) => {
     if (k === 'id' || k === 'blobId' || k === '@type') return false;
     return typeof v === 'string' && v.length > 0;
@@ -85,7 +89,9 @@ export function SuccessScreen({
         <section className="tile divide-y divide-border px-5 sm:px-6">
           {entries.map(([key, value]) => {
             const field = fields.properties[key];
-            const label = labelsByName.get(key) ?? field?.description?.split('\n')[0] ?? key;
+            const description = field?.description
+              ? display(`field/${fieldOwner}/${key}/description`, field.description) : undefined;
+            const label = labelsByName.get(key) ?? description?.split('\n')[0] ?? key;
             return (
               <div key={key} className="space-y-2 py-4">
                 <div className="text-[13.5px] font-semibold">{label}</div>

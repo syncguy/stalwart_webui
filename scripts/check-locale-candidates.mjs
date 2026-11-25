@@ -151,8 +151,14 @@ check('Разные принятые смыслы остаются разным�
   const result = classify(inputs, graph).rows;
   const { memory, glossaryConflicts } = translationMemory(inputs, result);
   assert.ok(new Set(memory.get('Enabled').map(x => x.ru)).size > 1);
-  assert.ok(glossaryConflicts.some(c => c.original === 'Observability' && c.preferred === 'Наблюдение'));
-  assert.ok(glossaryConflicts.some(c => c.original === 'Logs' && c.preferred === 'Журнал'));
+  assert.ok(!glossaryConflicts.some(c => ['Observability', 'Logs'].includes(c.original)));
+  assert.equal(inputs.glossary.pairs.Observability, 'Наблюдение');
+  assert.equal(inputs.glossary.pairs.Logs, 'Журнал');
+  // Preserve the regression for a stale glossary without leaving it stale in production.
+  const stale = { ...inputs, glossary: { ...inputs.glossary, pairs: { ...inputs.glossary.pairs, Observability: 'Наблюдаемость', Logs: 'Журналы' } } };
+  const staleConflicts = translationMemory(stale, result).glossaryConflicts;
+  assert.ok(staleConflicts.some(c => c.original === 'Observability' && c.preferred === 'Наблюдение'));
+  assert.ok(staleConflicts.some(c => c.original === 'Logs' && c.preferred === 'Журнал'));
   assert.ok(!memory.get('Logs').some(x => x.source.kind === 'glossary' && x.ru === 'Журналы'));
   const x = { ...row('form/x:Domain/field/name'), category: 'form-field-label' };
   assert.notEqual(semanticGroup(x), semanticGroup({ ...x, category: 'list' }));

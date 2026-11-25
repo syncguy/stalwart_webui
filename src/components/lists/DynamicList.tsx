@@ -122,7 +122,8 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
 
   const busy = listState.isFetching || actions.pending;
   const selectedCount = selection.allMatching ? (total ?? selection.selectedIds.length) : selection.selectedIds.length;
-  const nameFor = (count: number) => (count === 1 ? list.singularName : list.pluralName);
+  const pluralName = display(`list/${listKey}/plural`, list.pluralName);
+  const nameFor = (count: number) => (count === 1 ? singularName : pluralName);
 
   const confirmMassAction = (action: RunnableMassAction, actionKey: string) => {
     const displayActionLabel = display(`list/${listKey}/massAction/${actionKey}/label`, action.label);
@@ -141,13 +142,13 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
     if (action.type === 'delete') {
       setConfirm({
         title: allMatching
-          ? t('list.deleteAllMatchingTitle', 'Delete all matching {{name}}', { name: list.pluralName })
+          ? t('list.deleteAllMatchingTitle', 'Delete all matching {{name}}', { name: pluralName })
           : t('list.deleteManyTitle', 'Delete {{count}} {{name}}', { count, name }),
         description: allMatching
           ? t(
               'list.deleteAllMatchingDescription',
               'Are you sure you want to delete ALL {{name}} matching the current filters? This action cannot be undone.',
-              { name: list.pluralName },
+              { name: pluralName },
             )
           : t(
               'list.deleteManyDescription',
@@ -185,7 +186,7 @@ function DynamicListView({ viewName, schema, resolved, list }: DynamicListViewPr
     };
     if (action.type === 'delete') {
       setConfirm({
-        title: t('list.deleteItemTitle', 'Delete {{name}}?', { name: list.singularName }),
+        title: t('list.deleteItemTitle', 'Delete {{name}}?', { name: singularName }),
         description: t(
           'list.deleteItemDescription',
           'Are you sure you want to delete {{label}}? This action cannot be undone.',

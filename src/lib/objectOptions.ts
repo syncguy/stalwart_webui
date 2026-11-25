@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 import { resolveObject, resolveList } from '@/lib/schemaResolver';
 import { usePermissionCheckers } from '@/hooks/usePermissions';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import type { Schema } from '@/types/schema';
 
 export function coerceLabel(value: unknown, fallback: string): string {
@@ -30,12 +31,14 @@ export function coerceLabel(value: unknown, fallback: string): string {
 
 export function useNoPermissionMessage(schema: Schema, viewOrObjectName: string): string | null {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const { hasObjectPermission } = usePermissionCheckers();
   const resolved = resolveObject(schema, viewOrObjectName);
   if (!resolved) return null;
   const prefix = resolved.permissionPrefix;
   if (hasObjectPermission(prefix, 'Get') && hasObjectPermission(prefix, 'Query')) return null;
   const list = resolveList(schema, viewOrObjectName, resolved.objectName);
-  const name = list?.pluralName ?? resolved.objectName;
+  const listKey = Object.hasOwn(schema.lists, viewOrObjectName) ? viewOrObjectName : resolved.objectName;
+  const name = list ? display(`list/${listKey}/plural`, list.pluralName) : resolved.objectName;
   return t('field.noPermissionToView', 'You do not have permission to view {{name}}', { name });
 }

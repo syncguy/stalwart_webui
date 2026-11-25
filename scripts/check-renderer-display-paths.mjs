@@ -14,7 +14,7 @@ for (const fragment of [
   'display(`variant/${objectName}/${typeName}/label`, typeLabel)',
   'display(`variant/${objectName}/${value}/label`, label)',
   'display(`form/${entry.formKey}/field/${entry.key}`, entry.label)',
-  'display(`field/${entry.formKey}/${entry.key}/description`, entry.field.description)',
+  'display(`field/${entry.fieldOwner}/${entry.key}/description`, entry.field.description)',
   'value={entry.value}',
   'value={data[formField.name]}',
 ]) {
@@ -84,5 +84,19 @@ for (const slot of [
 const guard = read('src/i18n/schemaText.ts');
 must(guard, 'original', 'Guard source');
 must(guard, 'schemaHash', 'Guard schema');
+
+// Stage44 initial display fixes: guard exact owners and unchanged raw values.
+const bootstrap = read('src/components/bootstrap/BootstrapWizard.tsx');
+must(bootstrap, 'section-${current.sourceIndex}', 'Bootstrap section index');
+must(bootstrap, 'fieldOwner={resolved.sch.schemaName}', 'Bootstrap field owner');
+must(bootstrap, 'value={formData[formField.name]}', 'Bootstrap raw value');
+must(read('src/components/bootstrap/BootstrapScreens.tsx'), 'display(`field/${fieldOwner}/${key}/description`, field.description)', 'Bootstrap success');
+must(read('src/lib/objectOptions.ts'), 'display(`list/${listKey}/plural`, list.pluralName)', 'Permission tooltip');
+must(read('src/components/ui/dialog.tsx'), "t('common.close', 'Close')", 'Dialog accessibility');
+must(read('src/components/ui/toast.tsx'), "t('common.close', 'Close')", 'Toast accessibility');
+must(form, 'labels={returnedLabels}', 'Created values captions');
+must(form, 'display(`form/${owner}/field/${ff.name}`, ff.label)', 'Returned form owner');
+must(list, 'const nameFor = (count: number) => (count === 1 ? singularName : pluralName);', 'Mass confirm captions');
+must(read('src/components/forms/useDynamicForm.ts'), 'display(`list/${listKey}/singular`, resolved.list.singularName)', 'Delete toast captions');
 
 console.log('Stage15 source display-path checks PASS: nested values, variant badges, captions, actions, forms, Area/Line/Bar; browser/runtime NOT TESTED.');

@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { ArrowLeft, ArrowRight, Loader2, Rocket } from 'lucide-react';
 
 import { useSchemaStore } from '@/stores/schemaStore';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { FormProvider } from '@/components/forms/FormProvider';
 import { FieldRow } from '@/components/forms/FieldRow';
 import { mapSetError, validateRequired, type FieldErrors } from '@/components/forms/formLogic';
@@ -34,6 +35,7 @@ interface RenderableField {
 
 export function BootstrapWizard() {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const schema = useSchemaStore((s) => s.schema);
 
   const resolved = useMemo(() => {
@@ -43,7 +45,8 @@ export function BootstrapWizard() {
     const sch = resolveSchema(schema, obj.objectName);
     if (!sch || sch.type !== 'single') return null;
     const form = resolveForm(schema, BOOTSTRAP_VIEW, obj.objectName, sch.schemaName);
-    return { obj, sch, fields: sch.fields, form };
+    const formKey = form ? Object.keys(schema.forms).find((key) => schema.forms[key] === form) : undefined;
+    return { obj, sch, fields: sch.fields, form, formKey };
   }, [schema]);
 
   const [formData, setFormData] = useState<Record<string, unknown>>({});
@@ -54,12 +57,12 @@ export function BootstrapWizard() {
   const [generalError, setGeneralError] = useState<string | null>(null);
   const [successExtras, setSuccessExtras] = useState<Record<string, unknown> | null>(null);
 
-  const sections = useMemo((): { title?: string; subtitle?: string; fields: RenderableField[] }[] => {
+  const sections = useMemo((): { sourceIndex: number; title?: string; fields: RenderableField[] }[] => {
     if (!resolved) return [];
     const { fields, form } = resolved;
     if (!form) return [];
     return form.sections
-      .map((section) => {
+      .map((section, sourceIndex) => {
         const renderableFields: RenderableField[] = [];
         for (const ff of section.fields) {
           const field = fields.properties[ff.name];
@@ -68,7 +71,7 @@ export function BootstrapWizard() {
           if (field.enterprise) continue;
           renderableFields.push({ formField: ff, field });
         }
-        return { title: section.title, fields: renderableFields };
+        return { sourceIndex, title: section.title, fields: renderableFields };
       })
       .filter((s) => s.fields.length > 0);
   }, [resolved]);
@@ -253,7 +256,8 @@ export function BootstrapWizard() {
         <SuccessScreen
           extras={successExtras}
           fields={resolved.fields}
-          labelsByName={labelsByFieldName(resolved.form)}
+          fieldOwner={resolved.sch.schemaName}
+          labelsByName={labelsByFieldName(resolved.form, resolved.formKey, display)}
         />
       </WizardShell>
     );
@@ -291,7 +295,9 @@ export function BootstrapWizard() {
         )}
 
         <section className="tile @container px-5 pb-1.5 sm:px-6">
-          {current.title && <h2 className="section-title pb-1 pt-5">{current.title}</h2>}
+          {current.title && <h2 className="section-title pb-1 pt-5">{resolved.formKey
+            ? display(`form/${resolved.formKey}/section/section-${current.sourceIndex}`, current.title)
+            : current.title}</h2>}
           <fieldset disabled={saving} className={cn('min-w-0 divide-y divide-border', !current.title && 'pt-1')}>
             <FormProvider schema={schema} mode="create" hideEnterprise>
               {current.fields.map(({ formField, field }) => (
@@ -299,6 +305,8 @@ export function BootstrapWizard() {
                   key={formField.name}
                   field={field}
                   formField={formField}
+                  formKey={resolved.formKey}
+                  fieldOwner={resolved.sch.schemaName}
                   value={formData[formField.name]}
                   onChange={(v) => handleFieldChange(formField.name, v)}
                   error={fieldErrors[formField.name]}
@@ -336,11 +344,11 @@ export function BootstrapWizard() {
   );
 }
 
-function labelsByFieldName(form: Form | null): Map<string, string> {
+function labelsByFieldName(form: Form | null, formKey: string | undefined, display: (slot: string, original: string) => string): Map<string, string> {
   const map = new Map<string, string>();
   if (!form) return map;
   for (const section of form.sections) {
-    for (const ff of section.fields) map.set(ff.name, ff.label);
+    for (const ff of section.fields) map.set(ff.name, formKey ? display(`form/${formKey}/field/${ff.name}`, ff.label) : ff.label);
   }
   return map;
 }

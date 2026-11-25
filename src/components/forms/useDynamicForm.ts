@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { useSchemaStore } from '@/stores/schemaStore';
 import { usePermissionCheckers } from '@/hooks/usePermissions';
 import { useResolvedView } from '@/hooks/useResolvedView';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { toast } from '@/hooks/use-toast';
 import {
   buildCreateDefaults,
@@ -118,6 +119,7 @@ export function useDynamicForm(
   { accountId, fieldOverrides, createValues }: DynamicFormOptions = {},
 ) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const navigate = useNavigate();
   const schema = useSchemaStore((s) => s.schema);
   const viewToSection = useSchemaStore((s) => s.viewToSection);
@@ -347,7 +349,11 @@ export function useDynamicForm(
     try {
       const result = await setMutation.mutateAsync({ destroy: [objectId], accountId });
       if (result.destroyed?.includes(objectId)) {
-        const label = resolved.list?.singularName ?? resolved.object.objectType.description;
+        const objectKey = resolved.object.objectName;
+        const listKey = schema && Object.hasOwn(schema.lists, viewName) ? viewName : objectKey;
+        const label = resolved.list
+          ? display(`list/${listKey}/singular`, resolved.list.singularName)
+          : display(`object/${objectKey}/description`, resolved.object.objectType.description);
         toast({
           title: t('form.deletedSuccess', '{{name}} deleted successfully', {
             name: label.charAt(0).toUpperCase() + label.slice(1),

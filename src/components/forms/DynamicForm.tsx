@@ -19,7 +19,6 @@ import { FormProvider } from '@/components/forms/FormProvider';
 import { FormSections } from '@/components/forms/FormSections';
 import { sectionDisplayContext } from '@/i18n/schemaFormContext';
 import { UnsavedChangesDialog } from '@/components/forms/UnsavedChangesDialog';
-import { formFieldLabels } from '@/components/forms/formLogic';
 import { useDynamicForm, type DynamicFormModel, type DynamicFormOptions } from '@/components/forms/useDynamicForm';
 import { useSchemaText } from '@/hooks/useSchemaText';
 import type { FieldValues, RenderableSection } from '@/components/forms/formLogic';
@@ -49,7 +48,8 @@ function useFormTitle(model: DynamicFormModel): string {
   if (!resolved) return '';
   const titleForm = parentForm ?? variantForm;
   const objectKey = resolved.object.objectName;
-  const listKey = resolved.object.viewName;
+  const listKey = model.schema && Object.hasOwn(model.schema.lists, resolved.object.viewName)
+    ? resolved.object.viewName : objectKey;
   if (isSingleton) {
     const title = titleForm?.title;
     const titleKey = titleForm && model.schema
@@ -235,11 +235,23 @@ export function DynamicForm({
       </div>
     );
   }
+  const listKey = Object.hasOwn(schema.lists, viewName) ? viewName : formKey;
   const deleteLabel = (
     resolved.list
-      ? display(`list/${viewName}/singular`, resolved.list.singularName)
+      ? display(`list/${listKey}/singular`, resolved.list.singularName)
       : display(`object/${formKey}/description`, resolved.object.objectType.description)
   ).toLowerCase();
+  // Returned metadata captions use the exact form owner; values remain raw.
+  const returnedLabels = new Map<string, string>();
+  for (const form of [model.parentForm, model.variantForm]) {
+    if (!form) continue;
+    const owner = Object.keys(schema.forms).find((key) => schema.forms[key] === form);
+    for (const section of form.sections) {
+      for (const ff of section.fields) {
+        returnedLabels.set(ff.name, owner ? display(`form/${owner}/field/${ff.name}`, ff.label) : ff.label);
+      }
+    }
+  }
   const tenantValue = state.data[TENANT_PROPERTY];
   const sectionId = (key: string) => `${sectionPrefix}-section-${key.replace(/[^A-Za-z0-9_-]/g, '_')}`;
   const showIndex = model.sections.filter((s) => s.title).length >= SECTION_INDEX_MIN;
@@ -357,7 +369,7 @@ export function DynamicForm({
 
       <CreatedValuesDialog
         values={state.created?.values ?? null}
-        labels={formFieldLabels(model.parentForm, model.variantForm)}
+        labels={returnedLabels}
         onContinue={model.continueAfterCreate}
       />
     </div>

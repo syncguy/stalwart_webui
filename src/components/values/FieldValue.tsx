@@ -276,6 +276,7 @@ interface ObjectEntry {
   key: string;
   label: string;
   formKey?: string;
+  fieldOwner?: string;
   field: Field | undefined;
   value: unknown;
 }
@@ -292,6 +293,7 @@ function objectEntries(schema: Schema, objectName: string, data: Record<string, 
         key: formField.name,
         label: formField.label,
         formKey: resolved?.schemaName ?? undefined,
+        fieldOwner: resolved?.schemaName ?? undefined,
         field,
         value: data[formField.name],
       });
@@ -299,7 +301,7 @@ function objectEntries(schema: Schema, objectName: string, data: Record<string, 
   }
   for (const [key, val] of Object.entries(data)) {
     if (seen.has(key) || isEmptyValue(val)) continue;
-    entries.push({ key, label: key, field: resolved?.fields?.properties[key], value: val });
+    entries.push({ key, label: key, fieldOwner: resolved?.schemaName ?? undefined, field: resolved?.fields?.properties[key], value: val });
   }
   return entries;
 }
@@ -350,8 +352,8 @@ export function ObjectValue({
               label={entry.formKey
                 ? display(`form/${entry.formKey}/field/${entry.key}`, entry.label)
                 : entry.label}
-              description={entry.formKey && entry.field?.description
-                ? display(`field/${entry.formKey}/${entry.key}/description`, entry.field.description)
+              description={entry.fieldOwner && entry.field?.description
+                ? display(`field/${entry.fieldOwner}/${entry.key}/description`, entry.field.description)
                 : entry.field?.description}
               type={entry.field?.type}
               value={entry.value}
