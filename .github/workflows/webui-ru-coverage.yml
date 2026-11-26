@@ -87,7 +87,7 @@ jobs:
         run: |
           set -euo pipefail
           sha256sum .artifacts/locale-coverage/{inventory.json,summary.md,translation-memory.json} > /tmp/locale-coverage.sha256
-          sha256sum .artifacts/locale-candidates/{classification.json,candidates.json,diff.json,summary.md,review.md} > /tmp/locale-candidates.sha256
+          sha256sum .artifacts/locale-candidates/{classification.json,candidates.json,diff.json,summary.md,review.md,stage43-classification.json,stage44-evidence.json,stage48-evidence.json} > /tmp/locale-candidates.sha256
           node scripts/generate-locale-candidates.mjs > /tmp/second-inventory.log
           sha256sum -c /tmp/locale-coverage.sha256
           sha256sum -c /tmp/locale-candidates.sha256

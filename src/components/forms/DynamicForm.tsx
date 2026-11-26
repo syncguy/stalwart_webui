@@ -170,6 +170,7 @@ export function DynamicForm({
   accountId,
   fieldOverrides,
   createValues,
+  showCreatedValues,
   afterSections: AfterSections,
 }: DynamicFormProps) {
   const { t } = useTranslation();
@@ -177,7 +178,7 @@ export function DynamicForm({
   const navigate = useNavigate();
   const canUpdate = useCanAccess(viewName, 'Update');
   const canDestroy = useCanAccess(viewName, 'Destroy');
-  const model = useDynamicForm(viewName, objectId, { accountId, fieldOverrides, createValues });
+  const model = useDynamicForm(viewName, objectId, { accountId, fieldOverrides, createValues, showCreatedValues });
   const { schema, resolved, mode, isSingleton, state, isDirty, saving, loading, loadError } = model;
   const formKey = resolved?.object.objectName ?? viewName;
   const sch = resolved?.resolvedSchema;

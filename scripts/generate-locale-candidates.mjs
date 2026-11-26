@@ -9,6 +9,7 @@ import { loadInputs, json, digest } from './lib/locale-source.mjs';
 import { buildUsageGraph } from './lib/locale-graph.mjs';
 import { plan, compactReport, CATEGORIES } from './lib/locale-planner.mjs';
 import { loadStage44Packet, validateStage44, stage44Graph, reviewStage44Client } from './lib/locale-stage44.mjs';
+import { loadStage48Packet, verifyStage48SchemaReplay } from './lib/locale-stage48.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -18,7 +19,7 @@ const artifacts = path.join(root, '.artifacts');
 assert.ok(out.startsWith(artifacts + path.sep), 'Запись разрешена только внутри .artifacts/');
 // Check both generators, including existing/dangling file symlinks, before writes.
 const destinations = [out, path.join(artifacts, 'locale-coverage'),
-  ...['classification.json', 'candidates.json', 'diff.json', 'summary.md', 'review.md', 'stage43-classification.json', 'stage44-evidence.json'].map(f => path.join(out, f)),
+  ...['classification.json', 'candidates.json', 'diff.json', 'summary.md', 'review.md', 'stage43-classification.json', 'stage44-evidence.json', 'stage48-evidence.json'].map(f => path.join(out, f)),
   ...['inventory.json', 'summary.md', 'translation-memory.json'].map(f => path.join(artifacts, 'locale-coverage', f))];
 for (const destination of destinations) for (let p = destination; p !== root; p = path.dirname(p)) {
   assert.ok(!fs.lstatSync(p, { throwIfNoEntry: false })?.isSymbolicLink(), 'Путь отчёта содержит symlink: ' + p);
@@ -36,17 +37,21 @@ const historical=loadInputs(root,{historicalStage43:true});
 const old=plan(historical,buildUsageGraph({...historical,fieldOwners:true,formOwners:true,variantBadges:true,traceLabels:true,regionalLabels:true,specializedPaths:true}));
 old.stage=43;
 const report=plan(inputs,stage44Graph(inputs,packet),previous??old);
-report.stage=44;
-reviewStage44Client(inputs,report);
+report.stage=48;
+reviewStage44Client(inputs,report,{stage48:true});
+verifyStage48SchemaReplay(compactReport(report),compactReport(old),loadStage48Packet(root));
+const {stage48,...evidence44}=evidence;
+stage48.pinnedSchemaReportReplay='PASS';
 fs.mkdirSync(out, { recursive: true });
 fs.writeFileSync(path.join(out,'stage43-classification.json'),json(compactReport(old)));
-fs.writeFileSync(path.join(out,'stage44-evidence.json'),json({...evidence,rows:packet.rows,entries:packet.entries}));
+fs.writeFileSync(path.join(out,'stage44-evidence.json'),json({...evidence44,rows:packet.rows,entries:packet.entries}));
+fs.writeFileSync(path.join(out, 'stage48-evidence.json'),json(stage48));
 fs.writeFileSync(path.join(out, 'classification.json'), json(compactReport(report)));
 fs.writeFileSync(path.join(out, 'candidates.json'), json({ version: 1, candidateOnly: true, apply: false, groups: report.candidates }));
 fs.writeFileSync(path.join(out, 'diff.json'), json(report.diff));
 const cell = text => String(text).replaceAll('|', '\\|').replaceAll('\n', ' ').replaceAll('\r', '');
 const lines = [
-  '# Этап 44: независимый аудит и проверенные source-потребители; browser отдельно', '',
+  '# Этап 48: WebUI 2.1.1, повторная проверка закреплённых схем 1.1.1; browser отдельно', '',
   'Источник схем: ' + report.source, '',
   '**Только анализ исходников. Доступность по лицензии/ACL неизвестна; browser PASS не заявлен.**', '',
   `Слотов: ${report.summary.slots}; каталог: ${report.summary.acceptedCatalogEntries} обычных записей, ${report.summary.acceptedScopedEntries} точных привязок по hash.`,
@@ -83,4 +88,4 @@ assert.equal(digest(fs.readFileSync(catalogPath)), before, 'Утверждённ
 assert.deepEqual(report.diagnostics.adapterDrift, [], 'Исходники renderer изменились: требуется ревью адаптеров');
 assert.deepEqual(report.diagnostics.staleRules, [], 'Устаревшие контекстные правила');
 console.log(json(report.summary));
-console.log('Этап 44: отчёты созданы; утверждённый каталог сохранён. ' + path.relative(root, out));
+console.log('Этап 48: отчёты созданы; утверждённый каталог и replay сохранены. ' + path.relative(root, out));

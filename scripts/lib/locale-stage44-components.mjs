@@ -322,17 +322,18 @@ for(const pin of inputs.pins){
 }
 passGroup('actual DynamicList mass/item confirmation callbacks: RU/EN/RU, count 1/2/5, raw label intact');
 
-// useDynamicForm.remove: only fake mutation response; assert payload and toast.
+// useDynamicForm.remove/save: only fake mutation responses; assert payload, toast and returned-value opt-in.
+let hookDispatches=[],hookNavigations=[];
 const hook=mod('src/components/forms/useDynamicForm.ts',{
- react:{...React,useEffect:()=>{},useReducer:()=>[{data:{},original:{},variant:'',source:null},()=>{}]},
- 'react-router-dom':{useNavigate:()=>()=>{}},
+ react:{...React,useEffect:()=>{},useReducer:()=>[{data:{},original:{},variant:'',source:resolved},event=>hookDispatches.push(event)]},
+ 'react-router-dom':{useNavigate:()=>path=>hookNavigations.push(path)},
  '@/stores/schemaStore':{useSchemaStore:f=>f({schema:ctx.schema,viewToSection:{'x:AppPassword':'Account'}})},
  '@/hooks/usePermissionCheckers':{},'@/hooks/usePermissions':{usePermissionCheckers:()=>({canGet:()=>true})},
  '@/hooks/useResolvedView':{useResolvedView:()=>resolved},'@/hooks/use-toast':{toast:p=>{toastData=p;}},
  '@/lib/schemaResolver':resolver,'@/lib/objectOptions':{coerceLabel:String},'@/lib/layout':{layoutViewFor:()=>null},
  '@/lib/embeddedSchema':embedded,'@/lib/jmapErrors':errors,'@/lib/debug':{logFormChange:()=>{}},
- '@/data/objects':{useJmapObject:()=>({fetchStatus:'idle'})},'@/data/mutations':{useJmapSet:()=>({isPending:false,mutateAsync:async p=>{destroyPayload=p;return {destroyed:['synthetic-id']};}})},
- '@/components/forms/formLogic':{filterAccessibleFields:f=>f,buildSections:()=>[],collectFetchProperties:()=>[],combineForms:()=>null,VARIANT_FIELD:'@type'},
+ '@/data/objects':{useJmapObject:()=>({fetchStatus:'idle'})},'@/data/mutations':{useJmapSet:()=>({isPending:false,mutateAsync:async p=>{destroyPayload=p;return p.create?{created:{'new-0':{id:'synthetic-id',secret:'SYNTHETIC_RETURNED_VALUE'}}}:{destroyed:['synthetic-id']};}})},
+ '@/components/forms/formLogic':{filterAccessibleFields:f=>f,buildSections:()=>[],withoutSectionTitles:(sections,names)=>{assert.equal(names,undefined);return sections;},formFieldNames:()=>[],validatedFieldNames:()=>[],validateRequired:()=>({}),validateFormat:()=>({}),mergeFieldErrors:()=>({}),isOtpAuthValid:()=>true,buildCreatePayload:()=>({name:'SYNTHETIC_NAME'}),collectBlobUploads:payload=>({blobs:[],payload}),collectFetchProperties:()=>[],combineForms:()=>null,VARIANT_FIELD:'@type'},
  '@/components/forms/formReducer':{isFormDirty:()=>false},'@/components/forms/useUnsavedChangesGuard':{useUnsavedChangesGuard:()=>({allowNextNavigation:()=>{}})},
 });
 for(const pin of inputs.pins){
@@ -345,6 +346,31 @@ for(const pin of inputs.pins){
  }
 }
 passGroup('actual useDynamicForm.remove callback: localized toast, synthetic raw destroy payload');
+// 2.1.1 shared hook: existing credential flows must retain returned values;
+// the new option is opt-in, not a global behavior change. Only synthetic data.
+for(const pin of inputs.pins){
+ ctx.schema=pin.data;hash=pin.schemaHash;
+ if(!pin.data.objects['x:AppPassword'])continue;
+ resolved=resolvedView(pin.data,'x:AppPassword');language='ru';
+ let previous;
+ for(const options of [{},{showCreatedValues:false}]){
+  hookDispatches=[];hookNavigations=[];toastData=destroyPayload=null;
+  await hook.useDynamicForm('x:AppPassword',null,{accountId:'synthetic-account',...options}).save();
+  const create={create:{'new-0':{name:'SYNTHETIC_NAME'}},blobs:[],accountId:'synthetic-account'};
+  assert.equal(JSON.stringify(destroyPayload),JSON.stringify(create));
+  if(previous)assert.equal(JSON.stringify(destroyPayload),previous);
+  previous=JSON.stringify(destroyPayload);
+  const returned=hookDispatches.find(event=>event.type==='created');
+  if(options.showCreatedValues===false){
+   assert.equal(returned,undefined);assert.ok(hookDispatches.some(event=>event.type==='commit'));
+   assert.equal(toastData.title,t('form.createdSuccess'));assert.equal(hookNavigations.length,1);
+  }else{
+   assert.equal(returned.result.id,'synthetic-id');assert.equal(returned.result.values.secret,'SYNTHETIC_RETURNED_VALUE');
+   assert.equal(hookNavigations.length,0);
+  }
+ }
+}
+passGroup('Stage48 actual useDynamicForm.save: default credential return preserved, explicit opt-out only, identical fake create payload');
 
 const stage44=await import(pathToFileURL(path.join(root,'scripts/lib/locale-stage44.mjs')));
 assert.throws(()=>stage44.validateStage44(root,inputs,{...ledger,manifestSha256:'0'.repeat(64)}),/reopen stage44/);

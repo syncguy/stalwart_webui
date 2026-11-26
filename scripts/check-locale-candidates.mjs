@@ -723,7 +723,7 @@ check('Stage43: exact remaining 159 scope, mode-specific compact and custom cons
 
 const active44=JSON.parse(fs.readFileSync(path.join(root,'.artifacts/locale-candidates/classification.json'),'utf8'));
 const evidence44=JSON.parse(fs.readFileSync(path.join(root,'.artifacts/locale-candidates/stage44-evidence.json'),'utf8'));
-assert.equal(active44.stage,44);
+assert.equal(active44.stage,48);
 assert.equal(active44.rows.length,12246);
 assert.equal(active44.summary.acceptedCatalogEntries,11498);
 assert.equal(active44.summary.acceptedScopedEntries,4);
@@ -741,10 +741,18 @@ assert.deepEqual(active44.summary.classification,{'translated':11474,'missing':0
 assert.equal(active44.rows.find(r=>r.slot==='field/x:AccountPassword/otpAuth/description').classification,'unreachable/conditional');
 console.log('Stage44 evidence and active inventory verified; browser/ACL acceptance remains open.');
 
-assert.equal(active44.client.messages.length,597);
-assert.equal(active44.client.messages.filter(c=>c.classification==='translated').length,587);
+assert.equal(active44.client.messages.length,683);
+assert.equal(active44.client.messages.filter(c=>c.classification==='translated').length,673);
 assert.equal(active44.client.messages.filter(c=>c.classification==='technical').length,8);
 assert.equal(active44.client.messages.filter(c=>c.classification==='keep-original').length,2);
 assert.ok(active44.client.dynamicCalls.every(c=>c.classification==='reviewed-schema-lookup'));
 assert.equal(active44.client.dynamicCalls.length,2);
-console.log('Stage44: 10 exact same-text client decisions and 2 source-pinned Sidebar lookups; no change to schema denominator.');
+console.log('Stage48: 10 exact same-text client decisions and 2 source-pinned Sidebar lookups; no change to schema denominator.');
+
+const evidence48=JSON.parse(fs.readFileSync(path.join(root,'.artifacts/locale-candidates/stage48-evidence.json'),'utf8'));
+assert.equal(evidence48.pinnedSchemaReportReplay,'PASS');
+assert.equal(evidence48.affectedRows,469);
+assert.equal(evidence48.affectedBindings,886);
+assert.equal(evidence48.sourceDelta.length,16);
+assert.equal(active44.client.extraPluralKeys.length,38);
+console.log('Stage48 exact source/client delta and full Stage43/44 pinned-schema report replay PASS.');

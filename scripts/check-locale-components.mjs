@@ -2530,3 +2530,5 @@ await import('./lib/locale-regional-components.mjs');
 await import('./lib/locale-specialized-components.mjs');
 
 await import('./lib/locale-stage44-components.mjs');
+
+await import('./lib/locale-stage48-components.mjs');

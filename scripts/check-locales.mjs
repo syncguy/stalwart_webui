@@ -34,13 +34,13 @@ const source = flatten(en);
 const target = flatten(ru);
 const errors = [];
 // Keep fork-owned client keys in one top-level namespace. The pin is the
-// upstream en.json Git blob at WebUI 2.1.0 (1a595c2121a2b70bbb1b6d23cad64524ead9575c).
+// upstream en.json Git blob at WebUI 2.1.1 (a692e8a270b88bd8921b05b78c52021c5c06f0f1).
 // Change it only as part of a reviewed upstream upgrade.
 const upstreamEn = { ...en };
 delete upstreamEn.webuiRu;
 const upstreamBytes = Buffer.from(JSON.stringify(upstreamEn, null, 2) + '\n', 'utf8');
 const upstreamBlob = createHash('sha1').update('blob ' + upstreamBytes.length + '\0').update(upstreamBytes).digest('hex');
-if (upstreamBlob !== '3f8e0e4c64b113677da8b51ebee8e7dae0f59cad') {
+if (upstreamBlob !== '6b2917e409cce293740c54758065f08b1b9a34c5') {
   errors.push('English catalogue outside webuiRu differs from the pinned upstream blob; review the upstream pin or move fork keys under webuiRu.');
 }
 const legacyForkKeys = [

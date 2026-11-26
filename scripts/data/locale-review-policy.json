@@ -7,11 +7,11 @@
   ],
   "adapterSources": {
     "src/components/common/CommandPalette.tsx": "74b2b9c02bf3981acc2c6079e4493ecca48369f2d88d999fa9eca9188eb6ee47",
-    "src/components/forms/DynamicForm.tsx": "d83b59d83c17f9ef3ddf4424414e9e3c3e4822e4d60ce2aa0594faf15b5bc25f",
+    "src/components/forms/DynamicForm.tsx": "b68c2ace9848033a54ade78071dc80327ace805a8eadc69f5f2833492135e40c",
     "src/components/forms/FieldRow.tsx": "728d900b510e502a24c0429b55da0d5f74d53cbd26859e70bfd072ef302753e9",
     "src/components/forms/FormSections.tsx": "b117536ef063734791df7086d8d21482f52a9e0b372152cfd37c0bdc8492790a",
-    "src/components/forms/formLogic.ts": "2dac722cec6a60009df67975689b2e50b94011bed734496e210148dd16ab8049",
-    "src/components/forms/useDynamicForm.ts": "05d7f2d88aad899b9570a96c5b33b4de3db218acd41f944eea554e514ef5d0be",
+    "src/components/forms/formLogic.ts": "b9a5dff3f8dc459ef199a1a0e630289a4952b7321ff189da143861fa96d9b631",
+    "src/components/forms/useDynamicForm.ts": "72295680c878d42c428eaf75678f8a214db26faa04fd17dfef0f64579596a571",
     "src/components/forms/widgets/EmbeddedObjectWidget.tsx": "1f2f7e6017f38439049b0a7fa6c2aef01131c3dea74c6c74820c86f16360e22b",
     "src/components/forms/widgets/EnumWidgets.tsx": "d30943158f77f1471098f73118aed00a7932a6f757962f83228566904c5acf48",
     "src/components/forms/widgets/MapWidget.tsx": "4065c1a3311b0962f76bb1b50fdaaf1551e0a3ac291cae71062ab342cd7b48c0",
@@ -59,7 +59,7 @@
     "src/components/ui/combobox.tsx": "47277fb2476ae18a9ce50037e1d4fd39d78c092540251df914ef1e7cbe7b5396",
     "src/components/values/TimeZoneValue.tsx": "3ce6eafdf4c83ea10f387f430526dea81a941ef28bd61a61f062d210b1b8a538",
     "src/components/ui/comboboxSearch.ts": "08b75f2d9464c0e1ff3a5b23c16b4428946beaaefc4f8d104ff1a97ffc0bbcca",
-    "src/lib/format.ts": "afbaac37f1344d744388cb6fb8073959c9f271f29ae2f083c51f740e7007cf3c",
+    "src/lib/format.ts": "e3db7ece18bdb674e4f3602a36a2d193779d31b1d1119ee9671952d675c93ff1",
     "src/features/vacation/VacationResponsePage.tsx": "7f0c1ad85f97544251f5ee197b2a69391d8c58dbe3a78f0ae68ddd33b899ef58",
     "src/features/vacation/components/PeriodRow.tsx": "c7fc72a5d28321be423962f5f03c0868e12bed8b20d50b4f6c467753990bd12a",
     "src/features/vacation/model.ts": "f74a14199c5e6452060a2250292b838ff8b8088c52d541af436e75b34f38c0a5",
@@ -70,9 +70,9 @@
     "src/components/forms/widgets/PasskeyRegistrationField.tsx": "6a19be0facbff5c2d8a289cce5d6cf67dccdd12dee9129bf7e2057edb05c486c",
     "src/lib/durationFormat.ts": "d70ace5b5fc42b83ac4f60024c37169eb362b37def477bf441db18857a1efe49",
     "src/components/forms/widgets/useDurationUnitLabel.ts": "bfaf3abd009ad9c739b9676de70313efe61502bc0ec15902e8240a7d3aff73cb",
-    "src/i18n/ru.json": "4d7f0de928a4aff46b131f051ffb36271da00f37fadc6eabdea57d3cdc1683e8",
+    "src/i18n/ru.json": "e8a227212a769fa2b2666e977a611dd8acc424d7d3924f7d97746b5040dba574",
     "src/components/forms/widgets/LazyWidgets.tsx": "6e6eb241ae8785e0160a16deb208b1d38f577a625cd537944dc73330593a2053",
-    "src/i18n/en.json": "8ce59582c062b84d54c38b08a55b9123ee705e951d8d08dc8d60ef341934bf10",
+    "src/i18n/en.json": "e0aff832cd55687c214a2377cddb072ef3c0c2a39ddd42287502d6f531cb7fe3",
     "src/components/bootstrap/BootstrapWizard.tsx": "1f54de3c0445c5f5498fae43c64072f81bf23eaad54bbb8192f55a2507cbb870",
     "src/components/bootstrap/BootstrapScreens.tsx": "7082f2f1dc4413af72e0c91e84a993f3ada0b8c5460ddded14c7418b8b9e6b15",
     "src/lib/objectOptions.ts": "5ccca641b7fb31659add103225793d33dd1b4274efbaff7e7531d6d850b697c1"
@@ -554,9 +554,12 @@
     "scripts/lib/locale-specialized-components.mjs": "b83812e7ef4468eeef66b8bd42c226d6a0fd52b0a924588c1e95087193a4ef68",
     "scripts/data/stage44-final-review.json": "0fe29d63d70e0fba023b39f231611b94d76c1ae39ca160eb051266edaa73e536",
     "scripts/data/stage44-before-review.json": "b4a07ba5ed9988d88b49febdd05912b3928b69e6fe4f29e32a6ae2c52823e9e0",
-    "scripts/lib/locale-stage44.mjs": "84611c174f10fec663175d9ec2becf705f17a0ebdb1783400988e701342d2270",
-    "scripts/lib/locale-stage44-components.mjs": "170ed841f080fe9dc7989e0bbdaabea7adcce446f9a1583ef8a3f2a0275de504",
-    "src/lib/jmapErrors.ts": "f63324107661aa82092014d6d506cd7a34adb3a8073dfffab561c96fc0cb4de4"
+    "scripts/lib/locale-stage44.mjs": "033972dc8984f34c06bc45a1254ac6f237323eb90669b0e36c2f1bedacf0e78a",
+    "scripts/lib/locale-stage44-components.mjs": "514f72d972cf34b37c5f03c3e70ae9a3a536f18a2ad3d5166d13412b44cf8d1c",
+    "src/lib/jmapErrors.ts": "f63324107661aa82092014d6d506cd7a34adb3a8073dfffab561c96fc0cb4de4",
+    "scripts/lib/locale-stage48.mjs": "7468b22edb052e304f3222f36b04151da63a11cbe7cf187b0f985a859d93f715",
+    "scripts/lib/locale-stage48-components.mjs": "0454a35334d15a5a0e3ce7bfd9b59beec084be56271e1f10894f5359176c87a9",
+    "scripts/data/stage48-upstream-review.json": "e06dba7434508fa3ed63eeefa887aa4e97794f3ebb9a7dd15dc5baad2a038a5c"
   },
   "clientLiterals": [
     {

@@ -235,8 +235,11 @@ export function localeClock(): LocaleClock {
 
 const listFormats = new Map<string, Intl.ListFormat>();
 
-export function formatList(items: readonly string[], type: 'conjunction' | 'disjunction' = 'conjunction'): string {
-  const locale = getFormatLocale();
+export function formatList(
+  items: readonly string[],
+  type: 'conjunction' | 'disjunction' | 'unit' = 'conjunction',
+  locale = getFormatLocale(),
+): string {
   const key = `${locale}|${type}`;
   let fmt = listFormats.get(key);
   if (!fmt) {
@@ -244,4 +247,12 @@ export function formatList(items: readonly string[], type: 'conjunction' | 'disj
     listFormats.set(key, fmt);
   }
   return fmt.format(items);
+}
+
+// Rule sentences are natural-language UI text, not account-locale numbers or dates.
+export function webuiRuFormatRuleList(
+  items: readonly string[],
+  type: 'conjunction' | 'disjunction' | 'unit' = 'conjunction',
+): string {
+  return formatList(items, type, i18n.resolvedLanguage ?? i18n.language ?? 'en');
 }

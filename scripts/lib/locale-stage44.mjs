@@ -5,6 +5,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { buildUsageGraph } from './locale-graph.mjs';
 import { textSafe } from './locale-planner.mjs';
+import { loadStage48Packet, validateStage48 } from './locale-stage48.mjs';
 
 const digest = v => createHash('sha256').update(v).digest('hex');
 const json = v => JSON.stringify(v, null, 2) + '\n';
@@ -104,8 +105,7 @@ export function validateStage44(root, inputs, packet) {
     assert.equal(expectedSource[file] ?? null, previous, 'Historical source changed: reopen stage44 ' + file);
     expectedSource[file] = next;
   }
-  assert.deepEqual(source, expectedSource, 'Renderer source inventory changed: reopen stage44 paths and exclusions');
-  for(const [p,h] of Object.entries(packet.clientCatalogSha256)) assert.equal(digest(fs.readFileSync(path.join(root,p))),h,'Client catalogue changed: reopen stage44 review');
+  const stage48 = validateStage48(root, inputs, packet, expectedSource, source, loadStage48Packet(root));
   const rows = new Map(inputs.inventory.rows.map(r=>[key(r),r]));
   assert.equal(rows.size,12246);
   assert.equal(packet.rows.length,828);
@@ -138,7 +138,7 @@ export function validateStage44(root, inputs, packet) {
     assert.equal(inputs.schema.schemaText('unknown','ru',e.slot,e.original),e.original);
     assert.equal(inputs.schema.schemaText(b.schemaHash,'ru',e.slot,e.original+' changed'),e.original+' changed');
   }
-  return {rows:828,bindings,translations:167,sourceFiles:Object.keys(source).length,categories};
+  return {rows:828,bindings,translations:167,sourceFiles:Object.keys(expectedSource).length,categories,stage48};
 }
 
 export function stage44Graph(inputs, packet) {
@@ -201,7 +201,7 @@ export function stage44Graph(inputs, packet) {
 
 // Exact same-text and dynamic client decisions, separate from the schema denominator.
 // validateStage44 must already have verified the full source and locale snapshot.
-export function reviewStage44Client(inputs, report) {
+export function reviewStage44Client(inputs, report, { stage48 = false } = {}) {
   const entries=[
     ['dashboard.nodeWithHost','{{hostname}} ({{id}})','src/features/dashboard/components/NodeSelector.tsx','technical','raw hostname and node ID, punctuation only'],
     ['field.itemN','{{label}} {{n}}','src/components/forms/widgets/ObjectListWidget.tsx','technical','FieldRow passes localized formFieldDisplay label; position is numeric'],
@@ -214,8 +214,15 @@ export function reviewStage44Client(inputs, report) {
     ['login.usernamePlaceholder','user@example.com','src/pages/LoginPage.tsx','keep-original','literal example address'],
     ['vacation.htmlTab','HTML','src/features/vacation/components/VacationPreview.tsx','keep-original','standard format name'],
   ];
+  // The historical Stage44 decision remains above; the corresponding key
+  // was removed by upstream 2.1.1. Review the new punctuation-only ARIA
+  // template separately; its MailRule schema inputs are outside both pins.
+  const activeEntries = stage48
+    ? [...entries.filter(e => e[0] !== 'mailRules.summary.sentence'),
+      ['mailRules.builder.itemField','{{item}}: {{field}}','src/features/mailRules/components/RuleItemList.tsx','technical','format only; item caption plus schema field label in conditional MailRule editor; stage49 must review schema arguments']]
+    : entries;
   const seen=new Set();
-  for(const [messageId,original,file,classification,reason] of entries) {
+  for(const [messageId,original,file,classification,reason] of activeEntries) {
     const m=report.client.messages.find(c=>c.messageId===messageId);
     assert.ok(m&&m.original===original&&m.ru===original&&m.status==='same-text-needs-review',messageId);
     const refs=inputs.inventory.astReferences.filter(r=>r.messageId===messageId);
