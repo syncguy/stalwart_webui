@@ -8,6 +8,7 @@ on:
   # Stage47: correct grammar test syntax and refresh exact reviewed source hashes.
   # Stage47 retry: restore complete useFormTitle model destructuring.
   # Stage47-11: isolated adaptive RU Overview rejection ranking grid.
+  # Stage48: one control ZIP after coverage PASS for reviewed two-parent WebUI 2.1.1 merge 9445e9ad.
   # Manual switch: only a commit editing this laboratory workflow on ru starts a run.
   push:
     branches:
