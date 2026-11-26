@@ -7,6 +7,11 @@ on:
       - '.github/workflows/webui-ru-coverage.yml'
       - 'scripts/generate-locale-coverage.mjs'
       - 'scripts/check-coverage-inventory.mjs'
+      - 'scripts/check-webuiRu-stage49-pins.mjs'
+      - 'scripts/check-webuiRu-build-identity.mjs'
+      - 'scripts/webuiRu-build-identity.ts'
+      - 'scripts/data/webuiRu-stage49-*'
+      - 'vite.config.ts'
       - 'scripts/generate-locale-candidates.mjs'
       - 'scripts/check-locale-candidates.mjs'
       - 'scripts/check-locale-components.mjs'
@@ -52,6 +57,12 @@ jobs:
           cache: npm
       - name: Install pinned TypeScript parser
         run: npm ci
+      - name: Verify Stage49 new schema pins and draft census without applying translations
+        env:
+          NODE_OPTIONS: '--import=./scripts/lib/offline-guard.mjs'
+        run: node scripts/check-webuiRu-stage49-pins.mjs
+      - name: Verify RU build identity helper
+        run: node --experimental-strip-types --test scripts/check-webuiRu-build-identity.mjs
       - name: Classify pinned sources and propose candidates with networking blocked
         env:
           NODE_OPTIONS: '--import=./scripts/lib/offline-guard.mjs'
