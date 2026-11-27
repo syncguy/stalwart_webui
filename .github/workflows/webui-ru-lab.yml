@@ -10,6 +10,7 @@ on:
   # Stage47-11: isolated adaptive RU Overview rejection ranking grid.
   # Stage48: one control ZIP after coverage PASS for reviewed two-parent WebUI 2.1.1 merge 9445e9ad.
   # Stage49: one final control ZIP after coverage run 45915843606 PASS on exact Astra 012 integration 8596971.
+  # Stage50: one control ZIP after coverage run 45957340684 PASS on exact editorial batch ab03aca5197de73bc32c368308fd580c4b6e625a.
   # Manual switch: only a commit editing this laboratory workflow on ru starts a run.
   push:
     branches:
