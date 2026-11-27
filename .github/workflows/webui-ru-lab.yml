@@ -11,6 +11,7 @@ on:
   # Stage48: one control ZIP after coverage PASS for reviewed two-parent WebUI 2.1.1 merge 9445e9ad.
   # Stage49: one final control ZIP after coverage run 45915843606 PASS on exact Astra 012 integration 8596971.
   # Stage50: one control ZIP after coverage run 45957340684 PASS on exact editorial batch ab03aca5197de73bc32c368308fd580c4b6e625a.
+  # Stage50 second pass: one laboratory ZIP after coverage 46007368330 PASS on f41d6586d9e0eac20a00d814d4d2e560ce3258a3.
   # Manual switch: only a commit editing this laboratory workflow on ru starts a run.
   push:
     branches:
