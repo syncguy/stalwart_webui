@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-SEL
  */
 
-import { lazy, Suspense, useEffect, useMemo } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useState, type CSSProperties } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '@/stores/authStore';
@@ -34,6 +34,8 @@ import { parseAdminRoute } from '@/lib/adminRoute';
 import { resolveObject } from '@/lib/schemaResolver';
 import { Button } from '@/components/ui/button';
 
+const webuiRuSidebarMax = () => Math.max(240, Math.min(520, Math.floor(window.innerWidth * 0.45)));
+
 const BootstrapWizard = lazy(() =>
   import('@/components/bootstrap/BootstrapWizard').then((m) => ({ default: m.BootstrapWizard })),
 );
@@ -55,6 +57,18 @@ export default function AdminPanel() {
   const activeAccountId = useAuthStore((s) => s.activeAccountId);
   const setActiveSection = useUIStore((s) => s.setActiveSection);
   const sidebarOpen = useUIStore((s) => s.sidebarOpen);
+  // Local UI state only: never persist the panel width or change route/form identity.
+  const [sidebarWidth, setSidebarWidth] = useState(240);
+  const [sidebarMax, setSidebarMax] = useState(webuiRuSidebarMax);
+  useEffect(() => {
+    const onResize = () => {
+      const max = webuiRuSidebarMax();
+      setSidebarMax(max);
+      setSidebarWidth((current) => Math.min(current, max));
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
   const canViewBootstrap = useCanAccess('x:Bootstrap');
   const { canGet, hasPermission: hasPerm } = usePermissionCheckers();
 
@@ -193,12 +207,12 @@ export default function AdminPanel() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col" style={{ '--webui-ru-sidebar-width': `${sidebarWidth}px` } as CSSProperties}>
       <TopBar />
       <div className="flex flex-1">
-        <Sidebar />
+        <Sidebar width={sidebarWidth} maxWidth={sidebarMax} onWidthChange={(width) => setSidebarWidth(Math.max(200, Math.min(sidebarMax, Math.round(width))))} />
         <main
-          className={`min-w-0 flex-1 px-3 pb-28 pt-2 transition-[margin] sm:px-5 ${sidebarOpen ? 'md:ml-[252px]' : ''}`}
+          className={`min-w-0 flex-1 px-3 pb-28 pt-2 sm:px-5 ${sidebarOpen ? 'md:ml-[calc(var(--webui-ru-sidebar-width)+12px)]' : ''}`}
         >
           <ErrorBoundary key={activeAccountId ?? 'none'}>
             <MainContent viewName={viewName} id={id} section={section} />

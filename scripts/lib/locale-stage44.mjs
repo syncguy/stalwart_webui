@@ -237,8 +237,8 @@ export function reviewStage44Client(inputs, report, { stage48 = false } = {}) {
   const calls=report.client.dynamicCalls;
   assert.equal(calls.length,2,'new dynamic client call');
   assert.deepEqual(calls.map(c=>[c.file,c.kind,c.expression,c.line,c.column]),[
-    ['src/components/layout/Sidebar.tsx','schema-display-dynamic','node.displaySlot',44,29],
-    ['src/components/layout/Sidebar.tsx','schema-display-dynamic','node.displaySlot',96,39],
+    ['src/components/layout/Sidebar.tsx','schema-display-dynamic','node.displaySlot',76,29],
+    ['src/components/layout/Sidebar.tsx','schema-display-dynamic','node.displaySlot',122,37],
   ]);
   for(const c of calls){c.classification='reviewed-schema-lookup';c.reviewReason='navTree.layoutNavNodes exact schema slots tested against both pins; protected captions retain original; ACL/browser unknown';}
   report.client.note+=' Stage44 exact same-text and dynamic lookup decisions require source, locale and schema snapshot validation; not exhaustive JS-string analysis.';

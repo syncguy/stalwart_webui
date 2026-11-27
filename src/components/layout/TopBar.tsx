@@ -83,7 +83,7 @@ export function TopBar() {
 
       <Tooltip>
         <TooltipTrigger asChild>
-          <Link to="/" className="flex shrink-0 items-center md:w-[228px]">
+          <Link to="/" className="flex shrink-0 items-center md:w-[calc(var(--webui-ru-sidebar-width,240px)-12px)]">
             <Logo />
           </Link>
         </TooltipTrigger>

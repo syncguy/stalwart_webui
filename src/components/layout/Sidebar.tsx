@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-SEL
  */
 
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState, type ReactElement } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ChevronRight, Lock } from 'lucide-react';
@@ -28,6 +28,38 @@ function itemSize(depth: number) {
   return depth > 0 ? 'h-8 text-[13px]' : 'h-9 text-sm';
 }
 
+// The actual link/button stays the tooltip trigger and the sole tab stop.
+export function WebuiRuNavOverflowHint({ text, children }: { text: string; children: (label: ReactElement) => ReactElement }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [overflow, setOverflow] = useState(false);
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+    let active = true;
+    const measure = () => {
+      if (active) setOverflow(element.scrollWidth > element.clientWidth);
+    };
+    measure();
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(measure);
+    observer?.observe(element);
+    window.addEventListener('resize', measure);
+    void document.fonts?.ready.then(measure);
+    return () => {
+      active = false;
+      observer?.disconnect();
+      window.removeEventListener('resize', measure);
+    };
+  }, [text]);
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        {children(<span ref={ref} className="min-w-0 truncate">{text}</span>)}
+      </TooltipTrigger>
+      {overflow && <TooltipContent side="right" className="max-w-xs whitespace-normal break-words">{text}</TooltipContent>}
+    </Tooltip>
+  );
+}
+
 function NavLink({ node, depth }: { node: Extract<NavNode, { kind: 'link' }>; depth: number }) {
   const { t } = useTranslation();
   const display = useSchemaText();
@@ -42,36 +74,33 @@ function NavLink({ node, depth }: { node: Extract<NavNode, { kind: 'link' }>; de
   if (!nav.isVisible(node.viewName)) return null;
 
   const label = node.name ? display(node.displaySlot, node.name) : t('sidebar.overview', 'Overview');
-  const content = (
-    <>
-      {node.icon && <DynamicIcon name={node.icon} className="h-4 w-4 shrink-0" />}
-      <span className="truncate">{label}</span>
-    </>
-  );
   const className = cn(itemClass, itemSize(depth));
-
-  if (nav.isLocked(node.viewName)) {
-    return (
-      <button type="button" className={className} onClick={nav.openUpsell} aria-describedby={nav.lockedHintId}>
-        {content}
-        <Lock aria-hidden="true" className="ml-auto h-3 w-3 text-muted-foreground" />
-      </button>
-    );
-  }
+  const icon = node.icon && <DynamicIcon name={node.icon} className="h-4 w-4 shrink-0" />;
 
   return (
-    <Link
-      ref={ref}
-      to={viewPath(nav.sectionName, node.viewName)}
-      aria-current={isActive ? 'page' : undefined}
-      className={cn(
-        className,
-        isActive &&
-          'bg-highlight font-semibold text-highlight-foreground hover:bg-highlight hover:text-highlight-foreground',
+    <WebuiRuNavOverflowHint text={label}>
+      {(labelElement) => nav.isLocked(node.viewName) ? (
+        <button type="button" className={className} onClick={nav.openUpsell} aria-describedby={nav.lockedHintId}>
+          {icon}
+          {labelElement}
+          <Lock aria-hidden="true" className="ml-auto h-3 w-3 shrink-0 text-muted-foreground" />
+        </button>
+      ) : (
+        <Link
+          ref={ref}
+          to={viewPath(nav.sectionName, node.viewName)}
+          aria-current={isActive ? 'page' : undefined}
+          className={cn(
+            className,
+            isActive &&
+              'bg-highlight font-semibold text-highlight-foreground hover:bg-highlight hover:text-highlight-foreground',
+          )}
+        >
+          {icon}
+          {labelElement}
+        </Link>
       )}
-    >
-      {content}
-    </Link>
+    </WebuiRuNavOverflowHint>
   );
 }
 
@@ -90,16 +119,20 @@ function NavContainer({ node, depth }: { node: Extract<NavNode, { kind: 'contain
 
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
-      <CollapsibleTrigger asChild>
-        <button type="button" className={cn(itemClass, itemSize(depth))}>
-          {node.icon && <DynamicIcon name={node.icon} className="h-4 w-4 shrink-0" />}
-          <span className="truncate">{display(node.displaySlot, node.name)}</span>
-          <ChevronRight
-            aria-hidden="true"
-            className="ml-auto h-3.5 w-3.5 shrink-0 opacity-60 transition-transform duration-200 [[data-state=open]>&]:rotate-90"
-          />
-        </button>
-      </CollapsibleTrigger>
+      <WebuiRuNavOverflowHint text={display(node.displaySlot, node.name)}>
+        {(labelElement) => (
+          <CollapsibleTrigger asChild>
+            <button type="button" className={cn(itemClass, itemSize(depth))}>
+              {node.icon && <DynamicIcon name={node.icon} className="h-4 w-4 shrink-0" />}
+              {labelElement}
+              <ChevronRight
+                aria-hidden="true"
+                className="ml-auto h-3.5 w-3.5 shrink-0 opacity-60 transition-transform duration-200 [[aria-expanded=true]>&]:rotate-90"
+              />
+            </button>
+          </CollapsibleTrigger>
+        )}
+      </WebuiRuNavOverflowHint>
       <CollapsibleContent>
         <div className="my-0.5 ml-[18px] flex flex-col gap-0.5 border-l border-input pl-2">
           <NavNodes nodes={node.children} depth={depth + 1} />
@@ -164,7 +197,7 @@ function SectionSwitcher({ layouts, activeSection }: { layouts: Layout[]; active
   );
 }
 
-export function Sidebar() {
+export function Sidebar({ width, maxWidth, onWidthChange }: { width: number; maxWidth: number; onWidthChange: (width: number) => void }) {
   const { t } = useTranslation();
   const display = useSchemaText();
   const { pathname } = useLocation();
@@ -174,6 +207,7 @@ export function Sidebar() {
   const { layouts, isVisible, isLocked } = useLayoutNavigation();
   const [upsellOpen, setUpsellOpen] = useState(false);
   const lockedHintId = useId();
+  const drag = useRef<{ x: number; width: number } | null>(null);
 
   useEffect(() => {
     if (window.matchMedia('(max-width: 767px)').matches) setSidebarOpen(false);
@@ -204,7 +238,7 @@ export function Sidebar() {
       <aside
         id={SIDEBAR_ID}
         aria-label={t('sidebar.label', 'Sidebar')}
-        className="fixed bottom-3 left-3 top-16 z-30 flex w-60 flex-col tile overflow-hidden"
+        className="fixed bottom-3 left-3 top-16 z-30 flex w-60 flex-col tile overflow-hidden md:w-[var(--webui-ru-sidebar-width)]"
       >
         <span id={lockedHintId} className="sr-only">
           {t('enterprise.featureHint', 'Enterprise feature')}
@@ -221,6 +255,42 @@ export function Sidebar() {
 
         <EnterpriseUpsell open={upsellOpen} onClose={() => setUpsellOpen(false)} />
       </aside>
+      <div
+        role="separator"
+        aria-label={t('sidebar.label', 'Sidebar')}
+        aria-orientation="vertical"
+        aria-controls={SIDEBAR_ID}
+        aria-valuemin={200}
+        aria-valuemax={maxWidth}
+        aria-valuenow={width}
+        tabIndex={0}
+        className="group fixed bottom-3 top-16 z-30 hidden w-2.5 cursor-col-resize touch-none select-none items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-ring md:flex"
+        style={{ left: 'calc(var(--webui-ru-sidebar-width) + 12px)' }}
+        onPointerDown={(event) => {
+          if (event.button !== 0 || !event.isPrimary) return;
+          event.preventDefault();
+          event.currentTarget.focus();
+          event.currentTarget.setPointerCapture(event.pointerId);
+          drag.current = { x: event.clientX, width };
+        }}
+        onPointerMove={(event) => {
+          if (drag.current && event.currentTarget.hasPointerCapture(event.pointerId)) {
+            onWidthChange(drag.current.width + event.clientX - drag.current.x);
+          }
+        }}
+        onLostPointerCapture={() => { drag.current = null; }}
+        onDoubleClick={() => onWidthChange(240)}
+        onKeyDown={(event) => {
+          const next = event.key === 'ArrowLeft' ? width - 12 : event.key === 'ArrowRight' ? width + 12 :
+            event.key === 'Home' ? 200 : event.key === 'End' ? maxWidth : null;
+          if (next !== null) {
+            event.preventDefault();
+            onWidthChange(next);
+          }
+        }}
+      >
+        <span aria-hidden="true" className="h-12 w-1 rounded-full bg-input opacity-70 transition-colors group-hover:bg-primary group-focus-visible:bg-primary" />
+      </div>
     </>
   );
 }

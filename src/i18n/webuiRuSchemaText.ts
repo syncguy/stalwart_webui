@@ -243,17 +243,526 @@ export const webuiRuStage50Editorial: Readonly<Record<string, { before: string; 
   }
 };
 
-export function schemaText(hash: string | null, language: string, slot: string, original: string): string {
+export function stage50SchemaText(hash: string | null, language: string, slot: string, original: string): string {
   const prior = stage49SchemaText(hash, language, slot, original);
   if (!canTranslateSchema(hash, language) || prior === original || !Object.hasOwn(webuiRuStage50Editorial, slot)) return prior;
   const entry = webuiRuStage50Editorial[slot];
   return entry.before === prior ? entry.ru : prior;
 }
 
-export function schemaActionName(hash: string | null, language: string, slot: string, original: string): string | null {
+export function stage50SchemaActionName(hash: string | null, language: string, slot: string, original: string): string | null {
   if (slot === 'list/x:NetworkListener/singular' && language.split(/[-_]/)[0].toLowerCase() === 'ru') {
-    return schemaText(hash, language, slot, original) === 'прослушиватель' && original === 'listener'
+    return stage50SchemaText(hash, language, slot, original) === 'прослушиватель' && original === 'listener'
       ? 'прослушиватель' : null;
   }
   return stage49SchemaActionName(hash, language, slot, original);
+}
+
+// Stage50 second operator pass: exact slots, original and accepted previous translation.
+export const webuiRuStage50Editorial2: Readonly<Record<string, { original: string; before: string; ru: string }>> = {
+  "enum/EventType/mta-hook.action-accept/explanation": {
+    "original": "The MTA hook requested to accept the message",
+    "before": "Обработчик MTA запросил приём письма.",
+    "ru": "Веб-хук MTA запросил приём письма."
+  },
+  "enum/EventType/mta-hook.action-accept/label": {
+    "original": "MTA hook action: Accept",
+    "before": "Действие обработчика MTA: принять",
+    "ru": "Действие веб-хука MTA: принять"
+  },
+  "enum/EventType/mta-hook.action-discard/explanation": {
+    "original": "The MTA hook requested to discard the message",
+    "before": "Обработчик MTA запросил отбрасывание письма.",
+    "ru": "Веб-хук MTA запросил отбрасывание письма."
+  },
+  "enum/EventType/mta-hook.action-discard/label": {
+    "original": "MTA hook action: Discard",
+    "before": "Действие обработчика MTA: отбросить",
+    "ru": "Действие веб-хука MTA: отбросить"
+  },
+  "enum/EventType/mta-hook.action-quarantine/explanation": {
+    "original": "The MTA hook requested to quarantine the message",
+    "before": "Обработчик MTA запросил помещение письма в карантин.",
+    "ru": "Веб-хук MTA запросил помещение письма в карантин."
+  },
+  "enum/EventType/mta-hook.action-quarantine/label": {
+    "original": "MTA hook action: Quarantine",
+    "before": "Действие обработчика MTA: карантин",
+    "ru": "Действие веб-хука MTA: карантин"
+  },
+  "enum/EventType/mta-hook.action-reject/explanation": {
+    "original": "The MTA hook requested to reject the message",
+    "before": "Обработчик MTA запросил отклонение письма.",
+    "ru": "Веб-хук MTA запросил отклонение письма."
+  },
+  "enum/EventType/mta-hook.action-reject/label": {
+    "original": "MTA hook action: Reject",
+    "before": "Действие обработчика MTA: отклонить",
+    "ru": "Действие веб-хука MTA: отклонить"
+  },
+  "enum/EventType/mta-hook.error/explanation": {
+    "original": "An error occurred with the MTA hook",
+    "before": "При взаимодействии с обработчиком MTA возникла ошибка.",
+    "ru": "При взаимодействии с веб-хуком MTA возникла ошибка."
+  },
+  "enum/EventType/mta-hook.error/label": {
+    "original": "MTA hook error",
+    "before": "Ошибка обработчика MTA",
+    "ru": "Ошибка веб-хука MTA"
+  },
+  "enum/MetricType/mta-hook.action-accept/label": {
+    "original": "MTA hook action: Accept",
+    "before": "Действие обработчика MTA: принять",
+    "ru": "Действие веб-хука MTA: принять"
+  },
+  "enum/MetricType/mta-hook.action-discard/label": {
+    "original": "MTA hook action: Discard",
+    "before": "Действие обработчика MTA: отбросить",
+    "ru": "Действие веб-хука MTA: отбросить"
+  },
+  "enum/MetricType/mta-hook.action-quarantine/label": {
+    "original": "MTA hook action: Quarantine",
+    "before": "Действие обработчика MTA: поместить в карантин",
+    "ru": "Действие веб-хука MTA: поместить в карантин"
+  },
+  "enum/MetricType/mta-hook.action-reject/label": {
+    "original": "MTA hook action: Reject",
+    "before": "Действие обработчика MTA: отклонить",
+    "ru": "Действие веб-хука MTA: отклонить"
+  },
+  "enum/MetricType/mta-hook.error/label": {
+    "original": "MTA hook error",
+    "before": "Ошибка обработчика MTA",
+    "ru": "Ошибка веб-хука MTA"
+  },
+  "enum/Permission/sysMtaHookCreate/label": {
+    "original": "Hooks Management: Create hooks",
+    "before": "Веб-хуки: Создание",
+    "ru": "Веб-хуки MTA: Создание"
+  },
+  "enum/Permission/sysMtaHookDestroy/label": {
+    "original": "Hooks Management: Destroy hooks",
+    "before": "Веб-хуки: Удаление",
+    "ru": "Веб-хуки MTA: Удаление"
+  },
+  "enum/Permission/sysMtaHookGet/label": {
+    "original": "Hooks Management: Get hooks",
+    "before": "Веб-хуки: Просмотр",
+    "ru": "Веб-хуки MTA: Просмотр"
+  },
+  "enum/Permission/sysMtaHookQuery/label": {
+    "original": "Hooks Management: Query hooks",
+    "before": "Веб-хуки: Поиск",
+    "ru": "Веб-хуки MTA: Поиск"
+  },
+  "enum/Permission/sysMtaHookUpdate/label": {
+    "original": "Hooks Management: Update hooks",
+    "before": "Веб-хуки: Изменение",
+    "ru": "Веб-хуки MTA: Изменение"
+  },
+  "enum/Permission/sysMtaInboundThrottleCreate/label": {
+    "original": "Throttles Management: Create throttles",
+    "before": "Ограничения скорости: Создание",
+    "ru": "Лимиты скорости приёма: Создание"
+  },
+  "enum/Permission/sysMtaInboundThrottleDestroy/label": {
+    "original": "Throttles Management: Destroy throttles",
+    "before": "Ограничения скорости: Удаление",
+    "ru": "Лимиты скорости приёма: Удаление"
+  },
+  "enum/Permission/sysMtaInboundThrottleGet/label": {
+    "original": "Throttles Management: Get throttles",
+    "before": "Ограничения скорости: Просмотр",
+    "ru": "Лимиты скорости приёма: Просмотр"
+  },
+  "enum/Permission/sysMtaInboundThrottleQuery/label": {
+    "original": "Throttles Management: Query throttles",
+    "before": "Ограничения скорости: Поиск",
+    "ru": "Лимиты скорости приёма: Поиск"
+  },
+  "enum/Permission/sysMtaInboundThrottleUpdate/label": {
+    "original": "Throttles Management: Update throttles",
+    "before": "Ограничения скорости: Изменение",
+    "ru": "Лимиты скорости приёма: Изменение"
+  },
+  "enum/Permission/sysMtaOutboundThrottleCreate/label": {
+    "original": "Throttles Management: Create throttles",
+    "before": "Ограничения скорости: Создание",
+    "ru": "Лимиты скорости отправки: Создание"
+  },
+  "enum/Permission/sysMtaOutboundThrottleDestroy/label": {
+    "original": "Throttles Management: Destroy throttles",
+    "before": "Ограничения скорости: Удаление",
+    "ru": "Лимиты скорости отправки: Удаление"
+  },
+  "enum/Permission/sysMtaOutboundThrottleGet/label": {
+    "original": "Throttles Management: Get throttles",
+    "before": "Ограничения скорости: Просмотр",
+    "ru": "Лимиты скорости отправки: Просмотр"
+  },
+  "enum/Permission/sysMtaOutboundThrottleQuery/label": {
+    "original": "Throttles Management: Query throttles",
+    "before": "Ограничения скорости: Поиск",
+    "ru": "Лимиты скорости отправки: Поиск"
+  },
+  "enum/Permission/sysMtaOutboundThrottleUpdate/label": {
+    "original": "Throttles Management: Update throttles",
+    "before": "Ограничения скорости: Изменение",
+    "ru": "Лимиты скорости отправки: Изменение"
+  },
+  "field/x:Metrics/resourceAttributes/description": {
+    "original": "Additional resource attributes reported to OpenTelemetry collectors by the metrics exporter and the OpenTelemetry tracers",
+    "before": "Дополнительные атрибуты ресурса, передаваемые экспортёром метрик и средствами трассировки OpenTelemetry сборщикам OpenTelemetry",
+    "ru": "Дополнительные атрибуты ресурса, передаваемые экспортёром метрик и средствами трассировки OpenTelemetry в OpenTelemetry"
+  },
+  "field/x:Metrics/serviceName/description": {
+    "original": "Service name reported to OpenTelemetry collectors by the metrics exporter and the OpenTelemetry tracers",
+    "before": "Имя службы, передаваемое экспортёром метрик и средствами трассировки OpenTelemetry сборщикам OpenTelemetry",
+    "ru": "Имя службы, передаваемое экспортёром метрик и средствами трассировки OpenTelemetry в OpenTelemetry"
+  },
+  "field/x:Metrics/serviceNamespace/description": {
+    "original": "Optional service namespace reported to OpenTelemetry collectors by the metrics exporter and the OpenTelemetry tracers",
+    "before": "Необязательное пространство имён службы, передаваемое экспортёром метрик и средствами трассировки OpenTelemetry сборщикам OpenTelemetry",
+    "ru": "Необязательное пространство имён службы, передаваемое экспортёром метрик и средствами трассировки OpenTelemetry в OpenTelemetry"
+  },
+  "field/x:MetricsOtelGrpc/interval/description": {
+    "original": "How often metrics are exported to the OpenTelemetry collector",
+    "before": "Периодичность экспорта метрик в сборщик OpenTelemetry",
+    "ru": "Периодичность экспорта метрик в OpenTelemetry"
+  },
+  "field/x:MetricsOtelGrpc/timeout/description": {
+    "original": "Maximum amount of time that Stalwart will wait for a response from the OpenTelemetry collector",
+    "before": "Максимальное время ожидания ответа от сборщика OpenTelemetry сервером Stalwart",
+    "ru": "Максимальное время ожидания сервером Stalwart ответа от конечной точки OpenTelemetry"
+  },
+  "field/x:MetricsOtelGrpc/url/description": {
+    "original": "URL of the OpenTelemetry collector; when unset, the collector on localhost port 4317 is used",
+    "before": "URL сборщика OpenTelemetry; если не задан, используется сборщик на localhost, порт 4317",
+    "ru": "URL конечной точки OpenTelemetry; если не задан, используется localhost, порт 4317"
+  },
+  "field/x:MetricsOtelHttp/interval/description": {
+    "original": "How often metrics are exported to the OpenTelemetry collector",
+    "before": "Периодичность экспорта метрик в сборщик OpenTelemetry",
+    "ru": "Периодичность экспорта метрик в OpenTelemetry"
+  },
+  "field/x:MetricsOtelHttp/timeout/description": {
+    "original": "Maximum amount of time that Stalwart will wait for a response from the OpenTelemetry collector",
+    "before": "Максимальное время ожидания ответа от сборщика OpenTelemetry сервером Stalwart",
+    "ru": "Максимальное время ожидания сервером Stalwart ответа от конечной точки OpenTelemetry"
+  },
+  "field/x:MetricsOtelHttp/url/description": {
+    "original": "Base URL of the OpenTelemetry collector; /v1/metrics is appended",
+    "before": "Базовый URL сборщика OpenTelemetry; добавляется путь /v1/metrics",
+    "ru": "Базовый URL конечной точки OpenTelemetry; добавляется путь /v1/metrics"
+  },
+  "field/x:MtaHook/enable/description": {
+    "original": "Expression that determines whether to enable this hook",
+    "before": "Выражение, определяющее, следует ли включить этот обработчик",
+    "ru": "Выражение, определяющее, следует ли включить этот веб-хук"
+  },
+  "field/x:MtaHook/maxResponseSize/description": {
+    "original": "Maximum size, in bytes, of a response that Stalwart will accept from this MTA Hook server",
+    "before": "Максимальный размер ответа в байтах, который Stalwart примет от этого сервера MTA Hook",
+    "ru": "Максимальный размер ответа в байтах, который Stalwart примет от этого сервера веб-хуков MTA"
+  },
+  "field/x:MtaHook/stages/description": {
+    "original": "Which SMTP stages to run this hook on",
+    "before": "Этапы SMTP, на которых выполняется этот обработчик",
+    "ru": "Этапы SMTP, на которых выполняется этот веб-хук"
+  },
+  "field/x:MtaHook/tempFailOnError/description": {
+    "original": "Whether to respond with a temporary failure (typically a 4xx SMTP status code) when Stalwart encounters an error while communicating with this MTA Hook server",
+    "before": "Возвращать ли временный отказ (обычно код состояния SMTP 4xx), если при обмене Stalwart с этим сервером MTA Hook возникает ошибка",
+    "ru": "Возвращать ли временный отказ (обычно код состояния SMTP 4xx), если при обмене Stalwart с этим сервером веб-хуков MTA возникает ошибка"
+  },
+  "field/x:MtaHook/url/description": {
+    "original": "URL of the hook endpoint",
+    "before": "URL конечной точки обработчика",
+    "ru": "URL конечной точки веб-хука"
+  },
+  "field/x:MtaInboundThrottle/description/description": {
+    "original": "Short description for the throttle",
+    "before": "Краткое описание ограничения частоты",
+    "ru": "Краткое описание лимита"
+  },
+  "field/x:MtaInboundThrottle/enable/description": {
+    "original": "Whether to enable this throttle",
+    "before": "Включать ли это ограничение частоты",
+    "ru": "Включать ли этот лимит"
+  },
+  "field/x:MtaInboundThrottle/key/description": {
+    "original": "Optional list of context variables that determine where this throttle should be applied",
+    "before": "Необязательный список переменных контекста, определяющих область применения этого ограничения частоты",
+    "ru": "Необязательный список переменных контекста, определяющих область применения этого лимита"
+  },
+  "field/x:MtaInboundThrottle/match/description": {
+    "original": "Enable the imposition of concurrency and rate limits only when a specific condition is met",
+    "before": "Применять ограничения числа одновременных операций и частоты только при выполнении заданного условия",
+    "ru": "Применять лимиты числа одновременных операций и числа операций за заданный период только при выполнении условия"
+  },
+  "field/x:MtaInboundThrottle/rate/description": {
+    "original": "Number of incoming requests over a period of time that the rate limiter will allow",
+    "before": "Число входящих запросов за заданный период, разрешённое ограничителем частоты",
+    "ru": "Допустимое число операций за заданный период"
+  },
+  "field/x:MtaMilter/enable/description": {
+    "original": "Expression that determines whether to enable this milter",
+    "before": "Выражение, определяющее, следует ли включить этот фильтр milter",
+    "ru": "Выражение, определяющее, следует ли включить этот фильтр Milter"
+  },
+  "field/x:MtaMilter/stages/description": {
+    "original": "Which SMTP stages to run the milter on",
+    "before": "Этапы SMTP, на которых выполняется фильтр milter",
+    "ru": "Этапы SMTP, на которых выполняется фильтр Milter"
+  },
+  "field/x:MtaOutboundThrottle/description/description": {
+    "original": "Short description for the throttle",
+    "before": "Краткое описание ограничения частоты",
+    "ru": "Краткое описание лимита"
+  },
+  "field/x:MtaOutboundThrottle/enable/description": {
+    "original": "Whether to enable this throttle",
+    "before": "Включать ли это ограничение частоты",
+    "ru": "Включать ли этот лимит"
+  },
+  "field/x:MtaOutboundThrottle/key/description": {
+    "original": "Optional list of context variables that determine where this throttle should be applied",
+    "before": "Необязательный список переменных контекста, определяющих область применения этого ограничения частоты",
+    "ru": "Необязательный список переменных контекста, определяющих область применения этого лимита"
+  },
+  "field/x:MtaOutboundThrottle/match/description": {
+    "original": "Enable the imposition of concurrency and rate limits only when a specific condition is met",
+    "before": "Применять ограничения числа одновременных операций и частоты только при выполнении заданного условия",
+    "ru": "Применять лимиты числа одновременных операций и числа операций за заданный период только при выполнении условия"
+  },
+  "field/x:MtaOutboundThrottle/rate/description": {
+    "original": "Number of incoming requests over a period of time that the rate limiter will allow",
+    "before": "Число входящих запросов за заданный период, разрешённое ограничителем частоты",
+    "ru": "Допустимое число операций за заданный период"
+  },
+  "field/x:MtaQueueQuota/match/description": {
+    "original": "Enable the imposition of concurrency and rate limits only when a specific condition is met",
+    "before": "Применять ограничения числа одновременных операций и частоты только при выполнении заданного условия",
+    "ru": "Применять лимиты числа одновременных операций и числа операций за заданный период только при выполнении условия"
+  },
+  "form/x:Metrics/CollectorOtel/field/openTelemetry": {
+    "original": "Collector",
+    "before": "Сборщик",
+    "ru": "Сбор метрик"
+  },
+  "form/x:Metrics/CollectorOtel/title": {
+    "original": "OpenTelemetry Collector",
+    "before": "Сборщик OpenTelemetry",
+    "ru": "Сбор метрик OpenTelemetry"
+  },
+  "form/x:Metrics/CollectorPrometheus/field/prometheus": {
+    "original": "Collector",
+    "before": "Сборщик",
+    "ru": "Сбор метрик"
+  },
+  "form/x:Metrics/CollectorPrometheus/title": {
+    "original": "Prometheus Collector",
+    "before": "Сборщик Prometheus",
+    "ru": "Сбор метрик Prometheus"
+  },
+  "form/x:MetricsOtelGrpc/field/url": {
+    "original": "URL",
+    "before": "URL сборщика",
+    "ru": "URL конечной точки"
+  },
+  "form/x:MetricsOtelHttp/field/url": {
+    "original": "URL",
+    "before": "URL сборщика",
+    "ru": "URL конечной точки"
+  },
+  "form/x:MtaHook/section/section-0": {
+    "original": "MTA Hook settings",
+    "before": "Настройки обработчика MTA Hook",
+    "ru": "Настройки веб-хука MTA"
+  },
+  "form/x:MtaInboundThrottle/field/rate": {
+    "original": "Rate limit",
+    "before": "Ограничение частоты",
+    "ru": "Лимит"
+  },
+  "form/x:MtaInboundThrottle/section/section-0": {
+    "original": "Inbound Rate Limiter",
+    "before": "Ограничение частоты входящих запросов",
+    "ru": "Лимит скорости приёма"
+  },
+  "form/x:MtaOutboundThrottle/field/rate": {
+    "original": "Rate limit",
+    "before": "Ограничение частоты",
+    "ru": "Лимит"
+  },
+  "form/x:MtaOutboundThrottle/section/section-0": {
+    "original": "Outbound Rate Limiter",
+    "before": "Ограничение частоты исходящих запросов",
+    "ru": "Лимит скорости отправки"
+  },
+  "list/x:MemoryLookupKeyValue/plural": {
+    "original": "keys",
+    "before": "ключи",
+    "ru": "пары"
+  },
+  "list/x:MemoryLookupKeyValue/singular": {
+    "original": "key",
+    "before": "ключ",
+    "ru": "пара"
+  },
+  "list/x:MemoryLookupKeyValue/title": {
+    "original": "Lookup Key-Values",
+    "before": "Пары «ключ — значение»",
+    "ru": "Пары «ключ — значение» в памяти"
+  },
+  "list/x:MtaHook/plural": {
+    "original": "hooks",
+    "before": "обработчики",
+    "ru": "веб-хуки MTA"
+  },
+  "list/x:MtaHook/singular": {
+    "original": "hook",
+    "before": "обработчик",
+    "ru": "веб-хук MTA"
+  },
+  "list/x:MtaHook/subtitle": {
+    "original": "Manage MTA Hooks",
+    "before": "Управление обработчиками MTA Hooks",
+    "ru": "Управление веб-хуками MTA"
+  },
+  "list/x:MtaHook/title": {
+    "original": "MTA Hooks",
+    "before": "Обработчики MTA",
+    "ru": "Веб-хуки MTA"
+  },
+  "list/x:MtaInboundThrottle/plural": {
+    "original": "throttles",
+    "before": "ограничения частоты",
+    "ru": "лимиты скорости приёма"
+  },
+  "list/x:MtaInboundThrottle/singular": {
+    "original": "throttle",
+    "before": "ограничение частоты",
+    "ru": "лимит скорости приёма"
+  },
+  "list/x:MtaInboundThrottle/subtitle": {
+    "original": "Manage inbound rate limits",
+    "before": "Управление ограничениями частоты входящих запросов",
+    "ru": "Управление лимитами скорости приёма"
+  },
+  "list/x:MtaInboundThrottle/title": {
+    "original": "Inbound Rate Limits",
+    "before": "Ограничения скорости приёма",
+    "ru": "Лимиты скорости приёма"
+  },
+  "list/x:MtaMilter/plural": {
+    "original": "milters",
+    "before": "фильтры milter",
+    "ru": "фильтры Milter"
+  },
+  "list/x:MtaMilter/singular": {
+    "original": "milter",
+    "before": "фильтр milter",
+    "ru": "фильтр Milter"
+  },
+  "list/x:MtaOutboundThrottle/plural": {
+    "original": "throttles",
+    "before": "ограничения частоты",
+    "ru": "лимиты скорости отправки"
+  },
+  "list/x:MtaOutboundThrottle/singular": {
+    "original": "throttle",
+    "before": "ограничение частоты",
+    "ru": "лимит скорости отправки"
+  },
+  "list/x:MtaOutboundThrottle/subtitle": {
+    "original": "Manage outbound rate limits",
+    "before": "Управление ограничениями частоты исходящих запросов",
+    "ru": "Управление лимитами скорости отправки"
+  },
+  "list/x:MtaOutboundThrottle/title": {
+    "original": "Outbound Rate Limits",
+    "before": "Ограничения скорости отправки",
+    "ru": "Лимиты скорости отправки"
+  },
+  "list/x:MtaQueueQuota/singular": {
+    "original": "quota",
+    "before": "квота",
+    "ru": "квота очереди"
+  },
+  "nav/container/Settings/MTA/Rates & Quotas": {
+    "original": "Rates & Quotas",
+    "before": "Ограничения частоты и квоты",
+    "ru": "Лимиты и квоты"
+  },
+  "nav/link/Settings/x:MemoryLookupKeyValue": {
+    "original": "In-Memory Key-Values",
+    "before": "Пары ключ–значение в памяти",
+    "ru": "Пары ключ–значение"
+  },
+  "nav/link/Settings/x:Metrics/CollectorOtel": {
+    "original": "OpenTelemetry",
+    "before": "Сбор метрик OpenTelemetry",
+    "ru": "OpenTelemetry"
+  },
+  "nav/link/Settings/x:Metrics/CollectorPrometheus": {
+    "original": "Prometheus",
+    "before": "Сбор метрик Prometheus",
+    "ru": "Prometheus"
+  },
+  "nav/link/Settings/x:MtaHook": {
+    "original": "MTA Hooks",
+    "before": "Обработчики MTA",
+    "ru": "Веб-хуки MTA"
+  },
+  "nav/link/Settings/x:MtaInboundThrottle": {
+    "original": "Inbound Rate Limits",
+    "before": "Ограничения скорости приёма",
+    "ru": "Лимиты приёма"
+  },
+  "nav/link/Settings/x:MtaOutboundThrottle": {
+    "original": "Outbound Rate Limits",
+    "before": "Ограничения скорости отправки",
+    "ru": "Лимиты отправки"
+  },
+  "object/x:MtaHook/description": {
+    "original": "Defines an MTA hook endpoint for message processing.",
+    "before": "Определяет конечную точку обработчика MTA Hook для обработки сообщений.",
+    "ru": "Определяет конечную точку веб-хука MTA для обработки сообщений."
+  },
+  "object/x:MtaInboundThrottle/description": {
+    "original": "Defines an inbound rate limit rule for SMTP connections.",
+    "before": "Определяет правило ограничения частоты входящих подключений SMTP.",
+    "ru": "Определяет правило ограничения скорости входящих подключений SMTP."
+  },
+  "object/x:MtaOutboundThrottle/description": {
+    "original": "Defines an outbound rate limit rule for message delivery.",
+    "before": "Определяет правило ограничения частоты исходящей доставки сообщений.",
+    "ru": "Определяет правило ограничения скорости исходящей доставки сообщений."
+  }
+};
+
+const webuiRuStage50Action2: Readonly<Record<string, string>> = {
+  'list/x:MtaHook/singular': 'веб-хук MTA',
+  'list/x:MtaMilter/singular': 'фильтр Milter',
+  'list/x:MtaInboundThrottle/singular': 'лимит скорости приёма',
+  'list/x:MtaOutboundThrottle/singular': 'лимит скорости отправки',
+  'list/x:MtaQueueQuota/singular': 'квоту очереди',
+  'list/x:MemoryLookupKeyValue/singular': 'пару',
+};
+
+export function schemaText(hash: string | null, language: string, slot: string, original: string): string {
+  const prior = stage50SchemaText(hash, language, slot, original);
+  if (!canTranslateSchema(hash, language) || !Object.hasOwn(webuiRuStage50Editorial2, slot)) return prior;
+  const entry = webuiRuStage50Editorial2[slot];
+  return entry.original === original && entry.before === prior ? entry.ru : prior;
+}
+
+export function schemaActionName(hash: string | null, language: string, slot: string, original: string): string | null {
+  if (language.split(/[-_]/)[0].toLowerCase() === 'ru' && Object.hasOwn(webuiRuStage50Action2, slot)) {
+    const entry = webuiRuStage50Editorial2[slot];
+    return entry.original === original && schemaText(hash, language, slot, original) === entry.ru
+      ? webuiRuStage50Action2[slot] : null;
+  }
+  return stage50SchemaActionName(hash, language, slot, original);
 }

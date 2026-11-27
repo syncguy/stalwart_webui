@@ -56,6 +56,63 @@ const stage50Delta = [
     "reason": "Retain Stage49 replay and enforce Stage50 regression contracts."
   }
 ];
+// Stage50 second pass: retain the first pass delta for historical evidence.
+const stage50SecondDelta = [
+  {
+    "path": "src/components/layout/Sidebar.tsx",
+    "beforeBlob": "4174a4205278b54fbfb0b17fad4f2559ea76d9c2",
+    "afterBlob": "d1527f7bf48f416a070d2c71c205d066b1e7cb53",
+    "before": "12fdca130b84b4b96326d96ca29321e1ecff9aaff19d610c28f09225941f4129",
+    "after": "223427418722acdd2f957834b20a28c11a16f0ea21c5b8225e86de72e7e394eb",
+    "reason": "Conditional full-label tooltip and bounded desktop separator; same navigation/ACL semantics."
+  },
+  {
+    "path": "src/components/layout/TopBar.tsx",
+    "beforeBlob": "5cb67461ff27b8a7d64be8c76150d68511eb9899",
+    "afterBlob": "e72662d0ddcb3260834fa297f6debaf5996172f0",
+    "before": "ec3d7d0859ff4fdd107c1d9024d10643aa27c456694a3178ca89acb9d335beae",
+    "after": "20ebe193609591f0f2888a8eebc44c84e29a42f74a50106982974b7ae1871d4c",
+    "reason": "Synchronize header logo width with sidebar; default preserved."
+  },
+  {
+    "path": "src/i18n/webuiRuSchemaText.ts",
+    "beforeBlob": "ea7e624b5c08f17dc2c2b30e00b17397d86db058",
+    "afterBlob": "4ce52e7827f02785199334b14a9872c88e568e6e",
+    "before": "9086234b659ac40b925c01632406eec52f3a9461f2a72a7869cecfb55a85da35",
+    "after": "3897346ef26f3ded3f7837ff9087faf4fcfa834177354ec66db69ea4d19a1d70",
+    "reason": "Exact second editorial overlay and scoped action grammar; historical catalogues unchanged."
+  },
+  {
+    "path": "src/pages/AdminPanel.tsx",
+    "beforeBlob": "10d6898298bd18292013633e6977a25c5d9c64af",
+    "afterBlob": "74486d2ce98cd3666e6b52f0cfde2502ab99f79e",
+    "before": "94ab1c5a41c0544078ab0de471aafb5e79c8893ff67275ccddbf6c0fcebea33d",
+    "after": "ea2e848ed4e38b43236c5d36210d0056cca539a8e1ea2ce96e56691acf5804ec",
+    "reason": "Ephemeral sidebar width; synchronize main content without remounting routes/forms."
+  },
+  {
+    "path": "scripts/check-webuiRu-stage49-components.mjs",
+    "beforeBlob": "63636c7997a5b7a55c1c770d55e816233aa717dc",
+    "afterBlob": "bb2ffe31185d3c351195422e6a404592735c560d",
+    "before": "0ca79e7ddf35c06d2cc2f2ee2944eb3b89d592ae27a36d44c89887e82d9f9304",
+    "after": "77b91055bd7055c8494c673c63d3d5a8ebe1de681b7dc89d70bb06b3021619dc",
+    "reason": "Preserve first operator pass and verify all pinned bindings for second pass."
+  },
+  {
+    "path": "scripts/lib/locale-stage44.mjs",
+    "beforeBlob": "b1ac50df4cb9e2d62bd4f8c6174e923b46ffe668",
+    "afterBlob": "2673c2b2a817cf8400b27f10c7654b7576a76221",
+    "before": "033972dc8984f34c06bc45a1254ac6f237323eb90669b0e36c2f1bedacf0e78a",
+    "after": "589b146eb7c4ef89e5a8a24350fa8ee69349c6e0573303679b10a1e1c62b400e",
+    "reason": "Revalidate two exact existing dynamic display call sites after sidebar refactor."
+  }
+];
+function undoStage50SecondDigest(file, current) {
+  const entry = stage50SecondDelta.find(e => e.path === file);
+  if (!entry) return current;
+  assert.equal(current, entry.after, 'Unreviewed Stage50 second pass file drift: ' + file);
+  return entry.before;
+}
 function undoStage50Digest(file, current) {
   const entry = stage50Delta.find(e => e.path === file);
   if (!entry) return current;
@@ -71,6 +128,10 @@ export function loadWebuiRuStage49Review(root) {
 export function historicalSourceFor49(root, actual) {
   const packet = loadWebuiRuStage49Review(root);
   const historical = { ...actual };
+  for (const entry of stage50SecondDelta.filter(e => e.path.startsWith('src/'))) {
+    assert.equal(historical[entry.path], entry.afterBlob, 'Unreviewed Stage50 second pass source drift: ' + entry.path);
+    historical[entry.path] = entry.beforeBlob;
+  }
   for (const entry of stage50Delta.filter(e => e.path.startsWith('src/'))) {
     assert.equal(historical[entry.path], entry.afterBlob, 'Unreviewed Stage50 source drift: ' + entry.path);
     historical[entry.path] = entry.beforeBlob;
@@ -84,7 +145,7 @@ export function historicalSourceFor49(root, actual) {
   return historical;
 }
 export function historicalDigestFor49(root, file, current) {
-  current = undoStage50Digest(file, current);
+  current = undoStage50Digest(file, undoStage50SecondDigest(file, current));
   const entry = loadWebuiRuStage49Review(root).fileDelta.find(e => e.path === file);
   if (!entry) return current;
   assert.equal(current, entry.after, 'Непроверенное изменение файла: ' + file);
@@ -92,15 +153,19 @@ export function historicalDigestFor49(root, file, current) {
 }
 export function verifyWebuiRuStage49Files(root) {
   const packet = loadWebuiRuStage49Review(root);
+  for (const entry of stage50SecondDelta) {
+    assert.ok(entry.reason);
+    assert.equal(digest(fs.readFileSync(path.join(root,entry.path))),entry.after,'Unreviewed Stage50 second pass file drift: '+entry.path);
+  }
   for (const entry of stage50Delta) {
     assert.ok(entry.reason);
-    assert.equal(digest(fs.readFileSync(path.join(root,entry.path))),entry.after,'Unreviewed Stage50 file drift: '+entry.path);
+    assert.equal(undoStage50SecondDigest(entry.path,digest(fs.readFileSync(path.join(root,entry.path)))),entry.after,'Unreviewed Stage50 file drift: '+entry.path);
   }
   const seen = new Set();
   for (const entry of packet.fileDelta) {
     assert.ok(!seen.has(entry.path) && entry.reason, entry.path);
     seen.add(entry.path);
-    assert.equal(undoStage50Digest(entry.path,digest(fs.readFileSync(path.join(root,entry.path)))),entry.after,
+    assert.equal(undoStage50Digest(entry.path,undoStage50SecondDigest(entry.path,digest(fs.readFileSync(path.join(root,entry.path))))),entry.after,
       'Непроверенное изменение файла этапа 49: '+entry.path);
   }
   return packet;
