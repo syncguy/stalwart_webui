@@ -39,6 +39,7 @@ export interface DynamicListState {
   isLoading: boolean;
   isFetching: boolean;
   error: string | null;
+  webuiRuNoLogTracers: boolean;
   applyFilters: (filters: Record<string, string>) => void;
   resetFilters: () => void;
   toggleSort: (field: string) => void;
@@ -105,6 +106,11 @@ export function useDynamicList(
     isLoading: query.isPending && query.fetchStatus !== 'idle',
     isFetching: query.isFetching,
     error: query.isError && !anchorLost ? errorMessage(query.error) : null,
+    // Match the original structured diagnostic before the general formatter adds a localized summary.
+    webuiRuNoLogTracers:
+      objectName === 'x:Log' && query.isError && !anchorLost &&
+      query.error instanceof JmapMethodError && query.error.type === 'invalidArguments' &&
+      query.error.description === 'No log tracers configured on the server',
     applyFilters: (filters) => navigateTo({ filters, sort: state.sort, anchors: [] }),
     resetFilters: () => navigateTo({ filters: {}, sort: null, anchors: [] }),
     toggleSort: (field) => navigateTo({ filters: state.filters, sort: nextSort(state.sort, field), anchors: [] }),

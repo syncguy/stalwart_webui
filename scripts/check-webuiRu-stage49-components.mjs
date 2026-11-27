@@ -8,7 +8,7 @@ import * as jsx from 'react/jsx-runtime';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { create } from 'zustand';
 import i18next from 'i18next';
-import { inputs, schema } from './check-webuiRu-stage49.mjs';
+import { inputs, runtimeSchema as schema, currentPairs, previousPairs } from './check-webuiRu-stage49.mjs';
 import { sourceModule } from './lib/locale-source.mjs';
 import './lib/offline-guard.mjs';
 
@@ -157,19 +157,21 @@ const {DynamicForm}=component('src/components/forms/DynamicForm.tsx',{
   '@/components/forms/UnsavedChangesDialog':{UnsavedChangesDialog:()=>null},'@/components/forms/useDynamicForm':{useDynamicForm:()=>formModel},
 });
 const {Pagination}=component('src/components/lists/Pagination.tsx',{'@/components/ui/button':{Button:button}});
+let useListState=()=>({items:[],total:20,state:{filters:[],anchors:[],sort:[]}});
+const listStates=component('src/components/lists/ListStates.tsx',{'@/components/ui/button':{Button:button}});
 const {DynamicList}=component('src/components/lists/DynamicList.tsx',{
   react:{...React,useState:initial=>[initial,v=>{if(initial===null)pending=v;}]},
   'react-router-dom':{useNavigate:()=>p=>navigations.push(p)},'@/components/ui/button':{Button:button},
   '@/components/common/ConfirmDialog':{ConfirmDialog:()=>null},'@/components/common/EnterpriseUpsell':{EnterpriseUpsell:()=>null},
   '@/hooks/usePermissions':{useIsCommunity:()=>false,usePermissionCheckers:()=>({hasObjectPermission:()=>true})},
   '@/hooks/useResolvedView':{useResolvedView:()=>resolved},'@/lib/layout':layout,'@/lib/permissions':{canAccessView:()=>true},'@/lib/schemaResolver':inputs.resolver,
-  '@/stores/schemaStore':{useSchemaStore:f=>f({schema:formSchema,viewToSection:{'x:Account/Resource':'Management'}})},
+  '@/stores/schemaStore':{useSchemaStore:f=>f({schema:formSchema,viewToSection:{'x:Account/Resource':'Management','x:Log':'Management','x:NetworkListener':'Settings'}})},
   './FilterBar':{FilterBar:()=>null},'./ListTable':{ListTable:p=>p.renderRowActions?.({},'raw-id','RAW_NAME')??null},
-  './ListStates':{ListError:()=>null,ListMessage:passthrough,ListSpinner:()=>null},'./MassActionBar':{MassActionBar:p=>{massProps=p;return null;}},
+  './ListStates':listStates,'./MassActionBar':{MassActionBar:p=>{massProps=p;return null;}},
   './Pagination':{Pagination},'./RowActions':{RowActions:p=>{rowProps=p;return null;}},'./SelectionBanner':{SelectionBanner:()=>null},
   './listActions':{itemActionHref:fatal,resolveItemActions:()=>[{kind:'mutation',key:'delete',action:{type:'delete',label:'Delete'}}],resolveMassActions:()=>[{type:'delete',label:'Delete'}]},
   './listQuery':{getListFields:()=>({}),itemId:()=>null,itemLabel:()=>''},
-  './useDynamicList':{useDynamicList:()=>({items:[],total:20,state:{filters:[],anchors:[],sort:[]}})},
+  './useDynamicList':{useDynamicList:(...args)=>useListState(...args)},
   './useListActions':{useListActions:()=>({pending:false,runMassAction:fatal,runItemAction:fatal})},
   './useListSelection':{useListSelection:()=>({selectedIds:Array.from({length:selectedCount},(_,i)=>'raw-'+i),allMatching:false,pageState:'partial'})},
 });
@@ -211,3 +213,128 @@ for(const pin of inputs.pins)for(const hash of [pin.schemaHash,'unknown'])for(co
   assert.ok(footer.includes(language==='ru'?'Показано 1–5 из 20':'Showing 1-5 of 20 resources'),footer);
 }
 console.log('PASS Stage49 grammar: actual Resource button and Resource/MailRule create/edit titles, deletion/count labels, RU/EN/RU, unknown hash, raw route/data preserved');
+
+// Stage50: editorial correction census. Derive expected listener corrections
+// independently from the historical catalogs (not from the new override table).
+const oldCatalogue=parse('src/i18n/schema/ru.json');
+const oldPermission=parse('src/i18n/schema/permission_ru.json');
+const listenerRows=Object.entries(oldCatalogue.entries).filter(([,e])=>/слушател/i.test(e.ru));
+assert.equal(listenerRows.length,45);
+assert.ok(!oldCatalogue.scopedEntries.some(e=>/слушател/i.test(e.ru)));
+assert.ok(!Object.values(parse('src/i18n/schema/webuiRu-1.2.json').entries).some(e=>/слушател/i.test(e.ru)));
+const newWord=s=>s.replaceAll('Слушател','Прослушивател').replaceAll('слушател','прослушивател');
+const expectedEditorial=Object.fromEntries(listenerRows.map(([slot,e])=>[slot,newWord(e.ru)]));
+Object.assign(expectedEditorial,{
+  'variant/x:Account/User/label':'Пользователь','variant/x:Account/Group/label':'Группа',
+  'variant/x:Account/Resource/label':'Ресурс','nav/container/Settings/MTA':'Почтовый транспорт',
+});
+assert.deepEqual(Object.keys(schema.webuiRuStage50Editorial).sort(),Object.keys(expectedEditorial).sort());
+assert.equal(Object.keys(expectedEditorial).length,49);
+const seenEditorial=new Set();
+let pairBindings=0, correctedBindings=0;
+for(const pairs of [previousPairs,currentPairs])for(const row of pairs.values())for(const binding of row.locations) {
+  const {slot,original}=row, hash=binding.schemaHash;
+  const before=schema.stage49SchemaText(hash,'ru',slot,original);
+  const correction=schema.webuiRuStage50Editorial[slot];
+  const expected=Object.hasOwn(expectedEditorial,slot)&&before!==original?expectedEditorial[slot]:before;
+  const actual=schema.schemaText(hash,'ru',slot,original);
+  assert.equal(actual,expected,slot+' '+hash);
+  if(expected!==before){
+    assert.equal(correction.before,before,slot);seenEditorial.add(slot);correctedBindings++;
+    assert.equal(schema.schemaText(hash,'ru-RU',slot,original),expected);
+    for(const lang of ['en','de'])assert.equal(schema.schemaText(hash,lang,slot,original),original);
+    assert.equal(schema.schemaText('unknown','ru',slot,original),original);
+    assert.equal(schema.schemaText(hash,'ru',slot,original+' changed'),original+' changed');
+  }
+  pairBindings++;
+}
+assert.deepEqual([...seenEditorial].sort(),Object.keys(expectedEditorial).sort());
+// The actual permission widget tries permissionDisplayLabel after schema display,
+// so the already localized label must stay unchanged; raw permission IDs never change.
+const permission=mod('src/i18n/schemaPermissionText.ts',{'./schema/permission_ru.json':oldPermission});
+const listenerPermissions=Object.entries(oldPermission.entries).filter(([,e])=>/слушател/i.test(e.ru));
+assert.equal(listenerPermissions.length,5);
+for(const pin of [...inputs.pins,...parse('scripts/data/pinned-schema-manifest.json').schemas]){
+  for(const [name,e] of listenerPermissions){
+    const localized=schema.schemaText(pin.schemaHash,'ru','enum/Permission/'+name+'/label',e.original);
+    assert.equal(permission.permissionDisplayLabel(name,localized),newWord(e.ru),name);
+    assert.equal(schema.schemaText(pin.schemaHash,'en','enum/Permission/'+name+'/label',e.original),e.original);
+  }
+  assert.equal(schema.schemaActionName(pin.schemaHash,'ru','list/x:NetworkListener/singular','listener'),'прослушиватель');
+  assert.equal(schema.schemaActionName(pin.schemaHash,'en','list/x:NetworkListener/singular','listener'),'listener');
+  assert.equal(schema.schemaActionName(pin.schemaHash,'ru','list/x:NetworkListener/singular','listener changed'),null);
+}
+assert.equal(schema.schemaActionName('unknown','ru','list/x:NetworkListener/singular','listener'),null);
+console.log('PASS Stage50: 49 editorial slots; '+correctedBindings+' corrected / '+pairBindings+' total pinned edition bindings; unchanged fallback, five permissions and listener action case.');
+
+// Real VariantSelect with synthetic form state. Raw variant values, selected
+// radio, and segmented control must survive RU -> EN -> RU.
+const {VariantSelect}=component('src/components/forms/VariantSelect.tsx',{
+  '@/components/ui/select':{Select:passthrough,SelectContent:passthrough,SelectItem:passthrough,SelectTrigger:passthrough,SelectValue:()=>null},
+  '@/components/forms/FieldRow':{FieldLabel:({label})=>h('label',null,label)},
+  '@/components/forms/formContext':{...formContext,useInPanel:()=>false},
+  '@/components/forms/formLogic':{VARIANT_FIELD:'@type'},
+});
+for(const pin of inputs.pins){
+  activeHash=pin.schemaHash;
+  const variants=pin.data.schemas['x:Account'].variants;
+  const before=JSON.stringify(variants);
+  for(const language of ['ru','en','ru']){
+    await app.changeLanguage(language);
+    const html=render(VariantSelect,{label:'Account type',variantScope:'x:Account',variants,value:'Resource',onChange:fatal,readOnly:false});
+    assert.ok(html.includes('role="radiogroup"')&&html.includes('aria-checked="true"'),html);
+    for(const v of variants)assert.ok(html.includes('>'+ (language==='ru'?expectedEditorial['variant/x:Account/'+v.name+'/label']:v.label)+'</button>'),v.name);
+    assert.equal(JSON.stringify(variants),before);
+    useSchemaStore.getState().setSchema(pin.data,pin.schemaHash);
+    useSchemaStore.getState().setDisplayLanguage(language);
+    assert.ok(useSchemaStore.getState().searchIndex.some(e=>e.text===(language==='ru'?'Прослушиватели':'Listeners')));
+  }
+}
+
+// Structured JMAP error -> actual useDynamicList -> actual DynamicList -> actual
+// ListError. Only network/data/router boundaries are mocked, with no requests.
+const errorTypes=mod('src/services/errors.ts');
+const errorFormatter=mod('src/lib/jmapErrors.ts',{'@/services/errors':errorTypes,'@/i18n':app});
+let query;
+const hook=mod('src/components/lists/useDynamicList.ts',{
+  react:{useEffect:()=>{}},'react-router-dom':{useSearchParams:()=>[new URLSearchParams(),fatal]},
+  '@/data/objects':{useJmapList:()=>query},'@/lib/jmapErrors':errorFormatter,'@/services/errors':errorTypes,
+  './listQuery':{
+    LIST_PAGE_SIZE:50,buildListFilter:()=>undefined,buildListPageParams:()=>({}),buildListSort:()=>undefined,
+    effectiveSort:()=>null,isStrandedPage:()=>false,itemId:()=>null,
+    pageRange:()=>({from:0,to:0,hasPrev:false,hasNext:false}),
+  },
+  './listUrlState':{listStateKey:()=>'',parseListSearch:()=>({filters:{},sort:null,anchors:[]}),serializeListSearch:()=>new URLSearchParams(),nextSort:()=>null},
+});
+useListState=hook.useDynamicList;
+const rawLog='No log tracers configured on the server';
+const method=(type,description)=>new errorTypes.JmapMethodError('x:Log/query','0',{type,description});
+const known=method('invalidArguments',rawLog);
+const cases=[
+  ['x:Log',known,true],
+  ['x:Domain',known,false],
+  ['x:Log',method('invalidArguments',rawLog+'.'),false],
+  ['x:Log',method('serverFail',rawLog),false],
+  ['x:Log',method('futureUnknown',rawLog),false],
+  ['x:Log',method('invalidArguments','Other diagnostic'),false],
+  ['x:Log',method('invalidArguments',null),false],
+  ['x:Log',new errorTypes.ApiError(403,'Forbidden',{detail:rawLog}),false],
+];
+formSchema=inputs.pins[0].data;activeHash=inputs.pins[0].schemaHash;
+assert.ok(formSchema.lists['x:Log']);
+for(const lang of ['ru','en','ru']){
+  await app.changeLanguage(lang);
+  for(const [name,error,special] of cases){
+    resolved=resolvedView(formSchema,name);
+    query={isError:true,error,isFetching:false,isPending:false,isSuccess:false,data:{list:[],total:0,position:0},refetch:()=>{}};
+    const state=hook.useDynamicList(resolved.object.objectName,resolved.list);
+    assert.equal(state.webuiRuNoLogTracers,special);
+    const expected=special?t('webuiRu.logs.noTracersConfigured',rawLog):errorFormatter.errorMessage(error);
+    const html=render(DynamicList,{viewName:name});
+    assert.ok(html.includes('role="alert"'),html);
+    assert.ok(html.includes(expected),name+' '+lang+' '+expected);
+    if(special&&lang==='ru')assert.ok(!html.includes(rawLog)&&!html.includes(t('jmapErrors.invalidArguments')));
+    assert.equal(query.error,error);
+  }
+}
+console.log('PASS Stage50: real VariantSelect RU/EN/RU and actual hook/list/alert with 24 structured error scenarios; no server/browser claims.');

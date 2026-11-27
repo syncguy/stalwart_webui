@@ -18,9 +18,12 @@ verifyWebuiRuStage49Files(process.cwd());
 const delta = parse('src/i18n/schema/webuiRu-1.2.json');
 const permissions = parse('src/i18n/schema/webuiRu-permission-1.2.json');
 const extra = { ...delta.entries, ...permissions.entries };
-const schema = sourceModule(read('src/i18n/webuiRuSchemaText.ts'), 'webuiRuSchemaText.ts', {
+const runtimeSchema = sourceModule(read('src/i18n/webuiRuSchemaText.ts'), 'webuiRuSchemaText.ts', {
   './schemaText': original.schema, './schema/webuiRu-1.2.json': delta, './schema/webuiRu-permission-1.2.json': permissions,
 });
+// Reproduce the accepted historical Stage49 report exactly. Stage50 tests below
+// compare the live dispatcher against this baseline for every pinned pair.
+const schema = { ...runtimeSchema, schemaText: runtimeSchema.stage49SchemaText, schemaActionName: runtimeSchema.stage49SchemaActionName };
 const currentPairs = collectPairs(webuiRuPins), previousPairs = collectPairs(historicalPins);
 const rows = [...currentPairs.values()];
 const newHash = old => Object.keys(delta.meta.baseHashes).find(h => delta.meta.baseHashes[h] === old);
@@ -136,4 +139,4 @@ for (const r of [...previousPairs.values()].filter(r=>!currentPairs.has(key(r)))
 }
 assert.equal(digest(read('src/i18n/schema/ru.json')),original.provenance.catalogSha256);
 console.log('Stage49 exact runtime bindings and historical inheritance PASS:',JSON.stringify(count));
-export { inputs, graph, report, schema, currentPairs };
+export { inputs, graph, report, schema, runtimeSchema, currentPairs, previousPairs };
