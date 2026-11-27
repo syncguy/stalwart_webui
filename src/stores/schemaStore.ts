@@ -5,7 +5,7 @@
  */
 
 import { create } from 'zustand';
-import { schemaText } from '@/i18n/schemaText';
+import { schemaText } from '@/i18n/webuiRuSchemaText';
 import { layoutViewFor } from '@/lib/layout';
 import type { Schema, LayoutSubItem } from '@/types/schema';
 

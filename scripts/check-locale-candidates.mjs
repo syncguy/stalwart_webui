@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Independent fixture expectations + mutation tests, no server or React claims.
 import assert from 'node:assert/strict';
+import { historicalDigestFor49 } from './lib/webuiRu-stage49-review.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -194,7 +195,7 @@ check('Циклы вложенных объектов завершаются; п
 });
 check('Каталог, runtime и закреплённые схемы побайтно сохранены', () => {
   for (const [p, expected] of Object.entries(inputs.policy.protectedInputs)) {
-    assert.equal(digest(fs.readFileSync(path.join(root, p))), expected);
+    assert.equal(historicalDigestFor49(root, p, digest(fs.readFileSync(path.join(root, p)))), expected);
   }
   assert.ok(report.candidates.every(c => !c.apply && c.reviewStatus === 'pending' && c.targets.every(t => !t.catalogWrite)));
 });
@@ -741,8 +742,9 @@ assert.deepEqual(active44.summary.classification,{'translated':11474,'missing':0
 assert.equal(active44.rows.find(r=>r.slot==='field/x:AccountPassword/otpAuth/description').classification,'unreachable/conditional');
 console.log('Stage44 evidence and active inventory verified; browser/ACL acceptance remains open.');
 
-assert.equal(active44.client.messages.length,683);
-assert.equal(active44.client.messages.filter(c=>c.classification==='translated').length,673);
+assert.equal(active44.client.messages.filter(c => !c.messageId.startsWith('webuiRu.build.')).length,683);
+assert.equal(active44.client.messages.filter(c => c.messageId.startsWith('webuiRu.build.')).length,4);
+assert.equal(active44.client.messages.filter(c=>c.classification==='translated' && !c.messageId.startsWith('webuiRu.build.')).length,673);
 assert.equal(active44.client.messages.filter(c=>c.classification==='technical').length,8);
 assert.equal(active44.client.messages.filter(c=>c.classification==='keep-original').length,2);
 assert.ok(active44.client.dynamicCalls.every(c=>c.classification==='reviewed-schema-lookup'));

@@ -1,0 +1,3390 @@
+{
+  "meta": {
+    "serverVersions": [
+      "1.2.0",
+      "1.2.1"
+    ],
+    "baseHashes": {
+      "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM": "fyG-0rY0Q0Zq2PwUyaVPqnGT0nyS7AYK5SCmreTDZXs",
+      "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI": "Pryc909aTNRr_k6uwZLvZNs74YaPQv-PXQ38t2K7VlY"
+    },
+    "removedSlots": [
+      "field/x:FoundationDbStore/clusterFile/description",
+      "form/x:FoundationDbStore/field/clusterFile",
+      "form/x:FoundationDbStore/field/clusterFile/placeholder"
+    ]
+  },
+  "entries": {
+    "nav/link/Management/x:Account/Resource": {
+      "original": "Resources",
+      "ru": "Ресурсы",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "nav/container/Account/Calendars": {
+      "original": "Calendars",
+      "ru": "Календари",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "nav/link/Account/x:CalendarSettings": {
+      "original": "Settings",
+      "ru": "Настройки",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "nav/container/Account/Filters & Auto-Replies": {
+      "original": "Filters & Auto-Replies",
+      "ru": "Фильтры и автоответы",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "nav/link/Account/x:MailRule": {
+      "original": "Mail Rules",
+      "ru": "Почтовые правила",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "nav/link/Account/x:BlockedSender": {
+      "original": "Blocked Senders",
+      "ru": "Заблокированные отправители",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "nav/link/Account/x:SafeSender": {
+      "original": "Safe Senders",
+      "ru": "Доверенные отправители",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "object/x:BlockedSender/description": {
+      "original": "A sender whose mail goes to the Junk folder.",
+      "ru": "Отправитель, письма от которого помещаются в папку «Спам».",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "object/x:CalendarSettings/description": {
+      "original": "Calendar preferences of an account, such as the working hours published in free/busy answers and as the CalDAV calendar availability.",
+      "ru": "Настройки календаря учётной записи, например рабочие часы, публикуемые в ответах о занятости и в данных о доступности календаря по CalDAV.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "object/x:Exchange/description": {
+      "original": "Configures the Exchange protocols: Exchange Web Services (EWS), Exchange ActiveSync (EAS), MAPI over HTTP and Exchange Autodiscover.",
+      "ru": "Настройка протоколов Exchange: Exchange Web Services (EWS), Exchange ActiveSync (EAS), MAPI over HTTP и Exchange Autodiscover.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "object/x:MailRule/description": {
+      "original": "A rule applied to mail delivered to the account: when a message matches its conditions, the rule's actions run.",
+      "ru": "Правило, применяемое к письмам, доставляемым в учётную запись: если письмо соответствует условиям, выполняются действия правила.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "object/x:SafeSender/description": {
+      "original": "A trusted sender whose mail is not moved to the Junk folder.",
+      "ru": "Доверенный отправитель, письма от которого не перемещаются в папку «Спам».",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:Account/Resource/label": {
+      "original": "Resource account",
+      "ru": "Учётная запись ресурса",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:FoundationDbCluster/File/label": {
+      "original": "Cluster file",
+      "ru": "Файл кластера",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:FoundationDbCluster/Manual/label": {
+      "original": "Manual",
+      "ru": "Вручную",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:FoundationDbTls/Default/label": {
+      "original": "FoundationDB default files",
+      "ru": "Файлы FoundationDB по умолчанию",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:FoundationDbTls/Manual/label": {
+      "original": "Manual",
+      "ru": "Вручную",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/From/label": {
+      "original": "Sender address (From)",
+      "ru": "Адрес отправителя (From)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/To/label": {
+      "original": "To address",
+      "ru": "Адрес получателя (To)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/Cc/label": {
+      "original": "Cc address",
+      "ru": "Адрес получателя копии (Cc)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/ToOrCc/label": {
+      "original": "To or Cc address",
+      "ru": "Адрес получателя (To) или копии (Cc)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/SentToMe/label": {
+      "original": "Addressed to the account itself",
+      "ru": "Адресовано самой учётной записи",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/Subject/label": {
+      "original": "Subject",
+      "ru": "Тема письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/Body/label": {
+      "original": "Body text",
+      "ru": "Текст письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/Header/label": {
+      "original": "Any header",
+      "ru": "Любой заголовок",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/SizeOver/label": {
+      "original": "Larger than a size",
+      "ru": "Размер больше заданного",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/SizeUnder/label": {
+      "original": "Smaller than a size",
+      "ru": "Размер меньше заданного",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/HasAttachment/label": {
+      "original": "Has attachments",
+      "ru": "Есть вложения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/Importance/label": {
+      "original": "Importance",
+      "ru": "Важность",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/Sensitivity/label": {
+      "original": "Sensitivity",
+      "ru": "Конфиденциальность",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/MessageType/label": {
+      "original": "Message type",
+      "ru": "Тип письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/HeaderExists/label": {
+      "original": "Header is present",
+      "ru": "Заголовок присутствует",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/AttachmentName/label": {
+      "original": "Attachment file name",
+      "ru": "Имя файла вложения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/AttachmentType/label": {
+      "original": "Attachment media type",
+      "ru": "MIME-тип вложения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/MailingList/label": {
+      "original": "Sent by a mailing list",
+      "ru": "Отправлено списком рассылки",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/RecipientAddress/label": {
+      "original": "Delivered to address (envelope recipient)",
+      "ru": "Адрес доставки (получатель SMTP-конверта)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/RecipientDetail/label": {
+      "original": "Plus-address detail of the envelope recipient",
+      "ru": "Часть адреса после знака + у получателя SMTP-конверта",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/SpamScore/label": {
+      "original": "Spam score at or above a threshold (50 or more is spam)",
+      "ru": "Оценка спама не ниже порога (50 и выше — спам)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/SubjectOrBody/label": {
+      "original": "Subject or body text",
+      "ru": "Тема или текст письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/ReceivedAfter/label": {
+      "original": "Received on or after a date",
+      "ru": "Получено в указанную дату или позже",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/ReceivedBefore/label": {
+      "original": "Received on or before a date",
+      "ru": "Получено в указанную дату или раньше",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/Schedule/label": {
+      "original": "Received within weekly time slots",
+      "ru": "Получено в заданные еженедельные интервалы времени",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/PrivateEvent/label": {
+      "original": "Calendar event is private",
+      "ru": "Событие календаря помечено как частное",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/Keyword/label": {
+      "original": "Has any of the keywords",
+      "ru": "Есть хотя бы одно из указанных ключевых слов",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/AnyKeyword/label": {
+      "original": "Has any keyword",
+      "ru": "Есть хотя бы одно ключевое слово",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/Flagged/label": {
+      "original": "Is flagged",
+      "ru": "Отмечено флажком",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:MailRuleCondition/IsAway/label": {
+      "original": "The vacation response is in effect",
+      "ru": "Действует автоответ об отсутствии",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:PublicTextOptional/None/label": {
+      "original": "No value",
+      "ru": "Нет значения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:PublicTextOptional/Text/label": {
+      "original": "Text value",
+      "ru": "Текстовое значение",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:PublicTextOptional/EnvironmentVariable/label": {
+      "original": "Text value read from environment variable",
+      "ru": "Текстовое значение из переменной окружения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:PublicTextOptional/File/label": {
+      "original": "Text value read from file",
+      "ru": "Текстовое значение из файла",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:ResourceBooking/Automatic/label": {
+      "original": "Accept or decline automatically",
+      "ru": "Принимать или отклонять автоматически",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "variant/x:ResourceBooking/Manual/label": {
+      "original": "Delegates accept or decline",
+      "ru": "Решение о принятии или отклонении принимают делегаты",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:AutomaticBooking/allowConflicts/description": {
+      "original": "Accept requests that overlap an existing booking",
+      "ru": "Принимать запросы, время которых пересекается с существующим бронированием",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:AutomaticBooking/allowExternal/description": {
+      "original": "Accept requests from organizers outside this server",
+      "ru": "Принимать запросы от организаторов вне этого сервера",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:AutomaticBooking/allowRecurring/description": {
+      "original": "Accept recurring requests",
+      "ru": "Принимать повторяющиеся запросы на бронирование",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:AutomaticBooking/bookingWindow/description": {
+      "original": "How far into the future the resource can be booked",
+      "ru": "Насколько заранее можно бронировать ресурс",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:AutomaticBooking/maxDuration/description": {
+      "original": "Longest booking accepted",
+      "ru": "Максимальная допустимая продолжительность бронирования",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:BlockedSender/address/description": {
+      "original": "Email address, or a domain written as @example.org, which also covers its subdomains",
+      "ru": "Адрес электронной почты или домен в виде @example.org (также охватывает его поддомены)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:Cache/exchange/description": {
+      "original": "Maximum size of the Exchange account cache, which holds for each account the identifiers that Exchange clients use for messages, calendar and contact items and folders and their mapping to the stored items, along with the account's replica GUIDs, named properties, categories, ActiveSync devices and folder change numbers",
+      "ru": "Максимальный размер кеша учётных записей Exchange. Для каждой учётной записи в нём хранятся идентификаторы сообщений, элементов календаря, контактов и папок, используемые клиентами Exchange, их соответствие хранимым элементам, а также GUID реплик учётной записи, именованные свойства, категории, устройства ActiveSync и номера изменений папок.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:Calendar/shareFreeBusy/description": {
+      "original": "Lets every account see the free/busy time of the other accounts in its tenant, or of every account on the server when tenants are not used, without a share; event details still require a share",
+      "ru": "Позволяет каждой учётной записи видеть сведения о занятости остальных учётных записей своего арендатора (или всего сервера, если арендаторы не используются) без предоставления общего доступа. Для просмотра сведений о событиях общий доступ по-прежнему необходим",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:CalendarSettings/workingHours/description": {
+      "original": "Weekly working hours; time outside them is shown as unavailable in free/busy answers",
+      "ru": "Еженедельные рабочие часы; в ответах о занятости время вне этих часов отмечается как недоступное",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:CertificateManagementProperties/subjectAlternativeNames/description": {
+      "original": "Hostnames to include in the certificate as Subject Alternative Names (SANs), replacing the default names.\nEnter hostnames only (e.g. `mta-sts`, `autoconfig`), the domain is appended automatically.\nEntries containing a dot are used as written.\nTo include the apex domain, enter it in full (e.g. `example.org`).\nLeave empty to use the default names: the domain and a wildcard with DNS-01, otherwise the names Stalwart serves under the domain.",
+      "ru": "Имена хостов, включаемые в сертификат в качестве альтернативных имён субъекта (SAN) вместо имён по умолчанию.\nВводите только имена хостов (например, `mta-sts`, `autoconfig`), домен добавляется автоматически.\nЗаписи, содержащие точку, используются без изменений.\nЧтобы включить сам домен без поддомена, введите его полностью (например, `example.org`).\nОставьте пустым для использования имён по умолчанию: домена и имени с подстановочным знаком при проверке DNS-01, в остальных случаях — имён, обслуживаемых Stalwart в этом домене.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:DnsManagementProperties/allowSubdomainSigning/description": {
+      "original": "Whether DKIM2 signatures made by a subdomain of this domain may make From addresses at this domain authentic. When disabled, this server does not DKIM2-sign messages from this domain with a subdomain, and the DKIM2 domain policy record is published with the strict flag when the dkim2Policy record type is selected. With manual DNS management, the policy record found in DNS decides instead",
+      "ru": "Могут ли подписи DKIM2, созданные поддоменом этого домена, подтверждать подлинность адресов From в данном домене. Если параметр отключён, сервер не подписывает DKIM2 письма из этого домена с использованием поддомена, а запись политики домена DKIM2 публикуется с флагом strict при выборе типа записи dkim2Policy. При ручном управлении DNS решение определяется записью политики, найденной в DNS",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:Exchange/enable/description": {
+      "original": "Whether the Exchange protocol endpoints and Exchange Autodiscover are served",
+      "ru": "Определяет, доступны ли конечные точки протоколов Exchange и служба Exchange Autodiscover.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:Exchange/ewsVersion/description": {
+      "original": "Exchange Web Services version advertised to clients in the server version information",
+      "ru": "Версия Exchange Web Services, сообщаемая клиентам в сведениях о версии сервера.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:Exchange/maxDevices/description": {
+      "original": "Maximum number of Exchange ActiveSync devices an account may register",
+      "ru": "Максимальное количество устройств Exchange ActiveSync, которые можно зарегистрировать для одной учётной записи.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:Exchange/maxHeartbeat/description": {
+      "original": "Longest time a client may wait for changes in a single request: the Exchange ActiveSync Ping and Sync heartbeat, the EWS streaming subscription connection and the MAPI over HTTP NotificationWait (which never waits longer than 5 minutes)",
+      "ru": "Максимальное время ожидания изменений клиентом в рамках одного запроса: интервал ожидания Ping и Sync в Exchange ActiveSync, соединение потоковой подписки EWS и запрос NotificationWait в MAPI over HTTP (для последнего ожидание никогда не превышает 5 минут).",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:Exchange/maxObjectSize/description": {
+      "original": "Maximum size of the Exchange-only properties stored for a single object, such as extended properties set by Outlook",
+      "ru": "Максимальный размер свойств, специфичных для Exchange, хранимых для одного объекта, например расширенных свойств, заданных в Outlook.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:Exchange/maxRequestSize/description": {
+      "original": "Maximum size of an Exchange request that the server will accept",
+      "ru": "Максимальный размер запроса Exchange, принимаемого сервером.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbClusterFile/path/description": {
+      "original": "Path to the cluster file. When empty, the platform default (/etc/foundationdb/fdb.cluster on Linux, /usr/local/etc/foundationdb/fdb.cluster on macOS and FreeBSD, C:\\ProgramData\\foundationdb\\fdb.cluster on Windows)",
+      "ru": "Путь к файлу кластера. Если поле пустое, используется путь по умолчанию для платформы (/etc/foundationdb/fdb.cluster в Linux, /usr/local/etc/foundationdb/fdb.cluster в macOS и FreeBSD, C:\\ProgramData\\foundationdb\\fdb.cluster в Windows)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbClusterManual/coordinators/description": {
+      "original": "Coordinators as ip:port or hostname:port, with a ':tls' suffix for coordinators that require TLS",
+      "ru": "Координаторы в формате ip:port или hostname:port с суффиксом ':tls' для координаторов, требующих TLS",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbClusterManual/description/description": {
+      "original": "Cluster description, the part of the connection string before ':' (letters, digits and underscores)",
+      "ru": "Описание кластера — часть строки подключения перед ':' (буквы, цифры и знаки подчёркивания)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbClusterManual/id/description": {
+      "original": "Cluster ID, the part of the connection string between ':' and '@' (letters and digits)",
+      "ru": "Идентификатор кластера — часть строки подключения между ':' и '@' (буквы и цифры)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbStore/cluster/description": {
+      "original": "How the FoundationDB cluster is located: from a cluster file or from coordinators entered manually",
+      "ru": "Способ обнаружения кластера FoundationDB: по файлу кластера или по указанным вручную координаторам",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbStore/protocol/description": {
+      "original": "FoundationDB protocol version to speak. Negotiate accepts every supported version; a fixed version refuses clusters running any other",
+      "ru": "Используемая версия протокола FoundationDB. При согласовании версии допускаются все поддерживаемые версии; при фиксированной версии кластеры с другими версиями отклоняются",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbStore/tls/description": {
+      "original": "TLS certificates and policy used for coordinators and servers with a ':tls' address",
+      "ru": "Сертификаты и политика TLS для координаторов и серверов, в адресах которых указан суффикс ':tls'",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbTlsManual/caCertificate/description": {
+      "original": "Trusted CA certificates in PEM format. When empty, the last certificate of the client chain is the trusted certificate",
+      "ru": "Доверенные сертификаты УЦ в формате PEM. Если поле пустое, доверенным считается последний сертификат клиентской цепочки",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbTlsManual/certificate/description": {
+      "original": "Client certificate chain in PEM format, leaf certificate first. Certificates read from a file are reloaded when the file changes",
+      "ru": "Цепочка клиентских сертификатов в формате PEM, начиная с конечного сертификата. Сертификаты из файла перечитываются при изменении файла",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbTlsManual/disablePlaintextConnection/description": {
+      "original": "Refuse coordinators and servers that do not use TLS",
+      "ru": "Отклонять координаторы и серверы, не использующие TLS",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbTlsManual/privateKey/description": {
+      "original": "Client private key in PEM format (PKCS#8, optionally encrypted). Keys read from a file are reloaded when the file changes",
+      "ru": "Закрытый ключ клиента в формате PEM (PKCS#8, возможно зашифрованный). Ключи из файла перечитываются при изменении файла",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbTlsManual/privateKeyPassword/description": {
+      "original": "Passphrase of an encrypted private key",
+      "ru": "Парольная фраза зашифрованного закрытого ключа",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:FoundationDbTlsManual/verifyPeers/description": {
+      "original": "Peer verification rules in FoundationDB tls_verify_peers syntax; a peer is accepted when any rule matches. When empty, Check.Valid=1",
+      "ru": "Правила проверки удалённой стороны в синтаксисе FoundationDB tls_verify_peers; соединение с удалённой стороной допускается, если выполняется любое правило. Если поле пустое, применяется Check.Valid=1",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:Jmap/maxConcurrentRequests/description": {
+      "original": "Maximum number of authenticated HTTP requests an account can have in progress at the same time, counted together across JMAP (including WebSocket and EventSource), WebDAV, CalDAV, CardDAV, Exchange, SCIM, OAuth and the management API. Accounts with the unlimitedRequests permission are exempt. The value is also advertised to JMAP clients in the session capabilities",
+      "ru": "Максимальное количество одновременно выполняемых аутентифицированных HTTP-запросов для одной учётной записи. Учитываются запросы JMAP (включая WebSocket и EventSource), WebDAV, CalDAV, CardDAV, Exchange, SCIM, OAuth и API управления. Ограничение не применяется к учётным записям с разрешением unlimitedRequests. Значение также сообщается клиентам JMAP в параметрах возможностей сеанса.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRule/actions/description": {
+      "original": "What happens to a matching message; at least one action is required. The order is fixed: keywords are cleared, removed and added, the importance is set, then the message is redirected, replied to, copied, moved, discarded or rejected, and processing stops last.",
+      "ru": "Действия для письма, соответствующего условиям; требуется хотя бы одно действие. Порядок фиксирован: ключевые слова очищаются, удаляются и добавляются, устанавливается важность, затем письмо перенаправляется, на него отправляется ответ, оно копируется, перемещается, удаляется или отклоняется, а прекращение обработки выполняется последним.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRule/conditions/description": {
+      "original": "Which messages the rule applies to; a rule without conditions applies to every message",
+      "ru": "Письма, к которым применяется правило; при отсутствии условий правило применяется к каждому письму",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRule/isEnabled/description": {
+      "original": "Whether the rule runs when mail is delivered",
+      "ru": "Выполняется ли правило при доставке почты",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRule/name/description": {
+      "original": "Name of the rule",
+      "ru": "Имя правила",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRule/position/description": {
+      "original": "Order in which the rule runs; lower runs first",
+      "ru": "Порядок выполнения правила; правила с меньшим значением выполняются первыми",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleActions/addKeywords/description": {
+      "original": "Keywords added to the message; $seen marks it as read, $flagged flags it and $notjunk keeps it out of Junk",
+      "ru": "Ключевые слова, добавляемые к письму: $seen помечает его как прочитанное, $flagged отмечает флажком, а $notjunk не позволяет помещать в папку «Спам»",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleActions/clearKeywords/description": {
+      "original": "Whether the keywords added by earlier rules are removed first",
+      "ru": "Удаляются ли сначала ключевые слова, добавленные предыдущими правилами",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleActions/copyTo/description": {
+      "original": "Mailboxes the message is copied to; the rule keeps working when a mailbox is renamed",
+      "ru": "Почтовые ящики, в которые копируется письмо; правило продолжает работать при переименовании ящика",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleActions/discard/description": {
+      "original": "Whether the message is deleted permanently",
+      "ru": "Удаляется ли письмо безвозвратно",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleActions/moveTo/description": {
+      "original": "Mailboxes the message is moved to; moving to Junk also marks it as spam. The rule keeps working when a mailbox is renamed",
+      "ru": "Почтовые ящики, в которые перемещается письмо; при перемещении в папку «Спам» оно также помечается как спам. Правило продолжает работать при переименовании ящика",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleActions/redirect/description": {
+      "original": "Other addresses the message is redirected to",
+      "ru": "Другие адреса, на которые перенаправляется письмо",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleActions/reject/description": {
+      "original": "Rejection returned to the sender when their return path is verified, otherwise the message is discarded silently; only alone, and it always stops processing",
+      "ru": "Сообщение об отклонении, возвращаемое отправителю, если его обратный адрес SMTP-конверта подтверждён; в противном случае письмо удаляется без уведомления. Действие допускается только отдельно от других и всегда прекращает обработку",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleActions/removeKeywords/description": {
+      "original": "Keywords removed from the message, before addKeywords is applied; $flagged clears the flag",
+      "ru": "Ключевые слова, удаляемые из письма до применения addKeywords; $flagged снимает флажок",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleActions/reply/description": {
+      "original": "Template the sender is answered with",
+      "ru": "Шаблон ответа отправителю",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleActions/setImportance/description": {
+      "original": "Importance the message is given",
+      "ru": "Важность, присваиваемая письму",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleActions/stopProcessing/description": {
+      "original": "Whether later rules are skipped after this rule matches",
+      "ru": "Пропускаются ли последующие правила при совпадении условий этого правила",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleAddressTest/operator/description": {
+      "original": "How the addresses are compared",
+      "ru": "Способ сравнения адресов",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleAddressTest/values/description": {
+      "original": "Values compared with the addresses; the test matches when any value matches",
+      "ru": "Значения, с которыми сравниваются адреса; условие выполняется при совпадении с любым значением",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleConditions/matchAll/description": {
+      "original": "Tests that must all match",
+      "ru": "Условия, каждое из которых должно выполняться",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleConditions/matchAny/description": {
+      "original": "Tests of which at least one must match; ignored when empty",
+      "ru": "Условия, из которых должно выполняться хотя бы одно; пустая группа игнорируется",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleConditions/matchNone/description": {
+      "original": "Tests of which none may match",
+      "ru": "Условия, ни одно из которых не должно выполняться",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleDate/date/description": {
+      "original": "Date and time, in UTC",
+      "ru": "Дата и время (UTC)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleHeaderName/header/description": {
+      "original": "Header name",
+      "ru": "Имя заголовка",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleHeaderTest/header/description": {
+      "original": "Header name",
+      "ru": "Имя заголовка",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleHeaderTest/operator/description": {
+      "original": "How the header is compared",
+      "ru": "Способ сравнения заголовка",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleHeaderTest/values/description": {
+      "original": "Values compared with the header; the test matches when any value matches",
+      "ru": "Значения, с которыми сравнивается заголовок; условие выполняется при совпадении с любым значением",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleImportance/level/description": {
+      "original": "Importance level",
+      "ru": "Уровень важности",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleKeywordTest/keywords/description": {
+      "original": "Keywords (IMAP flags) set by an earlier rule or listed in the Keywords header; the test matches when any of them is present",
+      "ru": "Ключевые слова (флаги IMAP), установленные предыдущим правилом или перечисленные в заголовке Keywords; условие выполняется при наличии любого из них",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleMessageType/kind/description": {
+      "original": "Message type",
+      "ru": "Тип письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleRedirect/addresses/description": {
+      "original": "Addresses the message is redirected to",
+      "ru": "Адреса, на которые перенаправляется письмо",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleRedirect/keepCopy/description": {
+      "original": "Whether a copy is also delivered to the account",
+      "ru": "Доставляется ли также копия в учётную запись",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleReject/reason/description": {
+      "original": "Text returned to the sender",
+      "ru": "Текст, возвращаемый отправителю",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleReply/days/description": {
+      "original": "Minimum number of days between two replies to the same sender; 0 replies to every message",
+      "ru": "Минимальный интервал в днях между двумя ответами одному отправителю; 0 — отвечать на каждое письмо",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleReply/htmlBody/description": {
+      "original": "HTML body of the reply",
+      "ru": "Текст ответа в формате HTML",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleReply/subject/description": {
+      "original": "Subject of the reply; when empty, the original subject with a prefix is used",
+      "ru": "Тема ответа; если поле пустое, используется тема исходного письма с префиксом",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleReply/textBody/description": {
+      "original": "Plain text body of the reply",
+      "ru": "Текст ответа в обычном текстовом формате",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleSchedule/slots/description": {
+      "original": "Days and times of the week; an end earlier than the start spans midnight into the next day",
+      "ru": "Дни недели и время; если время окончания раньше времени начала, интервал продолжается после полуночи на следующий день",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleSchedule/timeZone/description": {
+      "original": "Time zone of the slots. When empty, the account time zone at the time the rules were last saved is used.",
+      "ru": "Часовой пояс интервалов. Если поле пустое, используется часовой пояс учётной записи на момент последнего сохранения правил.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleSensitivity/level/description": {
+      "original": "Sensitivity level",
+      "ru": "Уровень конфиденциальности",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleSentToMe/placement/description": {
+      "original": "Where the account's address appears",
+      "ru": "Где указан адрес учётной записи",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleSize/kilobytes/description": {
+      "original": "Size in kilobytes",
+      "ru": "Размер в килобайтах",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleSpamScore/percent/description": {
+      "original": "Spam score on a scale of 0 to 100; the test matches at or above it",
+      "ru": "Оценка спама по шкале от 0 до 100; условие выполняется при достижении или превышении заданного значения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleTextTest/operator/description": {
+      "original": "How the text is compared",
+      "ru": "Способ сравнения текста",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MailRuleTextTest/values/description": {
+      "original": "Values compared with the text; the test matches when any value matches",
+      "ru": "Значения, с которыми сравнивается текст; условие выполняется при совпадении с любым значением",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:MtaStageData/addReturnPathHeader/description": {
+      "original": "Whether to add a Return-Path header to relayed messages received over SMTP; messages delivered to a local mailbox always receive one with the envelope sender",
+      "ru": "Добавляется ли заголовок Return-Path к ретранслируемым письмам, полученным по SMTP; письмам, доставляемым в локальный почтовый ящик, этот заголовок всегда добавляется с адресом отправителя SMTP-конверта",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/aliases/description": {
+      "original": "List of email aliases for the resource",
+      "ru": "Список почтовых псевдонимов ресурса",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/booking/description": {
+      "original": "How booking requests sent to the resource are answered",
+      "ru": "Способ ответа на запросы бронирования, отправленные ресурсу",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/capacity/description": {
+      "original": "Number of people the room holds",
+      "ru": "Количество людей, которое вмещает помещение",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/createdAt/description": {
+      "original": "Creation date of the account",
+      "ru": "Дата создания учётной записи",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/delegateIds/description": {
+      "original": "Accounts that manage the resource calendar, seeing its bookings and answering booking requests",
+      "ru": "Учётные записи, управляющие календарём ресурса: они видят бронирования и отвечают на запросы бронирования",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/description/description": {
+      "original": "Display name of the resource",
+      "ru": "Отображаемое имя ресурса",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/domainId/description": {
+      "original": "Identifier for the domain this resource belongs to. This is used to determine the email address of the resource, which is formed as name@domain.",
+      "ru": "Идентификатор домена, к которому относится ресурс. Используется для определения адреса электронной почты ресурса, формируемого в виде name@domain.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/emailAddress/description": {
+      "original": "Email address of the resource, formed as name@domain.",
+      "ru": "Адрес электронной почты ресурса в виде name@domain.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/externalId/description": {
+      "original": "Identifier assigned by an external provisioning client such as a SCIM identity provider",
+      "ru": "Идентификатор, назначенный внешним клиентом автоматизированного управления учётными записями, например провайдером SCIM",
+      "hashes": [
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/kind/description": {
+      "original": "Whether the resource is a room or a piece of equipment",
+      "ru": "Тип ресурса: помещение или единица оборудования",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/locale/description": {
+      "original": "Preferred locale for the resource",
+      "ru": "Предпочтительный язык (локаль) ресурса",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/location/description": {
+      "original": "Where the resource is, such as the building and floor",
+      "ru": "Местоположение ресурса, например здание и этаж",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/memberTenantId/description": {
+      "original": "Identifier for the tenant this resource belongs to",
+      "ru": "Идентификатор арендатора, к которому относится ресурс",
+      "hashes": [
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/name/description": {
+      "original": "Name of the resource, typically an email address local part.",
+      "ru": "Имя ресурса, обычно локальная часть адреса электронной почты.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/permissions/description": {
+      "original": "Permissions assigned to this resource",
+      "ru": "Права доступа, назначенные этому ресурсу",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/quotas/description": {
+      "original": "Quotas for different object types within this resource",
+      "ru": "Квоты на объекты различных типов для этого ресурса",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/roles/description": {
+      "original": "Roles assigned to this resource",
+      "ru": "Роли, назначенные этому ресурсу",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/timeZone/description": {
+      "original": "Preferred time zone for the resource",
+      "ru": "Предпочтительный часовой пояс ресурса",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:ResourceAccount/usedDiskQuota/description": {
+      "original": "Amount of disk space currently used by this account (bytes)",
+      "ru": "Занятое учётной записью место на диске (байты)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:SafeSender/address/description": {
+      "original": "Email address, or a domain written as @example.org, which also covers its subdomains",
+      "ru": "Адрес электронной почты или домен в виде @example.org (также охватывает его поддомены)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:WorkingHours/enable/description": {
+      "original": "Whether the time outside the working hours is shown as unavailable",
+      "ru": "Отмечается ли время вне рабочих часов как недоступное",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:WorkingHours/slots/description": {
+      "original": "Recurring weekly working intervals; split days are two entries",
+      "ru": "Повторяющиеся еженедельные рабочие интервалы; для дня с перерывом указываются две записи",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:WorkingHours/timeZone/description": {
+      "original": "Time zone of the hours below. When empty, the account time zone is used.",
+      "ru": "Часовой пояс указанных ниже часов. Если поле пустое, используется часовой пояс учётной записи.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:WorkingHoursSlot/days/description": {
+      "original": "Days of the week the interval applies to",
+      "ru": "Дни недели, к которым применяется интервал",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:WorkingHoursSlot/end/description": {
+      "original": "End of the interval; 24:00 is the end of the day",
+      "ru": "Конец интервала; 24:00 соответствует концу суток",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "field/x:WorkingHoursSlot/start/description": {
+      "original": "Start of the interval",
+      "ru": "Начало интервала",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:AutomaticBooking/section/section-0": {
+      "original": "Booking Rules",
+      "ru": "Правила бронирования",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:AutomaticBooking/field/allowConflicts": {
+      "original": "Allow Conflicts",
+      "ru": "Разрешить пересечения бронирований",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:AutomaticBooking/field/allowRecurring": {
+      "original": "Allow Recurring Bookings",
+      "ru": "Разрешить повторяющиеся бронирования",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:AutomaticBooking/field/allowExternal": {
+      "original": "Allow External Organizers",
+      "ru": "Разрешить запросы от внешних организаторов",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:AutomaticBooking/field/bookingWindow": {
+      "original": "Booking Window",
+      "ru": "Срок предварительного бронирования",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:AutomaticBooking/field/bookingWindow/placeholder": {
+      "original": "Unlimited",
+      "ru": "Без ограничений",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:AutomaticBooking/field/maxDuration": {
+      "original": "Maximum Duration",
+      "ru": "Максимальная продолжительность",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:AutomaticBooking/field/maxDuration/placeholder": {
+      "original": "Unlimited",
+      "ru": "Без ограничений",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:BlockedSender/section/section-0": {
+      "original": "Sender",
+      "ru": "Отправитель",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:BlockedSender/field/address": {
+      "original": "Address or Domain",
+      "ru": "Адрес или домен",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Calendar/field/shareFreeBusy": {
+      "original": "Share Free/Busy",
+      "ru": "Общий доступ к сведениям о занятости",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:CalendarSettings/title": {
+      "original": "Calendar",
+      "ru": "Календарь",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:CalendarSettings/subtitle": {
+      "original": "Configure your working hours",
+      "ru": "Настройте рабочие часы",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:CalendarSettings/section/section-0": {
+      "original": "Working Hours",
+      "ru": "Рабочие часы",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:CalendarSettings/field/workingHours": {
+      "original": "Working Hours",
+      "ru": "Рабочие часы",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:DnsManagementProperties/field/allowSubdomainSigning": {
+      "original": "Allow Subdomain Signing",
+      "ru": "Разрешить подпись поддоменом",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Exchange/title": {
+      "original": "Exchange Protocols",
+      "ru": "Протоколы Exchange",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Exchange/subtitle": {
+      "original": "Configure Exchange Web Services, Exchange ActiveSync and MAPI over HTTP, including the advertised version and request limits",
+      "ru": "Настройка Exchange Web Services, Exchange ActiveSync и MAPI over HTTP, включая сообщаемую клиентам версию и ограничения запросов.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Exchange/section/section-0": {
+      "original": "General",
+      "ru": "Общие настройки",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Exchange/field/enable": {
+      "original": "Enable Exchange protocols",
+      "ru": "Включить протоколы Exchange",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Exchange/field/ewsVersion": {
+      "original": "EWS Version",
+      "ru": "Версия EWS",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Exchange/section/section-1": {
+      "original": "Limits",
+      "ru": "Ограничения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Exchange/field/maxRequestSize": {
+      "original": "Request Size",
+      "ru": "Размер запроса",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Exchange/field/maxObjectSize": {
+      "original": "Object Property Size",
+      "ru": "Размер свойств объекта",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Exchange/field/maxDevices": {
+      "original": "ActiveSync Devices per Account",
+      "ru": "Устройства ActiveSync на учётную запись",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Exchange/field/maxHeartbeat": {
+      "original": "Client Wait Time",
+      "ru": "Время ожидания клиента",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbCluster/field/@type": {
+      "original": "Cluster",
+      "ru": "Кластер",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbClusterFile/section/section-0": {
+      "original": "Cluster File",
+      "ru": "Файл кластера",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbClusterFile/field/path": {
+      "original": "Path",
+      "ru": "Путь",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbClusterManual/section/section-0": {
+      "original": "Connection",
+      "ru": "Подключение",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbClusterManual/field/description": {
+      "original": "Description",
+      "ru": "Описание",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbClusterManual/field/id": {
+      "original": "Cluster ID",
+      "ru": "Идентификатор кластера",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbClusterManual/field/coordinators": {
+      "original": "Coordinators",
+      "ru": "Координаторы",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbStore/section/section-0": {
+      "original": "Cluster",
+      "ru": "Кластер",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbStore/field/cluster": {
+      "original": "Cluster",
+      "ru": "Кластер",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbStore/field/protocol": {
+      "original": "Protocol Version",
+      "ru": "Версия протокола",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbStore/section/section-2": {
+      "original": "Configuration",
+      "ru": "Конфигурация",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbStore/section/section-3": {
+      "original": "Transaction Settings",
+      "ru": "Параметры транзакций",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbTlsManual/section/section-0": {
+      "original": "Certificates",
+      "ru": "Сертификаты",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbTlsManual/field/certificate": {
+      "original": "Certificate",
+      "ru": "Сертификат",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbTlsManual/field/privateKey": {
+      "original": "Private Key",
+      "ru": "Закрытый ключ",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbTlsManual/field/privateKeyPassword": {
+      "original": "Private Key Password",
+      "ru": "Пароль закрытого ключа",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbTlsManual/field/caCertificate": {
+      "original": "CA Certificate",
+      "ru": "Сертификат УЦ",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbTlsManual/section/section-1": {
+      "original": "Verification",
+      "ru": "Проверка",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbTlsManual/field/verifyPeers": {
+      "original": "Verify Peers",
+      "ru": "Правила проверки удалённой стороны",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbTlsManual/field/disablePlaintextConnection": {
+      "original": "Disable Plaintext Connections",
+      "ru": "Запретить незашифрованные подключения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRule/section/section-0": {
+      "original": "Mail Rule",
+      "ru": "Почтовое правило",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRule/field/name": {
+      "original": "Name",
+      "ru": "Имя",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRule/field/isEnabled": {
+      "original": "Enabled",
+      "ru": "Включено",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRule/field/position": {
+      "original": "Position",
+      "ru": "Позиция",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRule/section/section-1": {
+      "original": "Rule",
+      "ru": "Правило",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRule/field/conditions": {
+      "original": "Conditions",
+      "ru": "Условия",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRule/field/actions": {
+      "original": "Actions",
+      "ru": "Действия",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleActions/field/addKeywords": {
+      "original": "Add Keywords",
+      "ru": "Добавить ключевые слова",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleActions/field/removeKeywords": {
+      "original": "Remove Keywords",
+      "ru": "Удалить ключевые слова",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleActions/field/clearKeywords": {
+      "original": "Clear Keywords",
+      "ru": "Очистить ключевые слова",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleActions/field/setImportance": {
+      "original": "Set Importance",
+      "ru": "Установить важность",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleActions/field/redirect": {
+      "original": "Redirect",
+      "ru": "Перенаправить",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleActions/field/reply": {
+      "original": "Reply",
+      "ru": "Ответить",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleActions/field/copyTo": {
+      "original": "Copy To",
+      "ru": "Копировать в",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleActions/field/moveTo": {
+      "original": "Move To",
+      "ru": "Переместить в",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleActions/field/discard": {
+      "original": "Delete Permanently",
+      "ru": "Удалить безвозвратно",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleActions/field/reject": {
+      "original": "Reject",
+      "ru": "Отклонить",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleActions/field/stopProcessing": {
+      "original": "Stop Processing",
+      "ru": "Прекратить обработку правил",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleAddressTest/field/operator": {
+      "original": "Operator",
+      "ru": "Оператор",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleAddressTest/field/values": {
+      "original": "Values",
+      "ru": "Значения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleConditions/field/matchAll": {
+      "original": "All of These",
+      "ru": "Все указанные условия",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleConditions/field/matchAny": {
+      "original": "Any of These",
+      "ru": "Любое из указанных условий",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleConditions/field/matchNone": {
+      "original": "None of These",
+      "ru": "Ни одно из указанных условий",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleDate/field/date": {
+      "original": "Date",
+      "ru": "Дата",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleHeaderName/field/header": {
+      "original": "Header",
+      "ru": "Заголовок письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleHeaderTest/field/header": {
+      "original": "Header",
+      "ru": "Заголовок письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleHeaderTest/field/operator": {
+      "original": "Operator",
+      "ru": "Оператор",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleHeaderTest/field/values": {
+      "original": "Values",
+      "ru": "Значения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleImportance/field/level": {
+      "original": "Level",
+      "ru": "Уровень",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleKeywordTest/field/keywords": {
+      "original": "Keywords",
+      "ru": "Ключевые слова",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleMessageType/field/kind": {
+      "original": "Type",
+      "ru": "Тип",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleRedirect/field/addresses": {
+      "original": "Addresses",
+      "ru": "Адреса",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleRedirect/field/keepCopy": {
+      "original": "Keep a Copy",
+      "ru": "Сохранить копию",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleReject/field/reason": {
+      "original": "Reason",
+      "ru": "Причина",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleReply/field/subject": {
+      "original": "Subject",
+      "ru": "Тема письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleReply/field/textBody": {
+      "original": "Text Body",
+      "ru": "Текст ответа",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleReply/field/htmlBody": {
+      "original": "HTML Body",
+      "ru": "Ответ в формате HTML",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleReply/field/days": {
+      "original": "Days Between Replies",
+      "ru": "Интервал между ответами (дни)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleSchedule/field/slots": {
+      "original": "Time Slots",
+      "ru": "Интервалы времени",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleSchedule/field/timeZone": {
+      "original": "Time Zone",
+      "ru": "Часовой пояс",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleSensitivity/field/level": {
+      "original": "Level",
+      "ru": "Уровень",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleSentToMe/field/placement": {
+      "original": "Placement",
+      "ru": "Поле адреса",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleSize/field/kilobytes": {
+      "original": "Size (KB)",
+      "ru": "Размер (КБ)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleSpamScore/field/percent": {
+      "original": "Score (%)",
+      "ru": "Оценка (%)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleTextTest/field/operator": {
+      "original": "Operator",
+      "ru": "Оператор",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:MailRuleTextTest/field/values": {
+      "original": "Values",
+      "ru": "Значения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/section/section-0": {
+      "original": "Resource",
+      "ru": "Ресурс",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/name": {
+      "original": "Name",
+      "ru": "Имя",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/domainId": {
+      "original": "Domain",
+      "ru": "Домен",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/description": {
+      "original": "Display Name",
+      "ru": "Отображаемое имя",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/kind": {
+      "original": "Kind",
+      "ru": "Тип",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор",
+      "hashes": [
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/section/section-1": {
+      "original": "Details",
+      "ru": "Сведения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/capacity": {
+      "original": "Capacity",
+      "ru": "Вместимость",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/location": {
+      "original": "Location",
+      "ru": "Местоположение",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/section/section-2": {
+      "original": "Booking",
+      "ru": "Бронирование",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/booking": {
+      "original": "Booking Policy",
+      "ru": "Политика бронирования",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/delegateIds": {
+      "original": "Delegates",
+      "ru": "Делегаты",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/section/section-3": {
+      "original": "Roles & Permissions",
+      "ru": "Роли и права доступа",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/roles": {
+      "original": "Roles",
+      "ru": "Роли",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/permissions": {
+      "original": "Permissions",
+      "ru": "Права доступа",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/section/section-4": {
+      "original": "Email",
+      "ru": "Почта",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/aliases": {
+      "original": "Email Aliases",
+      "ru": "Почтовые псевдонимы",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/section/section-5": {
+      "original": "Quotas",
+      "ru": "Квоты",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/quotas": {
+      "original": "Quotas",
+      "ru": "Квоты",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/quotas/keyLabel": {
+      "original": "Quota Type",
+      "ru": "Тип квоты",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/quotas/valueLabel": {
+      "original": "Maximum",
+      "ru": "Максимум",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/section/section-6": {
+      "original": "Locale & Time Zone",
+      "ru": "Язык и часовой пояс",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/locale": {
+      "original": "Locale",
+      "ru": "Язык",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/timeZone": {
+      "original": "Time Zone",
+      "ru": "Часовой пояс",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/section/section-7": {
+      "original": "Account",
+      "ru": "Учётная запись",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/createdAt": {
+      "original": "Created At",
+      "ru": "Дата создания",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/usedDiskQuota": {
+      "original": "Disk Usage",
+      "ru": "Использовано на диске",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:ResourceAccount/field/externalId": {
+      "original": "External Identifier",
+      "ru": "Внешний идентификатор",
+      "hashes": [
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:SafeSender/section/section-0": {
+      "original": "Sender",
+      "ru": "Отправитель",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:SafeSender/field/address": {
+      "original": "Address or Domain",
+      "ru": "Адрес или домен",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:WorkingHours/section/section-0": {
+      "original": "Working Hours",
+      "ru": "Рабочие часы",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:WorkingHours/field/enable": {
+      "original": "Enable",
+      "ru": "Включить",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:WorkingHours/field/timeZone": {
+      "original": "Time Zone",
+      "ru": "Часовой пояс",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:WorkingHours/field/slots": {
+      "original": "Intervals",
+      "ru": "Интервалы",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:WorkingHoursSlot/section/section-0": {
+      "original": "Interval",
+      "ru": "Интервал",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:WorkingHoursSlot/field/days": {
+      "original": "Days",
+      "ru": "Дни",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:WorkingHoursSlot/field/start": {
+      "original": "Start",
+      "ru": "Начало",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:WorkingHoursSlot/field/end": {
+      "original": "End",
+      "ru": "Окончание",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/title": {
+      "original": "Resources",
+      "ru": "Ресурсы",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/subtitle": {
+      "original": "Manage bookable rooms and equipment",
+      "ru": "Управление помещениями и оборудованием, доступными для бронирования",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/singular": {
+      "original": "resource",
+      "ru": "ресурс",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/plural": {
+      "original": "resources",
+      "ru": "ресурсы",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/column/emailAddress": {
+      "original": "Email Address",
+      "ru": "Адрес электронной почты",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/column/description": {
+      "original": "Name",
+      "ru": "Имя",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/column/kind": {
+      "original": "Kind",
+      "ru": "Тип",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/column/location": {
+      "original": "Location",
+      "ru": "Местоположение",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/filter/text": {
+      "original": "Text",
+      "ru": "Текст",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/filter/name": {
+      "original": "Name",
+      "ru": "Имя",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/filter/domainId": {
+      "original": "Domain",
+      "ru": "Домен",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/filter/memberTenantId": {
+      "original": "Tenant",
+      "ru": "Арендатор",
+      "hashes": [
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/action/x:Account": {
+      "original": "View Resource",
+      "ru": "Просмотреть ресурс",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:Account/Resource/itemAction/delete:Delete Resource/label": {
+      "original": "Delete Resource",
+      "ru": "Удалить ресурс",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:BlockedSender/title": {
+      "original": "Blocked Senders",
+      "ru": "Заблокированные отправители",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:BlockedSender/subtitle": {
+      "original": "Mail from these addresses and domains goes to the Junk folder",
+      "ru": "Письма с этих адресов и доменов помещаются в папку «Спам»",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:BlockedSender/singular": {
+      "original": "blocked sender",
+      "ru": "заблокированный отправитель",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:BlockedSender/plural": {
+      "original": "blocked senders",
+      "ru": "заблокированные отправители",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:BlockedSender/column/address": {
+      "original": "Address or Domain",
+      "ru": "Адрес или домен",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:BlockedSender/filter/address": {
+      "original": "Address or Domain",
+      "ru": "Адрес или домен",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:MailRule/title": {
+      "original": "Mail Rules",
+      "ru": "Почтовые правила",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:MailRule/subtitle": {
+      "original": "Rules applied to mail delivered to the account, in order",
+      "ru": "Правила, применяемые к письмам, доставляемым в учётную запись, в заданном порядке",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:MailRule/singular": {
+      "original": "mail rule",
+      "ru": "почтовое правило",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:MailRule/plural": {
+      "original": "mail rules",
+      "ru": "почтовые правила",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:MailRule/column/name": {
+      "original": "Name",
+      "ru": "Имя",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:MailRule/column/isEnabled": {
+      "original": "Enabled",
+      "ru": "Включено",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:MailRule/column/position": {
+      "original": "Position",
+      "ru": "Позиция",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:SafeSender/title": {
+      "original": "Safe Senders",
+      "ru": "Доверенные отправители",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:SafeSender/subtitle": {
+      "original": "Mail from these addresses and domains is not moved to the Junk folder",
+      "ru": "Письма с этих адресов и доменов не перемещаются в папку «Спам»",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:SafeSender/singular": {
+      "original": "safe sender",
+      "ru": "доверенный отправитель",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:SafeSender/plural": {
+      "original": "safe senders",
+      "ru": "доверенные отправители",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:SafeSender/column/address": {
+      "original": "Address or Domain",
+      "ru": "Адрес или домен",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "list/x:SafeSender/filter/address": {
+      "original": "Address or Domain",
+      "ru": "Адрес или домен",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/AccountType/Resource/label": {
+      "original": "Resource account",
+      "ru": "Учётная запись ресурса",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/DnsRecordType/dkim2Policy/label": {
+      "original": "DKIM2 domain policy record",
+      "ru": "Запись политики домена DKIM2",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/EventType/store.foundationdb-cluster-opened/label": {
+      "original": "FoundationDB cluster opened",
+      "ru": "Кластер FoundationDB открыт",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/EventType/store.foundationdb-cluster-opened/explanation": {
+      "original": "A FoundationDB store opened its cluster; check the cluster file path and the cluster description and ID to confirm it is the intended cluster.",
+      "ru": "Хранилище FoundationDB открыло свой кластер; проверьте путь к файлу кластера, его описание и идентификатор, чтобы убедиться, что используется нужный кластер.",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/FoundationDbClusterType/File/label": {
+      "original": "Cluster file",
+      "ru": "Файл кластера",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/FoundationDbClusterType/Manual/label": {
+      "original": "Manual",
+      "ru": "Вручную",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/FoundationDbProtocol/negotiate/label": {
+      "original": "Negotiate with the cluster",
+      "ru": "Согласовать версию с кластером",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/FoundationDbTlsType/Default/label": {
+      "original": "FoundationDB default files",
+      "ru": "Файлы FoundationDB по умолчанию",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/FoundationDbTlsType/Manual/label": {
+      "original": "Manual",
+      "ru": "Вручную",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleAddressOperator/is/label": {
+      "original": "Is exactly the address",
+      "ru": "Точно совпадает с адресом",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleAddressOperator/contains/label": {
+      "original": "Contains",
+      "ru": "Содержит",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleAddressOperator/domain/label": {
+      "original": "Is in the domain",
+      "ru": "Принадлежит домену",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleAddressOperator/matches/label": {
+      "original": "Matches a wildcard pattern",
+      "ru": "Соответствует шаблону с подстановочными символами",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/From/label": {
+      "original": "Sender address (From)",
+      "ru": "Адрес отправителя (From)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/To/label": {
+      "original": "To address",
+      "ru": "Адрес получателя (To)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/Cc/label": {
+      "original": "Cc address",
+      "ru": "Адрес получателя копии (Cc)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/ToOrCc/label": {
+      "original": "To or Cc address",
+      "ru": "Адрес получателя (To) или копии (Cc)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/SentToMe/label": {
+      "original": "Addressed to the account itself",
+      "ru": "Адресовано самой учётной записи",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/Subject/label": {
+      "original": "Subject",
+      "ru": "Тема письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/Body/label": {
+      "original": "Body text",
+      "ru": "Текст письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/Header/label": {
+      "original": "Any header",
+      "ru": "Любой заголовок",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/SizeOver/label": {
+      "original": "Larger than a size",
+      "ru": "Размер больше заданного",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/SizeUnder/label": {
+      "original": "Smaller than a size",
+      "ru": "Размер меньше заданного",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/HasAttachment/label": {
+      "original": "Has attachments",
+      "ru": "Есть вложения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/Importance/label": {
+      "original": "Importance",
+      "ru": "Важность",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/Sensitivity/label": {
+      "original": "Sensitivity",
+      "ru": "Конфиденциальность",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/MessageType/label": {
+      "original": "Message type",
+      "ru": "Тип письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/HeaderExists/label": {
+      "original": "Header is present",
+      "ru": "Заголовок присутствует",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/AttachmentName/label": {
+      "original": "Attachment file name",
+      "ru": "Имя файла вложения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/AttachmentType/label": {
+      "original": "Attachment media type",
+      "ru": "MIME-тип вложения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/MailingList/label": {
+      "original": "Sent by a mailing list",
+      "ru": "Отправлено списком рассылки",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/RecipientAddress/label": {
+      "original": "Delivered to address (envelope recipient)",
+      "ru": "Адрес доставки (получатель SMTP-конверта)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/RecipientDetail/label": {
+      "original": "Plus-address detail of the envelope recipient",
+      "ru": "Часть адреса после знака + у получателя SMTP-конверта",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/SpamScore/label": {
+      "original": "Spam score at or above a threshold (50 or more is spam)",
+      "ru": "Оценка спама не ниже порога (50 и выше — спам)",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/SubjectOrBody/label": {
+      "original": "Subject or body text",
+      "ru": "Тема или текст письма",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/ReceivedAfter/label": {
+      "original": "Received on or after a date",
+      "ru": "Получено в указанную дату или позже",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/ReceivedBefore/label": {
+      "original": "Received on or before a date",
+      "ru": "Получено в указанную дату или раньше",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/Schedule/label": {
+      "original": "Received within weekly time slots",
+      "ru": "Получено в заданные еженедельные интервалы времени",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/PrivateEvent/label": {
+      "original": "Calendar event is private",
+      "ru": "Событие календаря помечено как частное",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/Keyword/label": {
+      "original": "Has any of the keywords",
+      "ru": "Есть хотя бы одно из указанных ключевых слов",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/AnyKeyword/label": {
+      "original": "Has any keyword",
+      "ru": "Есть хотя бы одно ключевое слово",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/Flagged/label": {
+      "original": "Is flagged",
+      "ru": "Отмечено флажком",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleConditionType/IsAway/label": {
+      "original": "The vacation response is in effect",
+      "ru": "Действует автоответ об отсутствии",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleImportanceLevel/low/label": {
+      "original": "Low",
+      "ru": "Низкая",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleImportanceLevel/normal/label": {
+      "original": "Normal",
+      "ru": "Обычная",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleImportanceLevel/high/label": {
+      "original": "High",
+      "ru": "Высокая",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleMessageKind/meetingRequest/label": {
+      "original": "Meeting request",
+      "ru": "Приглашение на собрание",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleMessageKind/meetingResponse/label": {
+      "original": "Meeting response",
+      "ru": "Ответ на приглашение на собрание",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleMessageKind/meetingCancellation/label": {
+      "original": "Meeting cancellation",
+      "ru": "Отмена собрания",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleMessageKind/nonDeliveryReport/label": {
+      "original": "Non-delivery report",
+      "ru": "Отчёт о недоставке",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleMessageKind/readReceipt/label": {
+      "original": "Read receipt",
+      "ru": "Уведомление о прочтении",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleMessageKind/automaticReply/label": {
+      "original": "Automatic reply",
+      "ru": "Автоматический ответ",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleMessageKind/signed/label": {
+      "original": "Signed",
+      "ru": "Подписанное письмо",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleMessageKind/encrypted/label": {
+      "original": "Encrypted",
+      "ru": "Зашифрованное письмо",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleMessageKind/automaticForward/label": {
+      "original": "Automatically forwarded",
+      "ru": "Автоматически пересланное письмо",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleMessageKind/voicemail/label": {
+      "original": "Voicemail",
+      "ru": "Голосовое сообщение",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleSensitivityLevel/normal/label": {
+      "original": "Normal",
+      "ru": "Обычная",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleSensitivityLevel/personal/label": {
+      "original": "Personal",
+      "ru": "Личная",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleSensitivityLevel/private/label": {
+      "original": "Private",
+      "ru": "Частная",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleSensitivityLevel/confidential/label": {
+      "original": "Confidential",
+      "ru": "Конфиденциальная",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleSentToMePlacement/to/label": {
+      "original": "In To",
+      "ru": "В поле To",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleSentToMePlacement/cc/label": {
+      "original": "In Cc",
+      "ru": "В поле Cc",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleSentToMePlacement/toOrCc/label": {
+      "original": "In To or Cc",
+      "ru": "В поле To или Cc",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleSentToMePlacement/notTo/label": {
+      "original": "Not in To",
+      "ru": "Не в поле To",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleSentToMePlacement/onlyTo/label": {
+      "original": "The account is the only recipient",
+      "ru": "Учётная запись — единственный получатель",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleTextOperator/contains/label": {
+      "original": "Contains",
+      "ru": "Содержит",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleTextOperator/is/label": {
+      "original": "Is exactly",
+      "ru": "Точно совпадает",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/MailRuleTextOperator/matches/label": {
+      "original": "Matches a wildcard pattern",
+      "ru": "Соответствует шаблону с подстановочными символами",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/PublicTextOptionalType/None/label": {
+      "original": "No value",
+      "ru": "Нет значения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/PublicTextOptionalType/Text/label": {
+      "original": "Text value",
+      "ru": "Текстовое значение",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/PublicTextOptionalType/EnvironmentVariable/label": {
+      "original": "Text value read from environment variable",
+      "ru": "Текстовое значение из переменной окружения",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/PublicTextOptionalType/File/label": {
+      "original": "Text value read from file",
+      "ru": "Текстовое значение из файла",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/ResourceBookingType/Automatic/label": {
+      "original": "Accept or decline automatically",
+      "ru": "Принимать или отклонять автоматически",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/ResourceBookingType/Manual/label": {
+      "original": "Delegates accept or decline",
+      "ru": "Решение о принятии или отклонении принимают делегаты",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/ResourceKind/room/label": {
+      "original": "Room",
+      "ru": "Помещение",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/ResourceKind/equipment/label": {
+      "original": "Equipment",
+      "ru": "Оборудование",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Weekday/monday/label": {
+      "original": "Monday",
+      "ru": "Понедельник",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Weekday/tuesday/label": {
+      "original": "Tuesday",
+      "ru": "Вторник",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Weekday/wednesday/label": {
+      "original": "Wednesday",
+      "ru": "Среда",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Weekday/thursday/label": {
+      "original": "Thursday",
+      "ru": "Четверг",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Weekday/friday/label": {
+      "original": "Friday",
+      "ru": "Пятница",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Weekday/saturday/label": {
+      "original": "Saturday",
+      "ru": "Суббота",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Weekday/sunday/label": {
+      "original": "Sunday",
+      "ru": "Воскресенье",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "nav/link/Settings/x:Exchange": {
+      "original": "Exchange",
+      "ru": "Exchange",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:Cache/field/exchange": {
+      "original": "Exchange",
+      "ru": "Exchange",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:DnsManagementProperties/section/section-2": {
+      "original": "DKIM2",
+      "ru": "DKIM2",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbClusterFile/field/path/placeholder": {
+      "original": "/etc/foundationdb/fdb.cluster",
+      "ru": "/etc/foundationdb/fdb.cluster",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbClusterManual/field/description/placeholder": {
+      "original": "stalwart",
+      "ru": "stalwart",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbClusterManual/field/id/placeholder": {
+      "original": "a1b2c3d4",
+      "ru": "a1b2c3d4",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbClusterManual/field/coordinators/placeholder": {
+      "original": "10.0.0.11:4500:tls",
+      "ru": "10.0.0.11:4500:tls",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbStore/section/section-1": {
+      "original": "TLS",
+      "ru": "TLS",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbStore/field/tls": {
+      "original": "TLS",
+      "ru": "TLS",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbTls/field/@type": {
+      "original": "TLS",
+      "ru": "TLS",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "form/x:FoundationDbTlsManual/field/verifyPeers/placeholder": {
+      "original": "Check.Valid=1,S.CN=fdb-server",
+      "ru": "Check.Valid=1,S.CN=fdb-server",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/EwsVersion/exchange2010Sp2/label": {
+      "original": "Exchange 2010 SP2",
+      "ru": "Exchange 2010 SP2",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/EwsVersion/exchange2013/label": {
+      "original": "Exchange 2013",
+      "ru": "Exchange 2013",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/EwsVersion/exchange2013Sp1/label": {
+      "original": "Exchange 2013 SP1",
+      "ru": "Exchange 2013 SP1",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/EwsVersion/exchange2016/label": {
+      "original": "Exchange 2016",
+      "ru": "Exchange 2016",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/FoundationDbProtocol/v71/label": {
+      "original": "FoundationDB 7.1",
+      "ru": "FoundationDB 7.1",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/FoundationDbProtocol/v72/label": {
+      "original": "FoundationDB 7.2",
+      "ru": "FoundationDB 7.2",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/FoundationDbProtocol/v73/label": {
+      "original": "FoundationDB 7.3",
+      "ru": "FoundationDB 7.3",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/FoundationDbProtocol/v74/label": {
+      "original": "FoundationDB 7.4",
+      "ru": "FoundationDB 7.4",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/FoundationDbProtocol/v80/label": {
+      "original": "FoundationDB 8.0",
+      "ru": "FoundationDB 8.0",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    }
+  }
+}

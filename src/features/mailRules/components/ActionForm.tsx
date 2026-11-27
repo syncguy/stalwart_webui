@@ -130,6 +130,7 @@ function ActionDetails({ name, objectName, value, onChange, readOnly, invalid }:
   const { schema } = useFormContext();
   const resolved = resolveEmbedded(schema, objectName, value);
   if (!resolved) return null;
+  const formKey = Object.keys(schema.forms).find((key) => schema.forms[key] === resolved.form);
   const missing = new Set(invalid ? missingNestedFields(schema, objectName, value) : []);
   return (
     <FieldScopeProvider name={name} readOnly={readOnly}>
@@ -137,6 +138,8 @@ function ActionDetails({ name, objectName, value, onChange, readOnly, invalid }:
         {embeddedEntries(resolved).map(({ formField, field }) => (
           <FieldRow
             key={formField.name}
+            formKey={formKey}
+            fieldOwner={resolved.schemaName ?? undefined}
             field={field}
             formField={formField}
             value={value[formField.name]}

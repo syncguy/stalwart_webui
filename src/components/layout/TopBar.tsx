@@ -21,6 +21,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import Logo from '@/components/common/Logo';
+import { WebuiRuBuildInfo } from '@/components/common/WebuiRuBuildInfo';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { EnterpriseUpsell } from '@/components/common/EnterpriseUpsell';
 import { DynamicIcon } from '@/components/common/DynamicIcon';
@@ -87,7 +88,7 @@ export function TopBar() {
           </Link>
         </TooltipTrigger>
         <TooltipContent side="bottom">
-          {t('version.label', 'Stalwart WebUI v{{version}}', { version: __APP_VERSION__ })}
+          <WebuiRuBuildInfo />
         </TooltipContent>
       </Tooltip>
 

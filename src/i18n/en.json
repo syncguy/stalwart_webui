@@ -782,6 +782,12 @@
     "mailRules": {
       "replyDaysEndingInOne": "reply at most once every {{count}} days per sender",
       "replySubjectDaysEndingInOne": "reply with {{subject}} at most once every {{count}} days per sender"
+    },
+    "build": {
+      "ci": "Build #{{run}}.{{attempt}} · {{sha}}",
+      "local": "Local build",
+      "timestamp": "Built: {{timestamp}} (UTC)",
+      "edition": "Russian edition · laboratory build"
     }
   }
 }

@@ -30,7 +30,7 @@ const text=mod('src/i18n/schemaText.ts',{'./schema/ru.json':catalog});
 const resolver=mod('src/lib/schemaResolver.ts');
 const common={react:React,'react/jsx-runtime':jsx,'react-i18next':{useTranslation:()=>({t,i18n:{resolvedLanguage:language,language}})},'@/stores/schemaStore':store,'@/lib/schemaResolver':resolver,
   'lucide-react':new Proxy({},{get:()=>dummy}),'@/lib/utils':{cn:(...v)=>v.filter(Boolean).join(' ')}};
-const hooks=mod('src/hooks/useSchemaText.ts',{...common,'@/i18n/schemaText':text});
+const hooks=mod('src/hooks/useSchemaText.ts',{...common,'@/i18n/webuiRuSchemaText':text});
 common['@/hooks/useSchemaText']=hooks;
 const fmtImports={'@/i18n':{default:{t,language:'ru'}},'@/lib/durationFormat':{SIZE_UNITS:[]},'@/lib/localDateTime':{},'@/lib/weeklySchedule':{WEEKDAYS:[]},'@/stores/accountStore':{DEFAULT_LOCALE:'en-US',useAccountStore:{getState:()=>({})}}};
 const offsets=mod('src/lib/format.ts',fmtImports);

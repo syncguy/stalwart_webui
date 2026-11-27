@@ -76,7 +76,7 @@ const sel=sourceModule(read('src/extensions/pages.sel.ts'),'pages.sel.ts',{'@/ex
 const pages=sourceModule(read('src/extensions/pages.ts'),'pages.ts',{'@/extensions/lazyPage':{lazyPage},'@/extensions/pages.sel':sel,'@/lib/schemaResolver':resolver});
 const perms=sourceModule(read('src/lib/permissions.ts'),'permissions.ts',{'@/lib/schemaResolver':resolver});
 const layout=sourceModule(read('src/lib/layout.ts'),'layout.ts',{'@/lib/schemaResolver':resolver,'@/lib/permissions':perms,'@/extensions/pages':pages});
-const schemaStore=mod('src/stores/schemaStore.ts',{'zustand':{create:()=>()=>null},'@/i18n/schemaText':{schemaText},'@/lib/layout':layout},false,'\nexport {walkLayouts,buildSearchIndex};');
+const schemaStore=mod('src/stores/schemaStore.ts',{'zustand':{create:()=>()=>null},'@/i18n/webuiRuSchemaText':{schemaText},'@/lib/layout':layout},false,'\nexport {walkLayouts,buildSearchIndex};');
 let checks=0;function passGroup(s){checks++;console.log('PASS '+checks+': '+s);}
 assert.equal(report.rows.length,12246);assert.equal(ledger.rows.length,828);assert.equal(ledger.rows.reduce((n,r)=>n+r.bindings.length,0),1539);
 assert.equal(report.stage,43);assert.deepEqual(report.rows.filter(r=>r.classification==='unreachable/conditional').map(r=>r.id).sort(),ledger.rows.map(r=>r.id).sort());

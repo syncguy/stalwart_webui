@@ -6,6 +6,7 @@
 
 import { useState, type FormEvent, type KeyboardEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { Loader2, Plus, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SearchInput } from '@/components/common/SearchInput';
@@ -253,6 +254,7 @@ function EntryRow({
 
 export function SenderListPage({ viewName }: PageProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const resolved = useResolvedView(viewName);
   const accountId = useRuleAccountId();
   const objectName = resolved?.object.objectName ?? '';
@@ -268,8 +270,12 @@ export function SenderListPage({ viewName }: PageProps) {
   if (!resolved || !list || !accountId) return null;
 
   const fields = resolved.resolvedSchema.type === 'single' ? resolved.resolvedSchema.fields : null;
-  const label = list.columns.find((column) => column.name === ADDRESS_PROPERTY)?.label ?? ADDRESS_PROPERTY;
-  const description = fields?.properties[ADDRESS_PROPERTY]?.description;
+  const originalLabel = list.columns.find((column) => column.name === ADDRESS_PROPERTY)?.label ?? ADDRESS_PROPERTY;
+  const label = display(`list/${viewName}/column/${ADDRESS_PROPERTY}`, originalLabel);
+  const originalDescription = fields?.properties[ADDRESS_PROPERTY]?.description;
+  const owner = resolved.resolvedSchema.type === 'single' ? resolved.resolvedSchema.schemaName : objectName;
+  const description =
+    originalDescription && display(`field/${owner}/${ADDRESS_PROPERTY}/description`, originalDescription);
   const all = entries.data ?? [];
   const shown = filterSenders(all, search);
 
@@ -303,8 +309,10 @@ export function SenderListPage({ viewName }: PageProps) {
   return (
     <div className="space-y-3.5">
       <div className="px-1 pb-1 pt-3">
-        <h1 className="page-title">{list.title}</h1>
-        {list.subtitle && <p className="mt-1 text-sm text-muted-foreground">{list.subtitle}</p>}
+        <h1 className="page-title">{display(`list/${viewName}/title`, list.title)}</h1>
+        {list.subtitle && (
+          <p className="mt-1 text-sm text-muted-foreground">{display(`list/${viewName}/subtitle`, list.subtitle)}</p>
+        )}
       </div>
 
       {canCreate && entries.data && (
@@ -342,7 +350,7 @@ export function SenderListPage({ viewName }: PageProps) {
                     value={search}
                     onValueChange={setSearch}
                     placeholder={t('senderLists.search', 'Search')}
-                    aria-label={t('senderLists.searchLabel', 'Search {{label}}', { label: list.title })}
+                    aria-label={t('senderLists.searchLabel', 'Search {{label}}', { label: display(`list/${viewName}/title`, list.title) })}
                   />
                 </div>
               )}
@@ -352,7 +360,7 @@ export function SenderListPage({ viewName }: PageProps) {
                 {t('senderLists.noMatch', 'No entries match “{{search}}”.', { search: search.trim() })}
               </p>
             ) : (
-              <ul aria-label={list.title}>
+              <ul aria-label={display(`list/${viewName}/title`, list.title)}>
                 {shown.map((entry) => (
                   <EntryRow
                     key={entry.id}

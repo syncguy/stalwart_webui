@@ -6,6 +6,7 @@
 
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { AlertTriangle, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { FieldError } from '@/components/forms/FieldRow';
@@ -75,12 +76,14 @@ function IssueList({ issues }: { issues: readonly RuleIssue[] }) {
 
 function RulePreview({ body, incomplete }: { body: Record<string, unknown>; incomplete: boolean }) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const { schema, idPrefix } = useFormContext();
   const accountId = useRuleAccountId();
   const mailboxes = useMailboxOptions(accountId);
   const ctx = {
     t,
     schema,
+    display,
     mailboxName: mailboxNamer(t, mailboxes.status === 'ready' ? mailboxes.options : undefined),
   };
   return (
@@ -284,11 +287,13 @@ export function RuleBuilderRow({ data: body, errors, readOnly, onFieldChange }: 
 
 export function RuleSummaryRow({ schema, data }: ViewRenderProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const accountId = useRuleAccountId();
   const mailboxes = useMailboxOptions(accountId);
   const ctx = {
     t,
     schema,
+    display,
     mailboxName: mailboxNamer(t, mailboxes.status === 'ready' ? mailboxes.options : undefined),
   };
   return (

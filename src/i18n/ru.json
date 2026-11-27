@@ -820,6 +820,12 @@
     "mailRules": {
       "replyDaysEndingInOne": "отвечать не чаще одного раза в {{count}} день каждому отправителю",
       "replySubjectDaysEndingInOne": "отвечать письмом с темой {{subject}} не чаще одного раза в {{count}} день каждому отправителю"
+    },
+    "build": {
+      "ci": "Сборка #{{run}}.{{attempt}} · {{sha}}",
+      "local": "Локальная сборка",
+      "timestamp": "Собрано: {{timestamp}} (UTC)",
+      "edition": "Русская редакция · лабораторная версия"
     }
   }
 }

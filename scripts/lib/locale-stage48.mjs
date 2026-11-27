@@ -1,6 +1,7 @@
 // Stage48: reviewed upstream source delta, independently replayed pinned-schema report.
 // Historical Stage44 packet, source chain and catalogues are not rewritten.
 import assert from 'node:assert/strict';
+import { historicalSourceFor49, historicalDigestFor49 } from './webuiRu-stage49-review.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -16,6 +17,8 @@ export function loadStage48Packet(root) {
 
 export function validateStage48(root, inputs, stage44, stage47Source, actualSource, packet) {
   const read = p => fs.readFileSync(path.join(root, p));
+  actualSource = historicalSourceFor49(root, actualSource);
+  const reviewedDigest = p => historicalDigestFor49(root, p, digest(read(p)));
   assert.equal(packet.stage, 48);
   assert.equal(packet.historicalLedgerSha256, digest(read('scripts/data/stage44-final-review.json')));
   assert.equal(packet.manifestSha256, stage44.manifestSha256);
@@ -40,11 +43,11 @@ export function validateStage48(root, inputs, stage44, stage47Source, actualSour
 
   for (const [p, h] of Object.entries(packet.clientCatalogues)) {
     assert.equal(stage44.clientCatalogSha256[p], h.before, 'Historical client catalogue pin changed');
-    assert.equal(digest(read(p)), h.after, 'Stage48 client catalogue changed: reopen review');
+    assert.equal(reviewedDigest(p), h.after, 'Stage48 client catalogue changed: reopen review');
   }
   for (const a of packet.adapterDelta) {
     assert.ok(changed.has(a.path) || Object.hasOwn(packet.clientCatalogues, a.path));
-    assert.equal(digest(read(a.path)), a.after);
+    assert.equal(reviewedDigest(a.path), a.after);
     assert.equal(inputs.policy.adapterSources[a.path], a.after);
   }
 

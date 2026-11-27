@@ -6,6 +6,7 @@
 
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ListError, ListSpinner } from '@/components/lists/ListStates';
@@ -21,6 +22,7 @@ import { CustomRuleList } from './CustomRuleList';
 
 export function MailRulesPage({ viewName, section }: PageProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const schema = useSchemaStore((s) => s.schema);
   const resolved = useResolvedView(viewName);
   const checkers = usePermissionCheckers();
@@ -41,6 +43,7 @@ export function MailRulesPage({ viewName, section }: PageProps) {
   const summary = {
     t,
     schema,
+    display,
     mailboxName: mailboxNamer(t, mailboxes.status === 'ready' ? mailboxes.options : undefined),
   };
 
@@ -48,8 +51,10 @@ export function MailRulesPage({ viewName, section }: PageProps) {
     <div className="space-y-3.5">
       <div className="flex flex-wrap items-end justify-between gap-4 px-1 pb-1 pt-3">
         <div className="min-w-0">
-          <h1 className="page-title">{list.title}</h1>
-          {list.subtitle && <p className="mt-1 text-sm text-muted-foreground">{list.subtitle}</p>}
+          <h1 className="page-title">{display(`list/${viewName}/title`, list.title)}</h1>
+          {list.subtitle && (
+            <p className="mt-1 text-sm text-muted-foreground">{display(`list/${viewName}/subtitle`, list.subtitle)}</p>
+          )}
         </div>
         {allowed.create && accountId && (
           <Button asChild>

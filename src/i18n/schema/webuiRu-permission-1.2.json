@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "schemaHashes": [
+      "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM",
+      "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI"
+    ]
+  },
+  "entries": {
+    "enum/Permission/sysBlockedSenderGet/label": {
+      "original": "Blocked senders Management: Get blocked senders",
+      "ru": "Заблокированные отправители: Просмотр",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysBlockedSenderCreate/label": {
+      "original": "Blocked senders Management: Create blocked senders",
+      "ru": "Заблокированные отправители: Создание",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysBlockedSenderDestroy/label": {
+      "original": "Blocked senders Management: Destroy blocked senders",
+      "ru": "Заблокированные отправители: Удаление",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysBlockedSenderQuery/label": {
+      "original": "Blocked senders Management: Query blocked senders",
+      "ru": "Заблокированные отправители: Поиск",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysCalendarSettingsGet/label": {
+      "original": "Settings: Get calendar settings settings",
+      "ru": "Настройки — Календарь: просмотр",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysCalendarSettingsUpdate/label": {
+      "original": "Settings: Update calendar settings settings",
+      "ru": "Настройки — Календарь: изменение",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysExchangeGet/label": {
+      "original": "Settings: Get exchange settings",
+      "ru": "Настройки — Exchange: просмотр",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysExchangeUpdate/label": {
+      "original": "Settings: Update exchange settings",
+      "ru": "Настройки — Exchange: изменение",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysMailRuleGet/label": {
+      "original": "Mail rules Management: Get mail rules",
+      "ru": "Почтовые правила: Просмотр",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysMailRuleCreate/label": {
+      "original": "Mail rules Management: Create mail rules",
+      "ru": "Почтовые правила: Создание",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysMailRuleUpdate/label": {
+      "original": "Mail rules Management: Update mail rules",
+      "ru": "Почтовые правила: Изменение",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysMailRuleDestroy/label": {
+      "original": "Mail rules Management: Destroy mail rules",
+      "ru": "Почтовые правила: Удаление",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysMailRuleQuery/label": {
+      "original": "Mail rules Management: Query mail rules",
+      "ru": "Почтовые правила: Поиск",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysSafeSenderGet/label": {
+      "original": "Safe senders Management: Get safe senders",
+      "ru": "Доверенные отправители: Просмотр",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysSafeSenderCreate/label": {
+      "original": "Safe senders Management: Create safe senders",
+      "ru": "Доверенные отправители: Создание",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysSafeSenderDestroy/label": {
+      "original": "Safe senders Management: Destroy safe senders",
+      "ru": "Доверенные отправители: Удаление",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    },
+    "enum/Permission/sysSafeSenderQuery/label": {
+      "original": "Safe senders Management: Query safe senders",
+      "ru": "Доверенные отправители: Поиск",
+      "hashes": [
+        "kiBiqUjzs0G3zSbKMveWLbKSQUowtKIsSnk0JuGI0dI",
+        "kwT7MmoeiBb3I_igtxtQv6B4rBeqrYXNI0Eb40_edhM"
+      ]
+    }
+  }
+}

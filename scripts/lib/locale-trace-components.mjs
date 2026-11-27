@@ -32,7 +32,7 @@ const t=(key,fallback,args={})=>Object.entries(args).reduce((s,[k,v])=>s.replace
 const common={react:React,'react/jsx-runtime':jsx,'react-i18next':{useTranslation:()=>({t,i18n:{resolvedLanguage:language,language}})},'@/hooks/useSchemaText':null,'@/stores/schemaStore':store,'@/lib/schemaResolver':resolver,
  'lucide-react':new Proxy({},{get:()=>icon}),'@/lib/utils':{cn:(...v)=>v.filter(Boolean).join(' ')}};
 const render=(C,p)=>renderToStaticMarkup(h(C,p));
-const hooks=mod('src/hooks/useSchemaText.ts',{...common,'@/i18n/schemaText':text});
+const hooks=mod('src/hooks/useSchemaText.ts',{...common,'@/i18n/webuiRuSchemaText':text});
 common['@/hooks/useSchemaText']=hooks;
 const displayFor=()=> {const currentHash=hash,currentLanguage=language;return (slot,original)=>text.schemaText(currentHash,currentLanguage,slot,original)};
 const trace=mod('src/features/tracing/hooks/useTraceLabels.ts',common);

@@ -38,6 +38,7 @@ const KILOBYTE = 1024;
 export interface SummaryContext {
   t: TFunction;
   schema: Schema;
+  display?: (slot: string, original: string) => string;
   mailboxName?: (id: string) => string | undefined;
 }
 
@@ -111,9 +112,10 @@ export function keywordName(t: TFunction, keyword: string): string | undefined {
   }
 }
 
-function enumLabel(schema: Schema, enumName: string, value: unknown): string {
+function enumLabel(ctx: SummaryContext, enumName: string, value: unknown): string {
   if (typeof value !== 'string') return '';
-  return getEnumVariant(schema, enumName, value)?.label ?? value;
+  const original = getEnumVariant(ctx.schema, enumName, value)?.label ?? value;
+  return ctx.display?.(`enum/${enumName}/${value}/label`, original) ?? original;
 }
 
 function quoted(ctx: SummaryContext, value: string): string {
@@ -165,7 +167,11 @@ function replyPhrase(ctx: SummaryContext, reply: Record<string, unknown>): strin
   // template omits the count. Use a numbered display-only template.
   if (count > 1 && count % 10 === 1 && count % 100 !== 11) {
     return subject
-      ? t('webuiRu.mailRules.replySubjectDaysEndingInOne', 'reply with {{subject}} at most once every {{count}} days per sender', { subject, count })
+      ? t(
+          'webuiRu.mailRules.replySubjectDaysEndingInOne',
+          'reply with {{subject}} at most once every {{count}} days per sender',
+          { subject, count },
+        )
       : t('webuiRu.mailRules.replyDaysEndingInOne', 'reply at most once every {{count}} days per sender', { count });
   }
   return subject
@@ -189,7 +195,7 @@ function detailed(ctx: SummaryContext, label: string, detail: string): string {
 
 function operatorTest(ctx: SummaryContext, enumName: string, item: Record<string, unknown>): string {
   return ctx.t('mailRules.summary.test', '{{operator}} {{values}}', {
-    operator: enumLabel(ctx.schema, enumName, item.operator),
+    operator: enumLabel(ctx, enumName, item.operator),
     values: quotedValues(ctx, setValues(item.values)),
   });
 }
@@ -208,7 +214,7 @@ function scheduleSlots(ctx: SummaryContext, value: unknown): string {
     .filter(isRecord)
     .map((slot) =>
       ctx.t('mailRules.summary.slot', '{{days}} {{start}}–{{end}}', {
-        days: webuiRuFormatRuleList(setValues(slot.days).map((day) => enumLabel(ctx.schema, 'Weekday', day))),
+        days: webuiRuFormatRuleList(setValues(slot.days).map((day) => enumLabel(ctx, 'Weekday', day))),
         start: slotStart(slot.start),
         end: slotEnd(slot.end),
       }),
@@ -218,7 +224,8 @@ function scheduleSlots(ctx: SummaryContext, value: unknown): string {
 
 export function conditionPhrase(ctx: SummaryContext, condition: Record<string, unknown>): string {
   const type = variantType(condition) ?? '';
-  const label = variantLabel(ctx.schema, MAIL_RULE_CONDITION_OBJECT, type) ?? type;
+  const original = variantLabel(ctx.schema, MAIL_RULE_CONDITION_OBJECT, type) ?? type;
+  const label = ctx.display?.(`variant/${MAIL_RULE_CONDITION_OBJECT}/${type}/label`, original) ?? original;
   switch (type) {
     case 'From':
     case 'To':
@@ -242,18 +249,18 @@ export function conditionPhrase(ctx: SummaryContext, condition: Record<string, u
     case 'HeaderExists':
       return detailed(ctx, label, typeof condition.header === 'string' ? condition.header : '');
     case 'SentToMe':
-      return detailed(ctx, label, enumLabel(ctx.schema, 'MailRuleSentToMePlacement', condition.placement));
+      return detailed(ctx, label, enumLabel(ctx, 'MailRuleSentToMePlacement', condition.placement));
     case 'SizeOver':
     case 'SizeUnder':
       return detailed(ctx, label, sizeOf(condition.kilobytes) ?? '');
     case 'Keyword':
       return detailed(ctx, label, quotedKeywords(ctx, setValues(condition.keywords)));
     case 'Importance':
-      return detailed(ctx, label, enumLabel(ctx.schema, 'MailRuleImportanceLevel', condition.level));
+      return detailed(ctx, label, enumLabel(ctx, 'MailRuleImportanceLevel', condition.level));
     case 'Sensitivity':
-      return detailed(ctx, label, enumLabel(ctx.schema, 'MailRuleSensitivityLevel', condition.level));
+      return detailed(ctx, label, enumLabel(ctx, 'MailRuleSensitivityLevel', condition.level));
     case 'MessageType':
-      return detailed(ctx, label, enumLabel(ctx.schema, 'MailRuleMessageKind', condition.kind));
+      return detailed(ctx, label, enumLabel(ctx, 'MailRuleMessageKind', condition.kind));
     case 'SpamScore':
       return detailed(ctx, label, typeof condition.percent === 'number' ? formatPercent(condition.percent, 0) : '');
     case 'ReceivedAfter':
@@ -312,7 +319,7 @@ export function actionPhrases(ctx: SummaryContext, actions: RuleActions): string
   if (actions.setImportance !== null) {
     phrases.push(
       t('mailRules.summary.action.setImportance', 'set the importance to {{level}}', {
-        level: enumLabel(ctx.schema, 'MailRuleImportanceLevel', actions.setImportance),
+        level: enumLabel(ctx, 'MailRuleImportanceLevel', actions.setImportance),
       }),
     );
   }
@@ -381,7 +388,9 @@ function conditionsClause(t: TFunction, { matchAll, matchAny }: RuleSummary): st
       any: webuiRuFormatRuleList(matchAny, 'disjunction'),
     });
   }
-  return matchAll.length > 0 ? webuiRuFormatRuleList([...matchAll, ...matchAny]) : webuiRuFormatRuleList(matchAny, 'disjunction');
+  return matchAll.length > 0
+    ? webuiRuFormatRuleList([...matchAll, ...matchAny])
+    : webuiRuFormatRuleList(matchAny, 'disjunction');
 }
 
 function sentence(

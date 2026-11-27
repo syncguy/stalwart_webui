@@ -7,7 +7,10 @@ on:
       - '.github/workflows/webui-ru-coverage.yml'
       - 'scripts/generate-locale-coverage.mjs'
       - 'scripts/check-coverage-inventory.mjs'
-      - 'scripts/check-webuiRu-stage49-pins.mjs'
+      - 'scripts/check-webuiRu-stage49*.mjs'
+      - 'scripts/lib/webuiRu-stage49-*.mjs'
+      - 'scripts/lib/webuiRu-grammar-review.mjs'
+      - 'scripts/check-webuiRu-grammar-review.mjs'
       - 'scripts/check-webuiRu-build-identity.mjs'
       - 'scripts/webuiRu-build-identity.ts'
       - 'scripts/data/webuiRu-stage49-*'
@@ -87,6 +90,12 @@ jobs:
         env:
           NODE_OPTIONS: '--import=./scripts/lib/offline-guard.mjs'
         run: node scripts/check-locale-components.mjs
+      - name: Verify current 1.2.x catalogues, 640 historical exclusions and custom renderers
+        env:
+          NODE_OPTIONS: '--import=./scripts/lib/offline-guard.mjs'
+        run: |
+          node scripts/check-webuiRu-grammar-review.mjs
+          node scripts/check-webuiRu-stage49-components.mjs
       - name: TypeScript check for shared display-only components
         run: npm run typecheck
       - name: ESLint check for TypeScript sources
@@ -99,9 +108,12 @@ jobs:
           set -euo pipefail
           sha256sum .artifacts/locale-coverage/{inventory.json,summary.md,translation-memory.json} > /tmp/locale-coverage.sha256
           sha256sum .artifacts/locale-candidates/{classification.json,candidates.json,diff.json,summary.md,review.md,stage43-classification.json,stage44-evidence.json,stage48-evidence.json} > /tmp/locale-candidates.sha256
+          sha256sum .artifacts/webuiRu-stage49/{classification.json,diagnostic.json,exclusions.json,grammar-candidates.json,grammar-review.json} > /tmp/webuiRu-stage49.sha256
           node scripts/generate-locale-candidates.mjs > /tmp/second-inventory.log
+          node scripts/check-webuiRu-stage49.mjs > /tmp/second-stage49.log
           sha256sum -c /tmp/locale-coverage.sha256
           sha256sum -c /tmp/locale-candidates.sha256
+          sha256sum -c /tmp/webuiRu-stage49.sha256
       - name: Publish summary and exact source SHA
         shell: bash
         run: |
@@ -114,5 +126,6 @@ jobs:
           path: |
             .artifacts/locale-coverage/
             .artifacts/locale-candidates/
+            .artifacts/webuiRu-stage49/
           if-no-files-found: error
           retention-days: 7

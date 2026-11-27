@@ -6,6 +6,7 @@
 
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -59,12 +60,16 @@ interface RuleItemProps {
 
 function RuleItem({ objectName, itemKey, item, label, onChange, onRemove, readOnly, invalid, joiner }: RuleItemProps) {
   const { t } = useTranslation();
+  const display = useSchemaText();
   const { schema, idPrefix, mode, baseline } = useFormContext();
   const scope = useFieldScope();
   const [initial, setInitial] = useState({ baseline, item });
   if (initial.baseline !== baseline) setInitial({ baseline, item });
   const resolved = resolveEmbedded(schema, objectName, item);
   if (!resolved) return null;
+  const formKey = Object.keys(schema.forms).find((key) => schema.forms[key] === resolved.form);
+  const fieldLabel = (name: string, original: string) =>
+    formKey ? display(`form/${formKey}/field/${name}`, original) : original;
   const variant = resolved.variant?.name ?? '';
   const schemaName = resolved.variant?.schemaName;
   const entries = embeddedEntries(resolved).filter(({ field }) => field.update !== 'serverSet');
@@ -103,7 +108,7 @@ function RuleItem({ objectName, itemKey, item, label, onChange, onRemove, readOn
             <SelectContent>
               {(resolved.variants ?? []).map((option) => (
                 <SelectItem key={option.name} value={option.name}>
-                  {option.label}
+                  {display(`variant/${objectName}/${option.name}/label`, option.label)}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -117,7 +122,7 @@ function RuleItem({ objectName, itemKey, item, label, onChange, onRemove, readOn
               id: ids.inputId,
               'aria-label': t('mailRules.builder.itemField', '{{item}}: {{field}}', {
                 item: label,
-                field: formField.label,
+                field: fieldLabel(formField.name, formField.label),
               }),
               'aria-invalid': isMissing || undefined,
               'aria-describedby': isMissing ? itemErrorId : undefined,
@@ -129,7 +134,7 @@ function RuleItem({ objectName, itemKey, item, label, onChange, onRemove, readOn
               >
                 {field.type.type !== 'enum' && (
                   <label htmlFor={ids.inputId} className="shrink-0 text-[12.5px] text-muted-foreground">
-                    {formField.label}
+                    {fieldLabel(formField.name, formField.label)}
                   </label>
                 )}
                 <div className="min-w-0 flex-1">
@@ -166,7 +171,9 @@ function RuleItem({ objectName, itemKey, item, label, onChange, onRemove, readOn
             <FieldError
               id={itemErrorId}
               error={t('mailRules.builder.missingFields', 'Fill in {{fields}}.', {
-                fields: webuiRuFormatRuleList(missingInline.map(({ formField }) => formField.label)),
+                fields: webuiRuFormatRuleList(
+                  missingInline.map(({ formField }) => fieldLabel(formField.name, formField.label)),
+                ),
               })}
             />
           </div>
@@ -179,6 +186,8 @@ function RuleItem({ objectName, itemKey, item, label, onChange, onRemove, readOn
                   const row = {
                     field,
                     formField,
+                    formKey,
+                    fieldOwner: resolved.schemaName ?? undefined,
                     value: item[formField.name],
                     onChange: (next: unknown) => onChange({ ...item, [formField.name]: next }),
                     error: missing.has(formField.name) ? requiredMessage : undefined,

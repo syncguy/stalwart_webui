@@ -6,7 +6,7 @@
 
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { canTranslateSchema, schemaActionName, schemaText } from '@/i18n/schemaText';
+import { canTranslateSchema, schemaActionName, schemaText } from '@/i18n/webuiRuSchemaText';
 import { useSchemaStore } from '@/stores/schemaStore';
 
 /** A reactive, schema-versioned display lookup. Raw schema references stay stable. */

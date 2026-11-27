@@ -1,5 +1,6 @@
 // Offline adapters for the checked-in source. No browser, network or runtime imports.
 import assert from 'node:assert/strict';
+import { historicalDigestFor49 } from './webuiRu-stage49-review.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
@@ -93,7 +94,7 @@ export function loadInputs(root, { historicalStage43 = false } = {}) {
   });
   const files = Object.keys(policy.adapterSources).sort(compare);
   const sourceHashes = Object.fromEntries(files.map(p => [p, digest(read(p))]));
-  const adapterDrift = files.filter(p => sourceHashes[p] !== policy.adapterSources[p]);
+  const adapterDrift = files.filter(p => historicalDigestFor49(root, p, sourceHashes[p]) !== policy.adapterSources[p]);
   const resolver = sourceModule(read('src/lib/schemaResolver.ts'), 'schemaResolver.ts');
   const schema = sourceModule(read('src/i18n/schemaText.ts'), 'schemaText.ts', { './schema/ru.json': catalog });
   const options = sourceModule(read('src/i18n/schemaOptionLabels.ts'), 'schemaOptionLabels.ts');

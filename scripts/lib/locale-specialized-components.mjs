@@ -30,7 +30,7 @@ const text=mod('src/i18n/schemaText.ts',{'./schema/ru.json':catalog});
 const resolver=mod('src/lib/schemaResolver.ts');
 const common={react:React,'react/jsx-runtime':jsx,'react-i18next':{useTranslation:()=>({t,i18n:{resolvedLanguage:language,language}})},'@/stores/schemaStore':store,'@/lib/schemaResolver':resolver,
   'lucide-react':new Proxy({},{get:()=>dummy}),'@/lib/utils':{cn:(...v)=>v.filter(Boolean).join(' ')}};
-const hooks=mod('src/hooks/useSchemaText.ts',{...common,'@/i18n/schemaText':text});
+const hooks=mod('src/hooks/useSchemaText.ts',{...common,'@/i18n/webuiRuSchemaText':text});
 common['@/hooks/useSchemaText']={...hooks,useSchemaText:()=>{const display=hooks.useSchemaText();return (slot,original)=>{calls.push(slot);return display(slot,original)}}};
 
 const packet=JSON.parse(read('scripts/data/stage43-specialized-review.json'));

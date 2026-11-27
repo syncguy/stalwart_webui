@@ -20,3 +20,6 @@ interface ImportMeta {
 }
 
 declare const __APP_VERSION__: string;
+
+// Only the explicitly selected public compile-time build fields.
+declare const __WEBUI_RU_BUILD_IDENTITY__: import('../scripts/webuiRu-build-identity').WebuiRuBuildIdentity;

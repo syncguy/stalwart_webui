@@ -1,0 +1,267 @@
+{
+  "stage": 49,
+  "baseline": "b4a3f91fedd43ef9db08eb51198263416e263c8f",
+  "sourceDelta": [
+    {
+      "path": "src/components/common/WebuiRuBuildInfo.tsx",
+      "before": null,
+      "after": "0ed35a20338853d155a2da10f1df439fac75f13d",
+      "reason": "Localized display of public build fields; no runtime I/O."
+    },
+    {
+      "path": "src/components/layout/TopBar.tsx",
+      "before": "6efe90d8ca414f35091eb953360fa2ed929c1a4c",
+      "after": "5cb67461ff27b8a7d64be8c76150d68511eb9899",
+      "reason": "Render compile-time build identity in the existing logo tooltip."
+    },
+    {
+      "path": "src/features/mailRules/components/ActionForm.tsx",
+      "before": "d442d11bf6df96a951fec2408a1fc99b999b7f26",
+      "after": "a91da9dc5e2679b3b4102010c7b3572a74a33eb5",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/components/MailRulesPage.tsx",
+      "before": "844692d6c15ff55ca0ebf389bd7e53772a4f77bc",
+      "after": "5c52bf57f7281dc88d8b2e77d781a04d4bc8d05a",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/components/RuleBuilder.tsx",
+      "before": "803c0510e9785b2b0cb2b69dceed1714040eb0f3",
+      "after": "ec8fa5502cb6f4784a8f50cf00872fd8d11d02cf",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/components/RuleFieldRow.tsx",
+      "before": "ba9c918429ff0e7c2799815c883b1211778dabcc",
+      "after": "1d88fe9a1e348b80f4e38f69c4c4b054e9344e89",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/components/RuleItemList.tsx",
+      "before": "cd898c7b7638e6dc8f8baadaf422a390257ea747",
+      "after": "fb3111c1a7b8b83c059d99450a618c91b3b32314",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/components/SenderListPage.tsx",
+      "before": "f6e033c5fead1261155ba32411b405cf7c76284d",
+      "after": "9a7681a9bc84a8128b05e191e1100384a337055d",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/summary.ts",
+      "before": "2d56b3bafcf19c00141203584793b9302dc2d828",
+      "after": "8b1251ca58f1a5a9cc6b9fc00e604fb91f6fbd24",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/hooks/useSchemaText.ts",
+      "before": "bd137c7121cb9da7f9fa22b8f57d6f450f131d2a",
+      "after": "3481d15bb2612f5610336676924fc759dac2c7ba",
+      "reason": "Route reactive display calls through the version dispatcher."
+    },
+    {
+      "path": "src/i18n/webuiRuSchemaText.ts",
+      "before": null,
+      "after": "5151522c9457bb51d6c98eada799f7fc30fc8ebb",
+      "reason": "Explicit edition-bound 1.2.0/1.2.1 delta; preserve historical runtime and fallback."
+    },
+    {
+      "path": "src/stores/schemaStore.ts",
+      "before": "b4be6bdb18bc4ed9237ab82fcefbc5fccd501cdb",
+      "after": "a70c02cde9d4b84d4932c793a156012ee9974635",
+      "reason": "Use the version dispatcher for display/search; retain raw schema identity."
+    },
+    {
+      "path": "src/vite-env.d.ts",
+      "before": "f0d26d9572d1931edd3ba43dc0b617308004d0cd",
+      "after": "dc87308292c7ee3cb16a71c217d796029baf14fb",
+      "reason": "Type the compile-time identity constant."
+    }
+  ],
+  "fileDelta": [
+    {
+      "path": "scripts/check-webuiRu-grammar-review.mjs",
+      "before": null,
+      "after": "c1a140218d637324128859550ad81100185cbfe04d34aabae5603ae5331fe47b",
+      "reason": "Explicit Stage49 reviewed-delta validation layered over immutable Stage48 source and client evidence."
+    },
+    {
+      "path": "scripts/check-webuiRu-stage49-components.mjs",
+      "before": null,
+      "after": "05cc91ffe3964cf2fa0b5ca988a7b7c163b849d94509f8ef6d4d0624f594f0a7",
+      "reason": "Reviewed test dependency alias follows the production dispatcher; all historical assertions retained."
+    },
+    {
+      "path": "scripts/check-webuiRu-stage49-pins.mjs",
+      "before": "4ba5eea1c157842fa8d1bc19874ef27b9d6566e072e698e94ce83d1bcb9404a7",
+      "after": "e481fad053c474e5a110376abdaea4cc08a4467f12483c010881f1347ff252cf",
+      "reason": "Explicit Stage49 reviewed-delta validation layered over immutable Stage48 source and client evidence."
+    },
+    {
+      "path": "scripts/check-webuiRu-stage49.mjs",
+      "before": null,
+      "after": "5f19d6b5040d199953d30a5fbdb2da505b37db825458c51acbb90631f5ceae5e",
+      "reason": "Explicit Stage49 reviewed-delta validation layered over immutable Stage48 source and client evidence."
+    },
+    {
+      "path": "scripts/data/webuiRu-stage49-editorial.json",
+      "before": null,
+      "after": "08f0107fbd57c59f322b1d9f638f60ef9305e81a566a3f262fc8b6fdf8a31f20",
+      "reason": "Explicit Stage49 reviewed-delta validation layered over immutable Stage48 source and client evidence."
+    },
+    {
+      "path": "scripts/lib/locale-regional-components.mjs",
+      "before": "7c6dc1c077083662b9f02cd145691e8a8610fd8405c09fca82190470526f3466",
+      "after": "e905b0b08c9413298574133da5b0e21d579a534fe5661e46ab868541cde59963",
+      "reason": "Reviewed test dependency alias follows the production dispatcher; all historical assertions retained."
+    },
+    {
+      "path": "scripts/lib/locale-specialized-components.mjs",
+      "before": "b83812e7ef4468eeef66b8bd42c226d6a0fd52b0a924588c1e95087193a4ef68",
+      "after": "7a30d320e9a0c657b1559a55723806eb3c665280a0192d4fe147929c1d23692f",
+      "reason": "Reviewed test dependency alias follows the production dispatcher; all historical assertions retained."
+    },
+    {
+      "path": "scripts/lib/locale-stage44-components.mjs",
+      "before": "514f72d972cf34b37c5f03c3e70ae9a3a536f18a2ad3d5166d13412b44cf8d1c",
+      "after": "7100276c658f3ba83f8756399c66426e3a3cf1b33031bb19ae130eb1ab01f952",
+      "reason": "Reviewed test dependency alias follows the production dispatcher; all historical assertions retained."
+    },
+    {
+      "path": "scripts/lib/locale-stage48.mjs",
+      "before": "7468b22edb052e304f3222f36b04151da63a11cbe7cf187b0f985a859d93f715",
+      "after": "d1f596c3d3f900f4b42e1673d3a43c835784fcf7c59445846ca2e17057feee1b",
+      "reason": "Explicit Stage49 reviewed-delta validation layered over immutable Stage48 source and client evidence."
+    },
+    {
+      "path": "scripts/lib/locale-trace-components.mjs",
+      "before": "2617fec6bbb44d758dfefc3c8147dbcc1f7f8e9281cb7577f97c6bafc96fa161",
+      "after": "6b5c070fcbb05ae7d6024e1a038215a589409951b9a227a47ec1c4ec96792818",
+      "reason": "Reviewed test dependency alias follows the production dispatcher; all historical assertions retained."
+    },
+    {
+      "path": "scripts/lib/webuiRu-grammar-review.mjs",
+      "before": null,
+      "after": "757df21c6bc8376e88b1d3b9d042cd394d2b35710192d2c1a03e3fac2d980f75",
+      "reason": "Explicit Stage49 reviewed-delta validation layered over immutable Stage48 source and client evidence."
+    },
+    {
+      "path": "scripts/lib/webuiRu-stage49-exclusions.mjs",
+      "before": null,
+      "after": "e6134daaa0c20cba64d80f7cbc1f25bbb8f48ea80af39662a006385adeda0811",
+      "reason": "Explicit Stage49 reviewed-delta validation layered over immutable Stage48 source and client evidence."
+    },
+    {
+      "path": "scripts/lib/webuiRu-stage49-graph.mjs",
+      "before": null,
+      "after": "790b13fd72e301e82629f719162278d9c96765e14b09f293bb27f4670b7a3d31",
+      "reason": "Explicit Stage49 reviewed-delta validation layered over immutable Stage48 source and client evidence."
+    },
+    {
+      "path": "src/components/common/WebuiRuBuildInfo.tsx",
+      "before": null,
+      "after": "0c73df80c26acc263369fc4845a0c1fd94b5a5c23c33ce37f3acd56a457565cb",
+      "reason": "Localized display of public build fields; no runtime I/O."
+    },
+    {
+      "path": "src/components/layout/TopBar.tsx",
+      "before": "3b798c3753e64faf1828edc1a598c0184120e849b25fb161eb1f8082facdddae",
+      "after": "ec3d7d0859ff4fdd107c1d9024d10643aa27c456694a3178ca89acb9d335beae",
+      "reason": "Render compile-time build identity in the existing logo tooltip."
+    },
+    {
+      "path": "src/features/mailRules/components/ActionForm.tsx",
+      "before": "588f1baba6451f95a68ea419562919813523417bce01042d9829a4dafc255a5f",
+      "after": "9b90be05b2113554f8ff91f6a83afba01f5d7b1d5c32cdc9d4e1f5f3f2afb26d",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/components/MailRulesPage.tsx",
+      "before": "7ece891e8e74f55b0f83c017435073798d3ef98f5a228cf83ff93381bd2ee28a",
+      "after": "05d8efcde23729ab7599c7fc96e1d70fe6c55f28a20164efe2d230b904f16645",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/components/RuleBuilder.tsx",
+      "before": "bff9c6e17d7e1b1e595ddda1b32a60267b7e410d10120df8dd1e62a92d31439d",
+      "after": "b7d3fbd39df86454880c72ccf1873f677c480674cc2f919d83395d1f0a6934dd",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/components/RuleFieldRow.tsx",
+      "before": "40160a5405e62ee0e0f34dd0d436228643a98a48638db166708f9a64f4ff3ff1",
+      "after": "0cdc87f59b20803bc40d494fbb1568dee6e4580e3be0730a335eeb44176b677b",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/components/RuleItemList.tsx",
+      "before": "adef4d7170f30c6f46a428655105e4e38a700d2daf7a80f7a462460f3cc6238b",
+      "after": "3dc4153c65303c31e80edbff967161de7289a335292f180b6253019e76483745",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/components/SenderListPage.tsx",
+      "before": "a0bcec6c4df3b0ea7a6732cd770af7f4bc0842ee37defc9d88e80aed1553e7df",
+      "after": "c2a790beb6ba5d6ca4777e4bd7715caecf5c548e3931f0872d69c16ac24acb35",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/features/mailRules/summary.ts",
+      "before": "0b17e0fd1db900fc1a783167b8d1319a92d3417b49c38e4538bd4ef1cca2432c",
+      "after": "c19adc55e2da9dd93f029adb3d04471693815f6a5b5a2bdf0d6703240585cfa3",
+      "reason": "Exact display-only localization of custom mail-rule or sender-list metadata; raw values and mutation callbacks preserved."
+    },
+    {
+      "path": "src/hooks/useSchemaText.ts",
+      "before": "3b14b8d74f899ecf999906361fa0f6cce007e84527c44714f314958106667bd4",
+      "after": "a878276bcca41be310fb0e4ddd4bd064e21688fda99dc53ae208ca309a5c1010",
+      "reason": "Route reactive display calls through the version dispatcher."
+    },
+    {
+      "path": "src/i18n/en.json",
+      "before": "e0aff832cd55687c214a2377cddb072ef3c0c2a39ddd42287502d6f531cb7fe3",
+      "after": "7b1e2bbf4025ba36cdaeab32a94a23dd132cc7ee623d3059ed40fc7597975feb",
+      "reason": "Reviewed RU/EN build messages or version-bound translation additions; historical catalogue unchanged."
+    },
+    {
+      "path": "src/i18n/ru.json",
+      "before": "e8a227212a769fa2b2666e977a611dd8acc424d7d3924f7d97746b5040dba574",
+      "after": "6696f8c3a9b5fd3e57dcf88b14dacfcc06c0cd1a6c2bbb4a97c40b967ac38995",
+      "reason": "Reviewed RU/EN build messages or version-bound translation additions; historical catalogue unchanged."
+    },
+    {
+      "path": "src/i18n/schema/webuiRu-1.2.json",
+      "before": null,
+      "after": "4dfd84bdf77fcbab0767f3ee5fbfe8fd822d03cd64987b853a1eb5fa442ca42b",
+      "reason": "Reviewed RU/EN build messages or version-bound translation additions; historical catalogue unchanged."
+    },
+    {
+      "path": "src/i18n/schema/webuiRu-permission-1.2.json",
+      "before": null,
+      "after": "3e0bb1cad42ecffa16709f4558dd5e262c2f5b1a2e08c92b7ec650ca4c7a19e2",
+      "reason": "Reviewed RU/EN build messages or version-bound translation additions; historical catalogue unchanged."
+    },
+    {
+      "path": "src/i18n/webuiRuSchemaText.ts",
+      "before": null,
+      "after": "460f2b7a14c83491719aa5544efc2752b6a773bb637b984db5dd486f3dc14431",
+      "reason": "Explicit edition-bound 1.2.0/1.2.1 delta; preserve historical runtime and fallback."
+    },
+    {
+      "path": "src/stores/schemaStore.ts",
+      "before": "a30b7bb471e013e18bb21ae909ca35c43e2cf4f70a3d1810b3af27c9dfe30e9b",
+      "after": "1999116ef2756ce20631937afc835117636ff3d03ee9b2324359acda93406cc0",
+      "reason": "Use the version dispatcher for display/search; retain raw schema identity."
+    },
+    {
+      "path": "src/vite-env.d.ts",
+      "before": "3c277b475478ecb59a7194d1b748ea88c3bc5421f00361da6c8303d50e3bc627",
+      "after": "0d05a3b82b626792d6ea39f025e7488da96766890a851bbded836b54d78d4572",
+      "reason": "Type the compile-time identity constant."
+    }
+  ],
+  "limits": "Offline source/SSR only; independent Astra review and operator runtime acceptance separate."
+}

@@ -5,6 +5,7 @@
  */
 
 import type { ComponentType } from 'react';
+import { useSchemaText } from '@/hooks/useSchemaText';
 import { Markdown } from '@/components/common/Markdown';
 import { FieldError, FieldLabel, type FieldRowProps } from '@/components/forms/FieldRow';
 import { fieldIds, useFieldScope, useFormContext } from '@/components/forms/formContext';
@@ -16,7 +17,22 @@ interface RuleFieldRowProps extends Omit<FieldRowProps, 'readOnly'> {
   Edit: ComponentType<WidgetProps>;
 }
 
-export function RuleFieldRow({ field, formField, value, onChange, error, Edit }: RuleFieldRowProps) {
+export function RuleFieldRow({
+  field,
+  formField,
+  formKey,
+  fieldOwner,
+  value,
+  onChange,
+  error,
+  Edit,
+}: RuleFieldRowProps) {
+  const display = useSchemaText();
+  const label = formKey ? display(`form/${formKey}/field/${formField.name}`, formField.label) : formField.label;
+  const owner = fieldOwner ?? formKey;
+  const description = owner
+    ? display(`field/${owner}/${formField.name}/description`, field.description)
+    : field.description;
   const { idPrefix } = useFormContext();
   const { path, readOnly } = useFieldScope();
   const ids = fieldIds(idPrefix, [...path, formField.name]);
@@ -29,10 +45,10 @@ export function RuleFieldRow({ field, formField, value, onChange, error, Edit }:
       className={cn('py-4', inline ? 'grid grid-cols-[minmax(0,1fr)_auto] gap-x-8 gap-y-2' : 'field-grid')}
     >
       <div className={cn('min-w-0 space-y-1', !inline && '@xl:pt-2')}>
-        <FieldLabel id={ids.labelId} htmlFor={ids.inputId} label={formField.label} marker={null} locked={false} />
+        <FieldLabel id={ids.labelId} htmlFor={ids.inputId} label={label} marker={null} locked={false} />
         {field.description && (
           <div id={ids.descriptionId}>
-            <Markdown source={field.description} className="text-[12.5px] leading-relaxed text-muted-foreground" />
+            <Markdown source={description} className="text-[12.5px] leading-relaxed text-muted-foreground" />
           </div>
         )}
       </div>

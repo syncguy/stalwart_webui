@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
 import ts from 'typescript';
+import { grammarReviewCandidates } from './lib/webuiRu-grammar-review.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = p => fs.readFileSync(path.join(root, p));
@@ -312,3 +313,11 @@ for (const r of draft.candidates) {
 }
 assert.deepEqual([seen.size,translations,keepOriginal,bindings],[439,419,20,873]);
 console.log('Stage49 preflight PASS: exact gzip/hash/JSON, 439 new or changed pairs, 8 historical removals, 873 draft bindings; no renderer or translation acceptance.');
+const grammarReview=grammarReviewCandidates(d.before,d.after);
+assert.deepEqual(['list-singular','list-plural','object-description-fallback'].map(kind=>grammarReview.filter(r=>r.kind===kind).length),[4,4,5]);
+assert.equal(grammarReview.reduce((n,r)=>n+r.bindings.length,0),26);
+assert.ok(grammarReview.find(r=>r.slot==='list/x:Account/Resource/singular'&&r.bindings.length===2));
+fs.mkdirSync(path.join(root,'.artifacts/webuiRu-stage49'),{recursive:true});
+fs.writeFileSync(path.join(root,'.artifacts/webuiRu-stage49/grammar-candidates.json'),JSON.stringify({grammarReview,acceptance:false},null,2)+'\n');
+console.log('Stage49 grammar source queue: 13 groups / 26 bindings; consumer and grammar review required.');
+export { collectPairs, current as webuiRuPins, old as historicalPins };
