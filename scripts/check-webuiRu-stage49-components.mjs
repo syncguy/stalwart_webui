@@ -10,6 +10,7 @@ import { create } from 'zustand';
 import i18next from 'i18next';
 import { inputs, runtimeSchema as schema, currentPairs, previousPairs } from './check-webuiRu-stage49.mjs';
 import { sourceModule } from './lib/locale-source.mjs';
+import { historicalPins } from './check-webuiRu-stage49-pins.mjs';
 import './lib/offline-guard.mjs';
 
 const read=p=>fs.readFileSync(p,'utf8');
@@ -165,7 +166,7 @@ const {DynamicList}=component('src/components/lists/DynamicList.tsx',{
   '@/components/common/ConfirmDialog':{ConfirmDialog:()=>null},'@/components/common/EnterpriseUpsell':{EnterpriseUpsell:()=>null},
   '@/hooks/usePermissions':{useIsCommunity:()=>false,usePermissionCheckers:()=>({hasObjectPermission:()=>true})},
   '@/hooks/useResolvedView':{useResolvedView:()=>resolved},'@/lib/layout':layout,'@/lib/permissions':{canAccessView:()=>true},'@/lib/schemaResolver':inputs.resolver,
-  '@/stores/schemaStore':{useSchemaStore:f=>f({schema:formSchema,viewToSection:{'x:Account/Resource':'Management','x:Log':'Management','x:NetworkListener':'Settings',...Object.fromEntries(['x:MtaHook','x:MtaMilter','x:MtaInboundThrottle','x:MtaOutboundThrottle','x:MtaQueueQuota','x:MemoryLookupKeyValue'].map(name=>[name,'Settings']))}})},
+  '@/stores/schemaStore':{useSchemaStore:f=>f({schema:formSchema,viewToSection:{'x:Account/Resource':'Management','x:Log':'Management','x:NetworkListener':'Settings',...Object.fromEntries(['x:MtaHook','x:MtaMilter','x:MtaInboundThrottle','x:MtaOutboundThrottle','x:MtaQueueQuota','x:MemoryLookupKeyValue','x:MtaConnectionStrategy'].map(name=>[name,'Settings']))}})},
   './FilterBar':{FilterBar:()=>null},'./ListTable':{ListTable:p=>p.renderRowActions?.({},'raw-id','RAW_NAME')??null},
   './ListStates':listStates,'./MassActionBar':{MassActionBar:p=>{massProps=p;return null;}},
   './Pagination':{Pagination},'./RowActions':{RowActions:p=>{rowProps=p;return null;}},'./SelectionBanner':{SelectionBanner:()=>null},
@@ -275,14 +276,14 @@ for(const pairs of [previousPairs,currentPairs])for(const row of pairs.values())
   const prior=schema.stage50SchemaText(hash,'ru',slot,original);
   const e=Object.hasOwn(second,slot)?second[slot]:null;
   const applied=e && e.original===original && e.before===prior;
-  assert.equal(schema.schemaText(hash,'ru',slot,original),applied?e.ru:prior,slot+' '+hash);
+  assert.equal(schema.stage50SecondSchemaText(hash,'ru',slot,original),applied?e.ru:prior,slot+' '+hash);
   if(applied){
     assert.equal(oldCatalogue.entries[slot].original,original);
     assert.equal(oldCatalogue.entries[slot].ru,prior);
-    assert.equal(schema.schemaText(hash,'ru-RU',slot,original),e.ru);
-    for(const lang of ['en','de'])assert.equal(schema.schemaText(hash,lang,slot,original),original);
-    assert.equal(schema.schemaText('unknown','ru',slot,original),original);
-    assert.equal(schema.schemaText(hash,'ru',slot,original+' changed'),original+' changed');
+    assert.equal(schema.stage50SecondSchemaText(hash,'ru-RU',slot,original),e.ru);
+    for(const lang of ['en','de'])assert.equal(schema.stage50SecondSchemaText(hash,lang,slot,original),original);
+    assert.equal(schema.stage50SecondSchemaText('unknown','ru',slot,original),original);
+    assert.equal(schema.stage50SecondSchemaText(hash,'ru',slot,original+' changed'),original+' changed');
     seenSecond.add(slot);secondBindings++;
   }
 }
@@ -421,6 +422,7 @@ console.log('PASS Stage50: real VariantSelect RU/EN/RU and actual hook/list/aler
 
 // Source-executed sidebar behavior with synthetic browser boundaries (not browser layout).
 const navTree=mod('src/components/layout/navTree.ts');
+const navPresentation=mod('src/components/layout/webuiRuNavPresentation.ts',{'@/i18n/webuiRuSchemaText':schema});
 const data=inputs.pins[0].data;
 const sidebarChanges=[];
 let captured=false,hoverState=false,overflowMeasure,cleaned=false,refElement={clientWidth:100,scrollWidth:180};
@@ -435,8 +437,8 @@ const sidebarDeps={
   '@/components/ui/collapsible':{Collapsible:passthrough,CollapsibleContent:passthrough,CollapsibleTrigger:passthrough},
   '@/components/ui/tooltip':{Tooltip:passthrough,TooltipContent:passthrough,TooltipTrigger:passthrough},
   '@/stores/uiStore':{useUIStore:f=>f({activeSection:'Settings',sidebarOpen:true,setSidebarOpen:fatal,setActiveSection:fatal})},
-  './navTree':navTree,'./sidebarContext':{SIDEBAR_ID:'sidebar',SidebarNavContext:passthrough,useSidebarNav:fatal},
-  './useLayoutNavigation':{useLayoutNavigation:()=>({layouts:data.layouts,isVisible:()=>true,isLocked:()=>false,landingPath:fatal})}
+  './navTree':navTree,'./webuiRuNavPresentation':navPresentation,'./sidebarContext':{SIDEBAR_ID:'sidebar',SidebarNavContext:passthrough,useSidebarNav:fatal},
+  './useLayoutNavigation':{useLayoutNavigation:()=>({layouts:data.layouts,schemaHash:inputs.pins[0].schemaHash,isVisible:()=>true,isLocked:()=>false,landingPath:fatal})}
 };
 let observerCallback;
 const {Sidebar,WebuiRuNavOverflowHint}=component('src/components/layout/Sidebar.tsx',sidebarDeps,{
@@ -472,3 +474,199 @@ assert.match(read('src/pages/AdminPanel.tsx'),/md:ml-\[calc\(var\(--webui-ru-sid
 assert.match(read('src/components/layout/TopBar.tsx'),/md:w-\[calc\(var\(--webui-ru-sidebar-width,240px\)-12px\)\]/);
 assert.ok(!read('src/pages/AdminPanel.tsx').includes('localStorage'));
 console.log('PASS Stage50 sidebar: synthetic clipping measurement, conditional full text, drag/capture and keyboard handlers, default reset and layout source contract; actual browser pending.');
+
+// Third operator editorial pass: compare live dispatcher to frozen second overlay on every pinned pair.
+const expectedThird={
+  "nav/container/Settings/Files & Sharing": "Файлы и доступ",
+  "nav/link/Settings/x:Enterprise": "Лицензия",
+  "nav/link/Settings/x:MemoryLookupKey": "Ключи",
+  "list/x:MemoryLookupKey/title": "Ключи в памяти",
+  "nav/link/Settings/x:BlockedIp": "Заблокированные IP",
+  "nav/link/Settings/x:AllowedIp": "Разрешённые IP",
+  "nav/container/Settings/Storage": "Хранилища",
+  "nav/container/Settings/Storage/Data Retention": "Сроки хранения",
+  "nav/link/Settings/x:DataRetention/DataExpunge": "Автоудаление",
+  "nav/link/Settings/x:SenderAuth": "Проверки",
+  "nav/link/Settings/x:MtaConnectionStrategy": "Подключения",
+  "list/x:MtaConnectionStrategy/title": "Профили исходящих подключений",
+  "list/x:MtaConnectionStrategy/singular": "профиль",
+  "list/x:MtaConnectionStrategy/plural": "профили",
+  "list/x:MtaConnectionStrategy/subtitle": "Управление профилями исходящих подключений",
+  "form/x:MtaConnectionStrategy/section/section-0": "Профиль подключения",
+  "field/x:MtaConnectionStrategy/description/description": "Краткое описание профиля подключения",
+  "field/x:MtaConnectionStrategy/ehloHostname/description": "Переопределяет имя узла EHLO при подключении с использованием этого профиля",
+  "field/x:MtaConnectionStrategy/name/description": "Краткий идентификатор профиля",
+  "object/x:MtaConnectionStrategy/description": "Определяет профиль подключения для исходящей доставки сообщений.",
+  "field/x:MtaOutboundStrategy/connection/description": "Выражение, возвращающее профиль подключения для доставки сообщений на удалённые серверы SMTP",
+  "nav/container/Settings/Spam Filter/DNSBL": "DNSBL",
+  "nav/link/Settings/x:Encryption/EncryptionStorage": "Хранение",
+  "form/x:MemoryLookupKey/field/isGlobPattern": "Маска ключа",
+  "field/x:MemoryLookupKey/isGlobPattern/description": "Использовать ключ как маску с подстановочными символами * и ?",
+  "form/x:MemoryLookupKeyValue/field/isGlobPattern": "Маска ключа",
+  "field/x:MemoryLookupKeyValue/isGlobPattern/description": "Использовать ключ как маску с подстановочными символами * и ?"
+};
+
+const third=schema.webuiRuStage50Editorial3;
+assert.equal(Object.keys(third).length,27);
+assert.deepEqual(Object.keys(third).sort(),Object.keys(expectedThird).sort());
+const seenThird=new Set(),bindingsBySlot=new Map();let thirdBindings=0, allBindings=0;
+for(const pairs of [previousPairs,currentPairs])for(const row of pairs.values())for(const binding of row.locations) {
+  const {slot,original}=row,hash=binding.schemaHash;
+  const prior=schema.stage50SecondSchemaText(hash,'ru',slot,original);
+  const e=third[slot];
+  const applied=e && e.original===original && e.before===prior;
+  assert.equal(schema.schemaText(hash,'ru',slot,original),applied?expectedThird[slot]:prior,slot);
+  if(applied){
+    assert.equal(e.ru,expectedThird[slot]);
+    assert.equal(oldCatalogue.entries[slot].original,original);
+    assert.equal(oldCatalogue.entries[slot].ru,prior);
+    assert.equal(schema.schemaText(hash,'ru-RU',slot,original),expectedThird[slot]);
+    assert.equal(schema.schemaText(hash,'en',slot,original),original);
+    assert.equal(schema.schemaText(hash,'de',slot,original),original);
+    assert.equal(schema.schemaText('unknown','ru',slot,original),original);
+    assert.equal(schema.schemaText(hash,'ru',slot,original+' changed'),original+' changed');
+    seenThird.add(slot);thirdBindings++;bindingsBySlot.set(slot,(bindingsBySlot.get(slot)??0)+1);
+  }
+  allBindings++;
+}
+assert.deepEqual([...seenThird].sort(),Object.keys(expectedThird).sort());
+assert.equal(thirdBindings,106);
+for(const [slot,count] of bindingsBySlot)assert.equal(count,slot==='nav/link/Settings/x:Enterprise'?2:4,slot);
+for(const pin of [...historicalPins,...inputs.pins]){
+  const hash=pin.schemaHash;
+  for(const slot of ['form/x:Enterprise/title','list/x:AllowedIp/title','list/x:BlockedIp/title',
+    'form/x:DataRetention/DataExpunge/title','form/x:SenderAuth/title','form/x:Encryption/EncryptionStorage/title',
+    'nav/link/Settings/x:Email/EmailStorage','form/x:Encryption/EncryptionStorage/section/section-0']){
+    const e=oldCatalogue.entries[slot];
+    assert.ok(e,slot);
+    assert.equal(schema.schemaText(hash,'ru',slot,e.original),e.ru,slot);
+  }
+  const slot='list/x:MtaConnectionStrategy/singular';
+  assert.equal(schema.schemaActionName(hash,'ru',slot,'strategy'),'профиль');
+  assert.equal(schema.schemaActionName(hash,'en',slot,'strategy'),'strategy');
+  assert.equal(schema.schemaActionName(hash,'ru',slot,'strategy changed'),null);
+  assert.equal(schema.schemaActionName('unknown','ru',slot,'strategy'),null);
+}
+console.log('PASS Stage50 third pass: '+seenThird.size+' slots / '+thirdBindings+' bindings, '+allBindings+' replayed; protected titles and action grammar.');
+
+for(const pin of [...historicalPins,...inputs.pins])for(const language of ['ru','en','ru']){
+  formSchema=pin.data;activeHash=pin.schemaHash;await app.changeLanguage(language);
+  const name='x:MtaConnectionStrategy';
+  resolved=resolvedView(pin.data,name);
+  const data={name:'RAW_NAME',description:'RAW_NAME'};
+  const raw=JSON.stringify(data);
+  formModel={schema:pin.data,resolved,mode:'create',isSingleton:false,state:{data,original:{},fieldErrors:{}},parentForm:null,variantForm:pin.data.forms[name],sections:[],guard:{},save:fatal,remove:fatal};
+  const create=language==='ru'?'Создать профиль':'Create strategy';
+  clicks.length=0;
+  const listHtml=render(DynamicList,{viewName:name});
+  assert.ok(listHtml.includes(create)&&listHtml.includes(language==='ru'?'Профили исходящих подключений':'Connection Strategies'));
+  const createButton=clicks.find(p=>JSON.stringify(p.children)?.includes(create));assert.ok(createButton);
+  createButton.onClick();assert.equal(navigations.at(-1),'/Settings/'+name+'/new');
+  assert.ok(render(DynamicForm,{viewName:name,objectId:null}).includes('>'+create+'</h1>'));
+  formModel.mode='edit';
+  const edit=(language==='ru'?'Изменить профиль':'Edit strategy')+(resolved.list.labelProperty?': RAW_NAME':'');
+  assert.ok(render(DynamicForm,{viewName:name,objectId:'raw-id'}).includes('>'+edit+'</h1>'));
+  assert.equal(JSON.stringify(data),raw);
+}
+console.log('PASS Stage50 third pass: profile list/create/edit 12 actual SSR cases; raw IDs and route retained.');
+
+// UI-50-03: exact known layout only; no permission escalation, mutation or layout
+// change elsewhere. Test all known editions, language switch and 16 visibility subsets.
+const ids=['x:SieveSystemInterpreter','x:SieveUserInterpreter','x:SieveSystemScript','x:SieveUserScript'];
+const labelsByLanguage={en:['Interpreters','Scripts','System','User','System','User'],ru:['Интерпретаторы','Сценарии','Системный','Пользовательский','Системные','Пользовательские']};
+const flatten=nodes=>nodes.flatMap(n=>n.kind==='link'?[n.viewName]:flatten(n.children));
+const sieveOf=nodes=>nodes.find(n=>n.displaySlot==='nav/container/Settings/Sieve');
+let sieveCases=0,negatives=0;
+for(const pin of [...historicalPins,...inputs.pins]){
+  const l=pin.data.layouts.find(x=>x.name==='Settings'),snapshot=JSON.stringify(l);
+  const raw=navTree.layoutNavNodes(l),grouped=navPresentation.webuiRuNavPresentation(l,raw,pin.schemaHash);
+  assert.deepEqual(flatten(grouped),flatten(raw));
+  const sieve=sieveOf(grouped);
+  assert.equal(sieve.children.length,2);
+  assert.deepEqual(JSON.parse(JSON.stringify(flatten(sieve.children))),ids);
+  for(const n of raw)if(n!==sieveOf(raw))assert.equal(grouped[raw.indexOf(n)],n,'unrelated node changed');
+  assert.equal(JSON.stringify(l),snapshot);
+  for(const lang of ['ru','en','ru']){
+    const caption=n=>schema.schemaText(pin.schemaHash,lang,n.displaySlot,n.name);
+    assert.deepEqual(JSON.parse(JSON.stringify([...sieve.children.map(caption),...sieve.children.flatMap(g=>g.children.map(caption))])),labelsByLanguage[lang]);
+    for(const id of ids)assert.equal(navTree.activeViewName(grouped,'/Settings/'+id+'/new','Settings'),id);
+  }
+  assert.equal(navPresentation.webuiRuNavPresentation(l,raw,'unknown'),raw);
+  assert.equal(navPresentation.webuiRuNavPresentation(l,raw,null),raw);
+  for(const mutate of [
+    c=>c.items.push({type:'link',name:'New',viewName:'new'}),c=>c.items.pop(),
+    c=>c.items.reverse(),c=>c.items[0].name='Changed',c=>c.items[0].viewName='Changed',
+    c=>c.items[0].permission='NewPermission',c=>c.permission='NewPermission',c=>c.icon='Changed',
+  ]){
+    const changed=JSON.parse(JSON.stringify(l));mutate(changed.items.find(i=>i.container?.name==='Sieve').container);
+    const nodes=navTree.layoutNavNodes(changed);
+    assert.equal(navPresentation.webuiRuNavPresentation(changed,nodes,pin.schemaHash),nodes);negatives++;
+  }
+  // Exercise existing visibility and role checks using synthetic effective permissions.
+  for(let mask=0;mask<16;mask++){
+    const permitted=ids.filter((_,i)=>mask&(1<<i));
+    const tokens=permitted.map(id=>inputs.resolver.resolveObject(pin.data,id).permissionPrefix+'Get');
+    const p=perms.createPermissionCheckers(tokens);
+    const visible=id=>layout.isLinkVisible(pin.data,id,p.canGet,p.hasPermission);
+    assert.deepEqual(Array.from(flatten(sieve.children).filter(visible)),permitted);
+    assert.equal(navTree.someLink(sieve.children[0].children,visible),!!(mask&3));
+    assert.equal(navTree.someLink(sieve.children[1].children,visible),!!(mask&12));
+    assert.equal(navTree.someLink(sieve.children,visible),!!mask);
+    sieveCases++;
+  }
+  activeHash=pin.schemaHash;
+  useSchemaStore.getState().setSchema(pin.data,pin.schemaHash);
+  for(const lang of ['ru','en','ru']){
+    useSchemaStore.getState().setDisplayLanguage(lang);
+    const state=useSchemaStore.getState();
+    assert.equal(state.schema,pin.data);
+    for(const id of ids){
+      assert.equal(state.viewToSection[id],'Settings');
+      const link=state.searchIndex.find(e=>e.type==='link'&&e.viewName===id);
+      assert.ok(link&&link.keywords.includes(id)&&link.text.length>0);
+    }
+  }
+}
+assert.equal(sieveCases,64);assert.equal(negatives,32);
+console.log('PASS UI-50-03: 4 pinned schemas, 64 visibility profiles, 32 changed-tree fallbacks, unknown/null, RU/EN/RU, active path and search identity.');
+
+// Actual Sidebar renderer with real React context and synthetic ACL/route.
+// Collapsible boundary is mocked open/closed metadata only (not browser).
+const realSidebarContext=mod('src/components/layout/sidebarContext.ts',{'react':React});
+let renderLayout,renderHash,renderPath,renderVisibility,renderLock;
+const {Sidebar:RenderedSidebar}=component('src/components/layout/Sidebar.tsx',{
+  ...sidebarDeps,react:React,
+  'react-router-dom':{Link:({to,children,...props})=>h('a',{href:to,'aria-current':props['aria-current']},children),useLocation:()=>({pathname:renderPath}),useNavigate:()=>fatal},
+  '@/components/ui/collapsible':{Collapsible:({open,children})=>h('div',{'data-open':String(open)},children),CollapsibleContent:passthrough,CollapsibleTrigger:passthrough},
+  './sidebarContext':realSidebarContext,
+  './useLayoutNavigation':{useLayoutNavigation:()=>({layouts:[renderLayout],schemaHash:renderHash,isVisible:renderVisibility,isLocked:renderLock,landingPath:fatal})}
+},{window:{},document:{}});
+let renderCases=0;
+for(const pin of [...historicalPins,...inputs.pins]){
+  renderLayout=pin.data.layouts.find(l=>l.name==='Settings');renderHash=activeHash=pin.schemaHash;
+  for(const language of ['ru','en']){
+    await app.changeLanguage(language);
+    for(let mask=0;mask<16;mask++){
+      const permitted=ids.filter((_,i)=>mask&(1<<i));
+      renderPath='/Settings/'+(permitted[0]??ids[0])+'/new';
+      const p=perms.createPermissionCheckers(permitted.map(id=>inputs.resolver.resolveObject(pin.data,id).permissionPrefix+'Get'));
+      renderVisibility=id=>layout.isLinkVisible(pin.data,id,p.canGet,p.hasPermission);
+      renderLock=()=>false;
+      const html=render(RenderedSidebar,{width:240,maxWidth:520,onWidthChange:fatal});
+      assert.equal(html.includes(language==='ru'?'Интерпретаторы':'Interpreters'),!!(mask&3));
+      assert.equal(html.includes(language==='ru'?'Сценарии':'Scripts'),!!(mask&12));
+      for(const id of ids)assert.equal(html.includes('href="/Settings/'+id+'"'),permitted.includes(id));
+      if(mask)assert.ok(html.includes('aria-current="page"'));
+      renderCases++;
+    }
+    renderVisibility=id=>ids.includes(id);renderLock=id=>id===ids[0];
+    const locked=render(RenderedSidebar,{width:240,maxWidth:520,onWidthChange:fatal});
+    assert.ok(!locked.includes('href="/Settings/'+ids[0]+'"')&&locked.includes('aria-describedby='));
+    renderLock=()=>false;
+    renderHash=activeHash='unknown';
+    const fallback=render(RenderedSidebar,{width:240,maxWidth:520,onWidthChange:fatal});
+    assert.ok(fallback.includes('System Interpreter')&&!fallback.includes('Interpreters'));
+    renderHash=activeHash=pin.schemaHash;
+  }
+}
+console.log('PASS UI-50-03: '+renderCases+' actual Sidebar SSR permission/language combinations; active anchors, empty group visibility, locked-link and unknown fallback.');

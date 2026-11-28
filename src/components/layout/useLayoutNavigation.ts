@@ -14,6 +14,7 @@ import { viewPath } from './navTree';
 
 export function useLayoutNavigation() {
   const schema = useSchemaStore((s) => s.schema);
+  const schemaHash = useSchemaStore((s) => s.schemaHash);
   const edition = useAccountStore((s) => s.edition);
   const isCommunity = useIsCommunity();
   const { canGet, hasPermission } = usePermissionCheckers();
@@ -22,6 +23,7 @@ export function useLayoutNavigation() {
 
   return {
     layouts,
+    schemaHash,
     isVisible: (viewName: string) => !schema || isLinkVisible(schema, viewName, canGet, hasPermission),
     isLocked: (viewName: string) => isCommunity && !!schema && isLinkEnterprise(schema, viewName),
     landingPath: (layout: Layout): string | null => {

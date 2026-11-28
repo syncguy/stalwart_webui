@@ -20,6 +20,7 @@ import { useSchemaText } from '@/hooks/useSchemaText';
 import { activeViewName, layoutNavNodes, navNodeKey, someLink, viewPath, type NavNode } from './navTree';
 import { SIDEBAR_ID, SidebarNavContext, useSidebarNav } from './sidebarContext';
 import { useLayoutNavigation } from './useLayoutNavigation';
+import { webuiRuNavPresentation } from './webuiRuNavPresentation';
 
 const itemClass =
   'flex w-full items-center gap-2.5 rounded-[10px] px-2.5 text-left font-medium text-muted-foreground outline-none transition-colors duration-200 hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring';
@@ -204,7 +205,7 @@ export function Sidebar({ width, maxWidth, onWidthChange }: { width: number; max
   const activeSection = useUIStore((s) => s.activeSection);
   const sidebarOpen = useUIStore((s) => s.sidebarOpen);
   const setSidebarOpen = useUIStore((s) => s.setSidebarOpen);
-  const { layouts, isVisible, isLocked } = useLayoutNavigation();
+  const { layouts, schemaHash, isVisible, isLocked } = useLayoutNavigation();
   const [upsellOpen, setUpsellOpen] = useState(false);
   const lockedHintId = useId();
   const drag = useRef<{ x: number; width: number } | null>(null);
@@ -217,7 +218,7 @@ export function Sidebar({ width, maxWidth, onWidthChange }: { width: number; max
   const layout = layouts.find((l) => l.name === activeSection);
   if (!layout) return null;
 
-  const nodes = layoutNavNodes(layout);
+  const nodes = webuiRuNavPresentation(layout, layoutNavNodes(layout), schemaHash);
   const nav = {
     sectionName: layout.name,
     pathname,

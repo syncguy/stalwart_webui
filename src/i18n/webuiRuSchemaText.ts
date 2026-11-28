@@ -751,18 +751,188 @@ const webuiRuStage50Action2: Readonly<Record<string, string>> = {
   'list/x:MemoryLookupKeyValue/singular': 'пару',
 };
 
-export function schemaText(hash: string | null, language: string, slot: string, original: string): string {
+export function stage50SecondSchemaText(hash: string | null, language: string, slot: string, original: string): string {
   const prior = stage50SchemaText(hash, language, slot, original);
   if (!canTranslateSchema(hash, language) || !Object.hasOwn(webuiRuStage50Editorial2, slot)) return prior;
   const entry = webuiRuStage50Editorial2[slot];
   return entry.original === original && entry.before === prior ? entry.ru : prior;
 }
 
-export function schemaActionName(hash: string | null, language: string, slot: string, original: string): string | null {
+export function stage50SecondSchemaActionName(hash: string | null, language: string, slot: string, original: string): string | null {
   if (language.split(/[-_]/)[0].toLowerCase() === 'ru' && Object.hasOwn(webuiRuStage50Action2, slot)) {
     const entry = webuiRuStage50Editorial2[slot];
-    return entry.original === original && schemaText(hash, language, slot, original) === entry.ru
+    return entry.original === original && stage50SecondSchemaText(hash, language, slot, original) === entry.ru
       ? webuiRuStage50Action2[slot] : null;
   }
   return stage50SchemaActionName(hash, language, slot, original);
+}
+
+// Stage50 third pass: exact operator-approved text changes, with original and
+// previous-RU checks. Keep both earlier overlays and all source pins intact.
+export const webuiRuStage50Editorial3: Readonly<Record<string, { original: string; before: string; ru: string }>> = {
+  "field/x:MemoryLookupKey/isGlobPattern/description": {
+    "original": "Whether the key is a glob pattern",
+    "before": "Является ли ключ шаблоном glob",
+    "ru": "Использовать ключ как маску с подстановочными символами * и ?"
+  },
+  "field/x:MemoryLookupKeyValue/isGlobPattern/description": {
+    "original": "Whether the key is a glob pattern",
+    "before": "Является ли ключ шаблоном glob",
+    "ru": "Использовать ключ как маску с подстановочными символами * и ?"
+  },
+  "field/x:MtaConnectionStrategy/description/description": {
+    "original": "Short description of the connection strategy",
+    "before": "Краткое описание стратегии подключения",
+    "ru": "Краткое описание профиля подключения"
+  },
+  "field/x:MtaConnectionStrategy/ehloHostname/description": {
+    "original": "Overrides the EHLO hostname that will be used when connecting using this strategy",
+    "before": "Переопределяет имя узла EHLO при подключении с использованием этой стратегии",
+    "ru": "Переопределяет имя узла EHLO при подключении с использованием этого профиля"
+  },
+  "field/x:MtaConnectionStrategy/name/description": {
+    "original": "Short identifier for the strategy",
+    "before": "Краткий идентификатор стратегии",
+    "ru": "Краткий идентификатор профиля"
+  },
+  "field/x:MtaOutboundStrategy/connection/description": {
+    "original": "An expression that returns the connection strategy to use when delivering messages to remote SMTP servers",
+    "before": "Выражение, возвращающее стратегию подключения для доставки сообщений на удалённые серверы SMTP",
+    "ru": "Выражение, возвращающее профиль подключения для доставки сообщений на удалённые серверы SMTP"
+  },
+  "form/x:MemoryLookupKey/field/isGlobPattern": {
+    "original": "Glob Pattern",
+    "before": "Шаблон glob",
+    "ru": "Маска ключа"
+  },
+  "form/x:MemoryLookupKeyValue/field/isGlobPattern": {
+    "original": "Glob Pattern",
+    "before": "Шаблон glob",
+    "ru": "Маска ключа"
+  },
+  "form/x:MtaConnectionStrategy/section/section-0": {
+    "original": "Connection Strategy",
+    "before": "Стратегия подключения",
+    "ru": "Профиль подключения"
+  },
+  "list/x:MemoryLookupKey/title": {
+    "original": "Lookup Keys",
+    "before": "Ключи поиска",
+    "ru": "Ключи в памяти"
+  },
+  "list/x:MtaConnectionStrategy/plural": {
+    "original": "strategies",
+    "before": "стратегии",
+    "ru": "профили"
+  },
+  "list/x:MtaConnectionStrategy/singular": {
+    "original": "strategy",
+    "before": "стратегия",
+    "ru": "профиль"
+  },
+  "list/x:MtaConnectionStrategy/subtitle": {
+    "original": "Manage connection strategies for message delivery",
+    "before": "Управление стратегиями подключения для доставки сообщений",
+    "ru": "Управление профилями исходящих подключений"
+  },
+  "list/x:MtaConnectionStrategy/title": {
+    "original": "Connection Strategies",
+    "before": "Стратегии подключений",
+    "ru": "Профили исходящих подключений"
+  },
+  "nav/container/Settings/Files & Sharing": {
+    "original": "Files & Sharing",
+    "before": "Файлы и общий доступ",
+    "ru": "Файлы и доступ"
+  },
+  "nav/container/Settings/Spam Filter/DNSBL": {
+    "original": "DNSBL",
+    "before": "Списки блокировки DNSBL",
+    "ru": "DNSBL"
+  },
+  "nav/container/Settings/Storage": {
+    "original": "Storage",
+    "before": "Хранение",
+    "ru": "Хранилища"
+  },
+  "nav/container/Settings/Storage/Data Retention": {
+    "original": "Data Retention",
+    "before": "Сроки хранения данных",
+    "ru": "Сроки хранения"
+  },
+  "nav/link/Settings/x:AllowedIp": {
+    "original": "Allowed IPs",
+    "before": "Разрешённые IP-адреса",
+    "ru": "Разрешённые IP"
+  },
+  "nav/link/Settings/x:BlockedIp": {
+    "original": "Blocked IPs",
+    "before": "Заблокированные IP-адреса",
+    "ru": "Заблокированные IP"
+  },
+  "nav/link/Settings/x:DataRetention/DataExpunge": {
+    "original": "Auto-Expunge",
+    "before": "Автоматическое удаление",
+    "ru": "Автоудаление"
+  },
+  "nav/link/Settings/x:Encryption/EncryptionStorage": {
+    "original": "Encryption at Rest",
+    "before": "Шифрование при хранении",
+    "ru": "Хранение"
+  },
+  "nav/link/Settings/x:Enterprise": {
+    "original": "Enterprise",
+    "before": "Корпоративная лицензия",
+    "ru": "Лицензия"
+  },
+  "nav/link/Settings/x:MemoryLookupKey": {
+    "original": "In-Memory Keys",
+    "before": "Ключи в памяти",
+    "ru": "Ключи"
+  },
+  "nav/link/Settings/x:MtaConnectionStrategy": {
+    "original": "Connection Strategies",
+    "before": "Стратегии подключений",
+    "ru": "Подключения"
+  },
+  "nav/link/Settings/x:SenderAuth": {
+    "original": "Sender Authentication",
+    "before": "Проверка отправителя",
+    "ru": "Проверки"
+  },
+  "object/x:MtaConnectionStrategy/description": {
+    "original": "Defines a connection strategy for outbound message delivery.",
+    "before": "Определяет стратегию подключения для исходящей доставки сообщений.",
+    "ru": "Определяет профиль подключения для исходящей доставки сообщений."
+  }
+};
+
+// UI-50-03 local presentation labels, never keys in a server schema. These
+// slots are emitted only by the exact-tree, known-schema sidebar overlay.
+export const webuiRuSieveNavLabels: Readonly<Record<string, { original: string; ru: string }>> = {
+  'webuiRu.sieveNav.interpreters': { original: 'Interpreters', ru: 'Интерпретаторы' },
+  'webuiRu.sieveNav.scripts': { original: 'Scripts', ru: 'Сценарии' },
+  'webuiRu.sieveNav.systemInterpreter': { original: 'System', ru: 'Системный' },
+  'webuiRu.sieveNav.userInterpreter': { original: 'User', ru: 'Пользовательский' },
+  'webuiRu.sieveNav.systemScripts': { original: 'System', ru: 'Системные' },
+  'webuiRu.sieveNav.userScripts': { original: 'User', ru: 'Пользовательские' },
+};
+
+export function schemaText(hash: string | null, language: string, slot: string, original: string): string {
+  const prior = stage50SecondSchemaText(hash, language, slot, original);
+  if (!canTranslateSchema(hash, language)) return prior;
+  if (Object.hasOwn(webuiRuSieveNavLabels, slot)) {
+    const entry = webuiRuSieveNavLabels[slot];
+    return entry.original === original ? entry.ru : prior;
+  }
+  if (!Object.hasOwn(webuiRuStage50Editorial3, slot)) return prior;
+  const entry = webuiRuStage50Editorial3[slot];
+  return entry.original === original && entry.before === prior ? entry.ru : prior;
+}
+
+export function schemaActionName(hash: string | null, language: string, slot: string, original: string): string | null {
+  if (language.split(/[-_]/)[0].toLowerCase() === 'ru' && slot === 'list/x:MtaConnectionStrategy/singular') {
+    return original === 'strategy' && schemaText(hash, language, slot, original) === 'профиль' ? 'профиль' : null;
+  }
+  return stage50SecondSchemaActionName(hash, language, slot, original);
 }

@@ -107,6 +107,63 @@ const stage50SecondDelta = [
     "reason": "Revalidate two exact existing dynamic display call sites after sidebar refactor."
   }
 ];
+// Stage50 third pass: reviewed exact source delta, older ledgers stay immutable.
+const stage50ThirdDelta = [
+  {
+    "path": "src/components/layout/Sidebar.tsx",
+    "beforeBlob": "d1527f7bf48f416a070d2c71c205d066b1e7cb53",
+    "afterBlob": "a4d73ea26f48dceaa0784420d40ff6f2139b2174",
+    "before": "223427418722acdd2f957834b20a28c11a16f0ea21c5b8225e86de72e7e394eb",
+    "after": "36a643df9b48d91af7d7f846a4b1c620bc3eec7ff4b6fc6d7f49adf19b448d1e",
+    "reason": "Apply reviewed Sieve presentation layer after raw nav tree; existing link/group ACL and actions unchanged."
+  },
+  {
+    "path": "src/components/layout/useLayoutNavigation.ts",
+    "beforeBlob": "fae9f30801225813f8ad4bd83e593ee1ff594cdb",
+    "afterBlob": "ed9a51b2740160943f4ee13d9c395138d28c3254",
+    "before": "d730e2c3d200b3d27f73f71ccd47fdfae4fc5a6a595f472839d93d935e6d65f2",
+    "after": "5b431bc2395602da145b0e88f43f8ae1c2eaa5c21df1c17913cceeec62ba0405",
+    "reason": "Expose current schema hash for exact presentation guard, no permission changes."
+  },
+  {
+    "path": "src/components/layout/webuiRuNavPresentation.ts",
+    "beforeBlob": null,
+    "afterBlob": "22f7fd245ac7598ba64660b7d90772d48f7a7ecc",
+    "before": null,
+    "after": "97989ec82ff3faa2404072c82abaa21c2b1860a5e50f93eef5d7f50b4902fcbd",
+    "reason": "New isolated known-schema and exact Sieve tree guard; preserve all view IDs, no mutation."
+  },
+  {
+    "path": "src/i18n/webuiRuSchemaText.ts",
+    "beforeBlob": "4ce52e7827f02785199334b14a9872c88e568e6e",
+    "afterBlob": "44f331e398a399e610e2ef73d179a68dfadced94",
+    "before": "3897346ef26f3ded3f7837ff9087faf4fcfa834177354ec66db69ea4d19a1d70",
+    "after": "e3aba5cb241e0df1f5e867a56708cc37e002f287a18e7eaac16bf3b8ece80f96",
+    "reason": "Third exact 27-slot overlay, profile action and six local presentation labels; prior overlays preserved."
+  },
+  {
+    "path": "scripts/check-webuiRu-stage49-components.mjs",
+    "beforeBlob": "bb2ffe31185d3c351195422e6a404592735c560d",
+    "afterBlob": "849818edb213e69026123258382128ce191f4e31",
+    "before": "77b91055bd7055c8494c673c63d3d5a8ebe1de681b7dc89d70bb06b3021619dc",
+    "after": "90321273cad1420a6df652d575c58c27878aa821e242d9b70d36c74b92584886",
+    "reason": "Add third batch regression and Sieve topology/permissions/fallback/source replay tests."
+  },
+  {
+    "path": "scripts/lib/locale-stage44.mjs",
+    "beforeBlob": "2673c2b2a817cf8400b27f10c7654b7576a76221",
+    "afterBlob": "6c7f20b851cb65010038fad25b0cd9aa24f37866",
+    "before": "589b146eb7c4ef89e5a8a24350fa8ee69349c6e0573303679b10a1e1c62b400e",
+    "after": "ffb72571ef55348f12dd8d4a732193cc7e86e6add2101e1cedfd1b17c871a290",
+    "reason": "Exact position review for two existing display calls after import addition."
+  }
+];
+function undoStage50ThirdDigest(file, current) {
+  const entry = stage50ThirdDelta.find(e => e.path === file);
+  if (!entry) return current;
+  assert.equal(current, entry.after, "Unreviewed Stage50 third pass file drift: " + file);
+  return entry.before;
+}
 function undoStage50SecondDigest(file, current) {
   const entry = stage50SecondDelta.find(e => e.path === file);
   if (!entry) return current;
@@ -128,6 +185,11 @@ export function loadWebuiRuStage49Review(root) {
 export function historicalSourceFor49(root, actual) {
   const packet = loadWebuiRuStage49Review(root);
   const historical = { ...actual };
+  for (const entry of stage50ThirdDelta.filter(e => e.path.startsWith('src/'))) {
+    assert.equal(historical[entry.path], entry.afterBlob, 'Unreviewed Stage50 third pass source drift: ' + entry.path);
+    if (entry.beforeBlob === null) delete historical[entry.path];
+    else historical[entry.path] = entry.beforeBlob;
+  }
   for (const entry of stage50SecondDelta.filter(e => e.path.startsWith('src/'))) {
     assert.equal(historical[entry.path], entry.afterBlob, 'Unreviewed Stage50 second pass source drift: ' + entry.path);
     historical[entry.path] = entry.beforeBlob;
@@ -145,7 +207,7 @@ export function historicalSourceFor49(root, actual) {
   return historical;
 }
 export function historicalDigestFor49(root, file, current) {
-  current = undoStage50Digest(file, undoStage50SecondDigest(file, current));
+  current = undoStage50Digest(file, undoStage50SecondDigest(file, undoStage50ThirdDigest(file, current)));
   const entry = loadWebuiRuStage49Review(root).fileDelta.find(e => e.path === file);
   if (!entry) return current;
   assert.equal(current, entry.after, 'Непроверенное изменение файла: ' + file);
@@ -153,19 +215,23 @@ export function historicalDigestFor49(root, file, current) {
 }
 export function verifyWebuiRuStage49Files(root) {
   const packet = loadWebuiRuStage49Review(root);
+  for (const entry of stage50ThirdDelta) {
+    assert.ok(entry.reason);
+    assert.equal(digest(fs.readFileSync(path.join(root,entry.path))),entry.after,"Unreviewed Stage50 third pass file drift: "+entry.path);
+  }
   for (const entry of stage50SecondDelta) {
     assert.ok(entry.reason);
-    assert.equal(digest(fs.readFileSync(path.join(root,entry.path))),entry.after,'Unreviewed Stage50 second pass file drift: '+entry.path);
+    assert.equal(undoStage50ThirdDigest(entry.path,digest(fs.readFileSync(path.join(root,entry.path)))),entry.after,'Unreviewed Stage50 second pass file drift: '+entry.path);
   }
   for (const entry of stage50Delta) {
     assert.ok(entry.reason);
-    assert.equal(undoStage50SecondDigest(entry.path,digest(fs.readFileSync(path.join(root,entry.path)))),entry.after,'Unreviewed Stage50 file drift: '+entry.path);
+    assert.equal(undoStage50SecondDigest(entry.path,undoStage50ThirdDigest(entry.path,digest(fs.readFileSync(path.join(root,entry.path))))),entry.after,'Unreviewed Stage50 file drift: '+entry.path);
   }
   const seen = new Set();
   for (const entry of packet.fileDelta) {
     assert.ok(!seen.has(entry.path) && entry.reason, entry.path);
     seen.add(entry.path);
-    assert.equal(undoStage50Digest(entry.path,undoStage50SecondDigest(entry.path,digest(fs.readFileSync(path.join(root,entry.path))))),entry.after,
+    assert.equal(undoStage50Digest(entry.path,undoStage50SecondDigest(entry.path,undoStage50ThirdDigest(entry.path,digest(fs.readFileSync(path.join(root,entry.path)))))),entry.after,
       'Непроверенное изменение файла этапа 49: '+entry.path);
   }
   return packet;
